@@ -3,6 +3,7 @@ apppassword
 bigfilechunking
 boardname
 bools
+bruteforce
 bulkupload
 clearsky
 configapi
@@ -34,12 +35,14 @@ nextcloud
 nextcloud's
 organisation
 partlycloudy
+pollinterval
 productname
 rainshowers
 replyable
 requesttoken
 resharing
 rgdnvw
+roomid
 setsip
 shareapi
 sharebymail

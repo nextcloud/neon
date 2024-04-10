@@ -9,7 +9,7 @@
 
 /// provisioning_api Version: 0.0.1.
 ///
-/// This application enables a set of APIs that external systems can use to manage users, groups and apps.
+/// This application enables a set of APIs that external systems can use to manage accounts, groups and apps.
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
@@ -257,6 +257,8 @@ class $AppConfigClient {
 
   /// Update the config value of an app.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [setValue] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -320,6 +322,8 @@ class $AppConfigClient {
   }
 
   /// Update the config value of an app.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -569,6 +573,7 @@ class $AppsClient {
   /// Enable an app.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [enable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -623,6 +628,7 @@ class $AppsClient {
   /// Enable an app.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -665,6 +671,7 @@ class $AppsClient {
   /// Disable an app.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [disable] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -719,6 +726,7 @@ class $AppsClient {
   /// Disable an app.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1969,6 +1977,7 @@ class $UsersClient {
   /// Make a user a subadmin of a group.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [addSubAdmin] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2028,6 +2037,7 @@ class $UsersClient {
   /// Make a user a subadmin of a group.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2074,6 +2084,7 @@ class $UsersClient {
   /// Remove a user from the subadmins of a group.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [removeSubAdmin] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2133,6 +2144,7 @@ class $UsersClient {
   /// Remove a user from the subadmins of a group.
   ///
   /// This endpoint requires admin access.
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2287,6 +2299,8 @@ class $UsersClient {
 
   /// Create a new user.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [addUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2388,6 +2402,8 @@ class $UsersClient {
   }
 
   /// Create a new user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2872,6 +2888,8 @@ class $UsersClient {
 
   /// Update a value of the user's details.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [editUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2934,6 +2952,8 @@ class $UsersClient {
 
   /// Update a value of the user's details.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2980,6 +3000,8 @@ class $UsersClient {
       );
 
   /// Delete a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [deleteUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3032,6 +3054,8 @@ class $UsersClient {
   }
 
   /// Delete a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3332,6 +3356,8 @@ class $UsersClient {
 
   /// Update multiple values of the user's details.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [editUserMultiValue] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3405,6 +3431,8 @@ class $UsersClient {
 
   /// Update multiple values of the user's details.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3454,6 +3482,8 @@ class $UsersClient {
       );
 
   /// Wipe all devices of a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [wipeUserDevices] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3507,6 +3537,8 @@ class $UsersClient {
 
   /// Wipe all devices of a user.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3547,6 +3579,8 @@ class $UsersClient {
       );
 
   /// Enable a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [enableUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3600,6 +3634,8 @@ class $UsersClient {
 
   /// Enable a user.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3640,6 +3676,8 @@ class $UsersClient {
       );
 
   /// Disable a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [disableUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3692,6 +3730,8 @@ class $UsersClient {
   }
 
   /// Disable a user.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3827,6 +3867,8 @@ class $UsersClient {
 
   /// Add a user to a group.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [addToGroup] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3885,6 +3927,8 @@ class $UsersClient {
 
   /// Add a user to a group.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -3928,6 +3972,8 @@ class $UsersClient {
       );
 
   /// Remove a user from a group.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [removeFromGroup] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -3986,6 +4032,8 @@ class $UsersClient {
 
   /// Remove a user from a group.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -4029,6 +4077,8 @@ class $UsersClient {
       );
 
   /// Resend the welcome message.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [resendWelcomeMessage] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -4081,6 +4131,8 @@ class $UsersClient {
   }
 
   /// Resend the welcome message.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -5901,7 +5953,7 @@ abstract interface class $UserDetailsQuotaInterface {
   static void _defaults($UserDetailsQuotaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($UserDetailsQuotaInterfaceBuilder b) {
-    b.quota?.validateOneOf();
+    b.quota?.validateAnyOf();
   }
 }
 

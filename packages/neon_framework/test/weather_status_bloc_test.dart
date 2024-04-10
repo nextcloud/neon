@@ -107,6 +107,8 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
         )
         ..capabilities = (
           commentsCapabilities: null,
+          coreCapabilities: null,
+          corePublicCapabilities: null,
           davCapabilities: null,
           dropAccountCapabilities: null,
           filesCapabilities: null,
@@ -117,6 +119,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
           notificationsCapabilities: null,
           provisioningApiCapabilities: null,
           sharebymailCapabilities: null,
+          spreedCapabilities: null,
           spreedPublicCapabilities: null,
           systemtagsCapabilities: null,
           themingPublicCapabilities: null,

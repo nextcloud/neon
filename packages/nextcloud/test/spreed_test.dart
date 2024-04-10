@@ -369,7 +369,7 @@ void main() {
         test('Get settings', () async {
           final room = await createTestRoom();
 
-          final response = await client1.spreed.signaling.getSettings(token: room.token);
+          final response = await client1.spreed.internalSignaling.signalingGetSettings(token: room.token);
           expect(response.body.ocs.data.signalingMode, 'internal');
           expect(response.body.ocs.data.userId, 'user1');
           expect(response.body.ocs.data.hideWarning, false);
@@ -421,7 +421,7 @@ void main() {
           final room2 = (await client2.spreed.room.joinRoom(token: room.token)).body.ocs.data;
           await client2.spreed.call.joinCall(token: room.token);
 
-          await client1.spreed.signaling.sendMessages(
+          await client1.spreed.internalSignaling.signalingSendMessages(
             token: room.token,
             messages: json.encode([
               {
@@ -436,7 +436,8 @@ void main() {
 
           await Future<void>.delayed(const Duration(seconds: 1));
 
-          final messages = (await client2.spreed.signaling.pullMessages(token: room.token)).body.ocs.data;
+          final messages =
+              (await client2.spreed.internalSignaling.signalingPullMessages(token: room.token)).body.ocs.data;
           expect(messages, hasLength(2));
           expect(messages[0].type, 'message');
           expect(json.decode(messages[0].data.string!), {'to': room2.sessionId, 'from': room1.sessionId});

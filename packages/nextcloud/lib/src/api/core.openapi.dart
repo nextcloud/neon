@@ -65,6 +65,8 @@ class $Client extends _i1.DynamiteClient {
 
   late final $HoverCardClient hoverCard = $HoverCardClient(this);
 
+  late final $LoginClient login = $LoginClient(this);
+
   late final $NavigationClient navigation = $NavigationClient(this);
 
   /// Controller about the endpoint /ocm-provider/.
@@ -79,6 +81,8 @@ class $Client extends _i1.DynamiteClient {
   late final $ReferenceClient reference = $ReferenceClient(this);
 
   late final $ReferenceApiClient referenceApi = $ReferenceApiClient(this);
+
+  late final $TeamsApiClient teamsApi = $TeamsApiClient(this);
 
   late final $TextProcessingApiClient textProcessingApi = $TextProcessingApiClient(this);
 
@@ -156,6 +160,8 @@ class $AppPasswordClient {
 
   /// Create app password.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a `DynamiteRequest` backing the [getAppPassword] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -201,6 +207,8 @@ class $AppPasswordClient {
 
   /// Create app password.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -225,6 +233,91 @@ class $AppPasswordClient {
     final _serializer = $getAppPassword_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<AppPasswordGetAppPasswordResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteAppPassword_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson, void> $deleteAppPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 403},
+      );
+
+  /// Delete app password.
+  ///
+  /// Returns a `DynamiteRequest` backing the [deleteAppPassword] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [deleteAppPassword] for a method executing this request and parsing the response.
+  ///  * [$deleteAppPassword_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteAppPassword_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/core/apppassword';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Delete app password.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: App password deleted successfully
+  ///   * 403: Deleting app password is not allowed
+  ///
+  /// See:
+  ///  * [$deleteAppPassword_Request] for the request send by this method.
+  ///  * [$deleteAppPassword_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $deleteAppPassword_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $deleteAppPassword_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -314,36 +407,44 @@ class $AppPasswordClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$deleteAppPassword_Request].
+  /// Builds a serializer to parse the response of [$confirmUserPassword_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson, void> $deleteAppPassword_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<AppPasswordConfirmUserPasswordResponseApplicationJson, void>
+      $confirmUserPassword_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
 
-  /// Delete app password.
+  /// Confirm the user password.
   ///
-  /// Returns a `DynamiteRequest` backing the [deleteAppPassword] operation.
+  /// Returns a `DynamiteRequest` backing the [confirmUserPassword] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [password] The password of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: App password deleted successfully
-  ///   * 403: Deleting app password is not allowed
+  ///   * 200: Password confirmation succeeded
+  ///   * 403: Password confirmation failed
   ///
   /// See:
-  ///  * [deleteAppPassword] for a method executing this request and parsing the response.
-  ///  * [$deleteAppPassword_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [confirmUserPassword] for a method executing this request and parsing the response.
+  ///  * [$confirmUserPassword_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteAppPassword_Request({bool? oCSAPIRequest}) {
-    const _path = '/ocs/v2.php/core/apppassword';
+  _i3.Request $confirmUserPassword_Request({
+    required String password,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    _parameters['password'] = $password;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/core/apppassword/confirm{?password*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('delete', _uri);
+    final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
@@ -369,32 +470,35 @@ class $AppPasswordClient {
     return _request;
   }
 
-  /// Delete app password.
+  /// Confirm the user password.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [password] The password of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: App password deleted successfully
-  ///   * 403: Deleting app password is not allowed
+  ///   * 200: Password confirmation succeeded
+  ///   * 403: Password confirmation failed
   ///
   /// See:
-  ///  * [$deleteAppPassword_Request] for the request send by this method.
-  ///  * [$deleteAppPassword_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
+  ///  * [$confirmUserPassword_Request] for the request send by this method.
+  ///  * [$confirmUserPassword_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<AppPasswordConfirmUserPasswordResponseApplicationJson, void>> confirmUserPassword({
+    required String password,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAppPassword_Request(
+    final _request = $confirmUserPassword_Request(
+      password: password,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $deleteAppPassword_Serializer();
+    final _serializer = $confirmUserPassword_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(_serializer)
+        await _i1.ResponseConverter<AppPasswordConfirmUserPasswordResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -890,103 +994,6 @@ class $CollaborationResourcesClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of [$searchCollections_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>
-      $searchCollections_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
-
-  /// Search for collections.
-  ///
-  /// Returns a `DynamiteRequest` backing the [searchCollections] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [filter] Filter collections.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Collections returned
-  ///   * 404: Collection not found
-  ///
-  /// See:
-  ///  * [searchCollections] for a method executing this request and parsing the response.
-  ///  * [$searchCollections_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $searchCollections_Request({
-    required String filter,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
-    _parameters['filter'] = $filter;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Search for collections.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [filter] Filter collections.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Collections returned
-  ///   * 404: Collection not found
-  ///
-  /// See:
-  ///  * [$searchCollections_Request] for the request send by this method.
-  ///  * [$searchCollections_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
-    required String filter,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $searchCollections_Request(
-      filter: filter,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $searchCollections_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
   /// Builds a serializer to parse the response of [$listCollection_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesListCollectionResponseApplicationJson, void>
@@ -1424,6 +1431,103 @@ class $CollaborationResourcesClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
+  /// Builds a serializer to parse the response of [$searchCollections_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>
+      $searchCollections_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Search for collections.
+  ///
+  /// Returns a `DynamiteRequest` backing the [searchCollections] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [searchCollections] for a method executing this request and parsing the response.
+  ///  * [$searchCollections_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $searchCollections_Request({
+    required String filter,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
+    _parameters['filter'] = $filter;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Search for collections.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [filter] Filter collections.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Collections returned
+  ///   * 404: Collection not found
+  ///
+  /// See:
+  ///  * [$searchCollections_Request] for the request send by this method.
+  ///  * [$searchCollections_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
+    required String filter,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $searchCollections_Request(
+      filter: filter,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $searchCollections_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
   /// Builds a serializer to parse the response of [$getCollectionsByResource_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
@@ -1658,98 +1762,6 @@ class $GuestAvatarClient {
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of [$getAvatarDark_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
-
-  /// Returns a dark guest avatar image response.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getAvatarDark] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert".
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
-  ///
-  /// Status codes:
-  ///   * 200: Custom avatar returned
-  ///   * 201: Avatar returned
-  ///   * 500
-  ///
-  /// See:
-  ///  * [getAvatarDark] for a method executing this request and parsing the response.
-  ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $getAvatarDark_Request({
-    required String guestName,
-    required String size,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
-    _parameters['guestName'] = $guestName;
-
-    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
-    _parameters['size'] = $size;
-
-    final _path = _i5.UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a dark guest avatar image response.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [guestName] The guest name, e.g. "Albert".
-  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
-  ///
-  /// Status codes:
-  ///   * 200: Custom avatar returned
-  ///   * 201: Avatar returned
-  ///   * 500
-  ///
-  /// See:
-  ///  * [$getAvatarDark_Request] for the request send by this method.
-  ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatarDark({
-    required String guestName,
-    required String size,
-  }) async {
-    final _request = $getAvatarDark_Request(
-      guestName: guestName,
-      size: size,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $getAvatarDark_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
   /// Builds a serializer to parse the response of [$getAvatar_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
@@ -1851,6 +1863,98 @@ class $GuestAvatarClient {
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$getAvatarDark_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
+      );
+
+  /// Returns a dark guest avatar image response.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getAvatarDark] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getAvatarDark] for a method executing this request and parsing the response.
+  ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getAvatarDark_Request({
+    required String guestName,
+    required String size,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
+    _parameters['guestName'] = $guestName;
+
+    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
+    _parameters['size'] = $size;
+
+    final _path = _i5.UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a dark guest avatar image response.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [guestName] The guest name, e.g. "Albert".
+  ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
+  ///
+  /// Status codes:
+  ///   * 200: Custom avatar returned
+  ///   * 201: Avatar returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getAvatarDark_Request] for the request send by this method.
+  ///  * [$getAvatarDark_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getAvatarDark({
+    required String guestName,
+    required String size,
+  }) async {
+    final _request = $getAvatarDark_Request(
+      guestName: guestName,
+      size: size,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getAvatarDark_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 }
 
 class $HoverCardClient {
@@ -1868,7 +1972,7 @@ class $HoverCardClient {
         validStatuses: const {200},
       );
 
-  /// Get the user details for a hovercard.
+  /// Get the account details for a hovercard.
   ///
   /// Returns a `DynamiteRequest` backing the [getUser] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1878,8 +1982,8 @@ class $HoverCardClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: User details returned
-  ///   * 404: User not found
+  ///   * 200: Account details returned
+  ///   * 404: Account not found
   ///
   /// See:
   ///  * [getUser] for a method executing this request and parsing the response.
@@ -1921,7 +2025,7 @@ class $HoverCardClient {
     return _request;
   }
 
-  /// Get the user details for a hovercard.
+  /// Get the account details for a hovercard.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1931,8 +2035,8 @@ class $HoverCardClient {
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: User details returned
-  ///   * 404: User not found
+  ///   * 200: Account details returned
+  ///   * 404: Account not found
   ///
   /// See:
   ///  * [$getUser_Request] for the request send by this method.
@@ -1950,6 +2054,97 @@ class $HoverCardClient {
     final _serializer = $getUser_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<HoverCardGetUserResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+class $LoginClient {
+  /// Creates a new `DynamiteClient` for login requests.
+  $LoginClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$confirmPassword_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<LoginConfirmPasswordResponseApplicationJson, void> $confirmPassword_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(LoginConfirmPasswordResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Confirm the user password.
+  ///
+  /// Returns a `DynamiteRequest` backing the [confirmPassword] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [password] The password of the user.
+  ///
+  /// Status codes:
+  ///   * 200: Password confirmation succeeded
+  ///   * 403: Password confirmation failed
+  ///
+  /// See:
+  ///  * [confirmPassword] for a method executing this request and parsing the response.
+  ///  * [$confirmPassword_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $confirmPassword_Request({required String password}) {
+    final _parameters = <String, Object?>{};
+    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    _parameters['password'] = $password;
+
+    final _path = _i5.UriTemplate('/index.php/login/confirm{?password*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Confirm the user password.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [password] The password of the user.
+  ///
+  /// Status codes:
+  ///   * 200: Password confirmation succeeded
+  ///   * 403: Password confirmation failed
+  ///
+  /// See:
+  ///  * [$confirmPassword_Request] for the request send by this method.
+  ///  * [$confirmPassword_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<LoginConfirmPasswordResponseApplicationJson, void>> confirmPassword({
+    required String password,
+  }) async {
+    final _request = $confirmPassword_Request(
+      password: password,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $confirmPassword_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<LoginConfirmPasswordResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2327,6 +2522,153 @@ class $PreviewClient {
 
   final $Client _rootClient;
 
+  /// Builds a serializer to parse the response of [$getPreview_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get a preview by file path.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getPreview] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [getPreview] for a method executing this request and parsing the response.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getPreview_Request({
+    String? file,
+    int? x,
+    int? y,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    $file ??= '';
+    _parameters['file'] = $file;
+
+    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    $x ??= 32;
+    _parameters['x'] = $x;
+
+    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    $y ??= 32;
+    _parameters['y'] = $y;
+
+    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
+    $a ??= 0;
+    _parameters['a'] = $a;
+
+    var $forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewForceIcon));
+    $forceIcon ??= 1;
+    _parameters['forceIcon'] = $forceIcon;
+
+    var $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    $mode ??= 'fill';
+    _parameters['mode'] = $mode;
+
+    var $mimeFallback =
+        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewMimeFallback));
+    $mimeFallback ??= 0;
+    _parameters['mimeFallback'] = $mimeFallback;
+
+    final _path = _i5.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Get a preview by file path.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
+  ///
+  /// Status codes:
+  ///   * 200: Preview returned
+  ///   * 400: Getting preview is not possible
+  ///   * 403: Getting preview is not allowed
+  ///   * 404: Preview not found
+  ///   * 303: Redirect to the mime icon url if mimeFallback is true
+  ///
+  /// See:
+  ///  * [$getPreview_Request] for the request send by this method.
+  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
+    String? file,
+    int? x,
+    int? y,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) async {
+    final _request = $getPreview_Request(
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getPreview_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
   /// Builds a serializer to parse the response of [$getPreviewByFileId_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreviewByFileId_Serializer() => _i1.DynamiteSerializer(
@@ -2474,153 +2816,6 @@ class $PreviewClient {
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
-
-  /// Builds a serializer to parse the response of [$getPreview_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Get a preview by file path.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getPreview] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
-  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
-  ///
-  /// Status codes:
-  ///   * 200: Preview returned
-  ///   * 400: Getting preview is not possible
-  ///   * 403: Getting preview is not allowed
-  ///   * 404: Preview not found
-  ///   * 303: Redirect to the mime icon url if mimeFallback is true
-  ///
-  /// See:
-  ///  * [getPreview] for a method executing this request and parsing the response.
-  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $getPreview_Request({
-    String? file,
-    int? x,
-    int? y,
-    PreviewGetPreviewA? a,
-    PreviewGetPreviewForceIcon? forceIcon,
-    String? mode,
-    PreviewGetPreviewMimeFallback? mimeFallback,
-  }) {
-    final _parameters = <String, Object?>{};
-    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    $file ??= '';
-    _parameters['file'] = $file;
-
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 32;
-    _parameters['x'] = $x;
-
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 32;
-    _parameters['y'] = $y;
-
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
-    $a ??= 0;
-    _parameters['a'] = $a;
-
-    var $forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewForceIcon));
-    $forceIcon ??= 1;
-    _parameters['forceIcon'] = $forceIcon;
-
-    var $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
-    $mode ??= 'fill';
-    _parameters['mode'] = $mode;
-
-    var $mimeFallback =
-        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewMimeFallback));
-    $mimeFallback ??= 0;
-    _parameters['mimeFallback'] = $mimeFallback;
-
-    final _path = _i5.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
-        .expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = '*/*';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Get a preview by file path.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
-  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
-  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
-  ///
-  /// Status codes:
-  ///   * 200: Preview returned
-  ///   * 400: Getting preview is not possible
-  ///   * 403: Getting preview is not allowed
-  ///   * 404: Preview not found
-  ///   * 303: Redirect to the mime icon url if mimeFallback is true
-  ///
-  /// See:
-  ///  * [$getPreview_Request] for the request send by this method.
-  ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
-    String? file,
-    int? x,
-    int? y,
-    PreviewGetPreviewA? a,
-    PreviewGetPreviewForceIcon? forceIcon,
-    String? mode,
-    PreviewGetPreviewMimeFallback? mimeFallback,
-  }) async {
-    final _request = $getPreview_Request(
-      file: file,
-      x: x,
-      y: y,
-      a: a,
-      forceIcon: forceIcon,
-      mode: mode,
-      mimeFallback: mimeFallback,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $getPreview_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
 }
 
 class $ProfileApiClient {
@@ -2636,10 +2831,12 @@ class $ProfileApiClient {
         bodyType: const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 400, 403, 404},
       );
 
   /// Update the visibility of a parameter.
+  ///
+  /// This endpoint requires password confirmation.
   ///
   /// Returns a `DynamiteRequest` backing the [setVisibility] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2654,7 +2851,7 @@ class $ProfileApiClient {
   ///   * 200: Visibility updated successfully
   ///   * 400: Updating visibility is not possible
   ///   * 403: Not allowed to edit other users visibility
-  ///   * 404: User not found
+  ///   * 404: Account not found
   ///
   /// See:
   ///  * [setVisibility] for a method executing this request and parsing the response.
@@ -2706,6 +2903,8 @@ class $ProfileApiClient {
 
   /// Update the visibility of a parameter.
   ///
+  /// This endpoint requires password confirmation.
+  ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
@@ -2719,7 +2918,7 @@ class $ProfileApiClient {
   ///   * 200: Visibility updated successfully
   ///   * 400: Updating visibility is not possible
   ///   * 403: Not allowed to edit other users visibility
-  ///   * 404: User not found
+  ///   * 404: Account not found
   ///
   /// See:
   ///  * [$setVisibility_Request] for the request send by this method.
@@ -2835,6 +3034,117 @@ class $ReferenceApiClient {
   $ReferenceApiClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$extract_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ReferenceApiExtractResponseApplicationJson, void> $extract_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ReferenceApiExtractResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Extract references from a text.
+  ///
+  /// Returns a `DynamiteRequest` backing the [extract] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [extract] for a method executing this request and parsing the response.
+  ///  * [$extract_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $extract_Request({
+    required String text,
+    ReferenceApiExtractResolve? resolve,
+    int? limit,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $text = _$jsonSerializers.serialize(text, specifiedType: const FullType(String));
+    _parameters['text'] = $text;
+
+    var $resolve = _$jsonSerializers.serialize(resolve, specifiedType: const FullType(ReferenceApiExtractResolve));
+    $resolve ??= 0;
+    _parameters['resolve'] = $resolve;
+
+    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 1;
+    _parameters['limit'] = $limit;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Extract references from a text.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [text] Text to extract from.
+  ///   * [resolve] Resolve the references. Defaults to `0`.
+  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: References returned
+  ///
+  /// See:
+  ///  * [$extract_Request] for the request send by this method.
+  ///  * [$extract_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
+    required String text,
+    ReferenceApiExtractResolve? resolve,
+    int? limit,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $extract_Request(
+      text: text,
+      resolve: resolve,
+      limit: limit,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $extract_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ReferenceApiExtractResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 
   /// Builds a serializer to parse the response of [$resolveOne_Request].
   @_i2.experimental
@@ -3032,117 +3342,6 @@ class $ReferenceApiClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$extract_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<ReferenceApiExtractResponseApplicationJson, void> $extract_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(ReferenceApiExtractResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Extract references from a text.
-  ///
-  /// Returns a `DynamiteRequest` backing the [extract] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [text] Text to extract from.
-  ///   * [resolve] Resolve the references. Defaults to `0`.
-  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: References returned
-  ///
-  /// See:
-  ///  * [extract] for a method executing this request and parsing the response.
-  ///  * [$extract_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $extract_Request({
-    required String text,
-    ReferenceApiExtractResolve? resolve,
-    int? limit,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $text = _$jsonSerializers.serialize(text, specifiedType: const FullType(String));
-    _parameters['text'] = $text;
-
-    var $resolve = _$jsonSerializers.serialize(resolve, specifiedType: const FullType(ReferenceApiExtractResolve));
-    $resolve ??= 0;
-    _parameters['resolve'] = $resolve;
-
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 1;
-    _parameters['limit'] = $limit;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Extract references from a text.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [text] Text to extract from.
-  ///   * [resolve] Resolve the references. Defaults to `0`.
-  ///   * [limit] Maximum amount of references to extract. Defaults to `1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: References returned
-  ///
-  /// See:
-  ///  * [$extract_Request] for the request send by this method.
-  ///  * [$extract_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
-    required String text,
-    ReferenceApiExtractResolve? resolve,
-    int? limit,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $extract_Request(
-      text: text,
-      resolve: resolve,
-      limit: limit,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $extract_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<ReferenceApiExtractResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
   /// Builds a serializer to parse the response of [$getProvidersInfo_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ReferenceApiGetProvidersInfoResponseApplicationJson, void> $getProvidersInfo_Serializer() =>
@@ -3325,6 +3524,207 @@ class $ReferenceApiClient {
     final _rawResponse =
         await _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(_serializer)
             .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+class $TeamsApiClient {
+  /// Creates a new `DynamiteClient` for teams_api requests.
+  $TeamsApiClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$resolveOne_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TeamsApiResolveOneResponseApplicationJson, void> $resolveOne_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TeamsApiResolveOneResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get all resources of a team.
+  ///
+  /// Returns a `DynamiteRequest` backing the [resolveOne] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [teamId] Unique id of the team.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Resources returned
+  ///
+  /// See:
+  ///  * [resolveOne] for a method executing this request and parsing the response.
+  ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $resolveOne_Request({
+    required String teamId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $teamId = _$jsonSerializers.serialize(teamId, specifiedType: const FullType(String));
+    _parameters['teamId'] = $teamId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/teams/{teamId}/resources').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get all resources of a team.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [teamId] Unique id of the team.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Resources returned
+  ///
+  /// See:
+  ///  * [$resolveOne_Request] for the request send by this method.
+  ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TeamsApiResolveOneResponseApplicationJson, void>> resolveOne({
+    required String teamId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $resolveOne_Request(
+      teamId: teamId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $resolveOne_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<TeamsApiResolveOneResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$listTeams_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TeamsApiListTeamsResponseApplicationJson, void> $listTeams_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(TeamsApiListTeamsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get all teams of a resource.
+  ///
+  /// Returns a `DynamiteRequest` backing the [listTeams] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [providerId] Identifier of the provider (e.g. deck, talk, collectives).
+  ///   * [resourceId] Unique id of the resource to list teams for (e.g. deck board id).
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Teams returned
+  ///
+  /// See:
+  ///  * [listTeams] for a method executing this request and parsing the response.
+  ///  * [$listTeams_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listTeams_Request({
+    required String providerId,
+    required String resourceId,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $providerId = _$jsonSerializers.serialize(providerId, specifiedType: const FullType(String));
+    _parameters['providerId'] = $providerId;
+
+    final $resourceId = _$jsonSerializers.serialize(resourceId, specifiedType: const FullType(String));
+    _parameters['resourceId'] = $resourceId;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/teams/resources/{providerId}/{resourceId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get all teams of a resource.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [providerId] Identifier of the provider (e.g. deck, talk, collectives).
+  ///   * [resourceId] Unique id of the resource to list teams for (e.g. deck board id).
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Teams returned
+  ///
+  /// See:
+  ///  * [$listTeams_Request] for the request send by this method.
+  ///  * [$listTeams_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TeamsApiListTeamsResponseApplicationJson, void>> listTeams({
+    required String providerId,
+    required String resourceId,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $listTeams_Request(
+      providerId: providerId,
+      resourceId: resourceId,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $listTeams_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<TeamsApiListTeamsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -5499,6 +5899,113 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+    implements
+        $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface,
+        Built<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
+  /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object using the builder pattern.
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
+    void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.
+  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> get serializer =>
+      _$appPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder b) {
+    $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder b) {
+    $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
+  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
+    implements
+        $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface,
+        Built<AppPasswordDeleteAppPasswordResponseApplicationJson,
+            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
+  /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson object using the builder pattern.
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson([
+    void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson;
+
+  // coverage:ignore-start
+  const AppPasswordDeleteAppPasswordResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for AppPasswordDeleteAppPasswordResponseApplicationJson.
+  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson> get serializer =>
+      _$appPasswordDeleteAppPasswordResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder b) {
+    $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder b) {
+    $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
   @BuiltValueHook(initializeBuilder: true)
@@ -5659,34 +6166,33 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
+abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface {
+  int get lastLogin;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _defaults($AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _validate($AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
-abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data
     implements
-        $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface,
-        Built<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
-            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
-  /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object using the builder pattern.
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
-    void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
+        $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface,
+        Built<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data,
+            AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data([
+    void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
-  const AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._();
+  const AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5697,49 +6203,50 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.
-  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> get serializer =>
-      _$appPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer;
+  /// Serializer for AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.
+  static Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data> get serializer =>
+      _$appPasswordConfirmUserPasswordResponseApplicationJsonOcsDataSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder b) {
-    $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface._defaults(b);
+  static void _defaults(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder b) {
-    $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface._validate(b);
+  static void _validate(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
-  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
+abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
+  static void _defaults($AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
+  static void _validate($AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
-abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
+abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs
     implements
-        $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface,
-        Built<AppPasswordDeleteAppPasswordResponseApplicationJson,
-            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
-  /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson object using the builder pattern.
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson([
-    void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
-  ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson;
+        $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface,
+        Built<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs,
+            AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder> {
+  /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs object using the builder pattern.
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs([
+    void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const AppPasswordDeleteAppPasswordResponseApplicationJson._();
+  const AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5750,18 +6257,71 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for AppPasswordDeleteAppPasswordResponseApplicationJson.
-  static Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson> get serializer =>
-      _$appPasswordDeleteAppPasswordResponseApplicationJsonSerializer;
+  /// Serializer for AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs.
+  static Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs> get serializer =>
+      _$appPasswordConfirmUserPasswordResponseApplicationJsonOcsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder b) {
-    $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface._defaults(b);
+  static void _defaults(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder b) {
-    $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface._validate(b);
+  static void _validate(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface {
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class AppPasswordConfirmUserPasswordResponseApplicationJson
+    implements
+        $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface,
+        Built<AppPasswordConfirmUserPasswordResponseApplicationJson,
+            AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder> {
+  /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson object using the builder pattern.
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson([
+    void Function(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$AppPasswordConfirmUserPasswordResponseApplicationJson;
+
+  // coverage:ignore-start
+  const AppPasswordConfirmUserPasswordResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory AppPasswordConfirmUserPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for AppPasswordConfirmUserPasswordResponseApplicationJson.
+  static Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson> get serializer =>
+      _$appPasswordConfirmUserPasswordResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder b) {
+    $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -6368,113 +6928,6 @@ abstract class Collection implements $CollectionInterface, Built<Collection, Col
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<Collection> get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
-    implements
-        $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
-            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object using the builder pattern.
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
-    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.
-  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> get serializer =>
-      _$collaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder b) {
-    $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder b) {
-    $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
-    implements
-        $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface,
-        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson,
-            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
-  /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson object using the builder pattern.
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson([
-    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
-  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const CollaborationResourcesSearchCollectionsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CollaborationResourcesSearchCollectionsResponseApplicationJson.
-  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson> get serializer =>
-      _$collaborationResourcesSearchCollectionsResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder b) {
-    $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder b) {
-    $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
@@ -6899,6 +7352,113 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder b) {
     $CollaborationResourcesRemoveResourceResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<Collection> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
+    implements
+        $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface,
+        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object using the builder pattern.
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
+    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.
+  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> get serializer =>
+      _$collaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder b) {
+    $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder b) {
+    $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
+    implements
+        $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface,
+        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson,
+            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
+  /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson object using the builder pattern.
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson([
+    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
+  ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CollaborationResourcesSearchCollectionsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CollaborationResourcesSearchCollectionsResponseApplicationJson.
+  static Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson> get serializer =>
+      _$collaborationResourcesSearchCollectionsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder b) {
+    $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder b) {
+    $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -7391,6 +7951,58 @@ abstract class HoverCardGetUserResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(HoverCardGetUserResponseApplicationJsonBuilder b) {
     $HoverCardGetUserResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $LoginConfirmPasswordResponseApplicationJsonInterface {
+  int get lastLogin;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class LoginConfirmPasswordResponseApplicationJson
+    implements
+        $LoginConfirmPasswordResponseApplicationJsonInterface,
+        Built<LoginConfirmPasswordResponseApplicationJson, LoginConfirmPasswordResponseApplicationJsonBuilder> {
+  /// Creates a new LoginConfirmPasswordResponseApplicationJson object using the builder pattern.
+  factory LoginConfirmPasswordResponseApplicationJson([
+    void Function(LoginConfirmPasswordResponseApplicationJsonBuilder)? b,
+  ]) = _$LoginConfirmPasswordResponseApplicationJson;
+
+  // coverage:ignore-start
+  const LoginConfirmPasswordResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory LoginConfirmPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for LoginConfirmPasswordResponseApplicationJson.
+  static Serializer<LoginConfirmPasswordResponseApplicationJson> get serializer =>
+      _$loginConfirmPasswordResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LoginConfirmPasswordResponseApplicationJsonBuilder b) {
+    $LoginConfirmPasswordResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LoginConfirmPasswordResponseApplicationJsonBuilder b) {
+    $LoginConfirmPasswordResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -8133,6 +8745,206 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $CoreCapabilities_CoreInterface {
+  int get pollinterval;
+  @BuiltValueField(wireName: 'webdav-root')
+  String get webdavRoot;
+  @BuiltValueField(wireName: 'reference-api')
+  bool get referenceApi;
+  @BuiltValueField(wireName: 'reference-regex')
+  String get referenceRegex;
+  @BuiltValueField(wireName: 'mod-rewrite-working')
+  bool? get modRewriteWorking;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CoreCapabilities_CoreInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CoreCapabilities_CoreInterfaceBuilder b) {}
+}
+
+abstract class CoreCapabilities_Core
+    implements $CoreCapabilities_CoreInterface, Built<CoreCapabilities_Core, CoreCapabilities_CoreBuilder> {
+  /// Creates a new CoreCapabilities_Core object using the builder pattern.
+  factory CoreCapabilities_Core([void Function(CoreCapabilities_CoreBuilder)? b]) = _$CoreCapabilities_Core;
+
+  // coverage:ignore-start
+  const CoreCapabilities_Core._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CoreCapabilities_Core.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CoreCapabilities_Core.
+  static Serializer<CoreCapabilities_Core> get serializer => _$coreCapabilitiesCoreSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CoreCapabilities_CoreBuilder b) {
+    $CoreCapabilities_CoreInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CoreCapabilities_CoreBuilder b) {
+    $CoreCapabilities_CoreInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CoreCapabilitiesInterface {
+  CoreCapabilities_Core get core;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CoreCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CoreCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class CoreCapabilities
+    implements $CoreCapabilitiesInterface, Built<CoreCapabilities, CoreCapabilitiesBuilder> {
+  /// Creates a new CoreCapabilities object using the builder pattern.
+  factory CoreCapabilities([void Function(CoreCapabilitiesBuilder)? b]) = _$CoreCapabilities;
+
+  // coverage:ignore-start
+  const CoreCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CoreCapabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CoreCapabilities.
+  static Serializer<CoreCapabilities> get serializer => _$coreCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CoreCapabilitiesBuilder b) {
+    $CoreCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CoreCapabilitiesBuilder b) {
+    $CoreCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CorePublicCapabilities_BruteforceInterface {
+  int get delay;
+  @BuiltValueField(wireName: 'allow-listed')
+  bool get allowListed;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CorePublicCapabilities_BruteforceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CorePublicCapabilities_BruteforceInterfaceBuilder b) {}
+}
+
+abstract class CorePublicCapabilities_Bruteforce
+    implements
+        $CorePublicCapabilities_BruteforceInterface,
+        Built<CorePublicCapabilities_Bruteforce, CorePublicCapabilities_BruteforceBuilder> {
+  /// Creates a new CorePublicCapabilities_Bruteforce object using the builder pattern.
+  factory CorePublicCapabilities_Bruteforce([void Function(CorePublicCapabilities_BruteforceBuilder)? b]) =
+      _$CorePublicCapabilities_Bruteforce;
+
+  // coverage:ignore-start
+  const CorePublicCapabilities_Bruteforce._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CorePublicCapabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CorePublicCapabilities_Bruteforce.
+  static Serializer<CorePublicCapabilities_Bruteforce> get serializer => _$corePublicCapabilitiesBruteforceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CorePublicCapabilities_BruteforceBuilder b) {
+    $CorePublicCapabilities_BruteforceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CorePublicCapabilities_BruteforceBuilder b) {
+    $CorePublicCapabilities_BruteforceInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CorePublicCapabilitiesInterface {
+  CorePublicCapabilities_Bruteforce get bruteforce;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CorePublicCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CorePublicCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class CorePublicCapabilities
+    implements $CorePublicCapabilitiesInterface, Built<CorePublicCapabilities, CorePublicCapabilitiesBuilder> {
+  /// Creates a new CorePublicCapabilities object using the builder pattern.
+  factory CorePublicCapabilities([void Function(CorePublicCapabilitiesBuilder)? b]) = _$CorePublicCapabilities;
+
+  // coverage:ignore-start
+  const CorePublicCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CorePublicCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CorePublicCapabilities.
+  static Serializer<CorePublicCapabilities> get serializer => _$corePublicCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CorePublicCapabilitiesBuilder b) {
+    $CorePublicCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CorePublicCapabilitiesBuilder b) {
+    $CorePublicCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $CommentsCapabilities_FilesInterface {
   bool get comments;
   @BuiltValueHook(initializeBuilder: true)
@@ -8536,6 +9348,8 @@ abstract interface class $FilesCapabilities_FilesInterface {
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
+  @BuiltValueField(wireName: 'forbidden_filename_characters')
+  BuiltList<String> get forbiddenFilenameCharacters;
   FilesCapabilities_Files_DirectEditing get directEditing;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesCapabilities_FilesInterfaceBuilder b) {}
@@ -10191,34 +11005,32 @@ typedef SharebymailCapabilities = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface {
+abstract interface class $SpreedCapabilities_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_AttachmentsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_AttachmentsInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Attachments
+abstract class SpreedCapabilities_Config_Attachments
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Attachments,
-            SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Attachments object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Attachments([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Attachments;
+        $SpreedCapabilities_Config_AttachmentsInterface,
+        Built<SpreedCapabilities_Config_Attachments, SpreedCapabilities_Config_AttachmentsBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Attachments object using the builder pattern.
+  factory SpreedCapabilities_Config_Attachments([void Function(SpreedCapabilities_Config_AttachmentsBuilder)? b]) =
+      _$SpreedCapabilities_Config_Attachments;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Attachments._();
+  const SpreedCapabilities_Config_Attachments._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Attachments.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10229,23 +11041,23 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Attachments
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Attachments.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Attachments> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigAttachmentsSerializer;
+  /// Serializer for SpreedCapabilities_Config_Attachments.
+  static Serializer<SpreedCapabilities_Config_Attachments> get serializer =>
+      _$spreedCapabilitiesConfigAttachmentsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_AttachmentsBuilder b) {
+    $SpreedCapabilities_Config_AttachmentsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_AttachmentsBuilder b) {
+    $SpreedCapabilities_Config_AttachmentsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_CallInterface {
+abstract interface class $SpreedCapabilities_Config_CallInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'breakout-rooms')
   bool get breakoutRooms;
@@ -10265,29 +11077,28 @@ abstract interface class $SpreedPublicCapabilities0_Spreed_Config_CallInterface 
   @BuiltValueField(wireName: 'can-enable-sip')
   bool? get canEnableSip;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_CallInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_CallInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Call
+abstract class SpreedCapabilities_Config_Call
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_CallInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Call, SpreedPublicCapabilities0_Spreed_Config_CallBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Call object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Call([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Call;
+        $SpreedCapabilities_Config_CallInterface,
+        Built<SpreedCapabilities_Config_Call, SpreedCapabilities_Config_CallBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Call object using the builder pattern.
+  factory SpreedCapabilities_Config_Call([void Function(SpreedCapabilities_Config_CallBuilder)? b]) =
+      _$SpreedCapabilities_Config_Call;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Call._();
+  const SpreedCapabilities_Config_Call._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Call.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10298,23 +11109,22 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Call
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Call.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Call> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigCallSerializer;
+  /// Serializer for SpreedCapabilities_Config_Call.
+  static Serializer<SpreedCapabilities_Config_Call> get serializer => _$spreedCapabilitiesConfigCallSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_CallBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_CallInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_CallBuilder b) {
+    $SpreedCapabilities_Config_CallInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_CallBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_CallInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_CallBuilder b) {
+    $SpreedCapabilities_Config_CallInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_ChatInterface {
+abstract interface class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueField(wireName: 'max-length')
   int get maxLength;
   @BuiltValueField(wireName: 'read-privacy')
@@ -10325,29 +11135,28 @@ abstract interface class $SpreedPublicCapabilities0_Spreed_Config_ChatInterface 
   int get typingPrivacy;
   BuiltList<String>? get translations;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Chat
+abstract class SpreedCapabilities_Config_Chat
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_ChatInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Chat, SpreedPublicCapabilities0_Spreed_Config_ChatBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Chat object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Chat([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Chat;
+        $SpreedCapabilities_Config_ChatInterface,
+        Built<SpreedCapabilities_Config_Chat, SpreedCapabilities_Config_ChatBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Chat object using the builder pattern.
+  factory SpreedCapabilities_Config_Chat([void Function(SpreedCapabilities_Config_ChatBuilder)? b]) =
+      _$SpreedCapabilities_Config_Chat;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Chat._();
+  const SpreedCapabilities_Config_Chat._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Chat.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10358,50 +11167,47 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Chat
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Chat.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Chat> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigChatSerializer;
+  /// Serializer for SpreedCapabilities_Config_Chat.
+  static Serializer<SpreedCapabilities_Config_Chat> get serializer => _$spreedCapabilitiesConfigChatSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_ChatInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_ChatBuilder b) {
+    $SpreedCapabilities_Config_ChatInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_ChatInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_ChatBuilder b) {
+    $SpreedCapabilities_Config_ChatInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface {
+abstract interface class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_ConversationsInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Conversations
+abstract class SpreedCapabilities_Config_Conversations
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Conversations,
-            SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Conversations object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Conversations([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Conversations;
+        $SpreedCapabilities_Config_ConversationsInterface,
+        Built<SpreedCapabilities_Config_Conversations, SpreedCapabilities_Config_ConversationsBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Conversations object using the builder pattern.
+  factory SpreedCapabilities_Config_Conversations([void Function(SpreedCapabilities_Config_ConversationsBuilder)? b]) =
+      _$SpreedCapabilities_Config_Conversations;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Conversations._();
+  const SpreedCapabilities_Config_Conversations._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Conversations.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10412,50 +11218,105 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Conversations
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Conversations.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Conversations> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigConversationsSerializer;
+  /// Serializer for SpreedCapabilities_Config_Conversations.
+  static Serializer<SpreedCapabilities_Config_Conversations> get serializer =>
+      _$spreedCapabilitiesConfigConversationsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_ConversationsBuilder b) {
+    $SpreedCapabilities_Config_ConversationsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_ConversationsBuilder b) {
+    $SpreedCapabilities_Config_ConversationsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface {
+abstract interface class $SpreedCapabilities_Config_FederationInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'incoming-enabled')
+  bool get incomingEnabled;
+  @BuiltValueField(wireName: 'outgoing-enabled')
+  bool get outgoingEnabled;
+  @BuiltValueField(wireName: 'only-trusted-servers')
+  bool get onlyTrustedServers;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SpreedCapabilities_Config_FederationInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SpreedCapabilities_Config_FederationInterfaceBuilder b) {}
+}
+
+abstract class SpreedCapabilities_Config_Federation
+    implements
+        $SpreedCapabilities_Config_FederationInterface,
+        Built<SpreedCapabilities_Config_Federation, SpreedCapabilities_Config_FederationBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Federation object using the builder pattern.
+  factory SpreedCapabilities_Config_Federation([void Function(SpreedCapabilities_Config_FederationBuilder)? b]) =
+      _$SpreedCapabilities_Config_Federation;
+
+  // coverage:ignore-start
+  const SpreedCapabilities_Config_Federation._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SpreedCapabilities_Config_Federation.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SpreedCapabilities_Config_Federation.
+  static Serializer<SpreedCapabilities_Config_Federation> get serializer =>
+      _$spreedCapabilitiesConfigFederationSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SpreedCapabilities_Config_FederationBuilder b) {
+    $SpreedCapabilities_Config_FederationInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SpreedCapabilities_Config_FederationBuilder b) {
+    $SpreedCapabilities_Config_FederationInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SpreedCapabilities_Config_PreviewsInterface {
   @BuiltValueField(wireName: 'max-gif-size')
   int get maxGifSize;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_PreviewsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_PreviewsInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Previews
+abstract class SpreedCapabilities_Config_Previews
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Previews,
-            SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Previews object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Previews([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Previews;
+        $SpreedCapabilities_Config_PreviewsInterface,
+        Built<SpreedCapabilities_Config_Previews, SpreedCapabilities_Config_PreviewsBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Previews object using the builder pattern.
+  factory SpreedCapabilities_Config_Previews([void Function(SpreedCapabilities_Config_PreviewsBuilder)? b]) =
+      _$SpreedCapabilities_Config_Previews;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Previews._();
+  const SpreedCapabilities_Config_Previews._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Previews.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10466,52 +11327,49 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Previews
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Previews.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Previews> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigPreviewsSerializer;
+  /// Serializer for SpreedCapabilities_Config_Previews.
+  static Serializer<SpreedCapabilities_Config_Previews> get serializer => _$spreedCapabilitiesConfigPreviewsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_PreviewsBuilder b) {
+    $SpreedCapabilities_Config_PreviewsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_PreviewsBuilder b) {
+    $SpreedCapabilities_Config_PreviewsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_Config_SignalingInterface {
+abstract interface class $SpreedCapabilities_Config_SignalingInterface {
   @BuiltValueField(wireName: 'session-ping-limit')
   int get sessionPingLimit;
   @BuiltValueField(wireName: 'hello-v2-token-key')
   String? get helloV2TokenKey;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_Config_SignalingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_Config_SignalingInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config_Signaling
+abstract class SpreedCapabilities_Config_Signaling
     implements
-        $SpreedPublicCapabilities0_Spreed_Config_SignalingInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config_Signaling,
-            SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config_Signaling object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config_Signaling([
-    void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Signaling;
+        $SpreedCapabilities_Config_SignalingInterface,
+        Built<SpreedCapabilities_Config_Signaling, SpreedCapabilities_Config_SignalingBuilder> {
+  /// Creates a new SpreedCapabilities_Config_Signaling object using the builder pattern.
+  factory SpreedCapabilities_Config_Signaling([void Function(SpreedCapabilities_Config_SignalingBuilder)? b]) =
+      _$SpreedCapabilities_Config_Signaling;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config_Signaling._();
+  const SpreedCapabilities_Config_Signaling._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config_Signaling.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10522,52 +11380,50 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Signaling
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config_Signaling.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Signaling> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigSignalingSerializer;
+  /// Serializer for SpreedCapabilities_Config_Signaling.
+  static Serializer<SpreedCapabilities_Config_Signaling> get serializer =>
+      _$spreedCapabilitiesConfigSignalingSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_SignalingInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_Config_SignalingBuilder b) {
+    $SpreedCapabilities_Config_SignalingInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_Config_SignalingInterface._validate(b);
+  static void _validate(SpreedCapabilities_Config_SignalingBuilder b) {
+    $SpreedCapabilities_Config_SignalingInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_Spreed_ConfigInterface {
-  SpreedPublicCapabilities0_Spreed_Config_Attachments get attachments;
-  SpreedPublicCapabilities0_Spreed_Config_Call get call;
-  SpreedPublicCapabilities0_Spreed_Config_Chat get chat;
-  SpreedPublicCapabilities0_Spreed_Config_Conversations get conversations;
-  SpreedPublicCapabilities0_Spreed_Config_Previews get previews;
-  SpreedPublicCapabilities0_Spreed_Config_Signaling get signaling;
+abstract interface class $SpreedCapabilities_ConfigInterface {
+  SpreedCapabilities_Config_Attachments get attachments;
+  SpreedCapabilities_Config_Call get call;
+  SpreedCapabilities_Config_Chat get chat;
+  SpreedCapabilities_Config_Conversations get conversations;
+  SpreedCapabilities_Config_Federation? get federation;
+  SpreedCapabilities_Config_Previews get previews;
+  SpreedCapabilities_Config_Signaling get signaling;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilities_ConfigInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilities_ConfigInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed_Config
-    implements
-        $SpreedPublicCapabilities0_Spreed_ConfigInterface,
-        Built<SpreedPublicCapabilities0_Spreed_Config, SpreedPublicCapabilities0_Spreed_ConfigBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed_Config object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed_Config([void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? b]) =
-      _$SpreedPublicCapabilities0_Spreed_Config;
+abstract class SpreedCapabilities_Config
+    implements $SpreedCapabilities_ConfigInterface, Built<SpreedCapabilities_Config, SpreedCapabilities_ConfigBuilder> {
+  /// Creates a new SpreedCapabilities_Config object using the builder pattern.
+  factory SpreedCapabilities_Config([void Function(SpreedCapabilities_ConfigBuilder)? b]) = _$SpreedCapabilities_Config;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed_Config._();
+  const SpreedCapabilities_Config._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities_Config.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10578,49 +11434,45 @@ abstract class SpreedPublicCapabilities0_Spreed_Config
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed_Config.
-  static Serializer<SpreedPublicCapabilities0_Spreed_Config> get serializer =>
-      _$spreedPublicCapabilities0SpreedConfigSerializer;
+  /// Serializer for SpreedCapabilities_Config.
+  static Serializer<SpreedCapabilities_Config> get serializer => _$spreedCapabilitiesConfigSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_Spreed_ConfigBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_ConfigInterface._defaults(b);
+  static void _defaults(SpreedCapabilities_ConfigBuilder b) {
+    $SpreedCapabilities_ConfigInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_Spreed_ConfigBuilder b) {
-    $SpreedPublicCapabilities0_Spreed_ConfigInterface._validate(b);
+  static void _validate(SpreedCapabilities_ConfigBuilder b) {
+    $SpreedCapabilities_ConfigInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0_SpreedInterface {
+abstract interface class $SpreedCapabilitiesInterface {
   BuiltList<String> get features;
-  SpreedPublicCapabilities0_Spreed_Config get config;
+  SpreedCapabilities_Config get config;
   String get version;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SpreedPublicCapabilities0_SpreedInterfaceBuilder b) {}
+  static void _defaults($SpreedCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SpreedPublicCapabilities0_SpreedInterfaceBuilder b) {}
+  static void _validate($SpreedCapabilitiesInterfaceBuilder b) {}
 }
 
-abstract class SpreedPublicCapabilities0_Spreed
-    implements
-        $SpreedPublicCapabilities0_SpreedInterface,
-        Built<SpreedPublicCapabilities0_Spreed, SpreedPublicCapabilities0_SpreedBuilder> {
-  /// Creates a new SpreedPublicCapabilities0_Spreed object using the builder pattern.
-  factory SpreedPublicCapabilities0_Spreed([void Function(SpreedPublicCapabilities0_SpreedBuilder)? b]) =
-      _$SpreedPublicCapabilities0_Spreed;
+abstract class SpreedCapabilities
+    implements $SpreedCapabilitiesInterface, Built<SpreedCapabilities, SpreedCapabilitiesBuilder> {
+  /// Creates a new SpreedCapabilities object using the builder pattern.
+  factory SpreedCapabilities([void Function(SpreedCapabilitiesBuilder)? b]) = _$SpreedCapabilities;
 
   // coverage:ignore-start
-  const SpreedPublicCapabilities0_Spreed._();
+  const SpreedCapabilities._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
+  factory SpreedCapabilities.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10631,23 +11483,23 @@ abstract class SpreedPublicCapabilities0_Spreed
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for SpreedPublicCapabilities0_Spreed.
-  static Serializer<SpreedPublicCapabilities0_Spreed> get serializer => _$spreedPublicCapabilities0SpreedSerializer;
+  /// Serializer for SpreedCapabilities.
+  static Serializer<SpreedCapabilities> get serializer => _$spreedCapabilitiesSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SpreedPublicCapabilities0_SpreedBuilder b) {
-    $SpreedPublicCapabilities0_SpreedInterface._defaults(b);
+  static void _defaults(SpreedCapabilitiesBuilder b) {
+    $SpreedCapabilitiesInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SpreedPublicCapabilities0_SpreedBuilder b) {
-    $SpreedPublicCapabilities0_SpreedInterface._validate(b);
+  static void _validate(SpreedCapabilitiesBuilder b) {
+    $SpreedCapabilitiesInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $SpreedPublicCapabilities0Interface {
-  SpreedPublicCapabilities0_Spreed get spreed;
+  SpreedCapabilities get spreed;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedPublicCapabilities0InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -11270,6 +12122,8 @@ abstract class NotesCapabilities
 
 typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   CommentsCapabilities? commentsCapabilities,
+  CoreCapabilities? coreCapabilities,
+  CorePublicCapabilities? corePublicCapabilities,
   DavCapabilities? davCapabilities,
   DropAccountCapabilities? dropAccountCapabilities,
   FilesCapabilities? filesCapabilities,
@@ -11280,6 +12134,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   NotificationsCapabilities? notificationsCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
+  SpreedCapabilities? spreedCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
@@ -11446,6 +12301,195 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
   static void _validate(OcsGetCapabilitiesResponseApplicationJsonBuilder b) {
     $OcsGetCapabilitiesResponseApplicationJsonInterface._validate(b);
   }
+}
+
+class PreviewGetPreviewA extends EnumClass {
+  const PreviewGetPreviewA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewA $0 = _$previewGetPreviewA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewA $1 = _$previewGetPreviewA$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewA> get values => _$previewGetPreviewAValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewA valueOf(String name) => _$valueOfPreviewGetPreviewA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewA> get serializer => const _$PreviewGetPreviewASerializer();
+}
+
+class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPreviewA> {
+  const _$PreviewGetPreviewASerializer();
+
+  static const Map<PreviewGetPreviewA, Object> _toWire = <PreviewGetPreviewA, Object>{
+    PreviewGetPreviewA.$0: 0,
+    PreviewGetPreviewA.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewA> _fromWire = <Object, PreviewGetPreviewA>{
+    0: PreviewGetPreviewA.$0,
+    1: PreviewGetPreviewA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewA];
+
+  @override
+  String get wireName => 'PreviewGetPreviewA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewForceIcon extends EnumClass {
+  const PreviewGetPreviewForceIcon._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewForceIcon $0 = _$previewGetPreviewForceIcon$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewForceIcon $1 = _$previewGetPreviewForceIcon$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewForceIcon> get values => _$previewGetPreviewForceIconValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewForceIcon(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewForceIcon.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewForceIcon> get serializer => const _$PreviewGetPreviewForceIconSerializer();
+}
+
+class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<PreviewGetPreviewForceIcon> {
+  const _$PreviewGetPreviewForceIconSerializer();
+
+  static const Map<PreviewGetPreviewForceIcon, Object> _toWire = <PreviewGetPreviewForceIcon, Object>{
+    PreviewGetPreviewForceIcon.$0: 0,
+    PreviewGetPreviewForceIcon.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewForceIcon> _fromWire = <Object, PreviewGetPreviewForceIcon>{
+    0: PreviewGetPreviewForceIcon.$0,
+    1: PreviewGetPreviewForceIcon.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewForceIcon];
+
+  @override
+  String get wireName => 'PreviewGetPreviewForceIcon';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewForceIcon object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewMimeFallback extends EnumClass {
+  const PreviewGetPreviewMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewMimeFallback $0 = _$previewGetPreviewMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewMimeFallback $1 = _$previewGetPreviewMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewMimeFallback> get values => _$previewGetPreviewMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPreviewGetPreviewMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewMimeFallback> get serializer => const _$PreviewGetPreviewMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<PreviewGetPreviewMimeFallback> {
+  const _$PreviewGetPreviewMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewMimeFallback, Object> _toWire = <PreviewGetPreviewMimeFallback, Object>{
+    PreviewGetPreviewMimeFallback.$0: 0,
+    PreviewGetPreviewMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewMimeFallback> _fromWire = <Object, PreviewGetPreviewMimeFallback>{
+    0: PreviewGetPreviewMimeFallback.$0,
+    1: PreviewGetPreviewMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewByFileIdA extends EnumClass {
@@ -11644,195 +12688,6 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
       _fromWire[serialized]!;
 }
 
-class PreviewGetPreviewA extends EnumClass {
-  const PreviewGetPreviewA._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const PreviewGetPreviewA $0 = _$previewGetPreviewA$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const PreviewGetPreviewA $1 = _$previewGetPreviewA$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<PreviewGetPreviewA> get values => _$previewGetPreviewAValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static PreviewGetPreviewA valueOf(String name) => _$valueOfPreviewGetPreviewA(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for PreviewGetPreviewA.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PreviewGetPreviewA> get serializer => const _$PreviewGetPreviewASerializer();
-}
-
-class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPreviewA> {
-  const _$PreviewGetPreviewASerializer();
-
-  static const Map<PreviewGetPreviewA, Object> _toWire = <PreviewGetPreviewA, Object>{
-    PreviewGetPreviewA.$0: 0,
-    PreviewGetPreviewA.$1: 1,
-  };
-
-  static const Map<Object, PreviewGetPreviewA> _fromWire = <Object, PreviewGetPreviewA>{
-    0: PreviewGetPreviewA.$0,
-    1: PreviewGetPreviewA.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [PreviewGetPreviewA];
-
-  @override
-  String get wireName => 'PreviewGetPreviewA';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    PreviewGetPreviewA object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  PreviewGetPreviewA deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class PreviewGetPreviewForceIcon extends EnumClass {
-  const PreviewGetPreviewForceIcon._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const PreviewGetPreviewForceIcon $0 = _$previewGetPreviewForceIcon$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const PreviewGetPreviewForceIcon $1 = _$previewGetPreviewForceIcon$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<PreviewGetPreviewForceIcon> get values => _$previewGetPreviewForceIconValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static PreviewGetPreviewForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewForceIcon(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for PreviewGetPreviewForceIcon.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PreviewGetPreviewForceIcon> get serializer => const _$PreviewGetPreviewForceIconSerializer();
-}
-
-class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<PreviewGetPreviewForceIcon> {
-  const _$PreviewGetPreviewForceIconSerializer();
-
-  static const Map<PreviewGetPreviewForceIcon, Object> _toWire = <PreviewGetPreviewForceIcon, Object>{
-    PreviewGetPreviewForceIcon.$0: 0,
-    PreviewGetPreviewForceIcon.$1: 1,
-  };
-
-  static const Map<Object, PreviewGetPreviewForceIcon> _fromWire = <Object, PreviewGetPreviewForceIcon>{
-    0: PreviewGetPreviewForceIcon.$0,
-    1: PreviewGetPreviewForceIcon.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [PreviewGetPreviewForceIcon];
-
-  @override
-  String get wireName => 'PreviewGetPreviewForceIcon';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    PreviewGetPreviewForceIcon object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  PreviewGetPreviewForceIcon deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class PreviewGetPreviewMimeFallback extends EnumClass {
-  const PreviewGetPreviewMimeFallback._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const PreviewGetPreviewMimeFallback $0 = _$previewGetPreviewMimeFallback$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const PreviewGetPreviewMimeFallback $1 = _$previewGetPreviewMimeFallback$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<PreviewGetPreviewMimeFallback> get values => _$previewGetPreviewMimeFallbackValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static PreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPreviewGetPreviewMimeFallback(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for PreviewGetPreviewMimeFallback.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PreviewGetPreviewMimeFallback> get serializer => const _$PreviewGetPreviewMimeFallbackSerializer();
-}
-
-class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<PreviewGetPreviewMimeFallback> {
-  const _$PreviewGetPreviewMimeFallbackSerializer();
-
-  static const Map<PreviewGetPreviewMimeFallback, Object> _toWire = <PreviewGetPreviewMimeFallback, Object>{
-    PreviewGetPreviewMimeFallback.$0: 0,
-    PreviewGetPreviewMimeFallback.$1: 1,
-  };
-
-  static const Map<Object, PreviewGetPreviewMimeFallback> _fromWire = <Object, PreviewGetPreviewMimeFallback>{
-    0: PreviewGetPreviewMimeFallback.$0,
-    1: PreviewGetPreviewMimeFallback.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [PreviewGetPreviewMimeFallback];
-
-  @override
-  String get wireName => 'PreviewGetPreviewMimeFallback';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    PreviewGetPreviewMimeFallback object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  PreviewGetPreviewMimeFallback deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 @BuiltValue(instantiable: false)
 abstract interface class $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -11939,6 +12794,69 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson
   }
 }
 
+class ReferenceApiExtractResolve extends EnumClass {
+  const ReferenceApiExtractResolve._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ReferenceApiExtractResolve $0 = _$referenceApiExtractResolve$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ReferenceApiExtractResolve $1 = _$referenceApiExtractResolve$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ReferenceApiExtractResolve> get values => _$referenceApiExtractResolveValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ReferenceApiExtractResolve valueOf(String name) => _$valueOfReferenceApiExtractResolve(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ReferenceApiExtractResolve.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ReferenceApiExtractResolve> get serializer => const _$ReferenceApiExtractResolveSerializer();
+}
+
+class _$ReferenceApiExtractResolveSerializer implements PrimitiveSerializer<ReferenceApiExtractResolve> {
+  const _$ReferenceApiExtractResolveSerializer();
+
+  static const Map<ReferenceApiExtractResolve, Object> _toWire = <ReferenceApiExtractResolve, Object>{
+    ReferenceApiExtractResolve.$0: 0,
+    ReferenceApiExtractResolve.$1: 1,
+  };
+
+  static const Map<Object, ReferenceApiExtractResolve> _fromWire = <Object, ReferenceApiExtractResolve>{
+    0: ReferenceApiExtractResolve.$0,
+    1: ReferenceApiExtractResolve.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ReferenceApiExtractResolve];
+
+  @override
+  String get wireName => 'ReferenceApiExtractResolve';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ReferenceApiExtractResolve object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ReferenceApiExtractResolve deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $ReferenceInterface {
   String get richObjectType;
@@ -11984,6 +12902,164 @@ abstract class Reference implements $ReferenceInterface, Built<Reference, Refere
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ReferenceBuilder b) {
     $ReferenceInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, Reference> get references;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
+    implements
+        $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface,
+        Built<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
+            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ReferenceApiExtractResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data([
+    void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractResponseApplicationJson_Ocs_Data.
+  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder b) {
+    $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ReferenceApiExtractResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractResponseApplicationJson_Ocs
+    implements
+        $ReferenceApiExtractResponseApplicationJson_OcsInterface,
+        Built<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ReferenceApiExtractResponseApplicationJson_Ocs object using the builder pattern.
+  factory ReferenceApiExtractResponseApplicationJson_Ocs([
+    void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractResponseApplicationJson_Ocs.
+  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiExtractResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractResponseApplicationJson_OcsBuilder b) {
+    $ReferenceApiExtractResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ReferenceApiExtractResponseApplicationJsonInterface {
+  ReferenceApiExtractResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReferenceApiExtractResponseApplicationJson
+    implements
+        $ReferenceApiExtractResponseApplicationJsonInterface,
+        Built<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder> {
+  /// Creates a new ReferenceApiExtractResponseApplicationJson object using the builder pattern.
+  factory ReferenceApiExtractResponseApplicationJson([
+    void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? b,
+  ]) = _$ReferenceApiExtractResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ReferenceApiExtractResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReferenceApiExtractResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReferenceApiExtractResponseApplicationJson.
+  static Serializer<ReferenceApiExtractResponseApplicationJson> get serializer =>
+      _$referenceApiExtractResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReferenceApiExtractResponseApplicationJsonBuilder b) {
+    $ReferenceApiExtractResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReferenceApiExtractResponseApplicationJsonBuilder b) {
+    $ReferenceApiExtractResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -12304,227 +13380,6 @@ abstract class ReferenceApiResolveResponseApplicationJson
   }
 }
 
-class ReferenceApiExtractResolve extends EnumClass {
-  const ReferenceApiExtractResolve._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const ReferenceApiExtractResolve $0 = _$referenceApiExtractResolve$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const ReferenceApiExtractResolve $1 = _$referenceApiExtractResolve$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ReferenceApiExtractResolve> get values => _$referenceApiExtractResolveValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static ReferenceApiExtractResolve valueOf(String name) => _$valueOfReferenceApiExtractResolve(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for ReferenceApiExtractResolve.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ReferenceApiExtractResolve> get serializer => const _$ReferenceApiExtractResolveSerializer();
-}
-
-class _$ReferenceApiExtractResolveSerializer implements PrimitiveSerializer<ReferenceApiExtractResolve> {
-  const _$ReferenceApiExtractResolveSerializer();
-
-  static const Map<ReferenceApiExtractResolve, Object> _toWire = <ReferenceApiExtractResolve, Object>{
-    ReferenceApiExtractResolve.$0: 0,
-    ReferenceApiExtractResolve.$1: 1,
-  };
-
-  static const Map<Object, ReferenceApiExtractResolve> _fromWire = <Object, ReferenceApiExtractResolve>{
-    0: ReferenceApiExtractResolve.$0,
-    1: ReferenceApiExtractResolve.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [ReferenceApiExtractResolve];
-
-  @override
-  String get wireName => 'ReferenceApiExtractResolve';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    ReferenceApiExtractResolve object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  ReferenceApiExtractResolve deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, Reference> get references;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-}
-
-abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
-    implements
-        $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
-            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new ReferenceApiExtractResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data([
-    void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const ReferenceApiExtractResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReferenceApiExtractResponseApplicationJson_Ocs_Data.
-  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data> get serializer =>
-      _$referenceApiExtractResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder b) {
-    $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder b) {
-    $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  ReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class ReferenceApiExtractResponseApplicationJson_Ocs
-    implements
-        $ReferenceApiExtractResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder> {
-  /// Creates a new ReferenceApiExtractResponseApplicationJson_Ocs object using the builder pattern.
-  factory ReferenceApiExtractResponseApplicationJson_Ocs([
-    void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const ReferenceApiExtractResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReferenceApiExtractResponseApplicationJson_Ocs.
-  static Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> get serializer =>
-      _$referenceApiExtractResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReferenceApiExtractResponseApplicationJson_OcsBuilder b) {
-    $ReferenceApiExtractResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReferenceApiExtractResponseApplicationJson_OcsBuilder b) {
-    $ReferenceApiExtractResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJsonInterface {
-  ReferenceApiExtractResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class ReferenceApiExtractResponseApplicationJson
-    implements
-        $ReferenceApiExtractResponseApplicationJsonInterface,
-        Built<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder> {
-  /// Creates a new ReferenceApiExtractResponseApplicationJson object using the builder pattern.
-  factory ReferenceApiExtractResponseApplicationJson([
-    void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? b,
-  ]) = _$ReferenceApiExtractResponseApplicationJson;
-
-  // coverage:ignore-start
-  const ReferenceApiExtractResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReferenceApiExtractResponseApplicationJson.
-  static Serializer<ReferenceApiExtractResponseApplicationJson> get serializer =>
-      _$referenceApiExtractResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReferenceApiExtractResponseApplicationJsonBuilder b) {
-    $ReferenceApiExtractResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReferenceApiExtractResponseApplicationJsonBuilder b) {
-    $ReferenceApiExtractResponseApplicationJsonInterface._validate(b);
-  }
-}
-
 @BuiltValue(instantiable: false)
 abstract interface class $ReferenceProviderInterface {
   String get id;
@@ -12841,6 +13696,419 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ReferenceApiTouchProviderResponseApplicationJsonBuilder b) {
     $ReferenceApiTouchProviderResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamResourceInterface {
+  int get id;
+  String get label;
+  String get url;
+  String? get iconSvg;
+  String? get iconURL;
+  String? get iconEmoji;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamResourceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamResourceInterfaceBuilder b) {}
+}
+
+abstract class TeamResource implements $TeamResourceInterface, Built<TeamResource, TeamResourceBuilder> {
+  /// Creates a new TeamResource object using the builder pattern.
+  factory TeamResource([void Function(TeamResourceBuilder)? b]) = _$TeamResource;
+
+  // coverage:ignore-start
+  const TeamResource._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamResource.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamResource.
+  static Serializer<TeamResource> get serializer => _$teamResourceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamResourceBuilder b) {
+    $TeamResourceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamResourceBuilder b) {
+    $TeamResourceInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TeamResource> get resources;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiResolveOneResponseApplicationJson_Ocs_Data
+    implements
+        $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface,
+        Built<TeamsApiResolveOneResponseApplicationJson_Ocs_Data,
+            TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TeamsApiResolveOneResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TeamsApiResolveOneResponseApplicationJson_Ocs_Data([
+    void Function(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TeamsApiResolveOneResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiResolveOneResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiResolveOneResponseApplicationJson_Ocs_Data.
+  static Serializer<TeamsApiResolveOneResponseApplicationJson_Ocs_Data> get serializer =>
+      _$teamsApiResolveOneResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiResolveOneResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TeamsApiResolveOneResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiResolveOneResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiResolveOneResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiResolveOneResponseApplicationJson_Ocs
+    implements
+        $TeamsApiResolveOneResponseApplicationJson_OcsInterface,
+        Built<TeamsApiResolveOneResponseApplicationJson_Ocs, TeamsApiResolveOneResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TeamsApiResolveOneResponseApplicationJson_Ocs object using the builder pattern.
+  factory TeamsApiResolveOneResponseApplicationJson_Ocs([
+    void Function(TeamsApiResolveOneResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TeamsApiResolveOneResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TeamsApiResolveOneResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiResolveOneResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiResolveOneResponseApplicationJson_Ocs.
+  static Serializer<TeamsApiResolveOneResponseApplicationJson_Ocs> get serializer =>
+      _$teamsApiResolveOneResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiResolveOneResponseApplicationJson_OcsBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiResolveOneResponseApplicationJson_OcsBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiResolveOneResponseApplicationJsonInterface {
+  TeamsApiResolveOneResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiResolveOneResponseApplicationJson
+    implements
+        $TeamsApiResolveOneResponseApplicationJsonInterface,
+        Built<TeamsApiResolveOneResponseApplicationJson, TeamsApiResolveOneResponseApplicationJsonBuilder> {
+  /// Creates a new TeamsApiResolveOneResponseApplicationJson object using the builder pattern.
+  factory TeamsApiResolveOneResponseApplicationJson([
+    void Function(TeamsApiResolveOneResponseApplicationJsonBuilder)? b,
+  ]) = _$TeamsApiResolveOneResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TeamsApiResolveOneResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiResolveOneResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiResolveOneResponseApplicationJson.
+  static Serializer<TeamsApiResolveOneResponseApplicationJson> get serializer =>
+      _$teamsApiResolveOneResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiResolveOneResponseApplicationJsonBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiResolveOneResponseApplicationJsonBuilder b) {
+    $TeamsApiResolveOneResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamInterface {
+  String get id;
+  String get name;
+  String get icon;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamInterfaceBuilder b) {}
+}
+
+abstract class Team implements $TeamInterface, Built<Team, TeamBuilder> {
+  /// Creates a new Team object using the builder pattern.
+  factory Team([void Function(TeamBuilder)? b]) = _$Team;
+
+  // coverage:ignore-start
+  const Team._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Team.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Team.
+  static Serializer<Team> get serializer => _$teamSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamBuilder b) {
+    $TeamInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamBuilder b) {
+    $TeamInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<Team> get teams;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiListTeamsResponseApplicationJson_Ocs_Data
+    implements
+        $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface,
+        Built<TeamsApiListTeamsResponseApplicationJson_Ocs_Data,
+            TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new TeamsApiListTeamsResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory TeamsApiListTeamsResponseApplicationJson_Ocs_Data([
+    void Function(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TeamsApiListTeamsResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiListTeamsResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiListTeamsResponseApplicationJson_Ocs_Data.
+  static Serializer<TeamsApiListTeamsResponseApplicationJson_Ocs_Data> get serializer =>
+      _$teamsApiListTeamsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiListTeamsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TeamsApiListTeamsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiListTeamsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiListTeamsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiListTeamsResponseApplicationJson_Ocs
+    implements
+        $TeamsApiListTeamsResponseApplicationJson_OcsInterface,
+        Built<TeamsApiListTeamsResponseApplicationJson_Ocs, TeamsApiListTeamsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new TeamsApiListTeamsResponseApplicationJson_Ocs object using the builder pattern.
+  factory TeamsApiListTeamsResponseApplicationJson_Ocs([
+    void Function(TeamsApiListTeamsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TeamsApiListTeamsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TeamsApiListTeamsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiListTeamsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiListTeamsResponseApplicationJson_Ocs.
+  static Serializer<TeamsApiListTeamsResponseApplicationJson_Ocs> get serializer =>
+      _$teamsApiListTeamsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiListTeamsResponseApplicationJson_OcsBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiListTeamsResponseApplicationJson_OcsBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $TeamsApiListTeamsResponseApplicationJsonInterface {
+  TeamsApiListTeamsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TeamsApiListTeamsResponseApplicationJson
+    implements
+        $TeamsApiListTeamsResponseApplicationJsonInterface,
+        Built<TeamsApiListTeamsResponseApplicationJson, TeamsApiListTeamsResponseApplicationJsonBuilder> {
+  /// Creates a new TeamsApiListTeamsResponseApplicationJson object using the builder pattern.
+  factory TeamsApiListTeamsResponseApplicationJson([
+    void Function(TeamsApiListTeamsResponseApplicationJsonBuilder)? b,
+  ]) = _$TeamsApiListTeamsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TeamsApiListTeamsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TeamsApiListTeamsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TeamsApiListTeamsResponseApplicationJson.
+  static Serializer<TeamsApiListTeamsResponseApplicationJson> get serializer =>
+      _$teamsApiListTeamsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TeamsApiListTeamsResponseApplicationJsonBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TeamsApiListTeamsResponseApplicationJsonBuilder b) {
+    $TeamsApiListTeamsResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -15882,6 +17150,204 @@ abstract class WipeCheckWipeResponseApplicationJson
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_CoreInterface {
+  int get pollinterval;
+  @BuiltValueField(wireName: 'webdav-root')
+  String get webdavRoot;
+  @BuiltValueField(wireName: 'reference-api')
+  bool get referenceApi;
+  @BuiltValueField(wireName: 'reference-regex')
+  String get referenceRegex;
+  @BuiltValueField(wireName: 'mod-rewrite-working')
+  bool get modRewriteWorking;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_CoreInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_CoreInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Core
+    implements $Capabilities_CoreInterface, Built<Capabilities_Core, Capabilities_CoreBuilder> {
+  /// Creates a new Capabilities_Core object using the builder pattern.
+  factory Capabilities_Core([void Function(Capabilities_CoreBuilder)? b]) = _$Capabilities_Core;
+
+  // coverage:ignore-start
+  const Capabilities_Core._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Core.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Core.
+  static Serializer<Capabilities_Core> get serializer => _$capabilitiesCoreSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_CoreBuilder b) {
+    $Capabilities_CoreInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_CoreBuilder b) {
+    $Capabilities_CoreInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CapabilitiesInterface {
+  Capabilities_Core get core;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+
+  // coverage:ignore-start
+  const Capabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities.
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $PublicCapabilities_BruteforceInterface {
+  int get delay;
+  @BuiltValueField(wireName: 'allow-listed')
+  bool get allowListed;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicCapabilities_BruteforceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicCapabilities_BruteforceInterfaceBuilder b) {}
+}
+
+abstract class PublicCapabilities_Bruteforce
+    implements
+        $PublicCapabilities_BruteforceInterface,
+        Built<PublicCapabilities_Bruteforce, PublicCapabilities_BruteforceBuilder> {
+  /// Creates a new PublicCapabilities_Bruteforce object using the builder pattern.
+  factory PublicCapabilities_Bruteforce([void Function(PublicCapabilities_BruteforceBuilder)? b]) =
+      _$PublicCapabilities_Bruteforce;
+
+  // coverage:ignore-start
+  const PublicCapabilities_Bruteforce._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicCapabilities_Bruteforce.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PublicCapabilities_Bruteforce.
+  static Serializer<PublicCapabilities_Bruteforce> get serializer => _$publicCapabilitiesBruteforceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicCapabilities_BruteforceBuilder b) {
+    $PublicCapabilities_BruteforceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicCapabilities_BruteforceBuilder b) {
+    $PublicCapabilities_BruteforceInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $PublicCapabilitiesInterface {
+  PublicCapabilities_Bruteforce get bruteforce;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class PublicCapabilities
+    implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
+  /// Creates a new PublicCapabilities object using the builder pattern.
+  factory PublicCapabilities([void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
+
+  // coverage:ignore-start
+  const PublicCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PublicCapabilities.
+  static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._validate(b);
+  }
+}
+
 /// Serialization extension for `AutocompleteResult_Status`.
 extension $AutocompleteResult_StatusExtension on AutocompleteResult_Status {
   /// Serializer for AutocompleteResult_Status.
@@ -15936,13 +17402,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $d6144dc1a5d1c43badd4fd45532494b5Extension._serializer;
+      $f6f5edfce09cb06e8f14ce14ab1af117Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $d6144dc1a5d1c43badd4fd45532494b5Extension._fromJson(json);
+      $f6f5edfce09cb06e8f14ce14ab1af117Extension._fromJson(json);
 }
 
 /// Serialization extension for `UnifiedSearchSearchCursor`.
@@ -16305,8 +17771,10 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$d6144dc1a5d1c43badd4fd45532494b5 = ({
+typedef _$f6f5edfce09cb06e8f14ce14ab1af117 = ({
   CommentsCapabilities? commentsCapabilities,
+  CoreCapabilities? coreCapabilities,
+  CorePublicCapabilities? corePublicCapabilities,
   DavCapabilities? davCapabilities,
   DropAccountCapabilities? dropAccountCapabilities,
   FilesCapabilities? filesCapabilities,
@@ -16317,6 +17785,7 @@ typedef _$d6144dc1a5d1c43badd4fd45532494b5 = ({
   NotificationsCapabilities? notificationsCapabilities,
   ProvisioningApiCapabilities? provisioningApiCapabilities,
   SharebymailCapabilities? sharebymailCapabilities,
+  SpreedCapabilities? spreedCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
@@ -16326,9 +17795,11 @@ typedef _$d6144dc1a5d1c43badd4fd45532494b5 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd45532494b5 {
+extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce14ab1af117 {
   List<dynamic> get _values => [
         commentsCapabilities,
+        coreCapabilities,
+        corePublicCapabilities,
         davCapabilities,
         dropAccountCapabilities,
         filesCapabilities,
@@ -16339,6 +17810,7 @@ extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd
         notificationsCapabilities,
         provisioningApiCapabilities,
         sharebymailCapabilities,
+        spreedCapabilities,
         spreedPublicCapabilities,
         systemtagsCapabilities,
         themingPublicCapabilities,
@@ -16347,6 +17819,8 @@ extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd
       ];
   List<String> get _names => const [
         'commentsCapabilities',
+        'coreCapabilities',
+        'corePublicCapabilities',
         'davCapabilities',
         'dropAccountCapabilities',
         'filesCapabilities',
@@ -16357,6 +17831,7 @@ extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd
         'notificationsCapabilities',
         'provisioningApiCapabilities',
         'sharebymailCapabilities',
+        'spreedCapabilities',
         'spreedPublicCapabilities',
         'systemtagsCapabilities',
         'themingPublicCapabilities',
@@ -16375,9 +17850,9 @@ extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd
         _values,
         _names,
       );
-  static Serializer<_$d6144dc1a5d1c43badd4fd45532494b5> get _serializer =>
-      const _$d6144dc1a5d1c43badd4fd45532494b5Serializer();
-  static _$d6144dc1a5d1c43badd4fd45532494b5 _fromJson(Object? json) =>
+  static Serializer<_$f6f5edfce09cb06e8f14ce14ab1af117> get _serializer =>
+      const _$f6f5edfce09cb06e8f14ce14ab1af117Serializer();
+  static _$f6f5edfce09cb06e8f14ce14ab1af117 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -16386,25 +17861,33 @@ extension $d6144dc1a5d1c43badd4fd45532494b5Extension on _$d6144dc1a5d1c43badd4fd
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerializer<_$d6144dc1a5d1c43badd4fd45532494b5> {
-  const _$d6144dc1a5d1c43badd4fd45532494b5Serializer();
+class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerializer<_$f6f5edfce09cb06e8f14ce14ab1af117> {
+  const _$f6f5edfce09cb06e8f14ce14ab1af117Serializer();
 
   @override
-  Iterable<Type> get types => const [_$d6144dc1a5d1c43badd4fd45532494b5];
+  Iterable<Type> get types => const [_$f6f5edfce09cb06e8f14ce14ab1af117];
 
   @override
-  String get wireName => r'_$d6144dc1a5d1c43badd4fd45532494b5';
+  String get wireName => r'_$f6f5edfce09cb06e8f14ce14ab1af117';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$d6144dc1a5d1c43badd4fd45532494b5 object, {
+    _$f6f5edfce09cb06e8f14ce14ab1af117 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.commentsCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(CommentsCapabilities))!;
+    }
+    value = object.coreCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(CoreCapabilities))!;
+    }
+    value = object.corePublicCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(CorePublicCapabilities))!;
     }
     value = object.davCapabilities;
     if (value != null) {
@@ -16446,6 +17929,10 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities))!;
     }
+    value = object.spreedCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(SpreedCapabilities))!;
+    }
     value = object.spreedPublicCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities))!;
@@ -16471,7 +17958,7 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$d6144dc1a5d1c43badd4fd45532494b5 deserialize(
+  _$f6f5edfce09cb06e8f14ce14ab1af117 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -16482,6 +17969,20 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
         data,
         specifiedType: const FullType(CommentsCapabilities),
       )! as CommentsCapabilities;
+    } catch (_) {}
+    CoreCapabilities? coreCapabilities;
+    try {
+      coreCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(CoreCapabilities),
+      )! as CoreCapabilities;
+    } catch (_) {}
+    CorePublicCapabilities? corePublicCapabilities;
+    try {
+      corePublicCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(CorePublicCapabilities),
+      )! as CorePublicCapabilities;
     } catch (_) {}
     DavCapabilities? davCapabilities;
     try {
@@ -16554,6 +18055,13 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
       )! as SharebymailCapabilities)
         ..validateOneOf();
     } catch (_) {}
+    SpreedCapabilities? spreedCapabilities;
+    try {
+      spreedCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(SpreedCapabilities),
+      )! as SpreedCapabilities;
+    } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
       spreedPublicCapabilities = (serializers.deserialize(
@@ -16592,6 +18100,8 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
     } catch (_) {}
     return (
       commentsCapabilities: commentsCapabilities,
+      coreCapabilities: coreCapabilities,
+      corePublicCapabilities: corePublicCapabilities,
       davCapabilities: davCapabilities,
       dropAccountCapabilities: dropAccountCapabilities,
       filesCapabilities: filesCapabilities,
@@ -16602,6 +18112,7 @@ class _$d6144dc1a5d1c43badd4fd45532494b5Serializer implements PrimitiveSerialize
       notificationsCapabilities: notificationsCapabilities,
       provisioningApiCapabilities: provisioningApiCapabilities,
       sharebymailCapabilities: sharebymailCapabilities,
+      spreedCapabilities: spreedCapabilities,
       spreedPublicCapabilities: spreedPublicCapabilities,
       systemtagsCapabilities: systemtagsCapabilities,
       themingPublicCapabilities: themingPublicCapabilities,
@@ -16639,6 +18150,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
+        AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder.new,
+      )
+      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
+        AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
         const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
         AppPasswordRotateAppPasswordResponseApplicationJsonBuilder.new,
       )
@@ -16654,15 +18175,20 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
-        AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder.new,
+        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
+        AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder.new,
       )
-      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
+      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder.new,
+        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs),
+        AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
+      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data),
+        AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(AutoCompleteGetResponseApplicationJson),
@@ -16696,15 +18222,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_PollBuilder.new)
       ..add(LoginFlowV2_Poll.serializer)
       ..addBuilderFactory(
-        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
-        CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder.new,
+        const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
+        CollaborationResourcesListCollectionResponseApplicationJsonBuilder.new,
       )
-      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
+      ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
-        CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder.new,
+        const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
+        CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
+      ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(Collection), CollectionBuilder.new)
       ..add(Collection.serializer)
       ..addBuilderFactory(const FullType(Resource), ResourceBuilder.new)
@@ -16716,17 +18242,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObjectBuilder.new)
       ..add(OpenGraphObject.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Resource)]), ListBuilder<Resource>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
-        CollaborationResourcesListCollectionResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
-        CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
         CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder.new,
@@ -16757,6 +18272,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+        CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder.new,
+      )
+      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
+        CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
         CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder.new,
@@ -16796,6 +18322,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ContactsAction), ContactsActionBuilder.new)
       ..add(ContactsAction.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
+      ..addBuilderFactory(
+        const FullType(LoginConfirmPasswordResponseApplicationJson),
+        LoginConfirmPasswordResponseApplicationJsonBuilder.new,
+      )
+      ..add(LoginConfirmPasswordResponseApplicationJson.serializer)
       ..add(NavigationGetAppsNavigationAbsolute.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetAppsNavigationResponseApplicationJson),
@@ -16869,6 +18400,17 @@ final Serializers _$serializers = (Serializers().toBuilder()
         OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
+      ..addBuilderFactory(const FullType(CoreCapabilities), CoreCapabilitiesBuilder.new)
+      ..add(CoreCapabilities.serializer)
+      ..addBuilderFactory(const FullType(CoreCapabilities_Core), CoreCapabilities_CoreBuilder.new)
+      ..add(CoreCapabilities_Core.serializer)
+      ..addBuilderFactory(const FullType(CorePublicCapabilities), CorePublicCapabilitiesBuilder.new)
+      ..add(CorePublicCapabilities.serializer)
+      ..addBuilderFactory(
+        const FullType(CorePublicCapabilities_Bruteforce),
+        CorePublicCapabilities_BruteforceBuilder.new,
+      )
+      ..add(CorePublicCapabilities_Bruteforce.serializer)
       ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilitiesBuilder.new)
       ..add(CommentsCapabilities.serializer)
       ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_FilesBuilder.new)
@@ -17022,45 +18564,41 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($46564992d3ed3482aa6c1162698aac99Extension._serializer)
+      ..addBuilderFactory(const FullType(SpreedCapabilities), SpreedCapabilitiesBuilder.new)
+      ..add(SpreedCapabilities.serializer)
+      ..addBuilderFactory(const FullType(SpreedCapabilities_Config), SpreedCapabilities_ConfigBuilder.new)
+      ..add(SpreedCapabilities_Config.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Attachments),
+        SpreedCapabilities_Config_AttachmentsBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Attachments.serializer)
+      ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Call), SpreedCapabilities_Config_CallBuilder.new)
+      ..add(SpreedCapabilities_Config_Call.serializer)
+      ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Chat), SpreedCapabilities_Config_ChatBuilder.new)
+      ..add(SpreedCapabilities_Config_Chat.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Conversations),
+        SpreedCapabilities_Config_ConversationsBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Conversations.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Federation),
+        SpreedCapabilities_Config_FederationBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Federation.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Previews),
+        SpreedCapabilities_Config_PreviewsBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Previews.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedCapabilities_Config_Signaling),
+        SpreedCapabilities_Config_SignalingBuilder.new,
+      )
+      ..add(SpreedCapabilities_Config_Signaling.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_SpreedBuilder.new)
-      ..add(SpreedPublicCapabilities0_Spreed.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config),
-        SpreedPublicCapabilities0_Spreed_ConfigBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments),
-        SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Attachments.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Call),
-        SpreedPublicCapabilities0_Spreed_Config_CallBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Call.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat),
-        SpreedPublicCapabilities0_Spreed_Config_ChatBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Chat.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations),
-        SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Conversations.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews),
-        SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Previews.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling),
-        SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder.new,
-      )
-      ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
       ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
       ..add(SystemtagsCapabilities.serializer)
@@ -17095,13 +18633,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($d6144dc1a5d1c43badd4fd45532494b5Extension._serializer)
-      ..add(PreviewGetPreviewByFileIdA.serializer)
-      ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
-      ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
+      ..add($f6f5edfce09cb06e8f14ce14ab1af117Extension._serializer)
       ..add(PreviewGetPreviewA.serializer)
       ..add(PreviewGetPreviewForceIcon.serializer)
       ..add(PreviewGetPreviewMimeFallback.serializer)
+      ..add(PreviewGetPreviewByFileIdA.serializer)
+      ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
+      ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
@@ -17112,42 +18650,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson),
-        ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
-        ReferenceApiResolveOneResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
-      ..add(Reference.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Reference)]),
-        MapBuilder<String, Reference>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson),
-        ReferenceApiResolveResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
-        ReferenceApiResolveResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..add(ReferenceApiExtractResolve.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiExtractResponseApplicationJson),
@@ -17164,6 +18666,42 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
+      ..add(Reference.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(Reference)]),
+        MapBuilder<String, Reference>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOneResponseApplicationJson),
+        ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
+        ReferenceApiResolveOneResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveResponseApplicationJson),
+        ReferenceApiResolveResponseApplicationJsonBuilder.new,
+      )
+      ..add(ReferenceApiResolveResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
+        ReferenceApiResolveResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
+        ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
         ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder.new,
@@ -17192,6 +18730,42 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TeamsApiResolveOneResponseApplicationJson),
+        TeamsApiResolveOneResponseApplicationJsonBuilder.new,
+      )
+      ..add(TeamsApiResolveOneResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs),
+        TeamsApiResolveOneResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TeamsApiResolveOneResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs_Data),
+        TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TeamsApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(TeamResource), TeamResourceBuilder.new)
+      ..add(TeamResource.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(TeamResource)]), ListBuilder<TeamResource>.new)
+      ..addBuilderFactory(
+        const FullType(TeamsApiListTeamsResponseApplicationJson),
+        TeamsApiListTeamsResponseApplicationJsonBuilder.new,
+      )
+      ..add(TeamsApiListTeamsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs),
+        TeamsApiListTeamsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(TeamsApiListTeamsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs_Data),
+        TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(TeamsApiListTeamsResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(Team), TeamBuilder.new)
+      ..add(Team.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Team)]), ListBuilder<Team>.new)
       ..addBuilderFactory(
         const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
         TextProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
@@ -17473,7 +19047,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(WipeCheckWipeResponseApplicationJson),
         WipeCheckWipeResponseApplicationJsonBuilder.new,
       )
-      ..add(WipeCheckWipeResponseApplicationJson.serializer))
+      ..add(WipeCheckWipeResponseApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Core), Capabilities_CoreBuilder.new)
+      ..add(Capabilities_Core.serializer)
+      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+      ..add(PublicCapabilities.serializer)
+      ..addBuilderFactory(const FullType(PublicCapabilities_Bruteforce), PublicCapabilities_BruteforceBuilder.new)
+      ..add(PublicCapabilities_Bruteforce.serializer))
     .build();
 
 /// Serializer for all values in this library.
@@ -17491,7 +19073,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$d6144dc1a5d1c43badd4fd45532494b5,
+            _$f6f5edfce09cb06e8f14ce14ab1af117,
           },
         ),
       )

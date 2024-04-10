@@ -30,8 +30,8 @@ class TalkRichObjectFile extends StatelessWidget {
     if (parameter.previewAvailable == spreed.RichObjectParameter_PreviewAvailable.yes) {
       final maxHeight = MediaQuery.sizeOf(context).height / 2;
 
-      var width = parameter.width;
-      var height = parameter.height;
+      var width = _parseDimension(parameter.width);
+      var height = _parseDimension(parameter.height);
       if (width != null && height != null) {
         final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
 
@@ -94,5 +94,23 @@ class TalkRichObjectFile extends StatelessWidget {
       },
       child: child,
     );
+  }
+
+  int? _parseDimension(({int? $int, String? string})? dimension) {
+    if (dimension == null) {
+      return null;
+    }
+
+    final $int = dimension.$int;
+    if ($int != null) {
+      return $int;
+    }
+
+    final string = dimension.string;
+    if (string != null) {
+      return int.parse(string);
+    }
+
+    throw ArgumentError(r'One of $int or string has to be not-null');
   }
 }

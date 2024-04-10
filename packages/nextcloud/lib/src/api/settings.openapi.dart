@@ -17,14 +17,19 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i5;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
+import 'package:dynamite_runtime/models.dart';
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 part 'settings.openapi.g.dart';
 
@@ -44,7 +49,225 @@ class $Client extends _i1.DynamiteClient {
           authentications: client.authentications,
         );
 
+  late final $DeclarativeSettingsClient declarativeSettings = $DeclarativeSettingsClient(this);
+
   late final $LogSettingsClient logSettings = $LogSettingsClient(this);
+}
+
+class $DeclarativeSettingsClient {
+  /// Creates a new `DynamiteClient` for declarative_settings requests.
+  $DeclarativeSettingsClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$setValue_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeclarativeSettingsSetValueResponseApplicationJson, void> $setValue_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DeclarativeSettingsSetValueResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Sets a declarative settings value.
+  ///
+  /// Returns a `DynamiteRequest` backing the [setValue] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app.
+  ///   * [formId] ID of the form.
+  ///   * [fieldId] ID of the field.
+  ///   * [value] Value to be saved.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Value set successfully
+  ///   * 500: Not logged in or not an admin user
+  ///   * 400: Invalid arguments to save value
+  ///
+  /// See:
+  ///  * [setValue] for a method executing this request and parsing the response.
+  ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $setValue_Request({
+    required String app,
+    required String formId,
+    required String fieldId,
+    required ContentString<JsonObject> value,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = $app;
+
+    final $formId = _$jsonSerializers.serialize(formId, specifiedType: const FullType(String));
+    _parameters['formId'] = $formId;
+
+    final $fieldId = _$jsonSerializers.serialize(fieldId, specifiedType: const FullType(String));
+    _parameters['fieldId'] = $fieldId;
+
+    final $value =
+        _$jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(JsonObject)]));
+    _parameters['value'] = $value;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/settings/api/declarative/value{?app*,formId*,fieldId*,value*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Sets a declarative settings value.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [app] ID of the app.
+  ///   * [formId] ID of the form.
+  ///   * [fieldId] ID of the field.
+  ///   * [value] Value to be saved.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Value set successfully
+  ///   * 500: Not logged in or not an admin user
+  ///   * 400: Invalid arguments to save value
+  ///
+  /// See:
+  ///  * [$setValue_Request] for the request send by this method.
+  ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DeclarativeSettingsSetValueResponseApplicationJson, void>> setValue({
+    required String app,
+    required String formId,
+    required String fieldId,
+    required ContentString<JsonObject> value,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $setValue_Request(
+      app: app,
+      formId: formId,
+      fieldId: fieldId,
+      value: value,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $setValue_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getForms_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<DeclarativeSettingsGetFormsResponseApplicationJson, void> $getForms_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(DeclarativeSettingsGetFormsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Gets all declarative forms with the values prefilled.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getForms] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Forms returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getForms] for a method executing this request and parsing the response.
+  ///  * [$getForms_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getForms_Request({bool? oCSAPIRequest}) {
+    const _path = '/ocs/v2.php/settings/api/declarative/forms';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Gets all declarative forms with the values prefilled.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Forms returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$getForms_Request] for the request send by this method.
+  ///  * [$getForms_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<DeclarativeSettingsGetFormsResponseApplicationJson, void>> getForms({
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getForms_Request(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getForms_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 }
 
 class $LogSettingsClient {
@@ -127,6 +350,670 @@ class $LogSettingsClient {
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $OCSMetaInterface {
+  String get status;
+  int get statuscode;
+  String? get message;
+  String? get totalitems;
+  String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
+}
+
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+
+  // coverage:ignore-start
+  const OCSMeta._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for OCSMeta.
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject? get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeSettingsSetValueResponseApplicationJson_Ocs
+    implements
+        $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface,
+        Built<DeclarativeSettingsSetValueResponseApplicationJson_Ocs,
+            DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DeclarativeSettingsSetValueResponseApplicationJson_Ocs object using the builder pattern.
+  factory DeclarativeSettingsSetValueResponseApplicationJson_Ocs([
+    void Function(DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DeclarativeSettingsSetValueResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DeclarativeSettingsSetValueResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeSettingsSetValueResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeSettingsSetValueResponseApplicationJson_Ocs.
+  static Serializer<DeclarativeSettingsSetValueResponseApplicationJson_Ocs> get serializer =>
+      _$declarativeSettingsSetValueResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder b) {
+    $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder b) {
+    $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeSettingsSetValueResponseApplicationJsonInterface {
+  DeclarativeSettingsSetValueResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeSettingsSetValueResponseApplicationJson
+    implements
+        $DeclarativeSettingsSetValueResponseApplicationJsonInterface,
+        Built<DeclarativeSettingsSetValueResponseApplicationJson,
+            DeclarativeSettingsSetValueResponseApplicationJsonBuilder> {
+  /// Creates a new DeclarativeSettingsSetValueResponseApplicationJson object using the builder pattern.
+  factory DeclarativeSettingsSetValueResponseApplicationJson([
+    void Function(DeclarativeSettingsSetValueResponseApplicationJsonBuilder)? b,
+  ]) = _$DeclarativeSettingsSetValueResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DeclarativeSettingsSetValueResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeSettingsSetValueResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeSettingsSetValueResponseApplicationJson.
+  static Serializer<DeclarativeSettingsSetValueResponseApplicationJson> get serializer =>
+      _$declarativeSettingsSetValueResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeSettingsSetValueResponseApplicationJsonBuilder b) {
+    $DeclarativeSettingsSetValueResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeSettingsSetValueResponseApplicationJsonBuilder b) {
+    $DeclarativeSettingsSetValueResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class DeclarativeForm_SectionType extends EnumClass {
+  const DeclarativeForm_SectionType._(super.name);
+
+  /// `admin`
+  static const DeclarativeForm_SectionType admin = _$declarativeFormSectionTypeAdmin;
+
+  /// `personal`
+  static const DeclarativeForm_SectionType personal = _$declarativeFormSectionTypePersonal;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<DeclarativeForm_SectionType> get values => _$declarativeFormSectionTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static DeclarativeForm_SectionType valueOf(String name) => _$valueOfDeclarativeForm_SectionType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for DeclarativeForm_SectionType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeclarativeForm_SectionType> get serializer => const _$DeclarativeForm_SectionTypeSerializer();
+}
+
+class _$DeclarativeForm_SectionTypeSerializer implements PrimitiveSerializer<DeclarativeForm_SectionType> {
+  const _$DeclarativeForm_SectionTypeSerializer();
+
+  static const Map<DeclarativeForm_SectionType, Object> _toWire = <DeclarativeForm_SectionType, Object>{
+    DeclarativeForm_SectionType.admin: 'admin',
+    DeclarativeForm_SectionType.personal: 'personal',
+  };
+
+  static const Map<Object, DeclarativeForm_SectionType> _fromWire = <Object, DeclarativeForm_SectionType>{
+    'admin': DeclarativeForm_SectionType.admin,
+    'personal': DeclarativeForm_SectionType.personal,
+  };
+
+  @override
+  Iterable<Type> get types => const [DeclarativeForm_SectionType];
+
+  @override
+  String get wireName => 'DeclarativeForm_SectionType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    DeclarativeForm_SectionType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  DeclarativeForm_SectionType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class DeclarativeForm_StorageType extends EnumClass {
+  const DeclarativeForm_StorageType._(super.name);
+
+  /// `internal`
+  static const DeclarativeForm_StorageType internal = _$declarativeFormStorageTypeInternal;
+
+  /// `external`
+  @BuiltValueEnumConst(wireName: 'external')
+  static const DeclarativeForm_StorageType $external = _$declarativeFormStorageType$external;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<DeclarativeForm_StorageType> get values => _$declarativeFormStorageTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static DeclarativeForm_StorageType valueOf(String name) => _$valueOfDeclarativeForm_StorageType(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for DeclarativeForm_StorageType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeclarativeForm_StorageType> get serializer => const _$DeclarativeForm_StorageTypeSerializer();
+}
+
+class _$DeclarativeForm_StorageTypeSerializer implements PrimitiveSerializer<DeclarativeForm_StorageType> {
+  const _$DeclarativeForm_StorageTypeSerializer();
+
+  static const Map<DeclarativeForm_StorageType, Object> _toWire = <DeclarativeForm_StorageType, Object>{
+    DeclarativeForm_StorageType.internal: 'internal',
+    DeclarativeForm_StorageType.$external: 'external',
+  };
+
+  static const Map<Object, DeclarativeForm_StorageType> _fromWire = <Object, DeclarativeForm_StorageType>{
+    'internal': DeclarativeForm_StorageType.internal,
+    'external': DeclarativeForm_StorageType.$external,
+  };
+
+  @override
+  Iterable<Type> get types => const [DeclarativeForm_StorageType];
+
+  @override
+  String get wireName => 'DeclarativeForm_StorageType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    DeclarativeForm_StorageType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  DeclarativeForm_StorageType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class DeclarativeFormField_Type extends EnumClass {
+  const DeclarativeFormField_Type._(super.name);
+
+  /// `text`
+  static const DeclarativeFormField_Type text = _$declarativeFormFieldTypeText;
+
+  /// `password`
+  static const DeclarativeFormField_Type password = _$declarativeFormFieldTypePassword;
+
+  /// `email`
+  static const DeclarativeFormField_Type email = _$declarativeFormFieldTypeEmail;
+
+  /// `tel`
+  static const DeclarativeFormField_Type tel = _$declarativeFormFieldTypeTel;
+
+  /// `url`
+  static const DeclarativeFormField_Type url = _$declarativeFormFieldTypeUrl;
+
+  /// `number`
+  static const DeclarativeFormField_Type number = _$declarativeFormFieldTypeNumber;
+
+  /// `checkbox`
+  static const DeclarativeFormField_Type checkbox = _$declarativeFormFieldTypeCheckbox;
+
+  /// `multi-checkbox`
+  @BuiltValueEnumConst(wireName: 'multi-checkbox')
+  static const DeclarativeFormField_Type multiCheckbox = _$declarativeFormFieldTypeMultiCheckbox;
+
+  /// `radio`
+  static const DeclarativeFormField_Type radio = _$declarativeFormFieldTypeRadio;
+
+  /// `select`
+  static const DeclarativeFormField_Type select = _$declarativeFormFieldTypeSelect;
+
+  /// `multi-select`
+  @BuiltValueEnumConst(wireName: 'multi-select')
+  static const DeclarativeFormField_Type multiSelect = _$declarativeFormFieldTypeMultiSelect;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<DeclarativeFormField_Type> get values => _$declarativeFormFieldTypeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static DeclarativeFormField_Type valueOf(String name) => _$valueOfDeclarativeFormField_Type(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for DeclarativeFormField_Type.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeclarativeFormField_Type> get serializer => const _$DeclarativeFormField_TypeSerializer();
+}
+
+class _$DeclarativeFormField_TypeSerializer implements PrimitiveSerializer<DeclarativeFormField_Type> {
+  const _$DeclarativeFormField_TypeSerializer();
+
+  static const Map<DeclarativeFormField_Type, Object> _toWire = <DeclarativeFormField_Type, Object>{
+    DeclarativeFormField_Type.text: 'text',
+    DeclarativeFormField_Type.password: 'password',
+    DeclarativeFormField_Type.email: 'email',
+    DeclarativeFormField_Type.tel: 'tel',
+    DeclarativeFormField_Type.url: 'url',
+    DeclarativeFormField_Type.number: 'number',
+    DeclarativeFormField_Type.checkbox: 'checkbox',
+    DeclarativeFormField_Type.multiCheckbox: 'multi-checkbox',
+    DeclarativeFormField_Type.radio: 'radio',
+    DeclarativeFormField_Type.select: 'select',
+    DeclarativeFormField_Type.multiSelect: 'multi-select',
+  };
+
+  static const Map<Object, DeclarativeFormField_Type> _fromWire = <Object, DeclarativeFormField_Type>{
+    'text': DeclarativeFormField_Type.text,
+    'password': DeclarativeFormField_Type.password,
+    'email': DeclarativeFormField_Type.email,
+    'tel': DeclarativeFormField_Type.tel,
+    'url': DeclarativeFormField_Type.url,
+    'number': DeclarativeFormField_Type.number,
+    'checkbox': DeclarativeFormField_Type.checkbox,
+    'multi-checkbox': DeclarativeFormField_Type.multiCheckbox,
+    'radio': DeclarativeFormField_Type.radio,
+    'select': DeclarativeFormField_Type.select,
+    'multi-select': DeclarativeFormField_Type.multiSelect,
+  };
+
+  @override
+  Iterable<Type> get types => const [DeclarativeFormField_Type];
+
+  @override
+  String get wireName => 'DeclarativeFormField_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    DeclarativeFormField_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  DeclarativeFormField_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeFormField_Options1Interface {
+  String get name;
+  JsonObject get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeFormField_Options1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeFormField_Options1InterfaceBuilder b) {}
+}
+
+abstract class DeclarativeFormField_Options1
+    implements
+        $DeclarativeFormField_Options1Interface,
+        Built<DeclarativeFormField_Options1, DeclarativeFormField_Options1Builder> {
+  /// Creates a new DeclarativeFormField_Options1 object using the builder pattern.
+  factory DeclarativeFormField_Options1([void Function(DeclarativeFormField_Options1Builder)? b]) =
+      _$DeclarativeFormField_Options1;
+
+  // coverage:ignore-start
+  const DeclarativeFormField_Options1._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeFormField_Options1.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeFormField_Options1.
+  static Serializer<DeclarativeFormField_Options1> get serializer => _$declarativeFormFieldOptions1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeFormField_Options1Builder b) {
+    $DeclarativeFormField_Options1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeFormField_Options1Builder b) {
+    $DeclarativeFormField_Options1Interface._validate(b);
+  }
+}
+
+typedef DeclarativeFormField_Options = ({DeclarativeFormField_Options1? declarativeFormFieldOptions1, String? string});
+typedef DeclarativeFormField_Value = ({bool? $bool, BuiltList<String>? builtListString, num? $num, String? string});
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeFormFieldInterface {
+  String get id;
+  String get title;
+  String? get description;
+  DeclarativeFormField_Type get type;
+  String? get placeholder;
+  String? get label;
+  @BuiltValueField(wireName: 'default')
+  JsonObject get $default;
+  BuiltList<DeclarativeFormField_Options>? get options;
+  DeclarativeFormField_Value get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeFormFieldInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeFormFieldInterfaceBuilder b) {
+    b.value?.validateAnyOf();
+  }
+}
+
+abstract class DeclarativeFormField
+    implements $DeclarativeFormFieldInterface, Built<DeclarativeFormField, DeclarativeFormFieldBuilder> {
+  /// Creates a new DeclarativeFormField object using the builder pattern.
+  factory DeclarativeFormField([void Function(DeclarativeFormFieldBuilder)? b]) = _$DeclarativeFormField;
+
+  // coverage:ignore-start
+  const DeclarativeFormField._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeFormField.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeFormField.
+  static Serializer<DeclarativeFormField> get serializer => _$declarativeFormFieldSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeFormFieldBuilder b) {
+    $DeclarativeFormFieldInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeFormFieldBuilder b) {
+    $DeclarativeFormFieldInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeFormInterface {
+  String get id;
+  int get priority;
+  @BuiltValueField(wireName: 'section_type')
+  DeclarativeForm_SectionType get sectionType;
+  @BuiltValueField(wireName: 'section_id')
+  String get sectionId;
+  @BuiltValueField(wireName: 'storage_type')
+  DeclarativeForm_StorageType get storageType;
+  String get title;
+  String? get description;
+  @BuiltValueField(wireName: 'doc_url')
+  String? get docUrl;
+  String get app;
+  BuiltList<DeclarativeFormField> get fields;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeFormInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeFormInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeForm implements $DeclarativeFormInterface, Built<DeclarativeForm, DeclarativeFormBuilder> {
+  /// Creates a new DeclarativeForm object using the builder pattern.
+  factory DeclarativeForm([void Function(DeclarativeFormBuilder)? b]) = _$DeclarativeForm;
+
+  // coverage:ignore-start
+  const DeclarativeForm._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeForm.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeForm.
+  static Serializer<DeclarativeForm> get serializer => _$declarativeFormSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeFormBuilder b) {
+    $DeclarativeFormInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeFormBuilder b) {
+    $DeclarativeFormInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<DeclarativeForm> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
+    implements
+        $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface,
+        Built<DeclarativeSettingsGetFormsResponseApplicationJson_Ocs,
+            DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DeclarativeSettingsGetFormsResponseApplicationJson_Ocs object using the builder pattern.
+  factory DeclarativeSettingsGetFormsResponseApplicationJson_Ocs([
+    void Function(DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$DeclarativeSettingsGetFormsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const DeclarativeSettingsGetFormsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.
+  static Serializer<DeclarativeSettingsGetFormsResponseApplicationJson_Ocs> get serializer =>
+      _$declarativeSettingsGetFormsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder b) {
+    $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder b) {
+    $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $DeclarativeSettingsGetFormsResponseApplicationJsonInterface {
+  DeclarativeSettingsGetFormsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeSettingsGetFormsResponseApplicationJson
+    implements
+        $DeclarativeSettingsGetFormsResponseApplicationJsonInterface,
+        Built<DeclarativeSettingsGetFormsResponseApplicationJson,
+            DeclarativeSettingsGetFormsResponseApplicationJsonBuilder> {
+  /// Creates a new DeclarativeSettingsGetFormsResponseApplicationJson object using the builder pattern.
+  factory DeclarativeSettingsGetFormsResponseApplicationJson([
+    void Function(DeclarativeSettingsGetFormsResponseApplicationJsonBuilder)? b,
+  ]) = _$DeclarativeSettingsGetFormsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const DeclarativeSettingsGetFormsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeSettingsGetFormsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeSettingsGetFormsResponseApplicationJson.
+  static Serializer<DeclarativeSettingsGetFormsResponseApplicationJson> get serializer =>
+      _$declarativeSettingsGetFormsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeSettingsGetFormsResponseApplicationJsonBuilder b) {
+    $DeclarativeSettingsGetFormsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeSettingsGetFormsResponseApplicationJsonBuilder b) {
+    $DeclarativeSettingsGetFormsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
@@ -178,6 +1065,228 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   }
 }
 
+/// Serialization extension for `DeclarativeFormField_Options`.
+extension $DeclarativeFormField_OptionsExtension on DeclarativeFormField_Options {
+  /// Serializer for DeclarativeFormField_Options.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeclarativeFormField_Options> get serializer =>
+      $ecd8d9fe35935410da9dc2662cd86d27Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static DeclarativeFormField_Options fromJson(Object? json) =>
+      $ecd8d9fe35935410da9dc2662cd86d27Extension._fromJson(json);
+}
+
+/// Serialization extension for `DeclarativeFormField_Value`.
+extension $DeclarativeFormField_ValueExtension on DeclarativeFormField_Value {
+  /// Serializer for DeclarativeFormField_Value.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeclarativeFormField_Value> get serializer =>
+      $bb4e9af94b69347c125c27e03a648d24Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static DeclarativeFormField_Value fromJson(Object? json) =>
+      $bb4e9af94b69347c125c27e03a648d24Extension._fromJson(json);
+}
+
+typedef _$ecd8d9fe35935410da9dc2662cd86d27 = ({
+  DeclarativeFormField_Options1? declarativeFormFieldOptions1,
+  String? string
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2662cd86d27 {
+  List<dynamic> get _values => [declarativeFormFieldOptions1, string];
+  List<String> get _names => const ['declarativeFormFieldOptions1', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$ecd8d9fe35935410da9dc2662cd86d27> get _serializer =>
+      const _$ecd8d9fe35935410da9dc2662cd86d27Serializer();
+  static _$ecd8d9fe35935410da9dc2662cd86d27 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$ecd8d9fe35935410da9dc2662cd86d27Serializer implements PrimitiveSerializer<_$ecd8d9fe35935410da9dc2662cd86d27> {
+  const _$ecd8d9fe35935410da9dc2662cd86d27Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$ecd8d9fe35935410da9dc2662cd86d27];
+
+  @override
+  String get wireName => r'_$ecd8d9fe35935410da9dc2662cd86d27';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$ecd8d9fe35935410da9dc2662cd86d27 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.declarativeFormFieldOptions1;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(DeclarativeFormField_Options1))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$ecd8d9fe35935410da9dc2662cd86d27 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    DeclarativeFormField_Options1? declarativeFormFieldOptions1;
+    try {
+      declarativeFormFieldOptions1 = serializers.deserialize(
+        data,
+        specifiedType: const FullType(DeclarativeFormField_Options1),
+      )! as DeclarativeFormField_Options1;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return (declarativeFormFieldOptions1: declarativeFormFieldOptions1, string: string);
+  }
+}
+
+typedef _$bb4e9af94b69347c125c27e03a648d24 = ({
+  bool? $bool,
+  BuiltList<String>? builtListString,
+  num? $num,
+  String? string
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27e03a648d24 {
+  List<dynamic> get _values => [$bool, builtListString, $num, string];
+  List<String> get _names => const [r'$bool', 'builtListString', r'$num', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i5.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i5.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$bb4e9af94b69347c125c27e03a648d24> get _serializer =>
+      const _$bb4e9af94b69347c125c27e03a648d24Serializer();
+  static _$bb4e9af94b69347c125c27e03a648d24 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerializer<_$bb4e9af94b69347c125c27e03a648d24> {
+  const _$bb4e9af94b69347c125c27e03a648d24Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$bb4e9af94b69347c125c27e03a648d24];
+
+  @override
+  String get wireName => r'_$bb4e9af94b69347c125c27e03a648d24';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$bb4e9af94b69347c125c27e03a648d24 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$bool;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(bool))!;
+    }
+    value = object.builtListString;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!;
+    }
+    value = object.$num;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$bb4e9af94b69347c125c27e03a648d24 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    bool? $bool;
+    try {
+      $bool = serializers.deserialize(
+        data,
+        specifiedType: const FullType(bool),
+      )! as bool;
+    } catch (_) {}
+    BuiltList<String>? builtListString;
+    try {
+      builtListString = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      )! as BuiltList<String>;
+    } catch (_) {}
+    num? $num;
+    try {
+      $num = serializers.deserialize(
+        data,
+        specifiedType: const FullType(num),
+      )! as num;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return ($bool: $bool, builtListString: builtListString, $num: $num, string: string);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -186,6 +1295,51 @@ abstract class LogSettingsLogSettingsDownloadHeaders
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(const FullType(ContentString, [FullType(JsonObject)]), ContentStringBuilder<JsonObject>.new)
+      ..add(ContentString.serializer)
+      ..addBuilderFactory(
+        const FullType(DeclarativeSettingsSetValueResponseApplicationJson),
+        DeclarativeSettingsSetValueResponseApplicationJsonBuilder.new,
+      )
+      ..add(DeclarativeSettingsSetValueResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DeclarativeSettingsSetValueResponseApplicationJson_Ocs),
+        DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DeclarativeSettingsSetValueResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+      ..add(OCSMeta.serializer)
+      ..addBuilderFactory(
+        const FullType(DeclarativeSettingsGetFormsResponseApplicationJson),
+        DeclarativeSettingsGetFormsResponseApplicationJsonBuilder.new,
+      )
+      ..add(DeclarativeSettingsGetFormsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs),
+        DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(DeclarativeForm), DeclarativeFormBuilder.new)
+      ..add(DeclarativeForm.serializer)
+      ..add(DeclarativeForm_SectionType.serializer)
+      ..add(DeclarativeForm_StorageType.serializer)
+      ..addBuilderFactory(const FullType(DeclarativeFormField), DeclarativeFormFieldBuilder.new)
+      ..add(DeclarativeFormField.serializer)
+      ..add(DeclarativeFormField_Type.serializer)
+      ..addBuilderFactory(const FullType(DeclarativeFormField_Options1), DeclarativeFormField_Options1Builder.new)
+      ..add(DeclarativeFormField_Options1.serializer)
+      ..add($ecd8d9fe35935410da9dc2662cd86d27Extension._serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(DeclarativeFormField_Options)]),
+        ListBuilder<DeclarativeFormField_Options>.new,
+      )
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..add($bb4e9af94b69347c125c27e03a648d24Extension._serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(DeclarativeFormField)]),
+        ListBuilder<DeclarativeFormField>.new,
+      )
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(DeclarativeForm)]), ListBuilder<DeclarativeForm>.new)
       ..addBuilderFactory(
         const FullType(LogSettingsLogSettingsDownloadHeaders),
         LogSettingsLogSettingsDownloadHeadersBuilder.new,
@@ -200,9 +1354,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(
+        _i7.StandardJsonPlugin(
+          typesToLeaveAsList: const {
+            _$ecd8d9fe35935410da9dc2662cd86d27,
+            _$bb4e9af94b69347c125c27e03a648d24,
+          },
+        ),
+      )
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -22,6 +22,23 @@ final BuiltSet<ApiGetAppListApiVersion> _$apiGetAppListApiVersionValues =
   _$apiGetAppListApiVersionV1,
 ]);
 
+const ApiGetAppChangelogEntryApiVersion _$apiGetAppChangelogEntryApiVersionV1 =
+    ApiGetAppChangelogEntryApiVersion._('v1');
+
+ApiGetAppChangelogEntryApiVersion _$valueOfApiGetAppChangelogEntryApiVersion(String name) {
+  switch (name) {
+    case 'v1':
+      return _$apiGetAppChangelogEntryApiVersionV1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ApiGetAppChangelogEntryApiVersion> _$apiGetAppChangelogEntryApiVersionValues =
+    BuiltSet<ApiGetAppChangelogEntryApiVersion>(const <ApiGetAppChangelogEntryApiVersion>[
+  _$apiGetAppChangelogEntryApiVersionV1,
+]);
+
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<App> _$appSerializer = _$AppSerializer();
 Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> _$apiGetAppListResponseApplicationJsonOcsDataSerializer =
@@ -30,6 +47,14 @@ Serializer<ApiGetAppListResponseApplicationJson_Ocs> _$apiGetAppListResponseAppl
     _$ApiGetAppListResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetAppListResponseApplicationJson> _$apiGetAppListResponseApplicationJsonSerializer =
     _$ApiGetAppListResponseApplicationJsonSerializer();
+Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data>
+    _$apiGetAppChangelogEntryResponseApplicationJsonOcsDataSerializer =
+    _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs>
+    _$apiGetAppChangelogEntryResponseApplicationJsonOcsSerializer =
+    _$ApiGetAppChangelogEntryResponseApplicationJson_OcsSerializer();
+Serializer<ApiGetAppChangelogEntryResponseApplicationJson> _$apiGetAppChangelogEntryResponseApplicationJsonSerializer =
+    _$ApiGetAppChangelogEntryResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -274,6 +299,154 @@ class _$ApiGetAppListResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ApiGetAppListResponseApplicationJson_Ocs))!
                   as ApiGetAppListResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data,
+    _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'appName',
+      serializers.serialize(object.appName, specifiedType: const FullType(String)),
+      'content',
+      serializers.serialize(object.content, specifiedType: const FullType(String)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'appName':
+          result.appName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'content':
+          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs,
+    _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiGetAppChangelogEntryResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetAppChangelogEntryResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data))!
+              as ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGetAppChangelogEntryResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetAppChangelogEntryResponseApplicationJson,
+    _$ApiGetAppChangelogEntryResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGetAppChangelogEntryResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetAppChangelogEntryResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetAppChangelogEntryResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs))!
+              as ApiGetAppChangelogEntryResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -878,6 +1051,376 @@ class ApiGetAppListResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ApiGetAppListResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get appName;
+  set appName(String? appName);
+
+  String? get content;
+  set content(String? content);
+
+  String? get version;
+  set version(String? version);
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
+    extends ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data {
+  @override
+  final String appName;
+  @override
+  final String content;
+  @override
+  final String version;
+
+  factory _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data(
+          [void Function(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._(
+      {required this.appName, required this.content, required this.version})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        appName, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'appName');
+    BuiltValueNullFieldError.checkNotNull(
+        content, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'content');
+    BuiltValueNullFieldError.checkNotNull(
+        version, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'version');
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data &&
+        appName == other.appName &&
+        content == other.content &&
+        version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, appName.hashCode);
+    _$hash = $jc(_$hash, content.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data')
+          ..add('appName', appName)
+          ..add('content', content)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data,
+            ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder>,
+        $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _appName;
+  String? get appName => _$this._appName;
+  set appName(covariant String? appName) => _$this._appName = appName;
+
+  String? _content;
+  String? get content => _$this._content;
+  set content(covariant String? content) => _$this._content = content;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder() {
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _appName = $v.appName;
+      _content = $v.content;
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data _build() {
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._(
+            appName: BuiltValueNullFieldError.checkNotNull(
+                appName, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'appName'),
+            content: BuiltValueNullFieldError.checkNotNull(
+                content, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'content'),
+            version: BuiltValueNullFieldError.checkNotNull(
+                version, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data', 'version'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs extends ApiGetAppChangelogEntryResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data data;
+
+  factory _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs(
+          [void Function(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs rebuild(
+          void Function(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGetAppChangelogEntryResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiGetAppChangelogEntryResponseApplicationJson_Ocs,
+            ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder>,
+        $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder? _data;
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder() {
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGetAppChangelogEntryResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs _build() {
+    ApiGetAppChangelogEntryResponseApplicationJson_Ocs._validate(this);
+    _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiGetAppChangelogEntryResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiGetAppChangelogEntryResponseApplicationJsonInterface other);
+  void update(void Function($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder) updates);
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiGetAppChangelogEntryResponseApplicationJson extends ApiGetAppChangelogEntryResponseApplicationJson {
+  @override
+  final ApiGetAppChangelogEntryResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiGetAppChangelogEntryResponseApplicationJson(
+          [void Function(ApiGetAppChangelogEntryResponseApplicationJsonBuilder)? updates]) =>
+      (ApiGetAppChangelogEntryResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiGetAppChangelogEntryResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson rebuild(
+          void Function(ApiGetAppChangelogEntryResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJsonBuilder toBuilder() =>
+      ApiGetAppChangelogEntryResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGetAppChangelogEntryResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGetAppChangelogEntryResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ApiGetAppChangelogEntryResponseApplicationJsonBuilder
+    implements
+        Builder<ApiGetAppChangelogEntryResponseApplicationJson, ApiGetAppChangelogEntryResponseApplicationJsonBuilder>,
+        $ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder {
+  _$ApiGetAppChangelogEntryResponseApplicationJson? _$v;
+
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder? _ocs;
+  ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiGetAppChangelogEntryResponseApplicationJsonBuilder() {
+    ApiGetAppChangelogEntryResponseApplicationJson._defaults(this);
+  }
+
+  ApiGetAppChangelogEntryResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGetAppChangelogEntryResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGetAppChangelogEntryResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiGetAppChangelogEntryResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGetAppChangelogEntryResponseApplicationJson build() => _build();
+
+  _$ApiGetAppChangelogEntryResponseApplicationJson _build() {
+    ApiGetAppChangelogEntryResponseApplicationJson._validate(this);
+    _$ApiGetAppChangelogEntryResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiGetAppChangelogEntryResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ApiGetAppChangelogEntryResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

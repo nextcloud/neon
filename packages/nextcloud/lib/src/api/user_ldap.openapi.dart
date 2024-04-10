@@ -256,7 +256,7 @@ class $ConfigapiClient {
         bodyType: const FullType(ConfigapiModifyResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 400, 404},
       );
 
   /// Modify a configuration.
@@ -370,7 +370,7 @@ class $ConfigapiClient {
         bodyType: const FullType(ConfigapiDeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Delete a LDAP configuration.

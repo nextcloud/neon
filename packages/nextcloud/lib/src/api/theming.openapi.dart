@@ -691,7 +691,7 @@ class $UserThemeClient {
         bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 400},
       );
 
   /// Enable theme.
@@ -788,7 +788,7 @@ class $UserThemeClient {
         bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 400},
       );
 
   /// Disable theme.

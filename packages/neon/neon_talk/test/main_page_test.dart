@@ -70,7 +70,7 @@ void main() {
   });
 
   testWidgets('Without message preview', (tester) async {
-    when(() => room.lastMessage).thenReturn((builtListNever: null, chatMessage: null));
+    when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
     when(() => room.unreadMessages).thenReturn(0);
 
     await tester.pumpWidget(
@@ -94,7 +94,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('test');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      when(() => room.lastMessage).thenReturn((builtListNever: null, chatMessage: chatMessage));
+      when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: chatMessage));
       when(() => room.unreadMessages).thenReturn(1);
 
       await tester.pumpWidget(
@@ -125,7 +125,7 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
 
-      when(() => room.lastMessage).thenReturn((builtListNever: null, chatMessage: chatMessage));
+      when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: chatMessage));
       when(() => room.unreadMessages).thenReturn(0);
       when(() => room.lastCommonReadMessage).thenReturn(0);
 
@@ -151,7 +151,7 @@ void main() {
   });
 
   testWidgets('Create room', (tester) async {
-    when(() => room.lastMessage).thenReturn((builtListNever: null, chatMessage: null));
+    when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
     when(() => room.unreadMessages).thenReturn(0);
 
     await tester.pumpWidget(

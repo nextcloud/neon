@@ -9,7 +9,7 @@
 
 /// updatenotification Version: 0.0.1.
 ///
-/// Displays update notifications for Nextcloud and provides the SSO for the updater.
+/// Displays update notifications for Nextcloud, app updates, and provides the SSO for the updater.
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
@@ -159,6 +159,124 @@ class $ApiClient {
     final _serializer = $getAppList_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getAppChangelogEntry_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ApiGetAppChangelogEntryResponseApplicationJson, void> $getAppChangelogEntry_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(ApiGetAppChangelogEntryResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get changelog entry for an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getAppChangelogEntry] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [appId] App to search changelog entry for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Changelog entry returned
+  ///   * 404: No changelog found
+  ///
+  /// See:
+  ///  * [getAppChangelogEntry] for a method executing this request and parsing the response.
+  ///  * [$getAppChangelogEntry_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getAppChangelogEntry_Request({
+    required String appId,
+    String? version,
+    ApiGetAppChangelogEntryApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = $appId;
+
+    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    _parameters['version'] = $version;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppChangelogEntryApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}{?version*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get changelog entry for an app.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [appId] App to search changelog entry for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Changelog entry returned
+  ///   * 404: No changelog found
+  ///
+  /// See:
+  ///  * [$getAppChangelogEntry_Request] for the request send by this method.
+  ///  * [$getAppChangelogEntry_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ApiGetAppChangelogEntryResponseApplicationJson, void>> getAppChangelogEntry({
+    required String appId,
+    String? version,
+    ApiGetAppChangelogEntryApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getAppChangelogEntry_Request(
+      appId: appId,
+      version: version,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getAppChangelogEntry_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<ApiGetAppChangelogEntryResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -471,6 +589,224 @@ abstract class ApiGetAppListResponseApplicationJson
   }
 }
 
+class ApiGetAppChangelogEntryApiVersion extends EnumClass {
+  const ApiGetAppChangelogEntryApiVersion._(super.name);
+
+  /// `v1`
+  static const ApiGetAppChangelogEntryApiVersion v1 = _$apiGetAppChangelogEntryApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ApiGetAppChangelogEntryApiVersion> get values => _$apiGetAppChangelogEntryApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ApiGetAppChangelogEntryApiVersion valueOf(String name) => _$valueOfApiGetAppChangelogEntryApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ApiGetAppChangelogEntryApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ApiGetAppChangelogEntryApiVersion> get serializer =>
+      const _$ApiGetAppChangelogEntryApiVersionSerializer();
+}
+
+class _$ApiGetAppChangelogEntryApiVersionSerializer implements PrimitiveSerializer<ApiGetAppChangelogEntryApiVersion> {
+  const _$ApiGetAppChangelogEntryApiVersionSerializer();
+
+  static const Map<ApiGetAppChangelogEntryApiVersion, Object> _toWire = <ApiGetAppChangelogEntryApiVersion, Object>{
+    ApiGetAppChangelogEntryApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ApiGetAppChangelogEntryApiVersion> _fromWire = <Object, ApiGetAppChangelogEntryApiVersion>{
+    'v1': ApiGetAppChangelogEntryApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ApiGetAppChangelogEntryApiVersion];
+
+  @override
+  String get wireName => 'ApiGetAppChangelogEntryApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ApiGetAppChangelogEntryApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ApiGetAppChangelogEntryApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
+  String get appName;
+  String get content;
+  String get version;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
+    implements
+        $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface,
+        Built<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data,
+            ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data([
+    void Function(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.
+  static Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data> get serializer =>
+      _$apiGetAppChangelogEntryResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs
+    implements
+        $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface,
+        Built<ApiGetAppChangelogEntryResponseApplicationJson_Ocs,
+            ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiGetAppChangelogEntryResponseApplicationJson_Ocs object using the builder pattern.
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs([
+    void Function(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ApiGetAppChangelogEntryResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson_Ocs.
+  static Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs> get serializer =>
+      _$apiGetAppChangelogEntryResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ApiGetAppChangelogEntryResponseApplicationJsonInterface {
+  ApiGetAppChangelogEntryResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiGetAppChangelogEntryResponseApplicationJson
+    implements
+        $ApiGetAppChangelogEntryResponseApplicationJsonInterface,
+        Built<ApiGetAppChangelogEntryResponseApplicationJson, ApiGetAppChangelogEntryResponseApplicationJsonBuilder> {
+  /// Creates a new ApiGetAppChangelogEntryResponseApplicationJson object using the builder pattern.
+  factory ApiGetAppChangelogEntryResponseApplicationJson([
+    void Function(ApiGetAppChangelogEntryResponseApplicationJsonBuilder)? b,
+  ]) = _$ApiGetAppChangelogEntryResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ApiGetAppChangelogEntryResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGetAppChangelogEntryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson.
+  static Serializer<ApiGetAppChangelogEntryResponseApplicationJson> get serializer =>
+      _$apiGetAppChangelogEntryResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppChangelogEntryResponseApplicationJsonBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppChangelogEntryResponseApplicationJsonBuilder b) {
+    $ApiGetAppChangelogEntryResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -499,7 +835,23 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(App), AppBuilder.new)
       ..add(App.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new)
+      ..add(ApiGetAppChangelogEntryApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGetAppChangelogEntryResponseApplicationJson),
+        ApiGetAppChangelogEntryResponseApplicationJsonBuilder.new,
+      )
+      ..add(ApiGetAppChangelogEntryResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs),
+        ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data),
+        ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.serializer))
     .build();
 
 /// Serializer for all values in this library.

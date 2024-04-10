@@ -104,6 +104,65 @@ final BuiltSet<SystemtagsCapabilities_Systemtags_Enabled> _$systemtagsCapabiliti
   _$systemtagsCapabilitiesSystemtagsEnabled$true,
 ]);
 
+const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
+
+PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewA$0;
+    case '\$1':
+      return _$previewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+  _$previewGetPreviewA$0,
+  _$previewGetPreviewA$1,
+]);
+
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$0 = PreviewGetPreviewForceIcon._('\$0');
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$1 = PreviewGetPreviewForceIcon._('\$1');
+
+PreviewGetPreviewForceIcon _$valueOfPreviewGetPreviewForceIcon(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewForceIcon$0;
+    case '\$1':
+      return _$previewGetPreviewForceIcon$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewForceIcon> _$previewGetPreviewForceIconValues =
+    BuiltSet<PreviewGetPreviewForceIcon>(const <PreviewGetPreviewForceIcon>[
+  _$previewGetPreviewForceIcon$0,
+  _$previewGetPreviewForceIcon$1,
+]);
+
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = PreviewGetPreviewMimeFallback._('\$0');
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = PreviewGetPreviewMimeFallback._('\$1');
+
+PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
+    BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
+  _$previewGetPreviewMimeFallback$0,
+  _$previewGetPreviewMimeFallback$1,
+]);
+
 const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$0 = PreviewGetPreviewByFileIdA._('\$0');
 const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$1 = PreviewGetPreviewByFileIdA._('\$1');
 
@@ -166,65 +225,6 @@ final BuiltSet<PreviewGetPreviewByFileIdMimeFallback> _$previewGetPreviewByFileI
     BuiltSet<PreviewGetPreviewByFileIdMimeFallback>(const <PreviewGetPreviewByFileIdMimeFallback>[
   _$previewGetPreviewByFileIdMimeFallback$0,
   _$previewGetPreviewByFileIdMimeFallback$1,
-]);
-
-const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
-const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
-
-PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
-  switch (name) {
-    case '\$0':
-      return _$previewGetPreviewA$0;
-    case '\$1':
-      return _$previewGetPreviewA$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
-  _$previewGetPreviewA$0,
-  _$previewGetPreviewA$1,
-]);
-
-const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$0 = PreviewGetPreviewForceIcon._('\$0');
-const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$1 = PreviewGetPreviewForceIcon._('\$1');
-
-PreviewGetPreviewForceIcon _$valueOfPreviewGetPreviewForceIcon(String name) {
-  switch (name) {
-    case '\$0':
-      return _$previewGetPreviewForceIcon$0;
-    case '\$1':
-      return _$previewGetPreviewForceIcon$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<PreviewGetPreviewForceIcon> _$previewGetPreviewForceIconValues =
-    BuiltSet<PreviewGetPreviewForceIcon>(const <PreviewGetPreviewForceIcon>[
-  _$previewGetPreviewForceIcon$0,
-  _$previewGetPreviewForceIcon$1,
-]);
-
-const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = PreviewGetPreviewMimeFallback._('\$0');
-const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = PreviewGetPreviewMimeFallback._('\$1');
-
-PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
-  switch (name) {
-    case '\$0':
-      return _$previewGetPreviewMimeFallback$0;
-    case '\$1':
-      return _$previewGetPreviewMimeFallback$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
-    BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
-  _$previewGetPreviewMimeFallback$0,
-  _$previewGetPreviewMimeFallback$1,
 ]);
 
 const ReferenceApiExtractResolve _$referenceApiExtractResolve$0 = ReferenceApiExtractResolve._('\$0');
@@ -322,6 +322,12 @@ Serializer<AppPasswordGetAppPasswordResponseApplicationJson_Ocs>
 Serializer<AppPasswordGetAppPasswordResponseApplicationJson>
     _$appPasswordGetAppPasswordResponseApplicationJsonSerializer =
     _$AppPasswordGetAppPasswordResponseApplicationJsonSerializer();
+Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs>
+    _$appPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer =
+    _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer();
+Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson>
+    _$appPasswordDeleteAppPasswordResponseApplicationJsonSerializer =
+    _$AppPasswordDeleteAppPasswordResponseApplicationJsonSerializer();
 Serializer<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data>
     _$appPasswordRotateAppPasswordResponseApplicationJsonOcsDataSerializer =
     _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataSerializer();
@@ -331,12 +337,15 @@ Serializer<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs>
 Serializer<AppPasswordRotateAppPasswordResponseApplicationJson>
     _$appPasswordRotateAppPasswordResponseApplicationJsonSerializer =
     _$AppPasswordRotateAppPasswordResponseApplicationJsonSerializer();
-Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs>
-    _$appPasswordDeleteAppPasswordResponseApplicationJsonOcsSerializer =
-    _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer();
-Serializer<AppPasswordDeleteAppPasswordResponseApplicationJson>
-    _$appPasswordDeleteAppPasswordResponseApplicationJsonSerializer =
-    _$AppPasswordDeleteAppPasswordResponseApplicationJsonSerializer();
+Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data>
+    _$appPasswordConfirmUserPasswordResponseApplicationJsonOcsDataSerializer =
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataSerializer();
+Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs>
+    _$appPasswordConfirmUserPasswordResponseApplicationJsonOcsSerializer =
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson_OcsSerializer();
+Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson>
+    _$appPasswordConfirmUserPasswordResponseApplicationJsonSerializer =
+    _$AppPasswordConfirmUserPasswordResponseApplicationJsonSerializer();
 Serializer<AutocompleteResult_Status0> _$autocompleteResultStatus0Serializer = _$AutocompleteResult_Status0Serializer();
 Serializer<AutocompleteResult> _$autocompleteResultSerializer = _$AutocompleteResultSerializer();
 Serializer<AutoCompleteGetResponseApplicationJson_Ocs> _$autoCompleteGetResponseApplicationJsonOcsSerializer =
@@ -353,12 +362,6 @@ Serializer<LoginFlowV2> _$loginFlowV2Serializer = _$LoginFlowV2Serializer();
 Serializer<OpenGraphObject> _$openGraphObjectSerializer = _$OpenGraphObjectSerializer();
 Serializer<Resource> _$resourceSerializer = _$ResourceSerializer();
 Serializer<Collection> _$collectionSerializer = _$CollectionSerializer();
-Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs>
-    _$collaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer =
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer();
-Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson>
-    _$collaborationResourcesSearchCollectionsResponseApplicationJsonSerializer =
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer();
 Serializer<CollaborationResourcesListCollectionResponseApplicationJson_Ocs>
     _$collaborationResourcesListCollectionResponseApplicationJsonOcsSerializer =
     _$CollaborationResourcesListCollectionResponseApplicationJson_OcsSerializer();
@@ -383,6 +386,12 @@ Serializer<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs>
 Serializer<CollaborationResourcesRemoveResourceResponseApplicationJson>
     _$collaborationResourcesRemoveResourceResponseApplicationJsonSerializer =
     _$CollaborationResourcesRemoveResourceResponseApplicationJsonSerializer();
+Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs>
+    _$collaborationResourcesSearchCollectionsResponseApplicationJsonOcsSerializer =
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer();
+Serializer<CollaborationResourcesSearchCollectionsResponseApplicationJson>
+    _$collaborationResourcesSearchCollectionsResponseApplicationJsonSerializer =
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer();
 Serializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs>
     _$collaborationResourcesGetCollectionsByResourceResponseApplicationJsonOcsSerializer =
     _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsSerializer();
@@ -403,6 +412,8 @@ Serializer<HoverCardGetUserResponseApplicationJson_Ocs> _$hoverCardGetUserRespon
     _$HoverCardGetUserResponseApplicationJson_OcsSerializer();
 Serializer<HoverCardGetUserResponseApplicationJson> _$hoverCardGetUserResponseApplicationJsonSerializer =
     _$HoverCardGetUserResponseApplicationJsonSerializer();
+Serializer<LoginConfirmPasswordResponseApplicationJson> _$loginConfirmPasswordResponseApplicationJsonSerializer =
+    _$LoginConfirmPasswordResponseApplicationJsonSerializer();
 Serializer<NavigationEntry> _$navigationEntrySerializer = _$NavigationEntrySerializer();
 Serializer<NavigationGetAppsNavigationResponseApplicationJson_Ocs>
     _$navigationGetAppsNavigationResponseApplicationJsonOcsSerializer =
@@ -428,6 +439,11 @@ Serializer<OcmOcmDiscoveryHeaders> _$ocmOcmDiscoveryHeadersSerializer = _$OcmOcm
 Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version>
     _$ocsGetCapabilitiesResponseApplicationJsonOcsDataVersionSerializer =
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer();
+Serializer<CoreCapabilities_Core> _$coreCapabilitiesCoreSerializer = _$CoreCapabilities_CoreSerializer();
+Serializer<CoreCapabilities> _$coreCapabilitiesSerializer = _$CoreCapabilitiesSerializer();
+Serializer<CorePublicCapabilities_Bruteforce> _$corePublicCapabilitiesBruteforceSerializer =
+    _$CorePublicCapabilities_BruteforceSerializer();
+Serializer<CorePublicCapabilities> _$corePublicCapabilitiesSerializer = _$CorePublicCapabilitiesSerializer();
 Serializer<CommentsCapabilities_Files> _$commentsCapabilitiesFilesSerializer = _$CommentsCapabilities_FilesSerializer();
 Serializer<CommentsCapabilities> _$commentsCapabilitiesSerializer = _$CommentsCapabilitiesSerializer();
 Serializer<DavCapabilities_Dav> _$davCapabilitiesDavSerializer = _$DavCapabilities_DavSerializer();
@@ -507,25 +523,22 @@ Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail>
 Serializer<SharebymailCapabilities0_FilesSharing> _$sharebymailCapabilities0FilesSharingSerializer =
     _$SharebymailCapabilities0_FilesSharingSerializer();
 Serializer<SharebymailCapabilities0> _$sharebymailCapabilities0Serializer = _$SharebymailCapabilities0Serializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Attachments>
-    _$spreedPublicCapabilities0SpreedConfigAttachmentsSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Call> _$spreedPublicCapabilities0SpreedConfigCallSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Chat> _$spreedPublicCapabilities0SpreedConfigChatSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Conversations>
-    _$spreedPublicCapabilities0SpreedConfigConversationsSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Previews> _$spreedPublicCapabilities0SpreedConfigPreviewsSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config_Signaling>
-    _$spreedPublicCapabilities0SpreedConfigSignalingSerializer =
-    _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed_Config> _$spreedPublicCapabilities0SpreedConfigSerializer =
-    _$SpreedPublicCapabilities0_Spreed_ConfigSerializer();
-Serializer<SpreedPublicCapabilities0_Spreed> _$spreedPublicCapabilities0SpreedSerializer =
-    _$SpreedPublicCapabilities0_SpreedSerializer();
+Serializer<SpreedCapabilities_Config_Attachments> _$spreedCapabilitiesConfigAttachmentsSerializer =
+    _$SpreedCapabilities_Config_AttachmentsSerializer();
+Serializer<SpreedCapabilities_Config_Call> _$spreedCapabilitiesConfigCallSerializer =
+    _$SpreedCapabilities_Config_CallSerializer();
+Serializer<SpreedCapabilities_Config_Chat> _$spreedCapabilitiesConfigChatSerializer =
+    _$SpreedCapabilities_Config_ChatSerializer();
+Serializer<SpreedCapabilities_Config_Conversations> _$spreedCapabilitiesConfigConversationsSerializer =
+    _$SpreedCapabilities_Config_ConversationsSerializer();
+Serializer<SpreedCapabilities_Config_Federation> _$spreedCapabilitiesConfigFederationSerializer =
+    _$SpreedCapabilities_Config_FederationSerializer();
+Serializer<SpreedCapabilities_Config_Previews> _$spreedCapabilitiesConfigPreviewsSerializer =
+    _$SpreedCapabilities_Config_PreviewsSerializer();
+Serializer<SpreedCapabilities_Config_Signaling> _$spreedCapabilitiesConfigSignalingSerializer =
+    _$SpreedCapabilities_Config_SignalingSerializer();
+Serializer<SpreedCapabilities_Config> _$spreedCapabilitiesConfigSerializer = _$SpreedCapabilities_ConfigSerializer();
+Serializer<SpreedCapabilities> _$spreedCapabilitiesSerializer = _$SpreedCapabilitiesSerializer();
 Serializer<SpreedPublicCapabilities0> _$spreedPublicCapabilities0Serializer = _$SpreedPublicCapabilities0Serializer();
 Serializer<SystemtagsCapabilities_Systemtags> _$systemtagsCapabilitiesSystemtagsSerializer =
     _$SystemtagsCapabilities_SystemtagsSerializer();
@@ -554,6 +567,13 @@ Serializer<ProfileApiSetVisibilityResponseApplicationJson_Ocs>
 Serializer<ProfileApiSetVisibilityResponseApplicationJson> _$profileApiSetVisibilityResponseApplicationJsonSerializer =
     _$ProfileApiSetVisibilityResponseApplicationJsonSerializer();
 Serializer<Reference> _$referenceSerializer = _$ReferenceSerializer();
+Serializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data>
+    _$referenceApiExtractResponseApplicationJsonOcsDataSerializer =
+    _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> _$referenceApiExtractResponseApplicationJsonOcsSerializer =
+    _$ReferenceApiExtractResponseApplicationJson_OcsSerializer();
+Serializer<ReferenceApiExtractResponseApplicationJson> _$referenceApiExtractResponseApplicationJsonSerializer =
+    _$ReferenceApiExtractResponseApplicationJsonSerializer();
 Serializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data>
     _$referenceApiResolveOneResponseApplicationJsonOcsDataSerializer =
     _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer();
@@ -569,13 +589,6 @@ Serializer<ReferenceApiResolveResponseApplicationJson_Ocs> _$referenceApiResolve
     _$ReferenceApiResolveResponseApplicationJson_OcsSerializer();
 Serializer<ReferenceApiResolveResponseApplicationJson> _$referenceApiResolveResponseApplicationJsonSerializer =
     _$ReferenceApiResolveResponseApplicationJsonSerializer();
-Serializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data>
-    _$referenceApiExtractResponseApplicationJsonOcsDataSerializer =
-    _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer();
-Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> _$referenceApiExtractResponseApplicationJsonOcsSerializer =
-    _$ReferenceApiExtractResponseApplicationJson_OcsSerializer();
-Serializer<ReferenceApiExtractResponseApplicationJson> _$referenceApiExtractResponseApplicationJsonSerializer =
-    _$ReferenceApiExtractResponseApplicationJsonSerializer();
 Serializer<ReferenceProvider> _$referenceProviderSerializer = _$ReferenceProviderSerializer();
 Serializer<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs>
     _$referenceApiGetProvidersInfoResponseApplicationJsonOcsSerializer =
@@ -592,6 +605,22 @@ Serializer<ReferenceApiTouchProviderResponseApplicationJson_Ocs>
 Serializer<ReferenceApiTouchProviderResponseApplicationJson>
     _$referenceApiTouchProviderResponseApplicationJsonSerializer =
     _$ReferenceApiTouchProviderResponseApplicationJsonSerializer();
+Serializer<TeamResource> _$teamResourceSerializer = _$TeamResourceSerializer();
+Serializer<TeamsApiResolveOneResponseApplicationJson_Ocs_Data>
+    _$teamsApiResolveOneResponseApplicationJsonOcsDataSerializer =
+    _$TeamsApiResolveOneResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TeamsApiResolveOneResponseApplicationJson_Ocs> _$teamsApiResolveOneResponseApplicationJsonOcsSerializer =
+    _$TeamsApiResolveOneResponseApplicationJson_OcsSerializer();
+Serializer<TeamsApiResolveOneResponseApplicationJson> _$teamsApiResolveOneResponseApplicationJsonSerializer =
+    _$TeamsApiResolveOneResponseApplicationJsonSerializer();
+Serializer<Team> _$teamSerializer = _$TeamSerializer();
+Serializer<TeamsApiListTeamsResponseApplicationJson_Ocs_Data>
+    _$teamsApiListTeamsResponseApplicationJsonOcsDataSerializer =
+    _$TeamsApiListTeamsResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TeamsApiListTeamsResponseApplicationJson_Ocs> _$teamsApiListTeamsResponseApplicationJsonOcsSerializer =
+    _$TeamsApiListTeamsResponseApplicationJson_OcsSerializer();
+Serializer<TeamsApiListTeamsResponseApplicationJson> _$teamsApiListTeamsResponseApplicationJsonSerializer =
+    _$TeamsApiListTeamsResponseApplicationJsonSerializer();
 Serializer<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>
     _$textProcessingApiTaskTypesResponseApplicationJsonOcsDataTypesSerializer =
     _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesSerializer();
@@ -732,6 +761,11 @@ Serializer<WhatsNewDismissResponseApplicationJson> _$whatsNewDismissResponseAppl
     _$WhatsNewDismissResponseApplicationJsonSerializer();
 Serializer<WipeCheckWipeResponseApplicationJson> _$wipeCheckWipeResponseApplicationJsonSerializer =
     _$WipeCheckWipeResponseApplicationJsonSerializer();
+Serializer<Capabilities_Core> _$capabilitiesCoreSerializer = _$Capabilities_CoreSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+Serializer<PublicCapabilities_Bruteforce> _$publicCapabilitiesBruteforceSerializer =
+    _$PublicCapabilities_BruteforceSerializer();
+Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
 
 class _$StatusSerializer implements StructuredSerializer<Status> {
   @override
@@ -1014,6 +1048,99 @@ class _$AppPasswordGetAppPasswordResponseApplicationJsonSerializer
   }
 }
 
+class _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+    _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$AppPasswordDeleteAppPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    AppPasswordDeleteAppPasswordResponseApplicationJson,
+    _$AppPasswordDeleteAppPasswordResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'AppPasswordDeleteAppPasswordResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, AppPasswordDeleteAppPasswordResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs))!
+              as AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data> {
   @override
@@ -1154,34 +1281,79 @@ class _$AppPasswordRotateAppPasswordResponseApplicationJsonSerializer
   }
 }
 
-class _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs> {
+class _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data> {
   @override
   final Iterable<Type> types = const [
-    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
-    _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data,
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data
   ];
   @override
-  final String wireName = 'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs';
+  final String wireName = 'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object,
+  Iterable<Object?> serialize(
+      Serializers serializers, AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+      'lastLogin',
+      serializers.serialize(object.lastLogin, specifiedType: const FullType(int)),
     ];
 
     return result;
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs deserialize(
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
+    final result = AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'lastLogin':
+          result.lastLogin = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$AppPasswordConfirmUserPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs,
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1193,7 +1365,9 @@ class _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data))!
+              as AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data);
           break;
       }
     }
@@ -1202,32 +1376,33 @@ class _$AppPasswordDeleteAppPasswordResponseApplicationJson_OcsSerializer
   }
 }
 
-class _$AppPasswordDeleteAppPasswordResponseApplicationJsonSerializer
-    implements StructuredSerializer<AppPasswordDeleteAppPasswordResponseApplicationJson> {
+class _$AppPasswordConfirmUserPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<AppPasswordConfirmUserPasswordResponseApplicationJson> {
   @override
   final Iterable<Type> types = const [
-    AppPasswordDeleteAppPasswordResponseApplicationJson,
-    _$AppPasswordDeleteAppPasswordResponseApplicationJson
+    AppPasswordConfirmUserPasswordResponseApplicationJson,
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson
   ];
   @override
-  final String wireName = 'AppPasswordDeleteAppPasswordResponseApplicationJson';
+  final String wireName = 'AppPasswordConfirmUserPasswordResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, AppPasswordDeleteAppPasswordResponseApplicationJson object,
+  Iterable<Object?> serialize(Serializers serializers, AppPasswordConfirmUserPasswordResponseApplicationJson object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs,
-          specifiedType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs)),
+          specifiedType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs)),
     ];
 
     return result;
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+  AppPasswordConfirmUserPasswordResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder();
+    final result = AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -1237,8 +1412,8 @@ class _$AppPasswordDeleteAppPasswordResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs))!
-              as AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs);
+                  specifiedType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs))!
+              as AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -1861,103 +2036,6 @@ class _$CollectionSerializer implements StructuredSerializer<Collection> {
   }
 }
 
-class _$CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Collection)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Collection)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$CollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer
-    implements StructuredSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    CollaborationResourcesSearchCollectionsResponseApplicationJson,
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'CollaborationResourcesSearchCollectionsResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CollaborationResourcesSearchCollectionsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs))!
-              as CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$CollaborationResourcesListCollectionResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CollaborationResourcesListCollectionResponseApplicationJson_Ocs> {
   @override
@@ -2333,6 +2411,103 @@ class _$CollaborationResourcesRemoveResourceResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs))!
               as CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Collection)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Collection)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CollaborationResourcesSearchCollectionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    CollaborationResourcesSearchCollectionsResponseApplicationJson,
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'CollaborationResourcesSearchCollectionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, CollaborationResourcesSearchCollectionsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs))!
+              as CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -2728,6 +2903,48 @@ class _$HoverCardGetUserResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(HoverCardGetUserResponseApplicationJson_Ocs))!
               as HoverCardGetUserResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$LoginConfirmPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<LoginConfirmPasswordResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    LoginConfirmPasswordResponseApplicationJson,
+    _$LoginConfirmPasswordResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'LoginConfirmPasswordResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, LoginConfirmPasswordResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'lastLogin',
+      serializers.serialize(object.lastLogin, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  LoginConfirmPasswordResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = LoginConfirmPasswordResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'lastLogin':
+          result.lastLogin = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -3276,6 +3493,189 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionSerializer
   }
 }
 
+class _$CoreCapabilities_CoreSerializer implements StructuredSerializer<CoreCapabilities_Core> {
+  @override
+  final Iterable<Type> types = const [CoreCapabilities_Core, _$CoreCapabilities_Core];
+  @override
+  final String wireName = 'CoreCapabilities_Core';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreCapabilities_Core object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'pollinterval',
+      serializers.serialize(object.pollinterval, specifiedType: const FullType(int)),
+      'webdav-root',
+      serializers.serialize(object.webdavRoot, specifiedType: const FullType(String)),
+      'reference-api',
+      serializers.serialize(object.referenceApi, specifiedType: const FullType(bool)),
+      'reference-regex',
+      serializers.serialize(object.referenceRegex, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.modRewriteWorking;
+    if (value != null) {
+      result
+        ..add('mod-rewrite-working')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  CoreCapabilities_Core deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreCapabilities_CoreBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'pollinterval':
+          result.pollinterval = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'webdav-root':
+          result.webdavRoot = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'reference-api':
+          result.referenceApi = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'reference-regex':
+          result.referenceRegex = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'mod-rewrite-working':
+          result.modRewriteWorking = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CoreCapabilitiesSerializer implements StructuredSerializer<CoreCapabilities> {
+  @override
+  final Iterable<Type> types = const [CoreCapabilities, _$CoreCapabilities];
+  @override
+  final String wireName = 'CoreCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CoreCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'core',
+      serializers.serialize(object.core, specifiedType: const FullType(CoreCapabilities_Core)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CoreCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CoreCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'core':
+          result.core.replace(serializers.deserialize(value, specifiedType: const FullType(CoreCapabilities_Core))!
+              as CoreCapabilities_Core);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CorePublicCapabilities_BruteforceSerializer implements StructuredSerializer<CorePublicCapabilities_Bruteforce> {
+  @override
+  final Iterable<Type> types = const [CorePublicCapabilities_Bruteforce, _$CorePublicCapabilities_Bruteforce];
+  @override
+  final String wireName = 'CorePublicCapabilities_Bruteforce';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CorePublicCapabilities_Bruteforce object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'delay',
+      serializers.serialize(object.delay, specifiedType: const FullType(int)),
+      'allow-listed',
+      serializers.serialize(object.allowListed, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CorePublicCapabilities_Bruteforce deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CorePublicCapabilities_BruteforceBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'delay':
+          result.delay = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'allow-listed':
+          result.allowListed = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CorePublicCapabilitiesSerializer implements StructuredSerializer<CorePublicCapabilities> {
+  @override
+  final Iterable<Type> types = const [CorePublicCapabilities, _$CorePublicCapabilities];
+  @override
+  final String wireName = 'CorePublicCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CorePublicCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'bruteforce',
+      serializers.serialize(object.bruteforce, specifiedType: const FullType(CorePublicCapabilities_Bruteforce)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CorePublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CorePublicCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'bruteforce':
+          result.bruteforce.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CorePublicCapabilities_Bruteforce))! as CorePublicCapabilities_Bruteforce);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$CommentsCapabilities_FilesSerializer implements StructuredSerializer<CommentsCapabilities_Files> {
   @override
   final Iterable<Type> types = const [CommentsCapabilities_Files, _$CommentsCapabilities_Files];
@@ -3649,6 +4049,9 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
       serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
       'blacklisted_files',
       serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'forbidden_filename_characters',
+      serializers.serialize(object.forbiddenFilenameCharacters,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
       'directEditing',
       serializers.serialize(object.directEditing, specifiedType: const FullType(FilesCapabilities_Files_DirectEditing)),
     ];
@@ -3673,6 +4076,10 @@ class _$FilesCapabilities_FilesSerializer implements StructuredSerializer<FilesC
         case 'blacklisted_files':
           result.blacklistedFiles.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_characters':
+          result.forbiddenFilenameCharacters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'directEditing':
           result.directEditing.replace(
@@ -5274,18 +5681,15 @@ class _$SharebymailCapabilities0Serializer implements StructuredSerializer<Share
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Attachments> {
+class _$SpreedCapabilities_Config_AttachmentsSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Attachments> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Attachments,
-    _$SpreedPublicCapabilities0_Spreed_Config_Attachments
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Attachments, _$SpreedCapabilities_Config_Attachments];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Attachments';
+  final String wireName = 'SpreedCapabilities_Config_Attachments';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Attachments object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Attachments object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'allowed',
@@ -5302,9 +5706,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Attachments deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Attachments deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+    final result = SpreedCapabilities_Config_AttachmentsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5325,18 +5729,14 @@ class _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Call> {
+class _$SpreedCapabilities_Config_CallSerializer implements StructuredSerializer<SpreedCapabilities_Config_Call> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Call,
-    _$SpreedPublicCapabilities0_Spreed_Config_Call
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Call, _$SpreedCapabilities_Config_Call];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Call';
+  final String wireName = 'SpreedCapabilities_Config_Call';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Call object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Call object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -5381,9 +5781,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Call deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Call deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_CallBuilder();
+    final result = SpreedCapabilities_Config_CallBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5430,18 +5830,14 @@ class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Chat> {
+class _$SpreedCapabilities_Config_ChatSerializer implements StructuredSerializer<SpreedCapabilities_Config_Chat> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Chat,
-    _$SpreedPublicCapabilities0_Spreed_Config_Chat
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Chat, _$SpreedCapabilities_Config_Chat];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Chat';
+  final String wireName = 'SpreedCapabilities_Config_Chat';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Chat object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Chat object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'max-length',
@@ -5468,9 +5864,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Chat deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Chat deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_ChatBuilder();
+    final result = SpreedCapabilities_Config_ChatBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5501,18 +5897,18 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Conversations> {
+class _$SpreedCapabilities_Config_ConversationsSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Conversations> {
   @override
   final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Conversations,
-    _$SpreedPublicCapabilities0_Spreed_Config_Conversations
+    SpreedCapabilities_Config_Conversations,
+    _$SpreedCapabilities_Config_Conversations
   ];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Conversations';
+  final String wireName = 'SpreedCapabilities_Config_Conversations';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Conversations object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Conversations object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'can-create',
@@ -5523,10 +5919,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Conversations deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Conversations deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder();
+    final result = SpreedCapabilities_Config_ConversationsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5544,18 +5939,69 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Previews> {
+class _$SpreedCapabilities_Config_FederationSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Federation> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Previews,
-    _$SpreedPublicCapabilities0_Spreed_Config_Previews
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Federation, _$SpreedCapabilities_Config_Federation];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Previews';
+  final String wireName = 'SpreedCapabilities_Config_Federation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Previews object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Federation object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'incoming-enabled',
+      serializers.serialize(object.incomingEnabled, specifiedType: const FullType(bool)),
+      'outgoing-enabled',
+      serializers.serialize(object.outgoingEnabled, specifiedType: const FullType(bool)),
+      'only-trusted-servers',
+      serializers.serialize(object.onlyTrustedServers, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedCapabilities_Config_Federation deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedCapabilities_Config_FederationBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'incoming-enabled':
+          result.incomingEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'outgoing-enabled':
+          result.outgoingEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'only-trusted-servers':
+          result.onlyTrustedServers = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedCapabilities_Config_PreviewsSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Previews> {
+  @override
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Previews, _$SpreedCapabilities_Config_Previews];
+  @override
+  final String wireName = 'SpreedCapabilities_Config_Previews';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Previews object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'max-gif-size',
@@ -5566,9 +6012,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Previews deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Previews deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder();
+    final result = SpreedCapabilities_Config_PreviewsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5586,18 +6032,15 @@ class _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Signaling> {
+class _$SpreedCapabilities_Config_SignalingSerializer
+    implements StructuredSerializer<SpreedCapabilities_Config_Signaling> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config_Signaling,
-    _$SpreedPublicCapabilities0_Spreed_Config_Signaling
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config_Signaling, _$SpreedCapabilities_Config_Signaling];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Signaling';
+  final String wireName = 'SpreedCapabilities_Config_Signaling';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Signaling object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config_Signaling object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'session-ping-limit',
@@ -5614,9 +6057,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Signaling deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config_Signaling deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder();
+    final result = SpreedCapabilities_Config_SignalingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5637,45 +6080,44 @@ class _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_Spreed_ConfigSerializer
-    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config> {
+class _$SpreedCapabilities_ConfigSerializer implements StructuredSerializer<SpreedCapabilities_Config> {
   @override
-  final Iterable<Type> types = const [
-    SpreedPublicCapabilities0_Spreed_Config,
-    _$SpreedPublicCapabilities0_Spreed_Config
-  ];
+  final Iterable<Type> types = const [SpreedCapabilities_Config, _$SpreedCapabilities_Config];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config';
+  final String wireName = 'SpreedCapabilities_Config';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities_Config object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'attachments',
-      serializers.serialize(object.attachments,
-          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments)),
+      serializers.serialize(object.attachments, specifiedType: const FullType(SpreedCapabilities_Config_Attachments)),
       'call',
-      serializers.serialize(object.call, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Call)),
+      serializers.serialize(object.call, specifiedType: const FullType(SpreedCapabilities_Config_Call)),
       'chat',
-      serializers.serialize(object.chat, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat)),
+      serializers.serialize(object.chat, specifiedType: const FullType(SpreedCapabilities_Config_Chat)),
       'conversations',
       serializers.serialize(object.conversations,
-          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations)),
+          specifiedType: const FullType(SpreedCapabilities_Config_Conversations)),
       'previews',
-      serializers.serialize(object.previews,
-          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews)),
+      serializers.serialize(object.previews, specifiedType: const FullType(SpreedCapabilities_Config_Previews)),
       'signaling',
-      serializers.serialize(object.signaling,
-          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling)),
+      serializers.serialize(object.signaling, specifiedType: const FullType(SpreedCapabilities_Config_Signaling)),
     ];
-
+    Object? value;
+    value = object.federation;
+    if (value != null) {
+      result
+        ..add('federation')
+        ..add(serializers.serialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Federation)));
+    }
     return result;
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities_Config deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_Spreed_ConfigBuilder();
+    final result = SpreedCapabilities_ConfigBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5684,34 +6126,37 @@ class _$SpreedPublicCapabilities0_Spreed_ConfigSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'attachments':
-          result.attachments.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments))!
-              as SpreedPublicCapabilities0_Spreed_Config_Attachments);
+          result.attachments.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Attachments))!
+                  as SpreedCapabilities_Config_Attachments);
           break;
         case 'call':
           result.call.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Call))!
-              as SpreedPublicCapabilities0_Spreed_Config_Call);
+              specifiedType: const FullType(SpreedCapabilities_Config_Call))! as SpreedCapabilities_Config_Call);
           break;
         case 'chat':
           result.chat.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat))!
-              as SpreedPublicCapabilities0_Spreed_Config_Chat);
+              specifiedType: const FullType(SpreedCapabilities_Config_Chat))! as SpreedCapabilities_Config_Chat);
           break;
         case 'conversations':
-          result.conversations.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations))!
-              as SpreedPublicCapabilities0_Spreed_Config_Conversations);
+          result.conversations.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Conversations))!
+                  as SpreedCapabilities_Config_Conversations);
+          break;
+        case 'federation':
+          result.federation.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Federation))!
+                  as SpreedCapabilities_Config_Federation);
           break;
         case 'previews':
-          result.previews.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews))!
-              as SpreedPublicCapabilities0_Spreed_Config_Previews);
+          result.previews.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Previews))!
+                  as SpreedCapabilities_Config_Previews);
           break;
         case 'signaling':
-          result.signaling.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling))!
-              as SpreedPublicCapabilities0_Spreed_Config_Signaling);
+          result.signaling.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities_Config_Signaling))!
+                  as SpreedCapabilities_Config_Signaling);
           break;
       }
     }
@@ -5720,20 +6165,20 @@ class _$SpreedPublicCapabilities0_Spreed_ConfigSerializer
   }
 }
 
-class _$SpreedPublicCapabilities0_SpreedSerializer implements StructuredSerializer<SpreedPublicCapabilities0_Spreed> {
+class _$SpreedCapabilitiesSerializer implements StructuredSerializer<SpreedCapabilities> {
   @override
-  final Iterable<Type> types = const [SpreedPublicCapabilities0_Spreed, _$SpreedPublicCapabilities0_Spreed];
+  final Iterable<Type> types = const [SpreedCapabilities, _$SpreedCapabilities];
   @override
-  final String wireName = 'SpreedPublicCapabilities0_Spreed';
+  final String wireName = 'SpreedCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed object,
+  Iterable<Object?> serialize(Serializers serializers, SpreedCapabilities object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'features',
       serializers.serialize(object.features, specifiedType: const FullType(BuiltList, [FullType(String)])),
       'config',
-      serializers.serialize(object.config, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config)),
+      serializers.serialize(object.config, specifiedType: const FullType(SpreedCapabilities_Config)),
       'version',
       serializers.serialize(object.version, specifiedType: const FullType(String)),
     ];
@@ -5742,9 +6187,9 @@ class _$SpreedPublicCapabilities0_SpreedSerializer implements StructuredSerializ
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SpreedCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SpreedPublicCapabilities0_SpreedBuilder();
+    final result = SpreedCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -5757,9 +6202,8 @@ class _$SpreedPublicCapabilities0_SpreedSerializer implements StructuredSerializ
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'config':
-          result.config.replace(
-              serializers.deserialize(value, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config))!
-                  as SpreedPublicCapabilities0_Spreed_Config);
+          result.config.replace(serializers.deserialize(value,
+              specifiedType: const FullType(SpreedCapabilities_Config))! as SpreedCapabilities_Config);
           break;
         case 'version':
           result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -5782,7 +6226,7 @@ class _$SpreedPublicCapabilities0Serializer implements StructuredSerializer<Spre
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'spreed',
-      serializers.serialize(object.spreed, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed)),
+      serializers.serialize(object.spreed, specifiedType: const FullType(SpreedCapabilities)),
     ];
 
     return result;
@@ -5800,8 +6244,8 @@ class _$SpreedPublicCapabilities0Serializer implements StructuredSerializer<Spre
       final Object? value = iterator.current;
       switch (key) {
         case 'spreed':
-          result.spreed.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SpreedPublicCapabilities0_Spreed))! as SpreedPublicCapabilities0_Spreed);
+          result.spreed.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedCapabilities))! as SpreedCapabilities);
           break;
       }
     }
@@ -6586,6 +7030,144 @@ class _$ReferenceSerializer implements StructuredSerializer<Reference> {
   }
 }
 
+class _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractResponseApplicationJson_Ocs_Data,
+    _$ReferenceApiExtractResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'references',
+      serializers.serialize(object.references,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'references':
+          result.references.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiExtractResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractResponseApplicationJson_Ocs,
+    _$ReferenceApiExtractResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data))!
+              as ReferenceApiExtractResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReferenceApiExtractResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReferenceApiExtractResponseApplicationJson,
+    _$ReferenceApiExtractResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ReferenceApiExtractResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReferenceApiExtractResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs))!
+              as ReferenceApiExtractResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data> {
   @override
@@ -6856,144 +7438,6 @@ class _$ReferenceApiResolveResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ReferenceApiResolveResponseApplicationJson_Ocs))!
               as ReferenceApiResolveResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
-    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [
-    ReferenceApiExtractResponseApplicationJson_Ocs_Data,
-    _$ReferenceApiExtractResponseApplicationJson_Ocs_Data
-  ];
-  @override
-  final String wireName = 'ReferenceApiExtractResponseApplicationJson_Ocs_Data';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'references',
-      serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'references':
-          result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)]))!);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ReferenceApiExtractResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    ReferenceApiExtractResponseApplicationJson_Ocs,
-    _$ReferenceApiExtractResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'ReferenceApiExtractResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReferenceApiExtractResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data))!
-              as ReferenceApiExtractResponseApplicationJson_Ocs_Data);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ReferenceApiExtractResponseApplicationJsonSerializer
-    implements StructuredSerializer<ReferenceApiExtractResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ReferenceApiExtractResponseApplicationJson,
-    _$ReferenceApiExtractResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'ReferenceApiExtractResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReferenceApiExtractResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReferenceApiExtractResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs))!
-              as ReferenceApiExtractResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -7290,6 +7734,402 @@ class _$ReferenceApiTouchProviderResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs))!
               as ReferenceApiTouchProviderResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamResourceSerializer implements StructuredSerializer<TeamResource> {
+  @override
+  final Iterable<Type> types = const [TeamResource, _$TeamResource];
+  @override
+  final String wireName = 'TeamResource';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamResource object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
+      'url',
+      serializers.serialize(object.url, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.iconSvg;
+    if (value != null) {
+      result
+        ..add('iconSvg')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.iconURL;
+    if (value != null) {
+      result
+        ..add('iconURL')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.iconEmoji;
+    if (value != null) {
+      result
+        ..add('iconEmoji')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  TeamResource deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamResourceBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'url':
+          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'iconSvg':
+          result.iconSvg = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'iconURL':
+          result.iconURL = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'iconEmoji':
+          result.iconEmoji = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiResolveOneResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TeamsApiResolveOneResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiResolveOneResponseApplicationJson_Ocs_Data,
+    _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TeamsApiResolveOneResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiResolveOneResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'resources',
+      serializers.serialize(object.resources, specifiedType: const FullType(BuiltList, [FullType(TeamResource)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'resources':
+          result.resources.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TeamResource)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiResolveOneResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TeamsApiResolveOneResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiResolveOneResponseApplicationJson_Ocs,
+    _$TeamsApiResolveOneResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TeamsApiResolveOneResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiResolveOneResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiResolveOneResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs_Data))!
+              as TeamsApiResolveOneResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiResolveOneResponseApplicationJsonSerializer
+    implements StructuredSerializer<TeamsApiResolveOneResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiResolveOneResponseApplicationJson,
+    _$TeamsApiResolveOneResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TeamsApiResolveOneResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiResolveOneResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiResolveOneResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs))!
+              as TeamsApiResolveOneResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamSerializer implements StructuredSerializer<Team> {
+  @override
+  final Iterable<Type> types = const [Team, _$Team];
+  @override
+  final String wireName = 'Team';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Team object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'icon',
+      serializers.serialize(object.icon, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Team deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiListTeamsResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TeamsApiListTeamsResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiListTeamsResponseApplicationJson_Ocs_Data,
+    _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TeamsApiListTeamsResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiListTeamsResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'teams',
+      serializers.serialize(object.teams, specifiedType: const FullType(BuiltList, [FullType(Team)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'teams':
+          result.teams.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Team)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiListTeamsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TeamsApiListTeamsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiListTeamsResponseApplicationJson_Ocs,
+    _$TeamsApiListTeamsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TeamsApiListTeamsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiListTeamsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiListTeamsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs_Data))!
+              as TeamsApiListTeamsResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TeamsApiListTeamsResponseApplicationJsonSerializer
+    implements StructuredSerializer<TeamsApiListTeamsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TeamsApiListTeamsResponseApplicationJson,
+    _$TeamsApiListTeamsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TeamsApiListTeamsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TeamsApiListTeamsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TeamsApiListTeamsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs))!
+              as TeamsApiListTeamsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -10035,6 +10875,185 @@ class _$WipeCheckWipeResponseApplicationJsonSerializer
   }
 }
 
+class _$Capabilities_CoreSerializer implements StructuredSerializer<Capabilities_Core> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Core, _$Capabilities_Core];
+  @override
+  final String wireName = 'Capabilities_Core';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Core object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'pollinterval',
+      serializers.serialize(object.pollinterval, specifiedType: const FullType(int)),
+      'webdav-root',
+      serializers.serialize(object.webdavRoot, specifiedType: const FullType(String)),
+      'reference-api',
+      serializers.serialize(object.referenceApi, specifiedType: const FullType(bool)),
+      'reference-regex',
+      serializers.serialize(object.referenceRegex, specifiedType: const FullType(String)),
+      'mod-rewrite-working',
+      serializers.serialize(object.modRewriteWorking, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_Core deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_CoreBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'pollinterval':
+          result.pollinterval = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'webdav-root':
+          result.webdavRoot = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'reference-api':
+          result.referenceApi = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'reference-regex':
+          result.referenceRegex = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'mod-rewrite-working':
+          result.modRewriteWorking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
+  @override
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
+  @override
+  final String wireName = 'Capabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'core',
+      serializers.serialize(object.core, specifiedType: const FullType(Capabilities_Core)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'core':
+          result.core.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Core))! as Capabilities_Core);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PublicCapabilities_BruteforceSerializer implements StructuredSerializer<PublicCapabilities_Bruteforce> {
+  @override
+  final Iterable<Type> types = const [PublicCapabilities_Bruteforce, _$PublicCapabilities_Bruteforce];
+  @override
+  final String wireName = 'PublicCapabilities_Bruteforce';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PublicCapabilities_Bruteforce object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'delay',
+      serializers.serialize(object.delay, specifiedType: const FullType(int)),
+      'allow-listed',
+      serializers.serialize(object.allowListed, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities_Bruteforce deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PublicCapabilities_BruteforceBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'delay':
+          result.delay = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'allow-listed':
+          result.allowListed = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapabilities> {
+  @override
+  final Iterable<Type> types = const [PublicCapabilities, _$PublicCapabilities];
+  @override
+  final String wireName = 'PublicCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PublicCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'bruteforce',
+      serializers.serialize(object.bruteforce, specifiedType: const FullType(PublicCapabilities_Bruteforce)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PublicCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'bruteforce':
+          result.bruteforce.replace(serializers.deserialize(value,
+              specifiedType: const FullType(PublicCapabilities_Bruteforce))! as PublicCapabilities_Bruteforce);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 abstract mixin class $StatusInterfaceBuilder {
   void replace($StatusInterface other);
   void update(void Function($StatusInterfaceBuilder) updates);
@@ -10724,6 +11743,243 @@ class AppPasswordGetAppPasswordResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface other);
+  void update(void Function($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
+    extends AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject data;
+
+  factory _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs(
+          [void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
+      (AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs rebuild(
+          void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
+      AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
+    implements
+        Builder<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder>,
+        $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder() {
+    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs build() => _build();
+
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _build() {
+    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._validate(this);
+    _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace($AppPasswordDeleteAppPasswordResponseApplicationJsonInterface other);
+  void update(void Function($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$AppPasswordDeleteAppPasswordResponseApplicationJson
+    extends AppPasswordDeleteAppPasswordResponseApplicationJson {
+  @override
+  final AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs ocs;
+
+  factory _$AppPasswordDeleteAppPasswordResponseApplicationJson(
+          [void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'AppPasswordDeleteAppPasswordResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson rebuild(
+          void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder toBuilder() =>
+      AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is AppPasswordDeleteAppPasswordResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'AppPasswordDeleteAppPasswordResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
+    implements
+        Builder<AppPasswordDeleteAppPasswordResponseApplicationJson,
+            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder>,
+        $AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson? _$v;
+
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? _ocs;
+  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
+  set ocs(covariant AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder() {
+    AppPasswordDeleteAppPasswordResponseApplicationJson._defaults(this);
+  }
+
+  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant AppPasswordDeleteAppPasswordResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$AppPasswordDeleteAppPasswordResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  AppPasswordDeleteAppPasswordResponseApplicationJson build() => _build();
+
+  _$AppPasswordDeleteAppPasswordResponseApplicationJson _build() {
+    AppPasswordDeleteAppPasswordResponseApplicationJson._validate(this);
+    _$AppPasswordDeleteAppPasswordResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$AppPasswordDeleteAppPasswordResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'AppPasswordDeleteAppPasswordResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -11062,45 +12318,148 @@ class AppPasswordRotateAppPasswordResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface other);
-  void update(void Function($AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  JsonObject? get data;
-  set data(JsonObject? data);
+abstract mixin class $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  int? get lastLogin;
+  set lastLogin(int? lastLogin);
 }
 
-class _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
-    extends AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs {
+class _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data
+    extends AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data {
   @override
-  final OCSMeta meta;
-  @override
-  final JsonObject data;
+  final int lastLogin;
 
-  factory _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs(
-          [void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
-      (AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data(
+          [void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data');
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._({required this.lastLogin}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        lastLogin, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data', 'lastLogin');
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs rebuild(
-          void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder) updates) =>
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data rebuild(
+          void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
-      AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder()..replace(this);
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    return other is AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data && lastLogin == other.lastLogin;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, lastLogin.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data')
+          ..add('lastLogin', lastLogin))
+        .toString();
+  }
+}
+
+class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data,
+            AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder>,
+        $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data? _$v;
+
+  int? _lastLogin;
+  int? get lastLogin => _$this._lastLogin;
+  set lastLogin(covariant int? lastLogin) => _$this._lastLogin = lastLogin;
+
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _lastLogin = $v.lastLogin;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data _build() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data._(
+            lastLogin: BuiltValueNullFieldError.checkNotNull(
+                lastLogin, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data', 'lastLogin'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface other);
+  void update(void Function($AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs
+    extends AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data data;
+
+  factory _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs(
+          [void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder)? updates]) =>
+      (AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs rebuild(
+          void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder toBuilder() =>
+      AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
   }
 
   @override
@@ -11114,73 +12473,74 @@ class _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs')
+    return (newBuiltValueToStringHelper(r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs')
           ..add('meta', meta)
           ..add('data', data))
         .toString();
   }
 }
 
-class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
+class AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder
     implements
-        Builder<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
-            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder>,
-        $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterfaceBuilder {
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs? _$v;
+        Builder<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs,
+            AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder>,
+        $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterfaceBuilder {
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder? _data;
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder? data) =>
+      _$this._data = data;
 
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder() {
-    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._defaults(this);
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._defaults(this);
   }
 
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get _$this {
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
-      _data = $v.data;
+      _data = $v.data.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(covariant AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs other) {
+  void replace(covariant AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
+    _$v = other as _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs;
   }
 
   @override
-  void update(void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? updates) {
+  void update(void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs build() => _build();
+  AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs build() => _build();
 
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _build() {
-    AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._validate(this);
-    _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs _$result;
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs _build() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._validate(this);
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', 'data'));
+      _$result =
+          _$v ?? _$AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
+        _$failedField = 'data';
+        data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
+            r'AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -11189,39 +12549,39 @@ class AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
-  void replace($AppPasswordDeleteAppPasswordResponseApplicationJsonInterface other);
-  void update(void Function($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder) updates);
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs);
+abstract mixin class $AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace($AppPasswordConfirmUserPasswordResponseApplicationJsonInterface other);
+  void update(void Function($AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder? ocs);
 }
 
-class _$AppPasswordDeleteAppPasswordResponseApplicationJson
-    extends AppPasswordDeleteAppPasswordResponseApplicationJson {
+class _$AppPasswordConfirmUserPasswordResponseApplicationJson
+    extends AppPasswordConfirmUserPasswordResponseApplicationJson {
   @override
-  final AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs ocs;
+  final AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs ocs;
 
-  factory _$AppPasswordDeleteAppPasswordResponseApplicationJson(
-          [void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates]) =>
-      (AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$AppPasswordConfirmUserPasswordResponseApplicationJson(
+          [void Function(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder()..update(updates))._build();
 
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'AppPasswordDeleteAppPasswordResponseApplicationJson', 'ocs');
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'AppPasswordConfirmUserPasswordResponseApplicationJson', 'ocs');
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson rebuild(
-          void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder) updates) =>
+  AppPasswordConfirmUserPasswordResponseApplicationJson rebuild(
+          void Function(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder toBuilder() =>
-      AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder()..replace(this);
+  AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder toBuilder() =>
+      AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppPasswordDeleteAppPasswordResponseApplicationJson && ocs == other.ocs;
+    return other is AppPasswordConfirmUserPasswordResponseApplicationJson && ocs == other.ocs;
   }
 
   @override
@@ -11234,28 +12594,28 @@ class _$AppPasswordDeleteAppPasswordResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'AppPasswordDeleteAppPasswordResponseApplicationJson')..add('ocs', ocs))
+    return (newBuiltValueToStringHelper(r'AppPasswordConfirmUserPasswordResponseApplicationJson')..add('ocs', ocs))
         .toString();
   }
 }
 
-class AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
+class AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder
     implements
-        Builder<AppPasswordDeleteAppPasswordResponseApplicationJson,
-            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder>,
-        $AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder {
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson? _$v;
+        Builder<AppPasswordConfirmUserPasswordResponseApplicationJson,
+            AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder>,
+        $AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder {
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson? _$v;
 
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? _ocs;
-  AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder();
-  set ocs(covariant AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder? _ocs;
+  AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder();
+  set ocs(covariant AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder() {
-    AppPasswordDeleteAppPasswordResponseApplicationJson._defaults(this);
+  AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson._defaults(this);
   }
 
-  AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder get _$this {
+  AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ocs = $v.ocs.toBuilder();
@@ -11265,24 +12625,24 @@ class AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
   }
 
   @override
-  void replace(covariant AppPasswordDeleteAppPasswordResponseApplicationJson other) {
+  void replace(covariant AppPasswordConfirmUserPasswordResponseApplicationJson other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AppPasswordDeleteAppPasswordResponseApplicationJson;
+    _$v = other as _$AppPasswordConfirmUserPasswordResponseApplicationJson;
   }
 
   @override
-  void update(void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? updates) {
+  void update(void Function(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  AppPasswordDeleteAppPasswordResponseApplicationJson build() => _build();
+  AppPasswordConfirmUserPasswordResponseApplicationJson build() => _build();
 
-  _$AppPasswordDeleteAppPasswordResponseApplicationJson _build() {
-    AppPasswordDeleteAppPasswordResponseApplicationJson._validate(this);
-    _$AppPasswordDeleteAppPasswordResponseApplicationJson _$result;
+  _$AppPasswordConfirmUserPasswordResponseApplicationJson _build() {
+    AppPasswordConfirmUserPasswordResponseApplicationJson._validate(this);
+    _$AppPasswordConfirmUserPasswordResponseApplicationJson _$result;
     try {
-      _$result = _$v ?? _$AppPasswordDeleteAppPasswordResponseApplicationJson._(ocs: ocs.build());
+      _$result = _$v ?? _$AppPasswordConfirmUserPasswordResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11290,7 +12650,7 @@ class AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'AppPasswordDeleteAppPasswordResponseApplicationJson', _$failedField, e.toString());
+            r'AppPasswordConfirmUserPasswordResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -12838,252 +14198,6 @@ class CollectionBuilder implements Builder<Collection, CollectionBuilder>, $Coll
   }
 }
 
-abstract mixin class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface other);
-  void update(
-      void Function($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  ListBuilder<Collection> get data;
-  set data(ListBuilder<Collection>? data);
-}
-
-class _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
-    extends CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final BuiltList<Collection> data;
-
-  factory _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs(
-          [void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._({required this.meta, required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        meta, r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs rebuild(
-          void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder toBuilder() =>
-      CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs &&
-        meta == other.meta &&
-        data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder
-    implements
-        Builder<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
-            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder>,
-        $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  ListBuilder<Collection>? _data;
-  ListBuilder<Collection> get data => _$this._data ??= ListBuilder<Collection>();
-  set data(covariant ListBuilder<Collection>? data) => _$this._data = data;
-
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder() {
-    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._defaults(this);
-  }
-
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs build() => _build();
-
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _build() {
-    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._validate(this);
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ??
-          _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._(
-              meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
-  void replace($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface other);
-  void update(void Function($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates);
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$CollaborationResourcesSearchCollectionsResponseApplicationJson
-    extends CollaborationResourcesSearchCollectionsResponseApplicationJson {
-  @override
-  final CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs ocs;
-
-  factory _$CollaborationResourcesSearchCollectionsResponseApplicationJson(
-          [void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates]) =>
-      (CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        ocs, r'CollaborationResourcesSearchCollectionsResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson rebuild(
-          void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder toBuilder() =>
-      CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CollaborationResourcesSearchCollectionsResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CollaborationResourcesSearchCollectionsResponseApplicationJson')
-          ..add('ocs', ocs))
-        .toString();
-  }
-}
-
-class CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder
-    implements
-        Builder<CollaborationResourcesSearchCollectionsResponseApplicationJson,
-            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder>,
-        $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson? _$v;
-
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? _ocs;
-  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
-  set ocs(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs) =>
-      _$this._ocs = ocs;
-
-  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder() {
-    CollaborationResourcesSearchCollectionsResponseApplicationJson._defaults(this);
-  }
-
-  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CollaborationResourcesSearchCollectionsResponseApplicationJson build() => _build();
-
-  _$CollaborationResourcesSearchCollectionsResponseApplicationJson _build() {
-    CollaborationResourcesSearchCollectionsResponseApplicationJson._validate(this);
-    _$CollaborationResourcesSearchCollectionsResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$CollaborationResourcesSearchCollectionsResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'CollaborationResourcesSearchCollectionsResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder {
   void replace($CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface other);
   void update(void Function($CollaborationResourcesListCollectionResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -14044,6 +15158,252 @@ class CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'CollaborationResourcesRemoveResourceResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface other);
+  void update(
+      void Function($CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ListBuilder<Collection> get data;
+  set data(ListBuilder<Collection>? data);
+}
+
+class _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
+    extends CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final BuiltList<Collection> data;
+
+  factory _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs(
+          [void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs rebuild(
+          void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder toBuilder() =>
+      CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder>,
+        $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterfaceBuilder {
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ListBuilder<Collection>? _data;
+  ListBuilder<Collection> get data => _$this._data ??= ListBuilder<Collection>();
+  set data(covariant ListBuilder<Collection>? data) => _$this._data = data;
+
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder() {
+    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs build() => _build();
+
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _build() {
+    CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._validate(this);
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs._(
+              meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
+  void replace($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface other);
+  void update(void Function($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder) updates);
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$CollaborationResourcesSearchCollectionsResponseApplicationJson
+    extends CollaborationResourcesSearchCollectionsResponseApplicationJson {
+  @override
+  final CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs ocs;
+
+  factory _$CollaborationResourcesSearchCollectionsResponseApplicationJson(
+          [void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates]) =>
+      (CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        ocs, r'CollaborationResourcesSearchCollectionsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson rebuild(
+          void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder toBuilder() =>
+      CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CollaborationResourcesSearchCollectionsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CollaborationResourcesSearchCollectionsResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder
+    implements
+        Builder<CollaborationResourcesSearchCollectionsResponseApplicationJson,
+            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder>,
+        $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder {
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson? _$v;
+
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? _ocs;
+  CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder? ocs) =>
+      _$this._ocs = ocs;
+
+  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder() {
+    CollaborationResourcesSearchCollectionsResponseApplicationJson._defaults(this);
+  }
+
+  CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CollaborationResourcesSearchCollectionsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CollaborationResourcesSearchCollectionsResponseApplicationJson build() => _build();
+
+  _$CollaborationResourcesSearchCollectionsResponseApplicationJson _build() {
+    CollaborationResourcesSearchCollectionsResponseApplicationJson._validate(this);
+    _$CollaborationResourcesSearchCollectionsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$CollaborationResourcesSearchCollectionsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'CollaborationResourcesSearchCollectionsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -15061,6 +16421,103 @@ class HoverCardGetUserResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder {
+  void replace($LoginConfirmPasswordResponseApplicationJsonInterface other);
+  void update(void Function($LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder) updates);
+  int? get lastLogin;
+  set lastLogin(int? lastLogin);
+}
+
+class _$LoginConfirmPasswordResponseApplicationJson extends LoginConfirmPasswordResponseApplicationJson {
+  @override
+  final int lastLogin;
+
+  factory _$LoginConfirmPasswordResponseApplicationJson(
+          [void Function(LoginConfirmPasswordResponseApplicationJsonBuilder)? updates]) =>
+      (LoginConfirmPasswordResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$LoginConfirmPasswordResponseApplicationJson._({required this.lastLogin}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(lastLogin, r'LoginConfirmPasswordResponseApplicationJson', 'lastLogin');
+  }
+
+  @override
+  LoginConfirmPasswordResponseApplicationJson rebuild(
+          void Function(LoginConfirmPasswordResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  LoginConfirmPasswordResponseApplicationJsonBuilder toBuilder() =>
+      LoginConfirmPasswordResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is LoginConfirmPasswordResponseApplicationJson && lastLogin == other.lastLogin;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, lastLogin.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'LoginConfirmPasswordResponseApplicationJson')..add('lastLogin', lastLogin))
+        .toString();
+  }
+}
+
+class LoginConfirmPasswordResponseApplicationJsonBuilder
+    implements
+        Builder<LoginConfirmPasswordResponseApplicationJson, LoginConfirmPasswordResponseApplicationJsonBuilder>,
+        $LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder {
+  _$LoginConfirmPasswordResponseApplicationJson? _$v;
+
+  int? _lastLogin;
+  int? get lastLogin => _$this._lastLogin;
+  set lastLogin(covariant int? lastLogin) => _$this._lastLogin = lastLogin;
+
+  LoginConfirmPasswordResponseApplicationJsonBuilder() {
+    LoginConfirmPasswordResponseApplicationJson._defaults(this);
+  }
+
+  LoginConfirmPasswordResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _lastLogin = $v.lastLogin;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant LoginConfirmPasswordResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$LoginConfirmPasswordResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(LoginConfirmPasswordResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  LoginConfirmPasswordResponseApplicationJson build() => _build();
+
+  _$LoginConfirmPasswordResponseApplicationJson _build() {
+    LoginConfirmPasswordResponseApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$LoginConfirmPasswordResponseApplicationJson._(
+            lastLogin: BuiltValueNullFieldError.checkNotNull(
+                lastLogin, r'LoginConfirmPasswordResponseApplicationJson', 'lastLogin'));
     replace(_$result);
     return _$result;
   }
@@ -16469,6 +17926,474 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder
   }
 }
 
+abstract mixin class $CoreCapabilities_CoreInterfaceBuilder {
+  void replace($CoreCapabilities_CoreInterface other);
+  void update(void Function($CoreCapabilities_CoreInterfaceBuilder) updates);
+  int? get pollinterval;
+  set pollinterval(int? pollinterval);
+
+  String? get webdavRoot;
+  set webdavRoot(String? webdavRoot);
+
+  bool? get referenceApi;
+  set referenceApi(bool? referenceApi);
+
+  String? get referenceRegex;
+  set referenceRegex(String? referenceRegex);
+
+  bool? get modRewriteWorking;
+  set modRewriteWorking(bool? modRewriteWorking);
+}
+
+class _$CoreCapabilities_Core extends CoreCapabilities_Core {
+  @override
+  final int pollinterval;
+  @override
+  final String webdavRoot;
+  @override
+  final bool referenceApi;
+  @override
+  final String referenceRegex;
+  @override
+  final bool? modRewriteWorking;
+
+  factory _$CoreCapabilities_Core([void Function(CoreCapabilities_CoreBuilder)? updates]) =>
+      (CoreCapabilities_CoreBuilder()..update(updates))._build();
+
+  _$CoreCapabilities_Core._(
+      {required this.pollinterval,
+      required this.webdavRoot,
+      required this.referenceApi,
+      required this.referenceRegex,
+      this.modRewriteWorking})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(pollinterval, r'CoreCapabilities_Core', 'pollinterval');
+    BuiltValueNullFieldError.checkNotNull(webdavRoot, r'CoreCapabilities_Core', 'webdavRoot');
+    BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi');
+    BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex');
+  }
+
+  @override
+  CoreCapabilities_Core rebuild(void Function(CoreCapabilities_CoreBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CoreCapabilities_CoreBuilder toBuilder() => CoreCapabilities_CoreBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreCapabilities_Core &&
+        pollinterval == other.pollinterval &&
+        webdavRoot == other.webdavRoot &&
+        referenceApi == other.referenceApi &&
+        referenceRegex == other.referenceRegex &&
+        modRewriteWorking == other.modRewriteWorking;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, pollinterval.hashCode);
+    _$hash = $jc(_$hash, webdavRoot.hashCode);
+    _$hash = $jc(_$hash, referenceApi.hashCode);
+    _$hash = $jc(_$hash, referenceRegex.hashCode);
+    _$hash = $jc(_$hash, modRewriteWorking.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreCapabilities_Core')
+          ..add('pollinterval', pollinterval)
+          ..add('webdavRoot', webdavRoot)
+          ..add('referenceApi', referenceApi)
+          ..add('referenceRegex', referenceRegex)
+          ..add('modRewriteWorking', modRewriteWorking))
+        .toString();
+  }
+}
+
+class CoreCapabilities_CoreBuilder
+    implements Builder<CoreCapabilities_Core, CoreCapabilities_CoreBuilder>, $CoreCapabilities_CoreInterfaceBuilder {
+  _$CoreCapabilities_Core? _$v;
+
+  int? _pollinterval;
+  int? get pollinterval => _$this._pollinterval;
+  set pollinterval(covariant int? pollinterval) => _$this._pollinterval = pollinterval;
+
+  String? _webdavRoot;
+  String? get webdavRoot => _$this._webdavRoot;
+  set webdavRoot(covariant String? webdavRoot) => _$this._webdavRoot = webdavRoot;
+
+  bool? _referenceApi;
+  bool? get referenceApi => _$this._referenceApi;
+  set referenceApi(covariant bool? referenceApi) => _$this._referenceApi = referenceApi;
+
+  String? _referenceRegex;
+  String? get referenceRegex => _$this._referenceRegex;
+  set referenceRegex(covariant String? referenceRegex) => _$this._referenceRegex = referenceRegex;
+
+  bool? _modRewriteWorking;
+  bool? get modRewriteWorking => _$this._modRewriteWorking;
+  set modRewriteWorking(covariant bool? modRewriteWorking) => _$this._modRewriteWorking = modRewriteWorking;
+
+  CoreCapabilities_CoreBuilder() {
+    CoreCapabilities_Core._defaults(this);
+  }
+
+  CoreCapabilities_CoreBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _pollinterval = $v.pollinterval;
+      _webdavRoot = $v.webdavRoot;
+      _referenceApi = $v.referenceApi;
+      _referenceRegex = $v.referenceRegex;
+      _modRewriteWorking = $v.modRewriteWorking;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreCapabilities_Core other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreCapabilities_Core;
+  }
+
+  @override
+  void update(void Function(CoreCapabilities_CoreBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreCapabilities_Core build() => _build();
+
+  _$CoreCapabilities_Core _build() {
+    CoreCapabilities_Core._validate(this);
+    final _$result = _$v ??
+        _$CoreCapabilities_Core._(
+            pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'CoreCapabilities_Core', 'pollinterval'),
+            webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'CoreCapabilities_Core', 'webdavRoot'),
+            referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'CoreCapabilities_Core', 'referenceApi'),
+            referenceRegex:
+                BuiltValueNullFieldError.checkNotNull(referenceRegex, r'CoreCapabilities_Core', 'referenceRegex'),
+            modRewriteWorking: modRewriteWorking);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CoreCapabilitiesInterfaceBuilder {
+  void replace($CoreCapabilitiesInterface other);
+  void update(void Function($CoreCapabilitiesInterfaceBuilder) updates);
+  CoreCapabilities_CoreBuilder get core;
+  set core(CoreCapabilities_CoreBuilder? core);
+}
+
+class _$CoreCapabilities extends CoreCapabilities {
+  @override
+  final CoreCapabilities_Core core;
+
+  factory _$CoreCapabilities([void Function(CoreCapabilitiesBuilder)? updates]) =>
+      (CoreCapabilitiesBuilder()..update(updates))._build();
+
+  _$CoreCapabilities._({required this.core}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(core, r'CoreCapabilities', 'core');
+  }
+
+  @override
+  CoreCapabilities rebuild(void Function(CoreCapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  CoreCapabilitiesBuilder toBuilder() => CoreCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CoreCapabilities && core == other.core;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, core.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CoreCapabilities')..add('core', core)).toString();
+  }
+}
+
+class CoreCapabilitiesBuilder
+    implements Builder<CoreCapabilities, CoreCapabilitiesBuilder>, $CoreCapabilitiesInterfaceBuilder {
+  _$CoreCapabilities? _$v;
+
+  CoreCapabilities_CoreBuilder? _core;
+  CoreCapabilities_CoreBuilder get core => _$this._core ??= CoreCapabilities_CoreBuilder();
+  set core(covariant CoreCapabilities_CoreBuilder? core) => _$this._core = core;
+
+  CoreCapabilitiesBuilder() {
+    CoreCapabilities._defaults(this);
+  }
+
+  CoreCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _core = $v.core.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CoreCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CoreCapabilities;
+  }
+
+  @override
+  void update(void Function(CoreCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CoreCapabilities build() => _build();
+
+  _$CoreCapabilities _build() {
+    CoreCapabilities._validate(this);
+    _$CoreCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CoreCapabilities._(core: core.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'core';
+        core.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CoreCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CorePublicCapabilities_BruteforceInterfaceBuilder {
+  void replace($CorePublicCapabilities_BruteforceInterface other);
+  void update(void Function($CorePublicCapabilities_BruteforceInterfaceBuilder) updates);
+  int? get delay;
+  set delay(int? delay);
+
+  bool? get allowListed;
+  set allowListed(bool? allowListed);
+}
+
+class _$CorePublicCapabilities_Bruteforce extends CorePublicCapabilities_Bruteforce {
+  @override
+  final int delay;
+  @override
+  final bool allowListed;
+
+  factory _$CorePublicCapabilities_Bruteforce([void Function(CorePublicCapabilities_BruteforceBuilder)? updates]) =>
+      (CorePublicCapabilities_BruteforceBuilder()..update(updates))._build();
+
+  _$CorePublicCapabilities_Bruteforce._({required this.delay, required this.allowListed}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(delay, r'CorePublicCapabilities_Bruteforce', 'delay');
+    BuiltValueNullFieldError.checkNotNull(allowListed, r'CorePublicCapabilities_Bruteforce', 'allowListed');
+  }
+
+  @override
+  CorePublicCapabilities_Bruteforce rebuild(void Function(CorePublicCapabilities_BruteforceBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CorePublicCapabilities_BruteforceBuilder toBuilder() => CorePublicCapabilities_BruteforceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CorePublicCapabilities_Bruteforce && delay == other.delay && allowListed == other.allowListed;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, delay.hashCode);
+    _$hash = $jc(_$hash, allowListed.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CorePublicCapabilities_Bruteforce')
+          ..add('delay', delay)
+          ..add('allowListed', allowListed))
+        .toString();
+  }
+}
+
+class CorePublicCapabilities_BruteforceBuilder
+    implements
+        Builder<CorePublicCapabilities_Bruteforce, CorePublicCapabilities_BruteforceBuilder>,
+        $CorePublicCapabilities_BruteforceInterfaceBuilder {
+  _$CorePublicCapabilities_Bruteforce? _$v;
+
+  int? _delay;
+  int? get delay => _$this._delay;
+  set delay(covariant int? delay) => _$this._delay = delay;
+
+  bool? _allowListed;
+  bool? get allowListed => _$this._allowListed;
+  set allowListed(covariant bool? allowListed) => _$this._allowListed = allowListed;
+
+  CorePublicCapabilities_BruteforceBuilder() {
+    CorePublicCapabilities_Bruteforce._defaults(this);
+  }
+
+  CorePublicCapabilities_BruteforceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _delay = $v.delay;
+      _allowListed = $v.allowListed;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CorePublicCapabilities_Bruteforce other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CorePublicCapabilities_Bruteforce;
+  }
+
+  @override
+  void update(void Function(CorePublicCapabilities_BruteforceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CorePublicCapabilities_Bruteforce build() => _build();
+
+  _$CorePublicCapabilities_Bruteforce _build() {
+    CorePublicCapabilities_Bruteforce._validate(this);
+    final _$result = _$v ??
+        _$CorePublicCapabilities_Bruteforce._(
+            delay: BuiltValueNullFieldError.checkNotNull(delay, r'CorePublicCapabilities_Bruteforce', 'delay'),
+            allowListed: BuiltValueNullFieldError.checkNotNull(
+                allowListed, r'CorePublicCapabilities_Bruteforce', 'allowListed'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CorePublicCapabilitiesInterfaceBuilder {
+  void replace($CorePublicCapabilitiesInterface other);
+  void update(void Function($CorePublicCapabilitiesInterfaceBuilder) updates);
+  CorePublicCapabilities_BruteforceBuilder get bruteforce;
+  set bruteforce(CorePublicCapabilities_BruteforceBuilder? bruteforce);
+}
+
+class _$CorePublicCapabilities extends CorePublicCapabilities {
+  @override
+  final CorePublicCapabilities_Bruteforce bruteforce;
+
+  factory _$CorePublicCapabilities([void Function(CorePublicCapabilitiesBuilder)? updates]) =>
+      (CorePublicCapabilitiesBuilder()..update(updates))._build();
+
+  _$CorePublicCapabilities._({required this.bruteforce}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(bruteforce, r'CorePublicCapabilities', 'bruteforce');
+  }
+
+  @override
+  CorePublicCapabilities rebuild(void Function(CorePublicCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CorePublicCapabilitiesBuilder toBuilder() => CorePublicCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CorePublicCapabilities && bruteforce == other.bruteforce;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, bruteforce.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CorePublicCapabilities')..add('bruteforce', bruteforce)).toString();
+  }
+}
+
+class CorePublicCapabilitiesBuilder
+    implements Builder<CorePublicCapabilities, CorePublicCapabilitiesBuilder>, $CorePublicCapabilitiesInterfaceBuilder {
+  _$CorePublicCapabilities? _$v;
+
+  CorePublicCapabilities_BruteforceBuilder? _bruteforce;
+  CorePublicCapabilities_BruteforceBuilder get bruteforce =>
+      _$this._bruteforce ??= CorePublicCapabilities_BruteforceBuilder();
+  set bruteforce(covariant CorePublicCapabilities_BruteforceBuilder? bruteforce) => _$this._bruteforce = bruteforce;
+
+  CorePublicCapabilitiesBuilder() {
+    CorePublicCapabilities._defaults(this);
+  }
+
+  CorePublicCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _bruteforce = $v.bruteforce.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CorePublicCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CorePublicCapabilities;
+  }
+
+  @override
+  void update(void Function(CorePublicCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CorePublicCapabilities build() => _build();
+
+  _$CorePublicCapabilities _build() {
+    CorePublicCapabilities._validate(this);
+    _$CorePublicCapabilities _$result;
+    try {
+      _$result = _$v ?? _$CorePublicCapabilities._(bruteforce: bruteforce.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'bruteforce';
+        bruteforce.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'CorePublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $CommentsCapabilities_FilesInterfaceBuilder {
   void replace($CommentsCapabilities_FilesInterface other);
   void update(void Function($CommentsCapabilities_FilesInterfaceBuilder) updates);
@@ -17375,6 +19300,9 @@ abstract mixin class $FilesCapabilities_FilesInterfaceBuilder {
   ListBuilder<JsonObject> get blacklistedFiles;
   set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
 
+  ListBuilder<String> get forbiddenFilenameCharacters;
+  set forbiddenFilenameCharacters(ListBuilder<String>? forbiddenFilenameCharacters);
+
   FilesCapabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(FilesCapabilities_Files_DirectEditingBuilder? directEditing);
 }
@@ -17385,16 +19313,23 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
   @override
   final BuiltList<JsonObject> blacklistedFiles;
   @override
+  final BuiltList<String> forbiddenFilenameCharacters;
+  @override
   final FilesCapabilities_Files_DirectEditing directEditing;
 
   factory _$FilesCapabilities_Files([void Function(FilesCapabilities_FilesBuilder)? updates]) =>
       (FilesCapabilities_FilesBuilder()..update(updates))._build();
 
   _$FilesCapabilities_Files._(
-      {required this.bigfilechunking, required this.blacklistedFiles, required this.directEditing})
+      {required this.bigfilechunking,
+      required this.blacklistedFiles,
+      required this.forbiddenFilenameCharacters,
+      required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking');
     BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'FilesCapabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameCharacters, r'FilesCapabilities_Files', 'forbiddenFilenameCharacters');
     BuiltValueNullFieldError.checkNotNull(directEditing, r'FilesCapabilities_Files', 'directEditing');
   }
 
@@ -17411,6 +19346,7 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
     return other is FilesCapabilities_Files &&
         bigfilechunking == other.bigfilechunking &&
         blacklistedFiles == other.blacklistedFiles &&
+        forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
         directEditing == other.directEditing;
   }
 
@@ -17419,6 +19355,7 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
     var _$hash = 0;
     _$hash = $jc(_$hash, bigfilechunking.hashCode);
     _$hash = $jc(_$hash, blacklistedFiles.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -17429,6 +19366,7 @@ class _$FilesCapabilities_Files extends FilesCapabilities_Files {
     return (newBuiltValueToStringHelper(r'FilesCapabilities_Files')
           ..add('bigfilechunking', bigfilechunking)
           ..add('blacklistedFiles', blacklistedFiles)
+          ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -17449,6 +19387,11 @@ class FilesCapabilities_FilesBuilder
   set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
       _$this._blacklistedFiles = blacklistedFiles;
 
+  ListBuilder<String>? _forbiddenFilenameCharacters;
+  ListBuilder<String> get forbiddenFilenameCharacters => _$this._forbiddenFilenameCharacters ??= ListBuilder<String>();
+  set forbiddenFilenameCharacters(covariant ListBuilder<String>? forbiddenFilenameCharacters) =>
+      _$this._forbiddenFilenameCharacters = forbiddenFilenameCharacters;
+
   FilesCapabilities_Files_DirectEditingBuilder? _directEditing;
   FilesCapabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= FilesCapabilities_Files_DirectEditingBuilder();
@@ -17464,6 +19407,7 @@ class FilesCapabilities_FilesBuilder
     if ($v != null) {
       _bigfilechunking = $v.bigfilechunking;
       _blacklistedFiles = $v.blacklistedFiles.toBuilder();
+      _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -17493,12 +19437,15 @@ class FilesCapabilities_FilesBuilder
               bigfilechunking:
                   BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'FilesCapabilities_Files', 'bigfilechunking'),
               blacklistedFiles: blacklistedFiles.build(),
+              forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
               directEditing: directEditing.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'blacklistedFiles';
         blacklistedFiles.build();
+        _$failedField = 'forbiddenFilenameCharacters';
+        forbiddenFilenameCharacters.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {
@@ -21370,9 +23317,9 @@ class SharebymailCapabilities0Builder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilities_Config_AttachmentsInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_AttachmentsInterface other);
+  void update(void Function($SpreedCapabilities_Config_AttachmentsInterfaceBuilder) updates);
   bool? get allowed;
   set allowed(bool? allowed);
 
@@ -21380,36 +23327,32 @@ abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfa
   set folder(String? folder);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Attachments
-    extends SpreedPublicCapabilities0_Spreed_Config_Attachments {
+class _$SpreedCapabilities_Config_Attachments extends SpreedCapabilities_Config_Attachments {
   @override
   final bool allowed;
   @override
   final String? folder;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Attachments(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Attachments(
+          [void Function(SpreedCapabilities_Config_AttachmentsBuilder)? updates]) =>
+      (SpreedCapabilities_Config_AttachmentsBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Attachments._({required this.allowed, this.folder}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedPublicCapabilities0_Spreed_Config_Attachments', 'allowed');
+  _$SpreedCapabilities_Config_Attachments._({required this.allowed, this.folder}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedCapabilities_Config_Attachments', 'allowed');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Attachments rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder) updates) =>
+  SpreedCapabilities_Config_Attachments rebuild(void Function(SpreedCapabilities_Config_AttachmentsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder()..replace(this);
+  SpreedCapabilities_Config_AttachmentsBuilder toBuilder() =>
+      SpreedCapabilities_Config_AttachmentsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Attachments &&
-        allowed == other.allowed &&
-        folder == other.folder;
+    return other is SpreedCapabilities_Config_Attachments && allowed == other.allowed && folder == other.folder;
   }
 
   @override
@@ -21423,19 +23366,18 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Attachments
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Attachments')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Attachments')
           ..add('allowed', allowed)
           ..add('folder', folder))
         .toString();
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder
+class SpreedCapabilities_Config_AttachmentsBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Attachments,
-            SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Attachments? _$v;
+        Builder<SpreedCapabilities_Config_Attachments, SpreedCapabilities_Config_AttachmentsBuilder>,
+        $SpreedCapabilities_Config_AttachmentsInterfaceBuilder {
+  _$SpreedCapabilities_Config_Attachments? _$v;
 
   bool? _allowed;
   bool? get allowed => _$this._allowed;
@@ -21445,11 +23387,11 @@ class SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder
   String? get folder => _$this._folder;
   set folder(covariant String? folder) => _$this._folder = folder;
 
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Attachments._defaults(this);
+  SpreedCapabilities_Config_AttachmentsBuilder() {
+    SpreedCapabilities_Config_Attachments._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get _$this {
+  SpreedCapabilities_Config_AttachmentsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _allowed = $v.allowed;
@@ -21460,34 +23402,34 @@ class SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Attachments other) {
+  void replace(covariant SpreedCapabilities_Config_Attachments other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Attachments;
+    _$v = other as _$SpreedCapabilities_Config_Attachments;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_AttachmentsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Attachments build() => _build();
+  SpreedCapabilities_Config_Attachments build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Attachments _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Attachments._validate(this);
+  _$SpreedCapabilities_Config_Attachments _build() {
+    SpreedCapabilities_Config_Attachments._validate(this);
     final _$result = _$v ??
-        _$SpreedPublicCapabilities0_Spreed_Config_Attachments._(
-            allowed: BuiltValueNullFieldError.checkNotNull(
-                allowed, r'SpreedPublicCapabilities0_Spreed_Config_Attachments', 'allowed'),
+        _$SpreedCapabilities_Config_Attachments._(
+            allowed:
+                BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedCapabilities_Config_Attachments', 'allowed'),
             folder: folder);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_CallInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilities_Config_CallInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_CallInterface other);
+  void update(void Function($SpreedCapabilities_Config_CallInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -21519,7 +23461,7 @@ abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuild
   set canEnableSip(bool? canEnableSip);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabilities0_Spreed_Config_Call {
+class _$SpreedCapabilities_Config_Call extends SpreedCapabilities_Config_Call {
   @override
   final bool enabled;
   @override
@@ -21541,11 +23483,10 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
   @override
   final bool? canEnableSip;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Call(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_CallBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Call([void Function(SpreedCapabilities_Config_CallBuilder)? updates]) =>
+      (SpreedCapabilities_Config_CallBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Call._(
+  _$SpreedCapabilities_Config_Call._(
       {required this.enabled,
       required this.breakoutRooms,
       required this.recording,
@@ -21557,31 +23498,27 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
       this.sipDialoutEnabled,
       this.canEnableSip})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Call', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(breakoutRooms, r'SpreedCapabilities_Config_Call', 'breakoutRooms');
+    BuiltValueNullFieldError.checkNotNull(recording, r'SpreedCapabilities_Config_Call', 'recording');
+    BuiltValueNullFieldError.checkNotNull(supportedReactions, r'SpreedCapabilities_Config_Call', 'supportedReactions');
     BuiltValueNullFieldError.checkNotNull(
-        breakoutRooms, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'breakoutRooms');
-    BuiltValueNullFieldError.checkNotNull(recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording');
+        predefinedBackgrounds, r'SpreedCapabilities_Config_Call', 'predefinedBackgrounds');
     BuiltValueNullFieldError.checkNotNull(
-        supportedReactions, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'supportedReactions');
-    BuiltValueNullFieldError.checkNotNull(
-        predefinedBackgrounds, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'predefinedBackgrounds');
-    BuiltValueNullFieldError.checkNotNull(
-        canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground');
+        canUploadBackground, r'SpreedCapabilities_Config_Call', 'canUploadBackground');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Call rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder) updates) =>
+  SpreedCapabilities_Config_Call rebuild(void Function(SpreedCapabilities_Config_CallBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_CallBuilder()..replace(this);
+  SpreedCapabilities_Config_CallBuilder toBuilder() => SpreedCapabilities_Config_CallBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Call &&
+    return other is SpreedCapabilities_Config_Call &&
         enabled == other.enabled &&
         breakoutRooms == other.breakoutRooms &&
         recording == other.recording &&
@@ -21613,7 +23550,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Call')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Call')
           ..add('enabled', enabled)
           ..add('breakoutRooms', breakoutRooms)
           ..add('recording', recording)
@@ -21628,11 +23565,11 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
+class SpreedCapabilities_Config_CallBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Call, SpreedPublicCapabilities0_Spreed_Config_CallBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Call? _$v;
+        Builder<SpreedCapabilities_Config_Call, SpreedCapabilities_Config_CallBuilder>,
+        $SpreedCapabilities_Config_CallInterfaceBuilder {
+  _$SpreedCapabilities_Config_Call? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -21676,11 +23613,11 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
   bool? get canEnableSip => _$this._canEnableSip;
   set canEnableSip(covariant bool? canEnableSip) => _$this._canEnableSip = canEnableSip;
 
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Call._defaults(this);
+  SpreedCapabilities_Config_CallBuilder() {
+    SpreedCapabilities_Config_Call._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get _$this {
+  SpreedCapabilities_Config_CallBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -21699,36 +23636,35 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Call other) {
+  void replace(covariant SpreedCapabilities_Config_Call other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Call;
+    _$v = other as _$SpreedCapabilities_Config_Call;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_CallBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Call build() => _build();
+  SpreedCapabilities_Config_Call build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Call _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Call._validate(this);
-    _$SpreedPublicCapabilities0_Spreed_Config_Call _$result;
+  _$SpreedCapabilities_Config_Call _build() {
+    SpreedCapabilities_Config_Call._validate(this);
+    _$SpreedCapabilities_Config_Call _$result;
     try {
       _$result = _$v ??
-          _$SpreedPublicCapabilities0_Spreed_Config_Call._(
-              enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'enabled'),
+          _$SpreedCapabilities_Config_Call._(
+              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Call', 'enabled'),
               breakoutRooms: BuiltValueNullFieldError.checkNotNull(
-                  breakoutRooms, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'breakoutRooms'),
-              recording: BuiltValueNullFieldError.checkNotNull(
-                  recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording'),
+                  breakoutRooms, r'SpreedCapabilities_Config_Call', 'breakoutRooms'),
+              recording:
+                  BuiltValueNullFieldError.checkNotNull(recording, r'SpreedCapabilities_Config_Call', 'recording'),
               recordingConsent: recordingConsent,
               supportedReactions: supportedReactions.build(),
               predefinedBackgrounds: predefinedBackgrounds.build(),
               canUploadBackground: BuiltValueNullFieldError.checkNotNull(
-                  canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground'),
+                  canUploadBackground, r'SpreedCapabilities_Config_Call', 'canUploadBackground'),
               sipEnabled: sipEnabled,
               sipDialoutEnabled: sipDialoutEnabled,
               canEnableSip: canEnableSip);
@@ -21740,7 +23676,7 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
         _$failedField = 'predefinedBackgrounds';
         predefinedBackgrounds.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config_Call', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SpreedCapabilities_Config_Call', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21749,9 +23685,9 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_ChatInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilities_Config_ChatInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_ChatInterface other);
+  void update(void Function($SpreedCapabilities_Config_ChatInterfaceBuilder) updates);
   int? get maxLength;
   set maxLength(int? maxLength);
 
@@ -21768,7 +23704,7 @@ abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuild
   set translations(ListBuilder<String>? translations);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabilities0_Spreed_Config_Chat {
+class _$SpreedCapabilities_Config_Chat extends SpreedCapabilities_Config_Chat {
   @override
   final int maxLength;
   @override
@@ -21780,36 +23716,32 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabil
   @override
   final BuiltList<String>? translations;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Chat(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_ChatBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Chat([void Function(SpreedCapabilities_Config_ChatBuilder)? updates]) =>
+      (SpreedCapabilities_Config_ChatBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Chat._(
+  _$SpreedCapabilities_Config_Chat._(
       {required this.maxLength,
       required this.readPrivacy,
       this.hasTranslationProviders,
       required this.typingPrivacy,
       this.translations})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'maxLength');
-    BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy');
-    BuiltValueNullFieldError.checkNotNull(
-        typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy');
+    BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedCapabilities_Config_Chat', 'maxLength');
+    BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy');
+    BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'SpreedCapabilities_Config_Chat', 'typingPrivacy');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Chat rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder) updates) =>
+  SpreedCapabilities_Config_Chat rebuild(void Function(SpreedCapabilities_Config_ChatBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_ChatBuilder()..replace(this);
+  SpreedCapabilities_Config_ChatBuilder toBuilder() => SpreedCapabilities_Config_ChatBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Chat &&
+    return other is SpreedCapabilities_Config_Chat &&
         maxLength == other.maxLength &&
         readPrivacy == other.readPrivacy &&
         hasTranslationProviders == other.hasTranslationProviders &&
@@ -21831,7 +23763,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Chat')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Chat')
           ..add('maxLength', maxLength)
           ..add('readPrivacy', readPrivacy)
           ..add('hasTranslationProviders', hasTranslationProviders)
@@ -21841,11 +23773,11 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabil
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
+class SpreedCapabilities_Config_ChatBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Chat, SpreedPublicCapabilities0_Spreed_Config_ChatBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Chat? _$v;
+        Builder<SpreedCapabilities_Config_Chat, SpreedCapabilities_Config_ChatBuilder>,
+        $SpreedCapabilities_Config_ChatInterfaceBuilder {
+  _$SpreedCapabilities_Config_Chat? _$v;
 
   int? _maxLength;
   int? get maxLength => _$this._maxLength;
@@ -21868,11 +23800,11 @@ class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
   ListBuilder<String> get translations => _$this._translations ??= ListBuilder<String>();
   set translations(covariant ListBuilder<String>? translations) => _$this._translations = translations;
 
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Chat._defaults(this);
+  SpreedCapabilities_Config_ChatBuilder() {
+    SpreedCapabilities_Config_Chat._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get _$this {
+  SpreedCapabilities_Config_ChatBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _maxLength = $v.maxLength;
@@ -21886,32 +23818,32 @@ class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Chat other) {
+  void replace(covariant SpreedCapabilities_Config_Chat other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Chat;
+    _$v = other as _$SpreedCapabilities_Config_Chat;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_ChatBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Chat build() => _build();
+  SpreedCapabilities_Config_Chat build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Chat _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Chat._validate(this);
-    _$SpreedPublicCapabilities0_Spreed_Config_Chat _$result;
+  _$SpreedCapabilities_Config_Chat _build() {
+    SpreedCapabilities_Config_Chat._validate(this);
+    _$SpreedCapabilities_Config_Chat _$result;
     try {
       _$result = _$v ??
-          _$SpreedPublicCapabilities0_Spreed_Config_Chat._(
-              maxLength: BuiltValueNullFieldError.checkNotNull(
-                  maxLength, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'maxLength'),
-              readPrivacy: BuiltValueNullFieldError.checkNotNull(
-                  readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy'),
+          _$SpreedCapabilities_Config_Chat._(
+              maxLength:
+                  BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedCapabilities_Config_Chat', 'maxLength'),
+              readPrivacy:
+                  BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedCapabilities_Config_Chat', 'readPrivacy'),
               hasTranslationProviders: hasTranslationProviders,
               typingPrivacy: BuiltValueNullFieldError.checkNotNull(
-                  typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy'),
+                  typingPrivacy, r'SpreedCapabilities_Config_Chat', 'typingPrivacy'),
               translations: _translations?.build());
     } catch (_) {
       late String _$failedField;
@@ -21919,7 +23851,7 @@ class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
         _$failedField = 'translations';
         _translations?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config_Chat', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SpreedCapabilities_Config_Chat', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -21928,40 +23860,38 @@ class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilities_Config_ConversationsInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_ConversationsInterface other);
+  void update(void Function($SpreedCapabilities_Config_ConversationsInterfaceBuilder) updates);
   bool? get canCreate;
   set canCreate(bool? canCreate);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Conversations
-    extends SpreedPublicCapabilities0_Spreed_Config_Conversations {
+class _$SpreedCapabilities_Config_Conversations extends SpreedCapabilities_Config_Conversations {
   @override
   final bool canCreate;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Conversations(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Conversations(
+          [void Function(SpreedCapabilities_Config_ConversationsBuilder)? updates]) =>
+      (SpreedCapabilities_Config_ConversationsBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Conversations._({required this.canCreate}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        canCreate, r'SpreedPublicCapabilities0_Spreed_Config_Conversations', 'canCreate');
+  _$SpreedCapabilities_Config_Conversations._({required this.canCreate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Conversations rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder) updates) =>
+  SpreedCapabilities_Config_Conversations rebuild(
+          void Function(SpreedCapabilities_Config_ConversationsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder()..replace(this);
+  SpreedCapabilities_Config_ConversationsBuilder toBuilder() =>
+      SpreedCapabilities_Config_ConversationsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Conversations && canCreate == other.canCreate;
+    return other is SpreedCapabilities_Config_Conversations && canCreate == other.canCreate;
   }
 
   @override
@@ -21974,28 +23904,26 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Conversations
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Conversations')
-          ..add('canCreate', canCreate))
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Conversations')..add('canCreate', canCreate))
         .toString();
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder
+class SpreedCapabilities_Config_ConversationsBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Conversations,
-            SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Conversations? _$v;
+        Builder<SpreedCapabilities_Config_Conversations, SpreedCapabilities_Config_ConversationsBuilder>,
+        $SpreedCapabilities_Config_ConversationsInterfaceBuilder {
+  _$SpreedCapabilities_Config_Conversations? _$v;
 
   bool? _canCreate;
   bool? get canCreate => _$this._canCreate;
   set canCreate(covariant bool? canCreate) => _$this._canCreate = canCreate;
 
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Conversations._defaults(this);
+  SpreedCapabilities_Config_ConversationsBuilder() {
+    SpreedCapabilities_Config_Conversations._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get _$this {
+  SpreedCapabilities_Config_ConversationsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _canCreate = $v.canCreate;
@@ -22005,63 +23933,210 @@ class SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Conversations other) {
+  void replace(covariant SpreedCapabilities_Config_Conversations other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Conversations;
+    _$v = other as _$SpreedCapabilities_Config_Conversations;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_ConversationsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Conversations build() => _build();
+  SpreedCapabilities_Config_Conversations build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Conversations _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Conversations._validate(this);
+  _$SpreedCapabilities_Config_Conversations _build() {
+    SpreedCapabilities_Config_Conversations._validate(this);
     final _$result = _$v ??
-        _$SpreedPublicCapabilities0_Spreed_Config_Conversations._(
+        _$SpreedCapabilities_Config_Conversations._(
             canCreate: BuiltValueNullFieldError.checkNotNull(
-                canCreate, r'SpreedPublicCapabilities0_Spreed_Config_Conversations', 'canCreate'));
+                canCreate, r'SpreedCapabilities_Config_Conversations', 'canCreate'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder) updates);
-  int? get maxGifSize;
-  set maxGifSize(int? maxGifSize);
+abstract mixin class $SpreedCapabilities_Config_FederationInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_FederationInterface other);
+  void update(void Function($SpreedCapabilities_Config_FederationInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get incomingEnabled;
+  set incomingEnabled(bool? incomingEnabled);
+
+  bool? get outgoingEnabled;
+  set outgoingEnabled(bool? outgoingEnabled);
+
+  bool? get onlyTrustedServers;
+  set onlyTrustedServers(bool? onlyTrustedServers);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Previews extends SpreedPublicCapabilities0_Spreed_Config_Previews {
+class _$SpreedCapabilities_Config_Federation extends SpreedCapabilities_Config_Federation {
   @override
-  final int maxGifSize;
+  final bool enabled;
+  @override
+  final bool incomingEnabled;
+  @override
+  final bool outgoingEnabled;
+  @override
+  final bool onlyTrustedServers;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Previews(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Federation(
+          [void Function(SpreedCapabilities_Config_FederationBuilder)? updates]) =>
+      (SpreedCapabilities_Config_FederationBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Previews._({required this.maxGifSize}) : super._() {
+  _$SpreedCapabilities_Config_Federation._(
+      {required this.enabled,
+      required this.incomingEnabled,
+      required this.outgoingEnabled,
+      required this.onlyTrustedServers})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Federation', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(incomingEnabled, r'SpreedCapabilities_Config_Federation', 'incomingEnabled');
+    BuiltValueNullFieldError.checkNotNull(outgoingEnabled, r'SpreedCapabilities_Config_Federation', 'outgoingEnabled');
     BuiltValueNullFieldError.checkNotNull(
-        maxGifSize, r'SpreedPublicCapabilities0_Spreed_Config_Previews', 'maxGifSize');
+        onlyTrustedServers, r'SpreedCapabilities_Config_Federation', 'onlyTrustedServers');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Previews rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder) updates) =>
+  SpreedCapabilities_Config_Federation rebuild(void Function(SpreedCapabilities_Config_FederationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder()..replace(this);
+  SpreedCapabilities_Config_FederationBuilder toBuilder() =>
+      SpreedCapabilities_Config_FederationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Previews && maxGifSize == other.maxGifSize;
+    return other is SpreedCapabilities_Config_Federation &&
+        enabled == other.enabled &&
+        incomingEnabled == other.incomingEnabled &&
+        outgoingEnabled == other.outgoingEnabled &&
+        onlyTrustedServers == other.onlyTrustedServers;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, incomingEnabled.hashCode);
+    _$hash = $jc(_$hash, outgoingEnabled.hashCode);
+    _$hash = $jc(_$hash, onlyTrustedServers.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Federation')
+          ..add('enabled', enabled)
+          ..add('incomingEnabled', incomingEnabled)
+          ..add('outgoingEnabled', outgoingEnabled)
+          ..add('onlyTrustedServers', onlyTrustedServers))
+        .toString();
+  }
+}
+
+class SpreedCapabilities_Config_FederationBuilder
+    implements
+        Builder<SpreedCapabilities_Config_Federation, SpreedCapabilities_Config_FederationBuilder>,
+        $SpreedCapabilities_Config_FederationInterfaceBuilder {
+  _$SpreedCapabilities_Config_Federation? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+
+  bool? _incomingEnabled;
+  bool? get incomingEnabled => _$this._incomingEnabled;
+  set incomingEnabled(covariant bool? incomingEnabled) => _$this._incomingEnabled = incomingEnabled;
+
+  bool? _outgoingEnabled;
+  bool? get outgoingEnabled => _$this._outgoingEnabled;
+  set outgoingEnabled(covariant bool? outgoingEnabled) => _$this._outgoingEnabled = outgoingEnabled;
+
+  bool? _onlyTrustedServers;
+  bool? get onlyTrustedServers => _$this._onlyTrustedServers;
+  set onlyTrustedServers(covariant bool? onlyTrustedServers) => _$this._onlyTrustedServers = onlyTrustedServers;
+
+  SpreedCapabilities_Config_FederationBuilder() {
+    SpreedCapabilities_Config_Federation._defaults(this);
+  }
+
+  SpreedCapabilities_Config_FederationBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _incomingEnabled = $v.incomingEnabled;
+      _outgoingEnabled = $v.outgoingEnabled;
+      _onlyTrustedServers = $v.onlyTrustedServers;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedCapabilities_Config_Federation other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedCapabilities_Config_Federation;
+  }
+
+  @override
+  void update(void Function(SpreedCapabilities_Config_FederationBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedCapabilities_Config_Federation build() => _build();
+
+  _$SpreedCapabilities_Config_Federation _build() {
+    SpreedCapabilities_Config_Federation._validate(this);
+    final _$result = _$v ??
+        _$SpreedCapabilities_Config_Federation._(
+            enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedCapabilities_Config_Federation', 'enabled'),
+            incomingEnabled: BuiltValueNullFieldError.checkNotNull(
+                incomingEnabled, r'SpreedCapabilities_Config_Federation', 'incomingEnabled'),
+            outgoingEnabled: BuiltValueNullFieldError.checkNotNull(
+                outgoingEnabled, r'SpreedCapabilities_Config_Federation', 'outgoingEnabled'),
+            onlyTrustedServers: BuiltValueNullFieldError.checkNotNull(
+                onlyTrustedServers, r'SpreedCapabilities_Config_Federation', 'onlyTrustedServers'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SpreedCapabilities_Config_PreviewsInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_PreviewsInterface other);
+  void update(void Function($SpreedCapabilities_Config_PreviewsInterfaceBuilder) updates);
+  int? get maxGifSize;
+  set maxGifSize(int? maxGifSize);
+}
+
+class _$SpreedCapabilities_Config_Previews extends SpreedCapabilities_Config_Previews {
+  @override
+  final int maxGifSize;
+
+  factory _$SpreedCapabilities_Config_Previews([void Function(SpreedCapabilities_Config_PreviewsBuilder)? updates]) =>
+      (SpreedCapabilities_Config_PreviewsBuilder()..update(updates))._build();
+
+  _$SpreedCapabilities_Config_Previews._({required this.maxGifSize}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(maxGifSize, r'SpreedCapabilities_Config_Previews', 'maxGifSize');
+  }
+
+  @override
+  SpreedCapabilities_Config_Previews rebuild(void Function(SpreedCapabilities_Config_PreviewsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedCapabilities_Config_PreviewsBuilder toBuilder() => SpreedCapabilities_Config_PreviewsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedCapabilities_Config_Previews && maxGifSize == other.maxGifSize;
   }
 
   @override
@@ -22074,28 +24149,26 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Previews extends SpreedPublicCap
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Previews')
-          ..add('maxGifSize', maxGifSize))
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Previews')..add('maxGifSize', maxGifSize))
         .toString();
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder
+class SpreedCapabilities_Config_PreviewsBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Previews,
-            SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Previews? _$v;
+        Builder<SpreedCapabilities_Config_Previews, SpreedCapabilities_Config_PreviewsBuilder>,
+        $SpreedCapabilities_Config_PreviewsInterfaceBuilder {
+  _$SpreedCapabilities_Config_Previews? _$v;
 
   int? _maxGifSize;
   int? get maxGifSize => _$this._maxGifSize;
   set maxGifSize(covariant int? maxGifSize) => _$this._maxGifSize = maxGifSize;
 
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Previews._defaults(this);
+  SpreedCapabilities_Config_PreviewsBuilder() {
+    SpreedCapabilities_Config_Previews._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get _$this {
+  SpreedCapabilities_Config_PreviewsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _maxGifSize = $v.maxGifSize;
@@ -22105,33 +24178,33 @@ class SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Previews other) {
+  void replace(covariant SpreedCapabilities_Config_Previews other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Previews;
+    _$v = other as _$SpreedCapabilities_Config_Previews;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_PreviewsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Previews build() => _build();
+  SpreedCapabilities_Config_Previews build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Previews _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Previews._validate(this);
+  _$SpreedCapabilities_Config_Previews _build() {
+    SpreedCapabilities_Config_Previews._validate(this);
     final _$result = _$v ??
-        _$SpreedPublicCapabilities0_Spreed_Config_Previews._(
-            maxGifSize: BuiltValueNullFieldError.checkNotNull(
-                maxGifSize, r'SpreedPublicCapabilities0_Spreed_Config_Previews', 'maxGifSize'));
+        _$SpreedCapabilities_Config_Previews._(
+            maxGifSize:
+                BuiltValueNullFieldError.checkNotNull(maxGifSize, r'SpreedCapabilities_Config_Previews', 'maxGifSize'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_Config_SignalingInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilities_Config_SignalingInterfaceBuilder {
+  void replace($SpreedCapabilities_Config_SignalingInterface other);
+  void update(void Function($SpreedCapabilities_Config_SignalingInterfaceBuilder) updates);
   int? get sessionPingLimit;
   set sessionPingLimit(int? sessionPingLimit);
 
@@ -22139,35 +24212,30 @@ abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_SignalingInterface
   set helloV2TokenKey(String? helloV2TokenKey);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config_Signaling extends SpreedPublicCapabilities0_Spreed_Config_Signaling {
+class _$SpreedCapabilities_Config_Signaling extends SpreedCapabilities_Config_Signaling {
   @override
   final int sessionPingLimit;
   @override
   final String? helloV2TokenKey;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config_Signaling(
-          [void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config_Signaling([void Function(SpreedCapabilities_Config_SignalingBuilder)? updates]) =>
+      (SpreedCapabilities_Config_SignalingBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Signaling._({required this.sessionPingLimit, this.helloV2TokenKey})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        sessionPingLimit, r'SpreedPublicCapabilities0_Spreed_Config_Signaling', 'sessionPingLimit');
+  _$SpreedCapabilities_Config_Signaling._({required this.sessionPingLimit, this.helloV2TokenKey}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sessionPingLimit, r'SpreedCapabilities_Config_Signaling', 'sessionPingLimit');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Signaling rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder) updates) =>
+  SpreedCapabilities_Config_Signaling rebuild(void Function(SpreedCapabilities_Config_SignalingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder()..replace(this);
+  SpreedCapabilities_Config_SignalingBuilder toBuilder() => SpreedCapabilities_Config_SignalingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config_Signaling &&
+    return other is SpreedCapabilities_Config_Signaling &&
         sessionPingLimit == other.sessionPingLimit &&
         helloV2TokenKey == other.helloV2TokenKey;
   }
@@ -22183,19 +24251,18 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Signaling extends SpreedPublicCa
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Signaling')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config_Signaling')
           ..add('sessionPingLimit', sessionPingLimit)
           ..add('helloV2TokenKey', helloV2TokenKey))
         .toString();
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder
+class SpreedCapabilities_Config_SignalingBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config_Signaling,
-            SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder>,
-        $SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config_Signaling? _$v;
+        Builder<SpreedCapabilities_Config_Signaling, SpreedCapabilities_Config_SignalingBuilder>,
+        $SpreedCapabilities_Config_SignalingInterfaceBuilder {
+  _$SpreedCapabilities_Config_Signaling? _$v;
 
   int? _sessionPingLimit;
   int? get sessionPingLimit => _$this._sessionPingLimit;
@@ -22205,11 +24272,11 @@ class SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder
   String? get helloV2TokenKey => _$this._helloV2TokenKey;
   set helloV2TokenKey(covariant String? helloV2TokenKey) => _$this._helloV2TokenKey = helloV2TokenKey;
 
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config_Signaling._defaults(this);
+  SpreedCapabilities_Config_SignalingBuilder() {
+    SpreedCapabilities_Config_Signaling._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get _$this {
+  SpreedCapabilities_Config_SignalingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _sessionPingLimit = $v.sessionPingLimit;
@@ -22220,104 +24287,108 @@ class SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Signaling other) {
+  void replace(covariant SpreedCapabilities_Config_Signaling other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Signaling;
+    _$v = other as _$SpreedCapabilities_Config_Signaling;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_Config_SignalingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config_Signaling build() => _build();
+  SpreedCapabilities_Config_Signaling build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config_Signaling _build() {
-    SpreedPublicCapabilities0_Spreed_Config_Signaling._validate(this);
+  _$SpreedCapabilities_Config_Signaling _build() {
+    SpreedCapabilities_Config_Signaling._validate(this);
     final _$result = _$v ??
-        _$SpreedPublicCapabilities0_Spreed_Config_Signaling._(
+        _$SpreedCapabilities_Config_Signaling._(
             sessionPingLimit: BuiltValueNullFieldError.checkNotNull(
-                sessionPingLimit, r'SpreedPublicCapabilities0_Spreed_Config_Signaling', 'sessionPingLimit'),
+                sessionPingLimit, r'SpreedCapabilities_Config_Signaling', 'sessionPingLimit'),
             helloV2TokenKey: helloV2TokenKey);
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_Spreed_ConfigInterface other);
-  void update(void Function($SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder) updates);
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get attachments;
-  set attachments(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? attachments);
+abstract mixin class $SpreedCapabilities_ConfigInterfaceBuilder {
+  void replace($SpreedCapabilities_ConfigInterface other);
+  void update(void Function($SpreedCapabilities_ConfigInterfaceBuilder) updates);
+  SpreedCapabilities_Config_AttachmentsBuilder get attachments;
+  set attachments(SpreedCapabilities_Config_AttachmentsBuilder? attachments);
 
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get call;
-  set call(SpreedPublicCapabilities0_Spreed_Config_CallBuilder? call);
+  SpreedCapabilities_Config_CallBuilder get call;
+  set call(SpreedCapabilities_Config_CallBuilder? call);
 
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get chat;
-  set chat(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? chat);
+  SpreedCapabilities_Config_ChatBuilder get chat;
+  set chat(SpreedCapabilities_Config_ChatBuilder? chat);
 
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get conversations;
-  set conversations(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? conversations);
+  SpreedCapabilities_Config_ConversationsBuilder get conversations;
+  set conversations(SpreedCapabilities_Config_ConversationsBuilder? conversations);
 
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get previews;
-  set previews(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? previews);
+  SpreedCapabilities_Config_FederationBuilder get federation;
+  set federation(SpreedCapabilities_Config_FederationBuilder? federation);
 
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get signaling;
-  set signaling(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? signaling);
+  SpreedCapabilities_Config_PreviewsBuilder get previews;
+  set previews(SpreedCapabilities_Config_PreviewsBuilder? previews);
+
+  SpreedCapabilities_Config_SignalingBuilder get signaling;
+  set signaling(SpreedCapabilities_Config_SignalingBuilder? signaling);
 }
 
-class _$SpreedPublicCapabilities0_Spreed_Config extends SpreedPublicCapabilities0_Spreed_Config {
+class _$SpreedCapabilities_Config extends SpreedCapabilities_Config {
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Attachments attachments;
+  final SpreedCapabilities_Config_Attachments attachments;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Call call;
+  final SpreedCapabilities_Config_Call call;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Chat chat;
+  final SpreedCapabilities_Config_Chat chat;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Conversations conversations;
+  final SpreedCapabilities_Config_Conversations conversations;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Previews previews;
+  final SpreedCapabilities_Config_Federation? federation;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config_Signaling signaling;
+  final SpreedCapabilities_Config_Previews previews;
+  @override
+  final SpreedCapabilities_Config_Signaling signaling;
 
-  factory _$SpreedPublicCapabilities0_Spreed_Config(
-          [void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_Spreed_ConfigBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities_Config([void Function(SpreedCapabilities_ConfigBuilder)? updates]) =>
+      (SpreedCapabilities_ConfigBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config._(
+  _$SpreedCapabilities_Config._(
       {required this.attachments,
       required this.call,
       required this.chat,
       required this.conversations,
+      this.federation,
       required this.previews,
       required this.signaling})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(attachments, r'SpreedPublicCapabilities0_Spreed_Config', 'attachments');
-    BuiltValueNullFieldError.checkNotNull(call, r'SpreedPublicCapabilities0_Spreed_Config', 'call');
-    BuiltValueNullFieldError.checkNotNull(chat, r'SpreedPublicCapabilities0_Spreed_Config', 'chat');
-    BuiltValueNullFieldError.checkNotNull(conversations, r'SpreedPublicCapabilities0_Spreed_Config', 'conversations');
-    BuiltValueNullFieldError.checkNotNull(previews, r'SpreedPublicCapabilities0_Spreed_Config', 'previews');
-    BuiltValueNullFieldError.checkNotNull(signaling, r'SpreedPublicCapabilities0_Spreed_Config', 'signaling');
+    BuiltValueNullFieldError.checkNotNull(attachments, r'SpreedCapabilities_Config', 'attachments');
+    BuiltValueNullFieldError.checkNotNull(call, r'SpreedCapabilities_Config', 'call');
+    BuiltValueNullFieldError.checkNotNull(chat, r'SpreedCapabilities_Config', 'chat');
+    BuiltValueNullFieldError.checkNotNull(conversations, r'SpreedCapabilities_Config', 'conversations');
+    BuiltValueNullFieldError.checkNotNull(previews, r'SpreedCapabilities_Config', 'previews');
+    BuiltValueNullFieldError.checkNotNull(signaling, r'SpreedCapabilities_Config', 'signaling');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config rebuild(
-          void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder) updates) =>
+  SpreedCapabilities_Config rebuild(void Function(SpreedCapabilities_ConfigBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder toBuilder() =>
-      SpreedPublicCapabilities0_Spreed_ConfigBuilder()..replace(this);
+  SpreedCapabilities_ConfigBuilder toBuilder() => SpreedCapabilities_ConfigBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed_Config &&
+    return other is SpreedCapabilities_Config &&
         attachments == other.attachments &&
         call == other.call &&
         chat == other.chat &&
         conversations == other.conversations &&
+        federation == other.federation &&
         previews == other.previews &&
         signaling == other.signaling;
   }
@@ -22329,6 +24400,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config extends SpreedPublicCapabilities
     _$hash = $jc(_$hash, call.hashCode);
     _$hash = $jc(_$hash, chat.hashCode);
     _$hash = $jc(_$hash, conversations.hashCode);
+    _$hash = $jc(_$hash, federation.hashCode);
     _$hash = $jc(_$hash, previews.hashCode);
     _$hash = $jc(_$hash, signaling.hashCode);
     _$hash = $jf(_$hash);
@@ -22337,68 +24409,71 @@ class _$SpreedPublicCapabilities0_Spreed_Config extends SpreedPublicCapabilities
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities_Config')
           ..add('attachments', attachments)
           ..add('call', call)
           ..add('chat', chat)
           ..add('conversations', conversations)
+          ..add('federation', federation)
           ..add('previews', previews)
           ..add('signaling', signaling))
         .toString();
   }
 }
 
-class SpreedPublicCapabilities0_Spreed_ConfigBuilder
+class SpreedCapabilities_ConfigBuilder
     implements
-        Builder<SpreedPublicCapabilities0_Spreed_Config, SpreedPublicCapabilities0_Spreed_ConfigBuilder>,
-        $SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed_Config? _$v;
+        Builder<SpreedCapabilities_Config, SpreedCapabilities_ConfigBuilder>,
+        $SpreedCapabilities_ConfigInterfaceBuilder {
+  _$SpreedCapabilities_Config? _$v;
 
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? _attachments;
-  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get attachments =>
-      _$this._attachments ??= SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder();
-  set attachments(covariant SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? attachments) =>
+  SpreedCapabilities_Config_AttachmentsBuilder? _attachments;
+  SpreedCapabilities_Config_AttachmentsBuilder get attachments =>
+      _$this._attachments ??= SpreedCapabilities_Config_AttachmentsBuilder();
+  set attachments(covariant SpreedCapabilities_Config_AttachmentsBuilder? attachments) =>
       _$this._attachments = attachments;
 
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder? _call;
-  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get call =>
-      _$this._call ??= SpreedPublicCapabilities0_Spreed_Config_CallBuilder();
-  set call(covariant SpreedPublicCapabilities0_Spreed_Config_CallBuilder? call) => _$this._call = call;
+  SpreedCapabilities_Config_CallBuilder? _call;
+  SpreedCapabilities_Config_CallBuilder get call => _$this._call ??= SpreedCapabilities_Config_CallBuilder();
+  set call(covariant SpreedCapabilities_Config_CallBuilder? call) => _$this._call = call;
 
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? _chat;
-  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get chat =>
-      _$this._chat ??= SpreedPublicCapabilities0_Spreed_Config_ChatBuilder();
-  set chat(covariant SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? chat) => _$this._chat = chat;
+  SpreedCapabilities_Config_ChatBuilder? _chat;
+  SpreedCapabilities_Config_ChatBuilder get chat => _$this._chat ??= SpreedCapabilities_Config_ChatBuilder();
+  set chat(covariant SpreedCapabilities_Config_ChatBuilder? chat) => _$this._chat = chat;
 
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? _conversations;
-  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get conversations =>
-      _$this._conversations ??= SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder();
-  set conversations(covariant SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? conversations) =>
+  SpreedCapabilities_Config_ConversationsBuilder? _conversations;
+  SpreedCapabilities_Config_ConversationsBuilder get conversations =>
+      _$this._conversations ??= SpreedCapabilities_Config_ConversationsBuilder();
+  set conversations(covariant SpreedCapabilities_Config_ConversationsBuilder? conversations) =>
       _$this._conversations = conversations;
 
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? _previews;
-  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get previews =>
-      _$this._previews ??= SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder();
-  set previews(covariant SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? previews) =>
-      _$this._previews = previews;
+  SpreedCapabilities_Config_FederationBuilder? _federation;
+  SpreedCapabilities_Config_FederationBuilder get federation =>
+      _$this._federation ??= SpreedCapabilities_Config_FederationBuilder();
+  set federation(covariant SpreedCapabilities_Config_FederationBuilder? federation) => _$this._federation = federation;
 
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? _signaling;
-  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get signaling =>
-      _$this._signaling ??= SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder();
-  set signaling(covariant SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? signaling) =>
-      _$this._signaling = signaling;
+  SpreedCapabilities_Config_PreviewsBuilder? _previews;
+  SpreedCapabilities_Config_PreviewsBuilder get previews =>
+      _$this._previews ??= SpreedCapabilities_Config_PreviewsBuilder();
+  set previews(covariant SpreedCapabilities_Config_PreviewsBuilder? previews) => _$this._previews = previews;
 
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder() {
-    SpreedPublicCapabilities0_Spreed_Config._defaults(this);
+  SpreedCapabilities_Config_SignalingBuilder? _signaling;
+  SpreedCapabilities_Config_SignalingBuilder get signaling =>
+      _$this._signaling ??= SpreedCapabilities_Config_SignalingBuilder();
+  set signaling(covariant SpreedCapabilities_Config_SignalingBuilder? signaling) => _$this._signaling = signaling;
+
+  SpreedCapabilities_ConfigBuilder() {
+    SpreedCapabilities_Config._defaults(this);
   }
 
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder get _$this {
+  SpreedCapabilities_ConfigBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _attachments = $v.attachments.toBuilder();
       _call = $v.call.toBuilder();
       _chat = $v.chat.toBuilder();
       _conversations = $v.conversations.toBuilder();
+      _federation = $v.federation?.toBuilder();
       _previews = $v.previews.toBuilder();
       _signaling = $v.signaling.toBuilder();
       _$v = null;
@@ -22407,29 +24482,30 @@ class SpreedPublicCapabilities0_Spreed_ConfigBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed_Config other) {
+  void replace(covariant SpreedCapabilities_Config other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config;
+    _$v = other as _$SpreedCapabilities_Config;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? updates) {
+  void update(void Function(SpreedCapabilities_ConfigBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed_Config build() => _build();
+  SpreedCapabilities_Config build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed_Config _build() {
-    SpreedPublicCapabilities0_Spreed_Config._validate(this);
-    _$SpreedPublicCapabilities0_Spreed_Config _$result;
+  _$SpreedCapabilities_Config _build() {
+    SpreedCapabilities_Config._validate(this);
+    _$SpreedCapabilities_Config _$result;
     try {
       _$result = _$v ??
-          _$SpreedPublicCapabilities0_Spreed_Config._(
+          _$SpreedCapabilities_Config._(
               attachments: attachments.build(),
               call: call.build(),
               chat: chat.build(),
               conversations: conversations.build(),
+              federation: _federation?.build(),
               previews: previews.build(),
               signaling: signaling.build());
     } catch (_) {
@@ -22443,12 +24519,14 @@ class SpreedPublicCapabilities0_Spreed_ConfigBuilder
         chat.build();
         _$failedField = 'conversations';
         conversations.build();
+        _$failedField = 'federation';
+        _federation?.build();
         _$failedField = 'previews';
         previews.build();
         _$failedField = 'signaling';
         signaling.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SpreedCapabilities_Config', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22457,48 +24535,47 @@ class SpreedPublicCapabilities0_Spreed_ConfigBuilder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilities0_SpreedInterfaceBuilder {
-  void replace($SpreedPublicCapabilities0_SpreedInterface other);
-  void update(void Function($SpreedPublicCapabilities0_SpreedInterfaceBuilder) updates);
+abstract mixin class $SpreedCapabilitiesInterfaceBuilder {
+  void replace($SpreedCapabilitiesInterface other);
+  void update(void Function($SpreedCapabilitiesInterfaceBuilder) updates);
   ListBuilder<String> get features;
   set features(ListBuilder<String>? features);
 
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder get config;
-  set config(SpreedPublicCapabilities0_Spreed_ConfigBuilder? config);
+  SpreedCapabilities_ConfigBuilder get config;
+  set config(SpreedCapabilities_ConfigBuilder? config);
 
   String? get version;
   set version(String? version);
 }
 
-class _$SpreedPublicCapabilities0_Spreed extends SpreedPublicCapabilities0_Spreed {
+class _$SpreedCapabilities extends SpreedCapabilities {
   @override
   final BuiltList<String> features;
   @override
-  final SpreedPublicCapabilities0_Spreed_Config config;
+  final SpreedCapabilities_Config config;
   @override
   final String version;
 
-  factory _$SpreedPublicCapabilities0_Spreed([void Function(SpreedPublicCapabilities0_SpreedBuilder)? updates]) =>
-      (SpreedPublicCapabilities0_SpreedBuilder()..update(updates))._build();
+  factory _$SpreedCapabilities([void Function(SpreedCapabilitiesBuilder)? updates]) =>
+      (SpreedCapabilitiesBuilder()..update(updates))._build();
 
-  _$SpreedPublicCapabilities0_Spreed._({required this.features, required this.config, required this.version})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(features, r'SpreedPublicCapabilities0_Spreed', 'features');
-    BuiltValueNullFieldError.checkNotNull(config, r'SpreedPublicCapabilities0_Spreed', 'config');
-    BuiltValueNullFieldError.checkNotNull(version, r'SpreedPublicCapabilities0_Spreed', 'version');
+  _$SpreedCapabilities._({required this.features, required this.config, required this.version}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(features, r'SpreedCapabilities', 'features');
+    BuiltValueNullFieldError.checkNotNull(config, r'SpreedCapabilities', 'config');
+    BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version');
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed rebuild(void Function(SpreedPublicCapabilities0_SpreedBuilder) updates) =>
+  SpreedCapabilities rebuild(void Function(SpreedCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpreedPublicCapabilities0_SpreedBuilder toBuilder() => SpreedPublicCapabilities0_SpreedBuilder()..replace(this);
+  SpreedCapabilitiesBuilder toBuilder() => SpreedCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities0_Spreed &&
+    return other is SpreedCapabilities &&
         features == other.features &&
         config == other.config &&
         version == other.version;
@@ -22516,7 +24593,7 @@ class _$SpreedPublicCapabilities0_Spreed extends SpreedPublicCapabilities0_Spree
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed')
+    return (newBuiltValueToStringHelper(r'SpreedCapabilities')
           ..add('features', features)
           ..add('config', config)
           ..add('version', version))
@@ -22524,30 +24601,27 @@ class _$SpreedPublicCapabilities0_Spreed extends SpreedPublicCapabilities0_Spree
   }
 }
 
-class SpreedPublicCapabilities0_SpreedBuilder
-    implements
-        Builder<SpreedPublicCapabilities0_Spreed, SpreedPublicCapabilities0_SpreedBuilder>,
-        $SpreedPublicCapabilities0_SpreedInterfaceBuilder {
-  _$SpreedPublicCapabilities0_Spreed? _$v;
+class SpreedCapabilitiesBuilder
+    implements Builder<SpreedCapabilities, SpreedCapabilitiesBuilder>, $SpreedCapabilitiesInterfaceBuilder {
+  _$SpreedCapabilities? _$v;
 
   ListBuilder<String>? _features;
   ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
   set features(covariant ListBuilder<String>? features) => _$this._features = features;
 
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder? _config;
-  SpreedPublicCapabilities0_Spreed_ConfigBuilder get config =>
-      _$this._config ??= SpreedPublicCapabilities0_Spreed_ConfigBuilder();
-  set config(covariant SpreedPublicCapabilities0_Spreed_ConfigBuilder? config) => _$this._config = config;
+  SpreedCapabilities_ConfigBuilder? _config;
+  SpreedCapabilities_ConfigBuilder get config => _$this._config ??= SpreedCapabilities_ConfigBuilder();
+  set config(covariant SpreedCapabilities_ConfigBuilder? config) => _$this._config = config;
 
   String? _version;
   String? get version => _$this._version;
   set version(covariant String? version) => _$this._version = version;
 
-  SpreedPublicCapabilities0_SpreedBuilder() {
-    SpreedPublicCapabilities0_Spreed._defaults(this);
+  SpreedCapabilitiesBuilder() {
+    SpreedCapabilities._defaults(this);
   }
 
-  SpreedPublicCapabilities0_SpreedBuilder get _$this {
+  SpreedCapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _features = $v.features.toBuilder();
@@ -22559,28 +24633,28 @@ class SpreedPublicCapabilities0_SpreedBuilder
   }
 
   @override
-  void replace(covariant SpreedPublicCapabilities0_Spreed other) {
+  void replace(covariant SpreedCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities0_Spreed;
+    _$v = other as _$SpreedCapabilities;
   }
 
   @override
-  void update(void Function(SpreedPublicCapabilities0_SpreedBuilder)? updates) {
+  void update(void Function(SpreedCapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SpreedPublicCapabilities0_Spreed build() => _build();
+  SpreedCapabilities build() => _build();
 
-  _$SpreedPublicCapabilities0_Spreed _build() {
-    SpreedPublicCapabilities0_Spreed._validate(this);
-    _$SpreedPublicCapabilities0_Spreed _$result;
+  _$SpreedCapabilities _build() {
+    SpreedCapabilities._validate(this);
+    _$SpreedCapabilities _$result;
     try {
       _$result = _$v ??
-          _$SpreedPublicCapabilities0_Spreed._(
+          _$SpreedCapabilities._(
               features: features.build(),
               config: config.build(),
-              version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedPublicCapabilities0_Spreed', 'version'));
+              version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedCapabilities', 'version'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -22589,7 +24663,7 @@ class SpreedPublicCapabilities0_SpreedBuilder
         _$failedField = 'config';
         config.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SpreedCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -22601,13 +24675,13 @@ class SpreedPublicCapabilities0_SpreedBuilder
 abstract mixin class $SpreedPublicCapabilities0InterfaceBuilder {
   void replace($SpreedPublicCapabilities0Interface other);
   void update(void Function($SpreedPublicCapabilities0InterfaceBuilder) updates);
-  SpreedPublicCapabilities0_SpreedBuilder get spreed;
-  set spreed(SpreedPublicCapabilities0_SpreedBuilder? spreed);
+  SpreedCapabilitiesBuilder get spreed;
+  set spreed(SpreedCapabilitiesBuilder? spreed);
 }
 
 class _$SpreedPublicCapabilities0 extends SpreedPublicCapabilities0 {
   @override
-  final SpreedPublicCapabilities0_Spreed spreed;
+  final SpreedCapabilities spreed;
 
   factory _$SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? updates]) =>
       (SpreedPublicCapabilities0Builder()..update(updates))._build();
@@ -22649,9 +24723,9 @@ class SpreedPublicCapabilities0Builder
         $SpreedPublicCapabilities0InterfaceBuilder {
   _$SpreedPublicCapabilities0? _$v;
 
-  SpreedPublicCapabilities0_SpreedBuilder? _spreed;
-  SpreedPublicCapabilities0_SpreedBuilder get spreed => _$this._spreed ??= SpreedPublicCapabilities0_SpreedBuilder();
-  set spreed(covariant SpreedPublicCapabilities0_SpreedBuilder? spreed) => _$this._spreed = spreed;
+  SpreedCapabilitiesBuilder? _spreed;
+  SpreedCapabilitiesBuilder get spreed => _$this._spreed ??= SpreedCapabilitiesBuilder();
+  set spreed(covariant SpreedCapabilitiesBuilder? spreed) => _$this._spreed = spreed;
 
   SpreedPublicCapabilities0Builder() {
     SpreedPublicCapabilities0._defaults(this);
@@ -24699,6 +26773,347 @@ class ReferenceBuilder implements Builder<Reference, ReferenceBuilder>, $Referen
   }
 }
 
+abstract mixin class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, Reference> get references;
+  set references(MapBuilder<String, Reference>? references);
+}
+
+class _$ReferenceApiExtractResponseApplicationJson_Ocs_Data
+    extends ReferenceApiExtractResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, Reference> references;
+
+  factory _$ReferenceApiExtractResponseApplicationJson_Ocs_Data(
+          [void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        references, r'ReferenceApiExtractResponseApplicationJson_Ocs_Data', 'references');
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractResponseApplicationJson_Ocs_Data && references == other.references;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, references.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson_Ocs_Data')
+          ..add('references', references))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
+            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder>,
+        $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, Reference>? _references;
+  MapBuilder<String, Reference> get references => _$this._references ??= MapBuilder<String, Reference>();
+  set references(covariant MapBuilder<String, Reference>? references) => _$this._references = references;
+
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder() {
+    ReferenceApiExtractResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _references = $v.references.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data _build() {
+    ReferenceApiExtractResponseApplicationJson_Ocs_Data._validate(this);
+    _$ReferenceApiExtractResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._(references: references.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'references';
+        references.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiExtractResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ReferenceApiExtractResponseApplicationJson_OcsInterface other);
+  void update(void Function($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ReferenceApiExtractResponseApplicationJson_Ocs extends ReferenceApiExtractResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ReferenceApiExtractResponseApplicationJson_Ocs_Data data;
+
+  factory _$ReferenceApiExtractResponseApplicationJson_Ocs(
+          [void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ReferenceApiExtractResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ReferenceApiExtractResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ReferenceApiExtractResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs rebuild(
+          void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder toBuilder() =>
+      ReferenceApiExtractResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ReferenceApiExtractResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder>,
+        $ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
+  _$ReferenceApiExtractResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? _data;
+  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder() {
+    ReferenceApiExtractResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson_Ocs build() => _build();
+
+  _$ReferenceApiExtractResponseApplicationJson_Ocs _build() {
+    ReferenceApiExtractResponseApplicationJson_Ocs._validate(this);
+    _$ReferenceApiExtractResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'ReferenceApiExtractResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
+  void replace($ReferenceApiExtractResponseApplicationJsonInterface other);
+  void update(void Function($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates);
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ReferenceApiExtractResponseApplicationJson extends ReferenceApiExtractResponseApplicationJson {
+  @override
+  final ReferenceApiExtractResponseApplicationJson_Ocs ocs;
+
+  factory _$ReferenceApiExtractResponseApplicationJson(
+          [void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? updates]) =>
+      (ReferenceApiExtractResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReferenceApiExtractResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ReferenceApiExtractResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson rebuild(
+          void Function(ReferenceApiExtractResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReferenceApiExtractResponseApplicationJsonBuilder toBuilder() =>
+      ReferenceApiExtractResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReferenceApiExtractResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ReferenceApiExtractResponseApplicationJsonBuilder
+    implements
+        Builder<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder>,
+        $ReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
+  _$ReferenceApiExtractResponseApplicationJson? _$v;
+
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder? _ocs;
+  ReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= ReferenceApiExtractResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ReferenceApiExtractResponseApplicationJsonBuilder() {
+    ReferenceApiExtractResponseApplicationJson._defaults(this);
+  }
+
+  ReferenceApiExtractResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReferenceApiExtractResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReferenceApiExtractResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReferenceApiExtractResponseApplicationJson build() => _build();
+
+  _$ReferenceApiExtractResponseApplicationJson _build() {
+    ReferenceApiExtractResponseApplicationJson._validate(this);
+    _$ReferenceApiExtractResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ReferenceApiExtractResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -25374,347 +27789,6 @@ class ReferenceApiResolveResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ReferenceApiResolveResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, Reference> get references;
-  set references(MapBuilder<String, Reference>? references);
-}
-
-class _$ReferenceApiExtractResponseApplicationJson_Ocs_Data
-    extends ReferenceApiExtractResponseApplicationJson_Ocs_Data {
-  @override
-  final BuiltMap<String, Reference> references;
-
-  factory _$ReferenceApiExtractResponseApplicationJson_Ocs_Data(
-          [void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
-
-  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._({required this.references}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        references, r'ReferenceApiExtractResponseApplicationJson_Ocs_Data', 'references');
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReferenceApiExtractResponseApplicationJson_Ocs_Data && references == other.references;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, references.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson_Ocs_Data')
-          ..add('references', references))
-        .toString();
-  }
-}
-
-class ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
-            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder>,
-        $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data? _$v;
-
-  MapBuilder<String, Reference>? _references;
-  MapBuilder<String, Reference> get references => _$this._references ??= MapBuilder<String, Reference>();
-  set references(covariant MapBuilder<String, Reference>? references) => _$this._references = references;
-
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder() {
-    ReferenceApiExtractResponseApplicationJson_Ocs_Data._defaults(this);
-  }
-
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _references = $v.references.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReferenceApiExtractResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs_Data build() => _build();
-
-  _$ReferenceApiExtractResponseApplicationJson_Ocs_Data _build() {
-    ReferenceApiExtractResponseApplicationJson_Ocs_Data._validate(this);
-    _$ReferenceApiExtractResponseApplicationJson_Ocs_Data _$result;
-    try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs_Data._(references: references.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'references';
-        references.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'ReferenceApiExtractResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($ReferenceApiExtractResponseApplicationJson_OcsInterface other);
-  void update(void Function($ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data);
-}
-
-class _$ReferenceApiExtractResponseApplicationJson_Ocs extends ReferenceApiExtractResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final ReferenceApiExtractResponseApplicationJson_Ocs_Data data;
-
-  factory _$ReferenceApiExtractResponseApplicationJson_Ocs(
-          [void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ReferenceApiExtractResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$ReferenceApiExtractResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'ReferenceApiExtractResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'ReferenceApiExtractResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs rebuild(
-          void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder toBuilder() =>
-      ReferenceApiExtractResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReferenceApiExtractResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class ReferenceApiExtractResponseApplicationJson_OcsBuilder
-    implements
-        Builder<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder>,
-        $ReferenceApiExtractResponseApplicationJson_OcsInterfaceBuilder {
-  _$ReferenceApiExtractResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? _data;
-  ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
-
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder() {
-    ReferenceApiExtractResponseApplicationJson_Ocs._defaults(this);
-  }
-
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReferenceApiExtractResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReferenceApiExtractResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson_Ocs build() => _build();
-
-  _$ReferenceApiExtractResponseApplicationJson_Ocs _build() {
-    ReferenceApiExtractResponseApplicationJson_Ocs._validate(this);
-    _$ReferenceApiExtractResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'ReferenceApiExtractResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
-  void replace($ReferenceApiExtractResponseApplicationJsonInterface other);
-  void update(void Function($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder) updates);
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(ReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$ReferenceApiExtractResponseApplicationJson extends ReferenceApiExtractResponseApplicationJson {
-  @override
-  final ReferenceApiExtractResponseApplicationJson_Ocs ocs;
-
-  factory _$ReferenceApiExtractResponseApplicationJson(
-          [void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? updates]) =>
-      (ReferenceApiExtractResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$ReferenceApiExtractResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'ReferenceApiExtractResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson rebuild(
-          void Function(ReferenceApiExtractResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReferenceApiExtractResponseApplicationJsonBuilder toBuilder() =>
-      ReferenceApiExtractResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReferenceApiExtractResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReferenceApiExtractResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class ReferenceApiExtractResponseApplicationJsonBuilder
-    implements
-        Builder<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder>,
-        $ReferenceApiExtractResponseApplicationJsonInterfaceBuilder {
-  _$ReferenceApiExtractResponseApplicationJson? _$v;
-
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder? _ocs;
-  ReferenceApiExtractResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= ReferenceApiExtractResponseApplicationJson_OcsBuilder();
-  set ocs(covariant ReferenceApiExtractResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  ReferenceApiExtractResponseApplicationJsonBuilder() {
-    ReferenceApiExtractResponseApplicationJson._defaults(this);
-  }
-
-  ReferenceApiExtractResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReferenceApiExtractResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReferenceApiExtractResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReferenceApiExtractResponseApplicationJson build() => _build();
-
-  _$ReferenceApiExtractResponseApplicationJson _build() {
-    ReferenceApiExtractResponseApplicationJson._validate(this);
-    _$ReferenceApiExtractResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$ReferenceApiExtractResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'ReferenceApiExtractResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -26454,6 +28528,964 @@ class ReferenceApiTouchProviderResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ReferenceApiTouchProviderResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamResourceInterfaceBuilder {
+  void replace($TeamResourceInterface other);
+  void update(void Function($TeamResourceInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get label;
+  set label(String? label);
+
+  String? get url;
+  set url(String? url);
+
+  String? get iconSvg;
+  set iconSvg(String? iconSvg);
+
+  String? get iconURL;
+  set iconURL(String? iconURL);
+
+  String? get iconEmoji;
+  set iconEmoji(String? iconEmoji);
+}
+
+class _$TeamResource extends TeamResource {
+  @override
+  final int id;
+  @override
+  final String label;
+  @override
+  final String url;
+  @override
+  final String? iconSvg;
+  @override
+  final String? iconURL;
+  @override
+  final String? iconEmoji;
+
+  factory _$TeamResource([void Function(TeamResourceBuilder)? updates]) =>
+      (TeamResourceBuilder()..update(updates))._build();
+
+  _$TeamResource._(
+      {required this.id, required this.label, required this.url, this.iconSvg, this.iconURL, this.iconEmoji})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'TeamResource', 'id');
+    BuiltValueNullFieldError.checkNotNull(label, r'TeamResource', 'label');
+    BuiltValueNullFieldError.checkNotNull(url, r'TeamResource', 'url');
+  }
+
+  @override
+  TeamResource rebuild(void Function(TeamResourceBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TeamResourceBuilder toBuilder() => TeamResourceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamResource &&
+        id == other.id &&
+        label == other.label &&
+        url == other.url &&
+        iconSvg == other.iconSvg &&
+        iconURL == other.iconURL &&
+        iconEmoji == other.iconEmoji;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, label.hashCode);
+    _$hash = $jc(_$hash, url.hashCode);
+    _$hash = $jc(_$hash, iconSvg.hashCode);
+    _$hash = $jc(_$hash, iconURL.hashCode);
+    _$hash = $jc(_$hash, iconEmoji.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamResource')
+          ..add('id', id)
+          ..add('label', label)
+          ..add('url', url)
+          ..add('iconSvg', iconSvg)
+          ..add('iconURL', iconURL)
+          ..add('iconEmoji', iconEmoji))
+        .toString();
+  }
+}
+
+class TeamResourceBuilder implements Builder<TeamResource, TeamResourceBuilder>, $TeamResourceInterfaceBuilder {
+  _$TeamResource? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _label;
+  String? get label => _$this._label;
+  set label(covariant String? label) => _$this._label = label;
+
+  String? _url;
+  String? get url => _$this._url;
+  set url(covariant String? url) => _$this._url = url;
+
+  String? _iconSvg;
+  String? get iconSvg => _$this._iconSvg;
+  set iconSvg(covariant String? iconSvg) => _$this._iconSvg = iconSvg;
+
+  String? _iconURL;
+  String? get iconURL => _$this._iconURL;
+  set iconURL(covariant String? iconURL) => _$this._iconURL = iconURL;
+
+  String? _iconEmoji;
+  String? get iconEmoji => _$this._iconEmoji;
+  set iconEmoji(covariant String? iconEmoji) => _$this._iconEmoji = iconEmoji;
+
+  TeamResourceBuilder() {
+    TeamResource._defaults(this);
+  }
+
+  TeamResourceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _label = $v.label;
+      _url = $v.url;
+      _iconSvg = $v.iconSvg;
+      _iconURL = $v.iconURL;
+      _iconEmoji = $v.iconEmoji;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamResource other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamResource;
+  }
+
+  @override
+  void update(void Function(TeamResourceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamResource build() => _build();
+
+  _$TeamResource _build() {
+    TeamResource._validate(this);
+    final _$result = _$v ??
+        _$TeamResource._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'TeamResource', 'id'),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'TeamResource', 'label'),
+            url: BuiltValueNullFieldError.checkNotNull(url, r'TeamResource', 'url'),
+            iconSvg: iconSvg,
+            iconURL: iconURL,
+            iconEmoji: iconEmoji);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<TeamResource> get resources;
+  set resources(ListBuilder<TeamResource>? resources);
+}
+
+class _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data extends TeamsApiResolveOneResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<TeamResource> resources;
+
+  factory _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data(
+          [void Function(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data._({required this.resources}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        resources, r'TeamsApiResolveOneResponseApplicationJson_Ocs_Data', 'resources');
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiResolveOneResponseApplicationJson_Ocs_Data && resources == other.resources;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, resources.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiResolveOneResponseApplicationJson_Ocs_Data')
+          ..add('resources', resources))
+        .toString();
+  }
+}
+
+class TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TeamsApiResolveOneResponseApplicationJson_Ocs_Data,
+            TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder>,
+        $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<TeamResource>? _resources;
+  ListBuilder<TeamResource> get resources => _$this._resources ??= ListBuilder<TeamResource>();
+  set resources(covariant ListBuilder<TeamResource>? resources) => _$this._resources = resources;
+
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder() {
+    TeamsApiResolveOneResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _resources = $v.resources.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiResolveOneResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data _build() {
+    TeamsApiResolveOneResponseApplicationJson_Ocs_Data._validate(this);
+    _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson_Ocs_Data._(resources: resources.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'resources';
+        resources.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TeamsApiResolveOneResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiResolveOneResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TeamsApiResolveOneResponseApplicationJson_OcsInterface other);
+  void update(void Function($TeamsApiResolveOneResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TeamsApiResolveOneResponseApplicationJson_Ocs extends TeamsApiResolveOneResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TeamsApiResolveOneResponseApplicationJson_Ocs_Data data;
+
+  factory _$TeamsApiResolveOneResponseApplicationJson_Ocs(
+          [void Function(TeamsApiResolveOneResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TeamsApiResolveOneResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TeamsApiResolveOneResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TeamsApiResolveOneResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs rebuild(
+          void Function(TeamsApiResolveOneResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder toBuilder() =>
+      TeamsApiResolveOneResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiResolveOneResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiResolveOneResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TeamsApiResolveOneResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TeamsApiResolveOneResponseApplicationJson_Ocs, TeamsApiResolveOneResponseApplicationJson_OcsBuilder>,
+        $TeamsApiResolveOneResponseApplicationJson_OcsInterfaceBuilder {
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder? _data;
+  TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder() {
+    TeamsApiResolveOneResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiResolveOneResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiResolveOneResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TeamsApiResolveOneResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson_Ocs build() => _build();
+
+  _$TeamsApiResolveOneResponseApplicationJson_Ocs _build() {
+    TeamsApiResolveOneResponseApplicationJson_Ocs._validate(this);
+    _$TeamsApiResolveOneResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TeamsApiResolveOneResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder {
+  void replace($TeamsApiResolveOneResponseApplicationJsonInterface other);
+  void update(void Function($TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder) updates);
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TeamsApiResolveOneResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TeamsApiResolveOneResponseApplicationJson extends TeamsApiResolveOneResponseApplicationJson {
+  @override
+  final TeamsApiResolveOneResponseApplicationJson_Ocs ocs;
+
+  factory _$TeamsApiResolveOneResponseApplicationJson(
+          [void Function(TeamsApiResolveOneResponseApplicationJsonBuilder)? updates]) =>
+      (TeamsApiResolveOneResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TeamsApiResolveOneResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TeamsApiResolveOneResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson rebuild(
+          void Function(TeamsApiResolveOneResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiResolveOneResponseApplicationJsonBuilder toBuilder() =>
+      TeamsApiResolveOneResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiResolveOneResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiResolveOneResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TeamsApiResolveOneResponseApplicationJsonBuilder
+    implements
+        Builder<TeamsApiResolveOneResponseApplicationJson, TeamsApiResolveOneResponseApplicationJsonBuilder>,
+        $TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder {
+  _$TeamsApiResolveOneResponseApplicationJson? _$v;
+
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder? _ocs;
+  TeamsApiResolveOneResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TeamsApiResolveOneResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TeamsApiResolveOneResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TeamsApiResolveOneResponseApplicationJsonBuilder() {
+    TeamsApiResolveOneResponseApplicationJson._defaults(this);
+  }
+
+  TeamsApiResolveOneResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiResolveOneResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiResolveOneResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TeamsApiResolveOneResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiResolveOneResponseApplicationJson build() => _build();
+
+  _$TeamsApiResolveOneResponseApplicationJson _build() {
+    TeamsApiResolveOneResponseApplicationJson._validate(this);
+    _$TeamsApiResolveOneResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiResolveOneResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TeamsApiResolveOneResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamInterfaceBuilder {
+  void replace($TeamInterface other);
+  void update(void Function($TeamInterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  String? get name;
+  set name(String? name);
+
+  String? get icon;
+  set icon(String? icon);
+}
+
+class _$Team extends Team {
+  @override
+  final String id;
+  @override
+  final String name;
+  @override
+  final String icon;
+
+  factory _$Team([void Function(TeamBuilder)? updates]) => (TeamBuilder()..update(updates))._build();
+
+  _$Team._({required this.id, required this.name, required this.icon}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'Team', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, r'Team', 'name');
+    BuiltValueNullFieldError.checkNotNull(icon, r'Team', 'icon');
+  }
+
+  @override
+  Team rebuild(void Function(TeamBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TeamBuilder toBuilder() => TeamBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Team && id == other.id && name == other.name && icon == other.icon;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Team')
+          ..add('id', id)
+          ..add('name', name)
+          ..add('icon', icon))
+        .toString();
+  }
+}
+
+class TeamBuilder implements Builder<Team, TeamBuilder>, $TeamInterfaceBuilder {
+  _$Team? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(covariant String? name) => _$this._name = name;
+
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
+
+  TeamBuilder() {
+    Team._defaults(this);
+  }
+
+  TeamBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _icon = $v.icon;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Team other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Team;
+  }
+
+  @override
+  void update(void Function(TeamBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Team build() => _build();
+
+  _$Team _build() {
+    Team._validate(this);
+    final _$result = _$v ??
+        _$Team._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Team', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Team', 'name'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'Team', 'icon'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<Team> get teams;
+  set teams(ListBuilder<Team>? teams);
+}
+
+class _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data extends TeamsApiListTeamsResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<Team> teams;
+
+  factory _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data(
+          [void Function(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data._({required this.teams}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(teams, r'TeamsApiListTeamsResponseApplicationJson_Ocs_Data', 'teams');
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiListTeamsResponseApplicationJson_Ocs_Data && teams == other.teams;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, teams.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiListTeamsResponseApplicationJson_Ocs_Data')..add('teams', teams))
+        .toString();
+  }
+}
+
+class TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TeamsApiListTeamsResponseApplicationJson_Ocs_Data,
+            TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder>,
+        $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<Team>? _teams;
+  ListBuilder<Team> get teams => _$this._teams ??= ListBuilder<Team>();
+  set teams(covariant ListBuilder<Team>? teams) => _$this._teams = teams;
+
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder() {
+    TeamsApiListTeamsResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _teams = $v.teams.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiListTeamsResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data _build() {
+    TeamsApiListTeamsResponseApplicationJson_Ocs_Data._validate(this);
+    _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson_Ocs_Data._(teams: teams.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'teams';
+        teams.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TeamsApiListTeamsResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiListTeamsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TeamsApiListTeamsResponseApplicationJson_OcsInterface other);
+  void update(void Function($TeamsApiListTeamsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TeamsApiListTeamsResponseApplicationJson_Ocs extends TeamsApiListTeamsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TeamsApiListTeamsResponseApplicationJson_Ocs_Data data;
+
+  factory _$TeamsApiListTeamsResponseApplicationJson_Ocs(
+          [void Function(TeamsApiListTeamsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TeamsApiListTeamsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TeamsApiListTeamsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TeamsApiListTeamsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs rebuild(
+          void Function(TeamsApiListTeamsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder toBuilder() =>
+      TeamsApiListTeamsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiListTeamsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiListTeamsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TeamsApiListTeamsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TeamsApiListTeamsResponseApplicationJson_Ocs, TeamsApiListTeamsResponseApplicationJson_OcsBuilder>,
+        $TeamsApiListTeamsResponseApplicationJson_OcsInterfaceBuilder {
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder? _data;
+  TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder() {
+    TeamsApiListTeamsResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiListTeamsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiListTeamsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TeamsApiListTeamsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson_Ocs build() => _build();
+
+  _$TeamsApiListTeamsResponseApplicationJson_Ocs _build() {
+    TeamsApiListTeamsResponseApplicationJson_Ocs._validate(this);
+    _$TeamsApiListTeamsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TeamsApiListTeamsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder {
+  void replace($TeamsApiListTeamsResponseApplicationJsonInterface other);
+  void update(void Function($TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder) updates);
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TeamsApiListTeamsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TeamsApiListTeamsResponseApplicationJson extends TeamsApiListTeamsResponseApplicationJson {
+  @override
+  final TeamsApiListTeamsResponseApplicationJson_Ocs ocs;
+
+  factory _$TeamsApiListTeamsResponseApplicationJson(
+          [void Function(TeamsApiListTeamsResponseApplicationJsonBuilder)? updates]) =>
+      (TeamsApiListTeamsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TeamsApiListTeamsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TeamsApiListTeamsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson rebuild(
+          void Function(TeamsApiListTeamsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TeamsApiListTeamsResponseApplicationJsonBuilder toBuilder() =>
+      TeamsApiListTeamsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TeamsApiListTeamsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TeamsApiListTeamsResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TeamsApiListTeamsResponseApplicationJsonBuilder
+    implements
+        Builder<TeamsApiListTeamsResponseApplicationJson, TeamsApiListTeamsResponseApplicationJsonBuilder>,
+        $TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder {
+  _$TeamsApiListTeamsResponseApplicationJson? _$v;
+
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder? _ocs;
+  TeamsApiListTeamsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TeamsApiListTeamsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TeamsApiListTeamsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TeamsApiListTeamsResponseApplicationJsonBuilder() {
+    TeamsApiListTeamsResponseApplicationJson._defaults(this);
+  }
+
+  TeamsApiListTeamsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TeamsApiListTeamsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TeamsApiListTeamsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TeamsApiListTeamsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TeamsApiListTeamsResponseApplicationJson build() => _build();
+
+  _$TeamsApiListTeamsResponseApplicationJson _build() {
+    TeamsApiListTeamsResponseApplicationJson._validate(this);
+    _$TeamsApiListTeamsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TeamsApiListTeamsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TeamsApiListTeamsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -33205,6 +36237,473 @@ class WipeCheckWipeResponseApplicationJsonBuilder
     final _$result = _$v ??
         _$WipeCheckWipeResponseApplicationJson._(
             wipe: BuiltValueNullFieldError.checkNotNull(wipe, r'WipeCheckWipeResponseApplicationJson', 'wipe'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $Capabilities_CoreInterfaceBuilder {
+  void replace($Capabilities_CoreInterface other);
+  void update(void Function($Capabilities_CoreInterfaceBuilder) updates);
+  int? get pollinterval;
+  set pollinterval(int? pollinterval);
+
+  String? get webdavRoot;
+  set webdavRoot(String? webdavRoot);
+
+  bool? get referenceApi;
+  set referenceApi(bool? referenceApi);
+
+  String? get referenceRegex;
+  set referenceRegex(String? referenceRegex);
+
+  bool? get modRewriteWorking;
+  set modRewriteWorking(bool? modRewriteWorking);
+}
+
+class _$Capabilities_Core extends Capabilities_Core {
+  @override
+  final int pollinterval;
+  @override
+  final String webdavRoot;
+  @override
+  final bool referenceApi;
+  @override
+  final String referenceRegex;
+  @override
+  final bool modRewriteWorking;
+
+  factory _$Capabilities_Core([void Function(Capabilities_CoreBuilder)? updates]) =>
+      (Capabilities_CoreBuilder()..update(updates))._build();
+
+  _$Capabilities_Core._(
+      {required this.pollinterval,
+      required this.webdavRoot,
+      required this.referenceApi,
+      required this.referenceRegex,
+      required this.modRewriteWorking})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(pollinterval, r'Capabilities_Core', 'pollinterval');
+    BuiltValueNullFieldError.checkNotNull(webdavRoot, r'Capabilities_Core', 'webdavRoot');
+    BuiltValueNullFieldError.checkNotNull(referenceApi, r'Capabilities_Core', 'referenceApi');
+    BuiltValueNullFieldError.checkNotNull(referenceRegex, r'Capabilities_Core', 'referenceRegex');
+    BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'Capabilities_Core', 'modRewriteWorking');
+  }
+
+  @override
+  Capabilities_Core rebuild(void Function(Capabilities_CoreBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  Capabilities_CoreBuilder toBuilder() => Capabilities_CoreBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Capabilities_Core &&
+        pollinterval == other.pollinterval &&
+        webdavRoot == other.webdavRoot &&
+        referenceApi == other.referenceApi &&
+        referenceRegex == other.referenceRegex &&
+        modRewriteWorking == other.modRewriteWorking;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, pollinterval.hashCode);
+    _$hash = $jc(_$hash, webdavRoot.hashCode);
+    _$hash = $jc(_$hash, referenceApi.hashCode);
+    _$hash = $jc(_$hash, referenceRegex.hashCode);
+    _$hash = $jc(_$hash, modRewriteWorking.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Capabilities_Core')
+          ..add('pollinterval', pollinterval)
+          ..add('webdavRoot', webdavRoot)
+          ..add('referenceApi', referenceApi)
+          ..add('referenceRegex', referenceRegex)
+          ..add('modRewriteWorking', modRewriteWorking))
+        .toString();
+  }
+}
+
+class Capabilities_CoreBuilder
+    implements Builder<Capabilities_Core, Capabilities_CoreBuilder>, $Capabilities_CoreInterfaceBuilder {
+  _$Capabilities_Core? _$v;
+
+  int? _pollinterval;
+  int? get pollinterval => _$this._pollinterval;
+  set pollinterval(covariant int? pollinterval) => _$this._pollinterval = pollinterval;
+
+  String? _webdavRoot;
+  String? get webdavRoot => _$this._webdavRoot;
+  set webdavRoot(covariant String? webdavRoot) => _$this._webdavRoot = webdavRoot;
+
+  bool? _referenceApi;
+  bool? get referenceApi => _$this._referenceApi;
+  set referenceApi(covariant bool? referenceApi) => _$this._referenceApi = referenceApi;
+
+  String? _referenceRegex;
+  String? get referenceRegex => _$this._referenceRegex;
+  set referenceRegex(covariant String? referenceRegex) => _$this._referenceRegex = referenceRegex;
+
+  bool? _modRewriteWorking;
+  bool? get modRewriteWorking => _$this._modRewriteWorking;
+  set modRewriteWorking(covariant bool? modRewriteWorking) => _$this._modRewriteWorking = modRewriteWorking;
+
+  Capabilities_CoreBuilder() {
+    Capabilities_Core._defaults(this);
+  }
+
+  Capabilities_CoreBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _pollinterval = $v.pollinterval;
+      _webdavRoot = $v.webdavRoot;
+      _referenceApi = $v.referenceApi;
+      _referenceRegex = $v.referenceRegex;
+      _modRewriteWorking = $v.modRewriteWorking;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Capabilities_Core other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Capabilities_Core;
+  }
+
+  @override
+  void update(void Function(Capabilities_CoreBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Capabilities_Core build() => _build();
+
+  _$Capabilities_Core _build() {
+    Capabilities_Core._validate(this);
+    final _$result = _$v ??
+        _$Capabilities_Core._(
+            pollinterval: BuiltValueNullFieldError.checkNotNull(pollinterval, r'Capabilities_Core', 'pollinterval'),
+            webdavRoot: BuiltValueNullFieldError.checkNotNull(webdavRoot, r'Capabilities_Core', 'webdavRoot'),
+            referenceApi: BuiltValueNullFieldError.checkNotNull(referenceApi, r'Capabilities_Core', 'referenceApi'),
+            referenceRegex:
+                BuiltValueNullFieldError.checkNotNull(referenceRegex, r'Capabilities_Core', 'referenceRegex'),
+            modRewriteWorking:
+                BuiltValueNullFieldError.checkNotNull(modRewriteWorking, r'Capabilities_Core', 'modRewriteWorking'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
+  Capabilities_CoreBuilder get core;
+  set core(Capabilities_CoreBuilder? core);
+}
+
+class _$Capabilities extends Capabilities {
+  @override
+  final Capabilities_Core core;
+
+  factory _$Capabilities([void Function(CapabilitiesBuilder)? updates]) =>
+      (CapabilitiesBuilder()..update(updates))._build();
+
+  _$Capabilities._({required this.core}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(core, r'Capabilities', 'core');
+  }
+
+  @override
+  Capabilities rebuild(void Function(CapabilitiesBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  CapabilitiesBuilder toBuilder() => CapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Capabilities && core == other.core;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, core.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Capabilities')..add('core', core)).toString();
+  }
+}
+
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
+  _$Capabilities? _$v;
+
+  Capabilities_CoreBuilder? _core;
+  Capabilities_CoreBuilder get core => _$this._core ??= Capabilities_CoreBuilder();
+  set core(covariant Capabilities_CoreBuilder? core) => _$this._core = core;
+
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
+
+  CapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _core = $v.core.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Capabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Capabilities;
+  }
+
+  @override
+  void update(void Function(CapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Capabilities build() => _build();
+
+  _$Capabilities _build() {
+    Capabilities._validate(this);
+    _$Capabilities _$result;
+    try {
+      _$result = _$v ?? _$Capabilities._(core: core.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'core';
+        core.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'Capabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PublicCapabilities_BruteforceInterfaceBuilder {
+  void replace($PublicCapabilities_BruteforceInterface other);
+  void update(void Function($PublicCapabilities_BruteforceInterfaceBuilder) updates);
+  int? get delay;
+  set delay(int? delay);
+
+  bool? get allowListed;
+  set allowListed(bool? allowListed);
+}
+
+class _$PublicCapabilities_Bruteforce extends PublicCapabilities_Bruteforce {
+  @override
+  final int delay;
+  @override
+  final bool allowListed;
+
+  factory _$PublicCapabilities_Bruteforce([void Function(PublicCapabilities_BruteforceBuilder)? updates]) =>
+      (PublicCapabilities_BruteforceBuilder()..update(updates))._build();
+
+  _$PublicCapabilities_Bruteforce._({required this.delay, required this.allowListed}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(delay, r'PublicCapabilities_Bruteforce', 'delay');
+    BuiltValueNullFieldError.checkNotNull(allowListed, r'PublicCapabilities_Bruteforce', 'allowListed');
+  }
+
+  @override
+  PublicCapabilities_Bruteforce rebuild(void Function(PublicCapabilities_BruteforceBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PublicCapabilities_BruteforceBuilder toBuilder() => PublicCapabilities_BruteforceBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PublicCapabilities_Bruteforce && delay == other.delay && allowListed == other.allowListed;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, delay.hashCode);
+    _$hash = $jc(_$hash, allowListed.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PublicCapabilities_Bruteforce')
+          ..add('delay', delay)
+          ..add('allowListed', allowListed))
+        .toString();
+  }
+}
+
+class PublicCapabilities_BruteforceBuilder
+    implements
+        Builder<PublicCapabilities_Bruteforce, PublicCapabilities_BruteforceBuilder>,
+        $PublicCapabilities_BruteforceInterfaceBuilder {
+  _$PublicCapabilities_Bruteforce? _$v;
+
+  int? _delay;
+  int? get delay => _$this._delay;
+  set delay(covariant int? delay) => _$this._delay = delay;
+
+  bool? _allowListed;
+  bool? get allowListed => _$this._allowListed;
+  set allowListed(covariant bool? allowListed) => _$this._allowListed = allowListed;
+
+  PublicCapabilities_BruteforceBuilder() {
+    PublicCapabilities_Bruteforce._defaults(this);
+  }
+
+  PublicCapabilities_BruteforceBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _delay = $v.delay;
+      _allowListed = $v.allowListed;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PublicCapabilities_Bruteforce other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PublicCapabilities_Bruteforce;
+  }
+
+  @override
+  void update(void Function(PublicCapabilities_BruteforceBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PublicCapabilities_Bruteforce build() => _build();
+
+  _$PublicCapabilities_Bruteforce _build() {
+    PublicCapabilities_Bruteforce._validate(this);
+    final _$result = _$v ??
+        _$PublicCapabilities_Bruteforce._(
+            delay: BuiltValueNullFieldError.checkNotNull(delay, r'PublicCapabilities_Bruteforce', 'delay'),
+            allowListed:
+                BuiltValueNullFieldError.checkNotNull(allowListed, r'PublicCapabilities_Bruteforce', 'allowListed'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PublicCapabilitiesInterfaceBuilder {
+  void replace($PublicCapabilitiesInterface other);
+  void update(void Function($PublicCapabilitiesInterfaceBuilder) updates);
+  PublicCapabilities_BruteforceBuilder get bruteforce;
+  set bruteforce(PublicCapabilities_BruteforceBuilder? bruteforce);
+}
+
+class _$PublicCapabilities extends PublicCapabilities {
+  @override
+  final PublicCapabilities_Bruteforce bruteforce;
+
+  factory _$PublicCapabilities([void Function(PublicCapabilitiesBuilder)? updates]) =>
+      (PublicCapabilitiesBuilder()..update(updates))._build();
+
+  _$PublicCapabilities._({required this.bruteforce}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(bruteforce, r'PublicCapabilities', 'bruteforce');
+  }
+
+  @override
+  PublicCapabilities rebuild(void Function(PublicCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PublicCapabilitiesBuilder toBuilder() => PublicCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PublicCapabilities && bruteforce == other.bruteforce;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, bruteforce.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PublicCapabilities')..add('bruteforce', bruteforce)).toString();
+  }
+}
+
+class PublicCapabilitiesBuilder
+    implements Builder<PublicCapabilities, PublicCapabilitiesBuilder>, $PublicCapabilitiesInterfaceBuilder {
+  _$PublicCapabilities? _$v;
+
+  PublicCapabilities_BruteforceBuilder? _bruteforce;
+  PublicCapabilities_BruteforceBuilder get bruteforce => _$this._bruteforce ??= PublicCapabilities_BruteforceBuilder();
+  set bruteforce(covariant PublicCapabilities_BruteforceBuilder? bruteforce) => _$this._bruteforce = bruteforce;
+
+  PublicCapabilitiesBuilder() {
+    PublicCapabilities._defaults(this);
+  }
+
+  PublicCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _bruteforce = $v.bruteforce.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PublicCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PublicCapabilities;
+  }
+
+  @override
+  void update(void Function(PublicCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PublicCapabilities build() => _build();
+
+  _$PublicCapabilities _build() {
+    PublicCapabilities._validate(this);
+    _$PublicCapabilities _$result;
+    try {
+      _$result = _$v ?? _$PublicCapabilities._(bruteforce: bruteforce.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'bruteforce';
+        bruteforce.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

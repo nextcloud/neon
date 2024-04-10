@@ -49,11 +49,11 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)                                  | 27 - 28                |
+| [Server](https://github.com/nextcloud/server) (2)                                  | 27 - 29                |
 | [News app](https://github.com/nextcloud/news)                                      | 22 - 25                |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.7 - 4.10             |
-| [Notifications app](https://github.com/nextcloud/notifications)                    | 27 - 28                |
-| [Talk app](https://github.com/nextcloud/spreed)                                    | 17 - 18                |
+| [Notifications app](https://github.com/nextcloud/notifications)                    | 27 - 29                |
+| [Talk app](https://github.com/nextcloud/spreed)                                    | 17 - 19                |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.3 - 2.5              |
 

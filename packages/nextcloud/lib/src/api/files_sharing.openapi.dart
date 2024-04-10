@@ -154,7 +154,7 @@ class $DeletedShareapiClient {
         bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Undelete a deleted share.
@@ -630,7 +630,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Accept a remote share.
@@ -726,7 +726,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404},
       );
 
   /// Decline a remote share.
@@ -915,7 +915,7 @@ class $RemoteClient {
         bodyType: const FullType(RemoteUnshareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404, 403},
       );
 
   /// Unshare a remote share.
@@ -1916,7 +1916,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404, 403},
       );
 
   /// Delete a share.
@@ -2013,7 +2013,7 @@ class $ShareapiClient {
         bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 404, 400},
       );
 
   /// Accept a share.
@@ -3695,7 +3695,7 @@ abstract interface class $Share_StatusInterface {
   int? get clearAt;
   String? get icon;
   String? get message;
-  String? get status;
+  String get status;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Share_StatusInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

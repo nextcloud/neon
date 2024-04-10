@@ -9,7 +9,7 @@
 
 /// systemtags Version: 0.0.1.
 ///
-/// Collaborative tagging functionality which shares tags among users.
+/// Collaborative tagging functionality which shares tags among people.
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.

@@ -1503,7 +1503,7 @@ abstract interface class $ClearAtInterface {
   static void _defaults($ClearAtInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ClearAtInterfaceBuilder b) {
-    b.time?.validateOneOf();
+    b.time?.validateAnyOf();
   }
 }
 
@@ -2445,7 +2445,7 @@ abstract interface class $UserStatusRevertStatusResponseApplicationJson_OcsInter
   static void _defaults($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder b) {
-    b.data?.validateOneOf();
+    b.data?.validateAnyOf();
   }
 }
 

@@ -1445,7 +1445,10 @@ class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
   @override
   Iterable<Object?> serialize(Serializers serializers, Share_Status object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
     Object? value;
     value = object.clearAt;
     if (value != null) {
@@ -1463,12 +1466,6 @@ class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
     if (value != null) {
       result
         ..add('message')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.status;
-    if (value != null) {
-      result
-        ..add('status')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     return result;
@@ -1495,7 +1492,7 @@ class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
           result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -7807,12 +7804,14 @@ class _$Share_Status extends Share_Status {
   @override
   final String? message;
   @override
-  final String? status;
+  final String status;
 
   factory _$Share_Status([void Function(Share_StatusBuilder)? updates]) =>
       (Share_StatusBuilder()..update(updates))._build();
 
-  _$Share_Status._({this.clearAt, this.icon, this.message, this.status}) : super._();
+  _$Share_Status._({this.clearAt, this.icon, this.message, required this.status}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'Share_Status', 'status');
+  }
 
   @override
   Share_Status rebuild(void Function(Share_StatusBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -7903,7 +7902,12 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
 
   _$Share_Status _build() {
     Share_Status._validate(this);
-    final _$result = _$v ?? _$Share_Status._(clearAt: clearAt, icon: icon, message: message, status: status);
+    final _$result = _$v ??
+        _$Share_Status._(
+            clearAt: clearAt,
+            icon: icon,
+            message: message,
+            status: BuiltValueNullFieldError.checkNotNull(status, r'Share_Status', 'status'));
     replace(_$result);
     return _$result;
   }
