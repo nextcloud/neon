@@ -35,8 +35,9 @@ class _MaintenanceModeBloc extends InteractiveBloc implements MaintenanceModeBlo
     super.dispose();
   }
 
+  // Broadcast stream is necessary because the Stream might be listened to multiple times (e.g. switching accounts).
   @override
-  late final onMaintenanceMode = controller.stream;
+  late final onMaintenanceMode = controller.stream.asBroadcastStream();
 
   @override
   Future<void> refresh() async {
