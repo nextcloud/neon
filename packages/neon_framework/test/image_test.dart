@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
@@ -18,18 +19,12 @@ class MockRequestManager extends Mock implements RequestManager {}
 
 class MockNextcloudClient extends Mock implements NextcloudClient {}
 
-class MockDynamiteRawResponse extends Mock implements DynamiteRawResponse<Uint8List, dynamic> {}
-
-class MockGetImage extends Mock {
-  DynamiteRawResponse<Uint8List, dynamic> call(NextcloudClient client);
-}
-
 void main() {
   setUpAll(() {
     registerFallbackValue(BehaviorSubject<Result<Uint8List>>());
     registerFallbackValue(MockAccount());
     registerFallbackValue(MockNextcloudClient());
-    registerFallbackValue(MockDynamiteRawResponse());
+    registerFallbackValue(http.Request('GET', Uri()));
     registerFallbackValue(Uri());
   });
 
@@ -85,7 +80,7 @@ void main() {
         account: any(named: 'account'),
         cacheKey: any(named: 'cacheKey'),
         getCacheParameters: any(named: 'getCacheParameters'),
-        rawResponse: any(named: 'rawResponse'),
+        request: any(named: 'request'),
         unwrap: any(named: 'unwrap'),
         subject: any(named: 'subject'),
       ),
@@ -97,18 +92,12 @@ void main() {
     final mockAccount = MockAccount();
     when(() => mockAccount.client).thenReturn(mockNextcloudClient);
 
-    final mockRawResponse = MockDynamiteRawResponse();
-
-    final getImage = MockGetImage();
-    when(() => getImage(any())).thenAnswer((invocation) {
-      expect(invocation.positionalArguments.single, mockNextcloudClient);
-      return mockRawResponse;
-    });
+    final mockRequest = http.Request('GET', Uri());
 
     await tester.pumpWidget(
       TestApp(
         child: NeonApiImage.withAccount(
-          getImage: getImage.call,
+          request: (_) => mockRequest,
           cacheKey: 'key',
           etag: null,
           expires: null,
@@ -122,7 +111,7 @@ void main() {
         account: mockAccount,
         cacheKey: 'key',
         getCacheParameters: any(named: 'getCacheParameters'),
-        rawResponse: any(named: 'rawResponse'),
+        request: mockRequest,
         unwrap: any(named: 'unwrap', that: isNotNull),
         subject: any(named: 'subject'),
       ),

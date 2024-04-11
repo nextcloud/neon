@@ -85,12 +85,12 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               cacheKey: 'avatar-$username-$brightness-$pixelSize',
               etag: null,
               expires: null,
-              getImage: (client) async => switch (brightness) {
-                Brightness.dark => client.core.avatar.getAvatarDark(
+              request: (client) => switch (brightness) {
+                Brightness.dark => client.core.avatar.$getAvatarDark_Request(
                     userId: username,
                     size: pixelSize,
                   ),
-                Brightness.light => client.core.avatar.getAvatar(
+                Brightness.light => client.core.avatar.$getAvatar_Request(
                     userId: username,
                     size: pixelSize,
                   ),
