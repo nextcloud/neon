@@ -9,13 +9,11 @@ class NextcloudClient extends DynamiteClient {
     String? loginName,
     String? password,
     String? appPassword,
-    String? language,
     String? userAgent,
     super.httpClient,
     super.cookieJar,
   }) : super(
           baseHeaders: {
-            if (language != null) HttpHeaders.acceptLanguageHeader: language,
             if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
           },
           authentications: [
