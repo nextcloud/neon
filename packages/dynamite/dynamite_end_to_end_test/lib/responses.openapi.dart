@@ -19,18 +19,14 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
   });
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -71,23 +67,23 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<String, void>> $get() async {
     final _request = $$get_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$put_Request].
+  /// Builds a serializer to parse the response of [$put_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $$put_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<String, void> $put_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
 
-  /// Returns a `DynamiteRequest` backing the [$put] operation.
+  /// Returns a `DynamiteRequest` backing the [put] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -95,10 +91,10 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$put] for a method executing this request and parsing the response.
-  ///  * [$$put_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [put] for a method executing this request and parsing the response.
+  ///  * [$put_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$put_Request() {
+  _i3.Request $put_Request() {
     const _path = '/';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
@@ -114,26 +110,26 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$$put_Request] for the request send by this method.
-  ///  * [$$put_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<String, void>> $put() async {
-    final _request = $$put_Request();
-    final _response = await send(_request);
+  ///  * [$put_Request] for the request send by this method.
+  ///  * [$put_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<String, void>> put() async {
+    final _request = $put_Request();
+    final _response = await httpClient.send(_request);
 
-    final _serializer = $$put_Serializer();
+    final _serializer = $put_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$post_Request].
+  /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $$post_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<String, void> $post_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
       );
 
-  /// Returns a `DynamiteRequest` backing the [$post] operation.
+  /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -142,10 +138,10 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$post] for a method executing this request and parsing the response.
-  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [post] for a method executing this request and parsing the response.
+  ///  * [$post_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$post_Request() {
+  _i3.Request $post_Request() {
     const _path = '/';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
@@ -162,27 +158,27 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$$post_Request] for the request send by this method.
-  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<String, void>> $post() async {
-    final _request = $$post_Request();
-    final _response = await send(_request);
+  ///  * [$post_Request] for the request send by this method.
+  ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<String, void>> post() async {
+    final _request = $post_Request();
+    final _response = await httpClient.send(_request);
 
-    final _serializer = $$post_Serializer();
+    final _serializer = $post_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$patch_Request].
+  /// Builds a serializer to parse the response of [$patch_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $$patch_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<String, void> $patch_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(String),
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {200, 201},
       );
 
-  /// Returns a `DynamiteRequest` backing the [$patch] operation.
+  /// Returns a `DynamiteRequest` backing the [patch] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
@@ -190,10 +186,10 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$patch] for a method executing this request and parsing the response.
-  ///  * [$$patch_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [patch] for a method executing this request and parsing the response.
+  ///  * [$patch_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$patch_Request() {
+  _i3.Request $patch_Request() {
     const _path = '/';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('patch', _uri);
@@ -209,13 +205,13 @@ class $Client extends _i1.DynamiteClient {
   ///   * 201
   ///
   /// See:
-  ///  * [$$patch_Request] for the request send by this method.
-  ///  * [$$patch_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<String, void>> $patch() async {
-    final _request = $$patch_Request();
-    final _response = await send(_request);
+  ///  * [$patch_Request] for the request send by this method.
+  ///  * [$patch_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<String, void>> patch() async {
+    final _request = $patch_Request();
+    final _response = await httpClient.send(_request);
 
-    final _serializer = $$patch_Serializer();
+    final _serializer = $patch_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }

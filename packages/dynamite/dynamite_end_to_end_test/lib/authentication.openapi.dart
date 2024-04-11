@@ -21,9 +21,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -31,9 +29,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -75,7 +71,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$noAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> noAuthentication() async {
     final _request = $noAuthentication_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $noAuthentication_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -137,7 +133,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$basicAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> basicAuthentication() async {
     final _request = $basicAuthentication_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $basicAuthentication_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -199,7 +195,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$bearerAuthentication_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> bearerAuthentication() async {
     final _request = $bearerAuthentication_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $bearerAuthentication_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -261,7 +257,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$multipleAuthentications_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<JsonObject, void>> multipleAuthentications() async {
     final _request = $multipleAuthentications_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $multipleAuthentications_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);

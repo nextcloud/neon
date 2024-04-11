@@ -40,18 +40,14 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
   });
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -135,7 +131,7 @@ class $Client extends _i1.DynamiteClient {
       tags: tags,
       limit: limit,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $findValues_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
@@ -207,7 +203,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> multipleNewLines() async {
     final _request = $multipleNewLines_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $multipleNewLines_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
@@ -255,7 +251,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$nonRootClientSetMode_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> nonRootClientSetMode() async {
     final _request = $nonRootClientSetMode_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $nonRootClientSetMode_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
@@ -335,7 +331,7 @@ class $NonRootClientClient {
   ///  * [$multipleNewLines_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> multipleNewLines() async {
     final _request = $multipleNewLines_Request();
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $multipleNewLines_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
@@ -383,7 +379,7 @@ class $NonRootClientClient {
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
     final _request = $setMode_Request();
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setMode_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);

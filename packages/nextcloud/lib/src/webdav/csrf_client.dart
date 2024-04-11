@@ -1,6 +1,7 @@
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
 import 'package:http/http.dart' as http;
+import 'package:nextcloud/nextcloud.dart';
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
 ///
@@ -13,7 +14,7 @@ final class WebDavCSRFClient with http.BaseClient {
   /// Creates a new CSRF client that executes requests through the given [DynamiteClient].
   WebDavCSRFClient(this._inner);
 
-  final DynamiteClient _inner;
+  final NextcloudClient _inner;
 
   /// The request token sent by the [WebDavCSRFClient].
   String? _token;

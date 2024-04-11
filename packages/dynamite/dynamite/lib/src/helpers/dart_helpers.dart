@@ -89,13 +89,7 @@ String toMethodName(String operationId, String? tag) {
     filtered = output.join('-');
   }
 
-  final dartName = toDartName(filtered ?? operationId);
-
-  if (_reservedMethodNames.contains(dartName)) {
-    return '\$$dartName';
-  }
-
-  return dartName;
+  return toDartName(filtered ?? operationId);
 }
 
 /// Helper methods to work with strings.
@@ -120,19 +114,6 @@ extension StringUtils on String {
     return trimmed.replaceRange(0, 1, capitalChar);
   }
 }
-
-const _reservedMethodNames = [
-  'send',
-  'head',
-  'get',
-  'post',
-  'put',
-  'patch',
-  'delete',
-  'read',
-  'readBytes',
-  'close',
-];
 
 /// A list of dart keywords and type names that need to be escaped.
 const _reservedNames = [

@@ -34,9 +34,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -44,9 +42,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -156,7 +152,7 @@ class $HeartbeatClient {
       status: status,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $heartbeat_Serializer();
     final _rawResponse =
@@ -245,7 +241,7 @@ class $PredefinedStatusClient {
     final _request = $findAll_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $findAll_Serializer();
     final _rawResponse = await _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer)
@@ -352,7 +348,7 @@ class $StatusesClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $findAll_Serializer();
     final _rawResponse =
@@ -446,7 +442,7 @@ class $StatusesClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $find_Serializer();
     final _rawResponse =
@@ -537,7 +533,7 @@ class $UserStatusClient {
     final _request = $getStatus_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getStatus_Serializer();
     final _rawResponse =
@@ -633,7 +629,7 @@ class $UserStatusClient {
       statusType: statusType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setStatus_Serializer();
     final _rawResponse =
@@ -738,7 +734,7 @@ class $UserStatusClient {
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setPredefinedMessage_Serializer();
     final _rawResponse =
@@ -852,7 +848,7 @@ class $UserStatusClient {
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setCustomMessage_Serializer();
     final _rawResponse =
@@ -935,7 +931,7 @@ class $UserStatusClient {
     final _request = $clearMessage_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $clearMessage_Serializer();
     final _rawResponse = await _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer)
@@ -1029,7 +1025,7 @@ class $UserStatusClient {
       messageId: messageId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $revertStatus_Serializer();
     final _rawResponse = await _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer)

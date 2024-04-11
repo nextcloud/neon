@@ -35,9 +35,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -45,9 +43,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -143,7 +139,7 @@ class $AppConfigClient {
     final _request = $getApps_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getApps_Serializer();
     final _rawResponse =
@@ -241,7 +237,7 @@ class $AppConfigClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getKeys_Serializer();
     final _rawResponse =
@@ -353,7 +349,7 @@ class $AppConfigClient {
       key: key,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setValue_Serializer();
     final _rawResponse =
@@ -456,7 +452,7 @@ class $AppsClient {
       filter: filter,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getApps_Serializer();
     final _rawResponse =
@@ -553,7 +549,7 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getAppInfo_Serializer();
     final _rawResponse =
@@ -649,7 +645,7 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $enable_Serializer();
     final _rawResponse =
@@ -745,7 +741,7 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $disable_Serializer();
     final _rawResponse =
@@ -854,7 +850,7 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getSubAdminsOfGroup_Serializer();
     final _rawResponse =
@@ -966,7 +962,7 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getGroups_Serializer();
     final _rawResponse =
@@ -1066,7 +1062,7 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getGroup_Serializer();
     final _rawResponse =
@@ -1177,7 +1173,7 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getGroupsDetails_Serializer();
     final _rawResponse = await _i1.ResponseConverter<GroupsGetGroupsDetailsResponseApplicationJson, void>(_serializer)
@@ -1279,7 +1275,7 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getGroupUsers_Serializer();
     final _rawResponse =
@@ -1404,7 +1400,7 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getGroupUsersDetails_Serializer();
     final _rawResponse =
@@ -1525,7 +1521,7 @@ class $PreferencesClient {
       configKey: configKey,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setPreference_Serializer();
     final _rawResponse = await _i1.ResponseConverter<PreferencesSetPreferenceResponseApplicationJson, void>(_serializer)
@@ -1629,7 +1625,7 @@ class $PreferencesClient {
       configKey: configKey,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deletePreference_Serializer();
     final _rawResponse =
@@ -1739,7 +1735,7 @@ class $PreferencesClient {
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setMultiplePreferences_Serializer();
     final _rawResponse =
@@ -1846,7 +1842,7 @@ class $PreferencesClient {
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteMultiplePreference_Serializer();
     final _rawResponse =
@@ -1951,7 +1947,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getUserSubAdminGroups_Serializer();
     final _rawResponse =
@@ -2057,7 +2053,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $addSubAdmin_Serializer();
     final _rawResponse =
@@ -2162,7 +2158,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeSubAdmin_Serializer();
     final _rawResponse =
@@ -2272,7 +2268,7 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getUsers_Serializer();
     final _rawResponse =
@@ -2439,7 +2435,7 @@ class $UsersClient {
       manager: manager,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $addUser_Serializer();
     final _rawResponse =
@@ -2550,7 +2546,7 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getUsersDetails_Serializer();
     final _rawResponse =
@@ -2652,7 +2648,7 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getDisabledUsersDetails_Serializer();
     final _rawResponse =
@@ -2764,7 +2760,7 @@ class $UsersClient {
       search: search,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $searchByPhoneNumbers_Serializer();
     final _rawResponse =
@@ -2857,7 +2853,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getUser_Serializer();
     final _rawResponse =
@@ -2965,7 +2961,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $editUser_Serializer();
     final _rawResponse =
@@ -3058,7 +3054,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteUser_Serializer();
     final _rawResponse =
@@ -3140,7 +3136,7 @@ class $UsersClient {
     final _request = $getCurrentUser_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getCurrentUser_Serializer();
     final _rawResponse =
@@ -3222,7 +3218,7 @@ class $UsersClient {
     final _request = $getEditableFields_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getEditableFields_Serializer();
     final _rawResponse = await _i1.ResponseConverter<UsersGetEditableFieldsResponseApplicationJson, void>(_serializer)
@@ -3315,7 +3311,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getEditableFieldsForUser_Serializer();
     final _rawResponse =
@@ -3439,7 +3435,7 @@ class $UsersClient {
       collectionName: collectionName,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $editUserMultiValue_Serializer();
     final _rawResponse = await _i1.ResponseConverter<UsersEditUserMultiValueResponseApplicationJson, void>(_serializer)
@@ -3532,7 +3528,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $wipeUserDevices_Serializer();
     final _rawResponse =
@@ -3625,7 +3621,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $enableUser_Serializer();
     final _rawResponse =
@@ -3718,7 +3714,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $disableUser_Serializer();
     final _rawResponse =
@@ -3811,7 +3807,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getUsersGroups_Serializer();
     final _rawResponse =
@@ -3913,7 +3909,7 @@ class $UsersClient {
       groupid: groupid,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $addToGroup_Serializer();
     final _rawResponse =
@@ -4014,7 +4010,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeFromGroup_Serializer();
     final _rawResponse =
@@ -4107,7 +4103,7 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $resendWelcomeMessage_Serializer();
     final _rawResponse =

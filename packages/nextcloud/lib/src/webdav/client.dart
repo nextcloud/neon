@@ -6,6 +6,7 @@ import 'dart:typed_data';
 
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:nextcloud/src/client.dart';
 import 'package:nextcloud/src/webdav/csrf_client.dart';
 import 'package:nextcloud/src/webdav/models.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
@@ -21,7 +22,7 @@ class WebDavClient {
   WebDavClient(this.rootClient) : csrfClient = WebDavCSRFClient(rootClient);
 
   // ignore: public_member_api_docs
-  final DynamiteClient rootClient;
+  final NextcloudClient rootClient;
 
   /// {@macro WebDavCSRFClient}
   // TODO: Fix this bug in server.

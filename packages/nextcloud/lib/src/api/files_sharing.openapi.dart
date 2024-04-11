@@ -36,9 +36,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -46,9 +44,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -143,7 +139,7 @@ class $DeletedShareapiClient {
     final _request = $index_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $index_Serializer();
     final _rawResponse =
@@ -238,7 +234,7 @@ class $DeletedShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $undelete_Serializer();
     final _rawResponse = await _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer)
@@ -328,7 +324,7 @@ class $PublicPreviewClient {
     final _request = $directLink_Request(
       token: token,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $directLink_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -451,7 +447,7 @@ class $PublicPreviewClient {
       y: y,
       a: a,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getPreview_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -537,7 +533,7 @@ class $RemoteClient {
     final _request = $getShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getShares_Serializer();
     final _rawResponse =
@@ -619,7 +615,7 @@ class $RemoteClient {
     final _request = $getOpenShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getOpenShares_Serializer();
     final _rawResponse =
@@ -715,7 +711,7 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $acceptShare_Serializer();
     final _rawResponse =
@@ -811,7 +807,7 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $declineShare_Serializer();
     final _rawResponse =
@@ -905,7 +901,7 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getShare_Serializer();
     final _rawResponse =
@@ -1001,7 +997,7 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $unshare_Serializer();
     final _rawResponse =
@@ -1119,7 +1115,7 @@ class $ShareInfoClient {
       dir: dir,
       depth: depth,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $info_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
@@ -1259,7 +1255,7 @@ class $ShareapiClient {
       includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getShares_Serializer();
     final _rawResponse =
@@ -1446,7 +1442,7 @@ class $ShareapiClient {
       attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $createShare_Serializer();
     final _rawResponse =
@@ -1543,7 +1539,7 @@ class $ShareapiClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getInheritedShares_Serializer();
     final _rawResponse =
@@ -1626,7 +1622,7 @@ class $ShareapiClient {
     final _request = $pendingShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $pendingShares_Serializer();
     final _rawResponse =
@@ -1732,7 +1728,7 @@ class $ShareapiClient {
       includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getShare_Serializer();
     final _rawResponse =
@@ -1905,7 +1901,7 @@ class $ShareapiClient {
       attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $updateShare_Serializer();
     final _rawResponse =
@@ -2002,7 +1998,7 @@ class $ShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteShare_Serializer();
     final _rawResponse =
@@ -2099,7 +2095,7 @@ class $ShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $acceptShare_Serializer();
     final _rawResponse =
@@ -2247,7 +2243,7 @@ class $ShareesapiClient {
       lookup: lookup,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $search_Serializer();
     final _rawResponse =
@@ -2352,7 +2348,7 @@ class $ShareesapiClient {
       shareType: shareType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $findRecommended_Serializer();
     final _rawResponse =

@@ -22,18 +22,14 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
   });
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -79,32 +75,32 @@ class $Client extends _i1.DynamiteClient {
     final _request = $$get_Request(
       uint8List: uint8List,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$post_Request].
+  /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<void, void> $$post_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<void, void> $post_Serializer() => _i1.DynamiteSerializer(
         bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
       );
 
-  /// Returns a `DynamiteRequest` backing the [$post] operation.
+  /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Status codes:
   ///   * default
   ///
   /// See:
-  ///  * [$post] for a method executing this request and parsing the response.
-  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [post] for a method executing this request and parsing the response.
+  ///  * [$post_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$post_Request({String? string}) {
+  _i3.Request $post_Request({String? string}) {
     const _path = '/';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
@@ -122,15 +118,15 @@ class $Client extends _i1.DynamiteClient {
   ///   * default
   ///
   /// See:
-  ///  * [$$post_Request] for the request send by this method.
-  ///  * [$$post_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> $post({String? string}) async {
-    final _request = $$post_Request(
+  ///  * [$post_Request] for the request send by this method.
+  ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> post({String? string}) async {
+    final _request = $post_Request(
       string: string,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
-    final _serializer = $$post_Serializer();
+    final _serializer = $post_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
