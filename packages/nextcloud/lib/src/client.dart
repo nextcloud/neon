@@ -1,25 +1,6 @@
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:universal_io/io.dart';
 
-/// Different app types to register for
-enum AppType {
-  /// Will only receive Talk notifications
-  talk('Mozilla/5.0 (Android) Nextcloud-Talk'),
-
-  /// Will receive all notifications except Talk notifications if another Talk
-  /// app is already registered for the user
-  nextcloud('Mozilla/5.0 (Android) Nextcloud-android'),
-
-  /// Default. Same problem with notifications as the [nextcloud] type
-  unknown(null);
-
-  // ignore: public_member_api_docs
-  const AppType(this.userAgent);
-
-  // ignore: public_member_api_docs
-  final String? userAgent;
-}
-
 // ignore: public_member_api_docs
 class NextcloudClient extends DynamiteClient {
   // ignore: public_member_api_docs
@@ -29,15 +10,13 @@ class NextcloudClient extends DynamiteClient {
     String? password,
     String? appPassword,
     String? language,
-    AppType appType = AppType.unknown,
-    String? userAgentOverride,
+    String? userAgent,
     super.httpClient,
     super.cookieJar,
   }) : super(
           baseHeaders: {
             if (language != null) HttpHeaders.acceptLanguageHeader: language,
-            if ((userAgentOverride ?? appType.userAgent) != null)
-              HttpHeaders.userAgentHeader: userAgentOverride ?? appType.userAgent!,
+            if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
           },
           authentications: [
             if (appPassword != null)

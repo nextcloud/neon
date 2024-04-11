@@ -59,7 +59,7 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
         serverURL,
         loginName: loginName,
         password: password,
-        userAgentOverride: neonUserAgent,
+        userAgent: neonUserAgent,
       );
 
       final response = await client.provisioningApi.users.getCurrentUser();
