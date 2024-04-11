@@ -32,6 +32,8 @@ Future<void> runNeon({
   @visibleForTesting bool firstLaunchDisabled = false,
   @visibleForTesting bool nextPushDisabled = false,
 }) async {
+  assert(appImplementations.isNotEmpty, 'At least one AppImplementation required');
+
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
