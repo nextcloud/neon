@@ -39,7 +39,7 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
   final Uri serverURL;
   late final client = NextcloudClient(
     serverURL,
-    userAgentOverride: neonUserAgent,
+    userAgent: neonUserAgent,
   );
   final resultController = StreamController<core.LoginFlowV2Credentials>();
 

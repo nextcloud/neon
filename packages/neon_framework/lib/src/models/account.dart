@@ -40,7 +40,7 @@ class Account implements Credentials, Findable {
           loginName: username,
           password: password,
           appPassword: password,
-          userAgentOverride: userAgent,
+          userAgent: userAgent,
           cookieJar: CookieJar(),
           httpClient: httpClient,
         );

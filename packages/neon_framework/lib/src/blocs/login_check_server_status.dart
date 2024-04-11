@@ -50,7 +50,7 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
     try {
       final client = NextcloudClient(
         serverURL,
-        userAgentOverride: neonUserAgent,
+        userAgent: neonUserAgent,
       );
 
       final status = await client.core.getStatus();

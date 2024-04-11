@@ -1,43 +1,32 @@
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:universal_io/io.dart';
 
-/// Different app types to register for
-enum AppType {
-  /// Will only receive Talk notifications
-  talk('Mozilla/5.0 (Android) Nextcloud-Talk'),
-
-  /// Will receive all notifications except Talk notifications if another Talk
-  /// app is already registered for the user
-  nextcloud('Mozilla/5.0 (Android) Nextcloud-android'),
-
-  /// Default. Same problem with notifications as the [nextcloud] type
-  unknown(null);
-
-  // ignore: public_member_api_docs
-  const AppType(this.userAgent);
-
-  // ignore: public_member_api_docs
-  final String? userAgent;
-}
-
-// ignore: public_member_api_docs
+/// A client configuring the clients for all Nextcloud APIs.
+///
+/// To access the APIs of a particular app import the extensions through `package:nextcloud/{id}.dart`.
 class NextcloudClient extends DynamiteClient {
-  // ignore: public_member_api_docs
+  /// Creates a new Nextcloud API client.
+  ///
+  /// [baseURL] has to point to the Nextcloud server webroot.
+  ///
+  /// To access authenticated endpoints [loginName] and one of [password] or [appPassword] have to be set.
+  /// Note that not all endpoints can be access by using only the [password], so it is preferred to set the [appPassword] instead.
+  /// [loginName] can be any user identifier like the username or the e-mail.
+  ///
+  /// It is good practice to set the [userAgent] to allow server admins to identify clients.
+  /// A custom HTTP client can be provided through [httpClient].
+  /// Additionally a [cookieJar] can be specified to save cookies across requests.
   NextcloudClient(
     super.baseURL, {
-    this.loginName,
+    String? loginName,
     String? password,
     String? appPassword,
-    String? language,
-    AppType appType = AppType.unknown,
-    String? userAgentOverride,
+    String? userAgent,
     super.httpClient,
     super.cookieJar,
   }) : super(
           baseHeaders: {
-            if (language != null) HttpHeaders.acceptLanguageHeader: language,
-            if ((userAgentOverride ?? appType.userAgent) != null)
-              HttpHeaders.userAgentHeader: userAgentOverride ?? appType.userAgent!,
+            if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
           },
           authentications: [
             if (appPassword != null)
@@ -51,7 +40,4 @@ class NextcloudClient extends DynamiteClient {
               ),
           ],
         );
-
-  /// Identifier used for authentication. This can be the username or email or something else.
-  final String? loginName;
 }
