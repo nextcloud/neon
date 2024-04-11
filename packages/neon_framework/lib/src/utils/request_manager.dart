@@ -128,33 +128,45 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required AsyncValueGetter<CacheParameters> getCacheParameters,
-    required AsyncValueGetter<DynamiteResponse<Uint8List, dynamic>> rawResponse,
+    required http.BaseRequest request,
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
     bool disableTimeout = false,
-  }) async =>
-      wrap<Uint8List, DynamiteResponse<Uint8List, dynamic>>(
-        account: account,
-        cacheKey: cacheKey,
-        subject: subject,
-        request: rawResponse,
-        unwrap: (rawResponse) {
-          var data = rawResponse.body;
-          if (unwrap != null) {
-            data = unwrap(data);
-          }
+  }) async {
+    final serializer = DynamiteSerializer<Uint8List, Map<String, String>>(
+      bodyType: const FullType(Uint8List),
+      headersType: const FullType(Map, [FullType(String), FullType(String)]),
+      serializers: Serializers(),
+      validStatuses: const {200, 201},
+    );
 
-          return data;
-        },
-        serialize: (response) => base64.encode(response.body),
-        deserialize: (data) => DynamiteResponse(
-          200,
-          base64.decode(data),
-          null,
-        ),
-        getCacheParameters: getCacheParameters,
-        disableTimeout: disableTimeout,
-      );
+    return wrap<Uint8List, DynamiteResponse<Uint8List, dynamic>>(
+      account: account,
+      cacheKey: cacheKey,
+      subject: subject,
+      request: () async {
+        final response = await account.client.send(request);
+
+        return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
+      },
+      unwrap: (rawResponse) {
+        var data = rawResponse.body;
+        if (unwrap != null) {
+          data = unwrap(data);
+        }
+
+        return data;
+      },
+      serialize: (response) => base64.encode(response.body),
+      deserialize: (data) => DynamiteResponse(
+        200,
+        base64.decode(data),
+        null,
+      ),
+      getCacheParameters: getCacheParameters,
+      disableTimeout: disableTimeout,
+    );
+  }
 
   /// Executes a HTTP request for binary content using a simplified [uri] based approach.
   Future<void> wrapUri({
@@ -170,13 +182,6 @@ class RequestManager {
       request.headers.addAll(headers);
     }
 
-    final serializer = DynamiteSerializer<Uint8List, Map<String, String>>(
-      bodyType: const FullType(Uint8List),
-      headersType: const FullType(Map, [FullType(String), FullType(String)]),
-      serializers: Serializers(),
-      validStatuses: const {200, 201},
-    );
-
     return wrapBinary(
       account: account,
       cacheKey: uri.toString(),
@@ -188,11 +193,7 @@ class RequestManager {
 
         return CacheParameters.parseHeaders(response.headers);
       },
-      rawResponse: () async {
-        final response = await account.client.send(request);
-
-        return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
-      },
+      request: request,
       unwrap: unwrap,
       subject: subject,
     );

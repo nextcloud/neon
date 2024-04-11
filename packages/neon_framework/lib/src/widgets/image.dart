@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
@@ -19,9 +20,6 @@ import 'package:timezone/timezone.dart' as tz;
 
 /// The signature of a function building a widget displaying [error].
 typedef ErrorWidgetBuilder = Widget? Function(BuildContext context, Object? error);
-
-/// The signature of a function downloading image data from a the nextcloud api through [client].
-typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Function(NextcloudClient client);
 
 /// A widget painting an Image.
 ///
@@ -148,7 +146,7 @@ class NeonApiImage extends StatefulWidget {
   ///
   /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
   const NeonApiImage({
-    required this.getImage,
+    required this.request,
     required this.cacheKey,
     required this.etag,
     required this.expires,
@@ -164,7 +162,7 @@ class NeonApiImage extends StatefulWidget {
   ///
   /// See [NeonApiImage] to fetch the image using the currently active account.
   const NeonApiImage.withAccount({
-    required this.getImage,
+    required this.request,
     required this.cacheKey,
     required this.etag,
     required this.expires,
@@ -182,8 +180,8 @@ class NeonApiImage extends StatefulWidget {
   /// Defaults to the currently active account in [AccountsBloc.activeAccount].
   final Account? account;
 
-  /// Callback for downloading the image data.
-  final ApiImageDownloader getImage;
+  /// Callback for creating the HTTP request downloading the image data.
+  final http.Request Function(NextcloudClient) request;
 
   /// The unique key used for caching the image.
   final String cacheKey;
@@ -241,7 +239,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
         etag: widget.etag,
         expires: widget.expires,
       ),
-      rawResponse: () async => widget.getImage(account.client),
+      request: widget.request(account.client),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
