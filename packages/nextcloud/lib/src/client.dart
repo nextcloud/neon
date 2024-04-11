@@ -25,7 +25,7 @@ class NextcloudClient extends DynamiteClient {
   // ignore: public_member_api_docs
   NextcloudClient(
     super.baseURL, {
-    this.loginName,
+    String? loginName,
     String? password,
     String? appPassword,
     String? language,
@@ -51,7 +51,4 @@ class NextcloudClient extends DynamiteClient {
               ),
           ],
         );
-
-  /// Identifier used for authentication. This can be the username or email or something else.
-  final String? loginName;
 }
