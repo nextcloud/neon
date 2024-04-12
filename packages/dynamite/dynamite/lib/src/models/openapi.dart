@@ -69,5 +69,6 @@ final Serializers serializers = (_$serializers.toBuilder()
         ]),
         MapBuilder<String, BuiltList<String>>.new,
       )
-      ..addPlugin(StandardJsonPlugin()))
+      ..addPlugin(StandardJsonPlugin())
+      ..addPlugin(const SchemaPlugin()))
     .build();

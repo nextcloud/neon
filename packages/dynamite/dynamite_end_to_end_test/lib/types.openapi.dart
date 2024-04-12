@@ -70,6 +70,56 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   static Serializer<Base> get serializer => _$baseSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $AdditionalPropertiesInterface {
+  @BuiltValueField(wireName: 'empty_schema_bool')
+  BuiltMap<String, JsonObject>? get emptySchemaBool;
+  @BuiltValueField(wireName: 'empty_schema')
+  BuiltMap<String, JsonObject>? get emptySchema;
+  BuiltMap<String, BuiltMap<String, JsonObject>>? get nested;
+  @BuiltValueField(wireName: 'Object')
+  BuiltMap<String, JsonObject>? get object;
+  @BuiltValueField(wireName: 'bool')
+  BuiltMap<String, bool>? get $bool;
+  BuiltMap<String, int>? get integer;
+  @BuiltValueField(wireName: 'double')
+  BuiltMap<String, double>? get $double;
+  @BuiltValueField(wireName: 'num')
+  BuiltMap<String, num>? get $num;
+  BuiltMap<String, String>? get string;
+  @BuiltValueField(wireName: 'content-string')
+  BuiltMap<String, ContentString<int>>? get contentString;
+  @BuiltValueField(wireName: 'string-binary')
+  BuiltMap<String, Uint8List>? get stringBinary;
+  BuiltMap<String, BuiltList<JsonObject>>? get list;
+  @BuiltValueField(wireName: 'list-never')
+  BuiltMap<String, BuiltList<Never>>? get listNever;
+  @BuiltValueField(wireName: 'list-string')
+  BuiltMap<String, BuiltList<String>>? get listString;
+}
+
+abstract class AdditionalProperties
+    implements $AdditionalPropertiesInterface, Built<AdditionalProperties, AdditionalPropertiesBuilder> {
+  /// Creates a new AdditionalProperties object using the builder pattern.
+  factory AdditionalProperties([void Function(AdditionalPropertiesBuilder)? b]) = _$AdditionalProperties;
+
+  const AdditionalProperties._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory AdditionalProperties.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for AdditionalProperties.
+  static Serializer<AdditionalProperties> get serializer => _$additionalPropertiesSerializer;
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -84,7 +134,63 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(AdditionalProperties), AdditionalPropertiesBuilder.new)
+      ..add(AdditionalProperties.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        MapBuilder<String, JsonObject>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        ]),
+        MapBuilder<String, BuiltMap<String, JsonObject>>.new,
+      )
+      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(bool)]), MapBuilder<String, bool>.new)
+      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(double)]),
+        MapBuilder<String, double>.new,
+      )
+      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(num)]), MapBuilder<String, num>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        MapBuilder<String, String>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(ContentString, [FullType(int)]),
+        ]),
+        MapBuilder<String, ContentString<int>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(Uint8List)]),
+        MapBuilder<String, Uint8List>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(JsonObject)]),
+        ]),
+        MapBuilder<String, BuiltList<JsonObject>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(Never)]),
+        ]),
+        MapBuilder<String, BuiltList<Never>>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(String)]),
+        ]),
+        MapBuilder<String, BuiltList<String>>.new,
+      ))
     .build();
 
 /// Serializer for all values in this library.
