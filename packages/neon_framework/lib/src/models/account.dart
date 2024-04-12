@@ -35,7 +35,9 @@ class Account implements Credentials, Findable {
     this.password,
     this.userAgent,
     @visibleForTesting Client? httpClient,
-  }) : client = NextcloudClient(
+  })  : humanReadableID = _buildHumanReadableID(username, serverURL),
+        id = sha1.convert(utf8.encode('$username@$serverURL')).toString(),
+        client = NextcloudClient(
           serverURL,
           loginName: username,
           password: password,
@@ -78,16 +80,14 @@ class Account implements Credentials, Findable {
   /// The unique ID of the account.
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].
-  /// IDs are globally cached in [_idCache].
   @override
-  String get id {
-    final key = '$username@$serverURL';
-
-    return _idCache[key] ??= sha1.convert(utf8.encode(key)).toString();
-  }
+  final String id;
 
   /// A human readable representation of [username] and [serverURL].
-  String get humanReadableID {
+  final String humanReadableID;
+
+  /// Builds a human readable id for a user and server pair.
+  static String _buildHumanReadableID(String username, Uri serverURL) {
     // Maybe also show path if it is not '/' ?
     final buffer = StringBuffer()
       ..write(username)
@@ -134,9 +134,6 @@ class Account implements Credentials, Findable {
   /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
   Uri stripUri(Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
-
-/// Global [Account.id] cache.
-Map<String, String> _idCache = {};
 
 /// QRcode Login credentials.
 ///
