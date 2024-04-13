@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
+
+/// Widget to display a Deck card from a rich object.
+class TalkRichObjectDeckCard extends StatelessWidget {
+  /// Creates a new Talk rich object Deck card.
+  const TalkRichObjectDeckCard({
+    required this.parameter,
+    super.key,
+  });
+
+  /// The parameter to display.
+  final spreed.RichObjectParameter parameter;
+
+  @override
+  Widget build(BuildContext context) {
+    return IntrinsicWidth(
+      child: Card(
+        clipBehavior: Clip.hardEdge,
+        child: InkWell(
+          onTap: () {
+            context.go(parameter.link!);
+          },
+          child: ListTile(
+            // TODO: Use the actual Deck logo
+            leading: const Icon(MdiIcons.cardMultiple),
+            title: Text(parameter.name),
+            subtitle: Text('${parameter.boardname!}: ${parameter.stackname!}'),
+          ),
+        ),
+      ),
+    );
+  }
+}

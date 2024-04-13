@@ -5,6 +5,10 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
+import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
+import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
+import 'package:neon_talk/src/widgets/rich_object/file.dart';
+import 'package:neon_talk/src/widgets/rich_object/mention.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -35,9 +39,117 @@ TextSpan buildChatMessage({
     message = message.replaceAll('\n', ' ');
   }
 
+  final unusedParameters = <String, spreed.RichObjectParameter>{};
+
+  var parts = [message];
+  for (final entry in chatMessage.messageParameters.entries) {
+    final newParts = <String>[];
+
+    var found = false;
+    for (final part in parts) {
+      final p = part.split('{${entry.key}}');
+      newParts.addAll(p.intersperse('{${entry.key}}'));
+      if (p.length > 1) {
+        found = true;
+      }
+    }
+
+    if (!found) {
+      unusedParameters[entry.key] = entry.value;
+    }
+
+    parts = newParts;
+  }
+
+  final children = <InlineSpan>[];
+
+  for (final entry in unusedParameters.entries) {
+    if (entry.key == 'actor' || entry.key == 'user') {
+      continue;
+    }
+
+    children
+      ..add(
+        buildRichObjectParameter(
+          parameter: entry.value,
+          textStyle: style,
+          isPreview: isPreview,
+        ),
+      )
+      ..add(const TextSpan(text: '\n'));
+  }
+
+  for (final part in parts) {
+    var match = false;
+    for (final entry in chatMessage.messageParameters.entries) {
+      if ('{${entry.key}}' == part) {
+        children.add(
+          buildRichObjectParameter(
+            parameter: entry.value,
+            textStyle: style,
+            isPreview: isPreview,
+          ),
+        );
+        match = true;
+        break;
+      }
+    }
+
+    if (!match) {
+      children.add(
+        TextSpan(
+          text: part,
+        ),
+      );
+    }
+  }
+
   return TextSpan(
-    text: message,
     style: style,
+    children: children,
+  );
+}
+
+/// Renders a rich object [parameter] to be interactive.
+InlineSpan buildRichObjectParameter({
+  required spreed.RichObjectParameter parameter,
+  required TextStyle? textStyle,
+  required bool isPreview,
+}) {
+  Widget child;
+
+  const mentionTypes = ['user', 'call', 'guest', 'user-group', 'group'];
+  if (mentionTypes.contains(parameter.type)) {
+    child = TalkRichObjectMention(
+      parameter: parameter,
+      textStyle: textStyle,
+    );
+  } else {
+    if (isPreview) {
+      child = Text(parameter.name);
+    } else {
+      switch (parameter.type) {
+        case 'file':
+          child = TalkRichObjectFile(
+            parameter: parameter,
+            textStyle: textStyle,
+          );
+        case 'deck-card':
+          child = TalkRichObjectDeckCard(
+            parameter: parameter,
+          );
+        default:
+          child = TalkRichObjectFallback(
+            parameter: parameter,
+            textStyle: textStyle,
+          );
+      }
+    }
+  }
+
+  return WidgetSpan(
+    alignment: PlaceholderAlignment.middle,
+    child: child,
   );
 }
 

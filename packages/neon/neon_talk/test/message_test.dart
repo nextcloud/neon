@@ -11,6 +11,10 @@ import 'package:neon_talk/l10n/localizations_en.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
+import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
+import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
+import 'package:neon_talk/src/widgets/rich_object/file.dart';
+import 'package:neon_talk/src/widgets/rich_object/mention.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -27,6 +31,8 @@ void main() {
   setUpAll(() {
     final storage = MockNeonStorage();
     when(() => storage.requestCache).thenReturn(null);
+
+    registerFallbackValue(Uri());
   });
 
   group('getActorDisplayName', () {
@@ -54,6 +60,7 @@ void main() {
       when(() => chatMessage.actorId).thenReturn('test');
       when(() => chatMessage.message).thenReturn('message');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -73,6 +80,7 @@ void main() {
       when(() => chatMessage.actorDisplayName).thenReturn('Test');
       when(() => chatMessage.message).thenReturn('message');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -91,6 +99,7 @@ void main() {
       when(() => chatMessage.actorId).thenReturn('test');
       when(() => chatMessage.message).thenReturn('message');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -109,6 +118,7 @@ void main() {
       when(() => chatMessage.actorId).thenReturn('test');
       when(() => chatMessage.message).thenReturn('message');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -127,6 +137,7 @@ void main() {
       when(() => chatMessage.actorId).thenReturn('test');
       when(() => chatMessage.message).thenReturn('message');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -145,6 +156,7 @@ void main() {
       when(() => chatMessage.actorId).thenReturn('test');
       when(() => chatMessage.message).thenReturn('message\n123');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -165,6 +177,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system);
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -192,6 +205,7 @@ void main() {
       when(() => chatMessage.actorDisplayName).thenReturn('');
       when(() => chatMessage.message).thenReturn('');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -229,6 +243,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('test');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -250,6 +265,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('test');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -284,6 +300,7 @@ void main() {
     when(() => chatMessage.actorDisplayName).thenReturn('test');
     when(() => chatMessage.message).thenReturn('abc');
     when(() => chatMessage.reactions).thenReturn(BuiltMap());
+    when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
     await tester.pumpWidget(
       wrapWidget(
@@ -321,6 +338,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -365,6 +383,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.commentDeleted);
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -399,6 +418,7 @@ void main() {
       when(() => chatMessage.actorDisplayName).thenReturn('test');
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -441,6 +461,7 @@ void main() {
       when(() => parentChatMessage.actorDisplayName).thenReturn('test');
       when(() => parentChatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => parentChatMessage.message).thenReturn('abc');
+      when(() => parentChatMessage.messageParameters).thenReturn(BuiltMap());
 
       final chatMessage = MockChatMessageWithParent();
       when(() => chatMessage.timestamp).thenReturn(0);
@@ -451,6 +472,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.parent).thenReturn(parentChatMessage);
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
         wrapWidget(
@@ -492,6 +514,7 @@ void main() {
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+        when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
         await tester.pumpWidget(
           wrapWidget(
@@ -536,6 +559,7 @@ void main() {
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+        when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
         await tester.pumpWidget(
           wrapWidget(
@@ -580,6 +604,7 @@ void main() {
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
         when(() => chatMessage.message).thenReturn('abc');
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+        when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
         await tester.pumpWidget(
           wrapWidget(
@@ -602,6 +627,206 @@ void main() {
           matchesGoldenFile('goldens/message_comment_message_separate_system_message.png'),
         );
       });
+    });
+  });
+
+  group('buildRichObjectParameter', () {
+    for (final isPreview in [true, false]) {
+      group(isPreview ? 'As preview' : 'Complete', () {
+        group('Mention', () {
+          for (final type in ['user', 'call', 'guest', 'user-group', 'group']) {
+            testWidgets(type, (tester) async {
+              final account = MockAccount();
+              when(() => account.client).thenReturn(NextcloudClient(Uri()));
+              when(() => account.completeUri(any()))
+                  .thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
+
+              final accountsBloc = MockAccountsBloc();
+              when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+
+              await tester.pumpWidget(
+                TestApp(
+                  child: NeonProvider<AccountsBloc>.value(
+                    value: accountsBloc,
+                    child: RichText(
+                      text: buildRichObjectParameter(
+                        parameter: spreed.RichObjectParameter(
+                          (b) => b
+                            ..type = type
+                            ..id = ''
+                            ..name = 'name'
+                            ..iconUrl = '',
+                        ),
+                        textStyle: null,
+                        isPreview: isPreview,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+
+              expect(find.byType(TalkRichObjectMention), findsOne);
+              expect(find.text('name'), findsOne);
+            });
+          }
+        });
+
+        testWidgets('File', (tester) async {
+          await tester.pumpWidget(
+            TestApp(
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: spreed.RichObjectParameter(
+                    (b) => b
+                      ..type = 'file'
+                      ..id = ''
+                      ..name = 'name',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(TalkRichObjectFile), isPreview ? findsNothing : findsOne);
+          expect(find.text('name'), findsOne);
+        });
+
+        testWidgets('Deck card', (tester) async {
+          await tester.pumpWidget(
+            TestApp(
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: spreed.RichObjectParameter(
+                    (b) => b
+                      ..type = 'deck-card'
+                      ..id = ''
+                      ..name = 'name'
+                      ..boardname = 'boardname'
+                      ..stackname = 'stackname',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(TalkRichObjectDeckCard), isPreview ? findsNothing : findsOne);
+          expect(find.text('name'), findsOne);
+        });
+
+        testWidgets('Fallback', (tester) async {
+          await tester.pumpWidget(
+            TestApp(
+              child: RichText(
+                text: buildRichObjectParameter(
+                  parameter: spreed.RichObjectParameter(
+                    (b) => b
+                      ..type = 'unknown'
+                      ..id = ''
+                      ..name = 'name',
+                  ),
+                  textStyle: null,
+                  isPreview: isPreview,
+                ),
+              ),
+            ),
+          );
+
+          expect(find.byType(TalkRichObjectFallback), isPreview ? findsNothing : findsOne);
+          expect(find.text('name'), findsOne);
+        });
+      });
+    }
+  });
+
+  group('buildChatMessage', () {
+    test('Preview without newlines', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.message).thenReturn('123\n456');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+
+      var span = buildChatMessage(chatMessage: chatMessage).children!.single as TextSpan;
+      expect(span.text, '123\n456');
+
+      span = buildChatMessage(chatMessage: chatMessage, isPreview: true).children!.single as TextSpan;
+      expect(span.text, '123 456');
+    });
+
+    group('Unused parameters', () {
+      group('Discard', () {
+        for (final type in ['actor', 'user']) {
+          test(type, () {
+            final chatMessage = MockChatMessage();
+            when(() => chatMessage.message).thenReturn('test');
+            when(() => chatMessage.messageParameters).thenReturn(
+              BuiltMap({
+                type: spreed.RichObjectParameter(
+                  (b) => b
+                    ..type = ''
+                    ..id = ''
+                    ..name = '',
+                ),
+              }),
+            );
+
+            final spans = buildChatMessage(chatMessage: chatMessage).children!;
+            expect((spans.single as TextSpan).text, 'test');
+          });
+        }
+      });
+
+      test('Display', () {
+        final chatMessage = MockChatMessage();
+        when(() => chatMessage.message).thenReturn('test');
+        when(() => chatMessage.messageParameters).thenReturn(
+          BuiltMap({
+            'file': spreed.RichObjectParameter(
+              (b) => b
+                ..type = 'file'
+                ..id = ''
+                ..name = '',
+            ),
+          }),
+        );
+
+        final spans = buildChatMessage(chatMessage: chatMessage).children!;
+        expect(spans, hasLength(3));
+        expect((spans[0] as WidgetSpan).child, isA<TalkRichObjectFile>());
+        expect((spans[1] as TextSpan).text, '\n');
+        expect((spans[2] as TextSpan).text, 'test');
+      });
+    });
+
+    test('Used parameters', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.message).thenReturn('123 {actor1} 456 {actor2} 789');
+      when(() => chatMessage.messageParameters).thenReturn(
+        BuiltMap({
+          'actor1': spreed.RichObjectParameter(
+            (b) => b
+              ..type = 'user'
+              ..id = ''
+              ..name = '',
+          ),
+          'actor2': spreed.RichObjectParameter(
+            (b) => b
+              ..type = 'user'
+              ..id = ''
+              ..name = '',
+          ),
+        }),
+      );
+
+      final spans = buildChatMessage(chatMessage: chatMessage).children!;
+      expect(spans, hasLength(5));
+      expect((spans[0] as TextSpan).text, '123 ');
+      expect((spans[1] as WidgetSpan).child, isA<TalkRichObjectMention>());
+      expect((spans[2] as TextSpan).text, ' 456 ');
+      expect((spans[3] as WidgetSpan).child, isA<TalkRichObjectMention>());
+      expect((spans[4] as TextSpan).text, ' 789');
     });
   });
 }

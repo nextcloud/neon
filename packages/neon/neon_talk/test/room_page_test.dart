@@ -100,6 +100,7 @@ void main() {
     when(() => chatMessage1.message).thenReturn('abc');
     when(() => chatMessage1.reactions).thenReturn(BuiltMap());
     when(() => chatMessage1.parent).thenReturn(null);
+    when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
 
     final chatMessage2 = MockChatMessageWithParent();
     when(() => chatMessage2.timestamp).thenReturn(0);
@@ -110,6 +111,7 @@ void main() {
     when(() => chatMessage2.message).thenReturn('abc');
     when(() => chatMessage2.reactions).thenReturn(BuiltMap());
     when(() => chatMessage2.parent).thenReturn(null);
+    when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
