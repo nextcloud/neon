@@ -38,7 +38,7 @@ void main() async {
         return Response('{}', 200);
       }),
     );
-    await client.$post();
+    await client.post();
 
     // with body
     client = $Client(
@@ -48,6 +48,6 @@ void main() async {
         return Response('{}', 200);
       }),
     );
-    await client.$post(string: 'value');
+    await client.post(string: 'value');
   });
 }

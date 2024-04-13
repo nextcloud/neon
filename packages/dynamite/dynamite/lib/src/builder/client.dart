@@ -61,19 +61,7 @@ Class buildRootClient(
                 ..optionalParameters.addAll([
                   Parameter(
                     (b) => b
-                      ..name = 'baseHeaders'
-                      ..toSuper = true
-                      ..named = true,
-                  ),
-                  Parameter(
-                    (b) => b
                       ..name = 'httpClient'
-                      ..toSuper = true
-                      ..named = true,
-                  ),
-                  Parameter(
-                    (b) => b
-                      ..name = 'cookieJar'
                       ..toSuper = true
                       ..named = true,
                   ),
@@ -101,9 +89,7 @@ Class buildRootClient(
                   const Code('''
 super(
   client.baseURL,
-  baseHeaders: client.baseHeaders,
   httpClient: client.httpClient,
-  cookieJar: client.cookieJar,
   authentications: client.authentications,
 )
 '''),
@@ -444,7 +430,7 @@ ${allocate(returnType)}(
           ..body = Code.scope(
             (allocate) => '''
 final _request = \$${name}_Request($rawParameters);
-final _response = await $client.send(_request);
+final _response = await $client.httpClient.send(_request);
 
 final _serializer = \$${name}_Serializer();
 final _rawResponse = await ${allocate(responseConverterType)}(_serializer).convert(_response);

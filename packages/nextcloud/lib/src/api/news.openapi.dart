@@ -34,9 +34,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -44,9 +42,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -105,7 +101,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getSupportedApiVersions_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SupportedAPIVersions, void>> getSupportedApiVersions() async {
     final _request = $getSupportedApiVersions_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getSupportedApiVersions_Serializer();
     final _rawResponse = await _i1.ResponseConverter<SupportedAPIVersions, void>(_serializer).convert(_response);
@@ -167,7 +163,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$listFolders_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ListFolders, void>> listFolders() async {
     final _request = $listFolders_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $listFolders_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
@@ -241,7 +237,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $createFolder_Request(
       name: name,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $createFolder_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
@@ -324,7 +320,7 @@ class $Client extends _i1.DynamiteClient {
       folderId: folderId,
       name: name,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $renameFolder_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -391,7 +387,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteFolder_Request(
       folderId: folderId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $deleteFolder_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -475,7 +471,7 @@ class $Client extends _i1.DynamiteClient {
       folderId: folderId,
       newestItemId: newestItemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $markFolderAsRead_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -537,7 +533,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$listFeeds_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ListFeeds, void>> listFeeds() async {
     final _request = $listFeeds_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $listFeeds_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
@@ -623,7 +619,7 @@ class $Client extends _i1.DynamiteClient {
       url: url,
       folderId: folderId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $addFeed_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
@@ -690,7 +686,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteFeed_Request(
       feedId: feedId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $deleteFeed_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -773,7 +769,7 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       folderId: folderId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $moveFeed_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -857,7 +853,7 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       feedTitle: feedTitle,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $renameFeed_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -941,7 +937,7 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       newestItemId: newestItemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $markFeedAsRead_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -1067,7 +1063,7 @@ class $Client extends _i1.DynamiteClient {
       offset: offset,
       oldestFirst: oldestFirst,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $listArticles_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
@@ -1165,7 +1161,7 @@ class $Client extends _i1.DynamiteClient {
       id: id,
       lastModified: lastModified,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $listUpdatedArticles_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
@@ -1232,7 +1228,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $markArticleAsRead_Request(
       itemId: itemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $markArticleAsRead_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -1299,7 +1295,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $markArticleAsUnread_Request(
       itemId: itemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $markArticleAsUnread_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -1366,7 +1362,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $starArticle_Request(
       itemId: itemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $starArticle_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
@@ -1433,7 +1429,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $unstarArticle_Request(
       itemId: itemId,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $unstarArticle_Serializer();
     final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);

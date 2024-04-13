@@ -37,9 +37,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -47,9 +45,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -204,7 +200,7 @@ class $AvatarClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getAvatar_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -311,7 +307,7 @@ class $AvatarClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $uploadAvatar_Serializer();
     final _rawResponse =
@@ -417,7 +413,7 @@ class $AvatarClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteAvatar_Serializer();
     final _rawResponse =
@@ -542,7 +538,7 @@ class $AvatarClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $emojiAvatar_Serializer();
     final _rawResponse =
@@ -648,7 +644,7 @@ class $AvatarClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getAvatarDark_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
@@ -806,7 +802,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $sendMessage_Serializer();
     final _rawResponse =
@@ -936,7 +932,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $react_Serializer();
     final _rawResponse =
@@ -1066,7 +1062,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteReaction_Serializer();
     final _rawResponse =
@@ -1172,7 +1168,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $listBots_Serializer();
     final _rawResponse =
@@ -1290,7 +1286,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $enableBot_Serializer();
     final _rawResponse =
@@ -1406,7 +1402,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $disableBot_Serializer();
     final _rawResponse =
@@ -1505,7 +1501,7 @@ class $BotClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $adminListBots_Serializer();
     final _rawResponse =
@@ -1652,7 +1648,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $configureBreakoutRooms_Serializer();
     final _rawResponse =
@@ -1764,7 +1760,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeBreakoutRooms_Serializer();
     final _rawResponse =
@@ -1889,7 +1885,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $broadcastChatMessage_Serializer();
     final _rawResponse =
@@ -2010,7 +2006,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $applyAttendeeMap_Serializer();
     final _rawResponse =
@@ -2122,7 +2118,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $requestAssistance_Serializer();
     final _rawResponse =
@@ -2237,7 +2233,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $resetRequestForAssistance_Serializer();
     final _rawResponse =
@@ -2351,7 +2347,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $startBreakoutRooms_Serializer();
     final _rawResponse =
@@ -2463,7 +2459,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $stopBreakoutRooms_Serializer();
     final _rawResponse =
@@ -2585,7 +2581,7 @@ class $BreakoutRoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $switchBreakoutRoom_Serializer();
     final _rawResponse =
@@ -2699,7 +2695,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getPeersForCall_Serializer();
     final _rawResponse =
@@ -2817,7 +2813,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $updateCallFlags_Serializer();
     final _rawResponse =
@@ -2963,7 +2959,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $joinCall_Serializer();
     final _rawResponse =
@@ -3078,7 +3074,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $leaveCall_Serializer();
     final _rawResponse =
@@ -3197,7 +3193,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $ringAttendee_Serializer();
     final _rawResponse =
@@ -3317,7 +3313,7 @@ class $CallClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $sipDialOut_Serializer();
     final _rawResponse =
@@ -3437,7 +3433,7 @@ class $CertificateClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getCertificateExpiration_Serializer();
     final _rawResponse =
@@ -3653,7 +3649,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $receiveMessages_Serializer();
     final _rawResponse =
@@ -3816,7 +3812,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $sendMessage_Serializer();
     final _rawResponse =
@@ -3929,7 +3925,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $clearHistory_Serializer();
     final _rawResponse =
@@ -4057,7 +4053,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteMessage_Serializer();
     final _rawResponse =
@@ -4185,7 +4181,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getMessageContext_Serializer();
     final _rawResponse =
@@ -4305,7 +4301,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getReminder_Serializer();
     final _rawResponse =
@@ -4432,7 +4428,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setReminder_Serializer();
     final _rawResponse =
@@ -4551,7 +4547,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteReminder_Serializer();
     final _rawResponse =
@@ -4668,7 +4664,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setReadMarker_Serializer();
     final _rawResponse =
@@ -4776,7 +4772,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $markUnread_Serializer();
     final _rawResponse =
@@ -4910,7 +4906,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $mentions_Serializer();
     final _rawResponse =
@@ -5045,7 +5041,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getObjectsSharedInRoom_Serializer();
     final _rawResponse = await _i1.ResponseConverter<ChatGetObjectsSharedInRoomResponseApplicationJson,
@@ -5208,7 +5204,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $shareObjectToChat_Serializer();
     final _rawResponse =
@@ -5329,7 +5325,7 @@ class $ChatClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getObjectsSharedInRoomOverview_Serializer();
     final _rawResponse =
@@ -5459,7 +5455,7 @@ class $FilesIntegrationClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getRoomByFileId_Serializer();
     final _rawResponse =
@@ -5583,7 +5579,7 @@ class $FilesIntegrationClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getRoomByShareToken_Serializer();
     final _rawResponse =
@@ -5710,7 +5706,7 @@ class $GuestClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setDisplayName_Serializer();
     final _rawResponse =
@@ -5864,7 +5860,7 @@ class $HostedSignalingServerClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $requestTrial_Serializer();
     final _rawResponse =
@@ -5971,7 +5967,7 @@ class $HostedSignalingServerClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteAccount_Serializer();
     final _rawResponse =
@@ -6087,7 +6083,7 @@ class $MatterbridgeClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getBridgeOfRoom_Serializer();
     final _rawResponse =
@@ -6223,7 +6219,7 @@ class $MatterbridgeClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $editBridgeOfRoom_Serializer();
     final _rawResponse =
@@ -6336,7 +6332,7 @@ class $MatterbridgeClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteBridgeOfRoom_Serializer();
     final _rawResponse =
@@ -6448,7 +6444,7 @@ class $MatterbridgeClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getBridgeProcessState_Serializer();
     final _rawResponse =
@@ -6559,7 +6555,7 @@ class $MatterbridgeSettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $stopAllBridges_Serializer();
     final _rawResponse =
@@ -6664,7 +6660,7 @@ class $MatterbridgeSettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getMatterbridgeVersion_Serializer();
     final _rawResponse =
@@ -6815,7 +6811,7 @@ class $PollClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $createPoll_Serializer();
     final _rawResponse =
@@ -6929,7 +6925,7 @@ class $PollClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $showPoll_Serializer();
     final _rawResponse =
@@ -7055,7 +7051,7 @@ class $PollClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $votePoll_Serializer();
     final _rawResponse =
@@ -7175,7 +7171,7 @@ class $PollClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $closePoll_Serializer();
     final _rawResponse =
@@ -7292,7 +7288,7 @@ class $PublicShareAuthClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $createRoom_Serializer();
     final _rawResponse =
@@ -7425,7 +7421,7 @@ class $ReactionClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getReactions_Serializer();
     final _rawResponse =
@@ -7552,7 +7548,7 @@ class $ReactionClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $react_Serializer();
     final _rawResponse =
@@ -7560,9 +7556,9 @@ class $ReactionClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$delete_Request].
+  /// Builds a serializer to parse the response of [$delete_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<ReactionDeleteResponseApplicationJson, void> $$delete_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<ReactionDeleteResponseApplicationJson, void> $delete_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ReactionDeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
@@ -7571,7 +7567,7 @@ class $ReactionClient {
 
   /// Delete a reaction from a message.
   ///
-  /// Returns a `DynamiteRequest` backing the [$delete] operation.
+  /// Returns a `DynamiteRequest` backing the [delete] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -7587,10 +7583,10 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [$delete] for a method executing this request and parsing the response.
-  ///  * [$$delete_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [delete] for a method executing this request and parsing the response.
+  ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$delete_Request({
+  _i3.Request $delete_Request({
     required String reaction,
     required String token,
     required int messageId,
@@ -7661,25 +7657,25 @@ class $ReactionClient {
   ///   * 404: Message not found
   ///
   /// See:
-  ///  * [$$delete_Request] for the request send by this method.
-  ///  * [$$delete_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> $delete({
+  ///  * [$delete_Request] for the request send by this method.
+  ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
     required String reaction,
     required String token,
     required int messageId,
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$delete_Request(
+    final _request = $delete_Request(
       reaction: reaction,
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $$delete_Serializer();
+    final _serializer = $delete_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<ReactionDeleteResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
@@ -7801,7 +7797,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $start_Serializer();
     final _rawResponse =
@@ -7909,7 +7905,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $stop_Serializer();
     final _rawResponse =
@@ -8026,7 +8022,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $store_Serializer();
     final _rawResponse =
@@ -8146,7 +8142,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $notificationDismiss_Serializer();
     final _rawResponse =
@@ -8275,7 +8271,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $shareToChat_Serializer();
     final _rawResponse =
@@ -8387,7 +8383,7 @@ class $RecordingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getWelcomeMessage_Serializer();
     final _rawResponse =
@@ -8520,7 +8516,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getRooms_Serializer();
     final _rawResponse =
@@ -8678,7 +8674,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $createRoom_Serializer();
     final _rawResponse =
@@ -8783,7 +8779,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getListedRooms_Serializer();
     final _rawResponse =
@@ -8884,7 +8880,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getNoteToSelfConversation_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomGetNoteToSelfConversationResponseApplicationJson,
@@ -8995,7 +8991,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getSingleRoom_Serializer();
     final _rawResponse =
@@ -9112,7 +9108,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $renameRoom_Serializer();
     final _rawResponse =
@@ -9219,7 +9215,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteRoom_Serializer();
     final _rawResponse =
@@ -9334,7 +9330,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getBreakoutRooms_Serializer();
     final _rawResponse =
@@ -9443,7 +9439,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $makePublic_Serializer();
     final _rawResponse =
@@ -9552,7 +9548,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $makePrivate_Serializer();
     final _rawResponse =
@@ -9669,7 +9665,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setDescription_Serializer();
     final _rawResponse =
@@ -9787,7 +9783,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setReadOnly_Serializer();
     final _rawResponse =
@@ -9905,7 +9901,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setListable_Serializer();
     final _rawResponse =
@@ -10023,7 +10019,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setPassword_Serializer();
     final _rawResponse =
@@ -10155,7 +10151,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setPermissions_Serializer();
     final _rawResponse =
@@ -10275,7 +10271,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getParticipants_Serializer();
     final _rawResponse =
@@ -10410,7 +10406,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $addParticipantToRoom_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomAddParticipantToRoomResponseApplicationJson, void>(_serializer)
@@ -10539,7 +10535,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getBreakoutRoomParticipants_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
@@ -10653,7 +10649,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeSelfFromRoom_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomRemoveSelfFromRoomResponseApplicationJson, void>(_serializer)
@@ -10774,7 +10770,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeAttendeeFromRoom_Serializer();
     final _rawResponse =
@@ -10915,7 +10911,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setAttendeePermissions_Serializer();
     final _rawResponse =
@@ -11048,7 +11044,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setAllAttendeesPermissions_Serializer();
     final _rawResponse =
@@ -11179,7 +11175,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $joinRoom_Serializer();
     final _rawResponse =
@@ -11284,7 +11280,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $leaveRoom_Serializer();
     final _rawResponse =
@@ -11404,7 +11400,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $resendInvitations_Serializer();
     final _rawResponse =
@@ -11523,7 +11519,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setSessionState_Serializer();
     final _rawResponse =
@@ -11644,7 +11640,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $promoteModerator_Serializer();
     final _rawResponse =
@@ -11765,7 +11761,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $demoteModerator_Serializer();
     final _rawResponse =
@@ -11873,7 +11869,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $addToFavorites_Serializer();
     final _rawResponse =
@@ -11981,7 +11977,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $removeFromFavorites_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomRemoveFromFavoritesResponseApplicationJson, void>(_serializer)
@@ -12100,7 +12096,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setNotificationLevel_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomSetNotificationLevelResponseApplicationJson, void>(_serializer)
@@ -12219,7 +12215,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setNotificationCalls_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomSetNotificationCallsResponseApplicationJson, void>(_serializer)
@@ -12344,7 +12340,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setLobby_Serializer();
     final _rawResponse =
@@ -12469,7 +12465,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setsipEnabled_Serializer();
     final _rawResponse =
@@ -12591,7 +12587,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setRecordingConsent_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomSetRecordingConsentResponseApplicationJson, void>(_serializer)
@@ -12708,7 +12704,7 @@ class $RoomClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setMessageExpiration_Serializer();
     final _rawResponse = await _i1.ResponseConverter<RoomSetMessageExpirationResponseApplicationJson, void>(_serializer)
@@ -12829,7 +12825,7 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setUserSetting_Serializer();
     final _rawResponse = await _i1.ResponseConverter<SettingsSetUserSettingResponseApplicationJson, void>(_serializer)
@@ -12958,7 +12954,7 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $setsipSettings_Serializer();
     final _rawResponse = await _i1.ResponseConverter<SettingsSetsipSettingsResponseApplicationJson, void>(_serializer)
@@ -13072,7 +13068,7 @@ class $SignalingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getSettings_Serializer();
     final _rawResponse =
@@ -13184,7 +13180,7 @@ class $SignalingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $pullMessages_Serializer();
     final _rawResponse =
@@ -13301,7 +13297,7 @@ class $SignalingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $sendMessages_Serializer();
     final _rawResponse =
@@ -13415,7 +13411,7 @@ class $SignalingClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $getWelcomeMessage_Serializer();
     final _rawResponse =
@@ -13507,7 +13503,7 @@ class $TempAvatarClient {
     final _request = $postAvatar_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $postAvatar_Serializer();
     final _rawResponse =
@@ -13591,7 +13587,7 @@ class $TempAvatarClient {
     final _request = $deleteAvatar_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteAvatar_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TempAvatarDeleteAvatarResponseApplicationJson, void>(_serializer)

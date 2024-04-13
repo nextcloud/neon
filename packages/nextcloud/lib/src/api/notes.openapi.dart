@@ -37,9 +37,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -47,9 +45,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -171,7 +167,7 @@ class $Client extends _i1.DynamiteClient {
       chunkCursor: chunkCursor,
       ifNoneMatch: ifNoneMatch,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getNotes_Serializer();
     final _rawResponse = await _i1.ResponseConverter<BuiltList<Note>, void>(_serializer).convert(_response);
@@ -287,7 +283,7 @@ class $Client extends _i1.DynamiteClient {
       modified: modified,
       favorite: favorite,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $createNote_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
@@ -382,7 +378,7 @@ class $Client extends _i1.DynamiteClient {
       exclude: exclude,
       ifNoneMatch: ifNoneMatch,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getNote_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
@@ -510,7 +506,7 @@ class $Client extends _i1.DynamiteClient {
       favorite: favorite,
       ifMatch: ifMatch,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $updateNote_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
@@ -578,7 +574,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteNote_Request(
       id: id,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $deleteNote_Serializer();
     final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
@@ -640,7 +636,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getSettings_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Settings, void>> getSettings() async {
     final _request = $getSettings_Request();
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getSettings_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
@@ -706,7 +702,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $updateSettings_Request(
       settings: settings,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $updateSettings_Serializer();
     final _rawResponse = await _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);

@@ -35,9 +35,7 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
     super.authentications,
   });
 
@@ -45,9 +43,7 @@ class $Client extends _i1.DynamiteClient {
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -135,7 +131,7 @@ class $ConfigapiClient {
     final _request = $create_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
@@ -246,7 +242,7 @@ class $ConfigapiClient {
       showPassword: showPassword,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $$show_Serializer();
     final _rawResponse =
@@ -360,7 +356,7 @@ class $ConfigapiClient {
       configID: configID,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $modify_Serializer();
     final _rawResponse =
@@ -368,9 +364,9 @@ class $ConfigapiClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$$delete_Request].
+  /// Builds a serializer to parse the response of [$delete_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<ConfigapiDeleteResponseApplicationJson, void> $$delete_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<ConfigapiDeleteResponseApplicationJson, void> $delete_Serializer() => _i1.DynamiteSerializer(
         bodyType: const FullType(ConfigapiDeleteResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
@@ -381,7 +377,7 @@ class $ConfigapiClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a `DynamiteRequest` backing the [$delete] operation.
+  /// Returns a `DynamiteRequest` backing the [delete] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -393,10 +389,10 @@ class $ConfigapiClient {
   ///   * 404: Config not found
   ///
   /// See:
-  ///  * [$delete] for a method executing this request and parsing the response.
-  ///  * [$$delete_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [delete] for a method executing this request and parsing the response.
+  ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$delete_Request({
+  _i3.Request $delete_Request({
     required String configID,
     bool? oCSAPIRequest,
   }) {
@@ -448,19 +444,19 @@ class $ConfigapiClient {
   ///   * 404: Config not found
   ///
   /// See:
-  ///  * [$$delete_Request] for the request send by this method.
-  ///  * [$$delete_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ConfigapiDeleteResponseApplicationJson, void>> $delete({
+  ///  * [$delete_Request] for the request send by this method.
+  ///  * [$delete_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ConfigapiDeleteResponseApplicationJson, void>> delete({
     required String configID,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $$delete_Request(
+    final _request = $delete_Request(
       configID: configID,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.send(_request);
+    final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $$delete_Serializer();
+    final _serializer = $delete_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<ConfigapiDeleteResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);

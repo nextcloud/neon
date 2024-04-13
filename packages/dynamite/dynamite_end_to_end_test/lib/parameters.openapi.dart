@@ -29,18 +29,14 @@ class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
-    super.baseHeaders,
     super.httpClient,
-    super.cookieJar,
   });
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
       : super(
           client.baseURL,
-          baseHeaders: client.baseHeaders,
           httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
           authentications: client.authentications,
         );
 
@@ -220,7 +216,7 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $$get_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -428,7 +424,7 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getHeaders_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -479,7 +475,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $getPathParameter_Request(
       pathParameter: pathParameter,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getPathParameter_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
@@ -566,7 +562,7 @@ class $Client extends _i1.DynamiteClient {
       parameters: parameters,
       headers: headers,
     );
-    final _response = await send(_request);
+    final _response = await httpClient.send(_request);
 
     final _serializer = $getNamingCollisions_Serializer();
     final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);

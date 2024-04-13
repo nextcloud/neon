@@ -15,7 +15,6 @@ dependencies:
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
-  cookie_jar: ^4.0.7
   http: ^1.2.0
   http_parser: ^4.0.0
   meta: ^1.0.0
