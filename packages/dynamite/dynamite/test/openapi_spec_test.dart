@@ -1,21 +1,12 @@
 // ignore_for_file: inference_failure_on_collection_literal
 
 import 'package:built_value_test/matcher.dart';
+import 'package:dynamite/src/models/json_schema.dart' hide serializers;
 import 'package:dynamite/src/models/openapi.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('OpenAPI spec deserialization', () {
-    test(Schema, () {
-      Object? value = {};
-      var schema = serializers.deserializeWith(Schema.serializer, value);
-      expect(schema, Schema());
-
-      value = true;
-      schema = serializers.deserializeWith(Schema.serializer, value);
-      expect(schema, Schema());
-    });
-
     test('Schema reference resolving', () {
       const json = {
         'openapi': '3.1.0',

@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -11,7 +12,7 @@ TypeResult resolveSomeOf(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  openapi.Schema schema, {
+  json_schema.Schema schema, {
   bool nullable = false,
 }) {
   final subResults = schema.ofs!
