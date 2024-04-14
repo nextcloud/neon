@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -180,8 +178,7 @@ void main() {
   });
 
   test('Load', () async {
-    // ignore: unawaited_futures
-    expectLater(
+    expect(
       bloc.status.transformResult((e) => e.status),
       emitsInOrder([
         Result<user_status.$Type>.loading(),
@@ -196,7 +193,7 @@ void main() {
         Result<String>.error(
           DynamiteStatusCodeException.fromResponse(
             statusCode: 201,
-            headers: {},
+            headers: const {},
             body: '',
           ),
         ),

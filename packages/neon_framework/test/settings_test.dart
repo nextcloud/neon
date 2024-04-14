@@ -1,5 +1,3 @@
-// ignore_for_file: discarded_futures
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -28,8 +26,11 @@ void main() {
   const key = StorageKey.key;
 
   setUp(() {
+    // ignore: discarded_futures
     when(() => storage.setBool(key.value, any())).thenAnswer((_) async => true);
+    // ignore: discarded_futures
     when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+    // ignore: discarded_futures
     when(() => storage.remove(key.value)).thenAnswer((_) async => true);
   });
 

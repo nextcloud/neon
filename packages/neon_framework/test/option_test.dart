@@ -1,4 +1,4 @@
-// ignore_for_file: discarded_futures, inference_failure_on_instance_creation
+// ignore_for_file: inference_failure_on_instance_creation
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -37,7 +37,9 @@ void main() {
     late SelectOption<SelectValues> option;
 
     setUp(() {
+      // ignore: discarded_futures
       when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+      // ignore: discarded_futures
       when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = SelectOption<SelectValues>(
@@ -97,6 +99,7 @@ void main() {
         ..value = SelectValues.third;
 
       verify(callback.call).called(1);
+      // ignore: discarded_futures
       verify(() => storage.setString(key.value, 'SelectValues.third')).called(1);
       expect(option.value, SelectValues.third, reason: 'Should update the value.');
 
@@ -166,6 +169,7 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
+      // ignore: discarded_futures
       verify(() => storage.remove(key.value)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
@@ -216,7 +220,9 @@ void main() {
     late ToggleOption option;
 
     setUp(() {
+      // ignore: discarded_futures
       when(() => storage.setBool(key.value, any())).thenAnswer((_) async => true);
+      // ignore: discarded_futures
       when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
       option = ToggleOption(
@@ -273,6 +279,7 @@ void main() {
         ..value = false;
 
       verify(callback.call).called(1);
+      // ignore: discarded_futures
       verify(() => storage.setBool(key.value, false)).called(1);
       expect(option.value, false, reason: 'Should update the value.');
 
@@ -307,6 +314,7 @@ void main() {
       option.reset();
 
       verify(callback.call).called(1);
+      // ignore: discarded_futures
       verify(() => storage.remove(key.value)).called(1);
       expect(option.value, option.defaultValue, reason: 'Should reset the value.');
     });
@@ -314,7 +322,6 @@ void main() {
     test('Deserialize', () {
       expect(option.value, true);
 
-      // ignore: cascade_invocations
       option.load(false);
 
       expect(option.value, false);

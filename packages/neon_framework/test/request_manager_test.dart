@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -179,8 +177,7 @@ void main() {
       test('successful request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -203,8 +200,7 @@ void main() {
 
         subject = BehaviorSubject.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -230,8 +226,7 @@ void main() {
       test('timeout request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -240,8 +235,7 @@ void main() {
           ]),
         );
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           neverEmits([
             equals(Result.success(base64String('Test value'))),
@@ -264,8 +258,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -282,8 +275,7 @@ void main() {
           ]),
         );
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           neverEmits([
             equals(Result.success(base64String('Test value'))),
@@ -308,8 +300,7 @@ void main() {
       test('throwing request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -332,8 +323,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -385,8 +375,7 @@ void main() {
       test('successful request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -412,8 +401,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -441,8 +429,7 @@ void main() {
       test('timeout request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -459,8 +446,7 @@ void main() {
           ]),
         );
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           neverEmits([
             equals(Result.success(base64String('Test value'))),
@@ -485,8 +471,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -503,8 +488,7 @@ void main() {
           ]),
         );
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           neverEmits([
             equals(Result.success(base64String('Test value'))),
@@ -531,8 +515,7 @@ void main() {
       test('throwing request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -558,8 +541,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result.success('Seed value')),
@@ -599,8 +581,7 @@ void main() {
 
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -637,8 +618,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -690,8 +670,7 @@ void main() {
 
         var subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -738,8 +717,7 @@ void main() {
 
         subject = BehaviorSubject<Result<String>>();
 
-        // ignore: unawaited_futures
-        expectLater(
+        expect(
           subject.stream,
           emitsInOrder([
             equals(Result<String>.loading()),
@@ -776,8 +754,7 @@ void main() {
 
           final subject = BehaviorSubject<Result<String>>();
 
-          // ignore: unawaited_futures
-          expectLater(
+          expect(
             subject.stream,
             emitsInOrder([
               equals(Result<String>.loading()),
@@ -794,7 +771,7 @@ void main() {
             request: () async => DynamiteRawResponse<String, Map<String, String>>(
               statusCode: 200,
               body: 'Test value',
-              headers: {},
+              headers: const {},
               rawHeaders: {
                 'etag': 'a',
                 'expires': formatHttpDate(newExpires),
