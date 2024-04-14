@@ -40,9 +40,9 @@ Account mockTalkAccount() => mockServer({
                 'ocs': {
                   'meta': {'status': '', 'statuscode': 0},
                   'data': [
-                    getChatMessage(id: 0),
-                    getChatMessage(id: 1),
                     getChatMessage(id: 2),
+                    getChatMessage(id: 1),
+                    getChatMessage(id: 0),
                   ],
                 },
               }),
@@ -90,9 +90,9 @@ void main() {
       bloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
       emitsInOrder([
         Result<BuiltList<int>>.loading(),
-        Result.success(BuiltList<int>([0, 1, 2])),
-        Result.success(BuiltList<int>([0, 1, 2])).asLoading(),
-        Result.success(BuiltList<int>([0, 1, 2])),
+        Result.success(BuiltList<int>([2, 1, 0])),
+        Result.success(BuiltList<int>([2, 1, 0])).asLoading(),
+        Result.success(BuiltList<int>([2, 1, 0])),
       ]),
     );
 
