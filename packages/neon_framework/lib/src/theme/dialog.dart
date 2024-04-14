@@ -18,6 +18,19 @@ class NeonDialogTheme {
     this.padding = const EdgeInsets.all(24),
   });
 
+  /// Linearly interpolate between two [NeonDialogTheme]s.
+  ///
+  /// {@macro dart.ui.shadow.lerp}
+  factory NeonDialogTheme.lerp(NeonDialogTheme a, NeonDialogTheme b, double t) {
+    if (identical(a, b)) {
+      return a;
+    }
+    return NeonDialogTheme(
+      constraints: BoxConstraints.lerp(a.constraints, b.constraints, t)!,
+      padding: EdgeInsets.lerp(a.padding, b.padding, t)!,
+    );
+  }
+
   /// Used to configure the [BoxConstraints] for the [NeonDialog] widget.
   ///
   /// This value should also be used on [Dialog.fullscreen] and other similar pages.
@@ -43,20 +56,6 @@ class NeonDialogTheme {
 
   /// The data from the closest [NeonDialogTheme] instance given the build context.
   static NeonDialogTheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.dialogTheme;
-
-  /// Linearly interpolate between two [NeonDialogTheme]s.
-  ///
-  /// {@macro dart.ui.shadow.lerp}
-  // ignore: prefer_constructors_over_static_methods
-  static NeonDialogTheme lerp(NeonDialogTheme a, NeonDialogTheme b, double t) {
-    if (identical(a, b)) {
-      return a;
-    }
-    return NeonDialogTheme(
-      constraints: BoxConstraints.lerp(a.constraints, b.constraints, t)!,
-      padding: EdgeInsets.lerp(a.padding, b.padding, t)!,
-    );
-  }
 
   @override
   int get hashCode => Object.hashAll([

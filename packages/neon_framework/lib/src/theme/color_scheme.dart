@@ -10,6 +10,18 @@ class NeonColorScheme {
     this.primary = NcColors.primary,
   });
 
+  /// Linearly interpolate between two [NeonColorScheme]s.
+  ///
+  /// {@macro dart.ui.shadow.lerp}
+  factory NeonColorScheme.lerp(NeonColorScheme a, NeonColorScheme b, double t) {
+    if (identical(a, b)) {
+      return a;
+    }
+    return NeonColorScheme(
+      primary: Color.lerp(a.primary, b.primary, t)!,
+    );
+  }
+
   /// Primary color used throughout the app.
   ///
   /// See [ColorScheme.primary]
@@ -27,19 +39,6 @@ class NeonColorScheme {
 
   /// The data from the closest [NeonColorScheme] instance given the build context.
   static NeonColorScheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.colorScheme;
-
-  /// Linearly interpolate between two [NeonColorScheme]s.
-  ///
-  /// {@macro dart.ui.shadow.lerp}
-  // ignore: prefer_constructors_over_static_methods
-  static NeonColorScheme lerp(NeonColorScheme a, NeonColorScheme b, double t) {
-    if (identical(a, b)) {
-      return a;
-    }
-    return NeonColorScheme(
-      primary: Color.lerp(a.primary, b.primary, t)!,
-    );
-  }
 
   @override
   int get hashCode => Object.hashAll([
