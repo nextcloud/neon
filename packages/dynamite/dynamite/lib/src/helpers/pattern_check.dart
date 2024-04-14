@@ -1,14 +1,13 @@
 import 'package:code_builder/code_builder.dart';
-import 'package:dynamite/src/models/openapi.dart' as openapi;
-import 'package:dynamite/src/models/openapi/schema.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 
 Iterable<Expression> buildPatternCheck(
-  openapi.Schema schema,
+  json_schema.Schema schema,
   String value,
   String name,
 ) sync* {
   switch (schema.type) {
-    case SchemaType.string:
+    case json_schema.SchemaType.string:
       if (schema.pattern != null) {
         yield refer('checkPattern', 'package:dynamite_runtime/utils.dart').call([
           refer(value).asA(refer('String?')),
@@ -30,7 +29,7 @@ Iterable<Expression> buildPatternCheck(
           literalString(name),
         ]);
       }
-    case SchemaType.array:
+    case json_schema.SchemaType.array:
       if (schema.minItems != null) {
         yield refer('checkMinItems', 'package:dynamite_runtime/utils.dart').call([
           refer(value).nullSafeProperty('length'),

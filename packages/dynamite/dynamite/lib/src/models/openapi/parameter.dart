@@ -5,8 +5,8 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
+import 'package:dynamite/src/models/json_schema.dart';
 import 'package:dynamite/src/models/openapi/media_type.dart';
-import 'package:dynamite/src/models/openapi/schema.dart';
 import 'package:meta/meta.dart';
 
 part 'parameter.g.dart';

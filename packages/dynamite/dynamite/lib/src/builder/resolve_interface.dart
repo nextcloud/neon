@@ -8,6 +8,7 @@ import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -15,7 +16,7 @@ Spec buildInterface(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  openapi.Schema schema, {
+  json_schema.Schema schema, {
   bool isHeader = false,
   bool nullable = false,
 }) {
@@ -32,9 +33,9 @@ Spec buildInterface(
     final defaults = StringBuffer();
     final validators = BlockBuilder();
 
-    if (schema case openapi.Schema(:final allOf) when allOf != null) {
+    if (schema case json_schema.Schema(:final allOf) when allOf != null) {
       for (final schema in allOf) {
-        if (schema case openapi.Schema(properties: != null)) {
+        if (schema case json_schema.Schema(properties: != null)) {
           _generateProperties(
             schema,
             spec,
@@ -135,7 +136,7 @@ Spec buildInterface(
 }
 
 void _generateProperties(
-  openapi.Schema schema,
+  json_schema.Schema schema,
   openapi.OpenAPI spec,
   State state,
   String identifier,

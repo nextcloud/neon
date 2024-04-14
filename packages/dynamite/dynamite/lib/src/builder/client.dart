@@ -10,6 +10,7 @@ import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
@@ -488,7 +489,7 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
       spec,
       state,
       identifierBuilder.toString(),
-      openapi.Schema(
+      json_schema.Schema(
         (b) => b
           ..properties.replace(
             response.headers!.map(
