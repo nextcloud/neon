@@ -189,7 +189,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// A custom theme that will be injected into the widget tree.
   ///
   /// You can later access it through `Theme.of(context).extension<ThemeName>()`.
-  final ThemeExtension? theme = null;
+  ThemeExtension? get theme => null;
 
   @override
   bool operator ==(Object other) => other is AppImplementation && other.id == id;

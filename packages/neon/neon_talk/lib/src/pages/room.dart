@@ -7,6 +7,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/room.dart';
+import 'package:neon_talk/src/theme.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -104,39 +105,48 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
 
         final body = ResultBuilder.behaviorSubject(
           subject: bloc.messages,
-          builder: (context, result) => NeonListView(
-            scrollKey: 'talk-room-${room.token}',
-            reverse: true,
-            isLoading: result.isLoading,
-            error: result.error,
-            onRefresh: bloc.refresh,
-            itemCount: result.data?.length ?? 0,
-            itemBuilder: (context, index) {
-              final message = result.requireData[index];
+          builder: (context, result) {
+            final sliver = SliverList.builder(
+              itemCount: result.data?.length ?? 0,
+              itemBuilder: (context, index) {
+                final message = result.requireData[index];
 
-              spreed.ChatMessageWithParent? previousMessage;
-              if (result.requireData.length > index + 1) {
-                previousMessage = result.requireData[index + 1];
-              }
+                spreed.ChatMessageWithParent? previousMessage;
+                if (result.requireData.length > index + 1) {
+                  previousMessage = result.requireData[index + 1];
+                }
 
-              return TalkMessage(
-                chatMessage: message,
-                previousChatMessage: previousMessage,
-              );
-            },
-          ),
+                return Center(
+                  child: ConstrainedBox(
+                    constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
+                    child: TalkMessage(
+                      chatMessage: message,
+                      previousChatMessage: previousMessage,
+                    ),
+                  ),
+                );
+              },
+            );
+
+            return NeonListView.custom(
+              scrollKey: 'talk-room-${room.token}',
+              reverse: true,
+              isLoading: result.isLoading,
+              error: result.error,
+              onRefresh: bloc.refresh,
+              sliver: SliverPadding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                sliver: sliver,
+              ),
+            );
+          },
         );
 
         return Scaffold(
           appBar: appBar,
-          body: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: 1120,
-              ),
-              child: body,
-            ),
-          ),
+          body: body,
         );
       },
     );

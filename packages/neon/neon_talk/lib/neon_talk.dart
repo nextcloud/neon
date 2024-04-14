@@ -13,6 +13,7 @@ import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/options.dart';
 import 'package:neon_talk/src/pages/main.dart';
 import 'package:neon_talk/src/routes.dart';
+import 'package:neon_talk/src/theme.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart';
@@ -49,6 +50,9 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
 
   @override
   final RouteBase route = $talkAppRoute;
+
+  @override
+  final theme = const TalkTheme();
 
   @override
   BehaviorSubject<int> getUnreadCounter(TalkBloc bloc) => bloc.unreadCounter;
