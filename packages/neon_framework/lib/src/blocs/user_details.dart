@@ -10,7 +10,9 @@ import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
 /// Bloc for managing the user details of the account.
-sealed class UserDetailsBloc implements InteractiveBloc {
+@sealed
+abstract class UserDetailsBloc implements InteractiveBloc {
+  /// Creates a new user details Bloc.
   @internal
   factory UserDetailsBloc({
     required Account account,

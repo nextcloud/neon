@@ -1,7 +1,9 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:file_icons/file_icons.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -15,11 +17,30 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
 void main() {
+  late Account account;
+  late AccountsBloc accountsBloc;
+
   setUpAll(() {
     final storage = MockNeonStorage();
     when(() => storage.requestCache).thenReturn(null);
 
     registerFallbackValue(Uri());
+  });
+
+  setUp(() {
+    account = MockAccount();
+    when(() => account.username).thenReturn('username');
+    when(() => account.client).thenReturn(
+      NextcloudClient(
+        Uri(),
+        loginName: '',
+        password: '',
+      ),
+    );
+    when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
+
+    accountsBloc = MockAccountsBloc();
+    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
   });
 
   testWidgets('Deck card', (tester) async {
@@ -47,12 +68,6 @@ void main() {
 
   group('Mention', () {
     testWidgets('user', (tester) async {
-      final account = MockAccount();
-      when(() => account.client).thenReturn(NextcloudClient(Uri()));
-
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
       await tester.pumpWidget(
         TestApp(
           child: NeonProvider<AccountsBloc>.value(
@@ -61,7 +76,7 @@ void main() {
               parameter: spreed.RichObjectParameter(
                 (b) => b
                   ..type = 'user'
-                  ..id = ''
+                  ..id = 'username'
                   ..name = 'name',
               ),
               textStyle: null,
@@ -73,18 +88,34 @@ void main() {
       expect(find.text('name'), findsOne);
       await expectLater(
         find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_user.png'),
+        matchesGoldenFile('goldens/rich_object_mention_user_highlight.png'),
+      );
+
+      await tester.pumpWidget(
+        TestApp(
+          child: NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
+            child: TalkRichObjectMention(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = 'user'
+                  ..id = 'other'
+                  ..name = 'name',
+              ),
+              textStyle: null,
+            ),
+          ),
+        ),
+      );
+      expect(find.byType(NeonUserAvatar), findsOne);
+      expect(find.text('name'), findsOne);
+      await expectLater(
+        find.byType(TalkRichObjectMention),
+        matchesGoldenFile('goldens/rich_object_mention_user_other.png'),
       );
     });
 
     testWidgets('call', (tester) async {
-      final account = MockAccount();
-      when(() => account.client).thenReturn(NextcloudClient(Uri()));
-      when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
-
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
       await tester.pumpWidget(
         TestApp(
           child: NeonProvider<AccountsBloc>.value(
@@ -134,16 +165,27 @@ void main() {
 
     for (final type in ['user-group', 'group']) {
       testWidgets(type, (tester) async {
+        final userDetails = MockUserDetails();
+        when(() => userDetails.groups).thenReturn(BuiltList(['group']));
+
+        final userDetailsBloc = MockUserDetailsBloc();
+        when(() => userDetailsBloc.userDetails).thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
+
+        when(() => accountsBloc.activeUserDetailsBloc).thenReturn(userDetailsBloc);
+
         await tester.pumpWidget(
           TestApp(
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = type
-                  ..id = ''
-                  ..name = 'name',
+            child: NeonProvider<AccountsBloc>.value(
+              value: accountsBloc,
+              child: TalkRichObjectMention(
+                parameter: spreed.RichObjectParameter(
+                  (b) => b
+                    ..type = type
+                    ..id = 'group'
+                    ..name = 'name',
+                ),
+                textStyle: null,
               ),
-              textStyle: null,
             ),
           ),
         );
@@ -151,7 +193,30 @@ void main() {
         expect(find.text('name'), findsOne);
         await expectLater(
           find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_$type.png'),
+          matchesGoldenFile('goldens/rich_object_mention_${type}_highlight.png'),
+        );
+
+        await tester.pumpWidget(
+          TestApp(
+            child: NeonProvider<AccountsBloc>.value(
+              value: accountsBloc,
+              child: TalkRichObjectMention(
+                parameter: spreed.RichObjectParameter(
+                  (b) => b
+                    ..type = type
+                    ..id = 'other'
+                    ..name = 'name',
+                ),
+                textStyle: null,
+              ),
+            ),
+          ),
+        );
+        expect(find.byIcon(AdaptiveIcons.group), findsOne);
+        expect(find.text('name'), findsOne);
+        await expectLater(
+          find.byType(TalkRichObjectMention),
+          matchesGoldenFile('goldens/rich_object_mention_${type}_other.png'),
         );
       });
     }
@@ -159,18 +224,6 @@ void main() {
 
   group('File', () {
     testWidgets('With preview', (tester) async {
-      final account = MockAccount();
-      when(() => account.client).thenReturn(
-        NextcloudClient(
-          Uri(),
-          loginName: '',
-          password: '',
-        ),
-      );
-
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
       await tester.pumpWidget(
         TestApp(
           child: NeonProvider<AccountsBloc>.value(
@@ -246,13 +299,6 @@ void main() {
     });
 
     testWidgets('With icon', (tester) async {
-      final account = MockAccount();
-      when(() => account.client).thenReturn(NextcloudClient(Uri()));
-      when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
-
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
       await tester.pumpWidget(
         TestApp(
           child: NeonProvider<AccountsBloc>.value(
