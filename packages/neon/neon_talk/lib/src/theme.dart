@@ -21,6 +21,12 @@ class TalkTheme extends ThemeExtension<TalkTheme> {
 
   @override
   TalkTheme lerp(covariant TalkTheme? other, double t) {
-    throw UnimplementedError();
+    if (other == null) {
+      return this;
+    }
+
+    return TalkTheme(
+      messageConstraints: BoxConstraints.lerp(messageConstraints, other.messageConstraints, t)!,
+    );
   }
 }
