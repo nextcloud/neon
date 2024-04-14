@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:neon_talk/src/pages/room.dart';
@@ -105,8 +106,16 @@ class _TalkMainPageState extends State<TalkMainPage> {
       onTap: () async {
         await Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (context) => TalkRoomPage(
-              room: room,
+            builder: (context) => NeonProvider(
+              create: (_) {
+                final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+
+                return TalkRoomBloc(
+                  account: account,
+                  room: room,
+                );
+              },
+              child: const TalkRoomPage(),
             ),
           ),
         );
