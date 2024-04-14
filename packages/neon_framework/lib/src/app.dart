@@ -51,7 +51,6 @@ class NeonApp extends StatefulWidget {
   State<NeonApp> createState() => _NeonAppState();
 }
 
-// ignore: prefer_mixin
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
