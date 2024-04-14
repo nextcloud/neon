@@ -37,4 +37,7 @@ class TalkLocalizationsEn extends TalkLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get roomSendMessage => 'Send a message...';
 }

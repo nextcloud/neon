@@ -17,3 +17,4 @@ unawaited
 unfocus
 writeln
 xmark
+arrowshape

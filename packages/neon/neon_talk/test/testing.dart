@@ -1,4 +1,5 @@
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_talk/src/blocs/room.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
 class MockRoom extends Mock implements spreed.Room {}
@@ -6,6 +7,8 @@ class MockRoom extends Mock implements spreed.Room {}
 class MockChatMessage extends Mock implements spreed.ChatMessage {}
 
 class MockChatMessageWithParent extends Mock implements spreed.ChatMessageWithParent {}
+
+class MockRoomBloc extends Mock implements TalkRoomBloc {}
 
 Map<String, dynamic> getRoom({
   int? id,

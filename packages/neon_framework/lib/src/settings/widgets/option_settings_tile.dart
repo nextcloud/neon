@@ -5,7 +5,6 @@ import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
-import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/utils.dart';
 

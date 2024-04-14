@@ -179,6 +179,11 @@ abstract final class AdaptiveIcons {
   /// ![Icon preview](https://fafre.github.io/flutter_material_design_icons/icons/cancel/1.9.32/64.png "cancel") material design icon named "robot".
   /// and <i class='cupertino-icons md-36'>xmark_circle</i> &#x2014; cupertino icon named "clear_circled".
   static IconData get cancel => !_isCupertinoPlatform() ? MdiIcons.cancel : CupertinoIcons.clear_circled;
+
+  /// Platform-adaptive icon for
+  /// <i class="material-icons md-36">send</i> &#x2014; material icon named "send".
+  /// and <i class='cupertino-icons md-36'>arrowshape_turn_up_right</i> &#x2014; Cupertino icon named "arrowshape_turn_up_right".
+  static IconData get send => !_isCupertinoPlatform() ? Icons.send : CupertinoIcons.arrowshape_turn_up_right;
 }
 
 /// Returns whether the current platform on which the framework is currently

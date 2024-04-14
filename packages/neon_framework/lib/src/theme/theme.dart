@@ -36,7 +36,8 @@ class AppTheme {
     this.useNextcloudTheme = false,
     this.oledAsDark = false,
     this.platform,
-  }) : appThemes = null;
+    this.appThemes,
+  });
 
   /// The theme provided by the Nextcloud server.
   final ServerTheme serverTheme;

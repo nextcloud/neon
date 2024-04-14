@@ -11,6 +11,7 @@ class TestApp extends StatelessWidget {
     this.platform = TargetPlatform.android,
     this.localizationsDelegates,
     this.supportedLocales,
+    this.appThemes,
     this.locale = const Locale('en'),
     this.wrapMaterial = true,
     super.key,
@@ -44,12 +45,18 @@ class TestApp extends StatelessWidget {
   /// [NeonLocalizations.supportedLocales] are always added.
   final List<Locale>? supportedLocales;
 
+  /// Additional [ThemeExtension]s.
+  final List<ThemeExtension>? appThemes;
+
   /// {@macro flutter.widgets.widgetsApp.locale}
   final Locale locale;
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme.test(platform: platform);
+    final theme = AppTheme.test(
+      platform: platform,
+      appThemes: appThemes,
+    );
 
     var child = this.child;
     if (wrapMaterial && platform != TargetPlatform.iOS && platform != TargetPlatform.macOS) {

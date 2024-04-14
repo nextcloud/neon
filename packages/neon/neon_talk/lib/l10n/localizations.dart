@@ -130,6 +130,12 @@ abstract class TalkLocalizations {
   /// In en, this message translates to:
   /// **'{type, select, oneToOne{Private} group{Group} public{Public} other{}}'**
   String roomType(String type);
+
+  /// No description provided for @roomSendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a message...'**
+  String get roomSendMessage;
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {
