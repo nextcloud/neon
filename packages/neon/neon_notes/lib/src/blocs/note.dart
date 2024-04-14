@@ -53,8 +53,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
     etag = note.etag;
   }
 
-  // ignore: avoid_void_async
-  void wrapNoteAction(Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
+  Future<void> wrapNoteAction(Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
     await updateQueue.add(() async {
       try {
         final response = await call(etag);
@@ -99,8 +98,8 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   Future<void> refresh() async {}
 
   @override
-  void updateCategory(String category) {
-    wrapNoteAction(
+  Future<void> updateCategory(String category) async {
+    await wrapNoteAction(
       (etag) async => account.client.notes.updateNote(
         id: id,
         category: category,
@@ -110,8 +109,8 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  void updateContent(String content) {
-    wrapNoteAction(
+  Future<void> updateContent(String content) async {
+    await wrapNoteAction(
       (etag) async => account.client.notes.updateNote(
         id: id,
         content: content,
@@ -121,8 +120,8 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  void updateTitle(String title) {
-    wrapNoteAction(
+  Future<void> updateTitle(String title) async {
+    await wrapNoteAction(
       (etag) async => account.client.notes.updateNote(
         id: id,
         title: title,
