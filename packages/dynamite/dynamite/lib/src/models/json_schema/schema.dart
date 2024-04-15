@@ -10,12 +10,12 @@ import 'package:rfc_6901/rfc_6901.dart';
 
 part 'schema.g.dart';
 
-abstract class Schema implements Built<Schema, SchemaBuilder> {
-  factory Schema([void Function(SchemaBuilder) updates]) = _$Schema;
+abstract class JsonSchema implements Built<JsonSchema, JsonSchemaBuilder> {
+  factory JsonSchema([void Function(JsonSchemaBuilder) updates]) = _$JsonSchema;
 
-  const Schema._();
+  const JsonSchema._();
 
-  static Serializer<Schema> get serializer => _$schemaSerializer;
+  static Serializer<JsonSchema> get serializer => _$jsonSchemaSerializer;
 
   @BuiltValueField(wireName: r'$id')
   Uri? get id;
@@ -23,7 +23,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   @BuiltValueField(wireName: r'$ref')
   Uri? get ref;
 
-  Schema resolveRef(Map<String, dynamic> json) {
+  JsonSchema resolveRef(Map<String, dynamic> json) {
     if (ref == null) {
       throw StateError(r'Referenced schema can only be resolved when a $ref is present');
     }
@@ -49,13 +49,13 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
     return schema;
   }
 
-  BuiltList<Schema>? get oneOf;
+  BuiltList<JsonSchema>? get oneOf;
 
-  BuiltList<Schema>? get anyOf;
+  BuiltList<JsonSchema>? get anyOf;
 
-  BuiltList<Schema>? get allOf;
+  BuiltList<JsonSchema>? get allOf;
 
-  BuiltList<Schema>? get ofs => oneOf ?? anyOf ?? allOf;
+  BuiltList<JsonSchema>? get ofs => oneOf ?? anyOf ?? allOf;
 
   @BuiltValueField(compare: false)
   String? get description;
@@ -72,17 +72,17 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   @BuiltValueField(wireName: 'enum')
   BuiltList<JsonObject>? get $enum;
 
-  BuiltMap<String, Schema>? get properties;
+  BuiltMap<String, JsonSchema>? get properties;
 
   BuiltList<String> get required;
 
-  Schema? get items;
+  JsonSchema? get items;
 
-  Schema? get additionalProperties;
+  JsonSchema? get additionalProperties;
 
   String? get contentMediaType;
 
-  Schema? get contentSchema;
+  JsonSchema? get contentSchema;
 
   Discriminator? get discriminator;
 
@@ -105,7 +105,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   String? get formattedDescription => formatDescription(description);
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(SchemaBuilder b) {
+  static void _defaults(JsonSchemaBuilder b) {
     b
       ..deprecated ??= false
       ..nullable ??= false;
@@ -156,7 +156,7 @@ class SchemaPlugin implements SerializerPlugin {
 
   @override
   Object? beforeDeserialize(Object? object, FullType specifiedType) {
-    if (specifiedType.root != Schema) {
+    if (specifiedType.root != JsonSchema) {
       return object;
     }
 

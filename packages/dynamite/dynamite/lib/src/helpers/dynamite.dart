@@ -8,13 +8,13 @@ String clientName(String tag) => '\$${toDartName(tag, className: true)}Client';
 
 bool isDartParameterNullable(
   bool required,
-  json_schema.Schema? schema,
+  json_schema.JsonSchema? schema,
 ) =>
     (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(
   bool required,
-  json_schema.Schema? schema,
+  json_schema.JsonSchema? schema,
 ) =>
     required && schema?.$default == null;
 

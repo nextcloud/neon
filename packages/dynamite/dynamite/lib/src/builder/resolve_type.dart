@@ -15,7 +15,7 @@ TypeResult resolveType(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  json_schema.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
   final result = _resolveType(
@@ -34,11 +34,11 @@ TypeResult _resolveType(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  json_schema.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
   switch (schema) {
-    case json_schema.Schema($enum: != null):
+    case json_schema.JsonSchema($enum: != null):
       final subResult = resolveType(
         spec,
         state,
@@ -58,7 +58,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(allOf: != null):
+    case json_schema.JsonSchema(allOf: != null):
       return resolveObject(
         spec,
         state,
@@ -67,13 +67,13 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(ref: null, ofs: null, type: null):
+    case json_schema.JsonSchema(ref: null, ofs: null, type: null):
       return TypeResultBase(
         'JsonObject',
         nullable: nullable,
       );
 
-    case json_schema.Schema(ref: != null):
+    case json_schema.JsonSchema(ref: != null):
       final name = schema.ref!.fragment.split('/').last;
       final subResult = resolveType(
         spec,
@@ -85,7 +85,7 @@ TypeResult _resolveType(
 
       return subResult.asTypeDef;
 
-    case json_schema.Schema(anyOf: != null) || json_schema.Schema(oneOf: != null):
+    case json_schema.JsonSchema(anyOf: != null) || json_schema.JsonSchema(oneOf: != null):
       return resolveSomeOf(
         spec,
         state,
@@ -94,7 +94,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(isContentString: true):
+    case json_schema.JsonSchema(isContentString: true):
       final subResult = resolveType(
         spec,
         state,
@@ -108,43 +108,43 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.boolean):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.boolean):
       return TypeResultBase(
         'bool',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.integer):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.integer):
       return TypeResultBase(
         'int',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.number, format: 'float' || 'double'):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.number, format: 'float' || 'double'):
       return TypeResultBase(
         'double',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.number):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.number):
       return TypeResultBase(
         'num',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.string, format: 'binary'):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.string, format: 'binary'):
       return TypeResultBase(
         'Uint8List',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.string):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.string):
       return TypeResultBase(
         'String',
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.array):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.array):
       final TypeResult subResult;
       if (schema.maxItems == 0) {
         subResult = TypeResultBase('Never');
@@ -165,7 +165,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.object, properties: null):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.object, properties: null):
       if (schema.additionalProperties == null) {
         return TypeResultBase(
           'JsonObject',
@@ -185,7 +185,7 @@ TypeResult _resolveType(
         );
       }
 
-    case json_schema.Schema(type: json_schema.SchemaType.object, :final properties)
+    case json_schema.JsonSchema(type: json_schema.SchemaType.object, :final properties)
         when properties != null && properties.isEmpty:
       return TypeResultMap(
         'BuiltMap',
@@ -193,7 +193,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.Schema(type: json_schema.SchemaType.object):
+    case json_schema.JsonSchema(type: json_schema.SchemaType.object):
       return resolveObject(
         spec,
         state,

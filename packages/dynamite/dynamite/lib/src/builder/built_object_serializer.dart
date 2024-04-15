@@ -12,7 +12,7 @@ Spec buildBuiltClassSerializer(
   State state,
   String identifier,
   openapi.OpenAPI spec,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
 ) =>
     Class(
       (b) => b
@@ -137,7 +137,7 @@ Iterable<String> deserializeProperty(
   State state,
   String identifier,
   openapi.OpenAPI spec,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;
@@ -169,7 +169,7 @@ Iterable<String> serializePropertyNullable(
   State state,
   String identifier,
   openapi.OpenAPI spec,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;
@@ -204,7 +204,7 @@ Iterable<String> serializeProperty(
   State state,
   String identifier,
   openapi.OpenAPI spec,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;

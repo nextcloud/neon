@@ -10,7 +10,7 @@ export 'json_schema/schema.dart';
 part 'json_schema.g.dart';
 
 @SerializersFor([
-  Schema,
+  JsonSchema,
   SchemaType,
 ])
 final Serializers serializers = (_$serializers.toBuilder()

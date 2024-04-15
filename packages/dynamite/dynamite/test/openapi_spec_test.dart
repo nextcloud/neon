@@ -56,7 +56,7 @@ void main() {
       expect(
         subSchema,
         equalsBuilt(
-          Schema((b) {
+          JsonSchema((b) {
             b.ref = Uri.parse('#/components/schemas/SuperClass');
           }),
         ),

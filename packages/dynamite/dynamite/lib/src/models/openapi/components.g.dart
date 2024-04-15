@@ -31,7 +31,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
       result
         ..add('schemas')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)])));
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)])));
     }
     return result;
   }
@@ -53,7 +53,7 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
           break;
         case 'schemas':
           result.schemas.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]))!);
           break;
       }
     }
@@ -66,7 +66,7 @@ class _$Components extends Components {
   @override
   final BuiltMap<String, SecurityScheme>? securitySchemes;
   @override
-  final BuiltMap<String, Schema>? schemas;
+  final BuiltMap<String, JsonSchema>? schemas;
 
   factory _$Components([void Function(ComponentsBuilder)? updates]) => (ComponentsBuilder()..update(updates))._build();
 
@@ -110,9 +110,9 @@ class ComponentsBuilder implements Builder<Components, ComponentsBuilder> {
       _$this._securitySchemes ??= MapBuilder<String, SecurityScheme>();
   set securitySchemes(MapBuilder<String, SecurityScheme>? securitySchemes) => _$this._securitySchemes = securitySchemes;
 
-  MapBuilder<String, Schema>? _schemas;
-  MapBuilder<String, Schema> get schemas => _$this._schemas ??= MapBuilder<String, Schema>();
-  set schemas(MapBuilder<String, Schema>? schemas) => _$this._schemas = schemas;
+  MapBuilder<String, JsonSchema>? _schemas;
+  MapBuilder<String, JsonSchema> get schemas => _$this._schemas ??= MapBuilder<String, JsonSchema>();
+  set schemas(MapBuilder<String, JsonSchema>? schemas) => _$this._schemas = schemas;
 
   ComponentsBuilder();
 

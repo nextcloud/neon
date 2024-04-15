@@ -2,7 +2,7 @@ import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 
 Iterable<Expression> buildPatternCheck(
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
   String value,
   String name,
 ) sync* {

@@ -16,7 +16,7 @@ abstract class Header implements Built<Header, HeaderBuilder> {
 
   bool get required;
 
-  Schema? get schema;
+  JsonSchema? get schema;
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(HeaderBuilder b) {

@@ -41,17 +41,18 @@ final BuiltSet<SchemaType> _$schemaTypeValues = BuiltSet<SchemaType>(const <Sche
   _$schemaTypeObject,
 ]);
 
-Serializer<Schema> _$schemaSerializer = _$SchemaSerializer();
+Serializer<JsonSchema> _$jsonSchemaSerializer = _$JsonSchemaSerializer();
 Serializer<SchemaType> _$schemaTypeSerializer = _$SchemaTypeSerializer();
 
-class _$SchemaSerializer implements StructuredSerializer<Schema> {
+class _$JsonSchemaSerializer implements StructuredSerializer<JsonSchema> {
   @override
-  final Iterable<Type> types = const [Schema, _$Schema];
+  final Iterable<Type> types = const [JsonSchema, _$JsonSchema];
   @override
-  final String wireName = 'Schema';
+  final String wireName = 'JsonSchema';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Schema object, {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(Serializers serializers, JsonSchema object,
+      {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'deprecated',
       serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
@@ -77,19 +78,19 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
     if (value != null) {
       result
         ..add('oneOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
     value = object.anyOf;
     if (value != null) {
       result
         ..add('anyOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
     value = object.allOf;
     if (value != null) {
       result
         ..add('allOf')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Schema)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
     value = object.description;
     if (value != null) {
@@ -126,19 +127,19 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       result
         ..add('properties')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)])));
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)])));
     }
     value = object.items;
     if (value != null) {
       result
         ..add('items')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     value = object.additionalProperties;
     if (value != null) {
       result
         ..add('additionalProperties')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     value = object.contentMediaType;
     if (value != null) {
@@ -150,7 +151,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
     if (value != null) {
       result
         ..add('contentSchema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     value = object.discriminator;
     if (value != null) {
@@ -192,9 +193,9 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
   }
 
   @override
-  Schema deserialize(Serializers serializers, Iterable<Object?> serialized,
+  JsonSchema deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SchemaBuilder();
+    final result = JsonSchemaBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -210,15 +211,15 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'anyOf':
           result.anyOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'allOf':
           result.allOf.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Schema)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -241,25 +242,26 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           break;
         case 'properties':
           result.properties.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Schema)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]))!);
           break;
         case 'required':
           result.required.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'items':
-          result.items.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.items
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
         case 'additionalProperties':
           result.additionalProperties
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
         case 'contentMediaType':
           result.contentMediaType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'contentSchema':
           result.contentSchema
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
         case 'discriminator':
           result.discriminator
@@ -305,17 +307,17 @@ class _$SchemaTypeSerializer implements PrimitiveSerializer<SchemaType> {
       SchemaType.valueOf(serialized as String);
 }
 
-class _$Schema extends Schema {
+class _$JsonSchema extends JsonSchema {
   @override
   final Uri? id;
   @override
   final Uri? ref;
   @override
-  final BuiltList<Schema>? oneOf;
+  final BuiltList<JsonSchema>? oneOf;
   @override
-  final BuiltList<Schema>? anyOf;
+  final BuiltList<JsonSchema>? anyOf;
   @override
-  final BuiltList<Schema>? allOf;
+  final BuiltList<JsonSchema>? allOf;
   @override
   final String? description;
   @override
@@ -329,17 +331,17 @@ class _$Schema extends Schema {
   @override
   final BuiltList<JsonObject>? $enum;
   @override
-  final BuiltMap<String, Schema>? properties;
+  final BuiltMap<String, JsonSchema>? properties;
   @override
   final BuiltList<String> required;
   @override
-  final Schema? items;
+  final JsonSchema? items;
   @override
-  final Schema? additionalProperties;
+  final JsonSchema? additionalProperties;
   @override
   final String? contentMediaType;
   @override
-  final Schema? contentSchema;
+  final JsonSchema? contentSchema;
   @override
   final Discriminator? discriminator;
   @override
@@ -358,9 +360,9 @@ class _$Schema extends Schema {
   String? __formattedDescription;
   bool ___formattedDescription = false;
 
-  factory _$Schema([void Function(SchemaBuilder)? updates]) => (SchemaBuilder()..update(updates))._build();
+  factory _$JsonSchema([void Function(JsonSchemaBuilder)? updates]) => (JsonSchemaBuilder()..update(updates))._build();
 
-  _$Schema._(
+  _$JsonSchema._(
       {this.id,
       this.ref,
       this.oneOf,
@@ -386,9 +388,9 @@ class _$Schema extends Schema {
       this.maxItems,
       required this.nullable})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
-    BuiltValueNullFieldError.checkNotNull(required, r'Schema', 'required');
-    BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'JsonSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(required, r'JsonSchema', 'required');
+    BuiltValueNullFieldError.checkNotNull(nullable, r'JsonSchema', 'nullable');
   }
 
   @override
@@ -404,15 +406,15 @@ class _$Schema extends Schema {
   }
 
   @override
-  Schema rebuild(void Function(SchemaBuilder) updates) => (toBuilder()..update(updates)).build();
+  JsonSchema rebuild(void Function(JsonSchemaBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
-  SchemaBuilder toBuilder() => SchemaBuilder()..replace(this);
+  JsonSchemaBuilder toBuilder() => JsonSchemaBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Schema &&
+    return other is JsonSchema &&
         id == other.id &&
         ref == other.ref &&
         oneOf == other.oneOf &&
@@ -470,7 +472,7 @@ class _$Schema extends Schema {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Schema')
+    return (newBuiltValueToStringHelper(r'JsonSchema')
           ..add('id', id)
           ..add('ref', ref)
           ..add('oneOf', oneOf)
@@ -499,8 +501,8 @@ class _$Schema extends Schema {
   }
 }
 
-class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
-  _$Schema? _$v;
+class JsonSchemaBuilder implements Builder<JsonSchema, JsonSchemaBuilder> {
+  _$JsonSchema? _$v;
 
   Uri? _id;
   Uri? get id => _$this._id;
@@ -510,17 +512,17 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   Uri? get ref => _$this._ref;
   set ref(Uri? ref) => _$this._ref = ref;
 
-  ListBuilder<Schema>? _oneOf;
-  ListBuilder<Schema> get oneOf => _$this._oneOf ??= ListBuilder<Schema>();
-  set oneOf(ListBuilder<Schema>? oneOf) => _$this._oneOf = oneOf;
+  ListBuilder<JsonSchema>? _oneOf;
+  ListBuilder<JsonSchema> get oneOf => _$this._oneOf ??= ListBuilder<JsonSchema>();
+  set oneOf(ListBuilder<JsonSchema>? oneOf) => _$this._oneOf = oneOf;
 
-  ListBuilder<Schema>? _anyOf;
-  ListBuilder<Schema> get anyOf => _$this._anyOf ??= ListBuilder<Schema>();
-  set anyOf(ListBuilder<Schema>? anyOf) => _$this._anyOf = anyOf;
+  ListBuilder<JsonSchema>? _anyOf;
+  ListBuilder<JsonSchema> get anyOf => _$this._anyOf ??= ListBuilder<JsonSchema>();
+  set anyOf(ListBuilder<JsonSchema>? anyOf) => _$this._anyOf = anyOf;
 
-  ListBuilder<Schema>? _allOf;
-  ListBuilder<Schema> get allOf => _$this._allOf ??= ListBuilder<Schema>();
-  set allOf(ListBuilder<Schema>? allOf) => _$this._allOf = allOf;
+  ListBuilder<JsonSchema>? _allOf;
+  ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
+  set allOf(ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
   String? _description;
   String? get description => _$this._description;
@@ -546,29 +548,30 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
   set $enum(ListBuilder<JsonObject>? $enum) => _$this._$enum = $enum;
 
-  MapBuilder<String, Schema>? _properties;
-  MapBuilder<String, Schema> get properties => _$this._properties ??= MapBuilder<String, Schema>();
-  set properties(MapBuilder<String, Schema>? properties) => _$this._properties = properties;
+  MapBuilder<String, JsonSchema>? _properties;
+  MapBuilder<String, JsonSchema> get properties => _$this._properties ??= MapBuilder<String, JsonSchema>();
+  set properties(MapBuilder<String, JsonSchema>? properties) => _$this._properties = properties;
 
   ListBuilder<String>? _required;
   ListBuilder<String> get required => _$this._required ??= ListBuilder<String>();
   set required(ListBuilder<String>? required) => _$this._required = required;
 
-  SchemaBuilder? _items;
-  SchemaBuilder get items => _$this._items ??= SchemaBuilder();
-  set items(SchemaBuilder? items) => _$this._items = items;
+  JsonSchemaBuilder? _items;
+  JsonSchemaBuilder get items => _$this._items ??= JsonSchemaBuilder();
+  set items(JsonSchemaBuilder? items) => _$this._items = items;
 
-  SchemaBuilder? _additionalProperties;
-  SchemaBuilder get additionalProperties => _$this._additionalProperties ??= SchemaBuilder();
-  set additionalProperties(SchemaBuilder? additionalProperties) => _$this._additionalProperties = additionalProperties;
+  JsonSchemaBuilder? _additionalProperties;
+  JsonSchemaBuilder get additionalProperties => _$this._additionalProperties ??= JsonSchemaBuilder();
+  set additionalProperties(JsonSchemaBuilder? additionalProperties) =>
+      _$this._additionalProperties = additionalProperties;
 
   String? _contentMediaType;
   String? get contentMediaType => _$this._contentMediaType;
   set contentMediaType(String? contentMediaType) => _$this._contentMediaType = contentMediaType;
 
-  SchemaBuilder? _contentSchema;
-  SchemaBuilder get contentSchema => _$this._contentSchema ??= SchemaBuilder();
-  set contentSchema(SchemaBuilder? contentSchema) => _$this._contentSchema = contentSchema;
+  JsonSchemaBuilder? _contentSchema;
+  JsonSchemaBuilder get contentSchema => _$this._contentSchema ??= JsonSchemaBuilder();
+  set contentSchema(JsonSchemaBuilder? contentSchema) => _$this._contentSchema = contentSchema;
 
   DiscriminatorBuilder? _discriminator;
   DiscriminatorBuilder get discriminator => _$this._discriminator ??= DiscriminatorBuilder();
@@ -598,9 +601,9 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   bool? get nullable => _$this._nullable;
   set nullable(bool? nullable) => _$this._nullable = nullable;
 
-  SchemaBuilder();
+  JsonSchemaBuilder();
 
-  SchemaBuilder get _$this {
+  JsonSchemaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -633,32 +636,32 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   }
 
   @override
-  void replace(Schema other) {
+  void replace(JsonSchema other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Schema;
+    _$v = other as _$JsonSchema;
   }
 
   @override
-  void update(void Function(SchemaBuilder)? updates) {
+  void update(void Function(JsonSchemaBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Schema build() => _build();
+  JsonSchema build() => _build();
 
-  _$Schema _build() {
-    Schema._defaults(this);
-    _$Schema _$result;
+  _$JsonSchema _build() {
+    JsonSchema._defaults(this);
+    _$JsonSchema _$result;
     try {
       _$result = _$v ??
-          _$Schema._(
+          _$JsonSchema._(
               id: id,
               ref: ref,
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
               description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated'),
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'JsonSchema', 'deprecated'),
               type: type,
               format: format,
               $default: $default,
@@ -675,7 +678,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               maxLength: maxLength,
               minItems: minItems,
               maxItems: maxItems,
-              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable'));
+              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'JsonSchema', 'nullable'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -702,7 +705,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
         _$failedField = 'discriminator';
         _discriminator?.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'Schema', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'JsonSchema', _$failedField, e.toString());
       }
       rethrow;
     }

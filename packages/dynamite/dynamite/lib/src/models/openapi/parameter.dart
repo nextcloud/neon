@@ -30,7 +30,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   @protected
   @BuiltValueField(wireName: 'schema')
-  Schema? get $schema;
+  JsonSchema? get $schema;
 
   BuiltMap<String, MediaType>? get content;
 
@@ -41,7 +41,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   ParameterStyle get style;
 
   @memoized
-  Schema? get schema {
+  JsonSchema? get schema {
     if ($schema != null) {
       return $schema;
     }
@@ -49,7 +49,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     if (content != null) {
       final mediaType = content!.entries.single;
 
-      return Schema(
+      return JsonSchema(
         (b) => b
           ..type = SchemaType.string
           ..contentMediaType = mediaType.key

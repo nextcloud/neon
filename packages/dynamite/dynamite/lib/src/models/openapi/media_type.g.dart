@@ -23,7 +23,7 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     return result;
   }
@@ -40,7 +40,8 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
       final Object? value = iterator.current;
       switch (key) {
         case 'schema':
-          result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.schema
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
       }
     }
@@ -51,7 +52,7 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
 
 class _$MediaType extends MediaType {
   @override
-  final Schema? schema;
+  final JsonSchema? schema;
 
   factory _$MediaType([void Function(MediaTypeBuilder)? updates]) => (MediaTypeBuilder()..update(updates))._build();
 
@@ -86,9 +87,9 @@ class _$MediaType extends MediaType {
 class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
   _$MediaType? _$v;
 
-  SchemaBuilder? _schema;
-  SchemaBuilder get schema => _$this._schema ??= SchemaBuilder();
-  set schema(SchemaBuilder? schema) => _$this._schema = schema;
+  JsonSchemaBuilder? _schema;
+  JsonSchemaBuilder get schema => _$this._schema ??= JsonSchemaBuilder();
+  set schema(JsonSchemaBuilder? schema) => _$this._schema = schema;
 
   MediaTypeBuilder();
 

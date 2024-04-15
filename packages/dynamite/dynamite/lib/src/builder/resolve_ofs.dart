@@ -12,7 +12,7 @@ TypeResult resolveSomeOf(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  json_schema.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
   final subResults = schema.ofs!
