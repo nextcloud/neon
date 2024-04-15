@@ -110,7 +110,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     value = object.content;
     if (value != null) {
@@ -146,7 +146,8 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.$schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.$schema
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
@@ -211,7 +212,7 @@ class _$Parameter extends Parameter {
   @override
   final bool required;
   @override
-  final Schema? $schema;
+  final JsonSchema? $schema;
   @override
   final BuiltMap<String, MediaType>? content;
   @override
@@ -220,7 +221,7 @@ class _$Parameter extends Parameter {
   final bool allowReserved;
   @override
   final ParameterStyle style;
-  Schema? __schema;
+  JsonSchema? __schema;
   bool ___schema = false;
   String? __formattedDescription;
 
@@ -246,7 +247,7 @@ class _$Parameter extends Parameter {
   }
 
   @override
-  Schema? get schema {
+  JsonSchema? get schema {
     if (!___schema) {
       __schema = super.schema;
       ___schema = true;
@@ -327,9 +328,9 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   bool? get required => _$this._required;
   set required(bool? required) => _$this._required = required;
 
-  SchemaBuilder? _$schema;
-  SchemaBuilder get $schema => _$this._$schema ??= SchemaBuilder();
-  set $schema(SchemaBuilder? $schema) => _$this._$schema = $schema;
+  JsonSchemaBuilder? _$schema;
+  JsonSchemaBuilder get $schema => _$this._$schema ??= JsonSchemaBuilder();
+  set $schema(JsonSchemaBuilder? $schema) => _$this._$schema = $schema;
 
   MapBuilder<String, MediaType>? _content;
   MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();

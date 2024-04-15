@@ -8,14 +8,14 @@ part of 'json_schema.dart';
 
 Serializers _$serializers = (Serializers().toBuilder()
       ..add(Discriminator.serializer)
-      ..add(Schema.serializer)
-      ..add(SchemaType.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
+      ..add(JsonSchema.serializer)
+      ..add(JsonSchemaType.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonSchema)]), () => ListBuilder<JsonSchema>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(Schema)]), () => MapBuilder<String, Schema>())
+          const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]), () => MapBuilder<String, JsonSchema>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(String)]), () => MapBuilder<String, String>()))

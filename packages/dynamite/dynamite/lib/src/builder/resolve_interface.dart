@@ -15,7 +15,7 @@ Spec buildInterface(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  json_schema.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool isHeader = false,
   bool nullable = false,
 }) {
@@ -32,9 +32,9 @@ Spec buildInterface(
     final defaults = StringBuffer();
     final validators = BlockBuilder();
 
-    if (schema case json_schema.Schema(:final allOf) when allOf != null) {
+    if (schema case json_schema.JsonSchema(:final allOf) when allOf != null) {
       for (final schema in allOf) {
-        if (schema case json_schema.Schema(properties: != null)) {
+        if (schema case json_schema.JsonSchema(properties: != null)) {
           _generateProperties(
             schema,
             spec,
@@ -136,7 +136,7 @@ Spec buildInterface(
 }
 
 void _generateProperties(
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
   openapi.OpenAPI spec,
   State state,
   String identifier,
@@ -193,7 +193,7 @@ void _generateProperty(
   ClassBuilder b,
   String propertyName,
   TypeResult result,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
   StringSink defaults,
   BlockBuilder validators,
 ) {

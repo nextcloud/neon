@@ -31,7 +31,7 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     return result;
   }
@@ -54,7 +54,8 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.schema
+              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
           break;
       }
     }
@@ -69,7 +70,7 @@ class _$Header extends Header {
   @override
   final bool required;
   @override
-  final Schema? schema;
+  final JsonSchema? schema;
 
   factory _$Header([void Function(HeaderBuilder)? updates]) => (HeaderBuilder()..update(updates))._build();
 
@@ -119,9 +120,9 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
   bool? get required => _$this._required;
   set required(bool? required) => _$this._required = required;
 
-  SchemaBuilder? _schema;
-  SchemaBuilder get schema => _$this._schema ??= SchemaBuilder();
-  set schema(SchemaBuilder? schema) => _$this._schema = schema;
+  JsonSchemaBuilder? _schema;
+  JsonSchemaBuilder get schema => _$this._schema ??= JsonSchemaBuilder();
+  set schema(JsonSchemaBuilder? schema) => _$this._schema = schema;
 
   HeaderBuilder();
 

@@ -11,5 +11,5 @@ abstract class MediaType implements Built<MediaType, MediaTypeBuilder> {
 
   static Serializer<MediaType> get serializer => _$mediaTypeSerializer;
 
-  Schema? get schema;
+  JsonSchema? get schema;
 }

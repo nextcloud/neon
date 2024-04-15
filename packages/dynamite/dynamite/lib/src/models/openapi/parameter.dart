@@ -30,7 +30,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   @protected
   @BuiltValueField(wireName: 'schema')
-  Schema? get $schema;
+  JsonSchema? get $schema;
 
   BuiltMap<String, MediaType>? get content;
 
@@ -41,7 +41,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   ParameterStyle get style;
 
   @memoized
-  Schema? get schema {
+  JsonSchema? get schema {
     if ($schema != null) {
       return $schema;
     }
@@ -49,9 +49,9 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     if (content != null) {
       final mediaType = content!.entries.single;
 
-      return Schema(
+      return JsonSchema(
         (b) => b
-          ..type = SchemaType.string
+          ..type = JsonSchemaType.string
           ..contentMediaType = mediaType.key
           ..contentSchema.replace(mediaType.value.schema!),
       );
@@ -142,7 +142,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.spaceDelimited:
-        if (b._$schema?.type != SchemaType.array && b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.spaceDelimited can only be used with array or object  schemas.');
         }
         if (b._$in != ParameterType.query) {
@@ -150,7 +150,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.pipeDelimited:
-        if (b._$schema?.type != SchemaType.array && b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.pipeDelimited can only be used with array or object schemas.');
         }
         if (b._$in != ParameterType.query) {
@@ -158,7 +158,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.deepObject:
-        if (b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.deepObject can only be used with object schemas.');
         }
         if (b._$in != ParameterType.query) {

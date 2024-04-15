@@ -12,12 +12,12 @@ import 'package:rfc_6901/rfc_6901.dart';
 
 part 'schema.g.dart';
 
-abstract class Schema implements Built<Schema, SchemaBuilder> {
-  factory Schema([void Function(SchemaBuilder) updates]) = _$Schema;
+abstract class JsonSchema implements Built<JsonSchema, JsonSchemaBuilder> {
+  factory JsonSchema([void Function(JsonSchemaBuilder) updates]) = _$JsonSchema;
 
-  const Schema._();
+  const JsonSchema._();
 
-  static Serializer<Schema> get serializer => _$schemaSerializer;
+  static Serializer<JsonSchema> get serializer => _$jsonSchemaSerializer;
 
   @BuiltValueField(wireName: r'$id')
   Uri? get id;
@@ -25,7 +25,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   @BuiltValueField(wireName: r'$ref')
   Uri? get ref;
 
-  Schema resolveRef(Map<String, dynamic> json) {
+  JsonSchema resolveRef(Map<String, dynamic> json) {
     if (ref == null) {
       throw StateError(r'Referenced schema can only be resolved when a $ref is present');
     }
@@ -51,20 +51,20 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
     return schema;
   }
 
-  BuiltList<Schema>? get oneOf;
+  BuiltList<JsonSchema>? get oneOf;
 
-  BuiltList<Schema>? get anyOf;
+  BuiltList<JsonSchema>? get anyOf;
 
-  BuiltList<Schema>? get allOf;
+  BuiltList<JsonSchema>? get allOf;
 
-  BuiltList<Schema>? get ofs => oneOf ?? anyOf ?? allOf;
+  BuiltList<JsonSchema>? get ofs => oneOf ?? anyOf ?? allOf;
 
   @BuiltValueField(compare: false)
   String? get description;
 
   bool get deprecated;
 
-  SchemaType? get type;
+  JsonSchemaType? get type;
 
   String? get format;
 
@@ -81,17 +81,17 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   @BuiltValueField(wireName: 'enum')
   BuiltList<JsonObject>? get $enum;
 
-  BuiltMap<String, Schema>? get properties;
+  BuiltMap<String, JsonSchema>? get properties;
 
   BuiltList<String> get required;
 
-  Schema? get items;
+  JsonSchema? get items;
 
-  Schema? get additionalProperties;
+  JsonSchema? get additionalProperties;
 
   String? get contentMediaType;
 
-  Schema? get contentSchema;
+  JsonSchema? get contentSchema;
 
   Discriminator? get discriminator;
 
@@ -108,23 +108,23 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   bool get nullable;
 
   @memoized
-  bool get isContentString => type == SchemaType.string && contentMediaType != null && contentSchema != null;
+  bool get isContentString => type == JsonSchemaType.string && contentMediaType != null && contentSchema != null;
 
   @memoized
   String? get formattedDescription => formatDescription(description);
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _defaults(SchemaBuilder b) {
+  static void _defaults(JsonSchemaBuilder b) {
     b
       ..deprecated ??= false
       ..nullable ??= false;
 
     const allowedNumberFormats = [null, 'float', 'double'];
-    if (b.type == SchemaType.number && !allowedNumberFormats.contains(b.format)) {
+    if (b.type == JsonSchemaType.number && !allowedNumberFormats.contains(b.format)) {
       throw OpenAPISpecError('Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedNumberFormats.');
     }
     const allowedIntegerFormats = [null, 'int32', 'int64'];
-    if (b.type == SchemaType.integer) {
+    if (b.type == JsonSchemaType.integer) {
       if (!allowedIntegerFormats.contains(b.format)) {
         throw OpenAPISpecError('Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedIntegerFormats.');
       } else if (b.format != null) {
@@ -134,21 +134,21 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   }
 }
 
-class SchemaType extends EnumClass {
-  const SchemaType._(super.name);
+class JsonSchemaType extends EnumClass {
+  const JsonSchemaType._(super.name);
 
-  static const SchemaType boolean = _$schemaTypeBoolean;
-  static const SchemaType integer = _$schemaTypeInteger;
-  static const SchemaType number = _$schemaTypeNumber;
-  static const SchemaType string = _$schemaTypeString;
-  static const SchemaType array = _$schemaTypeArray;
-  static const SchemaType object = _$schemaTypeObject;
+  static const JsonSchemaType boolean = _$jsonSchemaTypeBoolean;
+  static const JsonSchemaType integer = _$jsonSchemaTypeInteger;
+  static const JsonSchemaType number = _$jsonSchemaTypeNumber;
+  static const JsonSchemaType string = _$jsonSchemaTypeString;
+  static const JsonSchemaType array = _$jsonSchemaTypeArray;
+  static const JsonSchemaType object = _$jsonSchemaTypeObject;
 
-  static BuiltSet<SchemaType> get values => _$schemaTypeValues;
+  static BuiltSet<JsonSchemaType> get values => _$jsonSchemaTypeValues;
 
-  static SchemaType valueOf(String name) => _$schemaType(name);
+  static JsonSchemaType valueOf(String name) => _$jsonSchemaType(name);
 
-  static Serializer<SchemaType> get serializer => _$schemaTypeSerializer;
+  static Serializer<JsonSchemaType> get serializer => _$jsonSchemaTypeSerializer;
 }
 
 /// A Schema value can be either a json boolean or object.
@@ -165,7 +165,7 @@ class SchemaPlugin implements SerializerPlugin {
 
   @override
   Object? beforeDeserialize(Object? object, FullType specifiedType) {
-    if (specifiedType.root != Schema) {
+    if (specifiedType.root != JsonSchema) {
       return object;
     }
 

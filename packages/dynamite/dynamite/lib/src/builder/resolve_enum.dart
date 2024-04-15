@@ -14,7 +14,7 @@ TypeResult resolveEnum(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  json_schema.Schema schema,
+  json_schema.JsonSchema schema,
   TypeResult subResult, {
   bool nullable = false,
 }) {

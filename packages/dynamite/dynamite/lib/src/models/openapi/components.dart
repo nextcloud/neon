@@ -15,5 +15,5 @@ abstract class Components implements Built<Components, ComponentsBuilder> {
 
   BuiltMap<String, SecurityScheme>? get securitySchemes;
 
-  BuiltMap<String, Schema>? get schemas;
+  BuiltMap<String, JsonSchema>? get schemas;
 }
