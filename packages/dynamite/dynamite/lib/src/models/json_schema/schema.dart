@@ -57,8 +57,6 @@ abstract class JsonSchema implements Built<JsonSchema, JsonSchemaBuilder> {
 
   BuiltList<JsonSchema>? get allOf;
 
-  BuiltList<JsonSchema>? get ofs => oneOf ?? anyOf ?? allOf;
-
   @BuiltValueField(compare: false)
   String? get description;
 
