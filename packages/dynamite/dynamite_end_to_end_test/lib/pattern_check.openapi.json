@@ -21,11 +21,33 @@
                         "type": "string",
                         "maxLength": 20
                     },
-                    "multiple-checks": {
+                    "string-multiple-checks": {
                         "type": "string",
                         "pattern": "^[0-9]*$",
                         "minLength": 3,
                         "maxLength": 20
+                    },
+                    "min-items": {
+                        "type": "array",
+                        "minItems": 3,
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "max-items": {
+                        "type": "array",
+                        "maxItems": 20,
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "array-multiple-checks": {
+                        "type": "array",
+                        "minItems": 3,
+                        "maxItems": 20,
+                        "items": {
+                            "type": "integer"
+                        }
                     }
                 }
             }

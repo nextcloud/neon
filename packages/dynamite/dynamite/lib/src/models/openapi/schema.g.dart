@@ -176,6 +176,18 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         ..add('maxLength')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.minItems;
+    if (value != null) {
+      result
+        ..add('minItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.maxItems;
+    if (value != null) {
+      result
+        ..add('maxItems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -262,6 +274,12 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         case 'maxLength':
           result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
+        case 'minItems':
+          result.minItems = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'maxItems':
+          result.maxItems = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
         case 'nullable':
           result.nullable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
@@ -331,6 +349,10 @@ class _$Schema extends Schema {
   @override
   final int? maxLength;
   @override
+  final int? minItems;
+  @override
+  final int? maxItems;
+  @override
   final bool nullable;
   bool? __isContentString;
   String? __formattedDescription;
@@ -360,6 +382,8 @@ class _$Schema extends Schema {
       this.pattern,
       this.minLength,
       this.maxLength,
+      this.minItems,
+      this.maxItems,
       required this.nullable})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
@@ -409,6 +433,8 @@ class _$Schema extends Schema {
         pattern == other.pattern &&
         minLength == other.minLength &&
         maxLength == other.maxLength &&
+        minItems == other.minItems &&
+        maxItems == other.maxItems &&
         nullable == other.nullable;
   }
 
@@ -435,6 +461,8 @@ class _$Schema extends Schema {
     _$hash = $jc(_$hash, pattern.hashCode);
     _$hash = $jc(_$hash, minLength.hashCode);
     _$hash = $jc(_$hash, maxLength.hashCode);
+    _$hash = $jc(_$hash, minItems.hashCode);
+    _$hash = $jc(_$hash, maxItems.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -464,6 +492,8 @@ class _$Schema extends Schema {
           ..add('pattern', pattern)
           ..add('minLength', minLength)
           ..add('maxLength', maxLength)
+          ..add('minItems', minItems)
+          ..add('maxItems', maxItems)
           ..add('nullable', nullable))
         .toString();
   }
@@ -556,6 +586,14 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   int? get maxLength => _$this._maxLength;
   set maxLength(int? maxLength) => _$this._maxLength = maxLength;
 
+  int? _minItems;
+  int? get minItems => _$this._minItems;
+  set minItems(int? minItems) => _$this._minItems = minItems;
+
+  int? _maxItems;
+  int? get maxItems => _$this._maxItems;
+  set maxItems(int? maxItems) => _$this._maxItems = maxItems;
+
   bool? _nullable;
   bool? get nullable => _$this._nullable;
   set nullable(bool? nullable) => _$this._nullable = nullable;
@@ -586,6 +624,8 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
       _pattern = $v.pattern;
       _minLength = $v.minLength;
       _maxLength = $v.maxLength;
+      _minItems = $v.minItems;
+      _maxItems = $v.maxItems;
       _nullable = $v.nullable;
       _$v = null;
     }
@@ -633,6 +673,8 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               pattern: pattern,
               minLength: minLength,
               maxLength: maxLength,
+              minItems: minItems,
+              maxItems: maxItems,
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable'));
     } catch (_) {
       late String _$failedField;

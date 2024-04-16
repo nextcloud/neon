@@ -8,6 +8,7 @@
 /// Pattern check test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
@@ -25,8 +26,14 @@ abstract interface class $TestObjectInterface {
   String? get minLength;
   @BuiltValueField(wireName: 'max-length')
   String? get maxLength;
-  @BuiltValueField(wireName: 'multiple-checks')
-  String? get multipleChecks;
+  @BuiltValueField(wireName: 'string-multiple-checks')
+  String? get stringMultipleChecks;
+  @BuiltValueField(wireName: 'min-items')
+  BuiltList<int>? get minItems;
+  @BuiltValueField(wireName: 'max-items')
+  BuiltList<int>? get maxItems;
+  @BuiltValueField(wireName: 'array-multiple-checks')
+  BuiltList<int>? get arrayMultipleChecks;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TestObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -47,19 +54,39 @@ abstract interface class $TestObjectInterface {
       'maxLength',
     );
     _i1.checkPattern(
-      b.multipleChecks,
+      b.stringMultipleChecks,
       RegExp(r'^[0-9]*$'),
-      'multipleChecks',
+      'stringMultipleChecks',
     );
     _i1.checkMinLength(
-      b.multipleChecks,
+      b.stringMultipleChecks,
       3,
-      'multipleChecks',
+      'stringMultipleChecks',
     );
     _i1.checkMaxLength(
-      b.multipleChecks,
+      b.stringMultipleChecks,
       20,
-      'multipleChecks',
+      'stringMultipleChecks',
+    );
+    _i1.checkMinItems(
+      b.minItems.length,
+      3,
+      'minItems',
+    );
+    _i1.checkMaxItems(
+      b.maxItems.length,
+      20,
+      'maxItems',
+    );
+    _i1.checkMinItems(
+      b.arrayMultipleChecks.length,
+      3,
+      'arrayMultipleChecks',
+    );
+    _i1.checkMaxItems(
+      b.arrayMultipleChecks.length,
+      20,
+      'arrayMultipleChecks',
     );
   }
 }
@@ -103,7 +130,8 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
-      ..add(TestObject.serializer))
+      ..add(TestObject.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new))
     .build();
 
 /// Serializer for all values in this library.

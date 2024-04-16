@@ -42,7 +42,7 @@
                     },
                     "list-never": {
                         "type": "array",
-                        "maxLength": 0
+                        "maxItems": 0
                     },
                     "list-string": {
                         "type": "array",
@@ -138,7 +138,7 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "array",
-                            "maxLength": 0
+                            "maxItems": 0
                         }
                     },
                     "list-string": {

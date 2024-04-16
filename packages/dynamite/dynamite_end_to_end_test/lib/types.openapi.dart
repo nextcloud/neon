@@ -14,10 +14,11 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
 import 'package:dynamite_runtime/models.dart';
-import 'package:meta/meta.dart' as _i1;
+import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
 
 part 'types.openapi.g.dart';
 
@@ -51,7 +52,13 @@ abstract interface class $BaseInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BaseInterfaceBuilder b) {}
+  static void _validate($BaseInterfaceBuilder b) {
+    _i1.checkMaxItems(
+      b.listNever.length,
+      0,
+      'listNever',
+    );
+  }
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
@@ -153,7 +160,7 @@ abstract class AdditionalProperties
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
@@ -225,12 +232,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
