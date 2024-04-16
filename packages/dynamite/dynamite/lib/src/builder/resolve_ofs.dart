@@ -15,33 +15,38 @@ TypeResult resolveSomeOf(
   json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
-  final subResults = schema.ofs!
-      .mapIndexed(
-        (index, s) => resolveType(
-          spec,
-          state,
-          '$identifier$index',
-          s,
-          nullable: true,
-        ),
-      )
-      .toBuiltSet();
+  BuiltSet<TypeResult> resolveSubTypes(BuiltList<json_schema.JsonSchema> ofs) {
+    return ofs.mapIndexed((index, schema) {
+      return resolveType(
+        spec,
+        state,
+        '$identifier$index',
+        schema,
+        nullable: true,
+      );
+    }).toBuiltSet();
+  }
 
   TypeResultSomeOf result;
-  if (schema.oneOf != null) {
-    result = TypeResultOneOf(
-      identifier,
-      nullable: nullable,
-      subTypes: subResults,
-    );
-  } else if (schema.anyOf != null) {
-    result = TypeResultAnyOf(
-      identifier,
-      nullable: nullable,
-      subTypes: subResults,
-    );
-  } else {
-    throw StateError('allOf should be handled with inheritance');
+  switch (schema) {
+    case json_schema.JsonSchema(:final oneOf) when oneOf != null:
+      final subResults = resolveSubTypes(oneOf);
+
+      result = TypeResultOneOf(
+        identifier,
+        nullable: nullable,
+        subTypes: subResults,
+      );
+    case json_schema.JsonSchema(:final anyOf) when anyOf != null:
+      final subResults = resolveSubTypes(anyOf);
+
+      result = TypeResultAnyOf(
+        identifier,
+        nullable: nullable,
+        subTypes: subResults,
+      );
+    default:
+      throw StateError('allOf should be handled with inheritance');
   }
 
   if (state.resolvedTypes.add(result) && !result.isSingleValue) {

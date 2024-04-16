@@ -67,7 +67,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case json_schema.JsonSchema(ref: null, ofs: null, type: null):
+    case json_schema.JsonSchema(type: null, ref: null, allOf: null, anyOf: null, oneOf: null):
       return TypeResultBase(
         'JsonObject',
         nullable: nullable,
