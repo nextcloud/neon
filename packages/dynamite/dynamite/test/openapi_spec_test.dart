@@ -49,14 +49,14 @@ void main() {
       };
 
       final spec = serializers.deserializeWith(OpenAPI.serializer, json);
-      final superSchema = spec!.components!.schemas!['SuperClass']!;
+      final superSchema = spec!.components!.schemas!['SuperClass']! as ObjectSchema;
       expect(superSchema.type, equals(SchemaType.object));
 
       final subSchema = spec.components!.schemas!['SubClass']!;
       expect(
         subSchema,
         equalsBuilt(
-          JsonSchema((b) {
+          GenericSchema((b) {
             b.ref = Uri.parse('#/components/schemas/SuperClass');
           }),
         ),

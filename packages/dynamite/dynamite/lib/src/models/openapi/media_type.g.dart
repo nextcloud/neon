@@ -40,8 +40,7 @@ class _$MediaTypeSerializer implements StructuredSerializer<MediaType> {
       final Object? value = iterator.current;
       switch (key) {
         case 'schema':
-          result.schema
-              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
+          result.schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
       }
     }
@@ -87,16 +86,16 @@ class _$MediaType extends MediaType {
 class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
   _$MediaType? _$v;
 
-  JsonSchemaBuilder? _schema;
-  JsonSchemaBuilder get schema => _$this._schema ??= JsonSchemaBuilder();
-  set schema(JsonSchemaBuilder? schema) => _$this._schema = schema;
+  JsonSchema? _schema;
+  JsonSchema? get schema => _$this._schema;
+  set schema(JsonSchema? schema) => _$this._schema = schema;
 
   MediaTypeBuilder();
 
   MediaTypeBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _schema = $v.schema?.toBuilder();
+      _schema = $v.schema;
       _$v = null;
     }
     return this;
@@ -117,19 +116,7 @@ class MediaTypeBuilder implements Builder<MediaType, MediaTypeBuilder> {
   MediaType build() => _build();
 
   _$MediaType _build() {
-    _$MediaType _$result;
-    try {
-      _$result = _$v ?? _$MediaType._(schema: _schema?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'schema';
-        _schema?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'MediaType', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ?? _$MediaType._(schema: schema);
     replace(_$result);
     return _$result;
   }

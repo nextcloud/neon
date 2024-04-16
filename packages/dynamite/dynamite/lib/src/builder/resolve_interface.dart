@@ -35,7 +35,7 @@ Spec buildInterface(
 
     if (schema case json_schema.JsonSchema(:final allOf) when allOf != null) {
       for (final schema in allOf) {
-        if (schema case json_schema.JsonSchema(properties: != null)) {
+        if (schema case json_schema.ObjectSchema(properties: != null)) {
           _generateProperties(
             schema,
             spec,
@@ -74,7 +74,7 @@ Spec buildInterface(
       }
     } else {
       _generateProperties(
-        schema,
+        schema as json_schema.ObjectSchema,
         spec,
         state,
         identifier,
@@ -136,7 +136,7 @@ Spec buildInterface(
 }
 
 void _generateProperties(
-  json_schema.JsonSchema schema,
+  json_schema.ObjectSchema schema,
   openapi.OpenAPI spec,
   State state,
   String identifier,

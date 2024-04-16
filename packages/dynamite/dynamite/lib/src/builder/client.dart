@@ -489,7 +489,7 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
       spec,
       state,
       identifierBuilder.toString(),
-      json_schema.JsonSchema(
+      json_schema.ObjectSchema(
         (b) => b
           ..properties.replace(
             response.headers!.map(
