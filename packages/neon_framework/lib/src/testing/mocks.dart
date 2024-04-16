@@ -10,11 +10,13 @@ import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
+import 'package:neon_framework/src/blocs/user_details.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/storage.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 class MockAccount extends Mock implements Account {}
@@ -65,3 +67,7 @@ class MockSharedPreferencesPlatform extends Mock implements SharedPreferencesSto
 class MockCallbackFunction<T> extends Mock {
   FutureOr<T> call();
 }
+
+class MockUserDetailsBloc extends Mock implements UserDetailsBloc {}
+
+class MockUserDetails extends Mock implements provisioning_api.UserDetails {}

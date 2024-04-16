@@ -1,5 +1,8 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -20,26 +23,53 @@ class TalkRichObjectMention extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final child = switch (parameter.type) {
-      'user' => NeonUserAvatar(
+    final Widget child;
+    final bool highlight;
+
+    switch (parameter.type) {
+      case 'user':
+        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+        final account = accountsBloc.activeAccount.value!;
+
+        highlight = account.username == parameter.id;
+        child = NeonUserAvatar(
           username: parameter.id,
           showStatus: false,
-        ),
-      'call' => CircleAvatar(
+        );
+      case 'call':
+        highlight = true;
+        child = CircleAvatar(
           child: ClipOval(
             child: NeonUriImage(
               uri: Uri.parse(parameter.iconUrl!),
             ),
           ),
-        ),
-      'guest' => CircleAvatar(
+        );
+      case 'guest':
+        // TODO: Add highlighting when the mention is about the current guest user.
+        highlight = false;
+        child = CircleAvatar(
           child: Icon(AdaptiveIcons.person),
-        ),
-      'user-group' || 'group' => CircleAvatar(
+        );
+      case 'user-group' || 'group':
+        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+        final userDetailsBloc = accountsBloc.activeUserDetailsBloc;
+        final groups = userDetailsBloc.userDetails.valueOrNull?.data?.groups ?? BuiltList();
+
+        highlight = groups.contains(parameter.id);
+        child = CircleAvatar(
           child: Icon(AdaptiveIcons.group),
-        ),
-      _ => throw UnimplementedError('Unknown mention type: $parameter'), // coverage:ignore-line
-    };
+        );
+      default:
+        child = throw UnimplementedError('Unknown mention type: $parameter'); // coverage:ignore-line
+    }
+
+    Color? backgroundColor;
+    Color? foregroundColor;
+    if (highlight) {
+      backgroundColor = Theme.of(context).colorScheme.primary;
+      foregroundColor = Theme.of(context).colorScheme.onPrimary;
+    }
 
     return Chip(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
@@ -53,10 +83,14 @@ class TalkRichObjectMention extends StatelessWidget {
         horizontal: VisualDensity.minimumDensity,
         vertical: VisualDensity.minimumDensity,
       ),
+      labelStyle: textStyle,
       label: Text(
         parameter.name,
-        style: textStyle,
+        style: TextStyle(
+          color: foregroundColor,
+        ),
       ),
+      backgroundColor: backgroundColor,
     );
   }
 }

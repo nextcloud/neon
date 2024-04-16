@@ -636,13 +636,22 @@ void main() {
         group('Mention', () {
           for (final type in ['user', 'call', 'guest', 'user-group', 'group']) {
             testWidgets(type, (tester) async {
+              final userDetails = MockUserDetails();
+              when(() => userDetails.groups).thenReturn(BuiltList());
+
+              final userDetailsBloc = MockUserDetailsBloc();
+              when(() => userDetailsBloc.userDetails)
+                  .thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
+
               final account = MockAccount();
+              when(() => account.username).thenReturn('username');
               when(() => account.client).thenReturn(NextcloudClient(Uri()));
               when(() => account.completeUri(any()))
                   .thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
 
               final accountsBloc = MockAccountsBloc();
               when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+              when(() => accountsBloc.activeUserDetailsBloc).thenReturn(userDetailsBloc);
 
               await tester.pumpWidget(
                 TestApp(
