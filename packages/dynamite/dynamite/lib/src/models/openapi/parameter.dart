@@ -49,11 +49,11 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     if (content != null) {
       final mediaType = content!.entries.single;
 
-      return JsonSchema(
+      return StringSchema(
         (b) => b
           ..type = JsonSchemaType.string
           ..contentMediaType = mediaType.key
-          ..contentSchema.replace(mediaType.value.schema!),
+          ..contentSchema = mediaType.value.schema,
       );
     }
 
@@ -170,7 +170,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       throw OpenAPISpecError('Path parameters must be required but ${b.name} is not.');
     }
 
-    if (b.required! && b._$schema != null && b.$schema.rawDefault != null) {
+    if (b.required! && b._$schema != null && b.$schema?.$default != null) {
       dynamiteLog.requiredParameters();
     }
 

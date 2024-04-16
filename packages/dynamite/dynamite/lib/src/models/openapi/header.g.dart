@@ -54,8 +54,7 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.schema
-              .replace(serializers.deserialize(value, specifiedType: const FullType(JsonSchema))! as JsonSchema);
+          result.schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
       }
     }
@@ -120,9 +119,9 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
   bool? get required => _$this._required;
   set required(bool? required) => _$this._required = required;
 
-  JsonSchemaBuilder? _schema;
-  JsonSchemaBuilder get schema => _$this._schema ??= JsonSchemaBuilder();
-  set schema(JsonSchemaBuilder? schema) => _$this._schema = schema;
+  JsonSchema? _schema;
+  JsonSchema? get schema => _$this._schema;
+  set schema(JsonSchema? schema) => _$this._schema = schema;
 
   HeaderBuilder();
 
@@ -131,7 +130,7 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
     if ($v != null) {
       _description = $v.description;
       _required = $v.required;
-      _schema = $v.schema?.toBuilder();
+      _schema = $v.schema;
       _$v = null;
     }
     return this;
@@ -153,23 +152,11 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
 
   _$Header _build() {
     Header._defaults(this);
-    _$Header _$result;
-    try {
-      _$result = _$v ??
-          _$Header._(
-              description: description,
-              required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
-              schema: _schema?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'schema';
-        _schema?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'Header', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        _$Header._(
+            description: description,
+            required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
+            schema: schema);
     replace(_$result);
     return _$result;
   }
