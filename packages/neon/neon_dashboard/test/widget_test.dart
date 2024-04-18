@@ -36,8 +36,7 @@ void main() {
   );
 
   setUp(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
   });
 
   group('Widget item', () {

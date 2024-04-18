@@ -29,8 +29,7 @@ Widget wrapWidget(Widget child) => TestApp(
 
 void main() {
   setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
 
     registerFallbackValue(Uri());
   });

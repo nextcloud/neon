@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/testing.dart';
@@ -33,9 +32,8 @@ void main() {
   late Account account;
   late MaintenanceModeBloc bloc;
 
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   setUp(() {

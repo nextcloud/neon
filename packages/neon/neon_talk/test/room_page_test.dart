@@ -24,9 +24,8 @@ void main() {
   late spreed.Room room;
   late TalkRoomBloc bloc;
 
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   setUp(() {

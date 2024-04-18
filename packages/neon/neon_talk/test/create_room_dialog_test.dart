@@ -62,8 +62,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(AutocompleteResultFake());
 
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
 
     account = mockAutocompleteAccount();
   });

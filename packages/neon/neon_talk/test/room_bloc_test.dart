@@ -64,9 +64,8 @@ void main() {
   late Account account;
   late TalkRoomBloc bloc;
 
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   setUp(() {
