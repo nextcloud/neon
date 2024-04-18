@@ -451,41 +451,27 @@ class TalkCommentMessage extends StatelessWidget {
               width: 40,
               child: avatar,
             ),
-          Flexible(
-            child: Row(
+          Expanded(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (displayName != null) displayName,
-                      if (parent != null) parent,
-                      text,
-                      if (!isParent && chatMessage.reactions.isNotEmpty)
-                        TalkReactions(
-                          reactions: chatMessage.reactions,
-                        ),
-                    ]
-                        .intersperse(
-                          const SizedBox(
-                            height: 5,
-                          ),
-                        )
-                        .toList(),
+                if (displayName != null) displayName,
+                if (parent != null) parent,
+                text,
+                if (!isParent && chatMessage.reactions.isNotEmpty)
+                  TalkReactions(
+                    reactions: chatMessage.reactions,
                   ),
-                ),
-                if (time != null) time,
               ]
                   .intersperse(
                     const SizedBox(
-                      width: 10,
+                      height: 5,
                     ),
                   )
                   .toList(),
             ),
           ),
+          if (time != null) time,
         ]
             .intersperse(
               const SizedBox(
