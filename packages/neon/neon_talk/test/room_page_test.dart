@@ -42,6 +42,7 @@ void main() {
     when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
     when(() => bloc.messages)
         .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>([]))));
+    when(() => bloc.lastCommonRead).thenAnswer((_) => BehaviorSubject.seeded(0));
   });
 
   testWidgets('Status message', (tester) async {
