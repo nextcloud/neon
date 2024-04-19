@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -9,8 +10,9 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
-/// Bloc for fetching Talk rooms
-sealed class TalkBloc implements InteractiveBloc {
+/// Bloc for fetching Talk rooms.
+@sealed
+abstract class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk Bloc instance.
   factory TalkBloc({
     required Account account,
