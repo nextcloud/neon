@@ -77,7 +77,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         account: account,
         cacheKey: 'spreed-room-$token',
         subject: room,
-        request: account.client.spreed.room.$joinRoom_Request(
+        getRequest: () => account.client.spreed.room.$joinRoom_Request(
           token: token,
         ),
         serializer: account.client.spreed.room.$joinRoom_Serializer(),
@@ -87,7 +87,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         account: account,
         cacheKey: 'spreed-room-$token-messages',
         subject: messages,
-        request: account.client.spreed.chat.$receiveMessages_Request(
+        getRequest: () => account.client.spreed.chat.$receiveMessages_Request(
           token: token,
           lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
           includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,

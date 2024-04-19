@@ -1,7 +1,5 @@
 // ignore_for_file: avoid_implementing_value_types, public_member_api_docs, missing_override_of_must_be_overridden
 
-import 'dart:async';
-
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -74,7 +72,7 @@ class MockSharedPreferencesPlatform extends Mock implements SharedPreferencesSto
 }
 
 class MockCallbackFunction<T> extends Mock {
-  FutureOr<T> call();
+  T call();
 }
 
 class MockUserDetailsBloc extends Mock implements UserDetailsBloc {}

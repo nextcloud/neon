@@ -113,7 +113,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         account: account,
         cacheKey: 'news-folders',
         subject: folders,
-        request: account.client.news.$listFolders_Request(),
+        getRequest: account.client.news.$listFolders_Request,
         serializer: account.client.news.$listFolders_Serializer(),
         unwrap: (response) => response.body.folders,
       ),
@@ -121,7 +121,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         account: account,
         cacheKey: 'news-feeds',
         subject: feeds,
-        request: account.client.news.$listFeeds_Request(),
+        getRequest: account.client.news.$listFeeds_Request,
         serializer: account.client.news.$listFeeds_Serializer(),
         unwrap: (response) {
           if (response.body.newestItemId != null) {

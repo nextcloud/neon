@@ -146,7 +146,7 @@ class NeonApiImage extends StatefulWidget {
   ///
   /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
   const NeonApiImage({
-    required this.request,
+    required this.getRequest,
     required this.cacheKey,
     required this.etag,
     required this.expires,
@@ -162,7 +162,7 @@ class NeonApiImage extends StatefulWidget {
   ///
   /// See [NeonApiImage] to fetch the image using the currently active account.
   const NeonApiImage.withAccount({
-    required this.request,
+    required this.getRequest,
     required this.cacheKey,
     required this.etag,
     required this.expires,
@@ -181,7 +181,10 @@ class NeonApiImage extends StatefulWidget {
   final Account? account;
 
   /// Callback for creating the HTTP request downloading the image data.
-  final http.Request Function(NextcloudClient) request;
+  ///
+  /// Every time it is called a new [http.Request] has to be created.
+  /// Re-using the same will not work when retrying failed requests.
+  final http.Request Function(NextcloudClient) getRequest;
 
   /// The unique key used for caching the image.
   final String cacheKey;
@@ -239,7 +242,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
         etag: widget.etag,
         expires: widget.expires,
       ),
-      request: widget.request(account.client),
+      getRequest: () => widget.getRequest(account.client),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
