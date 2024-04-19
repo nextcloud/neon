@@ -38,7 +38,7 @@ void main() {
     });
 
     test('timeout', () async {
-      final callback = MockCallbackFunction<bool>();
+      final callback = MockCallbackFunction<Future<bool>>();
       when(callback.call).thenAnswer((_) async => Future.delayed(const Duration(milliseconds: 100), () => true));
 
       expect(
@@ -68,7 +68,7 @@ void main() {
 
     test('throwing DynamiteException should retry', () async {
       final subject = BehaviorSubject<Result<String>>();
-      final callback = MockCallbackFunction<Uint8List>();
+      final callback = MockCallbackFunction<Future<Uint8List>>();
       when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
       await RequestManager.instance.wrap<String, Uint8List>(
@@ -575,7 +575,7 @@ void main() {
       });
 
       test('cached ETag', () async {
-        final callback = MockCallbackFunction<CacheParameters>();
+        final callback = MockCallbackFunction<Future<CacheParameters>>();
         final newExpires = tz.TZDateTime.from(
           DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
           tz.UTC,
