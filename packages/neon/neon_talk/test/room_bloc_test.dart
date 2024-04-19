@@ -46,6 +46,9 @@ Account mockTalkAccount() {
               },
             }),
             200,
+            headers: {
+              'x-chat-last-common-read': '0',
+            },
           ),
       'post': (match, queryParameters) => Response(
             json.encode({
@@ -55,6 +58,9 @@ Account mockTalkAccount() {
               },
             }),
             201,
+            headers: {
+              'x-chat-last-common-read': '1',
+            },
           ),
     },
   });
@@ -106,6 +112,11 @@ void main() {
       ]),
     );
 
+    expect(
+      bloc.lastCommonRead,
+      emitsInOrder([0, 0]),
+    );
+
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     await bloc.refresh();
@@ -119,6 +130,11 @@ void main() {
         Result.success(BuiltList<int>([2, 1, 0])),
         Result.success(BuiltList<int>([3, 2, 1, 0])),
       ]),
+    );
+
+    expect(
+      bloc.lastCommonRead,
+      emitsInOrder([0, 1]),
     );
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
