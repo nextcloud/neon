@@ -144,6 +144,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -170,6 +174,16 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 class Mount_Type extends EnumClass {
@@ -365,6 +379,10 @@ abstract interface class $StorageConfigInterface {
   String? get statusMessage;
   StorageConfig_Type get type;
   bool get userProvided;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StorageConfigInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StorageConfigInterfaceBuilder b) {}
 }
 
 abstract class StorageConfig implements $StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
@@ -391,6 +409,16 @@ abstract class StorageConfig implements $StorageConfigInterface, Built<StorageCo
 
   /// Serializer for StorageConfig.
   static Serializer<StorageConfig> get serializer => _$storageConfigSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StorageConfigBuilder b) {
+    $StorageConfigInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StorageConfigBuilder b) {
+    $StorageConfigInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -405,6 +433,10 @@ abstract interface class $MountInterface {
   @BuiltValueField(wireName: 'class')
   String get $class;
   StorageConfig get config;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($MountInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($MountInterfaceBuilder b) {}
 }
 
 abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
@@ -431,12 +463,26 @@ abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
 
   /// Serializer for Mount.
   static Serializer<Mount> get serializer => _$mountSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MountBuilder b) {
+    $MountInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(MountBuilder b) {
+    $MountInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetUserMountsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Mount> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson_Ocs
@@ -470,11 +516,25 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
   /// Serializer for ApiGetUserMountsResponseApplicationJson_Ocs.
   static Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetUserMountsResponseApplicationJson_OcsBuilder b) {
+    $ApiGetUserMountsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetUserMountsResponseApplicationJson_OcsBuilder b) {
+    $ApiGetUserMountsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetUserMountsResponseApplicationJsonInterface {
   ApiGetUserMountsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson
@@ -507,6 +567,16 @@ abstract class ApiGetUserMountsResponseApplicationJson
   /// Serializer for ApiGetUserMountsResponseApplicationJson.
   static Serializer<ApiGetUserMountsResponseApplicationJson> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetUserMountsResponseApplicationJsonBuilder b) {
+    $ApiGetUserMountsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetUserMountsResponseApplicationJsonBuilder b) {
+    $ApiGetUserMountsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

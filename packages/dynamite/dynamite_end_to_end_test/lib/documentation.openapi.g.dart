@@ -198,7 +198,9 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
   String? get tag => _$this._tag;
   set tag(covariant String? tag) => _$this._tag = tag;
 
-  Object2Builder();
+  Object2Builder() {
+    Object2._defaults(this);
+  }
 
   Object2Builder get _$this {
     final $v = _$v;
@@ -225,6 +227,7 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
   Object2 build() => _build();
 
   _$Object2 _build() {
+    Object2._validate(this);
     final _$result =
         _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
     replace(_$result);
@@ -307,7 +310,9 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
   String? get tag => _$this._tag;
   set tag(covariant String? tag) => _$this._tag = tag;
 
-  Object1Builder();
+  Object1Builder() {
+    Object1._defaults(this);
+  }
 
   Object1Builder get _$this {
     final $v = _$v;
@@ -335,6 +340,7 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
   Object1 build() => _build();
 
   _$Object1 _build() {
+    Object1._validate(this);
     final _$result = _$v ??
         _$Object1._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),

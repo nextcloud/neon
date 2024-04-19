@@ -1041,6 +1041,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1067,6 +1071,16 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 class $Type extends EnumClass {
@@ -1157,6 +1171,10 @@ abstract interface class $PublicInterface {
   String? get icon;
   int? get clearAt;
   $Type get status;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicInterfaceBuilder b) {}
 }
 
 abstract class Public implements $PublicInterface, Built<Public, PublicBuilder> {
@@ -1183,6 +1201,16 @@ abstract class Public implements $PublicInterface, Built<Public, PublicBuilder> 
 
   /// Serializer for Public.
   static Serializer<Public> get serializer => _$publicSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicBuilder b) {
+    $PublicInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicBuilder b) {
+    $PublicInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1190,6 +1218,10 @@ abstract interface class $PrivateInterface implements $PublicInterface {
   String? get messageId;
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PrivateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PrivateInterfaceBuilder b) {}
 }
 
 abstract class Private implements $PrivateInterface, Built<Private, PrivateBuilder> {
@@ -1216,12 +1248,26 @@ abstract class Private implements $PrivateInterface, Built<Private, PrivateBuild
 
   /// Serializer for Private.
   static Serializer<Private> get serializer => _$privateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PrivateBuilder b) {
+    $PrivateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PrivateBuilder b) {
+    $PrivateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $HeartbeatHeartbeatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
@@ -1255,11 +1301,25 @@ abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
   /// Serializer for HeartbeatHeartbeatResponseApplicationJson_Ocs.
   static Serializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> get serializer =>
       _$heartbeatHeartbeatResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder b) {
+    $HeartbeatHeartbeatResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder b) {
+    $HeartbeatHeartbeatResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $HeartbeatHeartbeatResponseApplicationJsonInterface {
   HeartbeatHeartbeatResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class HeartbeatHeartbeatResponseApplicationJson
@@ -1293,6 +1353,16 @@ abstract class HeartbeatHeartbeatResponseApplicationJson
   /// Serializer for HeartbeatHeartbeatResponseApplicationJson.
   static Serializer<HeartbeatHeartbeatResponseApplicationJson> get serializer =>
       _$heartbeatHeartbeatResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(HeartbeatHeartbeatResponseApplicationJsonBuilder b) {
+    $HeartbeatHeartbeatResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(HeartbeatHeartbeatResponseApplicationJsonBuilder b) {
+    $HeartbeatHeartbeatResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 class ClearAt_Type extends EnumClass {
@@ -1424,6 +1494,12 @@ typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
 abstract interface class $ClearAtInterface {
   ClearAt_Type get type;
   ClearAt_Time get time;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ClearAtInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ClearAtInterfaceBuilder b) {
+    b.time?.validateOneOf();
+  }
 }
 
 abstract class ClearAt implements $ClearAtInterface, Built<ClearAt, ClearAtBuilder> {
@@ -1451,9 +1527,14 @@ abstract class ClearAt implements $ClearAtInterface, Built<ClearAt, ClearAtBuild
   /// Serializer for ClearAt.
   static Serializer<ClearAt> get serializer => _$clearAtSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ClearAtBuilder b) {
+    $ClearAtInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ClearAtBuilder b) {
-    b.time?.validateOneOf();
+    $ClearAtInterface._validate(b);
   }
 }
 
@@ -1464,6 +1545,10 @@ abstract interface class $PredefinedInterface {
   String get message;
   ClearAt? get clearAt;
   bool? get visible;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PredefinedInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PredefinedInterfaceBuilder b) {}
 }
 
 abstract class Predefined implements $PredefinedInterface, Built<Predefined, PredefinedBuilder> {
@@ -1490,12 +1575,26 @@ abstract class Predefined implements $PredefinedInterface, Built<Predefined, Pre
 
   /// Serializer for Predefined.
   static Serializer<Predefined> get serializer => _$predefinedSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PredefinedBuilder b) {
+    $PredefinedInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PredefinedBuilder b) {
+    $PredefinedInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PredefinedStatusFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Predefined> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
@@ -1530,11 +1629,25 @@ abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
   /// Serializer for PredefinedStatusFindAllResponseApplicationJson_Ocs.
   static Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs> get serializer =>
       _$predefinedStatusFindAllResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder b) {
+    $PredefinedStatusFindAllResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder b) {
+    $PredefinedStatusFindAllResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PredefinedStatusFindAllResponseApplicationJsonInterface {
   PredefinedStatusFindAllResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PredefinedStatusFindAllResponseApplicationJson
@@ -1568,12 +1681,26 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
   /// Serializer for PredefinedStatusFindAllResponseApplicationJson.
   static Serializer<PredefinedStatusFindAllResponseApplicationJson> get serializer =>
       _$predefinedStatusFindAllResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PredefinedStatusFindAllResponseApplicationJsonBuilder b) {
+    $PredefinedStatusFindAllResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PredefinedStatusFindAllResponseApplicationJsonBuilder b) {
+    $PredefinedStatusFindAllResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $StatusesFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Public> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class StatusesFindAllResponseApplicationJson_Ocs
@@ -1607,11 +1734,25 @@ abstract class StatusesFindAllResponseApplicationJson_Ocs
   /// Serializer for StatusesFindAllResponseApplicationJson_Ocs.
   static Serializer<StatusesFindAllResponseApplicationJson_Ocs> get serializer =>
       _$statusesFindAllResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StatusesFindAllResponseApplicationJson_OcsBuilder b) {
+    $StatusesFindAllResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StatusesFindAllResponseApplicationJson_OcsBuilder b) {
+    $StatusesFindAllResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $StatusesFindAllResponseApplicationJsonInterface {
   StatusesFindAllResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StatusesFindAllResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StatusesFindAllResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class StatusesFindAllResponseApplicationJson
@@ -1644,12 +1785,26 @@ abstract class StatusesFindAllResponseApplicationJson
   /// Serializer for StatusesFindAllResponseApplicationJson.
   static Serializer<StatusesFindAllResponseApplicationJson> get serializer =>
       _$statusesFindAllResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StatusesFindAllResponseApplicationJsonBuilder b) {
+    $StatusesFindAllResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StatusesFindAllResponseApplicationJsonBuilder b) {
+    $StatusesFindAllResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $StatusesFindResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Public get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StatusesFindResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StatusesFindResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class StatusesFindResponseApplicationJson_Ocs
@@ -1682,11 +1837,25 @@ abstract class StatusesFindResponseApplicationJson_Ocs
   /// Serializer for StatusesFindResponseApplicationJson_Ocs.
   static Serializer<StatusesFindResponseApplicationJson_Ocs> get serializer =>
       _$statusesFindResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StatusesFindResponseApplicationJson_OcsBuilder b) {
+    $StatusesFindResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StatusesFindResponseApplicationJson_OcsBuilder b) {
+    $StatusesFindResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $StatusesFindResponseApplicationJsonInterface {
   StatusesFindResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StatusesFindResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StatusesFindResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class StatusesFindResponseApplicationJson
@@ -1719,12 +1888,26 @@ abstract class StatusesFindResponseApplicationJson
   /// Serializer for StatusesFindResponseApplicationJson.
   static Serializer<StatusesFindResponseApplicationJson> get serializer =>
       _$statusesFindResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StatusesFindResponseApplicationJsonBuilder b) {
+    $StatusesFindResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StatusesFindResponseApplicationJsonBuilder b) {
+    $StatusesFindResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusGetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserStatusGetStatusResponseApplicationJson_Ocs
@@ -1758,11 +1941,25 @@ abstract class UserStatusGetStatusResponseApplicationJson_Ocs
   /// Serializer for UserStatusGetStatusResponseApplicationJson_Ocs.
   static Serializer<UserStatusGetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusGetStatusResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusGetStatusResponseApplicationJson_OcsBuilder b) {
+    $UserStatusGetStatusResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusGetStatusResponseApplicationJson_OcsBuilder b) {
+    $UserStatusGetStatusResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusGetStatusResponseApplicationJsonInterface {
   UserStatusGetStatusResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusGetStatusResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusGetStatusResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusGetStatusResponseApplicationJson
@@ -1796,12 +1993,26 @@ abstract class UserStatusGetStatusResponseApplicationJson
   /// Serializer for UserStatusGetStatusResponseApplicationJson.
   static Serializer<UserStatusGetStatusResponseApplicationJson> get serializer =>
       _$userStatusGetStatusResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusGetStatusResponseApplicationJsonBuilder b) {
+    $UserStatusGetStatusResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusGetStatusResponseApplicationJsonBuilder b) {
+    $UserStatusGetStatusResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetStatusResponseApplicationJson_Ocs
@@ -1835,11 +2046,25 @@ abstract class UserStatusSetStatusResponseApplicationJson_Ocs
   /// Serializer for UserStatusSetStatusResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetStatusResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetStatusResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetStatusResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetStatusResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetStatusResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetStatusResponseApplicationJsonInterface {
   UserStatusSetStatusResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetStatusResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetStatusResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetStatusResponseApplicationJson
@@ -1873,12 +2098,26 @@ abstract class UserStatusSetStatusResponseApplicationJson
   /// Serializer for UserStatusSetStatusResponseApplicationJson.
   static Serializer<UserStatusSetStatusResponseApplicationJson> get serializer =>
       _$userStatusSetStatusResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetStatusResponseApplicationJsonBuilder b) {
+    $UserStatusSetStatusResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetStatusResponseApplicationJsonBuilder b) {
+    $UserStatusSetStatusResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
@@ -1913,11 +2152,25 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
   /// Serializer for UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetPredefinedMessageResponseApplicationJsonInterface {
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson
@@ -1952,12 +2205,26 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
   /// Serializer for UserStatusSetPredefinedMessageResponseApplicationJson.
   static Serializer<UserStatusSetPredefinedMessageResponseApplicationJson> get serializer =>
       _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder b) {
+    $UserStatusSetPredefinedMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder b) {
+    $UserStatusSetPredefinedMessageResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
@@ -1992,11 +2259,25 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
   /// Serializer for UserStatusSetCustomMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusSetCustomMessageResponseApplicationJsonInterface {
   UserStatusSetCustomMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusSetCustomMessageResponseApplicationJson
@@ -2031,12 +2312,26 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson
   /// Serializer for UserStatusSetCustomMessageResponseApplicationJson.
   static Serializer<UserStatusSetCustomMessageResponseApplicationJson> get serializer =>
       _$userStatusSetCustomMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetCustomMessageResponseApplicationJsonBuilder b) {
+    $UserStatusSetCustomMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetCustomMessageResponseApplicationJsonBuilder b) {
+    $UserStatusSetCustomMessageResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusClearMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserStatusClearMessageResponseApplicationJson_Ocs
@@ -2071,11 +2366,25 @@ abstract class UserStatusClearMessageResponseApplicationJson_Ocs
   /// Serializer for UserStatusClearMessageResponseApplicationJson_Ocs.
   static Serializer<UserStatusClearMessageResponseApplicationJson_Ocs> get serializer =>
       _$userStatusClearMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusClearMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusClearMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusClearMessageResponseApplicationJson_OcsBuilder b) {
+    $UserStatusClearMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusClearMessageResponseApplicationJsonInterface {
   UserStatusClearMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusClearMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusClearMessageResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusClearMessageResponseApplicationJson
@@ -2109,6 +2418,16 @@ abstract class UserStatusClearMessageResponseApplicationJson
   /// Serializer for UserStatusClearMessageResponseApplicationJson.
   static Serializer<UserStatusClearMessageResponseApplicationJson> get serializer =>
       _$userStatusClearMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusClearMessageResponseApplicationJsonBuilder b) {
+    $UserStatusClearMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusClearMessageResponseApplicationJsonBuilder b) {
+    $UserStatusClearMessageResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
@@ -2117,6 +2436,12 @@ typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Nev
 abstract interface class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder b) {
+    b.data?.validateOneOf();
+  }
 }
 
 abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
@@ -2152,15 +2477,24 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusRevertStatusResponseApplicationJsonOcsSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusRevertStatusResponseApplicationJson_OcsBuilder b) {
+    $UserStatusRevertStatusResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UserStatusRevertStatusResponseApplicationJson_OcsBuilder b) {
-    b.data?.validateOneOf();
+    $UserStatusRevertStatusResponseApplicationJson_OcsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusRevertStatusResponseApplicationJsonInterface {
   UserStatusRevertStatusResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserStatusRevertStatusResponseApplicationJson
@@ -2194,6 +2528,16 @@ abstract class UserStatusRevertStatusResponseApplicationJson
   /// Serializer for UserStatusRevertStatusResponseApplicationJson.
   static Serializer<UserStatusRevertStatusResponseApplicationJson> get serializer =>
       _$userStatusRevertStatusResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusRevertStatusResponseApplicationJsonBuilder b) {
+    $UserStatusRevertStatusResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusRevertStatusResponseApplicationJsonBuilder b) {
+    $UserStatusRevertStatusResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -2202,6 +2546,10 @@ abstract interface class $Capabilities_UserStatusInterface {
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_UserStatusInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_UserStatusInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_UserStatus
@@ -2230,12 +2578,26 @@ abstract class Capabilities_UserStatus
 
   /// Serializer for Capabilities_UserStatus.
   static Serializer<Capabilities_UserStatus> get serializer => _$capabilitiesUserStatusSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_UserStatusBuilder b) {
+    $Capabilities_UserStatusInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_UserStatusBuilder b) {
+    $Capabilities_UserStatusInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
   Capabilities_UserStatus get userStatus;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -2262,6 +2624,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 /// Serialization extension for `ClearAt_Time`.

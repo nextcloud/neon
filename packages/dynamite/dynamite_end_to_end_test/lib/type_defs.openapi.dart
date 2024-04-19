@@ -27,6 +27,10 @@ typedef RedirectEmptyType = dynamic;
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterface {
   String? get attribute;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseInterfaceBuilder b) {}
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
@@ -47,6 +51,16 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseBuilder b) {
+    $BaseInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseBuilder b) {
+    $BaseInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -54,6 +68,10 @@ abstract interface class $NestedRedirectInterface {
   Base? get redirect;
   int? get redirectBaseType;
   JsonObject? get redirectEmptyType;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($NestedRedirectInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($NestedRedirectInterfaceBuilder b) {}
 }
 
 abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
@@ -74,6 +92,16 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
 
   /// Serializer for NestedRedirect.
   static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NestedRedirectBuilder b) {
+    $NestedRedirectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(NestedRedirectBuilder b) {
+    $NestedRedirectInterface._validate(b);
+  }
 }
 
 typedef SomeOfRedirect = ({Base? base, int? $int, JsonObject? jsonObject});

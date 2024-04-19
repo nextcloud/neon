@@ -22028,7 +22028,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -22058,6 +22060,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -22456,7 +22459,9 @@ class RichObjectParameterBuilder
   int? get height => _$this._height;
   set height(covariant int? height) => _$this._height = height;
 
-  RichObjectParameterBuilder();
+  RichObjectParameterBuilder() {
+    RichObjectParameter._defaults(this);
+  }
 
   RichObjectParameterBuilder get _$this {
     final $v = _$v;
@@ -22507,6 +22512,7 @@ class RichObjectParameterBuilder
   RichObjectParameter build() => _build();
 
   _$RichObjectParameter _build() {
+    RichObjectParameter._validate(this);
     final _$result = _$v ??
         _$RichObjectParameter._(
             type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
@@ -22806,7 +22812,9 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  ChatMessageBuilder();
+  ChatMessageBuilder() {
+    ChatMessage._defaults(this);
+  }
 
   ChatMessageBuilder get _$this {
     final $v = _$v;
@@ -22847,6 +22855,7 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   ChatMessage build() => _build();
 
   _$ChatMessage _build() {
+    ChatMessage._validate(this);
     _$ChatMessage _$result;
     try {
       _$result = _$v ??
@@ -23681,7 +23690,9 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
   int? get unreadMessages => _$this._unreadMessages;
   set unreadMessages(covariant int? unreadMessages) => _$this._unreadMessages = unreadMessages;
 
-  RoomBuilder();
+  RoomBuilder() {
+    Room._defaults(this);
+  }
 
   RoomBuilder get _$this {
     final $v = _$v;
@@ -23901,7 +23912,9 @@ class AvatarUploadAvatarResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  AvatarUploadAvatarResponseApplicationJson_OcsBuilder();
+  AvatarUploadAvatarResponseApplicationJson_OcsBuilder() {
+    AvatarUploadAvatarResponseApplicationJson_Ocs._defaults(this);
+  }
 
   AvatarUploadAvatarResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -23928,6 +23941,7 @@ class AvatarUploadAvatarResponseApplicationJson_OcsBuilder
   AvatarUploadAvatarResponseApplicationJson_Ocs build() => _build();
 
   _$AvatarUploadAvatarResponseApplicationJson_Ocs _build() {
+    AvatarUploadAvatarResponseApplicationJson_Ocs._validate(this);
     _$AvatarUploadAvatarResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$AvatarUploadAvatarResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -24007,7 +24021,9 @@ class AvatarUploadAvatarResponseApplicationJsonBuilder
       _$this._ocs ??= AvatarUploadAvatarResponseApplicationJson_OcsBuilder();
   set ocs(covariant AvatarUploadAvatarResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  AvatarUploadAvatarResponseApplicationJsonBuilder();
+  AvatarUploadAvatarResponseApplicationJsonBuilder() {
+    AvatarUploadAvatarResponseApplicationJson._defaults(this);
+  }
 
   AvatarUploadAvatarResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -24033,6 +24049,7 @@ class AvatarUploadAvatarResponseApplicationJsonBuilder
   AvatarUploadAvatarResponseApplicationJson build() => _build();
 
   _$AvatarUploadAvatarResponseApplicationJson _build() {
+    AvatarUploadAvatarResponseApplicationJson._validate(this);
     _$AvatarUploadAvatarResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$AvatarUploadAvatarResponseApplicationJson._(ocs: ocs.build());
@@ -24123,7 +24140,9 @@ class AvatarDeleteAvatarResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  AvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
+  AvatarDeleteAvatarResponseApplicationJson_OcsBuilder() {
+    AvatarDeleteAvatarResponseApplicationJson_Ocs._defaults(this);
+  }
 
   AvatarDeleteAvatarResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -24150,6 +24169,7 @@ class AvatarDeleteAvatarResponseApplicationJson_OcsBuilder
   AvatarDeleteAvatarResponseApplicationJson_Ocs build() => _build();
 
   _$AvatarDeleteAvatarResponseApplicationJson_Ocs _build() {
+    AvatarDeleteAvatarResponseApplicationJson_Ocs._validate(this);
     _$AvatarDeleteAvatarResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$AvatarDeleteAvatarResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -24229,7 +24249,9 @@ class AvatarDeleteAvatarResponseApplicationJsonBuilder
       _$this._ocs ??= AvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
   set ocs(covariant AvatarDeleteAvatarResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  AvatarDeleteAvatarResponseApplicationJsonBuilder();
+  AvatarDeleteAvatarResponseApplicationJsonBuilder() {
+    AvatarDeleteAvatarResponseApplicationJson._defaults(this);
+  }
 
   AvatarDeleteAvatarResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -24255,6 +24277,7 @@ class AvatarDeleteAvatarResponseApplicationJsonBuilder
   AvatarDeleteAvatarResponseApplicationJson build() => _build();
 
   _$AvatarDeleteAvatarResponseApplicationJson _build() {
+    AvatarDeleteAvatarResponseApplicationJson._validate(this);
     _$AvatarDeleteAvatarResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$AvatarDeleteAvatarResponseApplicationJson._(ocs: ocs.build());
@@ -24345,7 +24368,9 @@ class AvatarEmojiAvatarResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  AvatarEmojiAvatarResponseApplicationJson_OcsBuilder();
+  AvatarEmojiAvatarResponseApplicationJson_OcsBuilder() {
+    AvatarEmojiAvatarResponseApplicationJson_Ocs._defaults(this);
+  }
 
   AvatarEmojiAvatarResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -24372,6 +24397,7 @@ class AvatarEmojiAvatarResponseApplicationJson_OcsBuilder
   AvatarEmojiAvatarResponseApplicationJson_Ocs build() => _build();
 
   _$AvatarEmojiAvatarResponseApplicationJson_Ocs _build() {
+    AvatarEmojiAvatarResponseApplicationJson_Ocs._validate(this);
     _$AvatarEmojiAvatarResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$AvatarEmojiAvatarResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -24451,7 +24477,9 @@ class AvatarEmojiAvatarResponseApplicationJsonBuilder
       _$this._ocs ??= AvatarEmojiAvatarResponseApplicationJson_OcsBuilder();
   set ocs(covariant AvatarEmojiAvatarResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  AvatarEmojiAvatarResponseApplicationJsonBuilder();
+  AvatarEmojiAvatarResponseApplicationJsonBuilder() {
+    AvatarEmojiAvatarResponseApplicationJson._defaults(this);
+  }
 
   AvatarEmojiAvatarResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -24477,6 +24505,7 @@ class AvatarEmojiAvatarResponseApplicationJsonBuilder
   AvatarEmojiAvatarResponseApplicationJson build() => _build();
 
   _$AvatarEmojiAvatarResponseApplicationJson _build() {
+    AvatarEmojiAvatarResponseApplicationJson._validate(this);
     _$AvatarEmojiAvatarResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$AvatarEmojiAvatarResponseApplicationJson._(ocs: ocs.build());
@@ -24567,7 +24596,9 @@ class BotSendMessageResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  BotSendMessageResponseApplicationJson_OcsBuilder();
+  BotSendMessageResponseApplicationJson_OcsBuilder() {
+    BotSendMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotSendMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -24594,6 +24625,7 @@ class BotSendMessageResponseApplicationJson_OcsBuilder
   BotSendMessageResponseApplicationJson_Ocs build() => _build();
 
   _$BotSendMessageResponseApplicationJson_Ocs _build() {
+    BotSendMessageResponseApplicationJson_Ocs._validate(this);
     _$BotSendMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -24673,7 +24705,9 @@ class BotSendMessageResponseApplicationJsonBuilder
       _$this._ocs ??= BotSendMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotSendMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotSendMessageResponseApplicationJsonBuilder();
+  BotSendMessageResponseApplicationJsonBuilder() {
+    BotSendMessageResponseApplicationJson._defaults(this);
+  }
 
   BotSendMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -24699,6 +24733,7 @@ class BotSendMessageResponseApplicationJsonBuilder
   BotSendMessageResponseApplicationJson build() => _build();
 
   _$BotSendMessageResponseApplicationJson _build() {
+    BotSendMessageResponseApplicationJson._validate(this);
     _$BotSendMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotSendMessageResponseApplicationJson._(ocs: ocs.build());
@@ -24786,7 +24821,9 @@ class BotReactResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  BotReactResponseApplicationJson_OcsBuilder();
+  BotReactResponseApplicationJson_OcsBuilder() {
+    BotReactResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotReactResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -24813,6 +24850,7 @@ class BotReactResponseApplicationJson_OcsBuilder
   BotReactResponseApplicationJson_Ocs build() => _build();
 
   _$BotReactResponseApplicationJson_Ocs _build() {
+    BotReactResponseApplicationJson_Ocs._validate(this);
     _$BotReactResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -24889,7 +24927,9 @@ class BotReactResponseApplicationJsonBuilder
   BotReactResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= BotReactResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotReactResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotReactResponseApplicationJsonBuilder();
+  BotReactResponseApplicationJsonBuilder() {
+    BotReactResponseApplicationJson._defaults(this);
+  }
 
   BotReactResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -24915,6 +24955,7 @@ class BotReactResponseApplicationJsonBuilder
   BotReactResponseApplicationJson build() => _build();
 
   _$BotReactResponseApplicationJson _build() {
+    BotReactResponseApplicationJson._validate(this);
     _$BotReactResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotReactResponseApplicationJson._(ocs: ocs.build());
@@ -25005,7 +25046,9 @@ class BotDeleteReactionResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  BotDeleteReactionResponseApplicationJson_OcsBuilder();
+  BotDeleteReactionResponseApplicationJson_OcsBuilder() {
+    BotDeleteReactionResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotDeleteReactionResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -25032,6 +25075,7 @@ class BotDeleteReactionResponseApplicationJson_OcsBuilder
   BotDeleteReactionResponseApplicationJson_Ocs build() => _build();
 
   _$BotDeleteReactionResponseApplicationJson_Ocs _build() {
+    BotDeleteReactionResponseApplicationJson_Ocs._validate(this);
     _$BotDeleteReactionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -25113,7 +25157,9 @@ class BotDeleteReactionResponseApplicationJsonBuilder
       _$this._ocs ??= BotDeleteReactionResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotDeleteReactionResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotDeleteReactionResponseApplicationJsonBuilder();
+  BotDeleteReactionResponseApplicationJsonBuilder() {
+    BotDeleteReactionResponseApplicationJson._defaults(this);
+  }
 
   BotDeleteReactionResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -25139,6 +25185,7 @@ class BotDeleteReactionResponseApplicationJsonBuilder
   BotDeleteReactionResponseApplicationJson build() => _build();
 
   _$BotDeleteReactionResponseApplicationJson _build() {
+    BotDeleteReactionResponseApplicationJson._validate(this);
     _$BotDeleteReactionResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotDeleteReactionResponseApplicationJson._(ocs: ocs.build());
@@ -25248,7 +25295,9 @@ class BotBuilder implements Builder<Bot, BotBuilder>, $BotInterfaceBuilder {
   int? get state => _$this._state;
   set state(covariant int? state) => _$this._state = state;
 
-  BotBuilder();
+  BotBuilder() {
+    Bot._defaults(this);
+  }
 
   BotBuilder get _$this {
     final $v = _$v;
@@ -25277,6 +25326,7 @@ class BotBuilder implements Builder<Bot, BotBuilder>, $BotInterfaceBuilder {
   Bot build() => _build();
 
   _$Bot _build() {
+    Bot._validate(this);
     final _$result = _$v ??
         _$Bot._(
             description: description,
@@ -25360,7 +25410,9 @@ class BotListBotsResponseApplicationJson_OcsBuilder
   ListBuilder<Bot> get data => _$this._data ??= ListBuilder<Bot>();
   set data(covariant ListBuilder<Bot>? data) => _$this._data = data;
 
-  BotListBotsResponseApplicationJson_OcsBuilder();
+  BotListBotsResponseApplicationJson_OcsBuilder() {
+    BotListBotsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotListBotsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -25387,6 +25439,7 @@ class BotListBotsResponseApplicationJson_OcsBuilder
   BotListBotsResponseApplicationJson_Ocs build() => _build();
 
   _$BotListBotsResponseApplicationJson_Ocs _build() {
+    BotListBotsResponseApplicationJson_Ocs._validate(this);
     _$BotListBotsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$BotListBotsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -25463,7 +25516,9 @@ class BotListBotsResponseApplicationJsonBuilder
       _$this._ocs ??= BotListBotsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotListBotsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotListBotsResponseApplicationJsonBuilder();
+  BotListBotsResponseApplicationJsonBuilder() {
+    BotListBotsResponseApplicationJson._defaults(this);
+  }
 
   BotListBotsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -25489,6 +25544,7 @@ class BotListBotsResponseApplicationJsonBuilder
   BotListBotsResponseApplicationJson build() => _build();
 
   _$BotListBotsResponseApplicationJson _build() {
+    BotListBotsResponseApplicationJson._validate(this);
     _$BotListBotsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotListBotsResponseApplicationJson._(ocs: ocs.build());
@@ -25578,7 +25634,9 @@ class BotEnableBotResponseApplicationJson_OcsBuilder
   BotBuilder get data => _$this._data ??= BotBuilder();
   set data(covariant BotBuilder? data) => _$this._data = data;
 
-  BotEnableBotResponseApplicationJson_OcsBuilder();
+  BotEnableBotResponseApplicationJson_OcsBuilder() {
+    BotEnableBotResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotEnableBotResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -25605,6 +25663,7 @@ class BotEnableBotResponseApplicationJson_OcsBuilder
   BotEnableBotResponseApplicationJson_Ocs build() => _build();
 
   _$BotEnableBotResponseApplicationJson_Ocs _build() {
+    BotEnableBotResponseApplicationJson_Ocs._validate(this);
     _$BotEnableBotResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$BotEnableBotResponseApplicationJson_Ocs._(meta: meta.build(), data: _data?.build());
@@ -25681,7 +25740,9 @@ class BotEnableBotResponseApplicationJsonBuilder
       _$this._ocs ??= BotEnableBotResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotEnableBotResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotEnableBotResponseApplicationJsonBuilder();
+  BotEnableBotResponseApplicationJsonBuilder() {
+    BotEnableBotResponseApplicationJson._defaults(this);
+  }
 
   BotEnableBotResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -25707,6 +25768,7 @@ class BotEnableBotResponseApplicationJsonBuilder
   BotEnableBotResponseApplicationJson build() => _build();
 
   _$BotEnableBotResponseApplicationJson _build() {
+    BotEnableBotResponseApplicationJson._validate(this);
     _$BotEnableBotResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotEnableBotResponseApplicationJson._(ocs: ocs.build());
@@ -25796,7 +25858,9 @@ class BotDisableBotResponseApplicationJson_OcsBuilder
   BotBuilder get data => _$this._data ??= BotBuilder();
   set data(covariant BotBuilder? data) => _$this._data = data;
 
-  BotDisableBotResponseApplicationJson_OcsBuilder();
+  BotDisableBotResponseApplicationJson_OcsBuilder() {
+    BotDisableBotResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotDisableBotResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -25823,6 +25887,7 @@ class BotDisableBotResponseApplicationJson_OcsBuilder
   BotDisableBotResponseApplicationJson_Ocs build() => _build();
 
   _$BotDisableBotResponseApplicationJson_Ocs _build() {
+    BotDisableBotResponseApplicationJson_Ocs._validate(this);
     _$BotDisableBotResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$BotDisableBotResponseApplicationJson_Ocs._(meta: meta.build(), data: _data?.build());
@@ -25901,7 +25966,9 @@ class BotDisableBotResponseApplicationJsonBuilder
       _$this._ocs ??= BotDisableBotResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotDisableBotResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotDisableBotResponseApplicationJsonBuilder();
+  BotDisableBotResponseApplicationJsonBuilder() {
+    BotDisableBotResponseApplicationJson._defaults(this);
+  }
 
   BotDisableBotResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -25927,6 +25994,7 @@ class BotDisableBotResponseApplicationJsonBuilder
   BotDisableBotResponseApplicationJson build() => _build();
 
   _$BotDisableBotResponseApplicationJson _build() {
+    BotDisableBotResponseApplicationJson._validate(this);
     _$BotDisableBotResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotDisableBotResponseApplicationJson._(ocs: ocs.build());
@@ -26126,7 +26194,9 @@ class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBui
   int? get state => _$this._state;
   set state(covariant int? state) => _$this._state = state;
 
-  BotWithDetailsBuilder();
+  BotWithDetailsBuilder() {
+    BotWithDetails._defaults(this);
+  }
 
   BotWithDetailsBuilder get _$this {
     final $v = _$v;
@@ -26161,6 +26231,7 @@ class BotWithDetailsBuilder implements Builder<BotWithDetails, BotWithDetailsBui
   BotWithDetails build() => _build();
 
   _$BotWithDetails _build() {
+    BotWithDetails._validate(this);
     final _$result = _$v ??
         _$BotWithDetails._(
             errorCount: BuiltValueNullFieldError.checkNotNull(errorCount, r'BotWithDetails', 'errorCount'),
@@ -26251,7 +26322,9 @@ class BotAdminListBotsResponseApplicationJson_OcsBuilder
   ListBuilder<BotWithDetails> get data => _$this._data ??= ListBuilder<BotWithDetails>();
   set data(covariant ListBuilder<BotWithDetails>? data) => _$this._data = data;
 
-  BotAdminListBotsResponseApplicationJson_OcsBuilder();
+  BotAdminListBotsResponseApplicationJson_OcsBuilder() {
+    BotAdminListBotsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BotAdminListBotsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -26278,6 +26351,7 @@ class BotAdminListBotsResponseApplicationJson_OcsBuilder
   BotAdminListBotsResponseApplicationJson_Ocs build() => _build();
 
   _$BotAdminListBotsResponseApplicationJson_Ocs _build() {
+    BotAdminListBotsResponseApplicationJson_Ocs._validate(this);
     _$BotAdminListBotsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -26357,7 +26431,9 @@ class BotAdminListBotsResponseApplicationJsonBuilder
       _$this._ocs ??= BotAdminListBotsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BotAdminListBotsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BotAdminListBotsResponseApplicationJsonBuilder();
+  BotAdminListBotsResponseApplicationJsonBuilder() {
+    BotAdminListBotsResponseApplicationJson._defaults(this);
+  }
 
   BotAdminListBotsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -26383,6 +26459,7 @@ class BotAdminListBotsResponseApplicationJsonBuilder
   BotAdminListBotsResponseApplicationJson build() => _build();
 
   _$BotAdminListBotsResponseApplicationJson _build() {
+    BotAdminListBotsResponseApplicationJson._validate(this);
     _$BotAdminListBotsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BotAdminListBotsResponseApplicationJson._(ocs: ocs.build());
@@ -26480,7 +26557,9 @@ class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder();
+  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -26507,6 +26586,7 @@ class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs _build() {
+    BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -26591,7 +26671,9 @@ class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder();
+  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder() {
+    BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -26617,6 +26699,7 @@ class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson build() => _build();
 
   _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson _build() {
+    BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson._validate(this);
     _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -26712,7 +26795,9 @@ class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder();
+  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -26739,6 +26824,7 @@ class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs _build() {
+    BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -26823,7 +26909,9 @@ class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder();
+  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder() {
+    BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -26849,6 +26937,7 @@ class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson build() => _build();
 
   _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson _build() {
+    BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson._validate(this);
     _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -26945,7 +27034,9 @@ class BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder();
+  BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -26972,6 +27063,7 @@ class BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder
   BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs _build() {
+    BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -27056,7 +27148,9 @@ class BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder();
+  BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder() {
+    BreakoutRoomBroadcastChatMessageResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -27082,6 +27176,7 @@ class BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder
   BreakoutRoomBroadcastChatMessageResponseApplicationJson build() => _build();
 
   _$BreakoutRoomBroadcastChatMessageResponseApplicationJson _build() {
+    BreakoutRoomBroadcastChatMessageResponseApplicationJson._validate(this);
     _$BreakoutRoomBroadcastChatMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomBroadcastChatMessageResponseApplicationJson._(ocs: ocs.build());
@@ -27175,7 +27270,9 @@ class BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder();
+  BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -27202,6 +27299,7 @@ class BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder
   BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs _build() {
+    BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -27286,7 +27384,9 @@ class BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder();
+  BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder() {
+    BreakoutRoomApplyAttendeeMapResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -27312,6 +27412,7 @@ class BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder
   BreakoutRoomApplyAttendeeMapResponseApplicationJson build() => _build();
 
   _$BreakoutRoomApplyAttendeeMapResponseApplicationJson _build() {
+    BreakoutRoomApplyAttendeeMapResponseApplicationJson._validate(this);
     _$BreakoutRoomApplyAttendeeMapResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomApplyAttendeeMapResponseApplicationJson._(ocs: ocs.build());
@@ -27407,7 +27508,9 @@ class BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder();
+  BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -27434,6 +27537,7 @@ class BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder
   BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs _build() {
+    BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -27518,7 +27622,9 @@ class BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder();
+  BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder() {
+    BreakoutRoomRequestAssistanceResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -27544,6 +27650,7 @@ class BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder
   BreakoutRoomRequestAssistanceResponseApplicationJson build() => _build();
 
   _$BreakoutRoomRequestAssistanceResponseApplicationJson _build() {
+    BreakoutRoomRequestAssistanceResponseApplicationJson._validate(this);
     _$BreakoutRoomRequestAssistanceResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomRequestAssistanceResponseApplicationJson._(ocs: ocs.build());
@@ -27642,7 +27749,9 @@ class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder();
+  BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -27669,6 +27778,7 @@ class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder
   BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs _build() {
+    BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -27754,7 +27864,9 @@ class BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder();
+  BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder() {
+    BreakoutRoomResetRequestForAssistanceResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -27780,6 +27892,7 @@ class BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder
   BreakoutRoomResetRequestForAssistanceResponseApplicationJson build() => _build();
 
   _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson _build() {
+    BreakoutRoomResetRequestForAssistanceResponseApplicationJson._validate(this);
     _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson._(ocs: ocs.build());
@@ -27875,7 +27988,9 @@ class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder();
+  BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -27902,6 +28017,7 @@ class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder
   BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs _build() {
+    BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -27986,7 +28102,9 @@ class BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder();
+  BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder() {
+    BreakoutRoomStartBreakoutRoomsResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -28012,6 +28130,7 @@ class BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder
   BreakoutRoomStartBreakoutRoomsResponseApplicationJson build() => _build();
 
   _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson _build() {
+    BreakoutRoomStartBreakoutRoomsResponseApplicationJson._validate(this);
     _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -28107,7 +28226,9 @@ class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder();
+  BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -28134,6 +28255,7 @@ class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder
   BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs _build() {
+    BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -28218,7 +28340,9 @@ class BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder();
+  BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder() {
+    BreakoutRoomStopBreakoutRoomsResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -28244,6 +28368,7 @@ class BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder
   BreakoutRoomStopBreakoutRoomsResponseApplicationJson build() => _build();
 
   _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson _build() {
+    BreakoutRoomStopBreakoutRoomsResponseApplicationJson._validate(this);
     _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -28339,7 +28464,9 @@ class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder();
+  BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder() {
+    BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -28366,6 +28493,7 @@ class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs build() => _build();
 
   _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs _build() {
+    BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs._validate(this);
     _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -28450,7 +28578,9 @@ class BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder
       _$this._ocs ??= BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder();
+  BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder() {
+    BreakoutRoomSwitchBreakoutRoomResponseApplicationJson._defaults(this);
+  }
 
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -28476,6 +28606,7 @@ class BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJson build() => _build();
 
   _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson _build() {
+    BreakoutRoomSwitchBreakoutRoomResponseApplicationJson._validate(this);
     _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson._(ocs: ocs.build());
@@ -28620,7 +28751,9 @@ class CallPeerBuilder implements Builder<CallPeer, CallPeerBuilder>, $CallPeerIn
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  CallPeerBuilder();
+  CallPeerBuilder() {
+    CallPeer._defaults(this);
+  }
 
   CallPeerBuilder get _$this {
     final $v = _$v;
@@ -28651,6 +28784,7 @@ class CallPeerBuilder implements Builder<CallPeer, CallPeerBuilder>, $CallPeerIn
   CallPeer build() => _build();
 
   _$CallPeer _build() {
+    CallPeer._validate(this);
     final _$result = _$v ??
         _$CallPeer._(
             actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'CallPeer', 'actorId'),
@@ -28736,7 +28870,9 @@ class CallGetPeersForCallResponseApplicationJson_OcsBuilder
   ListBuilder<CallPeer> get data => _$this._data ??= ListBuilder<CallPeer>();
   set data(covariant ListBuilder<CallPeer>? data) => _$this._data = data;
 
-  CallGetPeersForCallResponseApplicationJson_OcsBuilder();
+  CallGetPeersForCallResponseApplicationJson_OcsBuilder() {
+    CallGetPeersForCallResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallGetPeersForCallResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -28763,6 +28899,7 @@ class CallGetPeersForCallResponseApplicationJson_OcsBuilder
   CallGetPeersForCallResponseApplicationJson_Ocs build() => _build();
 
   _$CallGetPeersForCallResponseApplicationJson_Ocs _build() {
+    CallGetPeersForCallResponseApplicationJson_Ocs._validate(this);
     _$CallGetPeersForCallResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$CallGetPeersForCallResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -28843,7 +28980,9 @@ class CallGetPeersForCallResponseApplicationJsonBuilder
       _$this._ocs ??= CallGetPeersForCallResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallGetPeersForCallResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallGetPeersForCallResponseApplicationJsonBuilder();
+  CallGetPeersForCallResponseApplicationJsonBuilder() {
+    CallGetPeersForCallResponseApplicationJson._defaults(this);
+  }
 
   CallGetPeersForCallResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -28869,6 +29008,7 @@ class CallGetPeersForCallResponseApplicationJsonBuilder
   CallGetPeersForCallResponseApplicationJson build() => _build();
 
   _$CallGetPeersForCallResponseApplicationJson _build() {
+    CallGetPeersForCallResponseApplicationJson._validate(this);
     _$CallGetPeersForCallResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallGetPeersForCallResponseApplicationJson._(ocs: ocs.build());
@@ -28959,7 +29099,9 @@ class CallUpdateCallFlagsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CallUpdateCallFlagsResponseApplicationJson_OcsBuilder();
+  CallUpdateCallFlagsResponseApplicationJson_OcsBuilder() {
+    CallUpdateCallFlagsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallUpdateCallFlagsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -28986,6 +29128,7 @@ class CallUpdateCallFlagsResponseApplicationJson_OcsBuilder
   CallUpdateCallFlagsResponseApplicationJson_Ocs build() => _build();
 
   _$CallUpdateCallFlagsResponseApplicationJson_Ocs _build() {
+    CallUpdateCallFlagsResponseApplicationJson_Ocs._validate(this);
     _$CallUpdateCallFlagsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -29068,7 +29211,9 @@ class CallUpdateCallFlagsResponseApplicationJsonBuilder
       _$this._ocs ??= CallUpdateCallFlagsResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallUpdateCallFlagsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallUpdateCallFlagsResponseApplicationJsonBuilder();
+  CallUpdateCallFlagsResponseApplicationJsonBuilder() {
+    CallUpdateCallFlagsResponseApplicationJson._defaults(this);
+  }
 
   CallUpdateCallFlagsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -29094,6 +29239,7 @@ class CallUpdateCallFlagsResponseApplicationJsonBuilder
   CallUpdateCallFlagsResponseApplicationJson build() => _build();
 
   _$CallUpdateCallFlagsResponseApplicationJson _build() {
+    CallUpdateCallFlagsResponseApplicationJson._validate(this);
     _$CallUpdateCallFlagsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallUpdateCallFlagsResponseApplicationJson._(ocs: ocs.build());
@@ -29184,7 +29330,9 @@ class CallJoinCallResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CallJoinCallResponseApplicationJson_OcsBuilder();
+  CallJoinCallResponseApplicationJson_OcsBuilder() {
+    CallJoinCallResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallJoinCallResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -29211,6 +29359,7 @@ class CallJoinCallResponseApplicationJson_OcsBuilder
   CallJoinCallResponseApplicationJson_Ocs build() => _build();
 
   _$CallJoinCallResponseApplicationJson_Ocs _build() {
+    CallJoinCallResponseApplicationJson_Ocs._validate(this);
     _$CallJoinCallResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -29288,7 +29437,9 @@ class CallJoinCallResponseApplicationJsonBuilder
       _$this._ocs ??= CallJoinCallResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallJoinCallResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallJoinCallResponseApplicationJsonBuilder();
+  CallJoinCallResponseApplicationJsonBuilder() {
+    CallJoinCallResponseApplicationJson._defaults(this);
+  }
 
   CallJoinCallResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -29314,6 +29465,7 @@ class CallJoinCallResponseApplicationJsonBuilder
   CallJoinCallResponseApplicationJson build() => _build();
 
   _$CallJoinCallResponseApplicationJson _build() {
+    CallJoinCallResponseApplicationJson._validate(this);
     _$CallJoinCallResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallJoinCallResponseApplicationJson._(ocs: ocs.build());
@@ -29404,7 +29556,9 @@ class CallLeaveCallResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CallLeaveCallResponseApplicationJson_OcsBuilder();
+  CallLeaveCallResponseApplicationJson_OcsBuilder() {
+    CallLeaveCallResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallLeaveCallResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -29431,6 +29585,7 @@ class CallLeaveCallResponseApplicationJson_OcsBuilder
   CallLeaveCallResponseApplicationJson_Ocs build() => _build();
 
   _$CallLeaveCallResponseApplicationJson_Ocs _build() {
+    CallLeaveCallResponseApplicationJson_Ocs._validate(this);
     _$CallLeaveCallResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -29510,7 +29665,9 @@ class CallLeaveCallResponseApplicationJsonBuilder
       _$this._ocs ??= CallLeaveCallResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallLeaveCallResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallLeaveCallResponseApplicationJsonBuilder();
+  CallLeaveCallResponseApplicationJsonBuilder() {
+    CallLeaveCallResponseApplicationJson._defaults(this);
+  }
 
   CallLeaveCallResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -29536,6 +29693,7 @@ class CallLeaveCallResponseApplicationJsonBuilder
   CallLeaveCallResponseApplicationJson build() => _build();
 
   _$CallLeaveCallResponseApplicationJson _build() {
+    CallLeaveCallResponseApplicationJson._validate(this);
     _$CallLeaveCallResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallLeaveCallResponseApplicationJson._(ocs: ocs.build());
@@ -29626,7 +29784,9 @@ class CallRingAttendeeResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  CallRingAttendeeResponseApplicationJson_OcsBuilder();
+  CallRingAttendeeResponseApplicationJson_OcsBuilder() {
+    CallRingAttendeeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallRingAttendeeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -29653,6 +29813,7 @@ class CallRingAttendeeResponseApplicationJson_OcsBuilder
   CallRingAttendeeResponseApplicationJson_Ocs build() => _build();
 
   _$CallRingAttendeeResponseApplicationJson_Ocs _build() {
+    CallRingAttendeeResponseApplicationJson_Ocs._validate(this);
     _$CallRingAttendeeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -29734,7 +29895,9 @@ class CallRingAttendeeResponseApplicationJsonBuilder
       _$this._ocs ??= CallRingAttendeeResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallRingAttendeeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallRingAttendeeResponseApplicationJsonBuilder();
+  CallRingAttendeeResponseApplicationJsonBuilder() {
+    CallRingAttendeeResponseApplicationJson._defaults(this);
+  }
 
   CallRingAttendeeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -29760,6 +29923,7 @@ class CallRingAttendeeResponseApplicationJsonBuilder
   CallRingAttendeeResponseApplicationJson build() => _build();
 
   _$CallRingAttendeeResponseApplicationJson _build() {
+    CallRingAttendeeResponseApplicationJson._validate(this);
     _$CallRingAttendeeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallRingAttendeeResponseApplicationJson._(ocs: ocs.build());
@@ -29847,7 +30011,9 @@ class CallSipDialOutResponseApplicationJson_Ocs_DataBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  CallSipDialOutResponseApplicationJson_Ocs_DataBuilder();
+  CallSipDialOutResponseApplicationJson_Ocs_DataBuilder() {
+    CallSipDialOutResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   CallSipDialOutResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -29874,6 +30040,7 @@ class CallSipDialOutResponseApplicationJson_Ocs_DataBuilder
   CallSipDialOutResponseApplicationJson_Ocs_Data build() => _build();
 
   _$CallSipDialOutResponseApplicationJson_Ocs_Data _build() {
+    CallSipDialOutResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ?? _$CallSipDialOutResponseApplicationJson_Ocs_Data._(error: error, message: message);
     replace(_$result);
     return _$result;
@@ -29953,7 +30120,9 @@ class CallSipDialOutResponseApplicationJson_OcsBuilder
       _$this._data ??= CallSipDialOutResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant CallSipDialOutResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  CallSipDialOutResponseApplicationJson_OcsBuilder();
+  CallSipDialOutResponseApplicationJson_OcsBuilder() {
+    CallSipDialOutResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CallSipDialOutResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -29980,6 +30149,7 @@ class CallSipDialOutResponseApplicationJson_OcsBuilder
   CallSipDialOutResponseApplicationJson_Ocs build() => _build();
 
   _$CallSipDialOutResponseApplicationJson_Ocs _build() {
+    CallSipDialOutResponseApplicationJson_Ocs._validate(this);
     _$CallSipDialOutResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$CallSipDialOutResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -30058,7 +30228,9 @@ class CallSipDialOutResponseApplicationJsonBuilder
       _$this._ocs ??= CallSipDialOutResponseApplicationJson_OcsBuilder();
   set ocs(covariant CallSipDialOutResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CallSipDialOutResponseApplicationJsonBuilder();
+  CallSipDialOutResponseApplicationJsonBuilder() {
+    CallSipDialOutResponseApplicationJson._defaults(this);
+  }
 
   CallSipDialOutResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -30084,6 +30256,7 @@ class CallSipDialOutResponseApplicationJsonBuilder
   CallSipDialOutResponseApplicationJson build() => _build();
 
   _$CallSipDialOutResponseApplicationJson _build() {
+    CallSipDialOutResponseApplicationJson._validate(this);
     _$CallSipDialOutResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CallSipDialOutResponseApplicationJson._(ocs: ocs.build());
@@ -30164,7 +30337,9 @@ class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder
   int? get expirationInDays => _$this._expirationInDays;
   set expirationInDays(covariant int? expirationInDays) => _$this._expirationInDays = expirationInDays;
 
-  CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder();
+  CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder() {
+    CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -30190,6 +30365,7 @@ class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data build() => _build();
 
   _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data _build() {
+    CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._(expirationInDays: expirationInDays);
     replace(_$result);
@@ -30278,7 +30454,9 @@ class CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder
   set data(covariant CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder();
+  CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder() {
+    CertificateGetCertificateExpirationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -30305,6 +30483,7 @@ class CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs build() => _build();
 
   _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs _build() {
+    CertificateGetCertificateExpirationResponseApplicationJson_Ocs._validate(this);
     _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -30389,7 +30568,9 @@ class CertificateGetCertificateExpirationResponseApplicationJsonBuilder
       _$this._ocs ??= CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder();
   set ocs(covariant CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  CertificateGetCertificateExpirationResponseApplicationJsonBuilder();
+  CertificateGetCertificateExpirationResponseApplicationJsonBuilder() {
+    CertificateGetCertificateExpirationResponseApplicationJson._defaults(this);
+  }
 
   CertificateGetCertificateExpirationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -30415,6 +30596,7 @@ class CertificateGetCertificateExpirationResponseApplicationJsonBuilder
   CertificateGetCertificateExpirationResponseApplicationJson build() => _build();
 
   _$CertificateGetCertificateExpirationResponseApplicationJson _build() {
+    CertificateGetCertificateExpirationResponseApplicationJson._validate(this);
     _$CertificateGetCertificateExpirationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$CertificateGetCertificateExpirationResponseApplicationJson._(ocs: ocs.build());
@@ -30715,7 +30897,9 @@ class ChatMessageWithParentBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  ChatMessageWithParentBuilder();
+  ChatMessageWithParentBuilder() {
+    ChatMessageWithParent._defaults(this);
+  }
 
   ChatMessageWithParentBuilder get _$this {
     final $v = _$v;
@@ -30757,6 +30941,7 @@ class ChatMessageWithParentBuilder
   ChatMessageWithParent build() => _build();
 
   _$ChatMessageWithParent _build() {
+    ChatMessageWithParent._validate(this);
     _$ChatMessageWithParent _$result;
     try {
       _$result = _$v ??
@@ -30874,7 +31059,9 @@ class ChatReceiveMessagesResponseApplicationJson_OcsBuilder
   ListBuilder<ChatMessageWithParent> get data => _$this._data ??= ListBuilder<ChatMessageWithParent>();
   set data(covariant ListBuilder<ChatMessageWithParent>? data) => _$this._data = data;
 
-  ChatReceiveMessagesResponseApplicationJson_OcsBuilder();
+  ChatReceiveMessagesResponseApplicationJson_OcsBuilder() {
+    ChatReceiveMessagesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatReceiveMessagesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -30901,6 +31088,7 @@ class ChatReceiveMessagesResponseApplicationJson_OcsBuilder
   ChatReceiveMessagesResponseApplicationJson_Ocs build() => _build();
 
   _$ChatReceiveMessagesResponseApplicationJson_Ocs _build() {
+    ChatReceiveMessagesResponseApplicationJson_Ocs._validate(this);
     _$ChatReceiveMessagesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatReceiveMessagesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -30981,7 +31169,9 @@ class ChatReceiveMessagesResponseApplicationJsonBuilder
       _$this._ocs ??= ChatReceiveMessagesResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatReceiveMessagesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatReceiveMessagesResponseApplicationJsonBuilder();
+  ChatReceiveMessagesResponseApplicationJsonBuilder() {
+    ChatReceiveMessagesResponseApplicationJson._defaults(this);
+  }
 
   ChatReceiveMessagesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -31007,6 +31197,7 @@ class ChatReceiveMessagesResponseApplicationJsonBuilder
   ChatReceiveMessagesResponseApplicationJson build() => _build();
 
   _$ChatReceiveMessagesResponseApplicationJson _build() {
+    ChatReceiveMessagesResponseApplicationJson._validate(this);
     _$ChatReceiveMessagesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatReceiveMessagesResponseApplicationJson._(ocs: ocs.build());
@@ -31093,7 +31284,9 @@ class ChatChatReceiveMessagesHeadersBuilder
   String? get xChatLastGiven => _$this._xChatLastGiven;
   set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
 
-  ChatChatReceiveMessagesHeadersBuilder();
+  ChatChatReceiveMessagesHeadersBuilder() {
+    ChatChatReceiveMessagesHeaders._defaults(this);
+  }
 
   ChatChatReceiveMessagesHeadersBuilder get _$this {
     final $v = _$v;
@@ -31120,6 +31313,7 @@ class ChatChatReceiveMessagesHeadersBuilder
   ChatChatReceiveMessagesHeaders build() => _build();
 
   _$ChatChatReceiveMessagesHeaders _build() {
+    ChatChatReceiveMessagesHeaders._validate(this);
     final _$result = _$v ??
         _$ChatChatReceiveMessagesHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
     replace(_$result);
@@ -31198,7 +31392,9 @@ class ChatSendMessageResponseApplicationJson_OcsBuilder
   ChatMessageWithParentBuilder get data => _$this._data ??= ChatMessageWithParentBuilder();
   set data(covariant ChatMessageWithParentBuilder? data) => _$this._data = data;
 
-  ChatSendMessageResponseApplicationJson_OcsBuilder();
+  ChatSendMessageResponseApplicationJson_OcsBuilder() {
+    ChatSendMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatSendMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -31225,6 +31421,7 @@ class ChatSendMessageResponseApplicationJson_OcsBuilder
   ChatSendMessageResponseApplicationJson_Ocs build() => _build();
 
   _$ChatSendMessageResponseApplicationJson_Ocs _build() {
+    ChatSendMessageResponseApplicationJson_Ocs._validate(this);
     _$ChatSendMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatSendMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: _data?.build());
@@ -31304,7 +31501,9 @@ class ChatSendMessageResponseApplicationJsonBuilder
       _$this._ocs ??= ChatSendMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatSendMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatSendMessageResponseApplicationJsonBuilder();
+  ChatSendMessageResponseApplicationJsonBuilder() {
+    ChatSendMessageResponseApplicationJson._defaults(this);
+  }
 
   ChatSendMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -31330,6 +31529,7 @@ class ChatSendMessageResponseApplicationJsonBuilder
   ChatSendMessageResponseApplicationJson build() => _build();
 
   _$ChatSendMessageResponseApplicationJson _build() {
+    ChatSendMessageResponseApplicationJson._validate(this);
     _$ChatSendMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatSendMessageResponseApplicationJson._(ocs: ocs.build());
@@ -31402,7 +31602,9 @@ class ChatChatSendMessageHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatSendMessageHeadersBuilder();
+  ChatChatSendMessageHeadersBuilder() {
+    ChatChatSendMessageHeaders._defaults(this);
+  }
 
   ChatChatSendMessageHeadersBuilder get _$this {
     final $v = _$v;
@@ -31428,6 +31630,7 @@ class ChatChatSendMessageHeadersBuilder
   ChatChatSendMessageHeaders build() => _build();
 
   _$ChatChatSendMessageHeaders _build() {
+    ChatChatSendMessageHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatSendMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -31506,7 +31709,9 @@ class ChatClearHistoryResponseApplicationJson_OcsBuilder
   ChatMessageBuilder get data => _$this._data ??= ChatMessageBuilder();
   set data(covariant ChatMessageBuilder? data) => _$this._data = data;
 
-  ChatClearHistoryResponseApplicationJson_OcsBuilder();
+  ChatClearHistoryResponseApplicationJson_OcsBuilder() {
+    ChatClearHistoryResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatClearHistoryResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -31533,6 +31738,7 @@ class ChatClearHistoryResponseApplicationJson_OcsBuilder
   ChatClearHistoryResponseApplicationJson_Ocs build() => _build();
 
   _$ChatClearHistoryResponseApplicationJson_Ocs _build() {
+    ChatClearHistoryResponseApplicationJson_Ocs._validate(this);
     _$ChatClearHistoryResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatClearHistoryResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -31612,7 +31818,9 @@ class ChatClearHistoryResponseApplicationJsonBuilder
       _$this._ocs ??= ChatClearHistoryResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatClearHistoryResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatClearHistoryResponseApplicationJsonBuilder();
+  ChatClearHistoryResponseApplicationJsonBuilder() {
+    ChatClearHistoryResponseApplicationJson._defaults(this);
+  }
 
   ChatClearHistoryResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -31638,6 +31846,7 @@ class ChatClearHistoryResponseApplicationJsonBuilder
   ChatClearHistoryResponseApplicationJson build() => _build();
 
   _$ChatClearHistoryResponseApplicationJson _build() {
+    ChatClearHistoryResponseApplicationJson._validate(this);
     _$ChatClearHistoryResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatClearHistoryResponseApplicationJson._(ocs: ocs.build());
@@ -31711,7 +31920,9 @@ class ChatChatClearHistoryHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatClearHistoryHeadersBuilder();
+  ChatChatClearHistoryHeadersBuilder() {
+    ChatChatClearHistoryHeaders._defaults(this);
+  }
 
   ChatChatClearHistoryHeadersBuilder get _$this {
     final $v = _$v;
@@ -31737,6 +31948,7 @@ class ChatChatClearHistoryHeadersBuilder
   ChatChatClearHistoryHeaders build() => _build();
 
   _$ChatChatClearHistoryHeaders _build() {
+    ChatChatClearHistoryHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatClearHistoryHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -31815,7 +32027,9 @@ class ChatDeleteMessageResponseApplicationJson_OcsBuilder
   ChatMessageWithParentBuilder get data => _$this._data ??= ChatMessageWithParentBuilder();
   set data(covariant ChatMessageWithParentBuilder? data) => _$this._data = data;
 
-  ChatDeleteMessageResponseApplicationJson_OcsBuilder();
+  ChatDeleteMessageResponseApplicationJson_OcsBuilder() {
+    ChatDeleteMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatDeleteMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -31842,6 +32056,7 @@ class ChatDeleteMessageResponseApplicationJson_OcsBuilder
   ChatDeleteMessageResponseApplicationJson_Ocs build() => _build();
 
   _$ChatDeleteMessageResponseApplicationJson_Ocs _build() {
+    ChatDeleteMessageResponseApplicationJson_Ocs._validate(this);
     _$ChatDeleteMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatDeleteMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -31921,7 +32136,9 @@ class ChatDeleteMessageResponseApplicationJsonBuilder
       _$this._ocs ??= ChatDeleteMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatDeleteMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatDeleteMessageResponseApplicationJsonBuilder();
+  ChatDeleteMessageResponseApplicationJsonBuilder() {
+    ChatDeleteMessageResponseApplicationJson._defaults(this);
+  }
 
   ChatDeleteMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -31947,6 +32164,7 @@ class ChatDeleteMessageResponseApplicationJsonBuilder
   ChatDeleteMessageResponseApplicationJson build() => _build();
 
   _$ChatDeleteMessageResponseApplicationJson _build() {
+    ChatDeleteMessageResponseApplicationJson._validate(this);
     _$ChatDeleteMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatDeleteMessageResponseApplicationJson._(ocs: ocs.build());
@@ -32020,7 +32238,9 @@ class ChatChatDeleteMessageHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatDeleteMessageHeadersBuilder();
+  ChatChatDeleteMessageHeadersBuilder() {
+    ChatChatDeleteMessageHeaders._defaults(this);
+  }
 
   ChatChatDeleteMessageHeadersBuilder get _$this {
     final $v = _$v;
@@ -32046,6 +32266,7 @@ class ChatChatDeleteMessageHeadersBuilder
   ChatChatDeleteMessageHeaders build() => _build();
 
   _$ChatChatDeleteMessageHeaders _build() {
+    ChatChatDeleteMessageHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatDeleteMessageHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -32125,7 +32346,9 @@ class ChatGetMessageContextResponseApplicationJson_OcsBuilder
   ListBuilder<ChatMessageWithParent> get data => _$this._data ??= ListBuilder<ChatMessageWithParent>();
   set data(covariant ListBuilder<ChatMessageWithParent>? data) => _$this._data = data;
 
-  ChatGetMessageContextResponseApplicationJson_OcsBuilder();
+  ChatGetMessageContextResponseApplicationJson_OcsBuilder() {
+    ChatGetMessageContextResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatGetMessageContextResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -32152,6 +32375,7 @@ class ChatGetMessageContextResponseApplicationJson_OcsBuilder
   ChatGetMessageContextResponseApplicationJson_Ocs build() => _build();
 
   _$ChatGetMessageContextResponseApplicationJson_Ocs _build() {
+    ChatGetMessageContextResponseApplicationJson_Ocs._validate(this);
     _$ChatGetMessageContextResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatGetMessageContextResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -32232,7 +32456,9 @@ class ChatGetMessageContextResponseApplicationJsonBuilder
       _$this._ocs ??= ChatGetMessageContextResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatGetMessageContextResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatGetMessageContextResponseApplicationJsonBuilder();
+  ChatGetMessageContextResponseApplicationJsonBuilder() {
+    ChatGetMessageContextResponseApplicationJson._defaults(this);
+  }
 
   ChatGetMessageContextResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -32258,6 +32484,7 @@ class ChatGetMessageContextResponseApplicationJsonBuilder
   ChatGetMessageContextResponseApplicationJson build() => _build();
 
   _$ChatGetMessageContextResponseApplicationJson _build() {
+    ChatGetMessageContextResponseApplicationJson._validate(this);
     _$ChatGetMessageContextResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatGetMessageContextResponseApplicationJson._(ocs: ocs.build());
@@ -32344,7 +32571,9 @@ class ChatChatGetMessageContextHeadersBuilder
   String? get xChatLastGiven => _$this._xChatLastGiven;
   set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
 
-  ChatChatGetMessageContextHeadersBuilder();
+  ChatChatGetMessageContextHeadersBuilder() {
+    ChatChatGetMessageContextHeaders._defaults(this);
+  }
 
   ChatChatGetMessageContextHeadersBuilder get _$this {
     final $v = _$v;
@@ -32371,6 +32600,7 @@ class ChatChatGetMessageContextHeadersBuilder
   ChatChatGetMessageContextHeaders build() => _build();
 
   _$ChatChatGetMessageContextHeaders _build() {
+    ChatChatGetMessageContextHeaders._validate(this);
     final _$result = _$v ??
         _$ChatChatGetMessageContextHeaders._(xChatLastCommonRead: xChatLastCommonRead, xChatLastGiven: xChatLastGiven);
     replace(_$result);
@@ -32472,7 +32702,9 @@ class ChatReminderBuilder implements Builder<ChatReminder, ChatReminderBuilder>,
   String? get userId => _$this._userId;
   set userId(covariant String? userId) => _$this._userId = userId;
 
-  ChatReminderBuilder();
+  ChatReminderBuilder() {
+    ChatReminder._defaults(this);
+  }
 
   ChatReminderBuilder get _$this {
     final $v = _$v;
@@ -32501,6 +32733,7 @@ class ChatReminderBuilder implements Builder<ChatReminder, ChatReminderBuilder>,
   ChatReminder build() => _build();
 
   _$ChatReminder _build() {
+    ChatReminder._validate(this);
     final _$result = _$v ??
         _$ChatReminder._(
             messageId: BuiltValueNullFieldError.checkNotNull(messageId, r'ChatReminder', 'messageId'),
@@ -32584,7 +32817,9 @@ class ChatGetReminderResponseApplicationJson_OcsBuilder
   ChatReminderBuilder get data => _$this._data ??= ChatReminderBuilder();
   set data(covariant ChatReminderBuilder? data) => _$this._data = data;
 
-  ChatGetReminderResponseApplicationJson_OcsBuilder();
+  ChatGetReminderResponseApplicationJson_OcsBuilder() {
+    ChatGetReminderResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatGetReminderResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -32611,6 +32846,7 @@ class ChatGetReminderResponseApplicationJson_OcsBuilder
   ChatGetReminderResponseApplicationJson_Ocs build() => _build();
 
   _$ChatGetReminderResponseApplicationJson_Ocs _build() {
+    ChatGetReminderResponseApplicationJson_Ocs._validate(this);
     _$ChatGetReminderResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatGetReminderResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -32690,7 +32926,9 @@ class ChatGetReminderResponseApplicationJsonBuilder
       _$this._ocs ??= ChatGetReminderResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatGetReminderResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatGetReminderResponseApplicationJsonBuilder();
+  ChatGetReminderResponseApplicationJsonBuilder() {
+    ChatGetReminderResponseApplicationJson._defaults(this);
+  }
 
   ChatGetReminderResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -32716,6 +32954,7 @@ class ChatGetReminderResponseApplicationJsonBuilder
   ChatGetReminderResponseApplicationJson build() => _build();
 
   _$ChatGetReminderResponseApplicationJson _build() {
+    ChatGetReminderResponseApplicationJson._validate(this);
     _$ChatGetReminderResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatGetReminderResponseApplicationJson._(ocs: ocs.build());
@@ -32806,7 +33045,9 @@ class ChatSetReminderResponseApplicationJson_OcsBuilder
   ChatReminderBuilder get data => _$this._data ??= ChatReminderBuilder();
   set data(covariant ChatReminderBuilder? data) => _$this._data = data;
 
-  ChatSetReminderResponseApplicationJson_OcsBuilder();
+  ChatSetReminderResponseApplicationJson_OcsBuilder() {
+    ChatSetReminderResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatSetReminderResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -32833,6 +33074,7 @@ class ChatSetReminderResponseApplicationJson_OcsBuilder
   ChatSetReminderResponseApplicationJson_Ocs build() => _build();
 
   _$ChatSetReminderResponseApplicationJson_Ocs _build() {
+    ChatSetReminderResponseApplicationJson_Ocs._validate(this);
     _$ChatSetReminderResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatSetReminderResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -32912,7 +33154,9 @@ class ChatSetReminderResponseApplicationJsonBuilder
       _$this._ocs ??= ChatSetReminderResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatSetReminderResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatSetReminderResponseApplicationJsonBuilder();
+  ChatSetReminderResponseApplicationJsonBuilder() {
+    ChatSetReminderResponseApplicationJson._defaults(this);
+  }
 
   ChatSetReminderResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -32938,6 +33182,7 @@ class ChatSetReminderResponseApplicationJsonBuilder
   ChatSetReminderResponseApplicationJson build() => _build();
 
   _$ChatSetReminderResponseApplicationJson _build() {
+    ChatSetReminderResponseApplicationJson._validate(this);
     _$ChatSetReminderResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatSetReminderResponseApplicationJson._(ocs: ocs.build());
@@ -33028,7 +33273,9 @@ class ChatDeleteReminderResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ChatDeleteReminderResponseApplicationJson_OcsBuilder();
+  ChatDeleteReminderResponseApplicationJson_OcsBuilder() {
+    ChatDeleteReminderResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatDeleteReminderResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -33055,6 +33302,7 @@ class ChatDeleteReminderResponseApplicationJson_OcsBuilder
   ChatDeleteReminderResponseApplicationJson_Ocs build() => _build();
 
   _$ChatDeleteReminderResponseApplicationJson_Ocs _build() {
+    ChatDeleteReminderResponseApplicationJson_Ocs._validate(this);
     _$ChatDeleteReminderResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -33136,7 +33384,9 @@ class ChatDeleteReminderResponseApplicationJsonBuilder
       _$this._ocs ??= ChatDeleteReminderResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatDeleteReminderResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatDeleteReminderResponseApplicationJsonBuilder();
+  ChatDeleteReminderResponseApplicationJsonBuilder() {
+    ChatDeleteReminderResponseApplicationJson._defaults(this);
+  }
 
   ChatDeleteReminderResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -33162,6 +33412,7 @@ class ChatDeleteReminderResponseApplicationJsonBuilder
   ChatDeleteReminderResponseApplicationJson build() => _build();
 
   _$ChatDeleteReminderResponseApplicationJson _build() {
+    ChatDeleteReminderResponseApplicationJson._validate(this);
     _$ChatDeleteReminderResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatDeleteReminderResponseApplicationJson._(ocs: ocs.build());
@@ -33252,7 +33503,9 @@ class ChatSetReadMarkerResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ChatSetReadMarkerResponseApplicationJson_OcsBuilder();
+  ChatSetReadMarkerResponseApplicationJson_OcsBuilder() {
+    ChatSetReadMarkerResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatSetReadMarkerResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -33279,6 +33532,7 @@ class ChatSetReadMarkerResponseApplicationJson_OcsBuilder
   ChatSetReadMarkerResponseApplicationJson_Ocs build() => _build();
 
   _$ChatSetReadMarkerResponseApplicationJson_Ocs _build() {
+    ChatSetReadMarkerResponseApplicationJson_Ocs._validate(this);
     _$ChatSetReadMarkerResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -33360,7 +33614,9 @@ class ChatSetReadMarkerResponseApplicationJsonBuilder
       _$this._ocs ??= ChatSetReadMarkerResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatSetReadMarkerResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatSetReadMarkerResponseApplicationJsonBuilder();
+  ChatSetReadMarkerResponseApplicationJsonBuilder() {
+    ChatSetReadMarkerResponseApplicationJson._defaults(this);
+  }
 
   ChatSetReadMarkerResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -33386,6 +33642,7 @@ class ChatSetReadMarkerResponseApplicationJsonBuilder
   ChatSetReadMarkerResponseApplicationJson build() => _build();
 
   _$ChatSetReadMarkerResponseApplicationJson _build() {
+    ChatSetReadMarkerResponseApplicationJson._validate(this);
     _$ChatSetReadMarkerResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatSetReadMarkerResponseApplicationJson._(ocs: ocs.build());
@@ -33459,7 +33716,9 @@ class ChatChatSetReadMarkerHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatSetReadMarkerHeadersBuilder();
+  ChatChatSetReadMarkerHeadersBuilder() {
+    ChatChatSetReadMarkerHeaders._defaults(this);
+  }
 
   ChatChatSetReadMarkerHeadersBuilder get _$this {
     final $v = _$v;
@@ -33485,6 +33744,7 @@ class ChatChatSetReadMarkerHeadersBuilder
   ChatChatSetReadMarkerHeaders build() => _build();
 
   _$ChatChatSetReadMarkerHeaders _build() {
+    ChatChatSetReadMarkerHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatSetReadMarkerHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -33563,7 +33823,9 @@ class ChatMarkUnreadResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ChatMarkUnreadResponseApplicationJson_OcsBuilder();
+  ChatMarkUnreadResponseApplicationJson_OcsBuilder() {
+    ChatMarkUnreadResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatMarkUnreadResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -33590,6 +33852,7 @@ class ChatMarkUnreadResponseApplicationJson_OcsBuilder
   ChatMarkUnreadResponseApplicationJson_Ocs build() => _build();
 
   _$ChatMarkUnreadResponseApplicationJson_Ocs _build() {
+    ChatMarkUnreadResponseApplicationJson_Ocs._validate(this);
     _$ChatMarkUnreadResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -33669,7 +33932,9 @@ class ChatMarkUnreadResponseApplicationJsonBuilder
       _$this._ocs ??= ChatMarkUnreadResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatMarkUnreadResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatMarkUnreadResponseApplicationJsonBuilder();
+  ChatMarkUnreadResponseApplicationJsonBuilder() {
+    ChatMarkUnreadResponseApplicationJson._defaults(this);
+  }
 
   ChatMarkUnreadResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -33695,6 +33960,7 @@ class ChatMarkUnreadResponseApplicationJsonBuilder
   ChatMarkUnreadResponseApplicationJson build() => _build();
 
   _$ChatMarkUnreadResponseApplicationJson _build() {
+    ChatMarkUnreadResponseApplicationJson._validate(this);
     _$ChatMarkUnreadResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatMarkUnreadResponseApplicationJson._(ocs: ocs.build());
@@ -33767,7 +34033,9 @@ class ChatChatMarkUnreadHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatMarkUnreadHeadersBuilder();
+  ChatChatMarkUnreadHeadersBuilder() {
+    ChatChatMarkUnreadHeaders._defaults(this);
+  }
 
   ChatChatMarkUnreadHeadersBuilder get _$this {
     final $v = _$v;
@@ -33793,6 +34061,7 @@ class ChatChatMarkUnreadHeadersBuilder
   ChatChatMarkUnreadHeaders build() => _build();
 
   _$ChatChatMarkUnreadHeaders _build() {
+    ChatChatMarkUnreadHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatMarkUnreadHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -33937,7 +34206,9 @@ class ChatMentionSuggestionBuilder
   String? get statusMessage => _$this._statusMessage;
   set statusMessage(covariant String? statusMessage) => _$this._statusMessage = statusMessage;
 
-  ChatMentionSuggestionBuilder();
+  ChatMentionSuggestionBuilder() {
+    ChatMentionSuggestion._defaults(this);
+  }
 
   ChatMentionSuggestionBuilder get _$this {
     final $v = _$v;
@@ -33969,6 +34240,7 @@ class ChatMentionSuggestionBuilder
   ChatMentionSuggestion build() => _build();
 
   _$ChatMentionSuggestion _build() {
+    ChatMentionSuggestion._validate(this);
     final _$result = _$v ??
         _$ChatMentionSuggestion._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMentionSuggestion', 'id'),
@@ -34055,7 +34327,9 @@ class ChatMentionsResponseApplicationJson_OcsBuilder
   ListBuilder<ChatMentionSuggestion> get data => _$this._data ??= ListBuilder<ChatMentionSuggestion>();
   set data(covariant ListBuilder<ChatMentionSuggestion>? data) => _$this._data = data;
 
-  ChatMentionsResponseApplicationJson_OcsBuilder();
+  ChatMentionsResponseApplicationJson_OcsBuilder() {
+    ChatMentionsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatMentionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -34082,6 +34356,7 @@ class ChatMentionsResponseApplicationJson_OcsBuilder
   ChatMentionsResponseApplicationJson_Ocs build() => _build();
 
   _$ChatMentionsResponseApplicationJson_Ocs _build() {
+    ChatMentionsResponseApplicationJson_Ocs._validate(this);
     _$ChatMentionsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatMentionsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -34158,7 +34433,9 @@ class ChatMentionsResponseApplicationJsonBuilder
       _$this._ocs ??= ChatMentionsResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatMentionsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatMentionsResponseApplicationJsonBuilder();
+  ChatMentionsResponseApplicationJsonBuilder() {
+    ChatMentionsResponseApplicationJson._defaults(this);
+  }
 
   ChatMentionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -34184,6 +34461,7 @@ class ChatMentionsResponseApplicationJsonBuilder
   ChatMentionsResponseApplicationJson build() => _build();
 
   _$ChatMentionsResponseApplicationJson _build() {
+    ChatMentionsResponseApplicationJson._validate(this);
     _$ChatMentionsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatMentionsResponseApplicationJson._(ocs: ocs.build());
@@ -34276,7 +34554,9 @@ class ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder
   ListBuilder<ChatMessage> get data => _$this._data ??= ListBuilder<ChatMessage>();
   set data(covariant ListBuilder<ChatMessage>? data) => _$this._data = data;
 
-  ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder();
+  ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder() {
+    ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -34303,6 +34583,7 @@ class ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder
   ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs build() => _build();
 
   _$ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs _build() {
+    ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs._validate(this);
     _$ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -34386,7 +34667,9 @@ class ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder
       _$this._ocs ??= ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder();
+  ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder() {
+    ChatGetObjectsSharedInRoomResponseApplicationJson._defaults(this);
+  }
 
   ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -34412,6 +34695,7 @@ class ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder
   ChatGetObjectsSharedInRoomResponseApplicationJson build() => _build();
 
   _$ChatGetObjectsSharedInRoomResponseApplicationJson _build() {
+    ChatGetObjectsSharedInRoomResponseApplicationJson._validate(this);
     _$ChatGetObjectsSharedInRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatGetObjectsSharedInRoomResponseApplicationJson._(ocs: ocs.build());
@@ -34488,7 +34772,9 @@ class ChatChatGetObjectsSharedInRoomHeadersBuilder
   String? get xChatLastGiven => _$this._xChatLastGiven;
   set xChatLastGiven(covariant String? xChatLastGiven) => _$this._xChatLastGiven = xChatLastGiven;
 
-  ChatChatGetObjectsSharedInRoomHeadersBuilder();
+  ChatChatGetObjectsSharedInRoomHeadersBuilder() {
+    ChatChatGetObjectsSharedInRoomHeaders._defaults(this);
+  }
 
   ChatChatGetObjectsSharedInRoomHeadersBuilder get _$this {
     final $v = _$v;
@@ -34514,6 +34800,7 @@ class ChatChatGetObjectsSharedInRoomHeadersBuilder
   ChatChatGetObjectsSharedInRoomHeaders build() => _build();
 
   _$ChatChatGetObjectsSharedInRoomHeaders _build() {
+    ChatChatGetObjectsSharedInRoomHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatGetObjectsSharedInRoomHeaders._(xChatLastGiven: xChatLastGiven);
     replace(_$result);
     return _$result;
@@ -34592,7 +34879,9 @@ class ChatShareObjectToChatResponseApplicationJson_OcsBuilder
   ChatMessageWithParentBuilder get data => _$this._data ??= ChatMessageWithParentBuilder();
   set data(covariant ChatMessageWithParentBuilder? data) => _$this._data = data;
 
-  ChatShareObjectToChatResponseApplicationJson_OcsBuilder();
+  ChatShareObjectToChatResponseApplicationJson_OcsBuilder() {
+    ChatShareObjectToChatResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatShareObjectToChatResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -34619,6 +34908,7 @@ class ChatShareObjectToChatResponseApplicationJson_OcsBuilder
   ChatShareObjectToChatResponseApplicationJson_Ocs build() => _build();
 
   _$ChatShareObjectToChatResponseApplicationJson_Ocs _build() {
+    ChatShareObjectToChatResponseApplicationJson_Ocs._validate(this);
     _$ChatShareObjectToChatResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ChatShareObjectToChatResponseApplicationJson_Ocs._(meta: meta.build(), data: _data?.build());
@@ -34699,7 +34989,9 @@ class ChatShareObjectToChatResponseApplicationJsonBuilder
       _$this._ocs ??= ChatShareObjectToChatResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatShareObjectToChatResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatShareObjectToChatResponseApplicationJsonBuilder();
+  ChatShareObjectToChatResponseApplicationJsonBuilder() {
+    ChatShareObjectToChatResponseApplicationJson._defaults(this);
+  }
 
   ChatShareObjectToChatResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -34725,6 +35017,7 @@ class ChatShareObjectToChatResponseApplicationJsonBuilder
   ChatShareObjectToChatResponseApplicationJson build() => _build();
 
   _$ChatShareObjectToChatResponseApplicationJson _build() {
+    ChatShareObjectToChatResponseApplicationJson._validate(this);
     _$ChatShareObjectToChatResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatShareObjectToChatResponseApplicationJson._(ocs: ocs.build());
@@ -34798,7 +35091,9 @@ class ChatChatShareObjectToChatHeadersBuilder
   String? get xChatLastCommonRead => _$this._xChatLastCommonRead;
   set xChatLastCommonRead(covariant String? xChatLastCommonRead) => _$this._xChatLastCommonRead = xChatLastCommonRead;
 
-  ChatChatShareObjectToChatHeadersBuilder();
+  ChatChatShareObjectToChatHeadersBuilder() {
+    ChatChatShareObjectToChatHeaders._defaults(this);
+  }
 
   ChatChatShareObjectToChatHeadersBuilder get _$this {
     final $v = _$v;
@@ -34824,6 +35119,7 @@ class ChatChatShareObjectToChatHeadersBuilder
   ChatChatShareObjectToChatHeaders build() => _build();
 
   _$ChatChatShareObjectToChatHeaders _build() {
+    ChatChatShareObjectToChatHeaders._validate(this);
     final _$result = _$v ?? _$ChatChatShareObjectToChatHeaders._(xChatLastCommonRead: xChatLastCommonRead);
     replace(_$result);
     return _$result;
@@ -34909,7 +35205,9 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder
   MapBuilder<String, BuiltList<ChatMessage>> get data => _$this._data ??= MapBuilder<String, BuiltList<ChatMessage>>();
   set data(covariant MapBuilder<String, BuiltList<ChatMessage>>? data) => _$this._data = data;
 
-  ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder();
+  ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder() {
+    ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -34936,6 +35234,7 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs build() => _build();
 
   _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs _build() {
+    ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs._validate(this);
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -35020,7 +35319,9 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder
       _$this._ocs ??= ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder();
   set ocs(covariant ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder();
+  ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder() {
+    ChatGetObjectsSharedInRoomOverviewResponseApplicationJson._defaults(this);
+  }
 
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -35046,6 +35347,7 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJson build() => _build();
 
   _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson _build() {
+    ChatGetObjectsSharedInRoomOverviewResponseApplicationJson._validate(this);
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson._(ocs: ocs.build());
@@ -35128,7 +35430,9 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder();
+  FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -35154,6 +35458,7 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data build() => _build();
 
   _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data _build() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data._(
             token: BuiltValueNullFieldError.checkNotNull(
@@ -35241,7 +35546,9 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder
   set data(covariant FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder();
+  FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs._defaults(this);
+  }
 
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -35268,6 +35575,7 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs build() => _build();
 
   _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs _build() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs._validate(this);
     _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -35352,7 +35660,9 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder
       _$this._ocs ??= FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder();
   set ocs(covariant FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder();
+  FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson._defaults(this);
+  }
 
   FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -35378,6 +35688,7 @@ class FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder
   FilesIntegrationGetRoomByFileIdResponseApplicationJson build() => _build();
 
   _$FilesIntegrationGetRoomByFileIdResponseApplicationJson _build() {
+    FilesIntegrationGetRoomByFileIdResponseApplicationJson._validate(this);
     _$FilesIntegrationGetRoomByFileIdResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$FilesIntegrationGetRoomByFileIdResponseApplicationJson._(ocs: ocs.build());
@@ -35492,7 +35803,9 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder
   String? get userDisplayName => _$this._userDisplayName;
   set userDisplayName(covariant String? userDisplayName) => _$this._userDisplayName = userDisplayName;
 
-  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder();
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -35520,6 +35833,7 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data build() => _build();
 
   _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data _build() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data._(
             token: BuiltValueNullFieldError.checkNotNull(
@@ -35614,7 +35928,9 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder
   set data(covariant FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder();
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs._defaults(this);
+  }
 
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -35641,6 +35957,7 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs build() => _build();
 
   _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs _build() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs._validate(this);
     _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -35725,7 +36042,9 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder
       _$this._ocs ??= FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder();
   set ocs(covariant FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder();
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson._defaults(this);
+  }
 
   FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -35751,6 +36070,7 @@ class FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson build() => _build();
 
   _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson _build() {
+    FilesIntegrationGetRoomByShareTokenResponseApplicationJson._validate(this);
     _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson._(ocs: ocs.build());
@@ -35842,7 +36162,9 @@ class GuestSetDisplayNameResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  GuestSetDisplayNameResponseApplicationJson_OcsBuilder();
+  GuestSetDisplayNameResponseApplicationJson_OcsBuilder() {
+    GuestSetDisplayNameResponseApplicationJson_Ocs._defaults(this);
+  }
 
   GuestSetDisplayNameResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -35869,6 +36191,7 @@ class GuestSetDisplayNameResponseApplicationJson_OcsBuilder
   GuestSetDisplayNameResponseApplicationJson_Ocs build() => _build();
 
   _$GuestSetDisplayNameResponseApplicationJson_Ocs _build() {
+    GuestSetDisplayNameResponseApplicationJson_Ocs._validate(this);
     _$GuestSetDisplayNameResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -35951,7 +36274,9 @@ class GuestSetDisplayNameResponseApplicationJsonBuilder
       _$this._ocs ??= GuestSetDisplayNameResponseApplicationJson_OcsBuilder();
   set ocs(covariant GuestSetDisplayNameResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  GuestSetDisplayNameResponseApplicationJsonBuilder();
+  GuestSetDisplayNameResponseApplicationJsonBuilder() {
+    GuestSetDisplayNameResponseApplicationJson._defaults(this);
+  }
 
   GuestSetDisplayNameResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -35977,6 +36302,7 @@ class GuestSetDisplayNameResponseApplicationJsonBuilder
   GuestSetDisplayNameResponseApplicationJson build() => _build();
 
   _$GuestSetDisplayNameResponseApplicationJson _build() {
+    GuestSetDisplayNameResponseApplicationJson._validate(this);
     _$GuestSetDisplayNameResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$GuestSetDisplayNameResponseApplicationJson._(ocs: ocs.build());
@@ -36074,7 +36400,9 @@ class HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder
   MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
   set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
 
-  HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder();
+  HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder() {
+    HostedSignalingServerRequestTrialResponseApplicationJson_Ocs._defaults(this);
+  }
 
   HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -36101,6 +36429,7 @@ class HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder
   HostedSignalingServerRequestTrialResponseApplicationJson_Ocs build() => _build();
 
   _$HostedSignalingServerRequestTrialResponseApplicationJson_Ocs _build() {
+    HostedSignalingServerRequestTrialResponseApplicationJson_Ocs._validate(this);
     _$HostedSignalingServerRequestTrialResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -36185,7 +36514,9 @@ class HostedSignalingServerRequestTrialResponseApplicationJsonBuilder
       _$this._ocs ??= HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder();
   set ocs(covariant HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  HostedSignalingServerRequestTrialResponseApplicationJsonBuilder();
+  HostedSignalingServerRequestTrialResponseApplicationJsonBuilder() {
+    HostedSignalingServerRequestTrialResponseApplicationJson._defaults(this);
+  }
 
   HostedSignalingServerRequestTrialResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -36211,6 +36542,7 @@ class HostedSignalingServerRequestTrialResponseApplicationJsonBuilder
   HostedSignalingServerRequestTrialResponseApplicationJson build() => _build();
 
   _$HostedSignalingServerRequestTrialResponseApplicationJson _build() {
+    HostedSignalingServerRequestTrialResponseApplicationJson._validate(this);
     _$HostedSignalingServerRequestTrialResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$HostedSignalingServerRequestTrialResponseApplicationJson._(ocs: ocs.build());
@@ -36309,7 +36641,9 @@ class HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder();
+  HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder() {
+    HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs._defaults(this);
+  }
 
   HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -36336,6 +36670,7 @@ class HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder
   HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs build() => _build();
 
   _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs _build() {
+    HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs._validate(this);
     _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -36421,7 +36756,9 @@ class HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder
       _$this._ocs ??= HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder();
   set ocs(covariant HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder();
+  HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder() {
+    HostedSignalingServerDeleteAccountResponseApplicationJson._defaults(this);
+  }
 
   HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -36447,6 +36784,7 @@ class HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder
   HostedSignalingServerDeleteAccountResponseApplicationJson build() => _build();
 
   _$HostedSignalingServerDeleteAccountResponseApplicationJson _build() {
+    HostedSignalingServerDeleteAccountResponseApplicationJson._validate(this);
     _$HostedSignalingServerDeleteAccountResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$HostedSignalingServerDeleteAccountResponseApplicationJson._(ocs: ocs.build());
@@ -36543,7 +36881,9 @@ class MatterbridgeBuilder implements Builder<Matterbridge, MatterbridgeBuilder>,
   int? get pid => _$this._pid;
   set pid(covariant int? pid) => _$this._pid = pid;
 
-  MatterbridgeBuilder();
+  MatterbridgeBuilder() {
+    Matterbridge._defaults(this);
+  }
 
   MatterbridgeBuilder get _$this {
     final $v = _$v;
@@ -36571,6 +36911,7 @@ class MatterbridgeBuilder implements Builder<Matterbridge, MatterbridgeBuilder>,
   Matterbridge build() => _build();
 
   _$Matterbridge _build() {
+    Matterbridge._validate(this);
     _$Matterbridge _$result;
     try {
       _$result = _$v ??
@@ -36662,7 +37003,9 @@ class MatterbridgeProcessStateBuilder
   bool? get running => _$this._running;
   set running(covariant bool? running) => _$this._running = running;
 
-  MatterbridgeProcessStateBuilder();
+  MatterbridgeProcessStateBuilder() {
+    MatterbridgeProcessState._defaults(this);
+  }
 
   MatterbridgeProcessStateBuilder get _$this {
     final $v = _$v;
@@ -36689,6 +37032,7 @@ class MatterbridgeProcessStateBuilder
   MatterbridgeProcessState build() => _build();
 
   _$MatterbridgeProcessState _build() {
+    MatterbridgeProcessState._validate(this);
     final _$result = _$v ??
         _$MatterbridgeProcessState._(
             log: BuiltValueNullFieldError.checkNotNull(log, r'MatterbridgeProcessState', 'log'),
@@ -36811,7 +37155,9 @@ class MatterbridgeWithProcessStateBuilder
   bool? get running => _$this._running;
   set running(covariant bool? running) => _$this._running = running;
 
-  MatterbridgeWithProcessStateBuilder();
+  MatterbridgeWithProcessStateBuilder() {
+    MatterbridgeWithProcessState._defaults(this);
+  }
 
   MatterbridgeWithProcessStateBuilder get _$this {
     final $v = _$v;
@@ -36841,6 +37187,7 @@ class MatterbridgeWithProcessStateBuilder
   MatterbridgeWithProcessState build() => _build();
 
   _$MatterbridgeWithProcessState _build() {
+    MatterbridgeWithProcessState._validate(this);
     _$MatterbridgeWithProcessState _$result;
     try {
       _$result = _$v ??
@@ -36939,7 +37286,9 @@ class MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder
   MatterbridgeWithProcessStateBuilder get data => _$this._data ??= MatterbridgeWithProcessStateBuilder();
   set data(covariant MatterbridgeWithProcessStateBuilder? data) => _$this._data = data;
 
-  MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder();
+  MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder() {
+    MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -36966,6 +37315,7 @@ class MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder
   MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs _build() {
+    MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -37049,7 +37399,9 @@ class MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder
       _$this._ocs ??= MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder();
+  MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder() {
+    MatterbridgeGetBridgeOfRoomResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -37075,6 +37427,7 @@ class MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder
   MatterbridgeGetBridgeOfRoomResponseApplicationJson build() => _build();
 
   _$MatterbridgeGetBridgeOfRoomResponseApplicationJson _build() {
+    MatterbridgeGetBridgeOfRoomResponseApplicationJson._validate(this);
     _$MatterbridgeGetBridgeOfRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeGetBridgeOfRoomResponseApplicationJson._(ocs: ocs.build());
@@ -37168,7 +37521,9 @@ class MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder
   MatterbridgeProcessStateBuilder get data => _$this._data ??= MatterbridgeProcessStateBuilder();
   set data(covariant MatterbridgeProcessStateBuilder? data) => _$this._data = data;
 
-  MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder();
+  MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder() {
+    MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -37195,6 +37550,7 @@ class MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder
   MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs _build() {
+    MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -37279,7 +37635,9 @@ class MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder
       _$this._ocs ??= MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder();
+  MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder() {
+    MatterbridgeEditBridgeOfRoomResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -37305,6 +37663,7 @@ class MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder
   MatterbridgeEditBridgeOfRoomResponseApplicationJson build() => _build();
 
   _$MatterbridgeEditBridgeOfRoomResponseApplicationJson _build() {
+    MatterbridgeEditBridgeOfRoomResponseApplicationJson._validate(this);
     _$MatterbridgeEditBridgeOfRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeEditBridgeOfRoomResponseApplicationJson._(ocs: ocs.build());
@@ -37400,7 +37759,9 @@ class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder
   bool? get data => _$this._data;
   set data(covariant bool? data) => _$this._data = data;
 
-  MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder();
+  MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder() {
+    MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -37427,6 +37788,7 @@ class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs _build() {
+    MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -37512,7 +37874,9 @@ class MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder
       _$this._ocs ??= MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder();
+  MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder() {
+    MatterbridgeDeleteBridgeOfRoomResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -37538,6 +37902,7 @@ class MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJson build() => _build();
 
   _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson _build() {
+    MatterbridgeDeleteBridgeOfRoomResponseApplicationJson._validate(this);
     _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson._(ocs: ocs.build());
@@ -37636,7 +38001,9 @@ class MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder
   MatterbridgeProcessStateBuilder get data => _$this._data ??= MatterbridgeProcessStateBuilder();
   set data(covariant MatterbridgeProcessStateBuilder? data) => _$this._data = data;
 
-  MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder();
+  MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder() {
+    MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -37663,6 +38030,7 @@ class MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder
   MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs _build() {
+    MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -37747,7 +38115,9 @@ class MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder
       _$this._ocs ??= MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder();
   set ocs(covariant MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder();
+  MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder() {
+    MatterbridgeGetBridgeProcessStateResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -37773,6 +38143,7 @@ class MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder
   MatterbridgeGetBridgeProcessStateResponseApplicationJson build() => _build();
 
   _$MatterbridgeGetBridgeProcessStateResponseApplicationJson _build() {
+    MatterbridgeGetBridgeProcessStateResponseApplicationJson._validate(this);
     _$MatterbridgeGetBridgeProcessStateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeGetBridgeProcessStateResponseApplicationJson._(ocs: ocs.build());
@@ -37871,7 +38242,9 @@ class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder
   bool? get data => _$this._data;
   set data(covariant bool? data) => _$this._data = data;
 
-  MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder();
+  MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder() {
+    MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -37898,6 +38271,7 @@ class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder
   MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs _build() {
+    MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -37983,7 +38357,9 @@ class MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder
       _$this._ocs ??= MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder();
   set ocs(covariant MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder();
+  MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder() {
+    MatterbridgeSettingsStopAllBridgesResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -38009,6 +38385,7 @@ class MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder
   MatterbridgeSettingsStopAllBridgesResponseApplicationJson build() => _build();
 
   _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson _build() {
+    MatterbridgeSettingsStopAllBridgesResponseApplicationJson._validate(this);
     _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson._(ocs: ocs.build());
@@ -38095,7 +38472,9 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data
   String? get version => _$this._version;
   set version(covariant String? version) => _$this._version = version;
 
-  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder();
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -38122,6 +38501,7 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data build() => _build();
 
   _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data _build() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data._(
             version: BuiltValueNullFieldError.checkNotNull(
@@ -38213,7 +38593,9 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuild
   set data(covariant MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder? data) =>
       _$this._data = data;
 
-  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder();
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs._defaults(this);
+  }
 
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -38240,6 +38622,7 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuild
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs build() => _build();
 
   _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs _build() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs._validate(this);
     _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -38329,7 +38712,9 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder
   set ocs(covariant MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder? ocs) =>
       _$this._ocs = ocs;
 
-  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder();
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson._defaults(this);
+  }
 
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -38355,6 +38740,7 @@ class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson build() => _build();
 
   _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson _build() {
+    MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson._validate(this);
     _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson._(ocs: ocs.build());
@@ -38467,7 +38853,9 @@ class PollVoteBuilder implements Builder<PollVote, PollVoteBuilder>, $PollVoteIn
   int? get optionId => _$this._optionId;
   set optionId(covariant int? optionId) => _$this._optionId = optionId;
 
-  PollVoteBuilder();
+  PollVoteBuilder() {
+    PollVote._defaults(this);
+  }
 
   PollVoteBuilder get _$this {
     final $v = _$v;
@@ -38496,6 +38884,7 @@ class PollVoteBuilder implements Builder<PollVote, PollVoteBuilder>, $PollVoteIn
   PollVote build() => _build();
 
   _$PollVote _build() {
+    PollVote._validate(this);
     final _$result = _$v ??
         _$PollVote._(
             actorDisplayName: BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'PollVote', 'actorDisplayName'),
@@ -38726,7 +39115,9 @@ class PollBuilder implements Builder<Poll, PollBuilder>, $PollInterfaceBuilder {
   MapBuilder<String, int> get votes => _$this._votes ??= MapBuilder<String, int>();
   set votes(covariant MapBuilder<String, int>? votes) => _$this._votes = votes;
 
-  PollBuilder();
+  PollBuilder() {
+    Poll._defaults(this);
+  }
 
   PollBuilder get _$this {
     final $v = _$v;
@@ -38764,6 +39155,7 @@ class PollBuilder implements Builder<Poll, PollBuilder>, $PollInterfaceBuilder {
   Poll build() => _build();
 
   _$Poll _build() {
+    Poll._validate(this);
     _$Poll _$result;
     try {
       _$result = _$v ??
@@ -38876,7 +39268,9 @@ class PollCreatePollResponseApplicationJson_OcsBuilder
   PollBuilder get data => _$this._data ??= PollBuilder();
   set data(covariant PollBuilder? data) => _$this._data = data;
 
-  PollCreatePollResponseApplicationJson_OcsBuilder();
+  PollCreatePollResponseApplicationJson_OcsBuilder() {
+    PollCreatePollResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PollCreatePollResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -38903,6 +39297,7 @@ class PollCreatePollResponseApplicationJson_OcsBuilder
   PollCreatePollResponseApplicationJson_Ocs build() => _build();
 
   _$PollCreatePollResponseApplicationJson_Ocs _build() {
+    PollCreatePollResponseApplicationJson_Ocs._validate(this);
     _$PollCreatePollResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PollCreatePollResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -38981,7 +39376,9 @@ class PollCreatePollResponseApplicationJsonBuilder
       _$this._ocs ??= PollCreatePollResponseApplicationJson_OcsBuilder();
   set ocs(covariant PollCreatePollResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PollCreatePollResponseApplicationJsonBuilder();
+  PollCreatePollResponseApplicationJsonBuilder() {
+    PollCreatePollResponseApplicationJson._defaults(this);
+  }
 
   PollCreatePollResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -39007,6 +39404,7 @@ class PollCreatePollResponseApplicationJsonBuilder
   PollCreatePollResponseApplicationJson build() => _build();
 
   _$PollCreatePollResponseApplicationJson _build() {
+    PollCreatePollResponseApplicationJson._validate(this);
     _$PollCreatePollResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PollCreatePollResponseApplicationJson._(ocs: ocs.build());
@@ -39097,7 +39495,9 @@ class PollShowPollResponseApplicationJson_OcsBuilder
   PollBuilder get data => _$this._data ??= PollBuilder();
   set data(covariant PollBuilder? data) => _$this._data = data;
 
-  PollShowPollResponseApplicationJson_OcsBuilder();
+  PollShowPollResponseApplicationJson_OcsBuilder() {
+    PollShowPollResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PollShowPollResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -39124,6 +39524,7 @@ class PollShowPollResponseApplicationJson_OcsBuilder
   PollShowPollResponseApplicationJson_Ocs build() => _build();
 
   _$PollShowPollResponseApplicationJson_Ocs _build() {
+    PollShowPollResponseApplicationJson_Ocs._validate(this);
     _$PollShowPollResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PollShowPollResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -39200,7 +39601,9 @@ class PollShowPollResponseApplicationJsonBuilder
       _$this._ocs ??= PollShowPollResponseApplicationJson_OcsBuilder();
   set ocs(covariant PollShowPollResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PollShowPollResponseApplicationJsonBuilder();
+  PollShowPollResponseApplicationJsonBuilder() {
+    PollShowPollResponseApplicationJson._defaults(this);
+  }
 
   PollShowPollResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -39226,6 +39629,7 @@ class PollShowPollResponseApplicationJsonBuilder
   PollShowPollResponseApplicationJson build() => _build();
 
   _$PollShowPollResponseApplicationJson _build() {
+    PollShowPollResponseApplicationJson._validate(this);
     _$PollShowPollResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PollShowPollResponseApplicationJson._(ocs: ocs.build());
@@ -39316,7 +39720,9 @@ class PollVotePollResponseApplicationJson_OcsBuilder
   PollBuilder get data => _$this._data ??= PollBuilder();
   set data(covariant PollBuilder? data) => _$this._data = data;
 
-  PollVotePollResponseApplicationJson_OcsBuilder();
+  PollVotePollResponseApplicationJson_OcsBuilder() {
+    PollVotePollResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PollVotePollResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -39343,6 +39749,7 @@ class PollVotePollResponseApplicationJson_OcsBuilder
   PollVotePollResponseApplicationJson_Ocs build() => _build();
 
   _$PollVotePollResponseApplicationJson_Ocs _build() {
+    PollVotePollResponseApplicationJson_Ocs._validate(this);
     _$PollVotePollResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PollVotePollResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -39419,7 +39826,9 @@ class PollVotePollResponseApplicationJsonBuilder
       _$this._ocs ??= PollVotePollResponseApplicationJson_OcsBuilder();
   set ocs(covariant PollVotePollResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PollVotePollResponseApplicationJsonBuilder();
+  PollVotePollResponseApplicationJsonBuilder() {
+    PollVotePollResponseApplicationJson._defaults(this);
+  }
 
   PollVotePollResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -39445,6 +39854,7 @@ class PollVotePollResponseApplicationJsonBuilder
   PollVotePollResponseApplicationJson build() => _build();
 
   _$PollVotePollResponseApplicationJson _build() {
+    PollVotePollResponseApplicationJson._validate(this);
     _$PollVotePollResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PollVotePollResponseApplicationJson._(ocs: ocs.build());
@@ -39535,7 +39945,9 @@ class PollClosePollResponseApplicationJson_OcsBuilder
   PollBuilder get data => _$this._data ??= PollBuilder();
   set data(covariant PollBuilder? data) => _$this._data = data;
 
-  PollClosePollResponseApplicationJson_OcsBuilder();
+  PollClosePollResponseApplicationJson_OcsBuilder() {
+    PollClosePollResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PollClosePollResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -39562,6 +39974,7 @@ class PollClosePollResponseApplicationJson_OcsBuilder
   PollClosePollResponseApplicationJson_Ocs build() => _build();
 
   _$PollClosePollResponseApplicationJson_Ocs _build() {
+    PollClosePollResponseApplicationJson_Ocs._validate(this);
     _$PollClosePollResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PollClosePollResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -39640,7 +40053,9 @@ class PollClosePollResponseApplicationJsonBuilder
       _$this._ocs ??= PollClosePollResponseApplicationJson_OcsBuilder();
   set ocs(covariant PollClosePollResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PollClosePollResponseApplicationJsonBuilder();
+  PollClosePollResponseApplicationJsonBuilder() {
+    PollClosePollResponseApplicationJson._defaults(this);
+  }
 
   PollClosePollResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -39666,6 +40081,7 @@ class PollClosePollResponseApplicationJsonBuilder
   PollClosePollResponseApplicationJson build() => _build();
 
   _$PollClosePollResponseApplicationJson _build() {
+    PollClosePollResponseApplicationJson._validate(this);
     _$PollClosePollResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PollClosePollResponseApplicationJson._(ocs: ocs.build());
@@ -39776,7 +40192,9 @@ class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder
   String? get displayName => _$this._displayName;
   set displayName(covariant String? displayName) => _$this._displayName = displayName;
 
-  PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder();
+  PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder() {
+    PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -39804,6 +40222,7 @@ class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data build() => _build();
 
   _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data _build() {
+    PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._(
             token: BuiltValueNullFieldError.checkNotNull(
@@ -39892,7 +40311,9 @@ class PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder
       _$this._data ??= PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder();
+  PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder() {
+    PublicShareAuthCreateRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -39919,6 +40340,7 @@ class PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs build() => _build();
 
   _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs _build() {
+    PublicShareAuthCreateRoomResponseApplicationJson_Ocs._validate(this);
     _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -40002,7 +40424,9 @@ class PublicShareAuthCreateRoomResponseApplicationJsonBuilder
       _$this._ocs ??= PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PublicShareAuthCreateRoomResponseApplicationJsonBuilder();
+  PublicShareAuthCreateRoomResponseApplicationJsonBuilder() {
+    PublicShareAuthCreateRoomResponseApplicationJson._defaults(this);
+  }
 
   PublicShareAuthCreateRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -40028,6 +40452,7 @@ class PublicShareAuthCreateRoomResponseApplicationJsonBuilder
   PublicShareAuthCreateRoomResponseApplicationJson build() => _build();
 
   _$PublicShareAuthCreateRoomResponseApplicationJson _build() {
+    PublicShareAuthCreateRoomResponseApplicationJson._validate(this);
     _$PublicShareAuthCreateRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PublicShareAuthCreateRoomResponseApplicationJson._(ocs: ocs.build());
@@ -40141,7 +40566,9 @@ class ReactionBuilder implements Builder<Reaction, ReactionBuilder>, $ReactionIn
   int? get timestamp => _$this._timestamp;
   set timestamp(covariant int? timestamp) => _$this._timestamp = timestamp;
 
-  ReactionBuilder();
+  ReactionBuilder() {
+    Reaction._defaults(this);
+  }
 
   ReactionBuilder get _$this {
     final $v = _$v;
@@ -40170,6 +40597,7 @@ class ReactionBuilder implements Builder<Reaction, ReactionBuilder>, $ReactionIn
   Reaction build() => _build();
 
   _$Reaction _build() {
+    Reaction._validate(this);
     final _$result = _$v ??
         _$Reaction._(
             actorDisplayName: BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'Reaction', 'actorDisplayName'),
@@ -40254,7 +40682,9 @@ class ReactionGetReactionsResponseApplicationJson_OcsBuilder
   MapBuilder<String, BuiltList<Reaction>> get data => _$this._data ??= MapBuilder<String, BuiltList<Reaction>>();
   set data(covariant MapBuilder<String, BuiltList<Reaction>>? data) => _$this._data = data;
 
-  ReactionGetReactionsResponseApplicationJson_OcsBuilder();
+  ReactionGetReactionsResponseApplicationJson_OcsBuilder() {
+    ReactionGetReactionsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ReactionGetReactionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -40281,6 +40711,7 @@ class ReactionGetReactionsResponseApplicationJson_OcsBuilder
   ReactionGetReactionsResponseApplicationJson_Ocs build() => _build();
 
   _$ReactionGetReactionsResponseApplicationJson_Ocs _build() {
+    ReactionGetReactionsResponseApplicationJson_Ocs._validate(this);
     _$ReactionGetReactionsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ReactionGetReactionsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -40361,7 +40792,9 @@ class ReactionGetReactionsResponseApplicationJsonBuilder
       _$this._ocs ??= ReactionGetReactionsResponseApplicationJson_OcsBuilder();
   set ocs(covariant ReactionGetReactionsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ReactionGetReactionsResponseApplicationJsonBuilder();
+  ReactionGetReactionsResponseApplicationJsonBuilder() {
+    ReactionGetReactionsResponseApplicationJson._defaults(this);
+  }
 
   ReactionGetReactionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -40387,6 +40820,7 @@ class ReactionGetReactionsResponseApplicationJsonBuilder
   ReactionGetReactionsResponseApplicationJson build() => _build();
 
   _$ReactionGetReactionsResponseApplicationJson _build() {
+    ReactionGetReactionsResponseApplicationJson._validate(this);
     _$ReactionGetReactionsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ReactionGetReactionsResponseApplicationJson._(ocs: ocs.build());
@@ -40477,7 +40911,9 @@ class ReactionReactResponseApplicationJson_OcsBuilder
   MapBuilder<String, BuiltList<Reaction>> get data => _$this._data ??= MapBuilder<String, BuiltList<Reaction>>();
   set data(covariant MapBuilder<String, BuiltList<Reaction>>? data) => _$this._data = data;
 
-  ReactionReactResponseApplicationJson_OcsBuilder();
+  ReactionReactResponseApplicationJson_OcsBuilder() {
+    ReactionReactResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ReactionReactResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -40504,6 +40940,7 @@ class ReactionReactResponseApplicationJson_OcsBuilder
   ReactionReactResponseApplicationJson_Ocs build() => _build();
 
   _$ReactionReactResponseApplicationJson_Ocs _build() {
+    ReactionReactResponseApplicationJson_Ocs._validate(this);
     _$ReactionReactResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ReactionReactResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -40582,7 +41019,9 @@ class ReactionReactResponseApplicationJsonBuilder
       _$this._ocs ??= ReactionReactResponseApplicationJson_OcsBuilder();
   set ocs(covariant ReactionReactResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ReactionReactResponseApplicationJsonBuilder();
+  ReactionReactResponseApplicationJsonBuilder() {
+    ReactionReactResponseApplicationJson._defaults(this);
+  }
 
   ReactionReactResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -40608,6 +41047,7 @@ class ReactionReactResponseApplicationJsonBuilder
   ReactionReactResponseApplicationJson build() => _build();
 
   _$ReactionReactResponseApplicationJson _build() {
+    ReactionReactResponseApplicationJson._validate(this);
     _$ReactionReactResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ReactionReactResponseApplicationJson._(ocs: ocs.build());
@@ -40698,7 +41138,9 @@ class ReactionDeleteResponseApplicationJson_OcsBuilder
   MapBuilder<String, BuiltList<Reaction>> get data => _$this._data ??= MapBuilder<String, BuiltList<Reaction>>();
   set data(covariant MapBuilder<String, BuiltList<Reaction>>? data) => _$this._data = data;
 
-  ReactionDeleteResponseApplicationJson_OcsBuilder();
+  ReactionDeleteResponseApplicationJson_OcsBuilder() {
+    ReactionDeleteResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ReactionDeleteResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -40725,6 +41167,7 @@ class ReactionDeleteResponseApplicationJson_OcsBuilder
   ReactionDeleteResponseApplicationJson_Ocs build() => _build();
 
   _$ReactionDeleteResponseApplicationJson_Ocs _build() {
+    ReactionDeleteResponseApplicationJson_Ocs._validate(this);
     _$ReactionDeleteResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ReactionDeleteResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -40803,7 +41246,9 @@ class ReactionDeleteResponseApplicationJsonBuilder
       _$this._ocs ??= ReactionDeleteResponseApplicationJson_OcsBuilder();
   set ocs(covariant ReactionDeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ReactionDeleteResponseApplicationJsonBuilder();
+  ReactionDeleteResponseApplicationJsonBuilder() {
+    ReactionDeleteResponseApplicationJson._defaults(this);
+  }
 
   ReactionDeleteResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -40829,6 +41274,7 @@ class ReactionDeleteResponseApplicationJsonBuilder
   ReactionDeleteResponseApplicationJson build() => _build();
 
   _$ReactionDeleteResponseApplicationJson _build() {
+    ReactionDeleteResponseApplicationJson._validate(this);
     _$ReactionDeleteResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ReactionDeleteResponseApplicationJson._(ocs: ocs.build());
@@ -40919,7 +41365,9 @@ class RecordingStartResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RecordingStartResponseApplicationJson_OcsBuilder();
+  RecordingStartResponseApplicationJson_OcsBuilder() {
+    RecordingStartResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingStartResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -40946,6 +41394,7 @@ class RecordingStartResponseApplicationJson_OcsBuilder
   RecordingStartResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingStartResponseApplicationJson_Ocs _build() {
+    RecordingStartResponseApplicationJson_Ocs._validate(this);
     _$RecordingStartResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -41025,7 +41474,9 @@ class RecordingStartResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingStartResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingStartResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingStartResponseApplicationJsonBuilder();
+  RecordingStartResponseApplicationJsonBuilder() {
+    RecordingStartResponseApplicationJson._defaults(this);
+  }
 
   RecordingStartResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -41051,6 +41502,7 @@ class RecordingStartResponseApplicationJsonBuilder
   RecordingStartResponseApplicationJson build() => _build();
 
   _$RecordingStartResponseApplicationJson _build() {
+    RecordingStartResponseApplicationJson._validate(this);
     _$RecordingStartResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingStartResponseApplicationJson._(ocs: ocs.build());
@@ -41141,7 +41593,9 @@ class RecordingStopResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RecordingStopResponseApplicationJson_OcsBuilder();
+  RecordingStopResponseApplicationJson_OcsBuilder() {
+    RecordingStopResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingStopResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -41168,6 +41622,7 @@ class RecordingStopResponseApplicationJson_OcsBuilder
   RecordingStopResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingStopResponseApplicationJson_Ocs _build() {
+    RecordingStopResponseApplicationJson_Ocs._validate(this);
     _$RecordingStopResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -41247,7 +41702,9 @@ class RecordingStopResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingStopResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingStopResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingStopResponseApplicationJsonBuilder();
+  RecordingStopResponseApplicationJsonBuilder() {
+    RecordingStopResponseApplicationJson._defaults(this);
+  }
 
   RecordingStopResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -41273,6 +41730,7 @@ class RecordingStopResponseApplicationJsonBuilder
   RecordingStopResponseApplicationJson build() => _build();
 
   _$RecordingStopResponseApplicationJson _build() {
+    RecordingStopResponseApplicationJson._validate(this);
     _$RecordingStopResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingStopResponseApplicationJson._(ocs: ocs.build());
@@ -41363,7 +41821,9 @@ class RecordingStoreResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RecordingStoreResponseApplicationJson_OcsBuilder();
+  RecordingStoreResponseApplicationJson_OcsBuilder() {
+    RecordingStoreResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingStoreResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -41390,6 +41850,7 @@ class RecordingStoreResponseApplicationJson_OcsBuilder
   RecordingStoreResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingStoreResponseApplicationJson_Ocs _build() {
+    RecordingStoreResponseApplicationJson_Ocs._validate(this);
     _$RecordingStoreResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -41469,7 +41930,9 @@ class RecordingStoreResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingStoreResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingStoreResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingStoreResponseApplicationJsonBuilder();
+  RecordingStoreResponseApplicationJsonBuilder() {
+    RecordingStoreResponseApplicationJson._defaults(this);
+  }
 
   RecordingStoreResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -41495,6 +41958,7 @@ class RecordingStoreResponseApplicationJsonBuilder
   RecordingStoreResponseApplicationJson build() => _build();
 
   _$RecordingStoreResponseApplicationJson _build() {
+    RecordingStoreResponseApplicationJson._validate(this);
     _$RecordingStoreResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingStoreResponseApplicationJson._(ocs: ocs.build());
@@ -41587,7 +42051,9 @@ class RecordingNotificationDismissResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RecordingNotificationDismissResponseApplicationJson_OcsBuilder();
+  RecordingNotificationDismissResponseApplicationJson_OcsBuilder() {
+    RecordingNotificationDismissResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingNotificationDismissResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -41614,6 +42080,7 @@ class RecordingNotificationDismissResponseApplicationJson_OcsBuilder
   RecordingNotificationDismissResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingNotificationDismissResponseApplicationJson_Ocs _build() {
+    RecordingNotificationDismissResponseApplicationJson_Ocs._validate(this);
     _$RecordingNotificationDismissResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -41699,7 +42166,9 @@ class RecordingNotificationDismissResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingNotificationDismissResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingNotificationDismissResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingNotificationDismissResponseApplicationJsonBuilder();
+  RecordingNotificationDismissResponseApplicationJsonBuilder() {
+    RecordingNotificationDismissResponseApplicationJson._defaults(this);
+  }
 
   RecordingNotificationDismissResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -41725,6 +42194,7 @@ class RecordingNotificationDismissResponseApplicationJsonBuilder
   RecordingNotificationDismissResponseApplicationJson build() => _build();
 
   _$RecordingNotificationDismissResponseApplicationJson _build() {
+    RecordingNotificationDismissResponseApplicationJson._validate(this);
     _$RecordingNotificationDismissResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingNotificationDismissResponseApplicationJson._(ocs: ocs.build());
@@ -41817,7 +42287,9 @@ class RecordingShareToChatResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RecordingShareToChatResponseApplicationJson_OcsBuilder();
+  RecordingShareToChatResponseApplicationJson_OcsBuilder() {
+    RecordingShareToChatResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingShareToChatResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -41844,6 +42316,7 @@ class RecordingShareToChatResponseApplicationJson_OcsBuilder
   RecordingShareToChatResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingShareToChatResponseApplicationJson_Ocs _build() {
+    RecordingShareToChatResponseApplicationJson_Ocs._validate(this);
     _$RecordingShareToChatResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -41926,7 +42399,9 @@ class RecordingShareToChatResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingShareToChatResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingShareToChatResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingShareToChatResponseApplicationJsonBuilder();
+  RecordingShareToChatResponseApplicationJsonBuilder() {
+    RecordingShareToChatResponseApplicationJson._defaults(this);
+  }
 
   RecordingShareToChatResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -41952,6 +42427,7 @@ class RecordingShareToChatResponseApplicationJsonBuilder
   RecordingShareToChatResponseApplicationJson build() => _build();
 
   _$RecordingShareToChatResponseApplicationJson _build() {
+    RecordingShareToChatResponseApplicationJson._validate(this);
     _$RecordingShareToChatResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingShareToChatResponseApplicationJson._(ocs: ocs.build());
@@ -42033,7 +42509,9 @@ class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
   double? get version => _$this._version;
   set version(covariant double? version) => _$this._version = version;
 
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder() {
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -42059,6 +42537,7 @@ class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data build() => _build();
 
   _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data _build() {
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._(
             version: BuiltValueNullFieldError.checkNotNull(
@@ -42143,7 +42622,9 @@ class RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder
       _$this._data ??= RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+  RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder() {
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -42170,6 +42651,7 @@ class RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
 
   _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
+    RecordingGetWelcomeMessageResponseApplicationJson_Ocs._validate(this);
     _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -42253,7 +42735,9 @@ class RecordingGetWelcomeMessageResponseApplicationJsonBuilder
       _$this._ocs ??= RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
+  RecordingGetWelcomeMessageResponseApplicationJsonBuilder() {
+    RecordingGetWelcomeMessageResponseApplicationJson._defaults(this);
+  }
 
   RecordingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -42279,6 +42763,7 @@ class RecordingGetWelcomeMessageResponseApplicationJsonBuilder
   RecordingGetWelcomeMessageResponseApplicationJson build() => _build();
 
   _$RecordingGetWelcomeMessageResponseApplicationJson _build() {
+    RecordingGetWelcomeMessageResponseApplicationJson._validate(this);
     _$RecordingGetWelcomeMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RecordingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
@@ -42370,7 +42855,9 @@ class RoomGetRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  RoomGetRoomsResponseApplicationJson_OcsBuilder();
+  RoomGetRoomsResponseApplicationJson_OcsBuilder() {
+    RoomGetRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -42397,6 +42884,7 @@ class RoomGetRoomsResponseApplicationJson_OcsBuilder
   RoomGetRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetRoomsResponseApplicationJson_Ocs _build() {
+    RoomGetRoomsResponseApplicationJson_Ocs._validate(this);
     _$RoomGetRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomGetRoomsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -42473,7 +42961,9 @@ class RoomGetRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetRoomsResponseApplicationJsonBuilder();
+  RoomGetRoomsResponseApplicationJsonBuilder() {
+    RoomGetRoomsResponseApplicationJson._defaults(this);
+  }
 
   RoomGetRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -42499,6 +42989,7 @@ class RoomGetRoomsResponseApplicationJsonBuilder
   RoomGetRoomsResponseApplicationJson build() => _build();
 
   _$RoomGetRoomsResponseApplicationJson _build() {
+    RoomGetRoomsResponseApplicationJson._validate(this);
     _$RoomGetRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -42586,7 +43077,9 @@ class RoomRoomGetRoomsHeadersBuilder
   set xNextcloudTalkModifiedBefore(covariant String? xNextcloudTalkModifiedBefore) =>
       _$this._xNextcloudTalkModifiedBefore = xNextcloudTalkModifiedBefore;
 
-  RoomRoomGetRoomsHeadersBuilder();
+  RoomRoomGetRoomsHeadersBuilder() {
+    RoomRoomGetRoomsHeaders._defaults(this);
+  }
 
   RoomRoomGetRoomsHeadersBuilder get _$this {
     final $v = _$v;
@@ -42613,6 +43106,7 @@ class RoomRoomGetRoomsHeadersBuilder
   RoomRoomGetRoomsHeaders build() => _build();
 
   _$RoomRoomGetRoomsHeaders _build() {
+    RoomRoomGetRoomsHeaders._validate(this);
     final _$result = _$v ??
         _$RoomRoomGetRoomsHeaders._(
             xNextcloudTalkHash: xNextcloudTalkHash, xNextcloudTalkModifiedBefore: xNextcloudTalkModifiedBefore);
@@ -42693,7 +43187,9 @@ class RoomCreateRoomResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomCreateRoomResponseApplicationJson_OcsBuilder();
+  RoomCreateRoomResponseApplicationJson_OcsBuilder() {
+    RoomCreateRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomCreateRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -42720,6 +43216,7 @@ class RoomCreateRoomResponseApplicationJson_OcsBuilder
   RoomCreateRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomCreateRoomResponseApplicationJson_Ocs _build() {
+    RoomCreateRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomCreateRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomCreateRoomResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -42798,7 +43295,9 @@ class RoomCreateRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomCreateRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomCreateRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomCreateRoomResponseApplicationJsonBuilder();
+  RoomCreateRoomResponseApplicationJsonBuilder() {
+    RoomCreateRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomCreateRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -42824,6 +43323,7 @@ class RoomCreateRoomResponseApplicationJsonBuilder
   RoomCreateRoomResponseApplicationJson build() => _build();
 
   _$RoomCreateRoomResponseApplicationJson _build() {
+    RoomCreateRoomResponseApplicationJson._validate(this);
     _$RoomCreateRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomCreateRoomResponseApplicationJson._(ocs: ocs.build());
@@ -42914,7 +43414,9 @@ class RoomGetListedRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  RoomGetListedRoomsResponseApplicationJson_OcsBuilder();
+  RoomGetListedRoomsResponseApplicationJson_OcsBuilder() {
+    RoomGetListedRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetListedRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -42941,6 +43443,7 @@ class RoomGetListedRoomsResponseApplicationJson_OcsBuilder
   RoomGetListedRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetListedRoomsResponseApplicationJson_Ocs _build() {
+    RoomGetListedRoomsResponseApplicationJson_Ocs._validate(this);
     _$RoomGetListedRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomGetListedRoomsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -43020,7 +43523,9 @@ class RoomGetListedRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetListedRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetListedRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetListedRoomsResponseApplicationJsonBuilder();
+  RoomGetListedRoomsResponseApplicationJsonBuilder() {
+    RoomGetListedRoomsResponseApplicationJson._defaults(this);
+  }
 
   RoomGetListedRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -43046,6 +43551,7 @@ class RoomGetListedRoomsResponseApplicationJsonBuilder
   RoomGetListedRoomsResponseApplicationJson build() => _build();
 
   _$RoomGetListedRoomsResponseApplicationJson _build() {
+    RoomGetListedRoomsResponseApplicationJson._validate(this);
     _$RoomGetListedRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetListedRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -43140,7 +43646,9 @@ class RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder();
+  RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder() {
+    RoomGetNoteToSelfConversationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -43167,6 +43675,7 @@ class RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder
   RoomGetNoteToSelfConversationResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetNoteToSelfConversationResponseApplicationJson_Ocs _build() {
+    RoomGetNoteToSelfConversationResponseApplicationJson_Ocs._validate(this);
     _$RoomGetNoteToSelfConversationResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -43251,7 +43760,9 @@ class RoomGetNoteToSelfConversationResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetNoteToSelfConversationResponseApplicationJsonBuilder();
+  RoomGetNoteToSelfConversationResponseApplicationJsonBuilder() {
+    RoomGetNoteToSelfConversationResponseApplicationJson._defaults(this);
+  }
 
   RoomGetNoteToSelfConversationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -43277,6 +43788,7 @@ class RoomGetNoteToSelfConversationResponseApplicationJsonBuilder
   RoomGetNoteToSelfConversationResponseApplicationJson build() => _build();
 
   _$RoomGetNoteToSelfConversationResponseApplicationJson _build() {
+    RoomGetNoteToSelfConversationResponseApplicationJson._validate(this);
     _$RoomGetNoteToSelfConversationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetNoteToSelfConversationResponseApplicationJson._(ocs: ocs.build());
@@ -43354,7 +43866,9 @@ class RoomRoomGetNoteToSelfConversationHeadersBuilder
   String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
   set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
 
-  RoomRoomGetNoteToSelfConversationHeadersBuilder();
+  RoomRoomGetNoteToSelfConversationHeadersBuilder() {
+    RoomRoomGetNoteToSelfConversationHeaders._defaults(this);
+  }
 
   RoomRoomGetNoteToSelfConversationHeadersBuilder get _$this {
     final $v = _$v;
@@ -43380,6 +43894,7 @@ class RoomRoomGetNoteToSelfConversationHeadersBuilder
   RoomRoomGetNoteToSelfConversationHeaders build() => _build();
 
   _$RoomRoomGetNoteToSelfConversationHeaders _build() {
+    RoomRoomGetNoteToSelfConversationHeaders._validate(this);
     final _$result = _$v ?? _$RoomRoomGetNoteToSelfConversationHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
     replace(_$result);
     return _$result;
@@ -43458,7 +43973,9 @@ class RoomGetSingleRoomResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomGetSingleRoomResponseApplicationJson_OcsBuilder();
+  RoomGetSingleRoomResponseApplicationJson_OcsBuilder() {
+    RoomGetSingleRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetSingleRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -43485,6 +44002,7 @@ class RoomGetSingleRoomResponseApplicationJson_OcsBuilder
   RoomGetSingleRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetSingleRoomResponseApplicationJson_Ocs _build() {
+    RoomGetSingleRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomGetSingleRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomGetSingleRoomResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -43564,7 +44082,9 @@ class RoomGetSingleRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetSingleRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetSingleRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetSingleRoomResponseApplicationJsonBuilder();
+  RoomGetSingleRoomResponseApplicationJsonBuilder() {
+    RoomGetSingleRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomGetSingleRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -43590,6 +44110,7 @@ class RoomGetSingleRoomResponseApplicationJsonBuilder
   RoomGetSingleRoomResponseApplicationJson build() => _build();
 
   _$RoomGetSingleRoomResponseApplicationJson _build() {
+    RoomGetSingleRoomResponseApplicationJson._validate(this);
     _$RoomGetSingleRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetSingleRoomResponseApplicationJson._(ocs: ocs.build());
@@ -43662,7 +44183,9 @@ class RoomRoomGetSingleRoomHeadersBuilder
   String? get xNextcloudTalkHash => _$this._xNextcloudTalkHash;
   set xNextcloudTalkHash(covariant String? xNextcloudTalkHash) => _$this._xNextcloudTalkHash = xNextcloudTalkHash;
 
-  RoomRoomGetSingleRoomHeadersBuilder();
+  RoomRoomGetSingleRoomHeadersBuilder() {
+    RoomRoomGetSingleRoomHeaders._defaults(this);
+  }
 
   RoomRoomGetSingleRoomHeadersBuilder get _$this {
     final $v = _$v;
@@ -43688,6 +44211,7 @@ class RoomRoomGetSingleRoomHeadersBuilder
   RoomRoomGetSingleRoomHeaders build() => _build();
 
   _$RoomRoomGetSingleRoomHeaders _build() {
+    RoomRoomGetSingleRoomHeaders._validate(this);
     final _$result = _$v ?? _$RoomRoomGetSingleRoomHeaders._(xNextcloudTalkHash: xNextcloudTalkHash);
     replace(_$result);
     return _$result;
@@ -43766,7 +44290,9 @@ class RoomRenameRoomResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomRenameRoomResponseApplicationJson_OcsBuilder();
+  RoomRenameRoomResponseApplicationJson_OcsBuilder() {
+    RoomRenameRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomRenameRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -43793,6 +44319,7 @@ class RoomRenameRoomResponseApplicationJson_OcsBuilder
   RoomRenameRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomRenameRoomResponseApplicationJson_Ocs _build() {
+    RoomRenameRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomRenameRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -43872,7 +44399,9 @@ class RoomRenameRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomRenameRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomRenameRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomRenameRoomResponseApplicationJsonBuilder();
+  RoomRenameRoomResponseApplicationJsonBuilder() {
+    RoomRenameRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomRenameRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -43898,6 +44427,7 @@ class RoomRenameRoomResponseApplicationJsonBuilder
   RoomRenameRoomResponseApplicationJson build() => _build();
 
   _$RoomRenameRoomResponseApplicationJson _build() {
+    RoomRenameRoomResponseApplicationJson._validate(this);
     _$RoomRenameRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomRenameRoomResponseApplicationJson._(ocs: ocs.build());
@@ -43988,7 +44518,9 @@ class RoomDeleteRoomResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomDeleteRoomResponseApplicationJson_OcsBuilder();
+  RoomDeleteRoomResponseApplicationJson_OcsBuilder() {
+    RoomDeleteRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomDeleteRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -44015,6 +44547,7 @@ class RoomDeleteRoomResponseApplicationJson_OcsBuilder
   RoomDeleteRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomDeleteRoomResponseApplicationJson_Ocs _build() {
+    RoomDeleteRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomDeleteRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -44094,7 +44627,9 @@ class RoomDeleteRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomDeleteRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomDeleteRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomDeleteRoomResponseApplicationJsonBuilder();
+  RoomDeleteRoomResponseApplicationJsonBuilder() {
+    RoomDeleteRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomDeleteRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -44120,6 +44655,7 @@ class RoomDeleteRoomResponseApplicationJsonBuilder
   RoomDeleteRoomResponseApplicationJson build() => _build();
 
   _$RoomDeleteRoomResponseApplicationJson _build() {
+    RoomDeleteRoomResponseApplicationJson._validate(this);
     _$RoomDeleteRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomDeleteRoomResponseApplicationJson._(ocs: ocs.build());
@@ -44211,7 +44747,9 @@ class RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder
   ListBuilder<Room> get data => _$this._data ??= ListBuilder<Room>();
   set data(covariant ListBuilder<Room>? data) => _$this._data = data;
 
-  RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder();
+  RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder() {
+    RoomGetBreakoutRoomsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -44238,6 +44776,7 @@ class RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder
   RoomGetBreakoutRoomsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs _build() {
+    RoomGetBreakoutRoomsResponseApplicationJson_Ocs._validate(this);
     _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -44318,7 +44857,9 @@ class RoomGetBreakoutRoomsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetBreakoutRoomsResponseApplicationJsonBuilder();
+  RoomGetBreakoutRoomsResponseApplicationJsonBuilder() {
+    RoomGetBreakoutRoomsResponseApplicationJson._defaults(this);
+  }
 
   RoomGetBreakoutRoomsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -44344,6 +44885,7 @@ class RoomGetBreakoutRoomsResponseApplicationJsonBuilder
   RoomGetBreakoutRoomsResponseApplicationJson build() => _build();
 
   _$RoomGetBreakoutRoomsResponseApplicationJson _build() {
+    RoomGetBreakoutRoomsResponseApplicationJson._validate(this);
     _$RoomGetBreakoutRoomsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetBreakoutRoomsResponseApplicationJson._(ocs: ocs.build());
@@ -44434,7 +44976,9 @@ class RoomMakePublicResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomMakePublicResponseApplicationJson_OcsBuilder();
+  RoomMakePublicResponseApplicationJson_OcsBuilder() {
+    RoomMakePublicResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomMakePublicResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -44461,6 +45005,7 @@ class RoomMakePublicResponseApplicationJson_OcsBuilder
   RoomMakePublicResponseApplicationJson_Ocs build() => _build();
 
   _$RoomMakePublicResponseApplicationJson_Ocs _build() {
+    RoomMakePublicResponseApplicationJson_Ocs._validate(this);
     _$RoomMakePublicResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -44540,7 +45085,9 @@ class RoomMakePublicResponseApplicationJsonBuilder
       _$this._ocs ??= RoomMakePublicResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomMakePublicResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomMakePublicResponseApplicationJsonBuilder();
+  RoomMakePublicResponseApplicationJsonBuilder() {
+    RoomMakePublicResponseApplicationJson._defaults(this);
+  }
 
   RoomMakePublicResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -44566,6 +45113,7 @@ class RoomMakePublicResponseApplicationJsonBuilder
   RoomMakePublicResponseApplicationJson build() => _build();
 
   _$RoomMakePublicResponseApplicationJson _build() {
+    RoomMakePublicResponseApplicationJson._validate(this);
     _$RoomMakePublicResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomMakePublicResponseApplicationJson._(ocs: ocs.build());
@@ -44656,7 +45204,9 @@ class RoomMakePrivateResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomMakePrivateResponseApplicationJson_OcsBuilder();
+  RoomMakePrivateResponseApplicationJson_OcsBuilder() {
+    RoomMakePrivateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomMakePrivateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -44683,6 +45233,7 @@ class RoomMakePrivateResponseApplicationJson_OcsBuilder
   RoomMakePrivateResponseApplicationJson_Ocs build() => _build();
 
   _$RoomMakePrivateResponseApplicationJson_Ocs _build() {
+    RoomMakePrivateResponseApplicationJson_Ocs._validate(this);
     _$RoomMakePrivateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -44763,7 +45314,9 @@ class RoomMakePrivateResponseApplicationJsonBuilder
       _$this._ocs ??= RoomMakePrivateResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomMakePrivateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomMakePrivateResponseApplicationJsonBuilder();
+  RoomMakePrivateResponseApplicationJsonBuilder() {
+    RoomMakePrivateResponseApplicationJson._defaults(this);
+  }
 
   RoomMakePrivateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -44789,6 +45342,7 @@ class RoomMakePrivateResponseApplicationJsonBuilder
   RoomMakePrivateResponseApplicationJson build() => _build();
 
   _$RoomMakePrivateResponseApplicationJson _build() {
+    RoomMakePrivateResponseApplicationJson._validate(this);
     _$RoomMakePrivateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomMakePrivateResponseApplicationJson._(ocs: ocs.build());
@@ -44879,7 +45433,9 @@ class RoomSetDescriptionResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetDescriptionResponseApplicationJson_OcsBuilder();
+  RoomSetDescriptionResponseApplicationJson_OcsBuilder() {
+    RoomSetDescriptionResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetDescriptionResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -44906,6 +45462,7 @@ class RoomSetDescriptionResponseApplicationJson_OcsBuilder
   RoomSetDescriptionResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetDescriptionResponseApplicationJson_Ocs _build() {
+    RoomSetDescriptionResponseApplicationJson_Ocs._validate(this);
     _$RoomSetDescriptionResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -44987,7 +45544,9 @@ class RoomSetDescriptionResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetDescriptionResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetDescriptionResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetDescriptionResponseApplicationJsonBuilder();
+  RoomSetDescriptionResponseApplicationJsonBuilder() {
+    RoomSetDescriptionResponseApplicationJson._defaults(this);
+  }
 
   RoomSetDescriptionResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -45013,6 +45572,7 @@ class RoomSetDescriptionResponseApplicationJsonBuilder
   RoomSetDescriptionResponseApplicationJson build() => _build();
 
   _$RoomSetDescriptionResponseApplicationJson _build() {
+    RoomSetDescriptionResponseApplicationJson._validate(this);
     _$RoomSetDescriptionResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetDescriptionResponseApplicationJson._(ocs: ocs.build());
@@ -45103,7 +45663,9 @@ class RoomSetReadOnlyResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetReadOnlyResponseApplicationJson_OcsBuilder();
+  RoomSetReadOnlyResponseApplicationJson_OcsBuilder() {
+    RoomSetReadOnlyResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetReadOnlyResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -45130,6 +45692,7 @@ class RoomSetReadOnlyResponseApplicationJson_OcsBuilder
   RoomSetReadOnlyResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetReadOnlyResponseApplicationJson_Ocs _build() {
+    RoomSetReadOnlyResponseApplicationJson_Ocs._validate(this);
     _$RoomSetReadOnlyResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -45210,7 +45773,9 @@ class RoomSetReadOnlyResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetReadOnlyResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetReadOnlyResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetReadOnlyResponseApplicationJsonBuilder();
+  RoomSetReadOnlyResponseApplicationJsonBuilder() {
+    RoomSetReadOnlyResponseApplicationJson._defaults(this);
+  }
 
   RoomSetReadOnlyResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -45236,6 +45801,7 @@ class RoomSetReadOnlyResponseApplicationJsonBuilder
   RoomSetReadOnlyResponseApplicationJson build() => _build();
 
   _$RoomSetReadOnlyResponseApplicationJson _build() {
+    RoomSetReadOnlyResponseApplicationJson._validate(this);
     _$RoomSetReadOnlyResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetReadOnlyResponseApplicationJson._(ocs: ocs.build());
@@ -45326,7 +45892,9 @@ class RoomSetListableResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetListableResponseApplicationJson_OcsBuilder();
+  RoomSetListableResponseApplicationJson_OcsBuilder() {
+    RoomSetListableResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetListableResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -45353,6 +45921,7 @@ class RoomSetListableResponseApplicationJson_OcsBuilder
   RoomSetListableResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetListableResponseApplicationJson_Ocs _build() {
+    RoomSetListableResponseApplicationJson_Ocs._validate(this);
     _$RoomSetListableResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -45433,7 +46002,9 @@ class RoomSetListableResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetListableResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetListableResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetListableResponseApplicationJsonBuilder();
+  RoomSetListableResponseApplicationJsonBuilder() {
+    RoomSetListableResponseApplicationJson._defaults(this);
+  }
 
   RoomSetListableResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -45459,6 +46030,7 @@ class RoomSetListableResponseApplicationJsonBuilder
   RoomSetListableResponseApplicationJson build() => _build();
 
   _$RoomSetListableResponseApplicationJson _build() {
+    RoomSetListableResponseApplicationJson._validate(this);
     _$RoomSetListableResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetListableResponseApplicationJson._(ocs: ocs.build());
@@ -45549,7 +46121,9 @@ class RoomSetPasswordResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetPasswordResponseApplicationJson_OcsBuilder();
+  RoomSetPasswordResponseApplicationJson_OcsBuilder() {
+    RoomSetPasswordResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetPasswordResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -45576,6 +46150,7 @@ class RoomSetPasswordResponseApplicationJson_OcsBuilder
   RoomSetPasswordResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetPasswordResponseApplicationJson_Ocs _build() {
+    RoomSetPasswordResponseApplicationJson_Ocs._validate(this);
     _$RoomSetPasswordResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -45656,7 +46231,9 @@ class RoomSetPasswordResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetPasswordResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetPasswordResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetPasswordResponseApplicationJsonBuilder();
+  RoomSetPasswordResponseApplicationJsonBuilder() {
+    RoomSetPasswordResponseApplicationJson._defaults(this);
+  }
 
   RoomSetPasswordResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -45682,6 +46259,7 @@ class RoomSetPasswordResponseApplicationJsonBuilder
   RoomSetPasswordResponseApplicationJson build() => _build();
 
   _$RoomSetPasswordResponseApplicationJson _build() {
+    RoomSetPasswordResponseApplicationJson._validate(this);
     _$RoomSetPasswordResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetPasswordResponseApplicationJson._(ocs: ocs.build());
@@ -45772,7 +46350,9 @@ class RoomSetPermissionsResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetPermissionsResponseApplicationJson_OcsBuilder();
+  RoomSetPermissionsResponseApplicationJson_OcsBuilder() {
+    RoomSetPermissionsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetPermissionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -45799,6 +46379,7 @@ class RoomSetPermissionsResponseApplicationJson_OcsBuilder
   RoomSetPermissionsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetPermissionsResponseApplicationJson_Ocs _build() {
+    RoomSetPermissionsResponseApplicationJson_Ocs._validate(this);
     _$RoomSetPermissionsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomSetPermissionsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -45878,7 +46459,9 @@ class RoomSetPermissionsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetPermissionsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetPermissionsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetPermissionsResponseApplicationJsonBuilder();
+  RoomSetPermissionsResponseApplicationJsonBuilder() {
+    RoomSetPermissionsResponseApplicationJson._defaults(this);
+  }
 
   RoomSetPermissionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -45904,6 +46487,7 @@ class RoomSetPermissionsResponseApplicationJsonBuilder
   RoomSetPermissionsResponseApplicationJson build() => _build();
 
   _$RoomSetPermissionsResponseApplicationJson _build() {
+    RoomSetPermissionsResponseApplicationJson._validate(this);
     _$RoomSetPermissionsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetPermissionsResponseApplicationJson._(ocs: ocs.build());
@@ -46210,7 +46794,9 @@ class ParticipantBuilder implements Builder<Participant, ParticipantBuilder>, $P
   String? get callId => _$this._callId;
   set callId(covariant String? callId) => _$this._callId = callId;
 
-  ParticipantBuilder();
+  ParticipantBuilder() {
+    Participant._defaults(this);
+  }
 
   ParticipantBuilder get _$this {
     final $v = _$v;
@@ -46253,6 +46839,7 @@ class ParticipantBuilder implements Builder<Participant, ParticipantBuilder>, $P
   Participant build() => _build();
 
   _$Participant _build() {
+    Participant._validate(this);
     _$Participant _$result;
     try {
       _$result = _$v ??
@@ -46364,7 +46951,9 @@ class RoomGetParticipantsResponseApplicationJson_OcsBuilder
   ListBuilder<Participant> get data => _$this._data ??= ListBuilder<Participant>();
   set data(covariant ListBuilder<Participant>? data) => _$this._data = data;
 
-  RoomGetParticipantsResponseApplicationJson_OcsBuilder();
+  RoomGetParticipantsResponseApplicationJson_OcsBuilder() {
+    RoomGetParticipantsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetParticipantsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -46391,6 +46980,7 @@ class RoomGetParticipantsResponseApplicationJson_OcsBuilder
   RoomGetParticipantsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetParticipantsResponseApplicationJson_Ocs _build() {
+    RoomGetParticipantsResponseApplicationJson_Ocs._validate(this);
     _$RoomGetParticipantsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomGetParticipantsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -46471,7 +47061,9 @@ class RoomGetParticipantsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetParticipantsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetParticipantsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetParticipantsResponseApplicationJsonBuilder();
+  RoomGetParticipantsResponseApplicationJsonBuilder() {
+    RoomGetParticipantsResponseApplicationJson._defaults(this);
+  }
 
   RoomGetParticipantsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -46497,6 +47089,7 @@ class RoomGetParticipantsResponseApplicationJsonBuilder
   RoomGetParticipantsResponseApplicationJson build() => _build();
 
   _$RoomGetParticipantsResponseApplicationJson _build() {
+    RoomGetParticipantsResponseApplicationJson._validate(this);
     _$RoomGetParticipantsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetParticipantsResponseApplicationJson._(ocs: ocs.build());
@@ -46571,7 +47164,9 @@ class RoomRoomGetParticipantsHeadersBuilder
   set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
-  RoomRoomGetParticipantsHeadersBuilder();
+  RoomRoomGetParticipantsHeadersBuilder() {
+    RoomRoomGetParticipantsHeaders._defaults(this);
+  }
 
   RoomRoomGetParticipantsHeadersBuilder get _$this {
     final $v = _$v;
@@ -46597,6 +47192,7 @@ class RoomRoomGetParticipantsHeadersBuilder
   RoomRoomGetParticipantsHeaders build() => _build();
 
   _$RoomRoomGetParticipantsHeaders _build() {
+    RoomRoomGetParticipantsHeaders._validate(this);
     _$RoomRoomGetParticipantsHeaders _$result;
     try {
       _$result =
@@ -46678,7 +47274,9 @@ class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder
   int? get type => _$this._type;
   set type(covariant int? type) => _$this._type = type;
 
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder();
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder() {
+    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0._defaults(this);
+  }
 
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder get _$this {
     final $v = _$v;
@@ -46704,6 +47302,7 @@ class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 build() => _build();
 
   _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 _build() {
+    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0._validate(this);
     final _$result = _$v ??
         _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0._(
             type: BuiltValueNullFieldError.checkNotNull(
@@ -46790,7 +47389,9 @@ class RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? get data => _$this._data;
   set data(covariant RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? data) => _$this._data = data;
 
-  RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder();
+  RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder() {
+    RoomAddParticipantToRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -46902,7 +47503,9 @@ class RoomAddParticipantToRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomAddParticipantToRoomResponseApplicationJsonBuilder();
+  RoomAddParticipantToRoomResponseApplicationJsonBuilder() {
+    RoomAddParticipantToRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomAddParticipantToRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -46928,6 +47531,7 @@ class RoomAddParticipantToRoomResponseApplicationJsonBuilder
   RoomAddParticipantToRoomResponseApplicationJson build() => _build();
 
   _$RoomAddParticipantToRoomResponseApplicationJson _build() {
+    RoomAddParticipantToRoomResponseApplicationJson._validate(this);
     _$RoomAddParticipantToRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomAddParticipantToRoomResponseApplicationJson._(ocs: ocs.build());
@@ -47023,7 +47627,9 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder
   ListBuilder<Participant> get data => _$this._data ??= ListBuilder<Participant>();
   set data(covariant ListBuilder<Participant>? data) => _$this._data = data;
 
-  RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder();
+  RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder() {
+    RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -47050,6 +47656,7 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder
   RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs _build() {
+    RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs._validate(this);
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -47134,7 +47741,9 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder();
+  RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder() {
+    RoomGetBreakoutRoomParticipantsResponseApplicationJson._defaults(this);
+  }
 
   RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -47160,6 +47769,7 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder
   RoomGetBreakoutRoomParticipantsResponseApplicationJson build() => _build();
 
   _$RoomGetBreakoutRoomParticipantsResponseApplicationJson _build() {
+    RoomGetBreakoutRoomParticipantsResponseApplicationJson._validate(this);
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomGetBreakoutRoomParticipantsResponseApplicationJson._(ocs: ocs.build());
@@ -47239,7 +47849,9 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
   set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
-  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
+  RoomRoomGetBreakoutRoomParticipantsHeadersBuilder() {
+    RoomRoomGetBreakoutRoomParticipantsHeaders._defaults(this);
+  }
 
   RoomRoomGetBreakoutRoomParticipantsHeadersBuilder get _$this {
     final $v = _$v;
@@ -47265,6 +47877,7 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
   RoomRoomGetBreakoutRoomParticipantsHeaders build() => _build();
 
   _$RoomRoomGetBreakoutRoomParticipantsHeaders _build() {
+    RoomRoomGetBreakoutRoomParticipantsHeaders._validate(this);
     _$RoomRoomGetBreakoutRoomParticipantsHeaders _$result;
     try {
       _$result = _$v ??
@@ -47358,7 +47971,9 @@ class RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder();
+  RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder() {
+    RoomRemoveSelfFromRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -47385,6 +48000,7 @@ class RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder
   RoomRemoveSelfFromRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomRemoveSelfFromRoomResponseApplicationJson_Ocs _build() {
+    RoomRemoveSelfFromRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomRemoveSelfFromRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -47467,7 +48083,9 @@ class RoomRemoveSelfFromRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomRemoveSelfFromRoomResponseApplicationJsonBuilder();
+  RoomRemoveSelfFromRoomResponseApplicationJsonBuilder() {
+    RoomRemoveSelfFromRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomRemoveSelfFromRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -47493,6 +48111,7 @@ class RoomRemoveSelfFromRoomResponseApplicationJsonBuilder
   RoomRemoveSelfFromRoomResponseApplicationJson build() => _build();
 
   _$RoomRemoveSelfFromRoomResponseApplicationJson _build() {
+    RoomRemoveSelfFromRoomResponseApplicationJson._validate(this);
     _$RoomRemoveSelfFromRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomRemoveSelfFromRoomResponseApplicationJson._(ocs: ocs.build());
@@ -47585,7 +48204,9 @@ class RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder();
+  RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder() {
+    RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -47612,6 +48233,7 @@ class RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder
   RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs _build() {
+    RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -47696,7 +48318,9 @@ class RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder();
+  RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder() {
+    RoomRemoveAttendeeFromRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -47722,6 +48346,7 @@ class RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder
   RoomRemoveAttendeeFromRoomResponseApplicationJson build() => _build();
 
   _$RoomRemoveAttendeeFromRoomResponseApplicationJson _build() {
+    RoomRemoveAttendeeFromRoomResponseApplicationJson._validate(this);
     _$RoomRemoveAttendeeFromRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomRemoveAttendeeFromRoomResponseApplicationJson._(ocs: ocs.build());
@@ -47815,7 +48440,9 @@ class RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder();
+  RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder() {
+    RoomSetAttendeePermissionsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -47842,6 +48469,7 @@ class RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder
   RoomSetAttendeePermissionsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetAttendeePermissionsResponseApplicationJson_Ocs _build() {
+    RoomSetAttendeePermissionsResponseApplicationJson_Ocs._validate(this);
     _$RoomSetAttendeePermissionsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -47926,7 +48554,9 @@ class RoomSetAttendeePermissionsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetAttendeePermissionsResponseApplicationJsonBuilder();
+  RoomSetAttendeePermissionsResponseApplicationJsonBuilder() {
+    RoomSetAttendeePermissionsResponseApplicationJson._defaults(this);
+  }
 
   RoomSetAttendeePermissionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -47952,6 +48582,7 @@ class RoomSetAttendeePermissionsResponseApplicationJsonBuilder
   RoomSetAttendeePermissionsResponseApplicationJson build() => _build();
 
   _$RoomSetAttendeePermissionsResponseApplicationJson _build() {
+    RoomSetAttendeePermissionsResponseApplicationJson._validate(this);
     _$RoomSetAttendeePermissionsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetAttendeePermissionsResponseApplicationJson._(ocs: ocs.build());
@@ -48047,7 +48678,9 @@ class RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder();
+  RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder() {
+    RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -48074,6 +48707,7 @@ class RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder
   RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs _build() {
+    RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs._validate(this);
     _$RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -48158,7 +48792,9 @@ class RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder();
+  RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder() {
+    RoomSetAllAttendeesPermissionsResponseApplicationJson._defaults(this);
+  }
 
   RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -48184,6 +48820,7 @@ class RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder
   RoomSetAllAttendeesPermissionsResponseApplicationJson build() => _build();
 
   _$RoomSetAllAttendeesPermissionsResponseApplicationJson _build() {
+    RoomSetAllAttendeesPermissionsResponseApplicationJson._validate(this);
     _$RoomSetAllAttendeesPermissionsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetAllAttendeesPermissionsResponseApplicationJson._(ocs: ocs.build());
@@ -48275,7 +48912,9 @@ class RoomJoinRoomResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomJoinRoomResponseApplicationJson_OcsBuilder();
+  RoomJoinRoomResponseApplicationJson_OcsBuilder() {
+    RoomJoinRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomJoinRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -48302,6 +48941,7 @@ class RoomJoinRoomResponseApplicationJson_OcsBuilder
   RoomJoinRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomJoinRoomResponseApplicationJson_Ocs _build() {
+    RoomJoinRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomJoinRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomJoinRoomResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -48378,7 +49018,9 @@ class RoomJoinRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomJoinRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomJoinRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomJoinRoomResponseApplicationJsonBuilder();
+  RoomJoinRoomResponseApplicationJsonBuilder() {
+    RoomJoinRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomJoinRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -48404,6 +49046,7 @@ class RoomJoinRoomResponseApplicationJsonBuilder
   RoomJoinRoomResponseApplicationJson build() => _build();
 
   _$RoomJoinRoomResponseApplicationJson _build() {
+    RoomJoinRoomResponseApplicationJson._validate(this);
     _$RoomJoinRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomJoinRoomResponseApplicationJson._(ocs: ocs.build());
@@ -48494,7 +49137,9 @@ class RoomLeaveRoomResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomLeaveRoomResponseApplicationJson_OcsBuilder();
+  RoomLeaveRoomResponseApplicationJson_OcsBuilder() {
+    RoomLeaveRoomResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomLeaveRoomResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -48521,6 +49166,7 @@ class RoomLeaveRoomResponseApplicationJson_OcsBuilder
   RoomLeaveRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomLeaveRoomResponseApplicationJson_Ocs _build() {
+    RoomLeaveRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomLeaveRoomResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -48600,7 +49246,9 @@ class RoomLeaveRoomResponseApplicationJsonBuilder
       _$this._ocs ??= RoomLeaveRoomResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomLeaveRoomResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomLeaveRoomResponseApplicationJsonBuilder();
+  RoomLeaveRoomResponseApplicationJsonBuilder() {
+    RoomLeaveRoomResponseApplicationJson._defaults(this);
+  }
 
   RoomLeaveRoomResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -48626,6 +49274,7 @@ class RoomLeaveRoomResponseApplicationJsonBuilder
   RoomLeaveRoomResponseApplicationJson build() => _build();
 
   _$RoomLeaveRoomResponseApplicationJson _build() {
+    RoomLeaveRoomResponseApplicationJson._validate(this);
     _$RoomLeaveRoomResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomLeaveRoomResponseApplicationJson._(ocs: ocs.build());
@@ -48717,7 +49366,9 @@ class RoomResendInvitationsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomResendInvitationsResponseApplicationJson_OcsBuilder();
+  RoomResendInvitationsResponseApplicationJson_OcsBuilder() {
+    RoomResendInvitationsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomResendInvitationsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -48744,6 +49395,7 @@ class RoomResendInvitationsResponseApplicationJson_OcsBuilder
   RoomResendInvitationsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomResendInvitationsResponseApplicationJson_Ocs _build() {
+    RoomResendInvitationsResponseApplicationJson_Ocs._validate(this);
     _$RoomResendInvitationsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -48826,7 +49478,9 @@ class RoomResendInvitationsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomResendInvitationsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomResendInvitationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomResendInvitationsResponseApplicationJsonBuilder();
+  RoomResendInvitationsResponseApplicationJsonBuilder() {
+    RoomResendInvitationsResponseApplicationJson._defaults(this);
+  }
 
   RoomResendInvitationsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -48852,6 +49506,7 @@ class RoomResendInvitationsResponseApplicationJsonBuilder
   RoomResendInvitationsResponseApplicationJson build() => _build();
 
   _$RoomResendInvitationsResponseApplicationJson _build() {
+    RoomResendInvitationsResponseApplicationJson._validate(this);
     _$RoomResendInvitationsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomResendInvitationsResponseApplicationJson._(ocs: ocs.build());
@@ -48942,7 +49597,9 @@ class RoomSetSessionStateResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetSessionStateResponseApplicationJson_OcsBuilder();
+  RoomSetSessionStateResponseApplicationJson_OcsBuilder() {
+    RoomSetSessionStateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetSessionStateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -48969,6 +49626,7 @@ class RoomSetSessionStateResponseApplicationJson_OcsBuilder
   RoomSetSessionStateResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetSessionStateResponseApplicationJson_Ocs _build() {
+    RoomSetSessionStateResponseApplicationJson_Ocs._validate(this);
     _$RoomSetSessionStateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomSetSessionStateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -49049,7 +49707,9 @@ class RoomSetSessionStateResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetSessionStateResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetSessionStateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetSessionStateResponseApplicationJsonBuilder();
+  RoomSetSessionStateResponseApplicationJsonBuilder() {
+    RoomSetSessionStateResponseApplicationJson._defaults(this);
+  }
 
   RoomSetSessionStateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -49075,6 +49735,7 @@ class RoomSetSessionStateResponseApplicationJsonBuilder
   RoomSetSessionStateResponseApplicationJson build() => _build();
 
   _$RoomSetSessionStateResponseApplicationJson _build() {
+    RoomSetSessionStateResponseApplicationJson._validate(this);
     _$RoomSetSessionStateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetSessionStateResponseApplicationJson._(ocs: ocs.build());
@@ -49166,7 +49827,9 @@ class RoomPromoteModeratorResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomPromoteModeratorResponseApplicationJson_OcsBuilder();
+  RoomPromoteModeratorResponseApplicationJson_OcsBuilder() {
+    RoomPromoteModeratorResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomPromoteModeratorResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -49193,6 +49856,7 @@ class RoomPromoteModeratorResponseApplicationJson_OcsBuilder
   RoomPromoteModeratorResponseApplicationJson_Ocs build() => _build();
 
   _$RoomPromoteModeratorResponseApplicationJson_Ocs _build() {
+    RoomPromoteModeratorResponseApplicationJson_Ocs._validate(this);
     _$RoomPromoteModeratorResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -49275,7 +49939,9 @@ class RoomPromoteModeratorResponseApplicationJsonBuilder
       _$this._ocs ??= RoomPromoteModeratorResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomPromoteModeratorResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomPromoteModeratorResponseApplicationJsonBuilder();
+  RoomPromoteModeratorResponseApplicationJsonBuilder() {
+    RoomPromoteModeratorResponseApplicationJson._defaults(this);
+  }
 
   RoomPromoteModeratorResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -49301,6 +49967,7 @@ class RoomPromoteModeratorResponseApplicationJsonBuilder
   RoomPromoteModeratorResponseApplicationJson build() => _build();
 
   _$RoomPromoteModeratorResponseApplicationJson _build() {
+    RoomPromoteModeratorResponseApplicationJson._validate(this);
     _$RoomPromoteModeratorResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomPromoteModeratorResponseApplicationJson._(ocs: ocs.build());
@@ -49391,7 +50058,9 @@ class RoomDemoteModeratorResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomDemoteModeratorResponseApplicationJson_OcsBuilder();
+  RoomDemoteModeratorResponseApplicationJson_OcsBuilder() {
+    RoomDemoteModeratorResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomDemoteModeratorResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -49418,6 +50087,7 @@ class RoomDemoteModeratorResponseApplicationJson_OcsBuilder
   RoomDemoteModeratorResponseApplicationJson_Ocs build() => _build();
 
   _$RoomDemoteModeratorResponseApplicationJson_Ocs _build() {
+    RoomDemoteModeratorResponseApplicationJson_Ocs._validate(this);
     _$RoomDemoteModeratorResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -49500,7 +50170,9 @@ class RoomDemoteModeratorResponseApplicationJsonBuilder
       _$this._ocs ??= RoomDemoteModeratorResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomDemoteModeratorResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomDemoteModeratorResponseApplicationJsonBuilder();
+  RoomDemoteModeratorResponseApplicationJsonBuilder() {
+    RoomDemoteModeratorResponseApplicationJson._defaults(this);
+  }
 
   RoomDemoteModeratorResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -49526,6 +50198,7 @@ class RoomDemoteModeratorResponseApplicationJsonBuilder
   RoomDemoteModeratorResponseApplicationJson build() => _build();
 
   _$RoomDemoteModeratorResponseApplicationJson _build() {
+    RoomDemoteModeratorResponseApplicationJson._validate(this);
     _$RoomDemoteModeratorResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomDemoteModeratorResponseApplicationJson._(ocs: ocs.build());
@@ -49616,7 +50289,9 @@ class RoomAddToFavoritesResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomAddToFavoritesResponseApplicationJson_OcsBuilder();
+  RoomAddToFavoritesResponseApplicationJson_OcsBuilder() {
+    RoomAddToFavoritesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomAddToFavoritesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -49643,6 +50318,7 @@ class RoomAddToFavoritesResponseApplicationJson_OcsBuilder
   RoomAddToFavoritesResponseApplicationJson_Ocs build() => _build();
 
   _$RoomAddToFavoritesResponseApplicationJson_Ocs _build() {
+    RoomAddToFavoritesResponseApplicationJson_Ocs._validate(this);
     _$RoomAddToFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -49724,7 +50400,9 @@ class RoomAddToFavoritesResponseApplicationJsonBuilder
       _$this._ocs ??= RoomAddToFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomAddToFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomAddToFavoritesResponseApplicationJsonBuilder();
+  RoomAddToFavoritesResponseApplicationJsonBuilder() {
+    RoomAddToFavoritesResponseApplicationJson._defaults(this);
+  }
 
   RoomAddToFavoritesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -49750,6 +50428,7 @@ class RoomAddToFavoritesResponseApplicationJsonBuilder
   RoomAddToFavoritesResponseApplicationJson build() => _build();
 
   _$RoomAddToFavoritesResponseApplicationJson _build() {
+    RoomAddToFavoritesResponseApplicationJson._validate(this);
     _$RoomAddToFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomAddToFavoritesResponseApplicationJson._(ocs: ocs.build());
@@ -49841,7 +50520,9 @@ class RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder();
+  RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder() {
+    RoomRemoveFromFavoritesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -49868,6 +50549,7 @@ class RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder
   RoomRemoveFromFavoritesResponseApplicationJson_Ocs build() => _build();
 
   _$RoomRemoveFromFavoritesResponseApplicationJson_Ocs _build() {
+    RoomRemoveFromFavoritesResponseApplicationJson_Ocs._validate(this);
     _$RoomRemoveFromFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -49950,7 +50632,9 @@ class RoomRemoveFromFavoritesResponseApplicationJsonBuilder
       _$this._ocs ??= RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomRemoveFromFavoritesResponseApplicationJsonBuilder();
+  RoomRemoveFromFavoritesResponseApplicationJsonBuilder() {
+    RoomRemoveFromFavoritesResponseApplicationJson._defaults(this);
+  }
 
   RoomRemoveFromFavoritesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -49976,6 +50660,7 @@ class RoomRemoveFromFavoritesResponseApplicationJsonBuilder
   RoomRemoveFromFavoritesResponseApplicationJson build() => _build();
 
   _$RoomRemoveFromFavoritesResponseApplicationJson _build() {
+    RoomRemoveFromFavoritesResponseApplicationJson._validate(this);
     _$RoomRemoveFromFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomRemoveFromFavoritesResponseApplicationJson._(ocs: ocs.build());
@@ -50069,7 +50754,9 @@ class RoomSetNotificationLevelResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetNotificationLevelResponseApplicationJson_OcsBuilder();
+  RoomSetNotificationLevelResponseApplicationJson_OcsBuilder() {
+    RoomSetNotificationLevelResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetNotificationLevelResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -50096,6 +50783,7 @@ class RoomSetNotificationLevelResponseApplicationJson_OcsBuilder
   RoomSetNotificationLevelResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetNotificationLevelResponseApplicationJson_Ocs _build() {
+    RoomSetNotificationLevelResponseApplicationJson_Ocs._validate(this);
     _$RoomSetNotificationLevelResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -50180,7 +50868,9 @@ class RoomSetNotificationLevelResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetNotificationLevelResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetNotificationLevelResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetNotificationLevelResponseApplicationJsonBuilder();
+  RoomSetNotificationLevelResponseApplicationJsonBuilder() {
+    RoomSetNotificationLevelResponseApplicationJson._defaults(this);
+  }
 
   RoomSetNotificationLevelResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -50206,6 +50896,7 @@ class RoomSetNotificationLevelResponseApplicationJsonBuilder
   RoomSetNotificationLevelResponseApplicationJson build() => _build();
 
   _$RoomSetNotificationLevelResponseApplicationJson _build() {
+    RoomSetNotificationLevelResponseApplicationJson._validate(this);
     _$RoomSetNotificationLevelResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetNotificationLevelResponseApplicationJson._(ocs: ocs.build());
@@ -50299,7 +50990,9 @@ class RoomSetNotificationCallsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetNotificationCallsResponseApplicationJson_OcsBuilder();
+  RoomSetNotificationCallsResponseApplicationJson_OcsBuilder() {
+    RoomSetNotificationCallsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetNotificationCallsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -50326,6 +51019,7 @@ class RoomSetNotificationCallsResponseApplicationJson_OcsBuilder
   RoomSetNotificationCallsResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetNotificationCallsResponseApplicationJson_Ocs _build() {
+    RoomSetNotificationCallsResponseApplicationJson_Ocs._validate(this);
     _$RoomSetNotificationCallsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -50410,7 +51104,9 @@ class RoomSetNotificationCallsResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetNotificationCallsResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetNotificationCallsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetNotificationCallsResponseApplicationJsonBuilder();
+  RoomSetNotificationCallsResponseApplicationJsonBuilder() {
+    RoomSetNotificationCallsResponseApplicationJson._defaults(this);
+  }
 
   RoomSetNotificationCallsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -50436,6 +51132,7 @@ class RoomSetNotificationCallsResponseApplicationJsonBuilder
   RoomSetNotificationCallsResponseApplicationJson build() => _build();
 
   _$RoomSetNotificationCallsResponseApplicationJson _build() {
+    RoomSetNotificationCallsResponseApplicationJson._validate(this);
     _$RoomSetNotificationCallsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetNotificationCallsResponseApplicationJson._(ocs: ocs.build());
@@ -50527,7 +51224,9 @@ class RoomSetLobbyResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetLobbyResponseApplicationJson_OcsBuilder();
+  RoomSetLobbyResponseApplicationJson_OcsBuilder() {
+    RoomSetLobbyResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetLobbyResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -50554,6 +51253,7 @@ class RoomSetLobbyResponseApplicationJson_OcsBuilder
   RoomSetLobbyResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetLobbyResponseApplicationJson_Ocs _build() {
+    RoomSetLobbyResponseApplicationJson_Ocs._validate(this);
     _$RoomSetLobbyResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomSetLobbyResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -50630,7 +51330,9 @@ class RoomSetLobbyResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetLobbyResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetLobbyResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetLobbyResponseApplicationJsonBuilder();
+  RoomSetLobbyResponseApplicationJsonBuilder() {
+    RoomSetLobbyResponseApplicationJson._defaults(this);
+  }
 
   RoomSetLobbyResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -50656,6 +51358,7 @@ class RoomSetLobbyResponseApplicationJsonBuilder
   RoomSetLobbyResponseApplicationJson build() => _build();
 
   _$RoomSetLobbyResponseApplicationJson _build() {
+    RoomSetLobbyResponseApplicationJson._validate(this);
     _$RoomSetLobbyResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetLobbyResponseApplicationJson._(ocs: ocs.build());
@@ -50746,7 +51449,9 @@ class RoomSetsipEnabledResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetsipEnabledResponseApplicationJson_OcsBuilder();
+  RoomSetsipEnabledResponseApplicationJson_OcsBuilder() {
+    RoomSetsipEnabledResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetsipEnabledResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -50773,6 +51478,7 @@ class RoomSetsipEnabledResponseApplicationJson_OcsBuilder
   RoomSetsipEnabledResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetsipEnabledResponseApplicationJson_Ocs _build() {
+    RoomSetsipEnabledResponseApplicationJson_Ocs._validate(this);
     _$RoomSetsipEnabledResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomSetsipEnabledResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -50852,7 +51558,9 @@ class RoomSetsipEnabledResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetsipEnabledResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetsipEnabledResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetsipEnabledResponseApplicationJsonBuilder();
+  RoomSetsipEnabledResponseApplicationJsonBuilder() {
+    RoomSetsipEnabledResponseApplicationJson._defaults(this);
+  }
 
   RoomSetsipEnabledResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -50878,6 +51586,7 @@ class RoomSetsipEnabledResponseApplicationJsonBuilder
   RoomSetsipEnabledResponseApplicationJson build() => _build();
 
   _$RoomSetsipEnabledResponseApplicationJson _build() {
+    RoomSetsipEnabledResponseApplicationJson._validate(this);
     _$RoomSetsipEnabledResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetsipEnabledResponseApplicationJson._(ocs: ocs.build());
@@ -50969,7 +51678,9 @@ class RoomSetRecordingConsentResponseApplicationJson_OcsBuilder
   RoomBuilder get data => _$this._data ??= RoomBuilder();
   set data(covariant RoomBuilder? data) => _$this._data = data;
 
-  RoomSetRecordingConsentResponseApplicationJson_OcsBuilder();
+  RoomSetRecordingConsentResponseApplicationJson_OcsBuilder() {
+    RoomSetRecordingConsentResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetRecordingConsentResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -50996,6 +51707,7 @@ class RoomSetRecordingConsentResponseApplicationJson_OcsBuilder
   RoomSetRecordingConsentResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetRecordingConsentResponseApplicationJson_Ocs _build() {
+    RoomSetRecordingConsentResponseApplicationJson_Ocs._validate(this);
     _$RoomSetRecordingConsentResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RoomSetRecordingConsentResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -51076,7 +51788,9 @@ class RoomSetRecordingConsentResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetRecordingConsentResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetRecordingConsentResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetRecordingConsentResponseApplicationJsonBuilder();
+  RoomSetRecordingConsentResponseApplicationJsonBuilder() {
+    RoomSetRecordingConsentResponseApplicationJson._defaults(this);
+  }
 
   RoomSetRecordingConsentResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -51102,6 +51816,7 @@ class RoomSetRecordingConsentResponseApplicationJsonBuilder
   RoomSetRecordingConsentResponseApplicationJson build() => _build();
 
   _$RoomSetRecordingConsentResponseApplicationJson _build() {
+    RoomSetRecordingConsentResponseApplicationJson._validate(this);
     _$RoomSetRecordingConsentResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetRecordingConsentResponseApplicationJson._(ocs: ocs.build());
@@ -51195,7 +51910,9 @@ class RoomSetMessageExpirationResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RoomSetMessageExpirationResponseApplicationJson_OcsBuilder();
+  RoomSetMessageExpirationResponseApplicationJson_OcsBuilder() {
+    RoomSetMessageExpirationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RoomSetMessageExpirationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -51222,6 +51939,7 @@ class RoomSetMessageExpirationResponseApplicationJson_OcsBuilder
   RoomSetMessageExpirationResponseApplicationJson_Ocs build() => _build();
 
   _$RoomSetMessageExpirationResponseApplicationJson_Ocs _build() {
+    RoomSetMessageExpirationResponseApplicationJson_Ocs._validate(this);
     _$RoomSetMessageExpirationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -51306,7 +52024,9 @@ class RoomSetMessageExpirationResponseApplicationJsonBuilder
       _$this._ocs ??= RoomSetMessageExpirationResponseApplicationJson_OcsBuilder();
   set ocs(covariant RoomSetMessageExpirationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RoomSetMessageExpirationResponseApplicationJsonBuilder();
+  RoomSetMessageExpirationResponseApplicationJsonBuilder() {
+    RoomSetMessageExpirationResponseApplicationJson._defaults(this);
+  }
 
   RoomSetMessageExpirationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -51332,6 +52052,7 @@ class RoomSetMessageExpirationResponseApplicationJsonBuilder
   RoomSetMessageExpirationResponseApplicationJson build() => _build();
 
   _$RoomSetMessageExpirationResponseApplicationJson _build() {
+    RoomSetMessageExpirationResponseApplicationJson._validate(this);
     _$RoomSetMessageExpirationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RoomSetMessageExpirationResponseApplicationJson._(ocs: ocs.build());
@@ -51424,7 +52145,9 @@ class SettingsSetUserSettingResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  SettingsSetUserSettingResponseApplicationJson_OcsBuilder();
+  SettingsSetUserSettingResponseApplicationJson_OcsBuilder() {
+    SettingsSetUserSettingResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SettingsSetUserSettingResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -51451,6 +52174,7 @@ class SettingsSetUserSettingResponseApplicationJson_OcsBuilder
   SettingsSetUserSettingResponseApplicationJson_Ocs build() => _build();
 
   _$SettingsSetUserSettingResponseApplicationJson_Ocs _build() {
+    SettingsSetUserSettingResponseApplicationJson_Ocs._validate(this);
     _$SettingsSetUserSettingResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -51533,7 +52257,9 @@ class SettingsSetUserSettingResponseApplicationJsonBuilder
       _$this._ocs ??= SettingsSetUserSettingResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsSetUserSettingResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SettingsSetUserSettingResponseApplicationJsonBuilder();
+  SettingsSetUserSettingResponseApplicationJsonBuilder() {
+    SettingsSetUserSettingResponseApplicationJson._defaults(this);
+  }
 
   SettingsSetUserSettingResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -51559,6 +52285,7 @@ class SettingsSetUserSettingResponseApplicationJsonBuilder
   SettingsSetUserSettingResponseApplicationJson build() => _build();
 
   _$SettingsSetUserSettingResponseApplicationJson _build() {
+    SettingsSetUserSettingResponseApplicationJson._validate(this);
     _$SettingsSetUserSettingResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SettingsSetUserSettingResponseApplicationJson._(ocs: ocs.build());
@@ -51650,7 +52377,9 @@ class SettingsSetsipSettingsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
+  SettingsSetsipSettingsResponseApplicationJson_OcsBuilder() {
+    SettingsSetsipSettingsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SettingsSetsipSettingsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -51677,6 +52406,7 @@ class SettingsSetsipSettingsResponseApplicationJson_OcsBuilder
   SettingsSetsipSettingsResponseApplicationJson_Ocs build() => _build();
 
   _$SettingsSetsipSettingsResponseApplicationJson_Ocs _build() {
+    SettingsSetsipSettingsResponseApplicationJson_Ocs._validate(this);
     _$SettingsSetsipSettingsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -51759,7 +52489,9 @@ class SettingsSetsipSettingsResponseApplicationJsonBuilder
       _$this._ocs ??= SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsSetsipSettingsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SettingsSetsipSettingsResponseApplicationJsonBuilder();
+  SettingsSetsipSettingsResponseApplicationJsonBuilder() {
+    SettingsSetsipSettingsResponseApplicationJson._defaults(this);
+  }
 
   SettingsSetsipSettingsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -51785,6 +52517,7 @@ class SettingsSetsipSettingsResponseApplicationJsonBuilder
   SettingsSetsipSettingsResponseApplicationJson build() => _build();
 
   _$SettingsSetsipSettingsResponseApplicationJson _build() {
+    SettingsSetsipSettingsResponseApplicationJson._validate(this);
     _$SettingsSetsipSettingsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SettingsSetsipSettingsResponseApplicationJson._(ocs: ocs.build());
@@ -51873,7 +52606,9 @@ class SignalingSettings_HelloAuthParams_10Builder
   String? get ticket => _$this._ticket;
   set ticket(covariant String? ticket) => _$this._ticket = ticket;
 
-  SignalingSettings_HelloAuthParams_10Builder();
+  SignalingSettings_HelloAuthParams_10Builder() {
+    SignalingSettings_HelloAuthParams_10._defaults(this);
+  }
 
   SignalingSettings_HelloAuthParams_10Builder get _$this {
     final $v = _$v;
@@ -51900,6 +52635,7 @@ class SignalingSettings_HelloAuthParams_10Builder
   SignalingSettings_HelloAuthParams_10 build() => _build();
 
   _$SignalingSettings_HelloAuthParams_10 _build() {
+    SignalingSettings_HelloAuthParams_10._validate(this);
     final _$result = _$v ??
         _$SignalingSettings_HelloAuthParams_10._(
             userid: userid,
@@ -51966,7 +52702,9 @@ class SignalingSettings_HelloAuthParams_20Builder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  SignalingSettings_HelloAuthParams_20Builder();
+  SignalingSettings_HelloAuthParams_20Builder() {
+    SignalingSettings_HelloAuthParams_20._defaults(this);
+  }
 
   SignalingSettings_HelloAuthParams_20Builder get _$this {
     final $v = _$v;
@@ -51992,6 +52730,7 @@ class SignalingSettings_HelloAuthParams_20Builder
   SignalingSettings_HelloAuthParams_20 build() => _build();
 
   _$SignalingSettings_HelloAuthParams_20 _build() {
+    SignalingSettings_HelloAuthParams_20._validate(this);
     final _$result = _$v ??
         _$SignalingSettings_HelloAuthParams_20._(
             token: BuiltValueNullFieldError.checkNotNull(token, r'SignalingSettings_HelloAuthParams_20', 'token'));
@@ -52069,7 +52808,9 @@ class SignalingSettings_HelloAuthParamsBuilder
   SignalingSettings_HelloAuthParams_20Builder get $20 => _$this._$20 ??= SignalingSettings_HelloAuthParams_20Builder();
   set $20(covariant SignalingSettings_HelloAuthParams_20Builder? $20) => _$this._$20 = $20;
 
-  SignalingSettings_HelloAuthParamsBuilder();
+  SignalingSettings_HelloAuthParamsBuilder() {
+    SignalingSettings_HelloAuthParams._defaults(this);
+  }
 
   SignalingSettings_HelloAuthParamsBuilder get _$this {
     final $v = _$v;
@@ -52096,6 +52837,7 @@ class SignalingSettings_HelloAuthParamsBuilder
   SignalingSettings_HelloAuthParams build() => _build();
 
   _$SignalingSettings_HelloAuthParams _build() {
+    SignalingSettings_HelloAuthParams._validate(this);
     _$SignalingSettings_HelloAuthParams _$result;
     try {
       _$result = _$v ?? _$SignalingSettings_HelloAuthParams._($10: $10.build(), $20: $20.build());
@@ -52171,7 +52913,9 @@ class SignalingSettings_StunserversBuilder
   ListBuilder<String> get urls => _$this._urls ??= ListBuilder<String>();
   set urls(covariant ListBuilder<String>? urls) => _$this._urls = urls;
 
-  SignalingSettings_StunserversBuilder();
+  SignalingSettings_StunserversBuilder() {
+    SignalingSettings_Stunservers._defaults(this);
+  }
 
   SignalingSettings_StunserversBuilder get _$this {
     final $v = _$v;
@@ -52197,6 +52941,7 @@ class SignalingSettings_StunserversBuilder
   SignalingSettings_Stunservers build() => _build();
 
   _$SignalingSettings_Stunservers _build() {
+    SignalingSettings_Stunservers._validate(this);
     _$SignalingSettings_Stunservers _$result;
     try {
       _$result = _$v ?? _$SignalingSettings_Stunservers._(urls: urls.build());
@@ -52300,7 +53045,9 @@ class SignalingSettings_TurnserversBuilder
   JsonObject? get credential => _$this._credential;
   set credential(covariant JsonObject? credential) => _$this._credential = credential;
 
-  SignalingSettings_TurnserversBuilder();
+  SignalingSettings_TurnserversBuilder() {
+    SignalingSettings_Turnservers._defaults(this);
+  }
 
   SignalingSettings_TurnserversBuilder get _$this {
     final $v = _$v;
@@ -52328,6 +53075,7 @@ class SignalingSettings_TurnserversBuilder
   SignalingSettings_Turnservers build() => _build();
 
   _$SignalingSettings_Turnservers _build() {
+    SignalingSettings_Turnservers._validate(this);
     _$SignalingSettings_Turnservers _$result;
     try {
       _$result = _$v ??
@@ -52525,7 +53273,9 @@ class SignalingSettingsBuilder
   String? get userId => _$this._userId;
   set userId(covariant String? userId) => _$this._userId = userId;
 
-  SignalingSettingsBuilder();
+  SignalingSettingsBuilder() {
+    SignalingSettings._defaults(this);
+  }
 
   SignalingSettingsBuilder get _$this {
     final $v = _$v;
@@ -52559,6 +53309,7 @@ class SignalingSettingsBuilder
   SignalingSettings build() => _build();
 
   _$SignalingSettings _build() {
+    SignalingSettings._validate(this);
     _$SignalingSettings _$result;
     try {
       _$result = _$v ??
@@ -52668,7 +53419,9 @@ class SignalingGetSettingsResponseApplicationJson_OcsBuilder
   SignalingSettingsBuilder get data => _$this._data ??= SignalingSettingsBuilder();
   set data(covariant SignalingSettingsBuilder? data) => _$this._data = data;
 
-  SignalingGetSettingsResponseApplicationJson_OcsBuilder();
+  SignalingGetSettingsResponseApplicationJson_OcsBuilder() {
+    SignalingGetSettingsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SignalingGetSettingsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -52695,6 +53448,7 @@ class SignalingGetSettingsResponseApplicationJson_OcsBuilder
   SignalingGetSettingsResponseApplicationJson_Ocs build() => _build();
 
   _$SignalingGetSettingsResponseApplicationJson_Ocs _build() {
+    SignalingGetSettingsResponseApplicationJson_Ocs._validate(this);
     _$SignalingGetSettingsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$SignalingGetSettingsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -52775,7 +53529,9 @@ class SignalingGetSettingsResponseApplicationJsonBuilder
       _$this._ocs ??= SignalingGetSettingsResponseApplicationJson_OcsBuilder();
   set ocs(covariant SignalingGetSettingsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SignalingGetSettingsResponseApplicationJsonBuilder();
+  SignalingGetSettingsResponseApplicationJsonBuilder() {
+    SignalingGetSettingsResponseApplicationJson._defaults(this);
+  }
 
   SignalingGetSettingsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -52801,6 +53557,7 @@ class SignalingGetSettingsResponseApplicationJsonBuilder
   SignalingGetSettingsResponseApplicationJson build() => _build();
 
   _$SignalingGetSettingsResponseApplicationJson _build() {
+    SignalingGetSettingsResponseApplicationJson._validate(this);
     _$SignalingGetSettingsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SignalingGetSettingsResponseApplicationJson._(ocs: ocs.build());
@@ -52947,7 +53704,9 @@ class SignalingSessionBuilder
   String? get userId => _$this._userId;
   set userId(covariant String? userId) => _$this._userId = userId;
 
-  SignalingSessionBuilder();
+  SignalingSessionBuilder() {
+    SignalingSession._defaults(this);
+  }
 
   SignalingSessionBuilder get _$this {
     final $v = _$v;
@@ -52978,6 +53737,7 @@ class SignalingSessionBuilder
   SignalingSession build() => _build();
 
   _$SignalingSession _build() {
+    SignalingSession._validate(this);
     final _$result = _$v ??
         _$SignalingSession._(
             inCall: BuiltValueNullFieldError.checkNotNull(inCall, r'SignalingSession', 'inCall'),
@@ -53069,7 +53829,9 @@ class SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
   SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? get data => _$this._data;
   set data(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? data) => _$this._data = data;
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder();
+  SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder() {
+    SignalingPullMessagesResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -53182,7 +53944,9 @@ class SignalingPullMessagesResponseApplicationJson_OcsBuilder
       _$this._data ??= ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>();
   set data(covariant ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>? data) => _$this._data = data;
 
-  SignalingPullMessagesResponseApplicationJson_OcsBuilder();
+  SignalingPullMessagesResponseApplicationJson_OcsBuilder() {
+    SignalingPullMessagesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SignalingPullMessagesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -53209,6 +53973,7 @@ class SignalingPullMessagesResponseApplicationJson_OcsBuilder
   SignalingPullMessagesResponseApplicationJson_Ocs build() => _build();
 
   _$SignalingPullMessagesResponseApplicationJson_Ocs _build() {
+    SignalingPullMessagesResponseApplicationJson_Ocs._validate(this);
     _$SignalingPullMessagesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$SignalingPullMessagesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -53289,7 +54054,9 @@ class SignalingPullMessagesResponseApplicationJsonBuilder
       _$this._ocs ??= SignalingPullMessagesResponseApplicationJson_OcsBuilder();
   set ocs(covariant SignalingPullMessagesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SignalingPullMessagesResponseApplicationJsonBuilder();
+  SignalingPullMessagesResponseApplicationJsonBuilder() {
+    SignalingPullMessagesResponseApplicationJson._defaults(this);
+  }
 
   SignalingPullMessagesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -53315,6 +54082,7 @@ class SignalingPullMessagesResponseApplicationJsonBuilder
   SignalingPullMessagesResponseApplicationJson build() => _build();
 
   _$SignalingPullMessagesResponseApplicationJson _build() {
+    SignalingPullMessagesResponseApplicationJson._validate(this);
     _$SignalingPullMessagesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SignalingPullMessagesResponseApplicationJson._(ocs: ocs.build());
@@ -53406,7 +54174,9 @@ class SignalingSendMessagesResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  SignalingSendMessagesResponseApplicationJson_OcsBuilder();
+  SignalingSendMessagesResponseApplicationJson_OcsBuilder() {
+    SignalingSendMessagesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SignalingSendMessagesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -53433,6 +54203,7 @@ class SignalingSendMessagesResponseApplicationJson_OcsBuilder
   SignalingSendMessagesResponseApplicationJson_Ocs build() => _build();
 
   _$SignalingSendMessagesResponseApplicationJson_Ocs _build() {
+    SignalingSendMessagesResponseApplicationJson_Ocs._validate(this);
     _$SignalingSendMessagesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -53515,7 +54286,9 @@ class SignalingSendMessagesResponseApplicationJsonBuilder
       _$this._ocs ??= SignalingSendMessagesResponseApplicationJson_OcsBuilder();
   set ocs(covariant SignalingSendMessagesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SignalingSendMessagesResponseApplicationJsonBuilder();
+  SignalingSendMessagesResponseApplicationJsonBuilder() {
+    SignalingSendMessagesResponseApplicationJson._defaults(this);
+  }
 
   SignalingSendMessagesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -53541,6 +54314,7 @@ class SignalingSendMessagesResponseApplicationJsonBuilder
   SignalingSendMessagesResponseApplicationJson build() => _build();
 
   _$SignalingSendMessagesResponseApplicationJson _build() {
+    SignalingSendMessagesResponseApplicationJson._validate(this);
     _$SignalingSendMessagesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SignalingSendMessagesResponseApplicationJson._(ocs: ocs.build());
@@ -53633,7 +54407,9 @@ class SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
   MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
   set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
 
-  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+  SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder() {
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -53660,6 +54436,7 @@ class SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
   SignalingGetWelcomeMessageResponseApplicationJson_Ocs build() => _build();
 
   _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _build() {
+    SignalingGetWelcomeMessageResponseApplicationJson_Ocs._validate(this);
     _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -53743,7 +54520,9 @@ class SignalingGetWelcomeMessageResponseApplicationJsonBuilder
       _$this._ocs ??= SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
+  SignalingGetWelcomeMessageResponseApplicationJsonBuilder() {
+    SignalingGetWelcomeMessageResponseApplicationJson._defaults(this);
+  }
 
   SignalingGetWelcomeMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -53769,6 +54548,7 @@ class SignalingGetWelcomeMessageResponseApplicationJsonBuilder
   SignalingGetWelcomeMessageResponseApplicationJson build() => _build();
 
   _$SignalingGetWelcomeMessageResponseApplicationJson _build() {
+    SignalingGetWelcomeMessageResponseApplicationJson._validate(this);
     _$SignalingGetWelcomeMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SignalingGetWelcomeMessageResponseApplicationJson._(ocs: ocs.build());
@@ -53861,7 +54641,9 @@ class TempAvatarPostAvatarResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  TempAvatarPostAvatarResponseApplicationJson_OcsBuilder();
+  TempAvatarPostAvatarResponseApplicationJson_OcsBuilder() {
+    TempAvatarPostAvatarResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TempAvatarPostAvatarResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -53888,6 +54670,7 @@ class TempAvatarPostAvatarResponseApplicationJson_OcsBuilder
   TempAvatarPostAvatarResponseApplicationJson_Ocs build() => _build();
 
   _$TempAvatarPostAvatarResponseApplicationJson_Ocs _build() {
+    TempAvatarPostAvatarResponseApplicationJson_Ocs._validate(this);
     _$TempAvatarPostAvatarResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -53970,7 +54753,9 @@ class TempAvatarPostAvatarResponseApplicationJsonBuilder
       _$this._ocs ??= TempAvatarPostAvatarResponseApplicationJson_OcsBuilder();
   set ocs(covariant TempAvatarPostAvatarResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TempAvatarPostAvatarResponseApplicationJsonBuilder();
+  TempAvatarPostAvatarResponseApplicationJsonBuilder() {
+    TempAvatarPostAvatarResponseApplicationJson._defaults(this);
+  }
 
   TempAvatarPostAvatarResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -53996,6 +54781,7 @@ class TempAvatarPostAvatarResponseApplicationJsonBuilder
   TempAvatarPostAvatarResponseApplicationJson build() => _build();
 
   _$TempAvatarPostAvatarResponseApplicationJson _build() {
+    TempAvatarPostAvatarResponseApplicationJson._validate(this);
     _$TempAvatarPostAvatarResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TempAvatarPostAvatarResponseApplicationJson._(ocs: ocs.build());
@@ -54087,7 +54873,9 @@ class TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
+  TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder() {
+    TempAvatarDeleteAvatarResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -54114,6 +54902,7 @@ class TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder
   TempAvatarDeleteAvatarResponseApplicationJson_Ocs build() => _build();
 
   _$TempAvatarDeleteAvatarResponseApplicationJson_Ocs _build() {
+    TempAvatarDeleteAvatarResponseApplicationJson_Ocs._validate(this);
     _$TempAvatarDeleteAvatarResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -54196,7 +54985,9 @@ class TempAvatarDeleteAvatarResponseApplicationJsonBuilder
       _$this._ocs ??= TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
   set ocs(covariant TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TempAvatarDeleteAvatarResponseApplicationJsonBuilder();
+  TempAvatarDeleteAvatarResponseApplicationJsonBuilder() {
+    TempAvatarDeleteAvatarResponseApplicationJson._defaults(this);
+  }
 
   TempAvatarDeleteAvatarResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -54222,6 +55013,7 @@ class TempAvatarDeleteAvatarResponseApplicationJsonBuilder
   TempAvatarDeleteAvatarResponseApplicationJson build() => _build();
 
   _$TempAvatarDeleteAvatarResponseApplicationJson _build() {
+    TempAvatarDeleteAvatarResponseApplicationJson._validate(this);
     _$TempAvatarDeleteAvatarResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TempAvatarDeleteAvatarResponseApplicationJson._(ocs: ocs.build());
@@ -54439,7 +55231,9 @@ class BotWithDetailsAndSecretBuilder
   int? get state => _$this._state;
   set state(covariant int? state) => _$this._state = state;
 
-  BotWithDetailsAndSecretBuilder();
+  BotWithDetailsAndSecretBuilder() {
+    BotWithDetailsAndSecret._defaults(this);
+  }
 
   BotWithDetailsAndSecretBuilder get _$this {
     final $v = _$v;
@@ -54475,6 +55269,7 @@ class BotWithDetailsAndSecretBuilder
   BotWithDetailsAndSecret build() => _build();
 
   _$BotWithDetailsAndSecret _build() {
+    BotWithDetailsAndSecret._validate(this);
     final _$result = _$v ??
         _$BotWithDetailsAndSecret._(
             secret: BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret'),
@@ -54636,7 +55431,9 @@ class FederationInviteBuilder
   String? get userId => _$this._userId;
   set userId(covariant String? userId) => _$this._userId = userId;
 
-  FederationInviteBuilder();
+  FederationInviteBuilder() {
+    FederationInvite._defaults(this);
+  }
 
   FederationInviteBuilder get _$this {
     final $v = _$v;
@@ -54668,6 +55465,7 @@ class FederationInviteBuilder
   FederationInvite build() => _build();
 
   _$FederationInvite _build() {
+    FederationInvite._validate(this);
     final _$result = _$v ??
         _$FederationInvite._(
             accessToken: BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken'),
@@ -54755,7 +55553,9 @@ class PublicCapabilities0_Spreed_Config_AttachmentsBuilder
   String? get folder => _$this._folder;
   set folder(covariant String? folder) => _$this._folder = folder;
 
-  PublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+  PublicCapabilities0_Spreed_Config_AttachmentsBuilder() {
+    PublicCapabilities0_Spreed_Config_Attachments._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_AttachmentsBuilder get _$this {
     final $v = _$v;
@@ -54782,6 +55582,7 @@ class PublicCapabilities0_Spreed_Config_AttachmentsBuilder
   PublicCapabilities0_Spreed_Config_Attachments build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Attachments _build() {
+    PublicCapabilities0_Spreed_Config_Attachments._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities0_Spreed_Config_Attachments._(
             allowed: BuiltValueNullFieldError.checkNotNull(
@@ -54982,7 +55783,9 @@ class PublicCapabilities0_Spreed_Config_CallBuilder
   bool? get canEnableSip => _$this._canEnableSip;
   set canEnableSip(covariant bool? canEnableSip) => _$this._canEnableSip = canEnableSip;
 
-  PublicCapabilities0_Spreed_Config_CallBuilder();
+  PublicCapabilities0_Spreed_Config_CallBuilder() {
+    PublicCapabilities0_Spreed_Config_Call._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_CallBuilder get _$this {
     final $v = _$v;
@@ -55017,6 +55820,7 @@ class PublicCapabilities0_Spreed_Config_CallBuilder
   PublicCapabilities0_Spreed_Config_Call build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Call _build() {
+    PublicCapabilities0_Spreed_Config_Call._validate(this);
     _$PublicCapabilities0_Spreed_Config_Call _$result;
     try {
       _$result = _$v ??
@@ -55170,7 +55974,9 @@ class PublicCapabilities0_Spreed_Config_ChatBuilder
   ListBuilder<String> get translations => _$this._translations ??= ListBuilder<String>();
   set translations(covariant ListBuilder<String>? translations) => _$this._translations = translations;
 
-  PublicCapabilities0_Spreed_Config_ChatBuilder();
+  PublicCapabilities0_Spreed_Config_ChatBuilder() {
+    PublicCapabilities0_Spreed_Config_Chat._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_ChatBuilder get _$this {
     final $v = _$v;
@@ -55200,6 +56006,7 @@ class PublicCapabilities0_Spreed_Config_ChatBuilder
   PublicCapabilities0_Spreed_Config_Chat build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Chat _build() {
+    PublicCapabilities0_Spreed_Config_Chat._validate(this);
     _$PublicCapabilities0_Spreed_Config_Chat _$result;
     try {
       _$result = _$v ??
@@ -55288,7 +56095,9 @@ class PublicCapabilities0_Spreed_Config_ConversationsBuilder
   bool? get canCreate => _$this._canCreate;
   set canCreate(covariant bool? canCreate) => _$this._canCreate = canCreate;
 
-  PublicCapabilities0_Spreed_Config_ConversationsBuilder();
+  PublicCapabilities0_Spreed_Config_ConversationsBuilder() {
+    PublicCapabilities0_Spreed_Config_Conversations._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_ConversationsBuilder get _$this {
     final $v = _$v;
@@ -55314,6 +56123,7 @@ class PublicCapabilities0_Spreed_Config_ConversationsBuilder
   PublicCapabilities0_Spreed_Config_Conversations build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Conversations _build() {
+    PublicCapabilities0_Spreed_Config_Conversations._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities0_Spreed_Config_Conversations._(
             canCreate: BuiltValueNullFieldError.checkNotNull(
@@ -55382,7 +56192,9 @@ class PublicCapabilities0_Spreed_Config_PreviewsBuilder
   int? get maxGifSize => _$this._maxGifSize;
   set maxGifSize(covariant int? maxGifSize) => _$this._maxGifSize = maxGifSize;
 
-  PublicCapabilities0_Spreed_Config_PreviewsBuilder();
+  PublicCapabilities0_Spreed_Config_PreviewsBuilder() {
+    PublicCapabilities0_Spreed_Config_Previews._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_PreviewsBuilder get _$this {
     final $v = _$v;
@@ -55408,6 +56220,7 @@ class PublicCapabilities0_Spreed_Config_PreviewsBuilder
   PublicCapabilities0_Spreed_Config_Previews build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Previews _build() {
+    PublicCapabilities0_Spreed_Config_Previews._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities0_Spreed_Config_Previews._(
             maxGifSize: BuiltValueNullFieldError.checkNotNull(
@@ -55491,7 +56304,9 @@ class PublicCapabilities0_Spreed_Config_SignalingBuilder
   String? get helloV2TokenKey => _$this._helloV2TokenKey;
   set helloV2TokenKey(covariant String? helloV2TokenKey) => _$this._helloV2TokenKey = helloV2TokenKey;
 
-  PublicCapabilities0_Spreed_Config_SignalingBuilder();
+  PublicCapabilities0_Spreed_Config_SignalingBuilder() {
+    PublicCapabilities0_Spreed_Config_Signaling._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_Config_SignalingBuilder get _$this {
     final $v = _$v;
@@ -55518,6 +56333,7 @@ class PublicCapabilities0_Spreed_Config_SignalingBuilder
   PublicCapabilities0_Spreed_Config_Signaling build() => _build();
 
   _$PublicCapabilities0_Spreed_Config_Signaling _build() {
+    PublicCapabilities0_Spreed_Config_Signaling._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities0_Spreed_Config_Signaling._(
             sessionPingLimit: BuiltValueNullFieldError.checkNotNull(
@@ -55667,7 +56483,9 @@ class PublicCapabilities0_Spreed_ConfigBuilder
   set signaling(covariant PublicCapabilities0_Spreed_Config_SignalingBuilder? signaling) =>
       _$this._signaling = signaling;
 
-  PublicCapabilities0_Spreed_ConfigBuilder();
+  PublicCapabilities0_Spreed_ConfigBuilder() {
+    PublicCapabilities0_Spreed_Config._defaults(this);
+  }
 
   PublicCapabilities0_Spreed_ConfigBuilder get _$this {
     final $v = _$v;
@@ -55698,6 +56516,7 @@ class PublicCapabilities0_Spreed_ConfigBuilder
   PublicCapabilities0_Spreed_Config build() => _build();
 
   _$PublicCapabilities0_Spreed_Config _build() {
+    PublicCapabilities0_Spreed_Config._validate(this);
     _$PublicCapabilities0_Spreed_Config _$result;
     try {
       _$result = _$v ??
@@ -55817,7 +56636,9 @@ class PublicCapabilities0_SpreedBuilder
   String? get version => _$this._version;
   set version(covariant String? version) => _$this._version = version;
 
-  PublicCapabilities0_SpreedBuilder();
+  PublicCapabilities0_SpreedBuilder() {
+    PublicCapabilities0_Spreed._defaults(this);
+  }
 
   PublicCapabilities0_SpreedBuilder get _$this {
     final $v = _$v;
@@ -55845,6 +56666,7 @@ class PublicCapabilities0_SpreedBuilder
   PublicCapabilities0_Spreed build() => _build();
 
   _$PublicCapabilities0_Spreed _build() {
+    PublicCapabilities0_Spreed._validate(this);
     _$PublicCapabilities0_Spreed _$result;
     try {
       _$result = _$v ??
@@ -55922,7 +56744,9 @@ class PublicCapabilities0Builder
   PublicCapabilities0_SpreedBuilder get spreed => _$this._spreed ??= PublicCapabilities0_SpreedBuilder();
   set spreed(covariant PublicCapabilities0_SpreedBuilder? spreed) => _$this._spreed = spreed;
 
-  PublicCapabilities0Builder();
+  PublicCapabilities0Builder() {
+    PublicCapabilities0._defaults(this);
+  }
 
   PublicCapabilities0Builder get _$this {
     final $v = _$v;
@@ -55948,6 +56772,7 @@ class PublicCapabilities0Builder
   PublicCapabilities0 build() => _build();
 
   _$PublicCapabilities0 _build() {
+    PublicCapabilities0._validate(this);
     _$PublicCapabilities0 _$result;
     try {
       _$result = _$v ?? _$PublicCapabilities0._(spreed: spreed.build());

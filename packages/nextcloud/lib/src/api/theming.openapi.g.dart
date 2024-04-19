@@ -702,7 +702,9 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
   String? get sizes => _$this._sizes;
   set sizes(covariant String? sizes) => _$this._sizes = sizes;
 
-  ThemingGetManifestResponseApplicationJson_IconsBuilder();
+  ThemingGetManifestResponseApplicationJson_IconsBuilder() {
+    ThemingGetManifestResponseApplicationJson_Icons._defaults(this);
+  }
 
   ThemingGetManifestResponseApplicationJson_IconsBuilder get _$this {
     final $v = _$v;
@@ -906,7 +908,9 @@ class ThemingGetManifestResponseApplicationJsonBuilder
   String? get display => _$this._display;
   set display(covariant String? display) => _$this._display = display;
 
-  ThemingGetManifestResponseApplicationJsonBuilder();
+  ThemingGetManifestResponseApplicationJsonBuilder() {
+    ThemingGetManifestResponseApplicationJson._defaults(this);
+  }
 
   ThemingGetManifestResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -939,6 +943,7 @@ class ThemingGetManifestResponseApplicationJsonBuilder
   ThemingGetManifestResponseApplicationJson build() => _build();
 
   _$ThemingGetManifestResponseApplicationJson _build() {
+    ThemingGetManifestResponseApplicationJson._validate(this);
     _$ThemingGetManifestResponseApplicationJson _$result;
     try {
       _$result = _$v ??
@@ -1075,7 +1080,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1105,6 +1112,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1190,7 +1198,9 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
+  UserThemeEnableThemeResponseApplicationJson_OcsBuilder() {
+    UserThemeEnableThemeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1217,6 +1227,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
   UserThemeEnableThemeResponseApplicationJson_Ocs build() => _build();
 
   _$UserThemeEnableThemeResponseApplicationJson_Ocs _build() {
+    UserThemeEnableThemeResponseApplicationJson_Ocs._validate(this);
     _$UserThemeEnableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1299,7 +1310,9 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
       _$this._ocs ??= UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeEnableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserThemeEnableThemeResponseApplicationJsonBuilder();
+  UserThemeEnableThemeResponseApplicationJsonBuilder() {
+    UserThemeEnableThemeResponseApplicationJson._defaults(this);
+  }
 
   UserThemeEnableThemeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1325,6 +1338,7 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
   UserThemeEnableThemeResponseApplicationJson build() => _build();
 
   _$UserThemeEnableThemeResponseApplicationJson _build() {
+    UserThemeEnableThemeResponseApplicationJson._validate(this);
     _$UserThemeEnableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserThemeEnableThemeResponseApplicationJson._(ocs: ocs.build());
@@ -1416,7 +1430,9 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
+  UserThemeDisableThemeResponseApplicationJson_OcsBuilder() {
+    UserThemeDisableThemeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1443,6 +1459,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
   UserThemeDisableThemeResponseApplicationJson_Ocs build() => _build();
 
   _$UserThemeDisableThemeResponseApplicationJson_Ocs _build() {
+    UserThemeDisableThemeResponseApplicationJson_Ocs._validate(this);
     _$UserThemeDisableThemeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1525,7 +1542,9 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
       _$this._ocs ??= UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserThemeDisableThemeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserThemeDisableThemeResponseApplicationJsonBuilder();
+  UserThemeDisableThemeResponseApplicationJsonBuilder() {
+    UserThemeDisableThemeResponseApplicationJson._defaults(this);
+  }
 
   UserThemeDisableThemeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1551,6 +1570,7 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
   UserThemeDisableThemeResponseApplicationJson build() => _build();
 
   _$UserThemeDisableThemeResponseApplicationJson _build() {
+    UserThemeDisableThemeResponseApplicationJson._validate(this);
     _$UserThemeDisableThemeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserThemeDisableThemeResponseApplicationJson._(ocs: ocs.build());
@@ -1811,7 +1831,9 @@ class PublicCapabilities_ThemingBuilder
   String? get favicon => _$this._favicon;
   set favicon(covariant String? favicon) => _$this._favicon = favicon;
 
-  PublicCapabilities_ThemingBuilder();
+  PublicCapabilities_ThemingBuilder() {
+    PublicCapabilities_Theming._defaults(this);
+  }
 
   PublicCapabilities_ThemingBuilder get _$this {
     final $v = _$v;
@@ -1850,6 +1872,7 @@ class PublicCapabilities_ThemingBuilder
   PublicCapabilities_Theming build() => _build();
 
   _$PublicCapabilities_Theming _build() {
+    PublicCapabilities_Theming._validate(this);
     final _$result = _$v ??
         _$PublicCapabilities_Theming._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'PublicCapabilities_Theming', 'name'),
@@ -1929,7 +1952,9 @@ class PublicCapabilitiesBuilder
   PublicCapabilities_ThemingBuilder get theming => _$this._theming ??= PublicCapabilities_ThemingBuilder();
   set theming(covariant PublicCapabilities_ThemingBuilder? theming) => _$this._theming = theming;
 
-  PublicCapabilitiesBuilder();
+  PublicCapabilitiesBuilder() {
+    PublicCapabilities._defaults(this);
+  }
 
   PublicCapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -1955,6 +1980,7 @@ class PublicCapabilitiesBuilder
   PublicCapabilities build() => _build();
 
   _$PublicCapabilities _build() {
+    PublicCapabilities._validate(this);
     _$PublicCapabilities _$result;
     try {
       _$result = _$v ?? _$PublicCapabilities._(theming: theming.build());

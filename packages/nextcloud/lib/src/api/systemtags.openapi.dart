@@ -85,6 +85,10 @@ class _$Capabilities_Systemtags_EnabledSerializer implements PrimitiveSerializer
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_SystemtagsInterface {
   Capabilities_Systemtags_Enabled get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_SystemtagsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_SystemtagsInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_Systemtags
@@ -113,11 +117,25 @@ abstract class Capabilities_Systemtags
 
   /// Serializer for Capabilities_Systemtags.
   static Serializer<Capabilities_Systemtags> get serializer => _$capabilitiesSystemtagsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_SystemtagsBuilder b) {
+    $Capabilities_SystemtagsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_SystemtagsBuilder b) {
+    $Capabilities_SystemtagsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   Capabilities_Systemtags get systemtags;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -144,6 +162,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

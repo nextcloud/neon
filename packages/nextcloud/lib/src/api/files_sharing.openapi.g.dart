@@ -4931,7 +4931,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -4961,6 +4963,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -5293,7 +5296,9 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
   String? get shareWithLink => _$this._shareWithLink;
   set shareWithLink(covariant String? shareWithLink) => _$this._shareWithLink = shareWithLink;
 
-  DeletedShareBuilder();
+  DeletedShareBuilder() {
+    DeletedShare._defaults(this);
+  }
 
   DeletedShareBuilder get _$this {
     final $v = _$v;
@@ -5338,6 +5343,7 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
   DeletedShare build() => _build();
 
   _$DeletedShare _build() {
+    DeletedShare._validate(this);
     final _$result = _$v ??
         _$DeletedShare._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id'),
@@ -5440,7 +5446,9 @@ class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
   ListBuilder<DeletedShare> get data => _$this._data ??= ListBuilder<DeletedShare>();
   set data(covariant ListBuilder<DeletedShare>? data) => _$this._data = data;
 
-  DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
+  DeletedShareapiIndexResponseApplicationJson_OcsBuilder() {
+    DeletedShareapiIndexResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DeletedShareapiIndexResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5467,6 +5475,7 @@ class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
   DeletedShareapiIndexResponseApplicationJson_Ocs build() => _build();
 
   _$DeletedShareapiIndexResponseApplicationJson_Ocs _build() {
+    DeletedShareapiIndexResponseApplicationJson_Ocs._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -5547,7 +5556,9 @@ class DeletedShareapiIndexResponseApplicationJsonBuilder
       _$this._ocs ??= DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
   set ocs(covariant DeletedShareapiIndexResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DeletedShareapiIndexResponseApplicationJsonBuilder();
+  DeletedShareapiIndexResponseApplicationJsonBuilder() {
+    DeletedShareapiIndexResponseApplicationJson._defaults(this);
+  }
 
   DeletedShareapiIndexResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5573,6 +5584,7 @@ class DeletedShareapiIndexResponseApplicationJsonBuilder
   DeletedShareapiIndexResponseApplicationJson build() => _build();
 
   _$DeletedShareapiIndexResponseApplicationJson _build() {
+    DeletedShareapiIndexResponseApplicationJson._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson._(ocs: ocs.build());
@@ -5664,7 +5676,9 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
+  DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder() {
+    DeletedShareapiUndeleteResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5691,6 +5705,7 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
   DeletedShareapiUndeleteResponseApplicationJson_Ocs build() => _build();
 
   _$DeletedShareapiUndeleteResponseApplicationJson_Ocs _build() {
+    DeletedShareapiUndeleteResponseApplicationJson_Ocs._validate(this);
     _$DeletedShareapiUndeleteResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -5773,7 +5788,9 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
       _$this._ocs ??= DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
   set ocs(covariant DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DeletedShareapiUndeleteResponseApplicationJsonBuilder();
+  DeletedShareapiUndeleteResponseApplicationJsonBuilder() {
+    DeletedShareapiUndeleteResponseApplicationJson._defaults(this);
+  }
 
   DeletedShareapiUndeleteResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5799,6 +5816,7 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
   DeletedShareapiUndeleteResponseApplicationJson build() => _build();
 
   _$DeletedShareapiUndeleteResponseApplicationJson _build() {
+    DeletedShareapiUndeleteResponseApplicationJson._validate(this);
     _$DeletedShareapiUndeleteResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DeletedShareapiUndeleteResponseApplicationJson._(ocs: ocs.build());
@@ -6078,7 +6096,9 @@ class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, $R
   String? get user => _$this._user;
   set user(covariant String? user) => _$this._user = user;
 
-  RemoteShareBuilder();
+  RemoteShareBuilder() {
+    RemoteShare._defaults(this);
+  }
 
   RemoteShareBuilder get _$this {
     final $v = _$v;
@@ -6119,6 +6139,7 @@ class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, $R
   RemoteShare build() => _build();
 
   _$RemoteShare _build() {
+    RemoteShare._validate(this);
     final _$result = _$v ??
         _$RemoteShare._(
             accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted'),
@@ -6214,7 +6235,9 @@ class RemoteGetSharesResponseApplicationJson_OcsBuilder
   ListBuilder<RemoteShare> get data => _$this._data ??= ListBuilder<RemoteShare>();
   set data(covariant ListBuilder<RemoteShare>? data) => _$this._data = data;
 
-  RemoteGetSharesResponseApplicationJson_OcsBuilder();
+  RemoteGetSharesResponseApplicationJson_OcsBuilder() {
+    RemoteGetSharesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteGetSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6241,6 +6264,7 @@ class RemoteGetSharesResponseApplicationJson_OcsBuilder
   RemoteGetSharesResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteGetSharesResponseApplicationJson_Ocs _build() {
+    RemoteGetSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -6320,7 +6344,9 @@ class RemoteGetSharesResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteGetSharesResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteGetSharesResponseApplicationJsonBuilder();
+  RemoteGetSharesResponseApplicationJsonBuilder() {
+    RemoteGetSharesResponseApplicationJson._defaults(this);
+  }
 
   RemoteGetSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6346,6 +6372,7 @@ class RemoteGetSharesResponseApplicationJsonBuilder
   RemoteGetSharesResponseApplicationJson build() => _build();
 
   _$RemoteGetSharesResponseApplicationJson _build() {
+    RemoteGetSharesResponseApplicationJson._validate(this);
     _$RemoteGetSharesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson._(ocs: ocs.build());
@@ -6436,7 +6463,9 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
   ListBuilder<RemoteShare> get data => _$this._data ??= ListBuilder<RemoteShare>();
   set data(covariant ListBuilder<RemoteShare>? data) => _$this._data = data;
 
-  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
+  RemoteGetOpenSharesResponseApplicationJson_OcsBuilder() {
+    RemoteGetOpenSharesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteGetOpenSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6463,6 +6492,7 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
   RemoteGetOpenSharesResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteGetOpenSharesResponseApplicationJson_Ocs _build() {
+    RemoteGetOpenSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -6543,7 +6573,9 @@ class RemoteGetOpenSharesResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteGetOpenSharesResponseApplicationJsonBuilder();
+  RemoteGetOpenSharesResponseApplicationJsonBuilder() {
+    RemoteGetOpenSharesResponseApplicationJson._defaults(this);
+  }
 
   RemoteGetOpenSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6569,6 +6601,7 @@ class RemoteGetOpenSharesResponseApplicationJsonBuilder
   RemoteGetOpenSharesResponseApplicationJson build() => _build();
 
   _$RemoteGetOpenSharesResponseApplicationJson _build() {
+    RemoteGetOpenSharesResponseApplicationJson._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson._(ocs: ocs.build());
@@ -6659,7 +6692,9 @@ class RemoteAcceptShareResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RemoteAcceptShareResponseApplicationJson_OcsBuilder();
+  RemoteAcceptShareResponseApplicationJson_OcsBuilder() {
+    RemoteAcceptShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteAcceptShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6686,6 +6721,7 @@ class RemoteAcceptShareResponseApplicationJson_OcsBuilder
   RemoteAcceptShareResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteAcceptShareResponseApplicationJson_Ocs _build() {
+    RemoteAcceptShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteAcceptShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -6767,7 +6803,9 @@ class RemoteAcceptShareResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteAcceptShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteAcceptShareResponseApplicationJsonBuilder();
+  RemoteAcceptShareResponseApplicationJsonBuilder() {
+    RemoteAcceptShareResponseApplicationJson._defaults(this);
+  }
 
   RemoteAcceptShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6793,6 +6831,7 @@ class RemoteAcceptShareResponseApplicationJsonBuilder
   RemoteAcceptShareResponseApplicationJson build() => _build();
 
   _$RemoteAcceptShareResponseApplicationJson _build() {
+    RemoteAcceptShareResponseApplicationJson._validate(this);
     _$RemoteAcceptShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteAcceptShareResponseApplicationJson._(ocs: ocs.build());
@@ -6883,7 +6922,9 @@ class RemoteDeclineShareResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RemoteDeclineShareResponseApplicationJson_OcsBuilder();
+  RemoteDeclineShareResponseApplicationJson_OcsBuilder() {
+    RemoteDeclineShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteDeclineShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6910,6 +6951,7 @@ class RemoteDeclineShareResponseApplicationJson_OcsBuilder
   RemoteDeclineShareResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteDeclineShareResponseApplicationJson_Ocs _build() {
+    RemoteDeclineShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteDeclineShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -6991,7 +7033,9 @@ class RemoteDeclineShareResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteDeclineShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteDeclineShareResponseApplicationJsonBuilder();
+  RemoteDeclineShareResponseApplicationJsonBuilder() {
+    RemoteDeclineShareResponseApplicationJson._defaults(this);
+  }
 
   RemoteDeclineShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -7017,6 +7061,7 @@ class RemoteDeclineShareResponseApplicationJsonBuilder
   RemoteDeclineShareResponseApplicationJson build() => _build();
 
   _$RemoteDeclineShareResponseApplicationJson _build() {
+    RemoteDeclineShareResponseApplicationJson._validate(this);
     _$RemoteDeclineShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteDeclineShareResponseApplicationJson._(ocs: ocs.build());
@@ -7107,7 +7152,9 @@ class RemoteGetShareResponseApplicationJson_OcsBuilder
   RemoteShareBuilder get data => _$this._data ??= RemoteShareBuilder();
   set data(covariant RemoteShareBuilder? data) => _$this._data = data;
 
-  RemoteGetShareResponseApplicationJson_OcsBuilder();
+  RemoteGetShareResponseApplicationJson_OcsBuilder() {
+    RemoteGetShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteGetShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -7134,6 +7181,7 @@ class RemoteGetShareResponseApplicationJson_OcsBuilder
   RemoteGetShareResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteGetShareResponseApplicationJson_Ocs _build() {
+    RemoteGetShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$RemoteGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -7212,7 +7260,9 @@ class RemoteGetShareResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteGetShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteGetShareResponseApplicationJsonBuilder();
+  RemoteGetShareResponseApplicationJsonBuilder() {
+    RemoteGetShareResponseApplicationJson._defaults(this);
+  }
 
   RemoteGetShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -7238,6 +7288,7 @@ class RemoteGetShareResponseApplicationJsonBuilder
   RemoteGetShareResponseApplicationJson build() => _build();
 
   _$RemoteGetShareResponseApplicationJson _build() {
+    RemoteGetShareResponseApplicationJson._validate(this);
     _$RemoteGetShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteGetShareResponseApplicationJson._(ocs: ocs.build());
@@ -7328,7 +7379,9 @@ class RemoteUnshareResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  RemoteUnshareResponseApplicationJson_OcsBuilder();
+  RemoteUnshareResponseApplicationJson_OcsBuilder() {
+    RemoteUnshareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   RemoteUnshareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -7355,6 +7408,7 @@ class RemoteUnshareResponseApplicationJson_OcsBuilder
   RemoteUnshareResponseApplicationJson_Ocs build() => _build();
 
   _$RemoteUnshareResponseApplicationJson_Ocs _build() {
+    RemoteUnshareResponseApplicationJson_Ocs._validate(this);
     _$RemoteUnshareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -7434,7 +7488,9 @@ class RemoteUnshareResponseApplicationJsonBuilder
       _$this._ocs ??= RemoteUnshareResponseApplicationJson_OcsBuilder();
   set ocs(covariant RemoteUnshareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  RemoteUnshareResponseApplicationJsonBuilder();
+  RemoteUnshareResponseApplicationJsonBuilder() {
+    RemoteUnshareResponseApplicationJson._defaults(this);
+  }
 
   RemoteUnshareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -7460,6 +7516,7 @@ class RemoteUnshareResponseApplicationJsonBuilder
   RemoteUnshareResponseApplicationJson build() => _build();
 
   _$RemoteUnshareResponseApplicationJson _build() {
+    RemoteUnshareResponseApplicationJson._validate(this);
     _$RemoteUnshareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$RemoteUnshareResponseApplicationJson._(ocs: ocs.build());
@@ -7659,7 +7716,9 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
       _$this._children ??= ListBuilder<BuiltMap<String, JsonObject>>();
   set children(covariant ListBuilder<BuiltMap<String, JsonObject>>? children) => _$this._children = children;
 
-  ShareInfoBuilder();
+  ShareInfoBuilder() {
+    ShareInfo._defaults(this);
+  }
 
   ShareInfoBuilder get _$this {
     final $v = _$v;
@@ -7694,6 +7753,7 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   ShareInfo build() => _build();
 
   _$ShareInfo _build() {
+    ShareInfo._validate(this);
     _$ShareInfo _$result;
     try {
       _$result = _$v ??
@@ -7811,7 +7871,9 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
   String? get status => _$this._status;
   set status(covariant String? status) => _$this._status = status;
 
-  Share_StatusBuilder();
+  Share_StatusBuilder() {
+    Share_Status._defaults(this);
+  }
 
   Share_StatusBuilder get _$this {
     final $v = _$v;
@@ -7840,6 +7902,7 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
   Share_Status build() => _build();
 
   _$Share_Status _build() {
+    Share_Status._validate(this);
     final _$result = _$v ?? _$Share_Status._(clearAt: clearAt, icon: icon, message: message, status: status);
     replace(_$result);
     return _$result;
@@ -8449,7 +8512,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  ShareBuilder();
+  ShareBuilder() {
+    Share._defaults(this);
+  }
 
   ShareBuilder get _$this {
     final $v = _$v;
@@ -8515,6 +8580,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   Share build() => _build();
 
   _$Share _build() {
+    Share._validate(this);
     _$Share _$result;
     try {
       _$result = _$v ??
@@ -8648,7 +8714,9 @@ class ShareapiGetSharesResponseApplicationJson_OcsBuilder
   ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
   set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
-  ShareapiGetSharesResponseApplicationJson_OcsBuilder();
+  ShareapiGetSharesResponseApplicationJson_OcsBuilder() {
+    ShareapiGetSharesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiGetSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -8675,6 +8743,7 @@ class ShareapiGetSharesResponseApplicationJson_OcsBuilder
   ShareapiGetSharesResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiGetSharesResponseApplicationJson_Ocs _build() {
+    ShareapiGetSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -8754,7 +8823,9 @@ class ShareapiGetSharesResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiGetSharesResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiGetSharesResponseApplicationJsonBuilder();
+  ShareapiGetSharesResponseApplicationJsonBuilder() {
+    ShareapiGetSharesResponseApplicationJson._defaults(this);
+  }
 
   ShareapiGetSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -8780,6 +8851,7 @@ class ShareapiGetSharesResponseApplicationJsonBuilder
   ShareapiGetSharesResponseApplicationJson build() => _build();
 
   _$ShareapiGetSharesResponseApplicationJson _build() {
+    ShareapiGetSharesResponseApplicationJson._validate(this);
     _$ShareapiGetSharesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson._(ocs: ocs.build());
@@ -8870,7 +8942,9 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
   ShareBuilder get data => _$this._data ??= ShareBuilder();
   set data(covariant ShareBuilder? data) => _$this._data = data;
 
-  ShareapiCreateShareResponseApplicationJson_OcsBuilder();
+  ShareapiCreateShareResponseApplicationJson_OcsBuilder() {
+    ShareapiCreateShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiCreateShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -8897,6 +8971,7 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
   ShareapiCreateShareResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiCreateShareResponseApplicationJson_Ocs _build() {
+    ShareapiCreateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiCreateShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -8977,7 +9052,9 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiCreateShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiCreateShareResponseApplicationJsonBuilder();
+  ShareapiCreateShareResponseApplicationJsonBuilder() {
+    ShareapiCreateShareResponseApplicationJson._defaults(this);
+  }
 
   ShareapiCreateShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -9003,6 +9080,7 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
   ShareapiCreateShareResponseApplicationJson build() => _build();
 
   _$ShareapiCreateShareResponseApplicationJson _build() {
+    ShareapiCreateShareResponseApplicationJson._validate(this);
     _$ShareapiCreateShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson._(ocs: ocs.build());
@@ -9095,7 +9173,9 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
   ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
   set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
-  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
+  ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder() {
+    ShareapiGetInheritedSharesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -9122,6 +9202,7 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _build() {
+    ShareapiGetInheritedSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -9205,7 +9286,9 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiGetInheritedSharesResponseApplicationJsonBuilder();
+  ShareapiGetInheritedSharesResponseApplicationJsonBuilder() {
+    ShareapiGetInheritedSharesResponseApplicationJson._defaults(this);
+  }
 
   ShareapiGetInheritedSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -9231,6 +9314,7 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
   ShareapiGetInheritedSharesResponseApplicationJson build() => _build();
 
   _$ShareapiGetInheritedSharesResponseApplicationJson _build() {
+    ShareapiGetInheritedSharesResponseApplicationJson._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson._(ocs: ocs.build());
@@ -9323,7 +9407,9 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
   ListBuilder<Share> get data => _$this._data ??= ListBuilder<Share>();
   set data(covariant ListBuilder<Share>? data) => _$this._data = data;
 
-  ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
+  ShareapiPendingSharesResponseApplicationJson_OcsBuilder() {
+    ShareapiPendingSharesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiPendingSharesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -9350,6 +9436,7 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
   ShareapiPendingSharesResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiPendingSharesResponseApplicationJson_Ocs _build() {
+    ShareapiPendingSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -9430,7 +9517,9 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiPendingSharesResponseApplicationJsonBuilder();
+  ShareapiPendingSharesResponseApplicationJsonBuilder() {
+    ShareapiPendingSharesResponseApplicationJson._defaults(this);
+  }
 
   ShareapiPendingSharesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -9456,6 +9545,7 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
   ShareapiPendingSharesResponseApplicationJson build() => _build();
 
   _$ShareapiPendingSharesResponseApplicationJson _build() {
+    ShareapiPendingSharesResponseApplicationJson._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson._(ocs: ocs.build());
@@ -9546,7 +9636,9 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
   ShareBuilder get data => _$this._data ??= ShareBuilder();
   set data(covariant ShareBuilder? data) => _$this._data = data;
 
-  ShareapiGetShareResponseApplicationJson_OcsBuilder();
+  ShareapiGetShareResponseApplicationJson_OcsBuilder() {
+    ShareapiGetShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiGetShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -9573,6 +9665,7 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
   ShareapiGetShareResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiGetShareResponseApplicationJson_Ocs _build() {
+    ShareapiGetShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -9652,7 +9745,9 @@ class ShareapiGetShareResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiGetShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiGetShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiGetShareResponseApplicationJsonBuilder();
+  ShareapiGetShareResponseApplicationJsonBuilder() {
+    ShareapiGetShareResponseApplicationJson._defaults(this);
+  }
 
   ShareapiGetShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -9678,6 +9773,7 @@ class ShareapiGetShareResponseApplicationJsonBuilder
   ShareapiGetShareResponseApplicationJson build() => _build();
 
   _$ShareapiGetShareResponseApplicationJson _build() {
+    ShareapiGetShareResponseApplicationJson._validate(this);
     _$ShareapiGetShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson._(ocs: ocs.build());
@@ -9768,7 +9864,9 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
   ShareBuilder get data => _$this._data ??= ShareBuilder();
   set data(covariant ShareBuilder? data) => _$this._data = data;
 
-  ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
+  ShareapiUpdateShareResponseApplicationJson_OcsBuilder() {
+    ShareapiUpdateShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiUpdateShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -9795,6 +9893,7 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
   ShareapiUpdateShareResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiUpdateShareResponseApplicationJson_Ocs _build() {
+    ShareapiUpdateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -9875,7 +9974,9 @@ class ShareapiUpdateShareResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiUpdateShareResponseApplicationJsonBuilder();
+  ShareapiUpdateShareResponseApplicationJsonBuilder() {
+    ShareapiUpdateShareResponseApplicationJson._defaults(this);
+  }
 
   ShareapiUpdateShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -9901,6 +10002,7 @@ class ShareapiUpdateShareResponseApplicationJsonBuilder
   ShareapiUpdateShareResponseApplicationJson build() => _build();
 
   _$ShareapiUpdateShareResponseApplicationJson _build() {
+    ShareapiUpdateShareResponseApplicationJson._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson._(ocs: ocs.build());
@@ -9991,7 +10093,9 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
+  ShareapiDeleteShareResponseApplicationJson_OcsBuilder() {
+    ShareapiDeleteShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiDeleteShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -10018,6 +10122,7 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
   ShareapiDeleteShareResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiDeleteShareResponseApplicationJson_Ocs _build() {
+    ShareapiDeleteShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiDeleteShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -10100,7 +10205,9 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiDeleteShareResponseApplicationJsonBuilder();
+  ShareapiDeleteShareResponseApplicationJsonBuilder() {
+    ShareapiDeleteShareResponseApplicationJson._defaults(this);
+  }
 
   ShareapiDeleteShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -10126,6 +10233,7 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
   ShareapiDeleteShareResponseApplicationJson build() => _build();
 
   _$ShareapiDeleteShareResponseApplicationJson _build() {
+    ShareapiDeleteShareResponseApplicationJson._validate(this);
     _$ShareapiDeleteShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiDeleteShareResponseApplicationJson._(ocs: ocs.build());
@@ -10216,7 +10324,9 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
+  ShareapiAcceptShareResponseApplicationJson_OcsBuilder() {
+    ShareapiAcceptShareResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareapiAcceptShareResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -10243,6 +10353,7 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
   ShareapiAcceptShareResponseApplicationJson_Ocs build() => _build();
 
   _$ShareapiAcceptShareResponseApplicationJson_Ocs _build() {
+    ShareapiAcceptShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiAcceptShareResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -10325,7 +10436,9 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
       _$this._ocs ??= ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareapiAcceptShareResponseApplicationJsonBuilder();
+  ShareapiAcceptShareResponseApplicationJsonBuilder() {
+    ShareapiAcceptShareResponseApplicationJson._defaults(this);
+  }
 
   ShareapiAcceptShareResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -10351,6 +10464,7 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
   ShareapiAcceptShareResponseApplicationJson build() => _build();
 
   _$ShareapiAcceptShareResponseApplicationJson _build() {
+    ShareapiAcceptShareResponseApplicationJson._validate(this);
     _$ShareapiAcceptShareResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareapiAcceptShareResponseApplicationJson._(ocs: ocs.build());
@@ -10432,7 +10546,9 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeBuilder();
+  ShareeBuilder() {
+    Sharee._defaults(this);
+  }
 
   ShareeBuilder get _$this {
     final $v = _$v;
@@ -10459,6 +10575,7 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
   Sharee build() => _build();
 
   _$Sharee _build() {
+    Sharee._validate(this);
     final _$result =
         _$v ?? _$Sharee._(count: count, label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'));
     replace(_$result);
@@ -10531,7 +10648,9 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $S
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  ShareeValueBuilder();
+  ShareeValueBuilder() {
+    ShareeValue._defaults(this);
+  }
 
   ShareeValueBuilder get _$this {
     final $v = _$v;
@@ -10558,6 +10677,7 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $S
   ShareeValue build() => _build();
 
   _$ShareeValue _build() {
+    ShareeValue._validate(this);
     final _$result = _$v ??
         _$ShareeValue._(
             shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType'),
@@ -10649,7 +10769,9 @@ class ShareeCircle_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  ShareeCircle_ValueBuilder();
+  ShareeCircle_ValueBuilder() {
+    ShareeCircle_Value._defaults(this);
+  }
 
   ShareeCircle_ValueBuilder get _$this {
     final $v = _$v;
@@ -10677,6 +10799,7 @@ class ShareeCircle_ValueBuilder
   ShareeCircle_Value build() => _build();
 
   _$ShareeCircle_Value _build() {
+    ShareeCircle_Value._validate(this);
     final _$result = _$v ??
         _$ShareeCircle_Value._(
             circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle'),
@@ -10781,7 +10904,9 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeCircleBuilder();
+  ShareeCircleBuilder() {
+    ShareeCircle._defaults(this);
+  }
 
   ShareeCircleBuilder get _$this {
     final $v = _$v;
@@ -10810,6 +10935,7 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   ShareeCircle build() => _build();
 
   _$ShareeCircle _build() {
+    ShareeCircle._validate(this);
     _$ShareeCircle _$result;
     try {
       _$result = _$v ??
@@ -10974,7 +11100,9 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeEmailBuilder();
+  ShareeEmailBuilder() {
+    ShareeEmail._defaults(this);
+  }
 
   ShareeEmailBuilder get _$this {
     final $v = _$v;
@@ -11006,6 +11134,7 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
   ShareeEmail build() => _build();
 
   _$ShareeEmail _build() {
+    ShareeEmail._validate(this);
     _$ShareeEmail _$result;
     try {
       _$result = _$v ??
@@ -11117,7 +11246,9 @@ class ShareeRemoteGroup_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  ShareeRemoteGroup_ValueBuilder();
+  ShareeRemoteGroup_ValueBuilder() {
+    ShareeRemoteGroup_Value._defaults(this);
+  }
 
   ShareeRemoteGroup_ValueBuilder get _$this {
     final $v = _$v;
@@ -11145,6 +11276,7 @@ class ShareeRemoteGroup_ValueBuilder
   ShareeRemoteGroup_Value build() => _build();
 
   _$ShareeRemoteGroup_Value _build() {
+    ShareeRemoteGroup_Value._validate(this);
     final _$result = _$v ??
         _$ShareeRemoteGroup_Value._(
             server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server'),
@@ -11262,7 +11394,9 @@ class ShareeRemoteGroupBuilder
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeRemoteGroupBuilder();
+  ShareeRemoteGroupBuilder() {
+    ShareeRemoteGroup._defaults(this);
+  }
 
   ShareeRemoteGroupBuilder get _$this {
     final $v = _$v;
@@ -11292,6 +11426,7 @@ class ShareeRemoteGroupBuilder
   ShareeRemoteGroup build() => _build();
 
   _$ShareeRemoteGroup _build() {
+    ShareeRemoteGroup._validate(this);
     _$ShareeRemoteGroup _$result;
     try {
       _$result = _$v ??
@@ -11398,7 +11533,9 @@ class ShareeRemote_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  ShareeRemote_ValueBuilder();
+  ShareeRemote_ValueBuilder() {
+    ShareeRemote_Value._defaults(this);
+  }
 
   ShareeRemote_ValueBuilder get _$this {
     final $v = _$v;
@@ -11426,6 +11563,7 @@ class ShareeRemote_ValueBuilder
   ShareeRemote_Value build() => _build();
 
   _$ShareeRemote_Value _build() {
+    ShareeRemote_Value._validate(this);
     final _$result = _$v ??
         _$ShareeRemote_Value._(
             server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server'),
@@ -11561,7 +11699,9 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeRemoteBuilder();
+  ShareeRemoteBuilder() {
+    ShareeRemote._defaults(this);
+  }
 
   ShareeRemoteBuilder get _$this {
     final $v = _$v;
@@ -11592,6 +11732,7 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   ShareeRemote build() => _build();
 
   _$ShareeRemote _build() {
+    ShareeRemote._validate(this);
     _$ShareeRemote _$result;
     try {
       _$result = _$v ??
@@ -11710,7 +11851,9 @@ class ShareeUser_StatusBuilder
   int? get clearAt => _$this._clearAt;
   set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
 
-  ShareeUser_StatusBuilder();
+  ShareeUser_StatusBuilder() {
+    ShareeUser_Status._defaults(this);
+  }
 
   ShareeUser_StatusBuilder get _$this {
     final $v = _$v;
@@ -11739,6 +11882,7 @@ class ShareeUser_StatusBuilder
   ShareeUser_Status build() => _build();
 
   _$ShareeUser_Status _build() {
+    ShareeUser_Status._validate(this);
     final _$result = _$v ??
         _$ShareeUser_Status._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status'),
@@ -11889,7 +12033,9 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeUserBuilder();
+  ShareeUserBuilder() {
+    ShareeUser._defaults(this);
+  }
 
   ShareeUserBuilder get _$this {
     final $v = _$v;
@@ -11921,6 +12067,7 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
   ShareeUser build() => _build();
 
   _$ShareeUser _build() {
+    ShareeUser._validate(this);
     _$ShareeUser _$result;
     try {
       _$result = _$v ??
@@ -12094,7 +12241,9 @@ class ShareesSearchResult_ExactBuilder
   ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
   set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  ShareesSearchResult_ExactBuilder();
+  ShareesSearchResult_ExactBuilder() {
+    ShareesSearchResult_Exact._defaults(this);
+  }
 
   ShareesSearchResult_ExactBuilder get _$this {
     final $v = _$v;
@@ -12126,6 +12275,7 @@ class ShareesSearchResult_ExactBuilder
   ShareesSearchResult_Exact build() => _build();
 
   _$ShareesSearchResult_Exact _build() {
+    ShareesSearchResult_Exact._validate(this);
     _$ShareesSearchResult_Exact _$result;
     try {
       _$result = _$v ??
@@ -12228,7 +12378,9 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceB
   int? get verified => _$this._verified;
   set verified(covariant int? verified) => _$this._verified = verified;
 
-  LookupBuilder();
+  LookupBuilder() {
+    Lookup._defaults(this);
+  }
 
   LookupBuilder get _$this {
     final $v = _$v;
@@ -12255,6 +12407,7 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceB
   Lookup build() => _build();
 
   _$Lookup _build() {
+    Lookup._validate(this);
     final _$result = _$v ??
         _$Lookup._(
             value: BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value'),
@@ -12439,7 +12592,9 @@ class ShareeLookup_ExtraBuilder
   LookupBuilder get userid => _$this._userid ??= LookupBuilder();
   set userid(covariant LookupBuilder? userid) => _$this._userid = userid;
 
-  ShareeLookup_ExtraBuilder();
+  ShareeLookup_ExtraBuilder() {
+    ShareeLookup_Extra._defaults(this);
+  }
 
   ShareeLookup_ExtraBuilder get _$this {
     final $v = _$v;
@@ -12474,6 +12629,7 @@ class ShareeLookup_ExtraBuilder
   ShareeLookup_Extra build() => _build();
 
   _$ShareeLookup_Extra _build() {
+    ShareeLookup_Extra._validate(this);
     _$ShareeLookup_Extra _$result;
     try {
       _$result = _$v ??
@@ -12601,7 +12757,9 @@ class ShareeLookup_ValueBuilder
   String? get shareWith => _$this._shareWith;
   set shareWith(covariant String? shareWith) => _$this._shareWith = shareWith;
 
-  ShareeLookup_ValueBuilder();
+  ShareeLookup_ValueBuilder() {
+    ShareeLookup_Value._defaults(this);
+  }
 
   ShareeLookup_ValueBuilder get _$this {
     final $v = _$v;
@@ -12629,6 +12787,7 @@ class ShareeLookup_ValueBuilder
   ShareeLookup_Value build() => _build();
 
   _$ShareeLookup_Value _build() {
+    ShareeLookup_Value._validate(this);
     final _$result = _$v ??
         _$ShareeLookup_Value._(
             globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale'),
@@ -12731,7 +12890,9 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  ShareeLookupBuilder();
+  ShareeLookupBuilder() {
+    ShareeLookup._defaults(this);
+  }
 
   ShareeLookupBuilder get _$this {
     final $v = _$v;
@@ -12760,6 +12921,7 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
   ShareeLookup build() => _build();
 
   _$ShareeLookup _build() {
+    ShareeLookup._validate(this);
     _$ShareeLookup _$result;
     try {
       _$result = _$v ??
@@ -12969,7 +13131,9 @@ class ShareesSearchResultBuilder
   bool? get lookupEnabled => _$this._lookupEnabled;
   set lookupEnabled(covariant bool? lookupEnabled) => _$this._lookupEnabled = lookupEnabled;
 
-  ShareesSearchResultBuilder();
+  ShareesSearchResultBuilder() {
+    ShareesSearchResult._defaults(this);
+  }
 
   ShareesSearchResultBuilder get _$this {
     final $v = _$v;
@@ -13004,6 +13168,7 @@ class ShareesSearchResultBuilder
   ShareesSearchResult build() => _build();
 
   _$ShareesSearchResult _build() {
+    ShareesSearchResult._validate(this);
     _$ShareesSearchResult _$result;
     try {
       _$result = _$v ??
@@ -13122,7 +13287,9 @@ class ShareesapiSearchResponseApplicationJson_OcsBuilder
   ShareesSearchResultBuilder get data => _$this._data ??= ShareesSearchResultBuilder();
   set data(covariant ShareesSearchResultBuilder? data) => _$this._data = data;
 
-  ShareesapiSearchResponseApplicationJson_OcsBuilder();
+  ShareesapiSearchResponseApplicationJson_OcsBuilder() {
+    ShareesapiSearchResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareesapiSearchResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -13149,6 +13316,7 @@ class ShareesapiSearchResponseApplicationJson_OcsBuilder
   ShareesapiSearchResponseApplicationJson_Ocs build() => _build();
 
   _$ShareesapiSearchResponseApplicationJson_Ocs _build() {
+    ShareesapiSearchResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiSearchResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -13228,7 +13396,9 @@ class ShareesapiSearchResponseApplicationJsonBuilder
       _$this._ocs ??= ShareesapiSearchResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareesapiSearchResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareesapiSearchResponseApplicationJsonBuilder();
+  ShareesapiSearchResponseApplicationJsonBuilder() {
+    ShareesapiSearchResponseApplicationJson._defaults(this);
+  }
 
   ShareesapiSearchResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -13254,6 +13424,7 @@ class ShareesapiSearchResponseApplicationJsonBuilder
   ShareesapiSearchResponseApplicationJson build() => _build();
 
   _$ShareesapiSearchResponseApplicationJson _build() {
+    ShareesapiSearchResponseApplicationJson._validate(this);
     _$ShareesapiSearchResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson._(ocs: ocs.build());
@@ -13325,7 +13496,9 @@ class ShareesapiShareesapiSearchHeadersBuilder
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  ShareesapiShareesapiSearchHeadersBuilder();
+  ShareesapiShareesapiSearchHeadersBuilder() {
+    ShareesapiShareesapiSearchHeaders._defaults(this);
+  }
 
   ShareesapiShareesapiSearchHeadersBuilder get _$this {
     final $v = _$v;
@@ -13351,6 +13524,7 @@ class ShareesapiShareesapiSearchHeadersBuilder
   ShareesapiShareesapiSearchHeaders build() => _build();
 
   _$ShareesapiShareesapiSearchHeaders _build() {
+    ShareesapiShareesapiSearchHeaders._validate(this);
     final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
     replace(_$result);
     return _$result;
@@ -13473,7 +13647,9 @@ class ShareesRecommendedResult_ExactBuilder
   ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
   set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  ShareesRecommendedResult_ExactBuilder();
+  ShareesRecommendedResult_ExactBuilder() {
+    ShareesRecommendedResult_Exact._defaults(this);
+  }
 
   ShareesRecommendedResult_ExactBuilder get _$this {
     final $v = _$v;
@@ -13503,6 +13679,7 @@ class ShareesRecommendedResult_ExactBuilder
   ShareesRecommendedResult_Exact build() => _build();
 
   _$ShareesRecommendedResult_Exact _build() {
+    ShareesRecommendedResult_Exact._validate(this);
     _$ShareesRecommendedResult_Exact _$result;
     try {
       _$result = _$v ??
@@ -13665,7 +13842,9 @@ class ShareesRecommendedResultBuilder
   ListBuilder<ShareeUser> get users => _$this._users ??= ListBuilder<ShareeUser>();
   set users(covariant ListBuilder<ShareeUser>? users) => _$this._users = users;
 
-  ShareesRecommendedResultBuilder();
+  ShareesRecommendedResultBuilder() {
+    ShareesRecommendedResult._defaults(this);
+  }
 
   ShareesRecommendedResultBuilder get _$this {
     final $v = _$v;
@@ -13696,6 +13875,7 @@ class ShareesRecommendedResultBuilder
   ShareesRecommendedResult build() => _build();
 
   _$ShareesRecommendedResult _build() {
+    ShareesRecommendedResult._validate(this);
     _$ShareesRecommendedResult _$result;
     try {
       _$result = _$v ??
@@ -13805,7 +13985,9 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
   ShareesRecommendedResultBuilder get data => _$this._data ??= ShareesRecommendedResultBuilder();
   set data(covariant ShareesRecommendedResultBuilder? data) => _$this._data = data;
 
-  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
+  ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder() {
+    ShareesapiFindRecommendedResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -13832,6 +14014,7 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
   ShareesapiFindRecommendedResponseApplicationJson_Ocs build() => _build();
 
   _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _build() {
+    ShareesapiFindRecommendedResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -13915,7 +14098,9 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
       _$this._ocs ??= ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
   set ocs(covariant ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ShareesapiFindRecommendedResponseApplicationJsonBuilder();
+  ShareesapiFindRecommendedResponseApplicationJsonBuilder() {
+    ShareesapiFindRecommendedResponseApplicationJson._defaults(this);
+  }
 
   ShareesapiFindRecommendedResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -13941,6 +14126,7 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
   ShareesapiFindRecommendedResponseApplicationJson build() => _build();
 
   _$ShareesapiFindRecommendedResponseApplicationJson _build() {
+    ShareesapiFindRecommendedResponseApplicationJson._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson._(ocs: ocs.build());
@@ -14037,7 +14223,9 @@ class Capabilities_FilesSharing_Public_PasswordBuilder
   set askForOptionalPassword(covariant bool? askForOptionalPassword) =>
       _$this._askForOptionalPassword = askForOptionalPassword;
 
-  Capabilities_FilesSharing_Public_PasswordBuilder();
+  Capabilities_FilesSharing_Public_PasswordBuilder() {
+    Capabilities_FilesSharing_Public_Password._defaults(this);
+  }
 
   Capabilities_FilesSharing_Public_PasswordBuilder get _$this {
     final $v = _$v;
@@ -14064,6 +14252,7 @@ class Capabilities_FilesSharing_Public_PasswordBuilder
   Capabilities_FilesSharing_Public_Password build() => _build();
 
   _$Capabilities_FilesSharing_Public_Password _build() {
+    Capabilities_FilesSharing_Public_Password._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_Password._(
             enforced: BuiltValueNullFieldError.checkNotNull(
@@ -14160,7 +14349,9 @@ class Capabilities_FilesSharing_Public_ExpireDateBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  Capabilities_FilesSharing_Public_ExpireDateBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateBuilder() {
+    Capabilities_FilesSharing_Public_ExpireDate._defaults(this);
+  }
 
   Capabilities_FilesSharing_Public_ExpireDateBuilder get _$this {
     final $v = _$v;
@@ -14188,6 +14379,7 @@ class Capabilities_FilesSharing_Public_ExpireDateBuilder
   Capabilities_FilesSharing_Public_ExpireDate build() => _build();
 
   _$Capabilities_FilesSharing_Public_ExpireDate _build() {
+    Capabilities_FilesSharing_Public_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -14287,7 +14479,9 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateInternalBuilder() {
+    Capabilities_FilesSharing_Public_ExpireDateInternal._defaults(this);
+  }
 
   Capabilities_FilesSharing_Public_ExpireDateInternalBuilder get _$this {
     final $v = _$v;
@@ -14315,6 +14509,7 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
   Capabilities_FilesSharing_Public_ExpireDateInternal build() => _build();
 
   _$Capabilities_FilesSharing_Public_ExpireDateInternal _build() {
+    Capabilities_FilesSharing_Public_ExpireDateInternal._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateInternal._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -14412,7 +14607,9 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
+  Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder() {
+    Capabilities_FilesSharing_Public_ExpireDateRemote._defaults(this);
+  }
 
   Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder get _$this {
     final $v = _$v;
@@ -14440,6 +14637,7 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   Capabilities_FilesSharing_Public_ExpireDateRemote build() => _build();
 
   _$Capabilities_FilesSharing_Public_ExpireDateRemote _build() {
+    Capabilities_FilesSharing_Public_ExpireDateRemote._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateRemote._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -14622,7 +14820,9 @@ class Capabilities_FilesSharing_PublicBuilder
   bool? get uploadFilesDrop => _$this._uploadFilesDrop;
   set uploadFilesDrop(covariant bool? uploadFilesDrop) => _$this._uploadFilesDrop = uploadFilesDrop;
 
-  Capabilities_FilesSharing_PublicBuilder();
+  Capabilities_FilesSharing_PublicBuilder() {
+    Capabilities_FilesSharing_Public._defaults(this);
+  }
 
   Capabilities_FilesSharing_PublicBuilder get _$this {
     final $v = _$v;
@@ -14656,6 +14856,7 @@ class Capabilities_FilesSharing_PublicBuilder
   Capabilities_FilesSharing_Public build() => _build();
 
   _$Capabilities_FilesSharing_Public _build() {
+    Capabilities_FilesSharing_Public._validate(this);
     _$Capabilities_FilesSharing_Public _$result;
     try {
       _$result = _$v ??
@@ -14750,7 +14951,9 @@ class Capabilities_FilesSharing_User_ExpireDateBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities_FilesSharing_User_ExpireDateBuilder();
+  Capabilities_FilesSharing_User_ExpireDateBuilder() {
+    Capabilities_FilesSharing_User_ExpireDate._defaults(this);
+  }
 
   Capabilities_FilesSharing_User_ExpireDateBuilder get _$this {
     final $v = _$v;
@@ -14776,6 +14979,7 @@ class Capabilities_FilesSharing_User_ExpireDateBuilder
   Capabilities_FilesSharing_User_ExpireDate build() => _build();
 
   _$Capabilities_FilesSharing_User_ExpireDate _build() {
+    Capabilities_FilesSharing_User_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_User_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -14855,7 +15059,9 @@ class Capabilities_FilesSharing_UserBuilder
   set expireDate(covariant Capabilities_FilesSharing_User_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  Capabilities_FilesSharing_UserBuilder();
+  Capabilities_FilesSharing_UserBuilder() {
+    Capabilities_FilesSharing_User._defaults(this);
+  }
 
   Capabilities_FilesSharing_UserBuilder get _$this {
     final $v = _$v;
@@ -14882,6 +15088,7 @@ class Capabilities_FilesSharing_UserBuilder
   Capabilities_FilesSharing_User build() => _build();
 
   _$Capabilities_FilesSharing_User _build() {
+    Capabilities_FilesSharing_User._validate(this);
     _$Capabilities_FilesSharing_User _$result;
     try {
       _$result = _$v ??
@@ -14962,7 +15169,9 @@ class Capabilities_FilesSharing_Group_ExpireDateBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities_FilesSharing_Group_ExpireDateBuilder();
+  Capabilities_FilesSharing_Group_ExpireDateBuilder() {
+    Capabilities_FilesSharing_Group_ExpireDate._defaults(this);
+  }
 
   Capabilities_FilesSharing_Group_ExpireDateBuilder get _$this {
     final $v = _$v;
@@ -14988,6 +15197,7 @@ class Capabilities_FilesSharing_Group_ExpireDateBuilder
   Capabilities_FilesSharing_Group_ExpireDate build() => _build();
 
   _$Capabilities_FilesSharing_Group_ExpireDate _build() {
+    Capabilities_FilesSharing_Group_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Group_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -15067,7 +15277,9 @@ class Capabilities_FilesSharing_GroupBuilder
   set expireDate(covariant Capabilities_FilesSharing_Group_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  Capabilities_FilesSharing_GroupBuilder();
+  Capabilities_FilesSharing_GroupBuilder() {
+    Capabilities_FilesSharing_Group._defaults(this);
+  }
 
   Capabilities_FilesSharing_GroupBuilder get _$this {
     final $v = _$v;
@@ -15094,6 +15306,7 @@ class Capabilities_FilesSharing_GroupBuilder
   Capabilities_FilesSharing_Group build() => _build();
 
   _$Capabilities_FilesSharing_Group _build() {
+    Capabilities_FilesSharing_Group._validate(this);
     _$Capabilities_FilesSharing_Group _$result;
     try {
       _$result = _$v ??
@@ -15175,7 +15388,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities_FilesSharing_Federation_ExpireDateBuilder();
+  Capabilities_FilesSharing_Federation_ExpireDateBuilder() {
+    Capabilities_FilesSharing_Federation_ExpireDate._defaults(this);
+  }
 
   Capabilities_FilesSharing_Federation_ExpireDateBuilder get _$this {
     final $v = _$v;
@@ -15201,6 +15416,7 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
   Capabilities_FilesSharing_Federation_ExpireDate build() => _build();
 
   _$Capabilities_FilesSharing_Federation_ExpireDate _build() {
+    Capabilities_FilesSharing_Federation_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -15273,7 +15489,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
+  Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder() {
+    Capabilities_FilesSharing_Federation_ExpireDateSupported._defaults(this);
+  }
 
   Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get _$this {
     final $v = _$v;
@@ -15299,6 +15517,7 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
   Capabilities_FilesSharing_Federation_ExpireDateSupported build() => _build();
 
   _$Capabilities_FilesSharing_Federation_ExpireDateSupported _build() {
+    Capabilities_FilesSharing_Federation_ExpireDateSupported._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDateSupported._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -15415,7 +15634,9 @@ class Capabilities_FilesSharing_FederationBuilder
           covariant Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
       _$this._expireDateSupported = expireDateSupported;
 
-  Capabilities_FilesSharing_FederationBuilder();
+  Capabilities_FilesSharing_FederationBuilder() {
+    Capabilities_FilesSharing_Federation._defaults(this);
+  }
 
   Capabilities_FilesSharing_FederationBuilder get _$this {
     final $v = _$v;
@@ -15444,6 +15665,7 @@ class Capabilities_FilesSharing_FederationBuilder
   Capabilities_FilesSharing_Federation build() => _build();
 
   _$Capabilities_FilesSharing_Federation _build() {
+    Capabilities_FilesSharing_Federation._validate(this);
     _$Capabilities_FilesSharing_Federation _$result;
     try {
       _$result = _$v ??
@@ -15543,7 +15765,9 @@ class Capabilities_FilesSharing_ShareeBuilder
   bool? get alwaysShowUnique => _$this._alwaysShowUnique;
   set alwaysShowUnique(covariant bool? alwaysShowUnique) => _$this._alwaysShowUnique = alwaysShowUnique;
 
-  Capabilities_FilesSharing_ShareeBuilder();
+  Capabilities_FilesSharing_ShareeBuilder() {
+    Capabilities_FilesSharing_Sharee._defaults(this);
+  }
 
   Capabilities_FilesSharing_ShareeBuilder get _$this {
     final $v = _$v;
@@ -15570,6 +15794,7 @@ class Capabilities_FilesSharing_ShareeBuilder
   Capabilities_FilesSharing_Sharee build() => _build();
 
   _$Capabilities_FilesSharing_Sharee _build() {
+    Capabilities_FilesSharing_Sharee._validate(this);
     final _$result = _$v ??
         _$Capabilities_FilesSharing_Sharee._(
             queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
@@ -15751,7 +15976,9 @@ class Capabilities_FilesSharingBuilder
   Capabilities_FilesSharing_ShareeBuilder get sharee => _$this._sharee ??= Capabilities_FilesSharing_ShareeBuilder();
   set sharee(covariant Capabilities_FilesSharing_ShareeBuilder? sharee) => _$this._sharee = sharee;
 
-  Capabilities_FilesSharingBuilder();
+  Capabilities_FilesSharingBuilder() {
+    Capabilities_FilesSharing._defaults(this);
+  }
 
   Capabilities_FilesSharingBuilder get _$this {
     final $v = _$v;
@@ -15785,6 +16012,7 @@ class Capabilities_FilesSharingBuilder
   Capabilities_FilesSharing build() => _build();
 
   _$Capabilities_FilesSharing _build() {
+    Capabilities_FilesSharing._validate(this);
     _$Capabilities_FilesSharing _$result;
     try {
       _$result = _$v ??
@@ -15874,7 +16102,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_FilesSharingBuilder get filesSharing => _$this._filesSharing ??= Capabilities_FilesSharingBuilder();
   set filesSharing(covariant Capabilities_FilesSharingBuilder? filesSharing) => _$this._filesSharing = filesSharing;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -15900,6 +16130,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(filesSharing: filesSharing.build());

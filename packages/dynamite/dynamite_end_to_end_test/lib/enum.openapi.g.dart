@@ -269,7 +269,9 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
   WrappedEnum_Integer? get integer => _$this._integer;
   set integer(covariant WrappedEnum_Integer? integer) => _$this._integer = integer;
 
-  WrappedEnumBuilder();
+  WrappedEnumBuilder() {
+    WrappedEnum._defaults(this);
+  }
 
   WrappedEnumBuilder get _$this {
     final $v = _$v;
@@ -296,6 +298,7 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
   WrappedEnum build() => _build();
 
   _$WrappedEnum _build() {
+    WrappedEnum._validate(this);
     final _$result = _$v ??
         _$WrappedEnum._(
             string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
@@ -356,7 +359,9 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
   EnumString? get string => _$this._string;
   set string(covariant EnumString? string) => _$this._string = string;
 
-  EnumReferenceBuilder();
+  EnumReferenceBuilder() {
+    EnumReference._defaults(this);
+  }
 
   EnumReferenceBuilder get _$this {
     final $v = _$v;
@@ -382,6 +387,7 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
   EnumReference build() => _build();
 
   _$EnumReference _build() {
+    EnumReference._validate(this);
     final _$result =
         _$v ?? _$EnumReference._(string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'));
     replace(_$result);

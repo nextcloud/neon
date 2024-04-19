@@ -108,7 +108,9 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
   String? get contentDisposition => _$this._contentDisposition;
   set contentDisposition(covariant String? contentDisposition) => _$this._contentDisposition = contentDisposition;
 
-  LogSettingsLogSettingsDownloadHeadersBuilder();
+  LogSettingsLogSettingsDownloadHeadersBuilder() {
+    LogSettingsLogSettingsDownloadHeaders._defaults(this);
+  }
 
   LogSettingsLogSettingsDownloadHeadersBuilder get _$this {
     final $v = _$v;
@@ -134,6 +136,7 @@ class LogSettingsLogSettingsDownloadHeadersBuilder
   LogSettingsLogSettingsDownloadHeaders build() => _build();
 
   _$LogSettingsLogSettingsDownloadHeaders _build() {
+    LogSettingsLogSettingsDownloadHeaders._validate(this);
     final _$result = _$v ?? _$LogSettingsLogSettingsDownloadHeaders._(contentDisposition: contentDisposition);
     replace(_$result);
     return _$result;

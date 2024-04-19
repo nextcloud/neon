@@ -28,6 +28,10 @@ typedef OneOfIntDoubleNum = num;
 abstract interface class $ObjectOneOf0Interface {
   @BuiltValueField(wireName: 'attribute1-oneOf')
   String get attribute1OneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ObjectOneOf0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ObjectOneOf0InterfaceBuilder b) {}
 }
 
 abstract class ObjectOneOf0 implements $ObjectOneOf0Interface, Built<ObjectOneOf0, ObjectOneOf0Builder> {
@@ -48,12 +52,26 @@ abstract class ObjectOneOf0 implements $ObjectOneOf0Interface, Built<ObjectOneOf
 
   /// Serializer for ObjectOneOf0.
   static Serializer<ObjectOneOf0> get serializer => _$objectOneOf0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ObjectOneOf0Builder b) {
+    $ObjectOneOf0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ObjectOneOf0Builder b) {
+    $ObjectOneOf0Interface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ObjectOneOf1Interface {
   @BuiltValueField(wireName: 'attribute2-oneOf')
   String get attribute2OneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ObjectOneOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ObjectOneOf1InterfaceBuilder b) {}
 }
 
 abstract class ObjectOneOf1 implements $ObjectOneOf1Interface, Built<ObjectOneOf1, ObjectOneOf1Builder> {
@@ -74,6 +92,16 @@ abstract class ObjectOneOf1 implements $ObjectOneOf1Interface, Built<ObjectOneOf
 
   /// Serializer for ObjectOneOf1.
   static Serializer<ObjectOneOf1> get serializer => _$objectOneOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ObjectOneOf1Builder b) {
+    $ObjectOneOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ObjectOneOf1Builder b) {
+    $ObjectOneOf1Interface._validate(b);
+  }
 }
 
 /// One of with objects only.
@@ -83,6 +111,10 @@ typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1})
 abstract interface class $MixedOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($MixedOneOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($MixedOneOf1InterfaceBuilder b) {}
 }
 
 abstract class MixedOneOf1 implements $MixedOneOf1Interface, Built<MixedOneOf1, MixedOneOf1Builder> {
@@ -103,6 +135,16 @@ abstract class MixedOneOf1 implements $MixedOneOf1Interface, Built<MixedOneOf1, 
 
   /// Serializer for MixedOneOf1.
   static Serializer<MixedOneOf1> get serializer => _$mixedOneOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MixedOneOf1Builder b) {
+    $MixedOneOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(MixedOneOf1Builder b) {
+    $MixedOneOf1Interface._validate(b);
+  }
 }
 
 /// One of with object and primitive value.
@@ -112,6 +154,10 @@ typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
 abstract interface class $OneObjectOneOf0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneObjectOneOf0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneObjectOneOf0InterfaceBuilder b) {}
 }
 
 abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneObjectOneOf0, OneObjectOneOf0Builder> {
@@ -132,6 +178,16 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 
   /// Serializer for OneObjectOneOf0.
   static Serializer<OneObjectOneOf0> get serializer => _$oneObjectOneOf0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneObjectOneOf0Builder b) {
+    $OneObjectOneOf0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneObjectOneOf0Builder b) {
+    $OneObjectOneOf0Interface._validate(b);
+  }
 }
 
 /// One of with an integer, double and other value.
@@ -141,6 +197,10 @@ typedef OneOfIntDoubleOther = ({num? $num, String? string});
 abstract interface class $OneOfUnspecifiedArray0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneOfUnspecifiedArray0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneOfUnspecifiedArray0InterfaceBuilder b) {}
 }
 
 abstract class OneOfUnspecifiedArray0
@@ -163,6 +223,16 @@ abstract class OneOfUnspecifiedArray0
 
   /// Serializer for OneOfUnspecifiedArray0.
   static Serializer<OneOfUnspecifiedArray0> get serializer => _$oneOfUnspecifiedArray0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneOfUnspecifiedArray0Builder b) {
+    $OneOfUnspecifiedArray0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneOfUnspecifiedArray0Builder b) {
+    $OneOfUnspecifiedArray0Interface._validate(b);
+  }
 }
 
 typedef OneOfUnspecifiedArray = ({
@@ -174,6 +244,10 @@ typedef OneOfUnspecifiedArray = ({
 abstract interface class $OneOfStringArray0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneOfStringArray0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneOfStringArray0InterfaceBuilder b) {}
 }
 
 abstract class OneOfStringArray0
@@ -195,6 +269,16 @@ abstract class OneOfStringArray0
 
   /// Serializer for OneOfStringArray0.
   static Serializer<OneOfStringArray0> get serializer => _$oneOfStringArray0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneOfStringArray0Builder b) {
+    $OneOfStringArray0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneOfStringArray0Builder b) {
+    $OneOfStringArray0Interface._validate(b);
+  }
 }
 
 typedef OneOfStringArray = ({BuiltList<String>? builtListString, OneOfStringArray0? oneOfStringArray0});

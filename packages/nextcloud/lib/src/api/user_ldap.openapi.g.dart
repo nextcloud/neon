@@ -618,7 +618,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -648,6 +650,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -720,7 +723,9 @@ class ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
   String? get configID => _$this._configID;
   set configID(covariant String? configID) => _$this._configID = configID;
 
-  ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder();
+  ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder() {
+    ConfigapiCreateResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -746,6 +751,7 @@ class ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
   ConfigapiCreateResponseApplicationJson_Ocs_Data build() => _build();
 
   _$ConfigapiCreateResponseApplicationJson_Ocs_Data _build() {
+    ConfigapiCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$ConfigapiCreateResponseApplicationJson_Ocs_Data._(
             configID: BuiltValueNullFieldError.checkNotNull(
@@ -828,7 +834,9 @@ class ConfigapiCreateResponseApplicationJson_OcsBuilder
       _$this._data ??= ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  ConfigapiCreateResponseApplicationJson_OcsBuilder();
+  ConfigapiCreateResponseApplicationJson_OcsBuilder() {
+    ConfigapiCreateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ConfigapiCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -855,6 +863,7 @@ class ConfigapiCreateResponseApplicationJson_OcsBuilder
   ConfigapiCreateResponseApplicationJson_Ocs build() => _build();
 
   _$ConfigapiCreateResponseApplicationJson_Ocs _build() {
+    ConfigapiCreateResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -934,7 +943,9 @@ class ConfigapiCreateResponseApplicationJsonBuilder
       _$this._ocs ??= ConfigapiCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant ConfigapiCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ConfigapiCreateResponseApplicationJsonBuilder();
+  ConfigapiCreateResponseApplicationJsonBuilder() {
+    ConfigapiCreateResponseApplicationJson._defaults(this);
+  }
 
   ConfigapiCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -960,6 +971,7 @@ class ConfigapiCreateResponseApplicationJsonBuilder
   ConfigapiCreateResponseApplicationJson build() => _build();
 
   _$ConfigapiCreateResponseApplicationJson _build() {
+    ConfigapiCreateResponseApplicationJson._validate(this);
     _$ConfigapiCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson._(ocs: ocs.build());
@@ -1050,7 +1062,9 @@ class ConfigapiShowResponseApplicationJson_OcsBuilder
   MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
   set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
 
-  ConfigapiShowResponseApplicationJson_OcsBuilder();
+  ConfigapiShowResponseApplicationJson_OcsBuilder() {
+    ConfigapiShowResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ConfigapiShowResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1077,6 +1091,7 @@ class ConfigapiShowResponseApplicationJson_OcsBuilder
   ConfigapiShowResponseApplicationJson_Ocs build() => _build();
 
   _$ConfigapiShowResponseApplicationJson_Ocs _build() {
+    ConfigapiShowResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiShowResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ConfigapiShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -1155,7 +1170,9 @@ class ConfigapiShowResponseApplicationJsonBuilder
       _$this._ocs ??= ConfigapiShowResponseApplicationJson_OcsBuilder();
   set ocs(covariant ConfigapiShowResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ConfigapiShowResponseApplicationJsonBuilder();
+  ConfigapiShowResponseApplicationJsonBuilder() {
+    ConfigapiShowResponseApplicationJson._defaults(this);
+  }
 
   ConfigapiShowResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1181,6 +1198,7 @@ class ConfigapiShowResponseApplicationJsonBuilder
   ConfigapiShowResponseApplicationJson build() => _build();
 
   _$ConfigapiShowResponseApplicationJson _build() {
+    ConfigapiShowResponseApplicationJson._validate(this);
     _$ConfigapiShowResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ConfigapiShowResponseApplicationJson._(ocs: ocs.build());
@@ -1271,7 +1289,9 @@ class ConfigapiModifyResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ConfigapiModifyResponseApplicationJson_OcsBuilder();
+  ConfigapiModifyResponseApplicationJson_OcsBuilder() {
+    ConfigapiModifyResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ConfigapiModifyResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1298,6 +1318,7 @@ class ConfigapiModifyResponseApplicationJson_OcsBuilder
   ConfigapiModifyResponseApplicationJson_Ocs build() => _build();
 
   _$ConfigapiModifyResponseApplicationJson_Ocs _build() {
+    ConfigapiModifyResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiModifyResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1378,7 +1399,9 @@ class ConfigapiModifyResponseApplicationJsonBuilder
       _$this._ocs ??= ConfigapiModifyResponseApplicationJson_OcsBuilder();
   set ocs(covariant ConfigapiModifyResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ConfigapiModifyResponseApplicationJsonBuilder();
+  ConfigapiModifyResponseApplicationJsonBuilder() {
+    ConfigapiModifyResponseApplicationJson._defaults(this);
+  }
 
   ConfigapiModifyResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1404,6 +1427,7 @@ class ConfigapiModifyResponseApplicationJsonBuilder
   ConfigapiModifyResponseApplicationJson build() => _build();
 
   _$ConfigapiModifyResponseApplicationJson _build() {
+    ConfigapiModifyResponseApplicationJson._validate(this);
     _$ConfigapiModifyResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ConfigapiModifyResponseApplicationJson._(ocs: ocs.build());
@@ -1494,7 +1518,9 @@ class ConfigapiDeleteResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ConfigapiDeleteResponseApplicationJson_OcsBuilder();
+  ConfigapiDeleteResponseApplicationJson_OcsBuilder() {
+    ConfigapiDeleteResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ConfigapiDeleteResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1521,6 +1547,7 @@ class ConfigapiDeleteResponseApplicationJson_OcsBuilder
   ConfigapiDeleteResponseApplicationJson_Ocs build() => _build();
 
   _$ConfigapiDeleteResponseApplicationJson_Ocs _build() {
+    ConfigapiDeleteResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiDeleteResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1601,7 +1628,9 @@ class ConfigapiDeleteResponseApplicationJsonBuilder
       _$this._ocs ??= ConfigapiDeleteResponseApplicationJson_OcsBuilder();
   set ocs(covariant ConfigapiDeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ConfigapiDeleteResponseApplicationJsonBuilder();
+  ConfigapiDeleteResponseApplicationJsonBuilder() {
+    ConfigapiDeleteResponseApplicationJson._defaults(this);
+  }
 
   ConfigapiDeleteResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1627,6 +1656,7 @@ class ConfigapiDeleteResponseApplicationJsonBuilder
   ConfigapiDeleteResponseApplicationJson build() => _build();
 
   _$ConfigapiDeleteResponseApplicationJson _build() {
+    ConfigapiDeleteResponseApplicationJson._validate(this);
     _$ConfigapiDeleteResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ConfigapiDeleteResponseApplicationJson._(ocs: ocs.build());

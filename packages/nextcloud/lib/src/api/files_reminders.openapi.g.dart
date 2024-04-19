@@ -487,7 +487,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -517,6 +519,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -585,7 +588,9 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
   String? get dueDate => _$this._dueDate;
   set dueDate(covariant String? dueDate) => _$this._dueDate = dueDate;
 
-  ApiGetResponseApplicationJson_Ocs_DataBuilder();
+  ApiGetResponseApplicationJson_Ocs_DataBuilder() {
+    ApiGetResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   ApiGetResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -611,6 +616,7 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
   ApiGetResponseApplicationJson_Ocs_Data build() => _build();
 
   _$ApiGetResponseApplicationJson_Ocs_Data _build() {
+    ApiGetResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs_Data._(dueDate: dueDate);
     replace(_$result);
     return _$result;
@@ -687,7 +693,9 @@ class ApiGetResponseApplicationJson_OcsBuilder
       _$this._data ??= ApiGetResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiGetResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  ApiGetResponseApplicationJson_OcsBuilder();
+  ApiGetResponseApplicationJson_OcsBuilder() {
+    ApiGetResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiGetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -714,6 +722,7 @@ class ApiGetResponseApplicationJson_OcsBuilder
   ApiGetResponseApplicationJson_Ocs build() => _build();
 
   _$ApiGetResponseApplicationJson_Ocs _build() {
+    ApiGetResponseApplicationJson_Ocs._validate(this);
     _$ApiGetResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ApiGetResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -789,7 +798,9 @@ class ApiGetResponseApplicationJsonBuilder
   ApiGetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiGetResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiGetResponseApplicationJsonBuilder();
+  ApiGetResponseApplicationJsonBuilder() {
+    ApiGetResponseApplicationJson._defaults(this);
+  }
 
   ApiGetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -815,6 +826,7 @@ class ApiGetResponseApplicationJsonBuilder
   ApiGetResponseApplicationJson build() => _build();
 
   _$ApiGetResponseApplicationJson _build() {
+    ApiGetResponseApplicationJson._validate(this);
     _$ApiGetResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiGetResponseApplicationJson._(ocs: ocs.build());
@@ -902,7 +914,9 @@ class ApiSetResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ApiSetResponseApplicationJson_OcsBuilder();
+  ApiSetResponseApplicationJson_OcsBuilder() {
+    ApiSetResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiSetResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -929,6 +943,7 @@ class ApiSetResponseApplicationJson_OcsBuilder
   ApiSetResponseApplicationJson_Ocs build() => _build();
 
   _$ApiSetResponseApplicationJson_Ocs _build() {
+    ApiSetResponseApplicationJson_Ocs._validate(this);
     _$ApiSetResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1005,7 +1020,9 @@ class ApiSetResponseApplicationJsonBuilder
   ApiSetResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiSetResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiSetResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiSetResponseApplicationJsonBuilder();
+  ApiSetResponseApplicationJsonBuilder() {
+    ApiSetResponseApplicationJson._defaults(this);
+  }
 
   ApiSetResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1031,6 +1048,7 @@ class ApiSetResponseApplicationJsonBuilder
   ApiSetResponseApplicationJson build() => _build();
 
   _$ApiSetResponseApplicationJson _build() {
+    ApiSetResponseApplicationJson._validate(this);
     _$ApiSetResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiSetResponseApplicationJson._(ocs: ocs.build());
@@ -1120,7 +1138,9 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ApiRemoveResponseApplicationJson_OcsBuilder();
+  ApiRemoveResponseApplicationJson_OcsBuilder() {
+    ApiRemoveResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiRemoveResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1147,6 +1167,7 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
   ApiRemoveResponseApplicationJson_Ocs build() => _build();
 
   _$ApiRemoveResponseApplicationJson_Ocs _build() {
+    ApiRemoveResponseApplicationJson_Ocs._validate(this);
     _$ApiRemoveResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1223,7 +1244,9 @@ class ApiRemoveResponseApplicationJsonBuilder
   ApiRemoveResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiRemoveResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiRemoveResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiRemoveResponseApplicationJsonBuilder();
+  ApiRemoveResponseApplicationJsonBuilder() {
+    ApiRemoveResponseApplicationJson._defaults(this);
+  }
 
   ApiRemoveResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1249,6 +1272,7 @@ class ApiRemoveResponseApplicationJsonBuilder
   ApiRemoveResponseApplicationJson build() => _build();
 
   _$ApiRemoveResponseApplicationJson _build() {
+    ApiRemoveResponseApplicationJson._validate(this);
     _$ApiRemoveResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiRemoveResponseApplicationJson._(ocs: ocs.build());

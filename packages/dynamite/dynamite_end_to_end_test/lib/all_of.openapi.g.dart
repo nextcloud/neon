@@ -282,7 +282,9 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
   String? get attribute2AllOf => _$this._attribute2AllOf;
   set attribute2AllOf(covariant String? attribute2AllOf) => _$this._attribute2AllOf = attribute2AllOf;
 
-  ObjectAllOfBuilder();
+  ObjectAllOfBuilder() {
+    ObjectAllOf._defaults(this);
+  }
 
   ObjectAllOfBuilder get _$this {
     final $v = _$v;
@@ -309,6 +311,7 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
   ObjectAllOf build() => _build();
 
   _$ObjectAllOf _build() {
+    ObjectAllOf._validate(this);
     final _$result = _$v ??
         _$ObjectAllOf._(
             attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
@@ -369,7 +372,9 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
   String? get attributeAllOf => _$this._attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
 
-  OneObjectAllOfBuilder();
+  OneObjectAllOfBuilder() {
+    OneObjectAllOf._defaults(this);
+  }
 
   OneObjectAllOfBuilder get _$this {
     final $v = _$v;
@@ -395,6 +400,7 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
   OneObjectAllOf build() => _build();
 
   _$OneObjectAllOf _build() {
+    OneObjectAllOf._validate(this);
     final _$result = _$v ??
         _$OneObjectAllOf._(
             attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'));
@@ -468,7 +474,9 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
   String? get string => _$this._string;
   set string(covariant String? string) => _$this._string = string;
 
-  PrimitiveAllOfBuilder();
+  PrimitiveAllOfBuilder() {
+    PrimitiveAllOf._defaults(this);
+  }
 
   PrimitiveAllOfBuilder get _$this {
     final $v = _$v;
@@ -495,6 +503,7 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
   PrimitiveAllOf build() => _build();
 
   _$PrimitiveAllOf _build() {
+    PrimitiveAllOf._validate(this);
     final _$result = _$v ??
         _$PrimitiveAllOf._(
             $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
@@ -568,7 +577,9 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
   String? get attributeAllOf => _$this._attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
 
-  MixedAllOfBuilder();
+  MixedAllOfBuilder() {
+    MixedAllOf._defaults(this);
+  }
 
   MixedAllOfBuilder get _$this {
     final $v = _$v;
@@ -595,6 +606,7 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
   MixedAllOf build() => _build();
 
   _$MixedAllOf _build() {
+    MixedAllOf._validate(this);
     final _$result = _$v ??
         _$MixedAllOf._(
             string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
@@ -655,7 +667,9 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
   String? get string => _$this._string;
   set string(covariant String? string) => _$this._string = string;
 
-  OneValueAllOfBuilder();
+  OneValueAllOfBuilder() {
+    OneValueAllOf._defaults(this);
+  }
 
   OneValueAllOfBuilder get _$this {
     final $v = _$v;
@@ -681,6 +695,7 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
   OneValueAllOf build() => _build();
 
   _$OneValueAllOf _build() {
+    OneValueAllOf._validate(this);
     final _$result =
         _$v ?? _$OneValueAllOf._(string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'));
     replace(_$result);

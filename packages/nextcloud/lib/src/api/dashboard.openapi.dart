@@ -385,6 +385,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -411,6 +415,16 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -418,6 +432,10 @@ abstract interface class $Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Widget_ButtonsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Widget_ButtonsInterfaceBuilder b) {}
 }
 
 abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
@@ -444,6 +462,16 @@ abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_
 
   /// Serializer for Widget_Buttons.
   static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Widget_ButtonsBuilder b) {
+    $Widget_ButtonsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Widget_ButtonsBuilder b) {
+    $Widget_ButtonsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -464,6 +492,10 @@ abstract interface class $WidgetInterface {
   @BuiltValueField(wireName: 'reload_interval')
   int? get reloadInterval;
   BuiltList<Widget_Buttons>? get buttons;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WidgetInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WidgetInterfaceBuilder b) {}
 }
 
 abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
@@ -490,12 +522,26 @@ abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> 
 
   /// Serializer for Widget.
   static Serializer<Widget> get serializer => _$widgetSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WidgetBuilder b) {
+    $WidgetInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WidgetBuilder b) {
+    $WidgetInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, Widget> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
@@ -530,11 +576,25 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   /// Serializer for DashboardApiGetWidgetsResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
   DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson
@@ -568,6 +628,16 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   /// Serializer for DashboardApiGetWidgetsResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -578,6 +648,10 @@ abstract interface class $WidgetItemInterface {
   String get iconUrl;
   String? get overlayIconUrl;
   String get sinceId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WidgetItemInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WidgetItemInterfaceBuilder b) {}
 }
 
 abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
@@ -604,12 +678,26 @@ abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, Wid
 
   /// Serializer for WidgetItem.
   static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WidgetItemBuilder b) {
+    $WidgetItemInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WidgetItemBuilder b) {
+    $WidgetItemInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<WidgetItem>> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
@@ -644,11 +732,25 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson
@@ -683,6 +785,16 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   /// Serializer for DashboardApiGetWidgetItemsResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -690,6 +802,10 @@ abstract interface class $WidgetItemsInterface {
   BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WidgetItemsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WidgetItemsInterfaceBuilder b) {}
 }
 
 abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
@@ -716,12 +832,26 @@ abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, 
 
   /// Serializer for WidgetItems.
   static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WidgetItemsBuilder b) {
+    $WidgetItemsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WidgetItemsBuilder b) {
+    $WidgetItemsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, WidgetItems> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
@@ -756,11 +886,25 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder b) {
+    $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
@@ -795,6 +939,16 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   /// Serializer for DashboardApiGetWidgetItemsV2ResponseApplicationJson.
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

@@ -214,7 +214,9 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
   String? get attribute1AnyOf => _$this._attribute1AnyOf;
   set attribute1AnyOf(covariant String? attribute1AnyOf) => _$this._attribute1AnyOf = attribute1AnyOf;
 
-  ObjectAnyOf0Builder();
+  ObjectAnyOf0Builder() {
+    ObjectAnyOf0._defaults(this);
+  }
 
   ObjectAnyOf0Builder get _$this {
     final $v = _$v;
@@ -240,6 +242,7 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
   ObjectAnyOf0 build() => _build();
 
   _$ObjectAnyOf0 _build() {
+    ObjectAnyOf0._validate(this);
     final _$result = _$v ??
         _$ObjectAnyOf0._(
             attribute1AnyOf:
@@ -300,7 +303,9 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
   String? get attribute2AnyOf => _$this._attribute2AnyOf;
   set attribute2AnyOf(covariant String? attribute2AnyOf) => _$this._attribute2AnyOf = attribute2AnyOf;
 
-  ObjectAnyOf1Builder();
+  ObjectAnyOf1Builder() {
+    ObjectAnyOf1._defaults(this);
+  }
 
   ObjectAnyOf1Builder get _$this {
     final $v = _$v;
@@ -326,6 +331,7 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
   ObjectAnyOf1 build() => _build();
 
   _$ObjectAnyOf1 _build() {
+    ObjectAnyOf1._validate(this);
     final _$result = _$v ??
         _$ObjectAnyOf1._(
             attribute2AnyOf:
@@ -386,7 +392,9 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $M
   String? get attributeAnyOf => _$this._attributeAnyOf;
   set attributeAnyOf(covariant String? attributeAnyOf) => _$this._attributeAnyOf = attributeAnyOf;
 
-  MixedAnyOf1Builder();
+  MixedAnyOf1Builder() {
+    MixedAnyOf1._defaults(this);
+  }
 
   MixedAnyOf1Builder get _$this {
     final $v = _$v;
@@ -412,6 +420,7 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $M
   MixedAnyOf1 build() => _build();
 
   _$MixedAnyOf1 _build() {
+    MixedAnyOf1._validate(this);
     final _$result = _$v ??
         _$MixedAnyOf1._(
             attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'));
@@ -472,7 +481,9 @@ class OneObjectAnyOf0Builder
   String? get attributeAnyOf => _$this._attributeAnyOf;
   set attributeAnyOf(covariant String? attributeAnyOf) => _$this._attributeAnyOf = attributeAnyOf;
 
-  OneObjectAnyOf0Builder();
+  OneObjectAnyOf0Builder() {
+    OneObjectAnyOf0._defaults(this);
+  }
 
   OneObjectAnyOf0Builder get _$this {
     final $v = _$v;
@@ -498,6 +509,7 @@ class OneObjectAnyOf0Builder
   OneObjectAnyOf0 build() => _build();
 
   _$OneObjectAnyOf0 _build() {
+    OneObjectAnyOf0._validate(this);
     final _$result = _$v ??
         _$OneObjectAnyOf0._(
             attributeAnyOf:

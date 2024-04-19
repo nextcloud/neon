@@ -598,6 +598,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -624,11 +628,25 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
@@ -662,12 +680,26 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
   /// Serializer for DirectGetUrlResponseApplicationJson_Ocs_Data.
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder b) {
+    $DirectGetUrlResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder b) {
+    $DirectGetUrlResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DirectGetUrlResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectGetUrlResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs
@@ -700,11 +732,25 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
   /// Serializer for DirectGetUrlResponseApplicationJson_Ocs.
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectGetUrlResponseApplicationJson_OcsBuilder b) {
+    $DirectGetUrlResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectGetUrlResponseApplicationJson_OcsBuilder b) {
+    $DirectGetUrlResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DirectGetUrlResponseApplicationJsonInterface {
   DirectGetUrlResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectGetUrlResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectGetUrlResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DirectGetUrlResponseApplicationJson
@@ -737,12 +783,26 @@ abstract class DirectGetUrlResponseApplicationJson
   /// Serializer for DirectGetUrlResponseApplicationJson.
   static Serializer<DirectGetUrlResponseApplicationJson> get serializer =>
       _$directGetUrlResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectGetUrlResponseApplicationJsonBuilder b) {
+    $DirectGetUrlResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectGetUrlResponseApplicationJsonBuilder b) {
+    $DirectGetUrlResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeDataCommonInterface {
   String get userId;
   String get message;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeDataCommonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeDataCommonInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeDataCommon
@@ -771,6 +831,16 @@ abstract class OutOfOfficeDataCommon
 
   /// Serializer for OutOfOfficeDataCommon.
   static Serializer<OutOfOfficeDataCommon> get serializer => _$outOfOfficeDataCommonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeDataCommonBuilder b) {
+    $OutOfOfficeDataCommonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeDataCommonBuilder b) {
+    $OutOfOfficeDataCommonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -779,6 +849,10 @@ abstract interface class $CurrentOutOfOfficeDataInterface implements $OutOfOffic
   int get startDate;
   int get endDate;
   String get shortMessage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CurrentOutOfOfficeDataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CurrentOutOfOfficeDataInterfaceBuilder b) {}
 }
 
 abstract class CurrentOutOfOfficeData
@@ -807,12 +881,26 @@ abstract class CurrentOutOfOfficeData
 
   /// Serializer for CurrentOutOfOfficeData.
   static Serializer<CurrentOutOfOfficeData> get serializer => _$currentOutOfOfficeDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CurrentOutOfOfficeDataBuilder b) {
+    $CurrentOutOfOfficeDataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CurrentOutOfOfficeDataBuilder b) {
+    $CurrentOutOfOfficeDataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CurrentOutOfOfficeData get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
@@ -847,11 +935,25 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
   /// Serializer for OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface {
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
@@ -886,6 +988,16 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
   /// Serializer for OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson.
   static Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson> get serializer =>
       _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder b) {
+    $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder b) {
+    $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -894,6 +1006,10 @@ abstract interface class $OutOfOfficeDataInterface implements $OutOfOfficeDataCo
   String get firstDay;
   String get lastDay;
   String get status;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeDataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeDataInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOfOfficeData, OutOfOfficeDataBuilder> {
@@ -920,12 +1036,26 @@ abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOf
 
   /// Serializer for OutOfOfficeData.
   static Serializer<OutOfOfficeData> get serializer => _$outOfOfficeDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeDataBuilder b) {
+    $OutOfOfficeDataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeDataBuilder b) {
+    $OutOfOfficeDataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OutOfOfficeData get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
@@ -960,11 +1090,25 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
   /// Serializer for OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeGetOutOfOfficeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
@@ -999,12 +1143,26 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
   /// Serializer for OutOfOfficeGetOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OutOfOfficeData get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
@@ -1039,11 +1197,25 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
   /// Serializer for OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeSetOutOfOfficeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
@@ -1078,12 +1250,26 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
   /// Serializer for OutOfOfficeSetOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject? get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
@@ -1118,11 +1304,25 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
   /// Serializer for OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeClearOutOfOfficeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder b) {
+    $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
@@ -1157,12 +1357,26 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
   /// Serializer for OutOfOfficeClearOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder b) {
+    $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_DavInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_DavInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_Dav
@@ -1190,11 +1404,25 @@ abstract class Capabilities_Dav
 
   /// Serializer for Capabilities_Dav.
   static Serializer<Capabilities_Dav> get serializer => _$capabilitiesDavSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_DavBuilder b) {
+    $Capabilities_DavInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_DavBuilder b) {
+    $Capabilities_DavInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   Capabilities_Dav get dav;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -1221,6 +1449,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

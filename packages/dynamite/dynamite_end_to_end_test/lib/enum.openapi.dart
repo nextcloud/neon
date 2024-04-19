@@ -348,6 +348,10 @@ abstract interface class $WrappedEnumInterface {
   @BuiltValueField(wireName: 'String')
   WrappedEnum_String get string;
   WrappedEnum_Integer get integer;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WrappedEnumInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WrappedEnumInterfaceBuilder b) {}
 }
 
 abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, WrappedEnumBuilder> {
@@ -368,11 +372,25 @@ abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, 
 
   /// Serializer for WrappedEnum.
   static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WrappedEnumBuilder b) {
+    $WrappedEnumInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WrappedEnumBuilder b) {
+    $WrappedEnumInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $EnumReferenceInterface {
   EnumString get string;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EnumReferenceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EnumReferenceInterfaceBuilder b) {}
 }
 
 abstract class EnumReference implements $EnumReferenceInterface, Built<EnumReference, EnumReferenceBuilder> {
@@ -393,6 +411,16 @@ abstract class EnumReference implements $EnumReferenceInterface, Built<EnumRefer
 
   /// Serializer for EnumReference.
   static Serializer<EnumReference> get serializer => _$enumReferenceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EnumReferenceBuilder b) {
+    $EnumReferenceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EnumReferenceBuilder b) {
+    $EnumReferenceInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

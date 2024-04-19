@@ -722,6 +722,10 @@ abstract interface class $NoteInterface {
   int get modified;
   bool get error;
   String get errorType;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($NoteInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($NoteInterfaceBuilder b) {}
 }
 
 abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
@@ -748,6 +752,16 @@ abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
 
   /// Serializer for Note.
   static Serializer<Note> get serializer => _$noteSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NoteBuilder b) {
+    $NoteInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(NoteBuilder b) {
+    $NoteInterface._validate(b);
+  }
 }
 
 class Settings_NoteMode extends EnumClass {
@@ -821,6 +835,10 @@ abstract interface class $SettingsInterface {
   String get notesPath;
   String get fileSuffix;
   Settings_NoteMode get noteMode;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SettingsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SettingsInterfaceBuilder b) {}
 }
 
 abstract class Settings implements $SettingsInterface, Built<Settings, SettingsBuilder> {
@@ -847,6 +865,16 @@ abstract class Settings implements $SettingsInterface, Built<Settings, SettingsB
 
   /// Serializer for Settings.
   static Serializer<Settings> get serializer => _$settingsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SettingsBuilder b) {
+    $SettingsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SettingsBuilder b) {
+    $SettingsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -854,6 +882,10 @@ abstract interface class $Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_NotesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_NotesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_Notes
@@ -882,11 +914,25 @@ abstract class Capabilities_Notes
 
   /// Serializer for Capabilities_Notes.
   static Serializer<Capabilities_Notes> get serializer => _$capabilitiesNotesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_NotesBuilder b) {
+    $Capabilities_NotesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_NotesBuilder b) {
+    $Capabilities_NotesInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   Capabilities_Notes get notes;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -913,6 +959,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -922,6 +978,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -948,12 +1008,26 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EmptyOCS_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EmptyOCS_OcsInterfaceBuilder b) {}
 }
 
 abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
@@ -980,11 +1054,25 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 
   /// Serializer for EmptyOCS_Ocs.
   static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EmptyOCS_OcsBuilder b) {
+    $EmptyOCS_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EmptyOCS_OcsBuilder b) {
+    $EmptyOCS_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EmptyOCSInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EmptyOCSInterfaceBuilder b) {}
 }
 
 abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
@@ -1011,6 +1099,16 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 
   /// Serializer for EmptyOCS.
   static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EmptyOCSBuilder b) {
+    $EmptyOCSInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EmptyOCSBuilder b) {
+    $EmptyOCSInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

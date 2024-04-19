@@ -400,6 +400,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -426,11 +430,25 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetResponseApplicationJson_Ocs_DataInterface {
   String? get dueDate;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs_Data
@@ -463,12 +481,26 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
   /// Serializer for ApiGetResponseApplicationJson_Ocs_Data.
   static Serializer<ApiGetResponseApplicationJson_Ocs_Data> get serializer =>
       _$apiGetResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs
@@ -500,11 +532,25 @@ abstract class ApiGetResponseApplicationJson_Ocs
 
   /// Serializer for ApiGetResponseApplicationJson_Ocs.
   static Serializer<ApiGetResponseApplicationJson_Ocs> get serializer => _$apiGetResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetResponseApplicationJson_OcsBuilder b) {
+    $ApiGetResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetResponseApplicationJson_OcsBuilder b) {
+    $ApiGetResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetResponseApplicationJsonInterface {
   ApiGetResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ApiGetResponseApplicationJson
@@ -536,12 +582,26 @@ abstract class ApiGetResponseApplicationJson
 
   /// Serializer for ApiGetResponseApplicationJson.
   static Serializer<ApiGetResponseApplicationJson> get serializer => _$apiGetResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetResponseApplicationJsonBuilder b) {
+    $ApiGetResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetResponseApplicationJsonBuilder b) {
+    $ApiGetResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiSetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiSetResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiSetResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ApiSetResponseApplicationJson_Ocs
@@ -573,11 +633,25 @@ abstract class ApiSetResponseApplicationJson_Ocs
 
   /// Serializer for ApiSetResponseApplicationJson_Ocs.
   static Serializer<ApiSetResponseApplicationJson_Ocs> get serializer => _$apiSetResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiSetResponseApplicationJson_OcsBuilder b) {
+    $ApiSetResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiSetResponseApplicationJson_OcsBuilder b) {
+    $ApiSetResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiSetResponseApplicationJsonInterface {
   ApiSetResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiSetResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiSetResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ApiSetResponseApplicationJson
@@ -609,12 +683,26 @@ abstract class ApiSetResponseApplicationJson
 
   /// Serializer for ApiSetResponseApplicationJson.
   static Serializer<ApiSetResponseApplicationJson> get serializer => _$apiSetResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiSetResponseApplicationJsonBuilder b) {
+    $ApiSetResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiSetResponseApplicationJsonBuilder b) {
+    $ApiSetResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiRemoveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiRemoveResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiRemoveResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ApiRemoveResponseApplicationJson_Ocs
@@ -647,11 +735,25 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
   /// Serializer for ApiRemoveResponseApplicationJson_Ocs.
   static Serializer<ApiRemoveResponseApplicationJson_Ocs> get serializer =>
       _$apiRemoveResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiRemoveResponseApplicationJson_OcsBuilder b) {
+    $ApiRemoveResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiRemoveResponseApplicationJson_OcsBuilder b) {
+    $ApiRemoveResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiRemoveResponseApplicationJsonInterface {
   ApiRemoveResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiRemoveResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiRemoveResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ApiRemoveResponseApplicationJson
@@ -683,6 +785,16 @@ abstract class ApiRemoveResponseApplicationJson
 
   /// Serializer for ApiRemoveResponseApplicationJson.
   static Serializer<ApiRemoveResponseApplicationJson> get serializer => _$apiRemoveResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiRemoveResponseApplicationJsonBuilder b) {
+    $ApiRemoveResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiRemoveResponseApplicationJsonBuilder b) {
+    $ApiRemoveResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

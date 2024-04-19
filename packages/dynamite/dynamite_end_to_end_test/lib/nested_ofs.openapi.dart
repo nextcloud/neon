@@ -23,6 +23,10 @@ abstract interface class $BaseAllOfInterface {
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseAllOfInterfaceBuilder b) {}
 }
 
 abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
@@ -43,12 +47,26 @@ abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAl
 
   /// Serializer for BaseAllOf.
   static Serializer<BaseAllOf> get serializer => _$baseAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseAllOfBuilder b) {
+    $BaseAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseAllOfBuilder b) {
+    $BaseAllOfInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseOneOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseOneOf1InterfaceBuilder b) {}
 }
 
 abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
@@ -69,6 +87,16 @@ abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, Bas
 
   /// Serializer for BaseOneOf1.
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseOneOf1Builder b) {
+    $BaseOneOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseOneOf1Builder b) {
+    $BaseOneOf1Interface._validate(b);
+  }
 }
 
 typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
@@ -77,6 +105,10 @@ typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
 abstract interface class $BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseAnyOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseAnyOf1InterfaceBuilder b) {}
 }
 
 abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
@@ -97,6 +129,16 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
 
   /// Serializer for BaseAnyOf1.
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseAnyOf1Builder b) {
+    $BaseAnyOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseAnyOf1Builder b) {
+    $BaseAnyOf1Interface._validate(b);
+  }
 }
 
 typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
@@ -109,6 +151,10 @@ abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterfac
   BaseAnyOf get baseAnyOf;
   @BuiltValueField(wireName: 'attribute-nested-allOf')
   String get attributeNestedAllOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseNestedAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseNestedAllOfInterfaceBuilder b) {}
 }
 
 abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
@@ -129,12 +175,26 @@ abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseN
 
   /// Serializer for BaseNestedAllOf.
   static Serializer<BaseNestedAllOf> get serializer => _$baseNestedAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseNestedAllOfBuilder b) {
+    $BaseNestedAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseNestedAllOfBuilder b) {
+    $BaseNestedAllOfInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseNestedOneOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-oneOf')
   String get attributeNestedOneOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseNestedOneOf3InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseNestedOneOf3InterfaceBuilder b) {}
 }
 
 abstract class BaseNestedOneOf3
@@ -156,6 +216,16 @@ abstract class BaseNestedOneOf3
 
   /// Serializer for BaseNestedOneOf3.
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseNestedOneOf3Builder b) {
+    $BaseNestedOneOf3Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseNestedOneOf3Builder b) {
+    $BaseNestedOneOf3Interface._validate(b);
+  }
 }
 
 typedef BaseNestedOneOf = ({
@@ -170,6 +240,10 @@ typedef BaseNestedOneOf = ({
 abstract interface class $BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
   String get attributeNestedAnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseNestedAnyOf3InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseNestedAnyOf3InterfaceBuilder b) {}
 }
 
 abstract class BaseNestedAnyOf3
@@ -191,6 +265,16 @@ abstract class BaseNestedAnyOf3
 
   /// Serializer for BaseNestedAnyOf3.
   static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseNestedAnyOf3Builder b) {
+    $BaseNestedAnyOf3Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseNestedAnyOf3Builder b) {
+    $BaseNestedAnyOf3Interface._validate(b);
+  }
 }
 
 typedef BaseNestedAnyOf = ({

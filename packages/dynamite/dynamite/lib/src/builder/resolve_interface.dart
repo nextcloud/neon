@@ -42,6 +42,8 @@ Spec buildInterface(
   BuiltList<Method>? methods,
   Iterable<TypeResultObject>? interfaces,
   String? documentation,
+  Iterable<String>? defaults,
+  Iterable<Expression>? validators,
 }) {
   assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
   final className = '\$$identifier$interfaceSuffix';
@@ -66,5 +68,64 @@ Spec buildInterface(
     if (methods != null) {
       b.methods.addAll(methods);
     }
+
+    b.methods.add(
+      Method((b) {
+        b
+          ..name = '_defaults'
+          ..returns = refer('void')
+          ..static = true
+          ..annotations.add(
+            refer('BuiltValueHook').call([], {
+              'initializeBuilder': literalTrue,
+            }),
+          )
+          ..requiredParameters.add(
+            Parameter(
+              (b) => b
+                ..name = 'b'
+                ..type = refer('${className}Builder'),
+            ),
+          );
+        if (defaults != null && defaults.isNotEmpty) {
+          b.body = Code(
+            <String?>[
+              'b',
+              ...defaults,
+            ].join(),
+          );
+        } else {
+          b.body = const Code('');
+        }
+      }),
+    );
+
+    b.methods.add(
+      Method((b) {
+        b
+          ..name = '_validate'
+          ..returns = refer('void')
+          ..annotations.add(
+            refer('BuiltValueHook').call([], {
+              'finalizeBuilder': literalTrue,
+            }),
+          )
+          ..static = true
+          ..requiredParameters.add(
+            Parameter(
+              (b) => b
+                ..name = 'b'
+                ..type = refer('${className}Builder'),
+            ),
+          );
+        if (validators != null && validators.isNotEmpty) {
+          b.body = Block.of(
+            validators.map((v) => v.statement),
+          );
+        } else {
+          b.body = const Code('');
+        }
+      }),
+    );
   });
 }

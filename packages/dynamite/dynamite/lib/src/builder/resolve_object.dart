@@ -93,12 +93,13 @@ TypeResultObject resolveObject(
       identifier,
       methods: methods.build(),
       documentation: schema.formattedDescription,
+      defaults: defaults.build(),
+      validators: validators.build(),
     );
+
     final $class = buildBuiltClass(
       identifier,
       documentation: schema.formattedDescription,
-      defaults: defaults.build(),
-      validators: validators.build(),
     );
 
     state.output.addAll([

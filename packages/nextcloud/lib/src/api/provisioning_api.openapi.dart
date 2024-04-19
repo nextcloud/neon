@@ -4120,6 +4120,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -4146,11 +4150,25 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
@@ -4185,12 +4203,26 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
   /// Serializer for AppConfigGetAppsResponseApplicationJson_Ocs_Data.
   static Serializer<AppConfigGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
       _$appConfigGetAppsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetAppsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson_Ocs
@@ -4224,11 +4256,25 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs
   /// Serializer for AppConfigGetAppsResponseApplicationJson_Ocs.
   static Serializer<AppConfigGetAppsResponseApplicationJson_Ocs> get serializer =>
       _$appConfigGetAppsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetAppsResponseApplicationJson_OcsBuilder b) {
+    $AppConfigGetAppsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetAppsResponseApplicationJson_OcsBuilder b) {
+    $AppConfigGetAppsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetAppsResponseApplicationJsonInterface {
   AppConfigGetAppsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetAppsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetAppsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetAppsResponseApplicationJson
@@ -4261,11 +4307,25 @@ abstract class AppConfigGetAppsResponseApplicationJson
   /// Serializer for AppConfigGetAppsResponseApplicationJson.
   static Serializer<AppConfigGetAppsResponseApplicationJson> get serializer =>
       _$appConfigGetAppsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetAppsResponseApplicationJsonBuilder b) {
+    $AppConfigGetAppsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetAppsResponseApplicationJsonBuilder b) {
+    $AppConfigGetAppsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetKeysResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetKeysResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
@@ -4300,12 +4360,26 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
   /// Serializer for AppConfigGetKeysResponseApplicationJson_Ocs_Data.
   static Serializer<AppConfigGetKeysResponseApplicationJson_Ocs_Data> get serializer =>
       _$appConfigGetKeysResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetKeysResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetKeysResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetKeysResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetKeysResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetKeysResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetKeysResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson_Ocs
@@ -4339,11 +4413,25 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs
   /// Serializer for AppConfigGetKeysResponseApplicationJson_Ocs.
   static Serializer<AppConfigGetKeysResponseApplicationJson_Ocs> get serializer =>
       _$appConfigGetKeysResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetKeysResponseApplicationJson_OcsBuilder b) {
+    $AppConfigGetKeysResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetKeysResponseApplicationJson_OcsBuilder b) {
+    $AppConfigGetKeysResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigGetKeysResponseApplicationJsonInterface {
   AppConfigGetKeysResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigGetKeysResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigGetKeysResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppConfigGetKeysResponseApplicationJson
@@ -4376,12 +4464,26 @@ abstract class AppConfigGetKeysResponseApplicationJson
   /// Serializer for AppConfigGetKeysResponseApplicationJson.
   static Serializer<AppConfigGetKeysResponseApplicationJson> get serializer =>
       _$appConfigGetKeysResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigGetKeysResponseApplicationJsonBuilder b) {
+    $AppConfigGetKeysResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigGetKeysResponseApplicationJsonBuilder b) {
+    $AppConfigGetKeysResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigSetValueResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigSetValueResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppConfigSetValueResponseApplicationJson_Ocs
@@ -4415,11 +4517,25 @@ abstract class AppConfigSetValueResponseApplicationJson_Ocs
   /// Serializer for AppConfigSetValueResponseApplicationJson_Ocs.
   static Serializer<AppConfigSetValueResponseApplicationJson_Ocs> get serializer =>
       _$appConfigSetValueResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigSetValueResponseApplicationJson_OcsBuilder b) {
+    $AppConfigSetValueResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigSetValueResponseApplicationJson_OcsBuilder b) {
+    $AppConfigSetValueResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppConfigSetValueResponseApplicationJsonInterface {
   AppConfigSetValueResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigSetValueResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigSetValueResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppConfigSetValueResponseApplicationJson
@@ -4453,11 +4569,25 @@ abstract class AppConfigSetValueResponseApplicationJson
   /// Serializer for AppConfigSetValueResponseApplicationJson.
   static Serializer<AppConfigSetValueResponseApplicationJson> get serializer =>
       _$appConfigSetValueResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigSetValueResponseApplicationJsonBuilder b) {
+    $AppConfigSetValueResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigSetValueResponseApplicationJsonBuilder b) {
+    $AppConfigSetValueResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get apps;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
@@ -4491,12 +4621,26 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
   /// Serializer for AppsGetAppsResponseApplicationJson_Ocs_Data.
   static Serializer<AppsGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
       _$appsGetAppsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppsGetAppsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppsResponseApplicationJson_Ocs_DataBuilder b) {
+    $AppsGetAppsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppsGetAppsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppsGetAppsResponseApplicationJson_Ocs
@@ -4529,11 +4673,25 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs
   /// Serializer for AppsGetAppsResponseApplicationJson_Ocs.
   static Serializer<AppsGetAppsResponseApplicationJson_Ocs> get serializer =>
       _$appsGetAppsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppsResponseApplicationJson_OcsBuilder b) {
+    $AppsGetAppsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppsResponseApplicationJson_OcsBuilder b) {
+    $AppsGetAppsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppsResponseApplicationJsonInterface {
   AppsGetAppsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppsGetAppsResponseApplicationJson
@@ -4566,12 +4724,26 @@ abstract class AppsGetAppsResponseApplicationJson
   /// Serializer for AppsGetAppsResponseApplicationJson.
   static Serializer<AppsGetAppsResponseApplicationJson> get serializer =>
       _$appsGetAppsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppsResponseApplicationJsonBuilder b) {
+    $AppsGetAppsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppsResponseApplicationJsonBuilder b) {
+    $AppsGetAppsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppsGetAppInfoResponseApplicationJson_Ocs
@@ -4605,11 +4777,25 @@ abstract class AppsGetAppInfoResponseApplicationJson_Ocs
   /// Serializer for AppsGetAppInfoResponseApplicationJson_Ocs.
   static Serializer<AppsGetAppInfoResponseApplicationJson_Ocs> get serializer =>
       _$appsGetAppInfoResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppInfoResponseApplicationJson_OcsBuilder b) {
+    $AppsGetAppInfoResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppInfoResponseApplicationJson_OcsBuilder b) {
+    $AppsGetAppInfoResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppInfoResponseApplicationJsonInterface {
   AppsGetAppInfoResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppInfoResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppInfoResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppsGetAppInfoResponseApplicationJson
@@ -4642,12 +4828,26 @@ abstract class AppsGetAppInfoResponseApplicationJson
   /// Serializer for AppsGetAppInfoResponseApplicationJson.
   static Serializer<AppsGetAppInfoResponseApplicationJson> get serializer =>
       _$appsGetAppInfoResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppInfoResponseApplicationJsonBuilder b) {
+    $AppsGetAppInfoResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppInfoResponseApplicationJsonBuilder b) {
+    $AppsGetAppInfoResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsEnableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsEnableResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppsEnableResponseApplicationJson_Ocs
@@ -4680,11 +4880,25 @@ abstract class AppsEnableResponseApplicationJson_Ocs
   /// Serializer for AppsEnableResponseApplicationJson_Ocs.
   static Serializer<AppsEnableResponseApplicationJson_Ocs> get serializer =>
       _$appsEnableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsEnableResponseApplicationJson_OcsBuilder b) {
+    $AppsEnableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsEnableResponseApplicationJson_OcsBuilder b) {
+    $AppsEnableResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsEnableResponseApplicationJsonInterface {
   AppsEnableResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsEnableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsEnableResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppsEnableResponseApplicationJson
@@ -4716,12 +4930,26 @@ abstract class AppsEnableResponseApplicationJson
 
   /// Serializer for AppsEnableResponseApplicationJson.
   static Serializer<AppsEnableResponseApplicationJson> get serializer => _$appsEnableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsEnableResponseApplicationJsonBuilder b) {
+    $AppsEnableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsEnableResponseApplicationJsonBuilder b) {
+    $AppsEnableResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsDisableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsDisableResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class AppsDisableResponseApplicationJson_Ocs
@@ -4754,11 +4982,25 @@ abstract class AppsDisableResponseApplicationJson_Ocs
   /// Serializer for AppsDisableResponseApplicationJson_Ocs.
   static Serializer<AppsDisableResponseApplicationJson_Ocs> get serializer =>
       _$appsDisableResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsDisableResponseApplicationJson_OcsBuilder b) {
+    $AppsDisableResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsDisableResponseApplicationJson_OcsBuilder b) {
+    $AppsDisableResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppsDisableResponseApplicationJsonInterface {
   AppsDisableResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsDisableResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsDisableResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class AppsDisableResponseApplicationJson
@@ -4791,12 +5033,26 @@ abstract class AppsDisableResponseApplicationJson
   /// Serializer for AppsDisableResponseApplicationJson.
   static Serializer<AppsDisableResponseApplicationJson> get serializer =>
       _$appsDisableResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsDisableResponseApplicationJsonBuilder b) {
+    $AppsDisableResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsDisableResponseApplicationJsonBuilder b) {
+    $AppsDisableResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
@@ -4831,11 +5087,25 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
   /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.
   static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetSubAdminsOfGroupResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
   GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetSubAdminsOfGroupResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetSubAdminsOfGroupResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
@@ -4870,11 +5140,25 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
   /// Serializer for GroupsGetSubAdminsOfGroupResponseApplicationJson.
   static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson> get serializer =>
       _$groupsGetSubAdminsOfGroupResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder b) {
+    $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder b) {
+    $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
@@ -4908,12 +5192,26 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
   /// Serializer for GroupsGetGroupsResponseApplicationJson_Ocs_Data.
   static Serializer<GroupsGetGroupsResponseApplicationJson_Ocs_Data> get serializer =>
       _$groupsGetGroupsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson_Ocs
@@ -4947,11 +5245,25 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs
   /// Serializer for GroupsGetGroupsResponseApplicationJson_Ocs.
   static Serializer<GroupsGetGroupsResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetGroupsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsResponseApplicationJsonInterface {
   GroupsGetGroupsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsResponseApplicationJson
@@ -4984,11 +5296,25 @@ abstract class GroupsGetGroupsResponseApplicationJson
   /// Serializer for GroupsGetGroupsResponseApplicationJson.
   static Serializer<GroupsGetGroupsResponseApplicationJson> get serializer =>
       _$groupsGetGroupsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
@@ -5022,12 +5348,26 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
   /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs_Data.
   static Serializer<GroupsGetGroupResponseApplicationJson_Ocs_Data> get serializer =>
       _$groupsGetGroupResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupResponseApplicationJson_Ocs
@@ -5061,11 +5401,25 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs
   /// Serializer for GroupsGetGroupResponseApplicationJson_Ocs.
   static Serializer<GroupsGetGroupResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetGroupResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupResponseApplicationJsonInterface {
   GroupsGetGroupResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupResponseApplicationJson
@@ -5098,6 +5452,16 @@ abstract class GroupsGetGroupResponseApplicationJson
   /// Serializer for GroupsGetGroupResponseApplicationJson.
   static Serializer<GroupsGetGroupResponseApplicationJson> get serializer =>
       _$groupsGetGroupResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
@@ -5111,6 +5475,13 @@ abstract interface class $GroupDetailsInterface {
   GroupDetails_Disabled get disabled;
   bool get canAdd;
   bool get canRemove;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupDetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupDetailsInterfaceBuilder b) {
+    b.usercount?.validateOneOf();
+    b.disabled?.validateOneOf();
+  }
 }
 
 abstract class GroupDetails implements $GroupDetailsInterface, Built<GroupDetails, GroupDetailsBuilder> {
@@ -5138,16 +5509,24 @@ abstract class GroupDetails implements $GroupDetailsInterface, Built<GroupDetail
   /// Serializer for GroupDetails.
   static Serializer<GroupDetails> get serializer => _$groupDetailsSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupDetailsBuilder b) {
+    $GroupDetailsInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(GroupDetailsBuilder b) {
-    b.usercount?.validateOneOf();
-    b.disabled?.validateOneOf();
+    $GroupDetailsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<GroupDetails> get groups;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
@@ -5182,12 +5561,26 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
   /// Serializer for GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$groupsGetGroupsDetailsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
@@ -5222,11 +5615,25 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
   /// Serializer for GroupsGetGroupsDetailsResponseApplicationJson_Ocs.
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetGroupsDetailsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsDetailsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsDetailsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupsDetailsResponseApplicationJsonInterface {
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsDetailsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsDetailsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupsDetailsResponseApplicationJson
@@ -5260,11 +5667,25 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson
   /// Serializer for GroupsGetGroupsDetailsResponseApplicationJson.
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson> get serializer =>
       _$groupsGetGroupsDetailsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsDetailsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsDetailsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupsDetailsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
@@ -5299,12 +5720,26 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
   /// Serializer for GroupsGetGroupUsersResponseApplicationJson_Ocs_Data.
   static Serializer<GroupsGetGroupUsersResponseApplicationJson_Ocs_Data> get serializer =>
       _$groupsGetGroupUsersResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
@@ -5338,11 +5773,25 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
   /// Serializer for GroupsGetGroupUsersResponseApplicationJson_Ocs.
   static Serializer<GroupsGetGroupUsersResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetGroupUsersResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersResponseApplicationJsonInterface {
   GroupsGetGroupUsersResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersResponseApplicationJson
@@ -5376,12 +5825,26 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
   /// Serializer for GroupsGetGroupUsersResponseApplicationJson.
   static Serializer<GroupsGetGroupUsersResponseApplicationJson> get serializer =>
       _$groupsGetGroupUsersResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserDetails_BackendCapabilitiesInterface {
   bool get setDisplayName;
   bool get setPassword;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserDetails_BackendCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserDetails_BackendCapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class UserDetails_BackendCapabilities
@@ -5413,6 +5876,16 @@ abstract class UserDetails_BackendCapabilities
 
   /// Serializer for UserDetails_BackendCapabilities.
   static Serializer<UserDetails_BackendCapabilities> get serializer => _$userDetailsBackendCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserDetails_BackendCapabilitiesBuilder b) {
+    $UserDetails_BackendCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserDetails_BackendCapabilitiesBuilder b) {
+    $UserDetails_BackendCapabilitiesInterface._validate(b);
+  }
 }
 
 typedef UserDetailsQuota_Quota = ({num? $num, String? string});
@@ -5424,6 +5897,12 @@ abstract interface class $UserDetailsQuotaInterface {
   num get relative;
   num get total;
   num get used;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserDetailsQuotaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserDetailsQuotaInterfaceBuilder b) {
+    b.quota?.validateOneOf();
+  }
 }
 
 abstract class UserDetailsQuota
@@ -5452,9 +5931,14 @@ abstract class UserDetailsQuota
   /// Serializer for UserDetailsQuota.
   static Serializer<UserDetailsQuota> get serializer => _$userDetailsQuotaSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserDetailsQuotaBuilder b) {
+    $UserDetailsQuotaInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UserDetailsQuotaBuilder b) {
-    b.quota?.validateOneOf();
+    $UserDetailsQuotaInterface._validate(b);
   }
 }
 
@@ -5507,6 +5991,10 @@ abstract interface class $UserDetailsInterface {
   String? get twitterScope;
   String get website;
   String? get websiteScope;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserDetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserDetailsInterfaceBuilder b) {}
 }
 
 abstract class UserDetails implements $UserDetailsInterface, Built<UserDetails, UserDetailsBuilder> {
@@ -5533,11 +6021,25 @@ abstract class UserDetails implements $UserDetailsInterface, Built<UserDetails, 
 
   /// Serializer for UserDetails.
   static Serializer<UserDetails> get serializer => _$userDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserDetailsBuilder b) {
+    $UserDetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserDetailsBuilder b) {
+    $UserDetailsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
@@ -5572,6 +6074,16 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
   /// Serializer for GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._validate(b);
+  }
 }
 
 typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
@@ -5582,6 +6094,10 @@ typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
@@ -5616,12 +6132,26 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
   /// Serializer for GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
@@ -5656,11 +6186,25 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
   /// Serializer for GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs.
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJsonInterface {
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
@@ -5695,12 +6239,26 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
   /// Serializer for GroupsGetGroupUsersDetailsResponseApplicationJson.
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersDetailsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersDetailsResponseApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersDetailsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetPreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetPreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
@@ -5735,11 +6293,25 @@ abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
   /// Serializer for PreferencesSetPreferenceResponseApplicationJson_Ocs.
   static Serializer<PreferencesSetPreferenceResponseApplicationJson_Ocs> get serializer =>
       _$preferencesSetPreferenceResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetPreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesSetPreferenceResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetPreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesSetPreferenceResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesSetPreferenceResponseApplicationJsonInterface {
   PreferencesSetPreferenceResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetPreferenceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetPreferenceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PreferencesSetPreferenceResponseApplicationJson
@@ -5773,12 +6345,26 @@ abstract class PreferencesSetPreferenceResponseApplicationJson
   /// Serializer for PreferencesSetPreferenceResponseApplicationJson.
   static Serializer<PreferencesSetPreferenceResponseApplicationJson> get serializer =>
       _$preferencesSetPreferenceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetPreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesSetPreferenceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetPreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesSetPreferenceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesDeletePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesDeletePreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesDeletePreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
@@ -5813,11 +6399,25 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
   /// Serializer for PreferencesDeletePreferenceResponseApplicationJson_Ocs.
   static Serializer<PreferencesDeletePreferenceResponseApplicationJson_Ocs> get serializer =>
       _$preferencesDeletePreferenceResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesDeletePreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesDeletePreferenceResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesDeletePreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesDeletePreferenceResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesDeletePreferenceResponseApplicationJsonInterface {
   PreferencesDeletePreferenceResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesDeletePreferenceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesDeletePreferenceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PreferencesDeletePreferenceResponseApplicationJson
@@ -5852,12 +6452,26 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson
   /// Serializer for PreferencesDeletePreferenceResponseApplicationJson.
   static Serializer<PreferencesDeletePreferenceResponseApplicationJson> get serializer =>
       _$preferencesDeletePreferenceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesDeletePreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesDeletePreferenceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesDeletePreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesDeletePreferenceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
@@ -5892,11 +6506,25 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
   /// Serializer for PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs.
   static Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs> get serializer =>
       _$preferencesSetMultiplePreferencesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetMultiplePreferencesResponseApplicationJson_OcsBuilder b) {
+    $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetMultiplePreferencesResponseApplicationJson_OcsBuilder b) {
+    $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface {
   PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetMultiplePreferencesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetMultiplePreferencesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
@@ -5931,12 +6559,26 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
   /// Serializer for PreferencesSetMultiplePreferencesResponseApplicationJson.
   static Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson> get serializer =>
       _$preferencesSetMultiplePreferencesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder b) {
+    $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder b) {
+    $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
@@ -5971,11 +6613,25 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
   /// Serializer for PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.
   static Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs> get serializer =>
       _$preferencesDeleteMultiplePreferenceResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder b) {
+    $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface {
   PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
@@ -6010,12 +6666,26 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
   /// Serializer for PreferencesDeleteMultiplePreferenceResponseApplicationJson.
   static Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson> get serializer =>
       _$preferencesDeleteMultiplePreferenceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder b) {
+    $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
@@ -6050,11 +6720,25 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
   /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.
   static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs> get serializer =>
       _$usersGetUserSubAdminGroupsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
   UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUserSubAdminGroupsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUserSubAdminGroupsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
@@ -6089,12 +6773,26 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
   /// Serializer for UsersGetUserSubAdminGroupsResponseApplicationJson.
   static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson> get serializer =>
       _$usersGetUserSubAdminGroupsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder b) {
+    $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder b) {
+    $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddSubAdminResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddSubAdminResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersAddSubAdminResponseApplicationJson_Ocs
@@ -6128,11 +6826,25 @@ abstract class UsersAddSubAdminResponseApplicationJson_Ocs
   /// Serializer for UsersAddSubAdminResponseApplicationJson_Ocs.
   static Serializer<UsersAddSubAdminResponseApplicationJson_Ocs> get serializer =>
       _$usersAddSubAdminResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddSubAdminResponseApplicationJson_OcsBuilder b) {
+    $UsersAddSubAdminResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddSubAdminResponseApplicationJson_OcsBuilder b) {
+    $UsersAddSubAdminResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddSubAdminResponseApplicationJsonInterface {
   UsersAddSubAdminResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddSubAdminResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddSubAdminResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersAddSubAdminResponseApplicationJson
@@ -6165,12 +6877,26 @@ abstract class UsersAddSubAdminResponseApplicationJson
   /// Serializer for UsersAddSubAdminResponseApplicationJson.
   static Serializer<UsersAddSubAdminResponseApplicationJson> get serializer =>
       _$usersAddSubAdminResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddSubAdminResponseApplicationJsonBuilder b) {
+    $UsersAddSubAdminResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddSubAdminResponseApplicationJsonBuilder b) {
+    $UsersAddSubAdminResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
@@ -6204,11 +6930,25 @@ abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
   /// Serializer for UsersRemoveSubAdminResponseApplicationJson_Ocs.
   static Serializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> get serializer =>
       _$usersRemoveSubAdminResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveSubAdminResponseApplicationJson_OcsBuilder b) {
+    $UsersRemoveSubAdminResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveSubAdminResponseApplicationJson_OcsBuilder b) {
+    $UsersRemoveSubAdminResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersRemoveSubAdminResponseApplicationJsonInterface {
   UsersRemoveSubAdminResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveSubAdminResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveSubAdminResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersRemoveSubAdminResponseApplicationJson
@@ -6242,11 +6982,25 @@ abstract class UsersRemoveSubAdminResponseApplicationJson
   /// Serializer for UsersRemoveSubAdminResponseApplicationJson.
   static Serializer<UsersRemoveSubAdminResponseApplicationJson> get serializer =>
       _$usersRemoveSubAdminResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveSubAdminResponseApplicationJsonBuilder b) {
+    $UsersRemoveSubAdminResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveSubAdminResponseApplicationJsonBuilder b) {
+    $UsersRemoveSubAdminResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
@@ -6280,12 +7034,26 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
   /// Serializer for UsersGetUsersResponseApplicationJson_Ocs_Data.
   static Serializer<UsersGetUsersResponseApplicationJson_Ocs_Data> get serializer =>
       _$usersGetUsersResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersResponseApplicationJson_Ocs
@@ -6319,11 +7087,25 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs
   /// Serializer for UsersGetUsersResponseApplicationJson_Ocs.
   static Serializer<UsersGetUsersResponseApplicationJson_Ocs> get serializer =>
       _$usersGetUsersResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersResponseApplicationJsonInterface {
   UsersGetUsersResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersResponseApplicationJson
@@ -6356,11 +7138,25 @@ abstract class UsersGetUsersResponseApplicationJson
   /// Serializer for UsersGetUsersResponseApplicationJson.
   static Serializer<UsersGetUsersResponseApplicationJson> get serializer =>
       _$usersGetUsersResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersResponseApplicationJsonBuilder b) {
+    $UsersGetUsersResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersResponseApplicationJsonBuilder b) {
+    $UsersGetUsersResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddUserResponseApplicationJson_Ocs_DataInterface {
   String get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddUserResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddUserResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class UsersAddUserResponseApplicationJson_Ocs_Data
@@ -6394,12 +7190,26 @@ abstract class UsersAddUserResponseApplicationJson_Ocs_Data
   /// Serializer for UsersAddUserResponseApplicationJson_Ocs_Data.
   static Serializer<UsersAddUserResponseApplicationJson_Ocs_Data> get serializer =>
       _$usersAddUserResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddUserResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersAddUserResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddUserResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersAddUserResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersAddUserResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersAddUserResponseApplicationJson_Ocs
@@ -6432,11 +7242,25 @@ abstract class UsersAddUserResponseApplicationJson_Ocs
   /// Serializer for UsersAddUserResponseApplicationJson_Ocs.
   static Serializer<UsersAddUserResponseApplicationJson_Ocs> get serializer =>
       _$usersAddUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddUserResponseApplicationJson_OcsBuilder b) {
+    $UsersAddUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddUserResponseApplicationJson_OcsBuilder b) {
+    $UsersAddUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddUserResponseApplicationJsonInterface {
   UsersAddUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersAddUserResponseApplicationJson
@@ -6469,11 +7293,25 @@ abstract class UsersAddUserResponseApplicationJson
   /// Serializer for UsersAddUserResponseApplicationJson.
   static Serializer<UsersAddUserResponseApplicationJson> get serializer =>
       _$usersAddUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddUserResponseApplicationJsonBuilder b) {
+    $UsersAddUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddUserResponseApplicationJsonBuilder b) {
+    $UsersAddUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
@@ -6508,6 +7346,16 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
   /// Serializer for UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._validate(b);
+  }
 }
 
 typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
@@ -6518,6 +7366,10 @@ typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
@@ -6552,12 +7404,26 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
   /// Serializer for UsersGetUsersDetailsResponseApplicationJson_Ocs_Data.
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$usersGetUsersDetailsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
@@ -6591,11 +7457,25 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
   /// Serializer for UsersGetUsersDetailsResponseApplicationJson_Ocs.
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs> get serializer =>
       _$usersGetUsersDetailsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJsonInterface {
   UsersGetUsersDetailsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersDetailsResponseApplicationJson
@@ -6629,11 +7509,25 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
   /// Serializer for UsersGetUsersDetailsResponseApplicationJson.
   static Serializer<UsersGetUsersDetailsResponseApplicationJson> get serializer =>
       _$usersGetUsersDetailsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersDetailsResponseApplicationJsonBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersDetailsResponseApplicationJsonBuilder b) {
+    $UsersGetUsersDetailsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
 }
 
 abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1
@@ -6668,6 +7562,16 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_User
   /// Serializer for UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface._validate(b);
+  }
 }
 
 typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
@@ -6678,6 +7582,10 @@ typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
@@ -6712,12 +7620,26 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
   /// Serializer for UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
@@ -6752,11 +7674,25 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
   /// Serializer for UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJsonInterface {
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
@@ -6791,12 +7727,26 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
   /// Serializer for UsersGetDisabledUsersDetailsResponseApplicationJson.
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder b) {
+    $UsersGetDisabledUsersDetailsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
@@ -6831,11 +7781,25 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
   /// Serializer for UsersSearchByPhoneNumbersResponseApplicationJson_Ocs.
   static Serializer<UsersSearchByPhoneNumbersResponseApplicationJson_Ocs> get serializer =>
       _$usersSearchByPhoneNumbersResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersSearchByPhoneNumbersResponseApplicationJson_OcsBuilder b) {
+    $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersSearchByPhoneNumbersResponseApplicationJson_OcsBuilder b) {
+    $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersSearchByPhoneNumbersResponseApplicationJsonInterface {
   UsersSearchByPhoneNumbersResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersSearchByPhoneNumbersResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersSearchByPhoneNumbersResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersSearchByPhoneNumbersResponseApplicationJson
@@ -6870,12 +7834,26 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson
   /// Serializer for UsersSearchByPhoneNumbersResponseApplicationJson.
   static Serializer<UsersSearchByPhoneNumbersResponseApplicationJson> get serializer =>
       _$usersSearchByPhoneNumbersResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersSearchByPhoneNumbersResponseApplicationJsonBuilder b) {
+    $UsersSearchByPhoneNumbersResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersSearchByPhoneNumbersResponseApplicationJsonBuilder b) {
+    $UsersSearchByPhoneNumbersResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUserResponseApplicationJson_Ocs
@@ -6908,11 +7886,25 @@ abstract class UsersGetUserResponseApplicationJson_Ocs
   /// Serializer for UsersGetUserResponseApplicationJson_Ocs.
   static Serializer<UsersGetUserResponseApplicationJson_Ocs> get serializer =>
       _$usersGetUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUserResponseApplicationJsonInterface {
   UsersGetUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUserResponseApplicationJson
@@ -6945,12 +7937,26 @@ abstract class UsersGetUserResponseApplicationJson
   /// Serializer for UsersGetUserResponseApplicationJson.
   static Serializer<UsersGetUserResponseApplicationJson> get serializer =>
       _$usersGetUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUserResponseApplicationJsonBuilder b) {
+    $UsersGetUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUserResponseApplicationJsonBuilder b) {
+    $UsersGetUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEditUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersEditUserResponseApplicationJson_Ocs
@@ -6984,11 +7990,25 @@ abstract class UsersEditUserResponseApplicationJson_Ocs
   /// Serializer for UsersEditUserResponseApplicationJson_Ocs.
   static Serializer<UsersEditUserResponseApplicationJson_Ocs> get serializer =>
       _$usersEditUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserResponseApplicationJson_OcsBuilder b) {
+    $UsersEditUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserResponseApplicationJson_OcsBuilder b) {
+    $UsersEditUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEditUserResponseApplicationJsonInterface {
   UsersEditUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersEditUserResponseApplicationJson
@@ -7021,12 +8041,26 @@ abstract class UsersEditUserResponseApplicationJson
   /// Serializer for UsersEditUserResponseApplicationJson.
   static Serializer<UsersEditUserResponseApplicationJson> get serializer =>
       _$usersEditUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserResponseApplicationJsonBuilder b) {
+    $UsersEditUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserResponseApplicationJsonBuilder b) {
+    $UsersEditUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersDeleteUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersDeleteUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersDeleteUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersDeleteUserResponseApplicationJson_Ocs
@@ -7060,11 +8094,25 @@ abstract class UsersDeleteUserResponseApplicationJson_Ocs
   /// Serializer for UsersDeleteUserResponseApplicationJson_Ocs.
   static Serializer<UsersDeleteUserResponseApplicationJson_Ocs> get serializer =>
       _$usersDeleteUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersDeleteUserResponseApplicationJson_OcsBuilder b) {
+    $UsersDeleteUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersDeleteUserResponseApplicationJson_OcsBuilder b) {
+    $UsersDeleteUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersDeleteUserResponseApplicationJsonInterface {
   UsersDeleteUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersDeleteUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersDeleteUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersDeleteUserResponseApplicationJson
@@ -7097,12 +8145,26 @@ abstract class UsersDeleteUserResponseApplicationJson
   /// Serializer for UsersDeleteUserResponseApplicationJson.
   static Serializer<UsersDeleteUserResponseApplicationJson> get serializer =>
       _$usersDeleteUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersDeleteUserResponseApplicationJsonBuilder b) {
+    $UsersDeleteUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersDeleteUserResponseApplicationJsonBuilder b) {
+    $UsersDeleteUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetCurrentUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetCurrentUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetCurrentUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
@@ -7136,11 +8198,25 @@ abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
   /// Serializer for UsersGetCurrentUserResponseApplicationJson_Ocs.
   static Serializer<UsersGetCurrentUserResponseApplicationJson_Ocs> get serializer =>
       _$usersGetCurrentUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetCurrentUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetCurrentUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetCurrentUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetCurrentUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetCurrentUserResponseApplicationJsonInterface {
   UsersGetCurrentUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetCurrentUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetCurrentUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetCurrentUserResponseApplicationJson
@@ -7174,12 +8250,26 @@ abstract class UsersGetCurrentUserResponseApplicationJson
   /// Serializer for UsersGetCurrentUserResponseApplicationJson.
   static Serializer<UsersGetCurrentUserResponseApplicationJson> get serializer =>
       _$usersGetCurrentUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetCurrentUserResponseApplicationJsonBuilder b) {
+    $UsersGetCurrentUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetCurrentUserResponseApplicationJsonBuilder b) {
+    $UsersGetCurrentUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetEditableFieldsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEditableFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEditableFieldsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
@@ -7214,11 +8304,25 @@ abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
   /// Serializer for UsersGetEditableFieldsResponseApplicationJson_Ocs.
   static Serializer<UsersGetEditableFieldsResponseApplicationJson_Ocs> get serializer =>
       _$usersGetEditableFieldsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEditableFieldsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEditableFieldsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEditableFieldsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEditableFieldsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetEditableFieldsResponseApplicationJsonInterface {
   UsersGetEditableFieldsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEditableFieldsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEditableFieldsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetEditableFieldsResponseApplicationJson
@@ -7252,12 +8356,26 @@ abstract class UsersGetEditableFieldsResponseApplicationJson
   /// Serializer for UsersGetEditableFieldsResponseApplicationJson.
   static Serializer<UsersGetEditableFieldsResponseApplicationJson> get serializer =>
       _$usersGetEditableFieldsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEditableFieldsResponseApplicationJsonBuilder b) {
+    $UsersGetEditableFieldsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEditableFieldsResponseApplicationJsonBuilder b) {
+    $UsersGetEditableFieldsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
@@ -7292,11 +8410,25 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
   /// Serializer for UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.
   static Serializer<UsersGetEditableFieldsForUserResponseApplicationJson_Ocs> get serializer =>
       _$usersGetEditableFieldsForUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder b) {
+    $UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetEditableFieldsForUserResponseApplicationJsonInterface {
   UsersGetEditableFieldsForUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetEditableFieldsForUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetEditableFieldsForUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetEditableFieldsForUserResponseApplicationJson
@@ -7331,12 +8463,26 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
   /// Serializer for UsersGetEditableFieldsForUserResponseApplicationJson.
   static Serializer<UsersGetEditableFieldsForUserResponseApplicationJson> get serializer =>
       _$usersGetEditableFieldsForUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetEditableFieldsForUserResponseApplicationJsonBuilder b) {
+    $UsersGetEditableFieldsForUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetEditableFieldsForUserResponseApplicationJsonBuilder b) {
+    $UsersGetEditableFieldsForUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEditUserMultiValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserMultiValueResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserMultiValueResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
@@ -7371,11 +8517,25 @@ abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
   /// Serializer for UsersEditUserMultiValueResponseApplicationJson_Ocs.
   static Serializer<UsersEditUserMultiValueResponseApplicationJson_Ocs> get serializer =>
       _$usersEditUserMultiValueResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserMultiValueResponseApplicationJson_OcsBuilder b) {
+    $UsersEditUserMultiValueResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserMultiValueResponseApplicationJson_OcsBuilder b) {
+    $UsersEditUserMultiValueResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEditUserMultiValueResponseApplicationJsonInterface {
   UsersEditUserMultiValueResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserMultiValueResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserMultiValueResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersEditUserMultiValueResponseApplicationJson
@@ -7409,12 +8569,26 @@ abstract class UsersEditUserMultiValueResponseApplicationJson
   /// Serializer for UsersEditUserMultiValueResponseApplicationJson.
   static Serializer<UsersEditUserMultiValueResponseApplicationJson> get serializer =>
       _$usersEditUserMultiValueResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserMultiValueResponseApplicationJsonBuilder b) {
+    $UsersEditUserMultiValueResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserMultiValueResponseApplicationJsonBuilder b) {
+    $UsersEditUserMultiValueResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersWipeUserDevicesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersWipeUserDevicesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersWipeUserDevicesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
@@ -7448,11 +8622,25 @@ abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
   /// Serializer for UsersWipeUserDevicesResponseApplicationJson_Ocs.
   static Serializer<UsersWipeUserDevicesResponseApplicationJson_Ocs> get serializer =>
       _$usersWipeUserDevicesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersWipeUserDevicesResponseApplicationJson_OcsBuilder b) {
+    $UsersWipeUserDevicesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersWipeUserDevicesResponseApplicationJson_OcsBuilder b) {
+    $UsersWipeUserDevicesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersWipeUserDevicesResponseApplicationJsonInterface {
   UsersWipeUserDevicesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersWipeUserDevicesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersWipeUserDevicesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersWipeUserDevicesResponseApplicationJson
@@ -7486,12 +8674,26 @@ abstract class UsersWipeUserDevicesResponseApplicationJson
   /// Serializer for UsersWipeUserDevicesResponseApplicationJson.
   static Serializer<UsersWipeUserDevicesResponseApplicationJson> get serializer =>
       _$usersWipeUserDevicesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersWipeUserDevicesResponseApplicationJsonBuilder b) {
+    $UsersWipeUserDevicesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersWipeUserDevicesResponseApplicationJsonBuilder b) {
+    $UsersWipeUserDevicesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEnableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEnableUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEnableUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersEnableUserResponseApplicationJson_Ocs
@@ -7525,11 +8727,25 @@ abstract class UsersEnableUserResponseApplicationJson_Ocs
   /// Serializer for UsersEnableUserResponseApplicationJson_Ocs.
   static Serializer<UsersEnableUserResponseApplicationJson_Ocs> get serializer =>
       _$usersEnableUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEnableUserResponseApplicationJson_OcsBuilder b) {
+    $UsersEnableUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEnableUserResponseApplicationJson_OcsBuilder b) {
+    $UsersEnableUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersEnableUserResponseApplicationJsonInterface {
   UsersEnableUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEnableUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEnableUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersEnableUserResponseApplicationJson
@@ -7562,12 +8778,26 @@ abstract class UsersEnableUserResponseApplicationJson
   /// Serializer for UsersEnableUserResponseApplicationJson.
   static Serializer<UsersEnableUserResponseApplicationJson> get serializer =>
       _$usersEnableUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEnableUserResponseApplicationJsonBuilder b) {
+    $UsersEnableUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEnableUserResponseApplicationJsonBuilder b) {
+    $UsersEnableUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersDisableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersDisableUserResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersDisableUserResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersDisableUserResponseApplicationJson_Ocs
@@ -7601,11 +8831,25 @@ abstract class UsersDisableUserResponseApplicationJson_Ocs
   /// Serializer for UsersDisableUserResponseApplicationJson_Ocs.
   static Serializer<UsersDisableUserResponseApplicationJson_Ocs> get serializer =>
       _$usersDisableUserResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersDisableUserResponseApplicationJson_OcsBuilder b) {
+    $UsersDisableUserResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersDisableUserResponseApplicationJson_OcsBuilder b) {
+    $UsersDisableUserResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersDisableUserResponseApplicationJsonInterface {
   UsersDisableUserResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersDisableUserResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersDisableUserResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersDisableUserResponseApplicationJson
@@ -7638,11 +8882,25 @@ abstract class UsersDisableUserResponseApplicationJson
   /// Serializer for UsersDisableUserResponseApplicationJson.
   static Serializer<UsersDisableUserResponseApplicationJson> get serializer =>
       _$usersDisableUserResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersDisableUserResponseApplicationJsonBuilder b) {
+    $UsersDisableUserResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersDisableUserResponseApplicationJsonBuilder b) {
+    $UsersDisableUserResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
@@ -7677,12 +8935,26 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
   /// Serializer for UsersGetUsersGroupsResponseApplicationJson_Ocs_Data.
   static Serializer<UsersGetUsersGroupsResponseApplicationJson_Ocs_Data> get serializer =>
       _$usersGetUsersGroupsResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersGroupsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersGroupsResponseApplicationJson_Ocs_DataBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersGroupsResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersGroupsResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
@@ -7716,11 +8988,25 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
   /// Serializer for UsersGetUsersGroupsResponseApplicationJson_Ocs.
   static Serializer<UsersGetUsersGroupsResponseApplicationJson_Ocs> get serializer =>
       _$usersGetUsersGroupsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersGroupsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersGroupsResponseApplicationJson_OcsBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersGroupsResponseApplicationJsonInterface {
   UsersGetUsersGroupsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersGroupsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersGroupsResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersGetUsersGroupsResponseApplicationJson
@@ -7754,12 +9040,26 @@ abstract class UsersGetUsersGroupsResponseApplicationJson
   /// Serializer for UsersGetUsersGroupsResponseApplicationJson.
   static Serializer<UsersGetUsersGroupsResponseApplicationJson> get serializer =>
       _$usersGetUsersGroupsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersGroupsResponseApplicationJsonBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersGroupsResponseApplicationJsonBuilder b) {
+    $UsersGetUsersGroupsResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddToGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddToGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddToGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersAddToGroupResponseApplicationJson_Ocs
@@ -7793,11 +9093,25 @@ abstract class UsersAddToGroupResponseApplicationJson_Ocs
   /// Serializer for UsersAddToGroupResponseApplicationJson_Ocs.
   static Serializer<UsersAddToGroupResponseApplicationJson_Ocs> get serializer =>
       _$usersAddToGroupResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddToGroupResponseApplicationJson_OcsBuilder b) {
+    $UsersAddToGroupResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddToGroupResponseApplicationJson_OcsBuilder b) {
+    $UsersAddToGroupResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersAddToGroupResponseApplicationJsonInterface {
   UsersAddToGroupResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddToGroupResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddToGroupResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersAddToGroupResponseApplicationJson
@@ -7830,12 +9144,26 @@ abstract class UsersAddToGroupResponseApplicationJson
   /// Serializer for UsersAddToGroupResponseApplicationJson.
   static Serializer<UsersAddToGroupResponseApplicationJson> get serializer =>
       _$usersAddToGroupResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddToGroupResponseApplicationJsonBuilder b) {
+    $UsersAddToGroupResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddToGroupResponseApplicationJsonBuilder b) {
+    $UsersAddToGroupResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersRemoveFromGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveFromGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveFromGroupResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
@@ -7869,11 +9197,25 @@ abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
   /// Serializer for UsersRemoveFromGroupResponseApplicationJson_Ocs.
   static Serializer<UsersRemoveFromGroupResponseApplicationJson_Ocs> get serializer =>
       _$usersRemoveFromGroupResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveFromGroupResponseApplicationJson_OcsBuilder b) {
+    $UsersRemoveFromGroupResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveFromGroupResponseApplicationJson_OcsBuilder b) {
+    $UsersRemoveFromGroupResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersRemoveFromGroupResponseApplicationJsonInterface {
   UsersRemoveFromGroupResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveFromGroupResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveFromGroupResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersRemoveFromGroupResponseApplicationJson
@@ -7907,12 +9249,26 @@ abstract class UsersRemoveFromGroupResponseApplicationJson
   /// Serializer for UsersRemoveFromGroupResponseApplicationJson.
   static Serializer<UsersRemoveFromGroupResponseApplicationJson> get serializer =>
       _$usersRemoveFromGroupResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveFromGroupResponseApplicationJsonBuilder b) {
+    $UsersRemoveFromGroupResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveFromGroupResponseApplicationJsonBuilder b) {
+    $UsersRemoveFromGroupResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersResendWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersResendWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
@@ -7947,11 +9303,25 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
   /// Serializer for UsersResendWelcomeMessageResponseApplicationJson_Ocs.
   static Serializer<UsersResendWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
       _$usersResendWelcomeMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersResendWelcomeMessageResponseApplicationJson_OcsBuilder b) {
+    $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersResendWelcomeMessageResponseApplicationJson_OcsBuilder b) {
+    $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersResendWelcomeMessageResponseApplicationJsonInterface {
   UsersResendWelcomeMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersResendWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersResendWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UsersResendWelcomeMessageResponseApplicationJson
@@ -7986,6 +9356,16 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson
   /// Serializer for UsersResendWelcomeMessageResponseApplicationJson.
   static Serializer<UsersResendWelcomeMessageResponseApplicationJson> get serializer =>
       _$usersResendWelcomeMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersResendWelcomeMessageResponseApplicationJsonBuilder b) {
+    $UsersResendWelcomeMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersResendWelcomeMessageResponseApplicationJsonBuilder b) {
+    $UsersResendWelcomeMessageResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -7997,6 +9377,10 @@ abstract interface class $Capabilities_ProvisioningApiInterface {
   bool get accountPropertyScopesFederatedEnabled;
   @BuiltValueField(wireName: 'AccountPropertyScopesPublishedEnabled')
   bool get accountPropertyScopesPublishedEnabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_ProvisioningApiInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_ProvisioningApiInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_ProvisioningApi
@@ -8028,12 +9412,26 @@ abstract class Capabilities_ProvisioningApi
 
   /// Serializer for Capabilities_ProvisioningApi.
   static Serializer<Capabilities_ProvisioningApi> get serializer => _$capabilitiesProvisioningApiSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_ProvisioningApiBuilder b) {
+    $Capabilities_ProvisioningApiInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_ProvisioningApiBuilder b) {
+    $Capabilities_ProvisioningApiInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
   Capabilities_ProvisioningApi get provisioningApi;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -8060,6 +9458,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 /// Serialization extension for `GroupDetails_Usercount`.

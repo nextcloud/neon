@@ -158,7 +158,9 @@ class Capabilities_FilesBuilder
   bool? get undelete => _$this._undelete;
   set undelete(covariant bool? undelete) => _$this._undelete = undelete;
 
-  Capabilities_FilesBuilder();
+  Capabilities_FilesBuilder() {
+    Capabilities_Files._defaults(this);
+  }
 
   Capabilities_FilesBuilder get _$this {
     final $v = _$v;
@@ -184,6 +186,7 @@ class Capabilities_FilesBuilder
   Capabilities_Files build() => _build();
 
   _$Capabilities_Files _build() {
+    Capabilities_Files._validate(this);
     final _$result = _$v ??
         _$Capabilities_Files._(
             undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'));
@@ -243,7 +246,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
   set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -269,6 +274,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(files: files.build());

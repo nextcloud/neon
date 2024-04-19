@@ -985,7 +985,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1015,6 +1017,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1085,7 +1088,9 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
+  DirectGetUrlResponseApplicationJson_Ocs_DataBuilder() {
+    DirectGetUrlResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   DirectGetUrlResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -1111,6 +1116,7 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   DirectGetUrlResponseApplicationJson_Ocs_Data build() => _build();
 
   _$DirectGetUrlResponseApplicationJson_Ocs_Data _build() {
+    DirectGetUrlResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectGetUrlResponseApplicationJson_Ocs_Data._(
             url: BuiltValueNullFieldError.checkNotNull(url, r'DirectGetUrlResponseApplicationJson_Ocs_Data', 'url'));
@@ -1192,7 +1198,9 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
       _$this._data ??= DirectGetUrlResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectGetUrlResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DirectGetUrlResponseApplicationJson_OcsBuilder();
+  DirectGetUrlResponseApplicationJson_OcsBuilder() {
+    DirectGetUrlResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DirectGetUrlResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1219,6 +1227,7 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   DirectGetUrlResponseApplicationJson_Ocs build() => _build();
 
   _$DirectGetUrlResponseApplicationJson_Ocs _build() {
+    DirectGetUrlResponseApplicationJson_Ocs._validate(this);
     _$DirectGetUrlResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DirectGetUrlResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -1295,7 +1304,9 @@ class DirectGetUrlResponseApplicationJsonBuilder
       _$this._ocs ??= DirectGetUrlResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectGetUrlResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DirectGetUrlResponseApplicationJsonBuilder();
+  DirectGetUrlResponseApplicationJsonBuilder() {
+    DirectGetUrlResponseApplicationJson._defaults(this);
+  }
 
   DirectGetUrlResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1321,6 +1332,7 @@ class DirectGetUrlResponseApplicationJsonBuilder
   DirectGetUrlResponseApplicationJson build() => _build();
 
   _$DirectGetUrlResponseApplicationJson _build() {
+    DirectGetUrlResponseApplicationJson._validate(this);
     _$DirectGetUrlResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DirectGetUrlResponseApplicationJson._(ocs: ocs.build());
@@ -1406,7 +1418,9 @@ class OutOfOfficeDataCommonBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  OutOfOfficeDataCommonBuilder();
+  OutOfOfficeDataCommonBuilder() {
+    OutOfOfficeDataCommon._defaults(this);
+  }
 
   OutOfOfficeDataCommonBuilder get _$this {
     final $v = _$v;
@@ -1433,6 +1447,7 @@ class OutOfOfficeDataCommonBuilder
   OutOfOfficeDataCommon build() => _build();
 
   _$OutOfOfficeDataCommon _build() {
+    OutOfOfficeDataCommon._validate(this);
     final _$result = _$v ??
         _$OutOfOfficeDataCommon._(
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
@@ -1570,7 +1585,9 @@ class CurrentOutOfOfficeDataBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  CurrentOutOfOfficeDataBuilder();
+  CurrentOutOfOfficeDataBuilder() {
+    CurrentOutOfOfficeData._defaults(this);
+  }
 
   CurrentOutOfOfficeDataBuilder get _$this {
     final $v = _$v;
@@ -1601,6 +1618,7 @@ class CurrentOutOfOfficeDataBuilder
   CurrentOutOfOfficeData build() => _build();
 
   _$CurrentOutOfOfficeData _build() {
+    CurrentOutOfOfficeData._validate(this);
     final _$result = _$v ??
         _$CurrentOutOfOfficeData._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
@@ -1694,7 +1712,9 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
   CurrentOutOfOfficeDataBuilder get data => _$this._data ??= CurrentOutOfOfficeDataBuilder();
   set data(covariant CurrentOutOfOfficeDataBuilder? data) => _$this._data = data;
 
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder() {
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1721,6 +1741,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs build() => _build();
 
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _build() {
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1806,7 +1827,9 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
       _$this._ocs ??= OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder() {
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._defaults(this);
+  }
 
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1832,6 +1855,7 @@ class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson build() => _build();
 
   _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _build() {
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._validate(this);
     _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(ocs: ocs.build());
@@ -1978,7 +2002,9 @@ class OutOfOfficeDataBuilder
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  OutOfOfficeDataBuilder();
+  OutOfOfficeDataBuilder() {
+    OutOfOfficeData._defaults(this);
+  }
 
   OutOfOfficeDataBuilder get _$this {
     final $v = _$v;
@@ -2009,6 +2035,7 @@ class OutOfOfficeDataBuilder
   OutOfOfficeData build() => _build();
 
   _$OutOfOfficeData _build() {
+    OutOfOfficeData._validate(this);
     final _$result = _$v ??
         _$OutOfOfficeData._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
@@ -2096,7 +2123,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
   OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
   set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
 
-  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder() {
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2123,6 +2152,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs build() => _build();
 
   _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _build() {
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -2206,7 +2236,9 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
       _$this._ocs ??= OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
+  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder() {
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson._defaults(this);
+  }
 
   OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2232,6 +2264,7 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
   OutOfOfficeGetOutOfOfficeResponseApplicationJson build() => _build();
 
   _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _build() {
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
@@ -2325,7 +2358,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
   OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
   set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
 
-  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder() {
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2352,6 +2387,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs build() => _build();
 
   _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _build() {
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -2435,7 +2471,9 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
       _$this._ocs ??= OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
+  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder() {
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson._defaults(this);
+  }
 
   OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2461,6 +2499,7 @@ class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
   OutOfOfficeSetOutOfOfficeResponseApplicationJson build() => _build();
 
   _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _build() {
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
@@ -2553,7 +2592,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder() {
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2580,6 +2621,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs build() => _build();
 
   _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _build() {
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._validate(this);
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
@@ -2660,7 +2702,9 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
       _$this._ocs ??= OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
   set ocs(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
+  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder() {
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson._defaults(this);
+  }
 
   OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2686,6 +2730,7 @@ class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
   OutOfOfficeClearOutOfOfficeResponseApplicationJson build() => _build();
 
   _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _build() {
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson._validate(this);
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
@@ -2770,7 +2815,9 @@ class Capabilities_DavBuilder
   String? get bulkupload => _$this._bulkupload;
   set bulkupload(covariant String? bulkupload) => _$this._bulkupload = bulkupload;
 
-  Capabilities_DavBuilder();
+  Capabilities_DavBuilder() {
+    Capabilities_Dav._defaults(this);
+  }
 
   Capabilities_DavBuilder get _$this {
     final $v = _$v;
@@ -2797,6 +2844,7 @@ class Capabilities_DavBuilder
   Capabilities_Dav build() => _build();
 
   _$Capabilities_Dav _build() {
+    Capabilities_Dav._validate(this);
     final _$result = _$v ??
         _$Capabilities_Dav._(
             chunking: BuiltValueNullFieldError.checkNotNull(chunking, r'Capabilities_Dav', 'chunking'),
@@ -2857,7 +2905,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_DavBuilder get dav => _$this._dav ??= Capabilities_DavBuilder();
   set dav(covariant Capabilities_DavBuilder? dav) => _$this._dav = dav;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -2883,6 +2933,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(dav: dav.build());

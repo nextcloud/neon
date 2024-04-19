@@ -1440,6 +1440,10 @@ class $Client extends _i1.DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class $SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SupportedAPIVersionsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SupportedAPIVersionsInterfaceBuilder b) {}
 }
 
 abstract class SupportedAPIVersions
@@ -1468,6 +1472,16 @@ abstract class SupportedAPIVersions
 
   /// Serializer for SupportedAPIVersions.
   static Serializer<SupportedAPIVersions> get serializer => _$supportedAPIVersionsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SupportedAPIVersionsBuilder b) {
+    $SupportedAPIVersionsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SupportedAPIVersionsBuilder b) {
+    $SupportedAPIVersionsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1492,6 +1506,10 @@ abstract interface class $ArticleInterface {
   bool get rtl;
   String get fingerprint;
   String get contentHash;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ArticleInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ArticleInterfaceBuilder b) {}
 }
 
 abstract class Article implements $ArticleInterface, Built<Article, ArticleBuilder> {
@@ -1518,6 +1536,16 @@ abstract class Article implements $ArticleInterface, Built<Article, ArticleBuild
 
   /// Serializer for Article.
   static Serializer<Article> get serializer => _$articleSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ArticleBuilder b) {
+    $ArticleInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ArticleBuilder b) {
+    $ArticleInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1535,6 +1563,10 @@ abstract interface class $FeedInterface {
   int get updateErrorCount;
   String? get lastUpdateError;
   BuiltList<Article> get items;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FeedInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FeedInterfaceBuilder b) {}
 }
 
 abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
@@ -1561,6 +1593,16 @@ abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
 
   /// Serializer for Feed.
   static Serializer<Feed> get serializer => _$feedSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FeedBuilder b) {
+    $FeedInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FeedBuilder b) {
+    $FeedInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1571,6 +1613,10 @@ abstract interface class $FolderInterface {
 
   /// This seems to be broken. In testing it is always empty.
   BuiltList<Feed> get feeds;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FolderInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FolderInterfaceBuilder b) {}
 }
 
 abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> {
@@ -1597,11 +1643,25 @@ abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> 
 
   /// Serializer for Folder.
   static Serializer<Folder> get serializer => _$folderSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FolderBuilder b) {
+    $FolderInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FolderBuilder b) {
+    $FolderInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ListFoldersInterface {
   BuiltList<Folder> get folders;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ListFoldersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ListFoldersInterfaceBuilder b) {}
 }
 
 abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
@@ -1628,6 +1688,16 @@ abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, 
 
   /// Serializer for ListFolders.
   static Serializer<ListFolders> get serializer => _$listFoldersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ListFoldersBuilder b) {
+    $ListFoldersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ListFoldersBuilder b) {
+    $ListFoldersInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1635,6 +1705,10 @@ abstract interface class $ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
   BuiltList<Feed> get feeds;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ListFeedsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ListFeedsInterfaceBuilder b) {}
 }
 
 abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
@@ -1661,11 +1735,25 @@ abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFe
 
   /// Serializer for ListFeeds.
   static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ListFeedsBuilder b) {
+    $ListFeedsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ListFeedsBuilder b) {
+    $ListFeedsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ListArticlesInterface {
   BuiltList<Article> get items;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ListArticlesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ListArticlesInterfaceBuilder b) {}
 }
 
 abstract class ListArticles implements $ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
@@ -1692,6 +1780,16 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
 
   /// Serializer for ListArticles.
   static Serializer<ListArticles> get serializer => _$listArticlesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ListArticlesBuilder b) {
+    $ListArticlesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ListArticlesBuilder b) {
+    $ListArticlesInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1701,6 +1799,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1727,12 +1829,26 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EmptyOCS_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EmptyOCS_OcsInterfaceBuilder b) {}
 }
 
 abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
@@ -1759,11 +1875,25 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 
   /// Serializer for EmptyOCS_Ocs.
   static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EmptyOCS_OcsBuilder b) {
+    $EmptyOCS_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EmptyOCS_OcsBuilder b) {
+    $EmptyOCS_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EmptyOCSInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EmptyOCSInterfaceBuilder b) {}
 }
 
 abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
@@ -1790,6 +1920,16 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 
   /// Serializer for EmptyOCS.
   static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EmptyOCSBuilder b) {
+    $EmptyOCSInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EmptyOCSBuilder b) {
+    $EmptyOCSInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

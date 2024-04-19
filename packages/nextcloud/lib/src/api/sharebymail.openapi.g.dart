@@ -366,7 +366,9 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+  Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder() {
+    Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._defaults(this);
+  }
 
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
     final $v = _$v;
@@ -392,6 +394,7 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
   Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
 
   _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop _build() {
+    Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -476,7 +479,9 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+  Capabilities0_FilesSharing_Sharebymail_PasswordBuilder() {
+    Capabilities0_FilesSharing_Sharebymail_Password._defaults(this);
+  }
 
   Capabilities0_FilesSharing_Sharebymail_PasswordBuilder get _$this {
     final $v = _$v;
@@ -503,6 +508,7 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
   Capabilities0_FilesSharing_Sharebymail_Password build() => _build();
 
   _$Capabilities0_FilesSharing_Sharebymail_Password _build() {
+    Capabilities0_FilesSharing_Sharebymail_Password._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_Password._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -589,7 +595,9 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+  Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder() {
+    Capabilities0_FilesSharing_Sharebymail_ExpireDate._defaults(this);
+  }
 
   Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
     final $v = _$v;
@@ -616,6 +624,7 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   Capabilities0_FilesSharing_Sharebymail_ExpireDate build() => _build();
 
   _$Capabilities0_FilesSharing_Sharebymail_ExpireDate _build() {
+    Capabilities0_FilesSharing_Sharebymail_ExpireDate._validate(this);
     final _$result = _$v ??
         _$Capabilities0_FilesSharing_Sharebymail_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
@@ -754,7 +763,9 @@ class Capabilities0_FilesSharing_SharebymailBuilder
   set expireDate(covariant Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  Capabilities0_FilesSharing_SharebymailBuilder();
+  Capabilities0_FilesSharing_SharebymailBuilder() {
+    Capabilities0_FilesSharing_Sharebymail._defaults(this);
+  }
 
   Capabilities0_FilesSharing_SharebymailBuilder get _$this {
     final $v = _$v;
@@ -784,6 +795,7 @@ class Capabilities0_FilesSharing_SharebymailBuilder
   Capabilities0_FilesSharing_Sharebymail build() => _build();
 
   _$Capabilities0_FilesSharing_Sharebymail _build() {
+    Capabilities0_FilesSharing_Sharebymail._validate(this);
     _$Capabilities0_FilesSharing_Sharebymail _$result;
     try {
       _$result = _$v ??
@@ -871,7 +883,9 @@ class Capabilities0_FilesSharingBuilder
   set sharebymail(covariant Capabilities0_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
-  Capabilities0_FilesSharingBuilder();
+  Capabilities0_FilesSharingBuilder() {
+    Capabilities0_FilesSharing._defaults(this);
+  }
 
   Capabilities0_FilesSharingBuilder get _$this {
     final $v = _$v;
@@ -897,6 +911,7 @@ class Capabilities0_FilesSharingBuilder
   Capabilities0_FilesSharing build() => _build();
 
   _$Capabilities0_FilesSharing _build() {
+    Capabilities0_FilesSharing._validate(this);
     _$Capabilities0_FilesSharing _$result;
     try {
       _$result = _$v ?? _$Capabilities0_FilesSharing._(sharebymail: sharebymail.build());
@@ -966,7 +981,9 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
   Capabilities0_FilesSharingBuilder get filesSharing => _$this._filesSharing ??= Capabilities0_FilesSharingBuilder();
   set filesSharing(covariant Capabilities0_FilesSharingBuilder? filesSharing) => _$this._filesSharing = filesSharing;
 
-  Capabilities0Builder();
+  Capabilities0Builder() {
+    Capabilities0._defaults(this);
+  }
 
   Capabilities0Builder get _$this {
     final $v = _$v;
@@ -992,6 +1009,7 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
   Capabilities0 build() => _build();
 
   _$Capabilities0 _build() {
+    Capabilities0._validate(this);
     _$Capabilities0 _$result;
     try {
       _$result = _$v ?? _$Capabilities0._(filesSharing: filesSharing.build());

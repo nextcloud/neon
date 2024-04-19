@@ -1734,7 +1734,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1764,6 +1766,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1849,7 +1852,9 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
+  ApiGenerateNotificationResponseApplicationJson_OcsBuilder() {
+    ApiGenerateNotificationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1876,6 +1881,7 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
   ApiGenerateNotificationResponseApplicationJson_Ocs build() => _build();
 
   _$ApiGenerateNotificationResponseApplicationJson_Ocs _build() {
+    ApiGenerateNotificationResponseApplicationJson_Ocs._validate(this);
     _$ApiGenerateNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -1958,7 +1964,9 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
       _$this._ocs ??= ApiGenerateNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiGenerateNotificationResponseApplicationJsonBuilder();
+  ApiGenerateNotificationResponseApplicationJsonBuilder() {
+    ApiGenerateNotificationResponseApplicationJson._defaults(this);
+  }
 
   ApiGenerateNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1984,6 +1992,7 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
   ApiGenerateNotificationResponseApplicationJson build() => _build();
 
   _$ApiGenerateNotificationResponseApplicationJson _build() {
+    ApiGenerateNotificationResponseApplicationJson._validate(this);
     _$ApiGenerateNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiGenerateNotificationResponseApplicationJson._(ocs: ocs.build());
@@ -2099,7 +2108,9 @@ class NotificationActionBuilder
   bool? get primary => _$this._primary;
   set primary(covariant bool? primary) => _$this._primary = primary;
 
-  NotificationActionBuilder();
+  NotificationActionBuilder() {
+    NotificationAction._defaults(this);
+  }
 
   NotificationActionBuilder get _$this {
     final $v = _$v;
@@ -2128,6 +2139,7 @@ class NotificationActionBuilder
   NotificationAction build() => _build();
 
   _$NotificationAction _build() {
+    NotificationAction._validate(this);
     final _$result = _$v ??
         _$NotificationAction._(
             label: BuiltValueNullFieldError.checkNotNull(label, r'NotificationAction', 'label'),
@@ -2403,7 +2415,9 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
   bool? get shouldNotify => _$this._shouldNotify;
   set shouldNotify(covariant bool? shouldNotify) => _$this._shouldNotify = shouldNotify;
 
-  NotificationBuilder();
+  NotificationBuilder() {
+    Notification._defaults(this);
+  }
 
   NotificationBuilder get _$this {
     final $v = _$v;
@@ -2444,6 +2458,7 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
   Notification build() => _build();
 
   _$Notification _build() {
+    Notification._validate(this);
     _$Notification _$result;
     try {
       _$result = _$v ??
@@ -2559,7 +2574,9 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
   ListBuilder<Notification> get data => _$this._data ??= ListBuilder<Notification>();
   set data(covariant ListBuilder<Notification>? data) => _$this._data = data;
 
-  EndpointListNotificationsResponseApplicationJson_OcsBuilder();
+  EndpointListNotificationsResponseApplicationJson_OcsBuilder() {
+    EndpointListNotificationsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   EndpointListNotificationsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2586,6 +2603,7 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
   EndpointListNotificationsResponseApplicationJson_Ocs build() => _build();
 
   _$EndpointListNotificationsResponseApplicationJson_Ocs _build() {
+    EndpointListNotificationsResponseApplicationJson_Ocs._validate(this);
     _$EndpointListNotificationsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -2669,7 +2687,9 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
       _$this._ocs ??= EndpointListNotificationsResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EndpointListNotificationsResponseApplicationJsonBuilder();
+  EndpointListNotificationsResponseApplicationJsonBuilder() {
+    EndpointListNotificationsResponseApplicationJson._defaults(this);
+  }
 
   EndpointListNotificationsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2695,6 +2715,7 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
   EndpointListNotificationsResponseApplicationJson build() => _build();
 
   _$EndpointListNotificationsResponseApplicationJson _build() {
+    EndpointListNotificationsResponseApplicationJson._validate(this);
     _$EndpointListNotificationsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$EndpointListNotificationsResponseApplicationJson._(ocs: ocs.build());
@@ -2773,7 +2794,9 @@ class EndpointEndpointListNotificationsHeadersBuilder
   set xNextcloudUserStatus(covariant String? xNextcloudUserStatus) =>
       _$this._xNextcloudUserStatus = xNextcloudUserStatus;
 
-  EndpointEndpointListNotificationsHeadersBuilder();
+  EndpointEndpointListNotificationsHeadersBuilder() {
+    EndpointEndpointListNotificationsHeaders._defaults(this);
+  }
 
   EndpointEndpointListNotificationsHeadersBuilder get _$this {
     final $v = _$v;
@@ -2799,6 +2822,7 @@ class EndpointEndpointListNotificationsHeadersBuilder
   EndpointEndpointListNotificationsHeaders build() => _build();
 
   _$EndpointEndpointListNotificationsHeaders _build() {
+    EndpointEndpointListNotificationsHeaders._validate(this);
     final _$result = _$v ?? _$EndpointEndpointListNotificationsHeaders._(xNextcloudUserStatus: xNextcloudUserStatus);
     replace(_$result);
     return _$result;
@@ -2881,7 +2905,9 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
+  EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder() {
+    EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2908,6 +2934,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
   EndpointDeleteAllNotificationsResponseApplicationJson_Ocs build() => _build();
 
   _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs _build() {
+    EndpointDeleteAllNotificationsResponseApplicationJson_Ocs._validate(this);
     _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -2993,7 +3020,9 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
       _$this._ocs ??= EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EndpointDeleteAllNotificationsResponseApplicationJsonBuilder();
+  EndpointDeleteAllNotificationsResponseApplicationJsonBuilder() {
+    EndpointDeleteAllNotificationsResponseApplicationJson._defaults(this);
+  }
 
   EndpointDeleteAllNotificationsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3019,6 +3048,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
   EndpointDeleteAllNotificationsResponseApplicationJson build() => _build();
 
   _$EndpointDeleteAllNotificationsResponseApplicationJson _build() {
+    EndpointDeleteAllNotificationsResponseApplicationJson._validate(this);
     _$EndpointDeleteAllNotificationsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$EndpointDeleteAllNotificationsResponseApplicationJson._(ocs: ocs.build());
@@ -3111,7 +3141,9 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
   NotificationBuilder get data => _$this._data ??= NotificationBuilder();
   set data(covariant NotificationBuilder? data) => _$this._data = data;
 
-  EndpointGetNotificationResponseApplicationJson_OcsBuilder();
+  EndpointGetNotificationResponseApplicationJson_OcsBuilder() {
+    EndpointGetNotificationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   EndpointGetNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3138,6 +3170,7 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
   EndpointGetNotificationResponseApplicationJson_Ocs build() => _build();
 
   _$EndpointGetNotificationResponseApplicationJson_Ocs _build() {
+    EndpointGetNotificationResponseApplicationJson_Ocs._validate(this);
     _$EndpointGetNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3218,7 +3251,9 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
       _$this._ocs ??= EndpointGetNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EndpointGetNotificationResponseApplicationJsonBuilder();
+  EndpointGetNotificationResponseApplicationJsonBuilder() {
+    EndpointGetNotificationResponseApplicationJson._defaults(this);
+  }
 
   EndpointGetNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3244,6 +3279,7 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
   EndpointGetNotificationResponseApplicationJson build() => _build();
 
   _$EndpointGetNotificationResponseApplicationJson _build() {
+    EndpointGetNotificationResponseApplicationJson._validate(this);
     _$EndpointGetNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$EndpointGetNotificationResponseApplicationJson._(ocs: ocs.build());
@@ -3337,7 +3373,9 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
+  EndpointDeleteNotificationResponseApplicationJson_OcsBuilder() {
+    EndpointDeleteNotificationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3364,6 +3402,7 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   EndpointDeleteNotificationResponseApplicationJson_Ocs build() => _build();
 
   _$EndpointDeleteNotificationResponseApplicationJson_Ocs _build() {
+    EndpointDeleteNotificationResponseApplicationJson_Ocs._validate(this);
     _$EndpointDeleteNotificationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -3448,7 +3487,9 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
       _$this._ocs ??= EndpointDeleteNotificationResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EndpointDeleteNotificationResponseApplicationJsonBuilder();
+  EndpointDeleteNotificationResponseApplicationJsonBuilder() {
+    EndpointDeleteNotificationResponseApplicationJson._defaults(this);
+  }
 
   EndpointDeleteNotificationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3474,6 +3515,7 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
   EndpointDeleteNotificationResponseApplicationJson build() => _build();
 
   _$EndpointDeleteNotificationResponseApplicationJson _build() {
+    EndpointDeleteNotificationResponseApplicationJson._validate(this);
     _$EndpointDeleteNotificationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$EndpointDeleteNotificationResponseApplicationJson._(ocs: ocs.build());
@@ -3567,7 +3609,9 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   ListBuilder<int> get data => _$this._data ??= ListBuilder<int>();
   set data(covariant ListBuilder<int>? data) => _$this._data = data;
 
-  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
+  EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder() {
+    EndpointConfirmIdsForUserResponseApplicationJson_Ocs._defaults(this);
+  }
 
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3594,6 +3638,7 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   EndpointConfirmIdsForUserResponseApplicationJson_Ocs build() => _build();
 
   _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _build() {
+    EndpointConfirmIdsForUserResponseApplicationJson_Ocs._validate(this);
     _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -3677,7 +3722,9 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
       _$this._ocs ??= EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder();
   set ocs(covariant EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EndpointConfirmIdsForUserResponseApplicationJsonBuilder();
+  EndpointConfirmIdsForUserResponseApplicationJsonBuilder() {
+    EndpointConfirmIdsForUserResponseApplicationJson._defaults(this);
+  }
 
   EndpointConfirmIdsForUserResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3703,6 +3750,7 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
   EndpointConfirmIdsForUserResponseApplicationJson build() => _build();
 
   _$EndpointConfirmIdsForUserResponseApplicationJson _build() {
+    EndpointConfirmIdsForUserResponseApplicationJson._validate(this);
     _$EndpointConfirmIdsForUserResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$EndpointConfirmIdsForUserResponseApplicationJson._(ocs: ocs.build());
@@ -3801,7 +3849,9 @@ class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, $Push
   String? get signature => _$this._signature;
   set signature(covariant String? signature) => _$this._signature = signature;
 
-  PushDeviceBuilder();
+  PushDeviceBuilder() {
+    PushDevice._defaults(this);
+  }
 
   PushDeviceBuilder get _$this {
     final $v = _$v;
@@ -3829,6 +3879,7 @@ class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, $Push
   PushDevice build() => _build();
 
   _$PushDevice _build() {
+    PushDevice._validate(this);
     final _$result = _$v ??
         _$PushDevice._(
             publicKey: BuiltValueNullFieldError.checkNotNull(publicKey, r'PushDevice', 'publicKey'),
@@ -3912,7 +3963,9 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
   PushDeviceBuilder get data => _$this._data ??= PushDeviceBuilder();
   set data(covariant PushDeviceBuilder? data) => _$this._data = data;
 
-  PushRegisterDeviceResponseApplicationJson_OcsBuilder();
+  PushRegisterDeviceResponseApplicationJson_OcsBuilder() {
+    PushRegisterDeviceResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PushRegisterDeviceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3939,6 +3992,7 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
   PushRegisterDeviceResponseApplicationJson_Ocs build() => _build();
 
   _$PushRegisterDeviceResponseApplicationJson_Ocs _build() {
+    PushRegisterDeviceResponseApplicationJson_Ocs._validate(this);
     _$PushRegisterDeviceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -4018,7 +4072,9 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
       _$this._ocs ??= PushRegisterDeviceResponseApplicationJson_OcsBuilder();
   set ocs(covariant PushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PushRegisterDeviceResponseApplicationJsonBuilder();
+  PushRegisterDeviceResponseApplicationJsonBuilder() {
+    PushRegisterDeviceResponseApplicationJson._defaults(this);
+  }
 
   PushRegisterDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4044,6 +4100,7 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
   PushRegisterDeviceResponseApplicationJson build() => _build();
 
   _$PushRegisterDeviceResponseApplicationJson _build() {
+    PushRegisterDeviceResponseApplicationJson._validate(this);
     _$PushRegisterDeviceResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PushRegisterDeviceResponseApplicationJson._(ocs: ocs.build());
@@ -4134,7 +4191,9 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  PushRemoveDeviceResponseApplicationJson_OcsBuilder();
+  PushRemoveDeviceResponseApplicationJson_OcsBuilder() {
+    PushRemoveDeviceResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PushRemoveDeviceResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4161,6 +4220,7 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
   PushRemoveDeviceResponseApplicationJson_Ocs build() => _build();
 
   _$PushRemoveDeviceResponseApplicationJson_Ocs _build() {
+    PushRemoveDeviceResponseApplicationJson_Ocs._validate(this);
     _$PushRemoveDeviceResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -4242,7 +4302,9 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
       _$this._ocs ??= PushRemoveDeviceResponseApplicationJson_OcsBuilder();
   set ocs(covariant PushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PushRemoveDeviceResponseApplicationJsonBuilder();
+  PushRemoveDeviceResponseApplicationJsonBuilder() {
+    PushRemoveDeviceResponseApplicationJson._defaults(this);
+  }
 
   PushRemoveDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4268,6 +4330,7 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
   PushRemoveDeviceResponseApplicationJson build() => _build();
 
   _$PushRemoveDeviceResponseApplicationJson _build() {
+    PushRemoveDeviceResponseApplicationJson._validate(this);
     _$PushRemoveDeviceResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PushRemoveDeviceResponseApplicationJson._(ocs: ocs.build());
@@ -4358,7 +4421,9 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  SettingsPersonalResponseApplicationJson_OcsBuilder();
+  SettingsPersonalResponseApplicationJson_OcsBuilder() {
+    SettingsPersonalResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SettingsPersonalResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4385,6 +4450,7 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
   SettingsPersonalResponseApplicationJson_Ocs build() => _build();
 
   _$SettingsPersonalResponseApplicationJson_Ocs _build() {
+    SettingsPersonalResponseApplicationJson_Ocs._validate(this);
     _$SettingsPersonalResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -4466,7 +4532,9 @@ class SettingsPersonalResponseApplicationJsonBuilder
       _$this._ocs ??= SettingsPersonalResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsPersonalResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SettingsPersonalResponseApplicationJsonBuilder();
+  SettingsPersonalResponseApplicationJsonBuilder() {
+    SettingsPersonalResponseApplicationJson._defaults(this);
+  }
 
   SettingsPersonalResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4492,6 +4560,7 @@ class SettingsPersonalResponseApplicationJsonBuilder
   SettingsPersonalResponseApplicationJson build() => _build();
 
   _$SettingsPersonalResponseApplicationJson _build() {
+    SettingsPersonalResponseApplicationJson._validate(this);
     _$SettingsPersonalResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SettingsPersonalResponseApplicationJson._(ocs: ocs.build());
@@ -4582,7 +4651,9 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  SettingsAdminResponseApplicationJson_OcsBuilder();
+  SettingsAdminResponseApplicationJson_OcsBuilder() {
+    SettingsAdminResponseApplicationJson_Ocs._defaults(this);
+  }
 
   SettingsAdminResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4609,6 +4680,7 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
   SettingsAdminResponseApplicationJson_Ocs build() => _build();
 
   _$SettingsAdminResponseApplicationJson_Ocs _build() {
+    SettingsAdminResponseApplicationJson_Ocs._validate(this);
     _$SettingsAdminResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -4688,7 +4760,9 @@ class SettingsAdminResponseApplicationJsonBuilder
       _$this._ocs ??= SettingsAdminResponseApplicationJson_OcsBuilder();
   set ocs(covariant SettingsAdminResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  SettingsAdminResponseApplicationJsonBuilder();
+  SettingsAdminResponseApplicationJsonBuilder() {
+    SettingsAdminResponseApplicationJson._defaults(this);
+  }
 
   SettingsAdminResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4714,6 +4788,7 @@ class SettingsAdminResponseApplicationJsonBuilder
   SettingsAdminResponseApplicationJson build() => _build();
 
   _$SettingsAdminResponseApplicationJson _build() {
+    SettingsAdminResponseApplicationJson._validate(this);
     _$SettingsAdminResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$SettingsAdminResponseApplicationJson._(ocs: ocs.build());
@@ -4818,7 +4893,9 @@ class Capabilities_NotificationsBuilder
   set adminNotifications(covariant ListBuilder<String>? adminNotifications) =>
       _$this._adminNotifications = adminNotifications;
 
-  Capabilities_NotificationsBuilder();
+  Capabilities_NotificationsBuilder() {
+    Capabilities_Notifications._defaults(this);
+  }
 
   Capabilities_NotificationsBuilder get _$this {
     final $v = _$v;
@@ -4846,6 +4923,7 @@ class Capabilities_NotificationsBuilder
   Capabilities_Notifications build() => _build();
 
   _$Capabilities_Notifications _build() {
+    Capabilities_Notifications._validate(this);
     _$Capabilities_Notifications _$result;
     try {
       _$result = _$v ??
@@ -4922,7 +5000,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   set notifications(covariant Capabilities_NotificationsBuilder? notifications) =>
       _$this._notifications = notifications;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -4948,6 +5028,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(notifications: notifications.build());

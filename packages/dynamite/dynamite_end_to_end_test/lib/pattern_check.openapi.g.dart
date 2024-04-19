@@ -163,7 +163,9 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
   String? get multipleChecks => _$this._multipleChecks;
   set multipleChecks(covariant String? multipleChecks) => _$this._multipleChecks = multipleChecks;
 
-  TestObjectBuilder();
+  TestObjectBuilder() {
+    TestObject._defaults(this);
+  }
 
   TestObjectBuilder get _$this {
     final $v = _$v;

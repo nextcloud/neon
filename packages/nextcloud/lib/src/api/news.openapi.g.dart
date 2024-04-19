@@ -730,7 +730,9 @@ class SupportedAPIVersionsBuilder
   ListBuilder<String> get apiLevels => _$this._apiLevels ??= ListBuilder<String>();
   set apiLevels(covariant ListBuilder<String>? apiLevels) => _$this._apiLevels = apiLevels;
 
-  SupportedAPIVersionsBuilder();
+  SupportedAPIVersionsBuilder() {
+    SupportedAPIVersions._defaults(this);
+  }
 
   SupportedAPIVersionsBuilder get _$this {
     final $v = _$v;
@@ -756,6 +758,7 @@ class SupportedAPIVersionsBuilder
   SupportedAPIVersions build() => _build();
 
   _$SupportedAPIVersions _build() {
+    SupportedAPIVersions._validate(this);
     _$SupportedAPIVersions _$result;
     try {
       _$result = _$v ?? _$SupportedAPIVersions._(apiLevels: _apiLevels?.build());
@@ -1088,7 +1091,9 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
   String? get contentHash => _$this._contentHash;
   set contentHash(covariant String? contentHash) => _$this._contentHash = contentHash;
 
-  ArticleBuilder();
+  ArticleBuilder() {
+    Article._defaults(this);
+  }
 
   ArticleBuilder get _$this {
     final $v = _$v;
@@ -1133,6 +1138,7 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterf
   Article build() => _build();
 
   _$Article _build() {
+    Article._validate(this);
     final _$result = _$v ??
         _$Article._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Article', 'id'),
@@ -1378,7 +1384,9 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
   ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
   set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
-  FeedBuilder();
+  FeedBuilder() {
+    Feed._defaults(this);
+  }
 
   FeedBuilder get _$this {
     final $v = _$v;
@@ -1416,6 +1424,7 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
   Feed build() => _build();
 
   _$Feed _build() {
+    Feed._validate(this);
     _$Feed _$result;
     try {
       _$result = _$v ??
@@ -1536,7 +1545,9 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
   ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
   set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
-  FolderBuilder();
+  FolderBuilder() {
+    Folder._defaults(this);
+  }
 
   FolderBuilder get _$this {
     final $v = _$v;
@@ -1565,6 +1576,7 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceB
   Folder build() => _build();
 
   _$Folder _build() {
+    Folder._validate(this);
     _$Folder _$result;
     try {
       _$result = _$v ??
@@ -1639,7 +1651,9 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
   ListBuilder<Folder> get folders => _$this._folders ??= ListBuilder<Folder>();
   set folders(covariant ListBuilder<Folder>? folders) => _$this._folders = folders;
 
-  ListFoldersBuilder();
+  ListFoldersBuilder() {
+    ListFolders._defaults(this);
+  }
 
   ListFoldersBuilder get _$this {
     final $v = _$v;
@@ -1665,6 +1679,7 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
   ListFolders build() => _build();
 
   _$ListFolders _build() {
+    ListFolders._validate(this);
     _$ListFolders _$result;
     try {
       _$result = _$v ?? _$ListFolders._(folders: folders.build());
@@ -1760,7 +1775,9 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
   ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
   set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
 
-  ListFeedsBuilder();
+  ListFeedsBuilder() {
+    ListFeeds._defaults(this);
+  }
 
   ListFeedsBuilder get _$this {
     final $v = _$v;
@@ -1788,6 +1805,7 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFee
   ListFeeds build() => _build();
 
   _$ListFeeds _build() {
+    ListFeeds._validate(this);
     _$ListFeeds _$result;
     try {
       _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
@@ -1857,7 +1875,9 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
   ListBuilder<Article> get items => _$this._items ??= ListBuilder<Article>();
   set items(covariant ListBuilder<Article>? items) => _$this._items = items;
 
-  ListArticlesBuilder();
+  ListArticlesBuilder() {
+    ListArticles._defaults(this);
+  }
 
   ListArticlesBuilder get _$this {
     final $v = _$v;
@@ -1883,6 +1903,7 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
   ListArticles build() => _build();
 
   _$ListArticles _build() {
+    ListArticles._validate(this);
     _$ListArticles _$result;
     try {
       _$result = _$v ?? _$ListArticles._(items: items.build());
@@ -2004,7 +2025,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -2034,6 +2057,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -2111,7 +2135,9 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
-  EmptyOCS_OcsBuilder();
+  EmptyOCS_OcsBuilder() {
+    EmptyOCS_Ocs._defaults(this);
+  }
 
   EmptyOCS_OcsBuilder get _$this {
     final $v = _$v;
@@ -2138,6 +2164,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   EmptyOCS_Ocs build() => _build();
 
   _$EmptyOCS_Ocs _build() {
+    EmptyOCS_Ocs._validate(this);
     _$EmptyOCS_Ocs _$result;
     try {
       _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
@@ -2208,7 +2235,9 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= EmptyOCS_OcsBuilder();
   set ocs(covariant EmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EmptyOCSBuilder();
+  EmptyOCSBuilder() {
+    EmptyOCS._defaults(this);
+  }
 
   EmptyOCSBuilder get _$this {
     final $v = _$v;
@@ -2234,6 +2263,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   EmptyOCS build() => _build();
 
   _$EmptyOCS _build() {
+    EmptyOCS._validate(this);
     _$EmptyOCS _$result;
     try {
       _$result = _$v ?? _$EmptyOCS._(ocs: ocs.build());

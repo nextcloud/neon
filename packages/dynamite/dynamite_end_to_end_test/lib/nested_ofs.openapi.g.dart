@@ -333,7 +333,9 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAll
   String? get attributeAllOf => _$this._attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
 
-  BaseAllOfBuilder();
+  BaseAllOfBuilder() {
+    BaseAllOf._defaults(this);
+  }
 
   BaseAllOfBuilder get _$this {
     final $v = _$v;
@@ -360,6 +362,7 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAll
   BaseAllOf build() => _build();
 
   _$BaseAllOf _build() {
+    BaseAllOf._validate(this);
     final _$result = _$v ??
         _$BaseAllOf._(
             string: BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string'),
@@ -419,7 +422,9 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $Base
   String? get attributeOneOf => _$this._attributeOneOf;
   set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
 
-  BaseOneOf1Builder();
+  BaseOneOf1Builder() {
+    BaseOneOf1._defaults(this);
+  }
 
   BaseOneOf1Builder get _$this {
     final $v = _$v;
@@ -445,6 +450,7 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $Base
   BaseOneOf1 build() => _build();
 
   _$BaseOneOf1 _build() {
+    BaseOneOf1._validate(this);
     final _$result = _$v ??
         _$BaseOneOf1._(
             attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf'));
@@ -503,7 +509,9 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
   String? get attributeAnyOf => _$this._attributeAnyOf;
   set attributeAnyOf(covariant String? attributeAnyOf) => _$this._attributeAnyOf = attributeAnyOf;
 
-  BaseAnyOf1Builder();
+  BaseAnyOf1Builder() {
+    BaseAnyOf1._defaults(this);
+  }
 
   BaseAnyOf1Builder get _$this {
     final $v = _$v;
@@ -529,6 +537,7 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
   BaseAnyOf1 build() => _build();
 
   _$BaseAnyOf1 _build() {
+    BaseAnyOf1._validate(this);
     final _$result = _$v ??
         _$BaseAnyOf1._(
             attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf'));
@@ -652,7 +661,9 @@ class BaseNestedAllOfBuilder
   String? get attributeAllOf => _$this._attributeAllOf;
   set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
 
-  BaseNestedAllOfBuilder();
+  BaseNestedAllOfBuilder() {
+    BaseNestedAllOf._defaults(this);
+  }
 
   BaseNestedAllOfBuilder get _$this {
     final $v = _$v;
@@ -682,6 +693,7 @@ class BaseNestedAllOfBuilder
   BaseNestedAllOf build() => _build();
 
   _$BaseNestedAllOf _build() {
+    BaseNestedAllOf._validate(this);
     final _$result = _$v ??
         _$BaseNestedAllOf._(
             baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
@@ -750,7 +762,9 @@ class BaseNestedOneOf3Builder
   set attributeNestedOneOf(covariant String? attributeNestedOneOf) =>
       _$this._attributeNestedOneOf = attributeNestedOneOf;
 
-  BaseNestedOneOf3Builder();
+  BaseNestedOneOf3Builder() {
+    BaseNestedOneOf3._defaults(this);
+  }
 
   BaseNestedOneOf3Builder get _$this {
     final $v = _$v;
@@ -776,6 +790,7 @@ class BaseNestedOneOf3Builder
   BaseNestedOneOf3 build() => _build();
 
   _$BaseNestedOneOf3 _build() {
+    BaseNestedOneOf3._validate(this);
     final _$result = _$v ??
         _$BaseNestedOneOf3._(
             attributeNestedOneOf: BuiltValueNullFieldError.checkNotNull(
@@ -839,7 +854,9 @@ class BaseNestedAnyOf3Builder
   set attributeNestedAnyOf(covariant String? attributeNestedAnyOf) =>
       _$this._attributeNestedAnyOf = attributeNestedAnyOf;
 
-  BaseNestedAnyOf3Builder();
+  BaseNestedAnyOf3Builder() {
+    BaseNestedAnyOf3._defaults(this);
+  }
 
   BaseNestedAnyOf3Builder get _$this {
     final $v = _$v;
@@ -865,6 +882,7 @@ class BaseNestedAnyOf3Builder
   BaseNestedAnyOf3 build() => _build();
 
   _$BaseNestedAnyOf3 _build() {
+    BaseNestedAnyOf3._validate(this);
     final _$result = _$v ??
         _$BaseNestedAnyOf3._(
             attributeNestedAnyOf: BuiltValueNullFieldError.checkNotNull(
