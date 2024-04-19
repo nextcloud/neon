@@ -27,6 +27,11 @@ abstract class TalkRoomBloc implements InteractiveBloc {
 
   /// The messages in this room.
   BehaviorSubject<Result<BuiltList<spreed.ChatMessageWithParent>>> get messages;
+
+  /// {@template TalkRoomBloc.lastCommonRead}
+  /// The last message ID that was read by everyone with read-privacy set to public.
+  /// {@endtemplate}
+  BehaviorSubject<int> get lastCommonRead;
 }
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
@@ -53,11 +58,15 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final messages = BehaviorSubject();
 
   @override
+  final lastCommonRead = BehaviorSubject();
+
+  @override
   void dispose() {
     unawaited(account.client.spreed.room.leaveRoom(token: token));
 
     unawaited(room.close());
     unawaited(messages.close());
+    unawaited(lastCommonRead.close());
     super.dispose();
   }
 
@@ -85,7 +94,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
           limit: 100,
         ),
         serializer: account.client.spreed.chat.$receiveMessages_Serializer(),
-        unwrap: (response) => response.body.ocs.data,
+        unwrap: (response) {
+          updateLastCommonRead(response.headers.xChatLastCommonRead);
+
+          return response.body.ocs.data;
+        },
       ),
     ]);
   }
@@ -99,6 +112,8 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
           token: token,
         );
 
+        updateLastCommonRead(response.headers.xChatLastCommonRead);
+
         final m = response.body.ocs.data;
         if (m != null) {
           prependMessage(m);
@@ -106,6 +121,12 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       },
       refresh: () async {},
     );
+  }
+
+  void updateLastCommonRead(String? header) {
+    if (header != null) {
+      lastCommonRead.add(int.parse(header));
+    }
   }
 
   void prependMessage(spreed.ChatMessageWithParent message) {

@@ -9,6 +9,7 @@ import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
+import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -213,6 +214,7 @@ class TalkMessage extends StatelessWidget {
   /// Creates a new Talk message.
   const TalkMessage({
     required this.chatMessage,
+    required this.lastCommonRead,
     this.previousChatMessage,
     this.isParent = false,
     super.key,
@@ -222,6 +224,9 @@ class TalkMessage extends StatelessWidget {
   /// The chat message to display.
   /// {@endtemplate}
   final spreed.$ChatMessageInterface chatMessage;
+
+  /// {@macro TalkRoomBloc.lastCommonRead}
+  final int? lastCommonRead;
 
   /// {@template TalkMessage.previousChatMessage}
   /// The previous chat message.
@@ -244,6 +249,7 @@ class TalkMessage extends StatelessWidget {
 
     return TalkCommentMessage(
       chatMessage: chatMessage,
+      lastCommonRead: lastCommonRead,
       previousChatMessage: previousChatMessage,
       isParent: isParent,
     );
@@ -301,6 +307,7 @@ class TalkParentMessage extends StatelessWidget {
   /// Creates a new Talk parent message.
   const TalkParentMessage({
     required this.parentChatMessage,
+    required this.lastCommonRead,
     super.key,
   });
 
@@ -308,6 +315,9 @@ class TalkParentMessage extends StatelessWidget {
   ///
   /// Do not pass the child chat message.
   final spreed.$ChatMessageInterface parentChatMessage;
+
+  /// {@macro TalkRoomBloc.lastCommonRead}
+  final int? lastCommonRead;
 
   @override
   Widget build(BuildContext context) {
@@ -324,6 +334,7 @@ class TalkParentMessage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: TalkMessage(
         chatMessage: parentChatMessage,
+        lastCommonRead: lastCommonRead,
         isParent: true,
       ),
     );
@@ -335,6 +346,7 @@ class TalkCommentMessage extends StatelessWidget {
   /// Creates a new Talk comment message.
   const TalkCommentMessage({
     required this.chatMessage,
+    required this.lastCommonRead,
     this.previousChatMessage,
     this.isParent = false,
     super.key,
@@ -342,6 +354,9 @@ class TalkCommentMessage extends StatelessWidget {
 
   /// {@macro TalkMessage.chatMessage}
   final spreed.$ChatMessageInterface chatMessage;
+
+  /// {@macro TalkRoomBloc.lastCommonRead}
+  final int? lastCommonRead;
 
   /// {@macro TalkMessage.previousChatMessage}
   final spreed.$ChatMessageInterface? previousChatMessage;
@@ -400,6 +415,7 @@ class TalkCommentMessage extends StatelessWidget {
         ) when p != null) {
       parent = TalkParentMessage(
         parentChatMessage: p,
+        lastCommonRead: lastCommonRead,
       );
     }
 
@@ -447,52 +463,53 @@ class TalkCommentMessage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (!isParent)
-            SizedBox(
-              width: 40,
-              child: avatar,
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: SizedBox(
+                width: 40,
+                child: avatar,
+              ),
             ),
-          Flexible(
-            child: Row(
+          Expanded(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (displayName != null) displayName,
-                      if (parent != null) parent,
-                      text,
-                      if (!isParent && chatMessage.reactions.isNotEmpty)
-                        TalkReactions(
-                          reactions: chatMessage.reactions,
-                        ),
-                    ]
-                        .intersperse(
-                          const SizedBox(
-                            height: 5,
-                          ),
-                        )
-                        .toList(),
+                if (displayName != null) displayName,
+                if (parent != null) parent,
+                text,
+                if (!isParent && chatMessage.reactions.isNotEmpty)
+                  TalkReactions(
+                    reactions: chatMessage.reactions,
                   ),
-                ),
-                if (time != null) time,
               ]
                   .intersperse(
                     const SizedBox(
-                      width: 10,
+                      height: 5,
                     ),
                   )
                   .toList(),
             ),
           ),
-        ]
-            .intersperse(
-              const SizedBox(
-                width: 10,
-              ),
-            )
-            .toList(),
+          if (time != null || !isParent)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                if (time != null)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 5, left: 10),
+                    child: time,
+                  ),
+                if (!isParent && lastCommonRead != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 2.5, left: 10),
+                    child: TalkReadIndicator(
+                      chatMessage: chatMessage,
+                      lastCommonRead: lastCommonRead!,
+                    ),
+                  ),
+              ],
+            ),
+        ],
       ),
     );
   }

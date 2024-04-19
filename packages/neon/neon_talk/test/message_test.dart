@@ -15,6 +15,7 @@ import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
+import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -183,6 +184,7 @@ void main() {
         wrapWidget(
           TalkMessage(
             chatMessage: chatMessage,
+            lastCommonRead: null,
           ),
         ),
       );
@@ -213,6 +215,7 @@ void main() {
             value: accountsBloc,
             child: TalkMessage(
               chatMessage: chatMessage,
+              lastCommonRead: null,
             ),
           ),
         ),
@@ -308,6 +311,7 @@ void main() {
           value: accountsBloc,
           child: TalkParentMessage(
             parentChatMessage: chatMessage,
+            lastCommonRead: null,
           ),
         ),
       ),
@@ -339,6 +343,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.id).thenReturn(0);
 
       await tester.pumpWidget(
         wrapWidget(
@@ -346,6 +351,7 @@ void main() {
             value: accountsBloc,
             child: TalkCommentMessage(
               chatMessage: chatMessage,
+              lastCommonRead: 0,
               previousChatMessage: previousChatMessage,
             ),
           ),
@@ -356,6 +362,7 @@ void main() {
       expect(find.text('test'), findsNothing);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
+      expect(find.byType(TalkReadIndicator), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message.png'),
@@ -391,6 +398,7 @@ void main() {
             value: accountsBloc,
             child: TalkCommentMessage(
               chatMessage: chatMessage,
+              lastCommonRead: null,
               previousChatMessage: previousChatMessage,
             ),
           ),
@@ -426,6 +434,7 @@ void main() {
             value: accountsBloc,
             child: TalkCommentMessage(
               chatMessage: chatMessage,
+              lastCommonRead: null,
               isParent: true,
             ),
           ),
@@ -480,6 +489,7 @@ void main() {
             value: accountsBloc,
             child: TalkCommentMessage(
               chatMessage: chatMessage,
+              lastCommonRead: null,
               previousChatMessage: previousChatMessage,
             ),
           ),
@@ -522,6 +532,7 @@ void main() {
               value: accountsBloc,
               child: TalkCommentMessage(
                 chatMessage: chatMessage,
+                lastCommonRead: null,
                 previousChatMessage: previousChatMessage,
               ),
             ),
@@ -567,6 +578,7 @@ void main() {
               value: accountsBloc,
               child: TalkCommentMessage(
                 chatMessage: chatMessage,
+                lastCommonRead: null,
                 previousChatMessage: previousChatMessage,
               ),
             ),
@@ -612,6 +624,7 @@ void main() {
               value: accountsBloc,
               child: TalkCommentMessage(
                 chatMessage: chatMessage,
+                lastCommonRead: null,
                 previousChatMessage: previousChatMessage,
               ),
             ),

@@ -110,45 +110,49 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
           ),
         );
 
-        Widget body = ResultBuilder.behaviorSubject(
-          subject: bloc.messages,
-          builder: (context, result) {
-            final sliver = SliverList.builder(
-              itemCount: result.data?.length ?? 0,
-              itemBuilder: (context, index) {
-                final message = result.requireData[index];
+        Widget body = StreamBuilder(
+          stream: bloc.lastCommonRead,
+          builder: (context, lastCommonReadSnapshot) => ResultBuilder.behaviorSubject(
+            subject: bloc.messages,
+            builder: (context, messagesResult) {
+              final sliver = SliverList.builder(
+                itemCount: messagesResult.data?.length ?? 0,
+                itemBuilder: (context, index) {
+                  final message = messagesResult.requireData[index];
 
-                spreed.ChatMessageWithParent? previousMessage;
-                if (result.requireData.length > index + 1) {
-                  previousMessage = result.requireData[index + 1];
-                }
+                  spreed.ChatMessageWithParent? previousMessage;
+                  if (messagesResult.requireData.length > index + 1) {
+                    previousMessage = messagesResult.requireData[index + 1];
+                  }
 
-                return Center(
-                  child: ConstrainedBox(
-                    constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
-                    child: TalkMessage(
-                      chatMessage: message,
-                      previousChatMessage: previousMessage,
+                  return Center(
+                    child: ConstrainedBox(
+                      constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
+                      child: TalkMessage(
+                        chatMessage: message,
+                        lastCommonRead: lastCommonReadSnapshot.data,
+                        previousChatMessage: previousMessage,
+                      ),
                     ),
-                  ),
-                );
-              },
-            );
+                  );
+                },
+              );
 
-            return NeonListView.custom(
-              scrollKey: 'talk-room-${room.token}',
-              reverse: true,
-              isLoading: result.isLoading,
-              error: result.error,
-              onRefresh: bloc.refresh,
-              sliver: SliverPadding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
+              return NeonListView.custom(
+                scrollKey: 'talk-room-${room.token}',
+                reverse: true,
+                isLoading: messagesResult.isLoading,
+                error: messagesResult.error,
+                onRefresh: bloc.refresh,
+                sliver: SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  sliver: sliver,
                 ),
-                sliver: sliver,
-              ),
-            );
-          },
+              );
+            },
+          ),
         );
 
         if (room.readOnly == 0) {
