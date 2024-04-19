@@ -1,8 +1,14 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
+import 'package:dynamite/src/builder/resolve_type.dart';
+import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/helpers/dynamite.dart';
+import 'package:dynamite/src/helpers/pattern_check.dart';
+import 'package:dynamite/src/helpers/type_result.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 Method generateProperty(
@@ -38,35 +44,142 @@ Method generateProperty(
     );
 
 Spec buildInterface(
-  String identifier, {
-  BuiltList<Method>? methods,
-  Iterable<TypeResultObject>? interfaces,
-  String? documentation,
-  Iterable<String>? defaults,
-  Iterable<Expression>? validators,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  openapi.Schema schema, {
+  bool isHeader = false,
+  bool nullable = false,
 }) {
-  assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
-  final className = '\$$identifier$interfaceSuffix';
-
   return Class((b) {
-    if (documentation != null) {
-      b.docs.addAll(escapeDescription(documentation));
-    }
+    final className = '\$$identifier$interfaceSuffix';
 
     b
+      ..docs.addAll(escapeDescription(schema.formattedDescription))
       ..abstract = true
       ..modifier = ClassModifier.interface
       ..name = className
       ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
 
-    if (interfaces != null) {
-      b.implements.addAll(
-        interfaces.map((i) => refer('\$${i.name}$interfaceSuffix')),
-      );
-    }
+    final defaults = <String>[];
+    final validators = <Expression>[];
 
-    if (methods != null) {
-      b.methods.addAll(methods);
+    if (schema case openapi.Schema(:final allOf) when allOf != null) {
+      for (final s in schema.allOf!) {
+        if (s.properties != null) {
+          final properties = s.properties!.entries;
+
+          b.methods.addAll(
+            properties.map((property) {
+              final propertyName = property.key;
+              final propertySchema = property.value;
+
+              final result = resolveType(
+                spec,
+                state,
+                toDartName(
+                  propertyName,
+                  identifier: identifier,
+                ),
+                propertySchema,
+                nullable: isDartParameterNullable(
+                  s.required.contains(propertyName),
+                  propertySchema,
+                ),
+              );
+
+              return generateProperty(
+                result,
+                propertyName,
+                propertySchema.formattedDescription,
+              );
+            }),
+          );
+        } else {
+          final object = resolveType(
+            spec,
+            state,
+            identifier,
+            s,
+            nullable: nullable,
+          );
+
+          if (object is TypeResultObject) {
+            b.implements.add(
+              refer('\$${object.name}$interfaceSuffix'),
+            );
+          } else {
+            final property = generateProperty(
+              object,
+              object.className,
+              s.formattedDescription,
+            );
+
+            b.methods.add(property);
+          }
+        }
+      }
+    } else {
+      final properties = schema.properties?.entries;
+
+      if (properties == null || properties.isEmpty) {
+        throw StateError('The schema must have a non empty properties field.');
+      }
+
+      // resolveInterface is not suitable here as we need the resolved result.
+      for (final property in properties) {
+        final propertyName = property.key;
+        final propertySchema = property.value;
+        final dartName = toDartName(propertyName);
+
+        var result = resolveType(
+          spec,
+          state,
+          toDartName(
+            propertyName,
+            identifier: identifier,
+          ),
+          propertySchema,
+          nullable: isDartParameterNullable(
+            schema.required.contains(propertyName),
+            propertySchema,
+          ),
+        );
+
+        if (isHeader && result.className != 'String') {
+          result = TypeResultObject(
+            'Header',
+            generics: BuiltList([result]),
+            nullable: result.nullable,
+          );
+          state.resolvedTypes.add(result);
+        }
+
+        final method = generateProperty(
+          result,
+          propertyName,
+          propertySchema.formattedDescription,
+        );
+        b.methods.add(method);
+
+        final $default = propertySchema.$default;
+        if ($default != null) {
+          final value = $default.toString();
+          defaults.add('..$dartName = ${valueToEscapedValue(result, value)}');
+        }
+
+        if (result is TypeResultOneOf && !result.isSingleValue) {
+          validators.add(
+            refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]),
+          );
+        } else if (result is TypeResultAnyOf && !result.isSingleValue) {
+          validators.add(
+            refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]),
+          );
+        }
+
+        validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));
+      }
     }
 
     b.methods.add(
@@ -87,7 +200,7 @@ Spec buildInterface(
                 ..type = refer('${className}Builder'),
             ),
           );
-        if (defaults != null && defaults.isNotEmpty) {
+        if (defaults.isNotEmpty) {
           b.body = Code(
             <String?>[
               'b',
@@ -118,7 +231,7 @@ Spec buildInterface(
                 ..type = refer('${className}Builder'),
             ),
           );
-        if (validators != null && validators.isNotEmpty) {
+        if (validators.isNotEmpty) {
           b.body = Block.of(
             validators.map((v) => v.statement),
           );

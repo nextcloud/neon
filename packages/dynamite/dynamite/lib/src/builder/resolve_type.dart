@@ -57,6 +57,15 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
+    case openapi.Schema(allOf: != null):
+      return resolveObject(
+        spec,
+        state,
+        identifier,
+        schema,
+        nullable: nullable,
+      );
+
     case openapi.Schema(ref: null, ofs: null, type: null):
       return TypeResultBase(
         'JsonObject',
@@ -74,15 +83,6 @@ TypeResult _resolveType(
       );
 
       return subResult.asTypeDef;
-
-    case openapi.Schema(allOf: != null):
-      return resolveAllOf(
-        spec,
-        state,
-        identifier,
-        schema,
-        nullable: nullable,
-      );
 
     case openapi.Schema(anyOf: != null) || openapi.Schema(oneOf: != null):
       return resolveSomeOf(
