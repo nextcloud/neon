@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/user_details.dart';
@@ -60,9 +59,8 @@ void main() {
   late Account account;
   late UserDetailsBloc bloc;
 
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   setUp(() {

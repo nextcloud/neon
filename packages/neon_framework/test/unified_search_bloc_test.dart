@@ -85,9 +85,8 @@ void main() {
   late Account account;
   late UnifiedSearchBloc bloc;
 
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   setUp(() {

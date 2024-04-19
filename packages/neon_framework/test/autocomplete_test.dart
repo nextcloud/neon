@@ -61,6 +61,8 @@ void main() {
   setUpAll(() {
     registerFallbackValue(AutocompleteResultFake());
 
+    FakeNeonStorage.setup();
+
     account = mockAutocompleteAccount();
   });
 

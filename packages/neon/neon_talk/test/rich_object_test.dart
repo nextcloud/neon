@@ -21,8 +21,7 @@ void main() {
   late AccountsBloc accountsBloc;
 
   setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
 
     registerFallbackValue(Uri());
   });

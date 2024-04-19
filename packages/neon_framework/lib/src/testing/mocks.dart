@@ -53,6 +53,15 @@ class MockNeonStorage extends Mock implements NeonStorage {
   }
 }
 
+class FakeNeonStorage extends Fake implements NeonStorage {
+  FakeNeonStorage.setup() {
+    NeonStorage.mocked(this);
+  }
+
+  @override
+  Null get requestCache => null;
+}
+
 class MockCachedPersistence<T extends Object> extends Mock implements CachedPersistence<T> {}
 
 class MockPersistence<T extends Object> extends Mock implements Persistence<T> {}

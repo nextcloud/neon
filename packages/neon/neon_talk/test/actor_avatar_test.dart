@@ -11,9 +11,8 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
 void main() {
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   for (final type in spreed.ActorType.values) {

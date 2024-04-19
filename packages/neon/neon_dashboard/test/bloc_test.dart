@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -117,8 +116,7 @@ void main() {
   late DashboardBloc bloc;
 
   setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
   });
 
   setUp(() {

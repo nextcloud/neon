@@ -22,9 +22,8 @@ Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
     );
 
 void main() {
-  setUpAll(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+  setUp(() {
+    FakeNeonStorage.setup();
   });
 
   testWidgets('Custom avatar', (tester) async {

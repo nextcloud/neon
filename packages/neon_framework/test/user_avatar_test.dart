@@ -13,8 +13,7 @@ import 'package:rxdart/rxdart.dart';
 
 void main() {
   setUp(() {
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
   });
 
   for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {

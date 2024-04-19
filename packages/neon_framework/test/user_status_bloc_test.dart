@@ -140,8 +140,7 @@ void main() {
     when(() => platform.canUseWindowManager).thenReturn(false);
     NeonPlatform.instance = platform;
 
-    final storage = MockNeonStorage();
-    when(() => storage.requestCache).thenReturn(null);
+    FakeNeonStorage.setup();
   });
 
   setUp(() {
