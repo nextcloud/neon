@@ -80,7 +80,7 @@ void main() {
         account: any(named: 'account'),
         cacheKey: any(named: 'cacheKey'),
         getCacheParameters: any(named: 'getCacheParameters'),
-        request: any(named: 'request'),
+        getRequest: any(named: 'getRequest'),
         unwrap: any(named: 'unwrap'),
         subject: any(named: 'subject'),
       ),
@@ -97,7 +97,7 @@ void main() {
     await tester.pumpWidget(
       TestApp(
         child: NeonApiImage.withAccount(
-          request: (_) => mockRequest,
+          getRequest: (_) => mockRequest,
           cacheKey: 'key',
           etag: null,
           expires: null,
@@ -111,7 +111,7 @@ void main() {
         account: mockAccount,
         cacheKey: 'key',
         getCacheParameters: any(named: 'getCacheParameters'),
-        request: mockRequest,
+        getRequest: any(named: 'getRequest'),
         unwrap: any(named: 'unwrap', that: isNotNull),
         subject: any(named: 'subject'),
       ),

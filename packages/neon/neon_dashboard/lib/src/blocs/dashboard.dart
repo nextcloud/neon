@@ -70,7 +70,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         account: account,
         cacheKey: 'dashboard-widgets',
         subject: widgets,
-        request: account.client.dashboard.dashboardApi.$getWidgets_Request(),
+        getRequest: account.client.dashboard.dashboardApi.$getWidgets_Request,
         serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
         // Filter all widgets that don't support v1 nor v2
         unwrap: (response) => BuiltList(
@@ -102,7 +102,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           account: account,
           cacheKey: 'dashboard-widgets-v1',
           subject: itemsV1,
-          request: account.client.dashboard.dashboardApi.$getWidgetItems_Request(
+          getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
             widgets: v1WidgetIDs.build(),
             limit: maxItems,
           ),
@@ -114,7 +114,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           account: account,
           cacheKey: 'dashboard-widgets-v2',
           subject: itemsV2,
-          request: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
+          getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
             widgets: v2WidgetIDs.build(),
             limit: maxItems,
           ),

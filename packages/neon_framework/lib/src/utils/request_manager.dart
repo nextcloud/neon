@@ -70,11 +70,14 @@ class RequestManager {
   final RequestCache? _cache = NeonStorage().requestCache;
 
   /// Executes a request to a Nextcloud API endpoint.
+  ///
+  /// Every time [getRequest] is called a new [http.Request] has to be created.
+  /// Re-using the same will not work when retrying failed requests.
   Future<void> wrapNextcloud<T, B, H>({
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required http.BaseRequest request,
+    required http.BaseRequest Function() getRequest,
     required DynamiteSerializer<B, H> serializer,
     required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
     bool disableTimeout = false,
@@ -84,7 +87,7 @@ class RequestManager {
         cacheKey: cacheKey,
         subject: subject,
         request: () async {
-          final response = await account.client.send(request);
+          final response = await account.client.send(getRequest());
           return ResponseConverter<B, H>(serializer).convert(response);
         },
         unwrap: (rawResponse) => unwrap(rawResponse),
@@ -105,7 +108,7 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required http.BaseRequest request,
+    required http.BaseRequest Function() getRequest,
     required UnwrapCallback<T, WebDavMultistatus> unwrap,
     bool disableTimeout = false,
   }) =>
@@ -114,7 +117,7 @@ class RequestManager {
         cacheKey: cacheKey,
         subject: subject,
         request: () async {
-          final response = await account.client.webdav.csrfClient.send(request);
+          final response = await account.client.webdav.csrfClient.send(getRequest());
           return const WebDavResponseConverter().convert(response);
         },
         unwrap: unwrap,
@@ -124,11 +127,14 @@ class RequestManager {
       );
 
   /// Executes a HTTP request for binary content.
+  ///
+  /// Every time [getRequest] is called a new [http.Request] has to be created.
+  /// Re-using the same will not work when retrying failed requests.
   Future<void> wrapBinary({
     required Account account,
     required String cacheKey,
     required AsyncValueGetter<CacheParameters> getCacheParameters,
-    required http.BaseRequest request,
+    required http.BaseRequest Function() getRequest,
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
     bool disableTimeout = false,
@@ -145,7 +151,7 @@ class RequestManager {
       cacheKey: cacheKey,
       subject: subject,
       request: () async {
-        final response = await account.client.send(request);
+        final response = await account.client.send(getRequest());
 
         return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
       },
@@ -175,12 +181,7 @@ class RequestManager {
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
   }) {
-    final request = http.Request('GET', uri);
-
     final headers = account.getAuthorizationHeaders(uri);
-    if (headers != null) {
-      request.headers.addAll(headers);
-    }
 
     return wrapBinary(
       account: account,
@@ -193,7 +194,14 @@ class RequestManager {
 
         return CacheParameters.parseHeaders(response.headers);
       },
-      request: request,
+      getRequest: () {
+        final request = http.Request('GET', uri);
+        if (headers != null) {
+          request.headers.addAll(headers);
+        }
+
+        return request;
+      },
       unwrap: unwrap,
       subject: subject,
     );

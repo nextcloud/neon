@@ -66,7 +66,7 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
       account: account,
       cacheKey: 'notes-notes',
       subject: notes,
-      request: account.client.notes.$getNotes_Request(),
+      getRequest: account.client.notes.$getNotes_Request,
       serializer: account.client.notes.$getNotes_Serializer(),
       unwrap: (response) => response.body,
     );

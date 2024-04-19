@@ -105,7 +105,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
         account: account,
         cacheKey: 'user_status-predefined-statuses',
         subject: predefinedStatuses,
-        request: account.client.userStatus.predefinedStatus.$findAll_Request(),
+        getRequest: account.client.userStatus.predefinedStatus.$findAll_Request,
         serializer: account.client.userStatus.predefinedStatus.$findAll_Serializer(),
         unwrap: (response) => response.body.ocs.data,
       ),

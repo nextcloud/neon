@@ -7,11 +7,14 @@ import 'dart:typed_data';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/testing.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -66,24 +69,109 @@ void main() {
       verify(callback.call).called(1);
     });
 
-    test('throwing DynamiteException should retry', () async {
-      final subject = BehaviorSubject<Result<String>>();
-      final callback = MockCallbackFunction<Future<Uint8List>>();
-      when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
+    group('throwing DynamiteException should retry', () {
+      test('wrap', () async {
+        final subject = BehaviorSubject<Result<String>>();
+        final callback = MockCallbackFunction<Future<Uint8List>>();
+        when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
 
-      await RequestManager.instance.wrap<String, Uint8List>(
-        account: account,
-        cacheKey: 'key',
-        subject: subject,
-        request: () async => callback.call(),
-        unwrap: (deserialized) => base64.encode(deserialized),
-        serialize: (deserialized) => utf8.decode(deserialized),
-        deserialize: (serialized) => utf8.encode(serialized),
-      );
+        await RequestManager.instance.wrap<String, Uint8List>(
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          request: () async => callback.call(),
+          unwrap: (deserialized) => base64.encode(deserialized),
+          serialize: (deserialized) => utf8.decode(deserialized),
+          deserialize: (serialized) => utf8.encode(serialized),
+        );
 
-      verify(callback.call).called(kMaxTries);
+        verify(callback.call).called(kMaxTries);
 
-      await subject.close();
+        await subject.close();
+      });
+
+      test('wrapBinary', () async {
+        final subject = BehaviorSubject<Result<Uint8List>>();
+        final callback = MockCallbackFunction<http.BaseRequest>();
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+
+        when(() => account.client).thenReturn(
+          NextcloudClient(
+            Uri(),
+            loginName: '',
+            password: '',
+          ),
+        );
+
+        await RequestManager.instance.wrapBinary(
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          getRequest: callback.call,
+          getCacheParameters: () async => const CacheParameters(
+            etag: null,
+            expires: null,
+          ),
+          unwrap: (data) => data,
+        );
+
+        verify(callback.call).called(kMaxTries);
+
+        await subject.close();
+      });
+
+      test('wrapWebDav', () async {
+        final subject = BehaviorSubject<Result<WebDavMultistatus>>();
+        final callback = MockCallbackFunction<http.BaseRequest>();
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+
+        when(() => account.client).thenReturn(
+          NextcloudClient(
+            Uri(),
+            loginName: '',
+            password: '',
+          ),
+        );
+
+        await RequestManager.instance.wrapWebDav(
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          getRequest: callback.call,
+          unwrap: (data) => data,
+        );
+
+        verify(callback.call).called(kMaxTries);
+
+        await subject.close();
+      });
+
+      test('wrapNextcloud', () async {
+        final subject = BehaviorSubject<Result<provisioning_api.UserDetails>>();
+        final callback = MockCallbackFunction<http.BaseRequest>();
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+
+        when(() => account.client).thenReturn(
+          NextcloudClient(
+            Uri(),
+            loginName: '',
+            password: '',
+          ),
+        );
+
+        await RequestManager.instance.wrapNextcloud(
+          account: account,
+          cacheKey: 'key',
+          subject: subject,
+          getRequest: callback.call,
+          unwrap: (data) => data.body.ocs.data,
+          serializer: account.client.provisioningApi.users.$getCurrentUser_Serializer(),
+        );
+
+        verify(callback.call).called(kMaxTries);
+
+        await subject.close();
+      });
     });
 
     group('wrap without cache', () {
