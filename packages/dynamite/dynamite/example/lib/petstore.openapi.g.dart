@@ -212,7 +212,9 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
   String? get tag => _$this._tag;
   set tag(covariant String? tag) => _$this._tag = tag;
 
-  NewPetBuilder();
+  NewPetBuilder() {
+    NewPet._defaults(this);
+  }
 
   NewPetBuilder get _$this {
     final $v = _$v;
@@ -239,6 +241,7 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceB
   NewPet build() => _build();
 
   _$NewPet _build() {
+    NewPet._validate(this);
     final _$result = _$v ?? _$NewPet._(name: BuiltValueNullFieldError.checkNotNull(name, r'NewPet', 'name'), tag: tag);
     replace(_$result);
     return _$result;
@@ -320,7 +323,9 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   String? get tag => _$this._tag;
   set tag(covariant String? tag) => _$this._tag = tag;
 
-  PetBuilder();
+  PetBuilder() {
+    Pet._defaults(this);
+  }
 
   PetBuilder get _$this {
     final $v = _$v;
@@ -348,6 +353,7 @@ class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   Pet build() => _build();
 
   _$Pet _build() {
+    Pet._validate(this);
     final _$result = _$v ??
         _$Pet._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Pet', 'id'),
@@ -422,7 +428,9 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
   String? get message => _$this._message;
   set message(covariant String? message) => _$this._message = message;
 
-  ErrorBuilder();
+  ErrorBuilder() {
+    Error._defaults(this);
+  }
 
   ErrorBuilder get _$this {
     final $v = _$v;
@@ -449,6 +457,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
   Error build() => _build();
 
   _$Error _build() {
+    Error._validate(this);
     final _$result = _$v ??
         _$Error._(
             code: BuiltValueNullFieldError.checkNotNull(code, r'Error', 'code'),

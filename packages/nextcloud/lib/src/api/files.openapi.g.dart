@@ -2257,7 +2257,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -2287,6 +2289,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -2424,7 +2427,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   bool? get secure => _$this._secure;
   set secure(covariant bool? secure) => _$this._secure = secure;
 
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._defaults(this);
+  }
 
   DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder get _$this {
     final $v = _$v;
@@ -2454,6 +2459,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors build() => _build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _build() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _$result;
     try {
       _$result = _$v ??
@@ -2623,7 +2629,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
   set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
 
-  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._defaults(this);
+  }
 
   DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder get _$this {
     final $v = _$v;
@@ -2654,6 +2662,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators build() => _build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _build() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _$result;
     try {
       _$result = _$v ??
@@ -2764,7 +2773,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
   set creators(covariant MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>? creators) =>
       _$this._creators = creators;
 
-  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -2791,6 +2802,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
   DirectEditingInfoResponseApplicationJson_Ocs_Data build() => _build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data _build() {
+    DirectEditingInfoResponseApplicationJson_Ocs_Data._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
@@ -2886,7 +2898,9 @@ class DirectEditingInfoResponseApplicationJson_OcsBuilder
       _$this._data ??= DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DirectEditingInfoResponseApplicationJson_OcsBuilder();
+  DirectEditingInfoResponseApplicationJson_OcsBuilder() {
+    DirectEditingInfoResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DirectEditingInfoResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2913,6 +2927,7 @@ class DirectEditingInfoResponseApplicationJson_OcsBuilder
   DirectEditingInfoResponseApplicationJson_Ocs build() => _build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs _build() {
+    DirectEditingInfoResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -2992,7 +3007,9 @@ class DirectEditingInfoResponseApplicationJsonBuilder
       _$this._ocs ??= DirectEditingInfoResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectEditingInfoResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DirectEditingInfoResponseApplicationJsonBuilder();
+  DirectEditingInfoResponseApplicationJsonBuilder() {
+    DirectEditingInfoResponseApplicationJson._defaults(this);
+  }
 
   DirectEditingInfoResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3018,6 +3035,7 @@ class DirectEditingInfoResponseApplicationJsonBuilder
   DirectEditingInfoResponseApplicationJson build() => _build();
 
   _$DirectEditingInfoResponseApplicationJson _build() {
+    DirectEditingInfoResponseApplicationJson._validate(this);
     _$DirectEditingInfoResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson._(ocs: ocs.build());
@@ -3156,7 +3174,9 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._defaults(this);
+  }
 
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder get _$this {
     final $v = _$v;
@@ -3186,6 +3206,7 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates build() => _build();
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates _build() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._validate(this);
     final _$result = _$v ??
         _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
             id: BuiltValueNullFieldError.checkNotNull(
@@ -3268,7 +3289,9 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
           covariant MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates) =>
       _$this._templates = templates;
 
-  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -3294,6 +3317,7 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data build() => _build();
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _build() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(templates: templates.build());
@@ -3387,7 +3411,9 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
       _$this._data ??= DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
+  DirectEditingTemplatesResponseApplicationJson_OcsBuilder() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DirectEditingTemplatesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3414,6 +3440,7 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
   DirectEditingTemplatesResponseApplicationJson_Ocs build() => _build();
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs _build() {
+    DirectEditingTemplatesResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3494,7 +3521,9 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
       _$this._ocs ??= DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DirectEditingTemplatesResponseApplicationJsonBuilder();
+  DirectEditingTemplatesResponseApplicationJsonBuilder() {
+    DirectEditingTemplatesResponseApplicationJson._defaults(this);
+  }
 
   DirectEditingTemplatesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3520,6 +3549,7 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
   DirectEditingTemplatesResponseApplicationJson build() => _build();
 
   _$DirectEditingTemplatesResponseApplicationJson _build() {
+    DirectEditingTemplatesResponseApplicationJson._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson._(ocs: ocs.build());
@@ -3598,7 +3628,9 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder() {
+    DirectEditingOpenResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -3624,6 +3656,7 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
   DirectEditingOpenResponseApplicationJson_Ocs_Data build() => _build();
 
   _$DirectEditingOpenResponseApplicationJson_Ocs_Data _build() {
+    DirectEditingOpenResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectEditingOpenResponseApplicationJson_Ocs_Data._(
             url: BuiltValueNullFieldError.checkNotNull(
@@ -3706,7 +3739,9 @@ class DirectEditingOpenResponseApplicationJson_OcsBuilder
       _$this._data ??= DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DirectEditingOpenResponseApplicationJson_OcsBuilder();
+  DirectEditingOpenResponseApplicationJson_OcsBuilder() {
+    DirectEditingOpenResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DirectEditingOpenResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3733,6 +3768,7 @@ class DirectEditingOpenResponseApplicationJson_OcsBuilder
   DirectEditingOpenResponseApplicationJson_Ocs build() => _build();
 
   _$DirectEditingOpenResponseApplicationJson_Ocs _build() {
+    DirectEditingOpenResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingOpenResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3812,7 +3848,9 @@ class DirectEditingOpenResponseApplicationJsonBuilder
       _$this._ocs ??= DirectEditingOpenResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectEditingOpenResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DirectEditingOpenResponseApplicationJsonBuilder();
+  DirectEditingOpenResponseApplicationJsonBuilder() {
+    DirectEditingOpenResponseApplicationJson._defaults(this);
+  }
 
   DirectEditingOpenResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3838,6 +3876,7 @@ class DirectEditingOpenResponseApplicationJsonBuilder
   DirectEditingOpenResponseApplicationJson build() => _build();
 
   _$DirectEditingOpenResponseApplicationJson _build() {
+    DirectEditingOpenResponseApplicationJson._validate(this);
     _$DirectEditingOpenResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson._(ocs: ocs.build());
@@ -3917,7 +3956,9 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
   String? get url => _$this._url;
   set url(covariant String? url) => _$this._url = url;
 
-  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
+  DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder() {
+    DirectEditingCreateResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -3943,6 +3984,7 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
   DirectEditingCreateResponseApplicationJson_Ocs_Data build() => _build();
 
   _$DirectEditingCreateResponseApplicationJson_Ocs_Data _build() {
+    DirectEditingCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$DirectEditingCreateResponseApplicationJson_Ocs_Data._(
             url: BuiltValueNullFieldError.checkNotNull(
@@ -4025,7 +4067,9 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
       _$this._data ??= DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  DirectEditingCreateResponseApplicationJson_OcsBuilder();
+  DirectEditingCreateResponseApplicationJson_OcsBuilder() {
+    DirectEditingCreateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DirectEditingCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4052,6 +4096,7 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
   DirectEditingCreateResponseApplicationJson_Ocs build() => _build();
 
   _$DirectEditingCreateResponseApplicationJson_Ocs _build() {
+    DirectEditingCreateResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -4132,7 +4177,9 @@ class DirectEditingCreateResponseApplicationJsonBuilder
       _$this._ocs ??= DirectEditingCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant DirectEditingCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DirectEditingCreateResponseApplicationJsonBuilder();
+  DirectEditingCreateResponseApplicationJsonBuilder() {
+    DirectEditingCreateResponseApplicationJson._defaults(this);
+  }
 
   DirectEditingCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4158,6 +4205,7 @@ class DirectEditingCreateResponseApplicationJsonBuilder
   DirectEditingCreateResponseApplicationJson build() => _build();
 
   _$DirectEditingCreateResponseApplicationJson _build() {
+    DirectEditingCreateResponseApplicationJson._validate(this);
     _$DirectEditingCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson._(ocs: ocs.build());
@@ -4281,7 +4329,9 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
+  OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder() {
+    OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -4310,6 +4360,7 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
   OpenLocalEditorCreateResponseApplicationJson_Ocs_Data build() => _build();
 
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data _build() {
+    OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
             userId: userId,
@@ -4398,7 +4449,9 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
       _$this._data ??= OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
+  OpenLocalEditorCreateResponseApplicationJson_OcsBuilder() {
+    OpenLocalEditorCreateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OpenLocalEditorCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4425,6 +4478,7 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
   OpenLocalEditorCreateResponseApplicationJson_Ocs build() => _build();
 
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs _build() {
+    OpenLocalEditorCreateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -4505,7 +4559,9 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
       _$this._ocs ??= OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OpenLocalEditorCreateResponseApplicationJsonBuilder();
+  OpenLocalEditorCreateResponseApplicationJsonBuilder() {
+    OpenLocalEditorCreateResponseApplicationJson._defaults(this);
+  }
 
   OpenLocalEditorCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4531,6 +4587,7 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
   OpenLocalEditorCreateResponseApplicationJson build() => _build();
 
   _$OpenLocalEditorCreateResponseApplicationJson _build() {
+    OpenLocalEditorCreateResponseApplicationJson._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson._(ocs: ocs.build());
@@ -4655,7 +4712,9 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
+  OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder() {
+    OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -4684,6 +4743,7 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
   OpenLocalEditorValidateResponseApplicationJson_Ocs_Data build() => _build();
 
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data _build() {
+    OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._validate(this);
     final _$result = _$v ??
         _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
             userId: BuiltValueNullFieldError.checkNotNull(
@@ -4773,7 +4833,9 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
       _$this._data ??= OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
+  OpenLocalEditorValidateResponseApplicationJson_OcsBuilder() {
+    OpenLocalEditorValidateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   OpenLocalEditorValidateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4800,6 +4862,7 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
   OpenLocalEditorValidateResponseApplicationJson_Ocs build() => _build();
 
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs _build() {
+    OpenLocalEditorValidateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -4880,7 +4943,9 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
       _$this._ocs ??= OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
   set ocs(covariant OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  OpenLocalEditorValidateResponseApplicationJsonBuilder();
+  OpenLocalEditorValidateResponseApplicationJsonBuilder() {
+    OpenLocalEditorValidateResponseApplicationJson._defaults(this);
+  }
 
   OpenLocalEditorValidateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4906,6 +4971,7 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
   OpenLocalEditorValidateResponseApplicationJson build() => _build();
 
   _$OpenLocalEditorValidateResponseApplicationJson _build() {
+    OpenLocalEditorValidateResponseApplicationJson._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson._(ocs: ocs.build());
@@ -5065,7 +5131,9 @@ class TemplateFileCreatorBuilder
   String? get actionLabel => _$this._actionLabel;
   set actionLabel(covariant String? actionLabel) => _$this._actionLabel = actionLabel;
 
-  TemplateFileCreatorBuilder();
+  TemplateFileCreatorBuilder() {
+    TemplateFileCreator._defaults(this);
+  }
 
   TemplateFileCreatorBuilder get _$this {
     final $v = _$v;
@@ -5097,6 +5165,7 @@ class TemplateFileCreatorBuilder
   TemplateFileCreator build() => _build();
 
   _$TemplateFileCreator _build() {
+    TemplateFileCreator._validate(this);
     _$TemplateFileCreator _$result;
     try {
       _$result = _$v ??
@@ -5195,7 +5264,9 @@ class TemplateListResponseApplicationJson_OcsBuilder
   ListBuilder<TemplateFileCreator> get data => _$this._data ??= ListBuilder<TemplateFileCreator>();
   set data(covariant ListBuilder<TemplateFileCreator>? data) => _$this._data = data;
 
-  TemplateListResponseApplicationJson_OcsBuilder();
+  TemplateListResponseApplicationJson_OcsBuilder() {
+    TemplateListResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TemplateListResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5222,6 +5293,7 @@ class TemplateListResponseApplicationJson_OcsBuilder
   TemplateListResponseApplicationJson_Ocs build() => _build();
 
   _$TemplateListResponseApplicationJson_Ocs _build() {
+    TemplateListResponseApplicationJson_Ocs._validate(this);
     _$TemplateListResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$TemplateListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -5298,7 +5370,9 @@ class TemplateListResponseApplicationJsonBuilder
       _$this._ocs ??= TemplateListResponseApplicationJson_OcsBuilder();
   set ocs(covariant TemplateListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TemplateListResponseApplicationJsonBuilder();
+  TemplateListResponseApplicationJsonBuilder() {
+    TemplateListResponseApplicationJson._defaults(this);
+  }
 
   TemplateListResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5324,6 +5398,7 @@ class TemplateListResponseApplicationJsonBuilder
   TemplateListResponseApplicationJson build() => _build();
 
   _$TemplateListResponseApplicationJson _build() {
+    TemplateListResponseApplicationJson._validate(this);
     _$TemplateListResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TemplateListResponseApplicationJson._(ocs: ocs.build());
@@ -5509,7 +5584,9 @@ class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>,
   bool? get hasPreview => _$this._hasPreview;
   set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
 
-  TemplateFileBuilder();
+  TemplateFileBuilder() {
+    TemplateFile._defaults(this);
+  }
 
   TemplateFileBuilder get _$this {
     final $v = _$v;
@@ -5543,6 +5620,7 @@ class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>,
   TemplateFile build() => _build();
 
   _$TemplateFile _build() {
+    TemplateFile._validate(this);
     final _$result = _$v ??
         _$TemplateFile._(
             basename: BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename'),
@@ -5631,7 +5709,9 @@ class TemplateCreateResponseApplicationJson_OcsBuilder
   TemplateFileBuilder get data => _$this._data ??= TemplateFileBuilder();
   set data(covariant TemplateFileBuilder? data) => _$this._data = data;
 
-  TemplateCreateResponseApplicationJson_OcsBuilder();
+  TemplateCreateResponseApplicationJson_OcsBuilder() {
+    TemplateCreateResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TemplateCreateResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5658,6 +5738,7 @@ class TemplateCreateResponseApplicationJson_OcsBuilder
   TemplateCreateResponseApplicationJson_Ocs build() => _build();
 
   _$TemplateCreateResponseApplicationJson_Ocs _build() {
+    TemplateCreateResponseApplicationJson_Ocs._validate(this);
     _$TemplateCreateResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$TemplateCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -5736,7 +5817,9 @@ class TemplateCreateResponseApplicationJsonBuilder
       _$this._ocs ??= TemplateCreateResponseApplicationJson_OcsBuilder();
   set ocs(covariant TemplateCreateResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TemplateCreateResponseApplicationJsonBuilder();
+  TemplateCreateResponseApplicationJsonBuilder() {
+    TemplateCreateResponseApplicationJson._defaults(this);
+  }
 
   TemplateCreateResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5762,6 +5845,7 @@ class TemplateCreateResponseApplicationJsonBuilder
   TemplateCreateResponseApplicationJson build() => _build();
 
   _$TemplateCreateResponseApplicationJson _build() {
+    TemplateCreateResponseApplicationJson._validate(this);
     _$TemplateCreateResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TemplateCreateResponseApplicationJson._(ocs: ocs.build());
@@ -5855,7 +5939,9 @@ class TemplatePathResponseApplicationJson_Ocs_DataBuilder
   ListBuilder<TemplateFileCreator> get templates => _$this._templates ??= ListBuilder<TemplateFileCreator>();
   set templates(covariant ListBuilder<TemplateFileCreator>? templates) => _$this._templates = templates;
 
-  TemplatePathResponseApplicationJson_Ocs_DataBuilder();
+  TemplatePathResponseApplicationJson_Ocs_DataBuilder() {
+    TemplatePathResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   TemplatePathResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -5882,6 +5968,7 @@ class TemplatePathResponseApplicationJson_Ocs_DataBuilder
   TemplatePathResponseApplicationJson_Ocs_Data build() => _build();
 
   _$TemplatePathResponseApplicationJson_Ocs_Data _build() {
+    TemplatePathResponseApplicationJson_Ocs_Data._validate(this);
     _$TemplatePathResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
@@ -5977,7 +6064,9 @@ class TemplatePathResponseApplicationJson_OcsBuilder
       _$this._data ??= TemplatePathResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant TemplatePathResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  TemplatePathResponseApplicationJson_OcsBuilder();
+  TemplatePathResponseApplicationJson_OcsBuilder() {
+    TemplatePathResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TemplatePathResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6004,6 +6093,7 @@ class TemplatePathResponseApplicationJson_OcsBuilder
   TemplatePathResponseApplicationJson_Ocs build() => _build();
 
   _$TemplatePathResponseApplicationJson_Ocs _build() {
+    TemplatePathResponseApplicationJson_Ocs._validate(this);
     _$TemplatePathResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$TemplatePathResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -6080,7 +6170,9 @@ class TemplatePathResponseApplicationJsonBuilder
       _$this._ocs ??= TemplatePathResponseApplicationJson_OcsBuilder();
   set ocs(covariant TemplatePathResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TemplatePathResponseApplicationJsonBuilder();
+  TemplatePathResponseApplicationJsonBuilder() {
+    TemplatePathResponseApplicationJson._defaults(this);
+  }
 
   TemplatePathResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6106,6 +6198,7 @@ class TemplatePathResponseApplicationJsonBuilder
   TemplatePathResponseApplicationJson build() => _build();
 
   _$TemplatePathResponseApplicationJson _build() {
+    TemplatePathResponseApplicationJson._validate(this);
     _$TemplatePathResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TemplatePathResponseApplicationJson._(ocs: ocs.build());
@@ -6198,7 +6291,9 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
+  TransferOwnershipTransferResponseApplicationJson_OcsBuilder() {
+    TransferOwnershipTransferResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TransferOwnershipTransferResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6225,6 +6320,7 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
   TransferOwnershipTransferResponseApplicationJson_Ocs build() => _build();
 
   _$TransferOwnershipTransferResponseApplicationJson_Ocs _build() {
+    TransferOwnershipTransferResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipTransferResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -6309,7 +6405,9 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
       _$this._ocs ??= TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
   set ocs(covariant TransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TransferOwnershipTransferResponseApplicationJsonBuilder();
+  TransferOwnershipTransferResponseApplicationJsonBuilder() {
+    TransferOwnershipTransferResponseApplicationJson._defaults(this);
+  }
 
   TransferOwnershipTransferResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6335,6 +6433,7 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
   TransferOwnershipTransferResponseApplicationJson build() => _build();
 
   _$TransferOwnershipTransferResponseApplicationJson _build() {
+    TransferOwnershipTransferResponseApplicationJson._validate(this);
     _$TransferOwnershipTransferResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TransferOwnershipTransferResponseApplicationJson._(ocs: ocs.build());
@@ -6427,7 +6526,9 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
+  TransferOwnershipAcceptResponseApplicationJson_OcsBuilder() {
+    TransferOwnershipAcceptResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TransferOwnershipAcceptResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6454,6 +6555,7 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
   TransferOwnershipAcceptResponseApplicationJson_Ocs build() => _build();
 
   _$TransferOwnershipAcceptResponseApplicationJson_Ocs _build() {
+    TransferOwnershipAcceptResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipAcceptResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -6536,7 +6638,9 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
       _$this._ocs ??= TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
   set ocs(covariant TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TransferOwnershipAcceptResponseApplicationJsonBuilder();
+  TransferOwnershipAcceptResponseApplicationJsonBuilder() {
+    TransferOwnershipAcceptResponseApplicationJson._defaults(this);
+  }
 
   TransferOwnershipAcceptResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6562,6 +6666,7 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
   TransferOwnershipAcceptResponseApplicationJson build() => _build();
 
   _$TransferOwnershipAcceptResponseApplicationJson _build() {
+    TransferOwnershipAcceptResponseApplicationJson._validate(this);
     _$TransferOwnershipAcceptResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TransferOwnershipAcceptResponseApplicationJson._(ocs: ocs.build());
@@ -6654,7 +6759,9 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
+  TransferOwnershipRejectResponseApplicationJson_OcsBuilder() {
+    TransferOwnershipRejectResponseApplicationJson_Ocs._defaults(this);
+  }
 
   TransferOwnershipRejectResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -6681,6 +6788,7 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
   TransferOwnershipRejectResponseApplicationJson_Ocs build() => _build();
 
   _$TransferOwnershipRejectResponseApplicationJson_Ocs _build() {
+    TransferOwnershipRejectResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipRejectResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -6763,7 +6871,9 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
       _$this._ocs ??= TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
   set ocs(covariant TransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  TransferOwnershipRejectResponseApplicationJsonBuilder();
+  TransferOwnershipRejectResponseApplicationJsonBuilder() {
+    TransferOwnershipRejectResponseApplicationJson._defaults(this);
+  }
 
   TransferOwnershipRejectResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -6789,6 +6899,7 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
   TransferOwnershipRejectResponseApplicationJson build() => _build();
 
   _$TransferOwnershipRejectResponseApplicationJson _build() {
+    TransferOwnershipRejectResponseApplicationJson._validate(this);
     _$TransferOwnershipRejectResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$TransferOwnershipRejectResponseApplicationJson._(ocs: ocs.build());
@@ -6893,7 +7004,9 @@ class Capabilities_Files_DirectEditingBuilder
   bool? get supportsFileId => _$this._supportsFileId;
   set supportsFileId(covariant bool? supportsFileId) => _$this._supportsFileId = supportsFileId;
 
-  Capabilities_Files_DirectEditingBuilder();
+  Capabilities_Files_DirectEditingBuilder() {
+    Capabilities_Files_DirectEditing._defaults(this);
+  }
 
   Capabilities_Files_DirectEditingBuilder get _$this {
     final $v = _$v;
@@ -6921,6 +7034,7 @@ class Capabilities_Files_DirectEditingBuilder
   Capabilities_Files_DirectEditing build() => _build();
 
   _$Capabilities_Files_DirectEditing _build() {
+    Capabilities_Files_DirectEditing._validate(this);
     final _$result = _$v ??
         _$Capabilities_Files_DirectEditing._(
             url: BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url'),
@@ -7018,7 +7132,9 @@ class Capabilities_FilesBuilder
   set directEditing(covariant Capabilities_Files_DirectEditingBuilder? directEditing) =>
       _$this._directEditing = directEditing;
 
-  Capabilities_FilesBuilder();
+  Capabilities_FilesBuilder() {
+    Capabilities_Files._defaults(this);
+  }
 
   Capabilities_FilesBuilder get _$this {
     final $v = _$v;
@@ -7046,6 +7162,7 @@ class Capabilities_FilesBuilder
   Capabilities_Files build() => _build();
 
   _$Capabilities_Files _build() {
+    Capabilities_Files._validate(this);
     _$Capabilities_Files _$result;
     try {
       _$result = _$v ??
@@ -7122,7 +7239,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_FilesBuilder get files => _$this._files ??= Capabilities_FilesBuilder();
   set files(covariant Capabilities_FilesBuilder? files) => _$this._files = files;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -7148,6 +7267,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(files: files.build());

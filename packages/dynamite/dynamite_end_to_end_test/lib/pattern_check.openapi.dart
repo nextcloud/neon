@@ -27,29 +27,10 @@ abstract interface class $TestObjectInterface {
   String? get maxLength;
   @BuiltValueField(wireName: 'multiple-checks')
   String? get multipleChecks;
-}
-
-abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
-  /// Creates a new TestObject object using the builder pattern.
-  factory TestObject([void Function(TestObjectBuilder)? b]) = _$TestObject;
-
-  const TestObject._();
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  factory TestObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  /// Serializer for TestObject.
-  static Serializer<TestObject> get serializer => _$testObjectSerializer;
-
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TestObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(TestObjectBuilder b) {
+  static void _validate($TestObjectInterfaceBuilder b) {
     _i1.checkPattern(
       b.onlyNumbers,
       RegExp(r'^[0-9]*$'),
@@ -80,6 +61,36 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
       20,
       'multipleChecks',
     );
+  }
+}
+
+abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
+  /// Creates a new TestObject object using the builder pattern.
+  factory TestObject([void Function(TestObjectBuilder)? b]) = _$TestObject;
+
+  const TestObject._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory TestObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for TestObject.
+  static Serializer<TestObject> get serializer => _$testObjectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TestObjectBuilder b) {
+    $TestObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TestObjectBuilder b) {
+    $TestObjectInterface._validate(b);
   }
 }
 

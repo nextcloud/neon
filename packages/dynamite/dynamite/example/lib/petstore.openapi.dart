@@ -318,6 +318,10 @@ class $Client extends _i1.DynamiteClient {
 abstract interface class $NewPetInterface {
   String get name;
   String? get tag;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($NewPetInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($NewPetInterfaceBuilder b) {}
 }
 
 abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> {
@@ -340,11 +344,30 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
 
   /// Serializer for NewPet.
   static Serializer<NewPet> get serializer => _$newPetSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NewPetBuilder b) {
+    $NewPetInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(NewPetBuilder b) {
+    $NewPetInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PetInterface implements $NewPetInterface {
   int get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PetInterfaceBuilder b) {
+    $NewPetInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PetInterfaceBuilder b) {
+    $NewPetInterface._validate(b);
+  }
 }
 
 abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
@@ -367,12 +390,26 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
 
   /// Serializer for Pet.
   static Serializer<Pet> get serializer => _$petSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PetBuilder b) {
+    $PetInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PetBuilder b) {
+    $PetInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ErrorInterface {
   int get code;
   String get message;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ErrorInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ErrorInterfaceBuilder b) {}
 }
 
 abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
@@ -395,6 +432,16 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 
   /// Serializer for Error.
   static Serializer<Error> get serializer => _$errorSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ErrorBuilder b) {
+    $ErrorInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ErrorBuilder b) {
+    $ErrorInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

@@ -693,6 +693,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -719,11 +723,25 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $SuccessInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SuccessInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SuccessInterfaceBuilder b) {}
 }
 
 abstract class Success implements $SuccessInterface, Built<Success, SuccessBuilder> {
@@ -750,12 +768,26 @@ abstract class Success implements $SuccessInterface, Built<Success, SuccessBuild
 
   /// Serializer for Success.
   static Serializer<Success> get serializer => _$successSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SuccessBuilder b) {
+    $SuccessInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SuccessBuilder b) {
+    $SuccessInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetModeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Success get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
@@ -789,11 +821,25 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusSetModeResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetModeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetModeResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetModeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetModeResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetModeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetModeResponseApplicationJsonInterface {
   WeatherStatusSetModeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson
@@ -827,6 +873,16 @@ abstract class WeatherStatusSetModeResponseApplicationJson
   /// Serializer for WeatherStatusSetModeResponseApplicationJson.
   static Serializer<WeatherStatusSetModeResponseApplicationJson> get serializer =>
       _$weatherStatusSetModeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetModeResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetModeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetModeResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetModeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -834,6 +890,10 @@ abstract interface class $LocationInterface {
   String? get lat;
   String? get lon;
   String? get address;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LocationInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LocationInterfaceBuilder b) {}
 }
 
 abstract class Location implements $LocationInterface, Built<Location, LocationBuilder> {
@@ -860,10 +920,32 @@ abstract class Location implements $LocationInterface, Built<Location, LocationB
 
   /// Serializer for Location.
   static Serializer<Location> get serializer => _$locationSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LocationBuilder b) {
+    $LocationInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LocationBuilder b) {
+    $LocationInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LocationWithSuccessInterface implements $LocationInterface, $SuccessInterface {}
+abstract interface class $LocationWithSuccessInterface implements $LocationInterface, $SuccessInterface {
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LocationWithSuccessInterfaceBuilder b) {
+    $LocationInterface._defaults(b);
+    $SuccessInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LocationWithSuccessInterfaceBuilder b) {
+    $LocationInterface._validate(b);
+    $SuccessInterface._validate(b);
+  }
+}
 
 abstract class LocationWithSuccess
     implements $LocationWithSuccessInterface, Built<LocationWithSuccess, LocationWithSuccessBuilder> {
@@ -891,12 +973,26 @@ abstract class LocationWithSuccess
 
   /// Serializer for LocationWithSuccess.
   static Serializer<LocationWithSuccess> get serializer => _$locationWithSuccessSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LocationWithSuccessBuilder b) {
+    $LocationWithSuccessInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LocationWithSuccessBuilder b) {
+    $LocationWithSuccessInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithSuccess get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
@@ -931,11 +1027,25 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusUsePersonalAddressResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
@@ -970,11 +1080,25 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
   /// Serializer for WeatherStatusUsePersonalAddressResponseApplicationJson.
   static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson> get serializer =>
       _$weatherStatusUsePersonalAddressResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder b) {
+    $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder b) {
+    $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ModeInterface {
   int get mode;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ModeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ModeInterfaceBuilder b) {}
 }
 
 abstract class Mode implements $ModeInterface, Built<Mode, ModeBuilder> {
@@ -1001,10 +1125,32 @@ abstract class Mode implements $ModeInterface, Built<Mode, ModeBuilder> {
 
   /// Serializer for Mode.
   static Serializer<Mode> get serializer => _$modeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ModeBuilder b) {
+    $ModeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ModeBuilder b) {
+    $ModeInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LocationWithModeInterface implements $LocationInterface, $ModeInterface {}
+abstract interface class $LocationWithModeInterface implements $LocationInterface, $ModeInterface {
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LocationWithModeInterfaceBuilder b) {
+    $LocationInterface._defaults(b);
+    $ModeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LocationWithModeInterfaceBuilder b) {
+    $LocationInterface._validate(b);
+    $ModeInterface._validate(b);
+  }
+}
 
 abstract class LocationWithMode
     implements $LocationWithModeInterface, Built<LocationWithMode, LocationWithModeBuilder> {
@@ -1031,12 +1177,26 @@ abstract class LocationWithMode
 
   /// Serializer for LocationWithMode.
   static Serializer<LocationWithMode> get serializer => _$locationWithModeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LocationWithModeBuilder b) {
+    $LocationWithModeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LocationWithModeBuilder b) {
+    $LocationWithModeInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithMode get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
@@ -1071,11 +1231,25 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusGetLocationResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetLocationResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusGetLocationResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusGetLocationResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetLocationResponseApplicationJsonInterface {
   WeatherStatusGetLocationResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson
@@ -1109,12 +1283,26 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
   /// Serializer for WeatherStatusGetLocationResponseApplicationJson.
   static Serializer<WeatherStatusGetLocationResponseApplicationJson> get serializer =>
       _$weatherStatusGetLocationResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetLocationResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetLocationResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetLocationResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetLocationResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithSuccess get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
@@ -1149,11 +1337,25 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusSetLocationResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetLocationResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetLocationResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetLocationResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetLocationResponseApplicationJsonInterface {
   WeatherStatusSetLocationResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson
@@ -1187,6 +1389,16 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
   /// Serializer for WeatherStatusSetLocationResponseApplicationJson.
   static Serializer<WeatherStatusSetLocationResponseApplicationJson> get serializer =>
       _$weatherStatusSetLocationResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetLocationResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetLocationResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetLocationResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetLocationResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1203,6 +1415,10 @@ abstract interface class $Forecast_Data_Instant_DetailsInterface {
   num get windFromDirection;
   @BuiltValueField(wireName: 'wind_speed')
   num get windSpeed;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Instant_DetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Instant_DetailsInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Instant_Details
@@ -1234,11 +1450,25 @@ abstract class Forecast_Data_Instant_Details
 
   /// Serializer for Forecast_Data_Instant_Details.
   static Serializer<Forecast_Data_Instant_Details> get serializer => _$forecastDataInstantDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Instant_DetailsBuilder b) {
+    $Forecast_Data_Instant_DetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Instant_DetailsBuilder b) {
+    $Forecast_Data_Instant_DetailsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_InstantInterface {
   Forecast_Data_Instant_Details get details;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_InstantInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_InstantInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Instant
@@ -1267,12 +1497,26 @@ abstract class Forecast_Data_Instant
 
   /// Serializer for Forecast_Data_Instant.
   static Serializer<Forecast_Data_Instant> get serializer => _$forecastDataInstantSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_InstantBuilder b) {
+    $Forecast_Data_InstantInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_InstantBuilder b) {
+    $Forecast_Data_InstantInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next12Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next12Hours_SummaryInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next12Hours_SummaryInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next12Hours_Summary
@@ -1304,12 +1548,26 @@ abstract class Forecast_Data_Next12Hours_Summary
 
   /// Serializer for Forecast_Data_Next12Hours_Summary.
   static Serializer<Forecast_Data_Next12Hours_Summary> get serializer => _$forecastDataNext12HoursSummarySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next12Hours_SummaryBuilder b) {
+    $Forecast_Data_Next12Hours_SummaryInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next12Hours_SummaryBuilder b) {
+    $Forecast_Data_Next12Hours_SummaryInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next12Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next12Hours_DetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next12Hours_DetailsInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next12Hours_Details
@@ -1341,12 +1599,26 @@ abstract class Forecast_Data_Next12Hours_Details
 
   /// Serializer for Forecast_Data_Next12Hours_Details.
   static Serializer<Forecast_Data_Next12Hours_Details> get serializer => _$forecastDataNext12HoursDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next12Hours_DetailsBuilder b) {
+    $Forecast_Data_Next12Hours_DetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next12Hours_DetailsBuilder b) {
+    $Forecast_Data_Next12Hours_DetailsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next12HoursInterface {
   Forecast_Data_Next12Hours_Summary get summary;
   Forecast_Data_Next12Hours_Details get details;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next12HoursInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next12HoursInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next12Hours
@@ -1375,12 +1647,26 @@ abstract class Forecast_Data_Next12Hours
 
   /// Serializer for Forecast_Data_Next12Hours.
   static Serializer<Forecast_Data_Next12Hours> get serializer => _$forecastDataNext12HoursSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next12HoursBuilder b) {
+    $Forecast_Data_Next12HoursInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next12HoursBuilder b) {
+    $Forecast_Data_Next12HoursInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next1Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next1Hours_SummaryInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next1Hours_SummaryInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next1Hours_Summary
@@ -1412,12 +1698,26 @@ abstract class Forecast_Data_Next1Hours_Summary
 
   /// Serializer for Forecast_Data_Next1Hours_Summary.
   static Serializer<Forecast_Data_Next1Hours_Summary> get serializer => _$forecastDataNext1HoursSummarySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next1Hours_SummaryBuilder b) {
+    $Forecast_Data_Next1Hours_SummaryInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next1Hours_SummaryBuilder b) {
+    $Forecast_Data_Next1Hours_SummaryInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next1Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next1Hours_DetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next1Hours_DetailsInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next1Hours_Details
@@ -1449,12 +1749,26 @@ abstract class Forecast_Data_Next1Hours_Details
 
   /// Serializer for Forecast_Data_Next1Hours_Details.
   static Serializer<Forecast_Data_Next1Hours_Details> get serializer => _$forecastDataNext1HoursDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next1Hours_DetailsBuilder b) {
+    $Forecast_Data_Next1Hours_DetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next1Hours_DetailsBuilder b) {
+    $Forecast_Data_Next1Hours_DetailsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next1HoursInterface {
   Forecast_Data_Next1Hours_Summary get summary;
   Forecast_Data_Next1Hours_Details get details;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next1HoursInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next1HoursInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next1Hours
@@ -1483,12 +1797,26 @@ abstract class Forecast_Data_Next1Hours
 
   /// Serializer for Forecast_Data_Next1Hours.
   static Serializer<Forecast_Data_Next1Hours> get serializer => _$forecastDataNext1HoursSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next1HoursBuilder b) {
+    $Forecast_Data_Next1HoursInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next1HoursBuilder b) {
+    $Forecast_Data_Next1HoursInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next6Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next6Hours_SummaryInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next6Hours_SummaryInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next6Hours_Summary
@@ -1520,12 +1848,26 @@ abstract class Forecast_Data_Next6Hours_Summary
 
   /// Serializer for Forecast_Data_Next6Hours_Summary.
   static Serializer<Forecast_Data_Next6Hours_Summary> get serializer => _$forecastDataNext6HoursSummarySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next6Hours_SummaryBuilder b) {
+    $Forecast_Data_Next6Hours_SummaryInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next6Hours_SummaryBuilder b) {
+    $Forecast_Data_Next6Hours_SummaryInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next6Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next6Hours_DetailsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next6Hours_DetailsInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next6Hours_Details
@@ -1557,12 +1899,26 @@ abstract class Forecast_Data_Next6Hours_Details
 
   /// Serializer for Forecast_Data_Next6Hours_Details.
   static Serializer<Forecast_Data_Next6Hours_Details> get serializer => _$forecastDataNext6HoursDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next6Hours_DetailsBuilder b) {
+    $Forecast_Data_Next6Hours_DetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next6Hours_DetailsBuilder b) {
+    $Forecast_Data_Next6Hours_DetailsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Forecast_Data_Next6HoursInterface {
   Forecast_Data_Next6Hours_Summary get summary;
   Forecast_Data_Next6Hours_Details get details;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_Data_Next6HoursInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_Data_Next6HoursInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data_Next6Hours
@@ -1591,6 +1947,16 @@ abstract class Forecast_Data_Next6Hours
 
   /// Serializer for Forecast_Data_Next6Hours.
   static Serializer<Forecast_Data_Next6Hours> get serializer => _$forecastDataNext6HoursSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_Data_Next6HoursBuilder b) {
+    $Forecast_Data_Next6HoursInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_Data_Next6HoursBuilder b) {
+    $Forecast_Data_Next6HoursInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1602,6 +1968,10 @@ abstract interface class $Forecast_DataInterface {
   Forecast_Data_Next1Hours get next1Hours;
   @BuiltValueField(wireName: 'next_6_hours')
   Forecast_Data_Next6Hours get next6Hours;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Forecast_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Forecast_DataInterfaceBuilder b) {}
 }
 
 abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_Data, Forecast_DataBuilder> {
@@ -1628,12 +1998,26 @@ abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_
 
   /// Serializer for Forecast_Data.
   static Serializer<Forecast_Data> get serializer => _$forecastDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Forecast_DataBuilder b) {
+    $Forecast_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Forecast_DataBuilder b) {
+    $Forecast_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ForecastInterface {
   String get time;
   Forecast_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ForecastInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ForecastInterfaceBuilder b) {}
 }
 
 abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastBuilder> {
@@ -1660,11 +2044,25 @@ abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastB
 
   /// Serializer for Forecast.
   static Serializer<Forecast> get serializer => _$forecastSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ForecastBuilder b) {
+    $ForecastInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ForecastBuilder b) {
+    $ForecastInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface {
   String get error;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
@@ -1699,6 +2097,16 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
   /// Serializer for WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.
   static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonOcsData1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder b) {
+    $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder b) {
+    $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface._validate(b);
+  }
 }
 
 typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
@@ -1710,6 +2118,12 @@ typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
 abstract interface class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder b) {
+    b.data?.validateOneOf();
+  }
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
@@ -1745,15 +2159,24 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
   static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonOcsSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusGetForecastResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder b) {
-    b.data?.validateOneOf();
+    $WeatherStatusGetForecastResponseApplicationJson_OcsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetForecastResponseApplicationJsonInterface {
   WeatherStatusGetForecastResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson
@@ -1787,12 +2210,26 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
   /// Serializer for WeatherStatusGetForecastResponseApplicationJson.
   static Serializer<WeatherStatusGetForecastResponseApplicationJson> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetForecastResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetForecastResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetForecastResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetForecastResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
@@ -1827,11 +2264,25 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusGetFavoritesResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusGetFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetFavoritesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusGetFavoritesResponseApplicationJsonInterface {
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson
@@ -1866,12 +2317,26 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
   /// Serializer for WeatherStatusGetFavoritesResponseApplicationJson.
   static Serializer<WeatherStatusGetFavoritesResponseApplicationJson> get serializer =>
       _$weatherStatusGetFavoritesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusGetFavoritesResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetFavoritesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusGetFavoritesResponseApplicationJsonBuilder b) {
+    $WeatherStatusGetFavoritesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Success get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
@@ -1906,11 +2371,25 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
   /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson_Ocs.
   static Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetFavoritesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder b) {
+    $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WeatherStatusSetFavoritesResponseApplicationJsonInterface {
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson
@@ -1945,11 +2424,25 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
   /// Serializer for WeatherStatusSetFavoritesResponseApplicationJson.
   static Serializer<WeatherStatusSetFavoritesResponseApplicationJson> get serializer =>
       _$weatherStatusSetFavoritesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetFavoritesResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetFavoritesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetFavoritesResponseApplicationJsonBuilder b) {
+    $WeatherStatusSetFavoritesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_WeatherStatusInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_WeatherStatusInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_WeatherStatusInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_WeatherStatus
@@ -1981,12 +2474,26 @@ abstract class Capabilities_WeatherStatus
 
   /// Serializer for Capabilities_WeatherStatus.
   static Serializer<Capabilities_WeatherStatus> get serializer => _$capabilitiesWeatherStatusSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_WeatherStatusBuilder b) {
+    $Capabilities_WeatherStatusInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_WeatherStatusBuilder b) {
+    $Capabilities_WeatherStatusInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   Capabilities_WeatherStatus get weatherStatus;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -2013,6 +2520,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 /// Serialization extension for `WeatherStatusGetForecastResponseApplicationJson_Ocs_Data`.

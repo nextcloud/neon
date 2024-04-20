@@ -48,6 +48,10 @@ abstract interface class $BaseInterface {
   BuiltList<Never>? get listNever;
   @BuiltValueField(wireName: 'list-string')
   BuiltList<String>? get listString;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseInterfaceBuilder b) {}
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
@@ -68,6 +72,16 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseBuilder b) {
+    $BaseInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseBuilder b) {
+    $BaseInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -96,6 +110,10 @@ abstract interface class $AdditionalPropertiesInterface {
   BuiltMap<String, BuiltList<Never>>? get listNever;
   @BuiltValueField(wireName: 'list-string')
   BuiltMap<String, BuiltList<String>>? get listString;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AdditionalPropertiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AdditionalPropertiesInterfaceBuilder b) {}
 }
 
 abstract class AdditionalProperties
@@ -118,6 +136,16 @@ abstract class AdditionalProperties
 
   /// Serializer for AdditionalProperties.
   static Serializer<AdditionalProperties> get serializer => _$additionalPropertiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdditionalPropertiesBuilder b) {
+    $AdditionalPropertiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AdditionalPropertiesBuilder b) {
+    $AdditionalPropertiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

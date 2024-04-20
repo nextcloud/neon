@@ -398,6 +398,10 @@ abstract interface class $Object2Interface {
 
   /// The tag of an Object2 object.
   String? get tag;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Object2InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Object2InterfaceBuilder b) {}
 }
 
 /// A representation of the second Object type.
@@ -419,6 +423,16 @@ abstract class Object2 implements $Object2Interface, Built<Object2, Object2Build
 
   /// Serializer for Object2.
   static Serializer<Object2> get serializer => _$object2Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Object2Builder b) {
+    $Object2Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Object2Builder b) {
+    $Object2Interface._validate(b);
+  }
 }
 
 /// A representation of the main object.
@@ -426,6 +440,15 @@ abstract class Object2 implements $Object2Interface, Built<Object2, Object2Build
 abstract interface class $Object1Interface implements $Object2Interface {
   /// The uuid in an UUIDv4 format.
   int get id;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Object1InterfaceBuilder b) {
+    $Object2Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Object1InterfaceBuilder b) {
+    $Object2Interface._validate(b);
+  }
 }
 
 /// A representation of the main object.
@@ -447,6 +470,16 @@ abstract class Object1 implements $Object1Interface, Built<Object1, Object1Build
 
   /// Serializer for Object1.
   static Serializer<Object1> get serializer => _$object1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Object1Builder b) {
+    $Object1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Object1Builder b) {
+    $Object1Interface._validate(b);
+  }
 }
 
 /// An Object to test the documentation of someOf extension methods and typdefs.

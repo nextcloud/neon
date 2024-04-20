@@ -175,6 +175,10 @@ class $Client extends _i1.DynamiteClient {
 abstract interface class $GetHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GetHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GetHeadersInterfaceBuilder b) {}
 }
 
 abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
@@ -195,12 +199,26 @@ abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, Get
 
   /// Serializer for GetHeaders.
   static Serializer<GetHeaders> get serializer => _$getHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GetHeadersBuilder b) {
+    $GetHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GetHeadersBuilder b) {
+    $GetHeadersInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $WithContentOperationIdHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WithContentOperationIdHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WithContentOperationIdHeadersInterfaceBuilder b) {}
 }
 
 abstract class WithContentOperationIdHeaders
@@ -226,12 +244,26 @@ abstract class WithContentOperationIdHeaders
 
   /// Serializer for WithContentOperationIdHeaders.
   static Serializer<WithContentOperationIdHeaders> get serializer => _$withContentOperationIdHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WithContentOperationIdHeadersBuilder b) {
+    $WithContentOperationIdHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WithContentOperationIdHeadersBuilder b) {
+    $WithContentOperationIdHeadersInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GetWithContentHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GetWithContentHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GetWithContentHeadersInterfaceBuilder b) {}
 }
 
 abstract class GetWithContentHeaders
@@ -254,6 +286,16 @@ abstract class GetWithContentHeaders
 
   /// Serializer for GetWithContentHeaders.
   static Serializer<GetWithContentHeaders> get serializer => _$getWithContentHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GetWithContentHeadersBuilder b) {
+    $GetWithContentHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GetWithContentHeadersBuilder b) {
+    $GetWithContentHeadersInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

@@ -157,7 +157,9 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   String? get attribute => _$this._attribute;
   set attribute(covariant String? attribute) => _$this._attribute = attribute;
 
-  BaseBuilder();
+  BaseBuilder() {
+    Base._defaults(this);
+  }
 
   BaseBuilder get _$this {
     final $v = _$v;
@@ -183,6 +185,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   Base build() => _build();
 
   _$Base _build() {
+    Base._validate(this);
     final _$result = _$v ?? _$Base._(attribute: attribute);
     replace(_$result);
     return _$result;
@@ -265,7 +268,9 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
   JsonObject? get redirectEmptyType => _$this._redirectEmptyType;
   set redirectEmptyType(covariant JsonObject? redirectEmptyType) => _$this._redirectEmptyType = redirectEmptyType;
 
-  NestedRedirectBuilder();
+  NestedRedirectBuilder() {
+    NestedRedirect._defaults(this);
+  }
 
   NestedRedirectBuilder get _$this {
     final $v = _$v;
@@ -293,6 +298,7 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
   NestedRedirect build() => _build();
 
   _$NestedRedirect _build() {
+    NestedRedirect._validate(this);
     _$NestedRedirect _$result;
     try {
       _$result = _$v ??

@@ -26,6 +26,10 @@ typedef AnyOfIntDoubleNum = num;
 abstract interface class $ObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute1-anyOf')
   String get attribute1AnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ObjectAnyOf0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ObjectAnyOf0InterfaceBuilder b) {}
 }
 
 abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
@@ -46,12 +50,26 @@ abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf
 
   /// Serializer for ObjectAnyOf0.
   static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ObjectAnyOf0Builder b) {
+    $ObjectAnyOf0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ObjectAnyOf0Builder b) {
+    $ObjectAnyOf0Interface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ObjectAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute2-anyOf')
   String get attribute2AnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ObjectAnyOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ObjectAnyOf1InterfaceBuilder b) {}
 }
 
 abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
@@ -72,6 +90,16 @@ abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf
 
   /// Serializer for ObjectAnyOf1.
   static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ObjectAnyOf1Builder b) {
+    $ObjectAnyOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ObjectAnyOf1Builder b) {
+    $ObjectAnyOf1Interface._validate(b);
+  }
 }
 
 /// Any of with objects only.
@@ -81,6 +109,10 @@ typedef ObjectAnyOf = ({ObjectAnyOf0? objectAnyOf0, ObjectAnyOf1? objectAnyOf1})
 abstract interface class $MixedAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($MixedAnyOf1InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($MixedAnyOf1InterfaceBuilder b) {}
 }
 
 abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
@@ -101,6 +133,16 @@ abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, 
 
   /// Serializer for MixedAnyOf1.
   static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MixedAnyOf1Builder b) {
+    $MixedAnyOf1Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(MixedAnyOf1Builder b) {
+    $MixedAnyOf1Interface._validate(b);
+  }
 }
 
 /// Any of with object and primitive value.
@@ -110,6 +152,10 @@ typedef MixedAnyOf = ({MixedAnyOf1? mixedAnyOf1, String? string});
 abstract interface class $OneObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneObjectAnyOf0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneObjectAnyOf0InterfaceBuilder b) {}
 }
 
 abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
@@ -130,6 +176,16 @@ abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneOb
 
   /// Serializer for OneObjectAnyOf0.
   static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneObjectAnyOf0Builder b) {
+    $OneObjectAnyOf0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneObjectAnyOf0Builder b) {
+    $OneObjectAnyOf0Interface._validate(b);
+  }
 }
 
 /// Any of with an integer, double and other value.

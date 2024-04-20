@@ -543,7 +543,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -573,6 +575,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -803,7 +806,9 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   bool? get userProvided => _$this._userProvided;
   set userProvided(covariant bool? userProvided) => _$this._userProvided = userProvided;
 
-  StorageConfigBuilder();
+  StorageConfigBuilder() {
+    StorageConfig._defaults(this);
+  }
 
   StorageConfigBuilder get _$this {
     final $v = _$v;
@@ -841,6 +846,7 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   StorageConfig build() => _build();
 
   _$StorageConfig _build() {
+    StorageConfig._validate(this);
     _$StorageConfig _$result;
     try {
       _$result = _$v ??
@@ -1048,7 +1054,9 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
   StorageConfigBuilder get config => _$this._config ??= StorageConfigBuilder();
   set config(covariant StorageConfigBuilder? config) => _$this._config = config;
 
-  MountBuilder();
+  MountBuilder() {
+    Mount._defaults(this);
+  }
 
   MountBuilder get _$this {
     final $v = _$v;
@@ -1082,6 +1090,7 @@ class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuild
   Mount build() => _build();
 
   _$Mount _build() {
+    Mount._validate(this);
     _$Mount _$result;
     try {
       _$result = _$v ??
@@ -1182,7 +1191,9 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   ListBuilder<Mount> get data => _$this._data ??= ListBuilder<Mount>();
   set data(covariant ListBuilder<Mount>? data) => _$this._data = data;
 
-  ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+  ApiGetUserMountsResponseApplicationJson_OcsBuilder() {
+    ApiGetUserMountsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1209,6 +1220,7 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   ApiGetUserMountsResponseApplicationJson_Ocs build() => _build();
 
   _$ApiGetUserMountsResponseApplicationJson_Ocs _build() {
+    ApiGetUserMountsResponseApplicationJson_Ocs._validate(this);
     _$ApiGetUserMountsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -1288,7 +1300,9 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
       _$this._ocs ??= ApiGetUserMountsResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiGetUserMountsResponseApplicationJsonBuilder();
+  ApiGetUserMountsResponseApplicationJsonBuilder() {
+    ApiGetUserMountsResponseApplicationJson._defaults(this);
+  }
 
   ApiGetUserMountsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1314,6 +1328,7 @@ class ApiGetUserMountsResponseApplicationJsonBuilder
   ApiGetUserMountsResponseApplicationJson build() => _build();
 
   _$ApiGetUserMountsResponseApplicationJson _build() {
+    ApiGetUserMountsResponseApplicationJson._validate(this);
     _$ApiGetUserMountsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiGetUserMountsResponseApplicationJson._(ocs: ocs.build());

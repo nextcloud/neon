@@ -1578,7 +1578,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1608,6 +1610,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1722,7 +1725,9 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
   $Type? get status => _$this._status;
   set status(covariant $Type? status) => _$this._status = status;
 
-  PublicBuilder();
+  PublicBuilder() {
+    Public._defaults(this);
+  }
 
   PublicBuilder get _$this {
     final $v = _$v;
@@ -1752,6 +1757,7 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
   Public build() => _build();
 
   _$Public _build() {
+    Public._validate(this);
     final _$result = _$v ??
         _$Public._(
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId'),
@@ -1913,7 +1919,9 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   $Type? get status => _$this._status;
   set status(covariant $Type? status) => _$this._status = status;
 
-  PrivateBuilder();
+  PrivateBuilder() {
+    Private._defaults(this);
+  }
 
   PrivateBuilder get _$this {
     final $v = _$v;
@@ -1946,6 +1954,7 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
   Private build() => _build();
 
   _$Private _build() {
+    Private._validate(this);
     final _$result = _$v ??
         _$Private._(
             messageId: messageId,
@@ -2035,7 +2044,9 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
   PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
-  HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
+  HeartbeatHeartbeatResponseApplicationJson_OcsBuilder() {
+    HeartbeatHeartbeatResponseApplicationJson_Ocs._defaults(this);
+  }
 
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2062,6 +2073,7 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
   HeartbeatHeartbeatResponseApplicationJson_Ocs build() => _build();
 
   _$HeartbeatHeartbeatResponseApplicationJson_Ocs _build() {
+    HeartbeatHeartbeatResponseApplicationJson_Ocs._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -2141,7 +2153,9 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
       _$this._ocs ??= HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
   set ocs(covariant HeartbeatHeartbeatResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  HeartbeatHeartbeatResponseApplicationJsonBuilder();
+  HeartbeatHeartbeatResponseApplicationJsonBuilder() {
+    HeartbeatHeartbeatResponseApplicationJson._defaults(this);
+  }
 
   HeartbeatHeartbeatResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2167,6 +2181,7 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
   HeartbeatHeartbeatResponseApplicationJson build() => _build();
 
   _$HeartbeatHeartbeatResponseApplicationJson _build() {
+    HeartbeatHeartbeatResponseApplicationJson._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson._(ocs: ocs.build());
@@ -2250,7 +2265,9 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
   ClearAt_Time? get time => _$this._time;
   set time(covariant ClearAt_Time? time) => _$this._time = time;
 
-  ClearAtBuilder();
+  ClearAtBuilder() {
+    ClearAt._defaults(this);
+  }
 
   ClearAtBuilder get _$this {
     final $v = _$v;
@@ -2391,7 +2408,9 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
   bool? get visible => _$this._visible;
   set visible(covariant bool? visible) => _$this._visible = visible;
 
-  PredefinedBuilder();
+  PredefinedBuilder() {
+    Predefined._defaults(this);
+  }
 
   PredefinedBuilder get _$this {
     final $v = _$v;
@@ -2421,6 +2440,7 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
   Predefined build() => _build();
 
   _$Predefined _build() {
+    Predefined._validate(this);
     _$Predefined _$result;
     try {
       _$result = _$v ??
@@ -2518,7 +2538,9 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
   ListBuilder<Predefined> get data => _$this._data ??= ListBuilder<Predefined>();
   set data(covariant ListBuilder<Predefined>? data) => _$this._data = data;
 
-  PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
+  PredefinedStatusFindAllResponseApplicationJson_OcsBuilder() {
+    PredefinedStatusFindAllResponseApplicationJson_Ocs._defaults(this);
+  }
 
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2545,6 +2567,7 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
   PredefinedStatusFindAllResponseApplicationJson_Ocs build() => _build();
 
   _$PredefinedStatusFindAllResponseApplicationJson_Ocs _build() {
+    PredefinedStatusFindAllResponseApplicationJson_Ocs._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -2625,7 +2648,9 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
       _$this._ocs ??= PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
   set ocs(covariant PredefinedStatusFindAllResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  PredefinedStatusFindAllResponseApplicationJsonBuilder();
+  PredefinedStatusFindAllResponseApplicationJsonBuilder() {
+    PredefinedStatusFindAllResponseApplicationJson._defaults(this);
+  }
 
   PredefinedStatusFindAllResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2651,6 +2676,7 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
   PredefinedStatusFindAllResponseApplicationJson build() => _build();
 
   _$PredefinedStatusFindAllResponseApplicationJson _build() {
+    PredefinedStatusFindAllResponseApplicationJson._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson._(ocs: ocs.build());
@@ -2742,7 +2768,9 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
   ListBuilder<Public> get data => _$this._data ??= ListBuilder<Public>();
   set data(covariant ListBuilder<Public>? data) => _$this._data = data;
 
-  StatusesFindAllResponseApplicationJson_OcsBuilder();
+  StatusesFindAllResponseApplicationJson_OcsBuilder() {
+    StatusesFindAllResponseApplicationJson_Ocs._defaults(this);
+  }
 
   StatusesFindAllResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2769,6 +2797,7 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
   StatusesFindAllResponseApplicationJson_Ocs build() => _build();
 
   _$StatusesFindAllResponseApplicationJson_Ocs _build() {
+    StatusesFindAllResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindAllResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$StatusesFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -2848,7 +2877,9 @@ class StatusesFindAllResponseApplicationJsonBuilder
       _$this._ocs ??= StatusesFindAllResponseApplicationJson_OcsBuilder();
   set ocs(covariant StatusesFindAllResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  StatusesFindAllResponseApplicationJsonBuilder();
+  StatusesFindAllResponseApplicationJsonBuilder() {
+    StatusesFindAllResponseApplicationJson._defaults(this);
+  }
 
   StatusesFindAllResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2874,6 +2905,7 @@ class StatusesFindAllResponseApplicationJsonBuilder
   StatusesFindAllResponseApplicationJson build() => _build();
 
   _$StatusesFindAllResponseApplicationJson _build() {
+    StatusesFindAllResponseApplicationJson._validate(this);
     _$StatusesFindAllResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$StatusesFindAllResponseApplicationJson._(ocs: ocs.build());
@@ -2964,7 +2996,9 @@ class StatusesFindResponseApplicationJson_OcsBuilder
   PublicBuilder get data => _$this._data ??= PublicBuilder();
   set data(covariant PublicBuilder? data) => _$this._data = data;
 
-  StatusesFindResponseApplicationJson_OcsBuilder();
+  StatusesFindResponseApplicationJson_OcsBuilder() {
+    StatusesFindResponseApplicationJson_Ocs._defaults(this);
+  }
 
   StatusesFindResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2991,6 +3025,7 @@ class StatusesFindResponseApplicationJson_OcsBuilder
   StatusesFindResponseApplicationJson_Ocs build() => _build();
 
   _$StatusesFindResponseApplicationJson_Ocs _build() {
+    StatusesFindResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$StatusesFindResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3067,7 +3102,9 @@ class StatusesFindResponseApplicationJsonBuilder
       _$this._ocs ??= StatusesFindResponseApplicationJson_OcsBuilder();
   set ocs(covariant StatusesFindResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  StatusesFindResponseApplicationJsonBuilder();
+  StatusesFindResponseApplicationJsonBuilder() {
+    StatusesFindResponseApplicationJson._defaults(this);
+  }
 
   StatusesFindResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3093,6 +3130,7 @@ class StatusesFindResponseApplicationJsonBuilder
   StatusesFindResponseApplicationJson build() => _build();
 
   _$StatusesFindResponseApplicationJson _build() {
+    StatusesFindResponseApplicationJson._validate(this);
     _$StatusesFindResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$StatusesFindResponseApplicationJson._(ocs: ocs.build());
@@ -3183,7 +3221,9 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
   PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
-  UserStatusGetStatusResponseApplicationJson_OcsBuilder();
+  UserStatusGetStatusResponseApplicationJson_OcsBuilder() {
+    UserStatusGetStatusResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusGetStatusResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3210,6 +3250,7 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
   UserStatusGetStatusResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusGetStatusResponseApplicationJson_Ocs _build() {
+    UserStatusGetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusGetStatusResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3290,7 +3331,9 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusGetStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusGetStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusGetStatusResponseApplicationJsonBuilder();
+  UserStatusGetStatusResponseApplicationJsonBuilder() {
+    UserStatusGetStatusResponseApplicationJson._defaults(this);
+  }
 
   UserStatusGetStatusResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3316,6 +3359,7 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
   UserStatusGetStatusResponseApplicationJson build() => _build();
 
   _$UserStatusGetStatusResponseApplicationJson _build() {
+    UserStatusGetStatusResponseApplicationJson._validate(this);
     _$UserStatusGetStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson._(ocs: ocs.build());
@@ -3406,7 +3450,9 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
   PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
-  UserStatusSetStatusResponseApplicationJson_OcsBuilder();
+  UserStatusSetStatusResponseApplicationJson_OcsBuilder() {
+    UserStatusSetStatusResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusSetStatusResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3433,6 +3479,7 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
   UserStatusSetStatusResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusSetStatusResponseApplicationJson_Ocs _build() {
+    UserStatusSetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetStatusResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3513,7 +3560,9 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusSetStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusSetStatusResponseApplicationJsonBuilder();
+  UserStatusSetStatusResponseApplicationJsonBuilder() {
+    UserStatusSetStatusResponseApplicationJson._defaults(this);
+  }
 
   UserStatusSetStatusResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3539,6 +3588,7 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
   UserStatusSetStatusResponseApplicationJson build() => _build();
 
   _$UserStatusSetStatusResponseApplicationJson _build() {
+    UserStatusSetStatusResponseApplicationJson._validate(this);
     _$UserStatusSetStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson._(ocs: ocs.build());
@@ -3633,7 +3683,9 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
   PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
-  UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
+  UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder() {
+    UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3660,6 +3712,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs _build() {
+    UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -3744,7 +3797,9 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusSetPredefinedMessageResponseApplicationJsonBuilder();
+  UserStatusSetPredefinedMessageResponseApplicationJsonBuilder() {
+    UserStatusSetPredefinedMessageResponseApplicationJson._defaults(this);
+  }
 
   UserStatusSetPredefinedMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3770,6 +3825,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
   UserStatusSetPredefinedMessageResponseApplicationJson build() => _build();
 
   _$UserStatusSetPredefinedMessageResponseApplicationJson _build() {
+    UserStatusSetPredefinedMessageResponseApplicationJson._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusSetPredefinedMessageResponseApplicationJson._(ocs: ocs.build());
@@ -3863,7 +3919,9 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
   PrivateBuilder get data => _$this._data ??= PrivateBuilder();
   set data(covariant PrivateBuilder? data) => _$this._data = data;
 
-  UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
+  UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder() {
+    UserStatusSetCustomMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3890,6 +3948,7 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
   UserStatusSetCustomMessageResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusSetCustomMessageResponseApplicationJson_Ocs _build() {
+    UserStatusSetCustomMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -3973,7 +4032,9 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusSetCustomMessageResponseApplicationJsonBuilder();
+  UserStatusSetCustomMessageResponseApplicationJsonBuilder() {
+    UserStatusSetCustomMessageResponseApplicationJson._defaults(this);
+  }
 
   UserStatusSetCustomMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3999,6 +4060,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
   UserStatusSetCustomMessageResponseApplicationJson build() => _build();
 
   _$UserStatusSetCustomMessageResponseApplicationJson _build() {
+    UserStatusSetCustomMessageResponseApplicationJson._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusSetCustomMessageResponseApplicationJson._(ocs: ocs.build());
@@ -4091,7 +4153,9 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
   JsonObject? get data => _$this._data;
   set data(covariant JsonObject? data) => _$this._data = data;
 
-  UserStatusClearMessageResponseApplicationJson_OcsBuilder();
+  UserStatusClearMessageResponseApplicationJson_OcsBuilder() {
+    UserStatusClearMessageResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusClearMessageResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4118,6 +4182,7 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
   UserStatusClearMessageResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusClearMessageResponseApplicationJson_Ocs _build() {
+    UserStatusClearMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusClearMessageResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ??
@@ -4200,7 +4265,9 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusClearMessageResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusClearMessageResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusClearMessageResponseApplicationJsonBuilder();
+  UserStatusClearMessageResponseApplicationJsonBuilder() {
+    UserStatusClearMessageResponseApplicationJson._defaults(this);
+  }
 
   UserStatusClearMessageResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4226,6 +4293,7 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
   UserStatusClearMessageResponseApplicationJson build() => _build();
 
   _$UserStatusClearMessageResponseApplicationJson _build() {
+    UserStatusClearMessageResponseApplicationJson._validate(this);
     _$UserStatusClearMessageResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusClearMessageResponseApplicationJson._(ocs: ocs.build());
@@ -4320,7 +4388,9 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data? get data => _$this._data;
   set data(covariant UserStatusRevertStatusResponseApplicationJson_Ocs_Data? data) => _$this._data = data;
 
-  UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
+  UserStatusRevertStatusResponseApplicationJson_OcsBuilder() {
+    UserStatusRevertStatusResponseApplicationJson_Ocs._defaults(this);
+  }
 
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -4430,7 +4500,9 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
       _$this._ocs ??= UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
   set ocs(covariant UserStatusRevertStatusResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  UserStatusRevertStatusResponseApplicationJsonBuilder();
+  UserStatusRevertStatusResponseApplicationJsonBuilder() {
+    UserStatusRevertStatusResponseApplicationJson._defaults(this);
+  }
 
   UserStatusRevertStatusResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -4456,6 +4528,7 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
   UserStatusRevertStatusResponseApplicationJson build() => _build();
 
   _$UserStatusRevertStatusResponseApplicationJson _build() {
+    UserStatusRevertStatusResponseApplicationJson._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UserStatusRevertStatusResponseApplicationJson._(ocs: ocs.build());
@@ -4558,7 +4631,9 @@ class Capabilities_UserStatusBuilder
   bool? get supportsEmoji => _$this._supportsEmoji;
   set supportsEmoji(covariant bool? supportsEmoji) => _$this._supportsEmoji = supportsEmoji;
 
-  Capabilities_UserStatusBuilder();
+  Capabilities_UserStatusBuilder() {
+    Capabilities_UserStatus._defaults(this);
+  }
 
   Capabilities_UserStatusBuilder get _$this {
     final $v = _$v;
@@ -4586,6 +4661,7 @@ class Capabilities_UserStatusBuilder
   Capabilities_UserStatus build() => _build();
 
   _$Capabilities_UserStatus _build() {
+    Capabilities_UserStatus._validate(this);
     final _$result = _$v ??
         _$Capabilities_UserStatus._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
@@ -4648,7 +4724,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_UserStatusBuilder get userStatus => _$this._userStatus ??= Capabilities_UserStatusBuilder();
   set userStatus(covariant Capabilities_UserStatusBuilder? userStatus) => _$this._userStatus = userStatus;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -4674,6 +4752,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(userStatus: userStatus.build());

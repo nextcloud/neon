@@ -2365,6 +2365,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -2391,6 +2395,16 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -2428,6 +2442,10 @@ abstract interface class $DeletedShareInterface {
   String? get shareWithDisplayname;
   @BuiltValueField(wireName: 'share_with_link')
   String? get shareWithLink;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedShareInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedShareInterfaceBuilder b) {}
 }
 
 abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShare, DeletedShareBuilder> {
@@ -2454,12 +2472,26 @@ abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShar
 
   /// Serializer for DeletedShare.
   static Serializer<DeletedShare> get serializer => _$deletedShareSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedShareBuilder b) {
+    $DeletedShareInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedShareBuilder b) {
+    $DeletedShareInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeletedShareapiIndexResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeletedShare> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DeletedShareapiIndexResponseApplicationJson_Ocs
@@ -2493,11 +2525,25 @@ abstract class DeletedShareapiIndexResponseApplicationJson_Ocs
   /// Serializer for DeletedShareapiIndexResponseApplicationJson_Ocs.
   static Serializer<DeletedShareapiIndexResponseApplicationJson_Ocs> get serializer =>
       _$deletedShareapiIndexResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedShareapiIndexResponseApplicationJson_OcsBuilder b) {
+    $DeletedShareapiIndexResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedShareapiIndexResponseApplicationJson_OcsBuilder b) {
+    $DeletedShareapiIndexResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeletedShareapiIndexResponseApplicationJsonInterface {
   DeletedShareapiIndexResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DeletedShareapiIndexResponseApplicationJson
@@ -2531,12 +2577,26 @@ abstract class DeletedShareapiIndexResponseApplicationJson
   /// Serializer for DeletedShareapiIndexResponseApplicationJson.
   static Serializer<DeletedShareapiIndexResponseApplicationJson> get serializer =>
       _$deletedShareapiIndexResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedShareapiIndexResponseApplicationJsonBuilder b) {
+    $DeletedShareapiIndexResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedShareapiIndexResponseApplicationJsonBuilder b) {
+    $DeletedShareapiIndexResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
@@ -2571,11 +2631,25 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
   /// Serializer for DeletedShareapiUndeleteResponseApplicationJson_Ocs.
   static Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs> get serializer =>
       _$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder b) {
+    $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder b) {
+    $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeletedShareapiUndeleteResponseApplicationJsonInterface {
   DeletedShareapiUndeleteResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DeletedShareapiUndeleteResponseApplicationJson
@@ -2609,6 +2683,16 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   /// Serializer for DeletedShareapiUndeleteResponseApplicationJson.
   static Serializer<DeletedShareapiUndeleteResponseApplicationJson> get serializer =>
       _$deletedShareapiUndeleteResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedShareapiUndeleteResponseApplicationJsonBuilder b) {
+    $DeletedShareapiUndeleteResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedShareapiUndeleteResponseApplicationJsonBuilder b) {
+    $DeletedShareapiUndeleteResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 class PublicPreviewGetPreviewA extends EnumClass {
@@ -2696,6 +2780,10 @@ abstract interface class $RemoteShareInterface {
   int get shareType;
   String? get type;
   String get user;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteShareInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteShareInterfaceBuilder b) {}
 }
 
 abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, RemoteShareBuilder> {
@@ -2722,12 +2810,26 @@ abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, 
 
   /// Serializer for RemoteShare.
   static Serializer<RemoteShare> get serializer => _$remoteShareSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteShareBuilder b) {
+    $RemoteShareInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteShareBuilder b) {
+    $RemoteShareInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetSharesResponseApplicationJson_Ocs
@@ -2761,11 +2863,25 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
   /// Serializer for RemoteGetSharesResponseApplicationJson_Ocs.
   static Serializer<RemoteGetSharesResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetSharesResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetSharesResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetSharesResponseApplicationJsonInterface {
   RemoteGetSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetSharesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetSharesResponseApplicationJson
@@ -2798,12 +2914,26 @@ abstract class RemoteGetSharesResponseApplicationJson
   /// Serializer for RemoteGetSharesResponseApplicationJson.
   static Serializer<RemoteGetSharesResponseApplicationJson> get serializer =>
       _$remoteGetSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetSharesResponseApplicationJsonBuilder b) {
+    $RemoteGetSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetSharesResponseApplicationJsonBuilder b) {
+    $RemoteGetSharesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetOpenSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
@@ -2837,11 +2967,25 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
   /// Serializer for RemoteGetOpenSharesResponseApplicationJson_Ocs.
   static Serializer<RemoteGetOpenSharesResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetOpenSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetOpenSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetOpenSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetOpenSharesResponseApplicationJsonInterface {
   RemoteGetOpenSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetOpenSharesResponseApplicationJson
@@ -2875,12 +3019,26 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
   /// Serializer for RemoteGetOpenSharesResponseApplicationJson.
   static Serializer<RemoteGetOpenSharesResponseApplicationJson> get serializer =>
       _$remoteGetOpenSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetOpenSharesResponseApplicationJsonBuilder b) {
+    $RemoteGetOpenSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetOpenSharesResponseApplicationJsonBuilder b) {
+    $RemoteGetOpenSharesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteAcceptShareResponseApplicationJson_Ocs
@@ -2914,11 +3072,25 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
   /// Serializer for RemoteAcceptShareResponseApplicationJson_Ocs.
   static Serializer<RemoteAcceptShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteAcceptShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteAcceptShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteAcceptShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteAcceptShareResponseApplicationJsonInterface {
   RemoteAcceptShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteAcceptShareResponseApplicationJson
@@ -2952,12 +3124,26 @@ abstract class RemoteAcceptShareResponseApplicationJson
   /// Serializer for RemoteAcceptShareResponseApplicationJson.
   static Serializer<RemoteAcceptShareResponseApplicationJson> get serializer =>
       _$remoteAcceptShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteAcceptShareResponseApplicationJsonBuilder b) {
+    $RemoteAcceptShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteAcceptShareResponseApplicationJsonBuilder b) {
+    $RemoteAcceptShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteDeclineShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteDeclineShareResponseApplicationJson_Ocs
@@ -2991,11 +3177,25 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
   /// Serializer for RemoteDeclineShareResponseApplicationJson_Ocs.
   static Serializer<RemoteDeclineShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteDeclineShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteDeclineShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteDeclineShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteDeclineShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteDeclineShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteDeclineShareResponseApplicationJsonInterface {
   RemoteDeclineShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteDeclineShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteDeclineShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteDeclineShareResponseApplicationJson
@@ -3029,12 +3229,26 @@ abstract class RemoteDeclineShareResponseApplicationJson
   /// Serializer for RemoteDeclineShareResponseApplicationJson.
   static Serializer<RemoteDeclineShareResponseApplicationJson> get serializer =>
       _$remoteDeclineShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteDeclineShareResponseApplicationJsonBuilder b) {
+    $RemoteDeclineShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteDeclineShareResponseApplicationJsonBuilder b) {
+    $RemoteDeclineShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RemoteShare get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetShareResponseApplicationJson_Ocs
@@ -3068,11 +3282,25 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
   /// Serializer for RemoteGetShareResponseApplicationJson_Ocs.
   static Serializer<RemoteGetShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetShareResponseApplicationJson_OcsBuilder b) {
+    $RemoteGetShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteGetShareResponseApplicationJsonInterface {
   RemoteGetShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteGetShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteGetShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteGetShareResponseApplicationJson
@@ -3105,12 +3333,26 @@ abstract class RemoteGetShareResponseApplicationJson
   /// Serializer for RemoteGetShareResponseApplicationJson.
   static Serializer<RemoteGetShareResponseApplicationJson> get serializer =>
       _$remoteGetShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteGetShareResponseApplicationJsonBuilder b) {
+    $RemoteGetShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteGetShareResponseApplicationJsonBuilder b) {
+    $RemoteGetShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteUnshareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class RemoteUnshareResponseApplicationJson_Ocs
@@ -3144,11 +3386,25 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
   /// Serializer for RemoteUnshareResponseApplicationJson_Ocs.
   static Serializer<RemoteUnshareResponseApplicationJson_Ocs> get serializer =>
       _$remoteUnshareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteUnshareResponseApplicationJson_OcsBuilder b) {
+    $RemoteUnshareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteUnshareResponseApplicationJson_OcsBuilder b) {
+    $RemoteUnshareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $RemoteUnshareResponseApplicationJsonInterface {
   RemoteUnshareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RemoteUnshareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RemoteUnshareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class RemoteUnshareResponseApplicationJson
@@ -3181,6 +3437,16 @@ abstract class RemoteUnshareResponseApplicationJson
   /// Serializer for RemoteUnshareResponseApplicationJson.
   static Serializer<RemoteUnshareResponseApplicationJson> get serializer =>
       _$remoteUnshareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteUnshareResponseApplicationJsonBuilder b) {
+    $RemoteUnshareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RemoteUnshareResponseApplicationJsonBuilder b) {
+    $RemoteUnshareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3195,6 +3461,10 @@ abstract interface class $ShareInfoInterface {
   String get type;
   String get etag;
   BuiltList<BuiltMap<String, JsonObject>>? get children;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareInfoInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareInfoInterfaceBuilder b) {}
 }
 
 abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareInfoBuilder> {
@@ -3221,6 +3491,16 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
 
   /// Serializer for ShareInfo.
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareInfoBuilder b) {
+    $ShareInfoInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareInfoBuilder b) {
+    $ShareInfoInterface._validate(b);
+  }
 }
 
 class Share_HideDownload extends EnumClass {
@@ -3416,6 +3696,10 @@ abstract interface class $Share_StatusInterface {
   String? get icon;
   String? get message;
   String? get status;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Share_StatusInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Share_StatusInterfaceBuilder b) {}
 }
 
 abstract class Share_Status implements $Share_StatusInterface, Built<Share_Status, Share_StatusBuilder> {
@@ -3442,6 +3726,16 @@ abstract class Share_Status implements $Share_StatusInterface, Built<Share_Statu
 
   /// Serializer for Share_Status.
   static Serializer<Share_Status> get serializer => _$shareStatusSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Share_StatusBuilder b) {
+    $Share_StatusInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Share_StatusBuilder b) {
+    $Share_StatusInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3513,6 +3807,10 @@ abstract interface class $ShareInterface {
   @BuiltValueField(wireName: 'uid_owner')
   String get uidOwner;
   String? get url;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareInterfaceBuilder b) {}
 }
 
 abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
@@ -3539,12 +3837,26 @@ abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
 
   /// Serializer for Share.
   static Serializer<Share> get serializer => _$shareSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareBuilder b) {
+    $ShareInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareBuilder b) {
+    $ShareInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetSharesResponseApplicationJson_Ocs
@@ -3578,11 +3890,25 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
   /// Serializer for ShareapiGetSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetSharesResponseApplicationJsonInterface {
   ShareapiGetSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetSharesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetSharesResponseApplicationJson
@@ -3616,12 +3942,26 @@ abstract class ShareapiGetSharesResponseApplicationJson
   /// Serializer for ShareapiGetSharesResponseApplicationJson.
   static Serializer<ShareapiGetSharesResponseApplicationJson> get serializer =>
       _$shareapiGetSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetSharesResponseApplicationJsonBuilder b) {
+    $ShareapiGetSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetSharesResponseApplicationJsonBuilder b) {
+    $ShareapiGetSharesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiCreateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiCreateShareResponseApplicationJson_Ocs
@@ -3655,11 +3995,25 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
   /// Serializer for ShareapiCreateShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiCreateShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiCreateShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiCreateShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiCreateShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiCreateShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiCreateShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiCreateShareResponseApplicationJsonInterface {
   ShareapiCreateShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiCreateShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiCreateShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiCreateShareResponseApplicationJson
@@ -3693,12 +4047,26 @@ abstract class ShareapiCreateShareResponseApplicationJson
   /// Serializer for ShareapiCreateShareResponseApplicationJson.
   static Serializer<ShareapiCreateShareResponseApplicationJson> get serializer =>
       _$shareapiCreateShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiCreateShareResponseApplicationJsonBuilder b) {
+    $ShareapiCreateShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiCreateShareResponseApplicationJsonBuilder b) {
+    $ShareapiCreateShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
@@ -3733,11 +4101,25 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetInheritedSharesResponseApplicationJsonInterface {
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetInheritedSharesResponseApplicationJson
@@ -3772,12 +4154,26 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
   /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson.
   static Serializer<ShareapiGetInheritedSharesResponseApplicationJson> get serializer =>
       _$shareapiGetInheritedSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetInheritedSharesResponseApplicationJsonBuilder b) {
+    $ShareapiGetInheritedSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetInheritedSharesResponseApplicationJsonBuilder b) {
+    $ShareapiGetInheritedSharesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiPendingSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
@@ -3812,11 +4208,25 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
   /// Serializer for ShareapiPendingSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiPendingSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiPendingSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiPendingSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiPendingSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiPendingSharesResponseApplicationJson_OcsBuilder b) {
+    $ShareapiPendingSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiPendingSharesResponseApplicationJsonInterface {
   ShareapiPendingSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiPendingSharesResponseApplicationJson
@@ -3850,6 +4260,16 @@ abstract class ShareapiPendingSharesResponseApplicationJson
   /// Serializer for ShareapiPendingSharesResponseApplicationJson.
   static Serializer<ShareapiPendingSharesResponseApplicationJson> get serializer =>
       _$shareapiPendingSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiPendingSharesResponseApplicationJsonBuilder b) {
+    $ShareapiPendingSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiPendingSharesResponseApplicationJsonBuilder b) {
+    $ShareapiPendingSharesResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 class ShareapiGetShareIncludeTags extends EnumClass {
@@ -3919,6 +4339,10 @@ class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<Sha
 abstract interface class $ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetShareResponseApplicationJson_Ocs
@@ -3952,11 +4376,25 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
   /// Serializer for ShareapiGetShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiGetShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiGetShareResponseApplicationJsonInterface {
   ShareapiGetShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiGetShareResponseApplicationJson
@@ -3989,12 +4427,26 @@ abstract class ShareapiGetShareResponseApplicationJson
   /// Serializer for ShareapiGetShareResponseApplicationJson.
   static Serializer<ShareapiGetShareResponseApplicationJson> get serializer =>
       _$shareapiGetShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetShareResponseApplicationJsonBuilder b) {
+    $ShareapiGetShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetShareResponseApplicationJsonBuilder b) {
+    $ShareapiGetShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiUpdateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
@@ -4028,11 +4480,25 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
   /// Serializer for ShareapiUpdateShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiUpdateShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiUpdateShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiUpdateShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiUpdateShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiUpdateShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiUpdateShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiUpdateShareResponseApplicationJsonInterface {
   ShareapiUpdateShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiUpdateShareResponseApplicationJson
@@ -4066,12 +4532,26 @@ abstract class ShareapiUpdateShareResponseApplicationJson
   /// Serializer for ShareapiUpdateShareResponseApplicationJson.
   static Serializer<ShareapiUpdateShareResponseApplicationJson> get serializer =>
       _$shareapiUpdateShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiUpdateShareResponseApplicationJsonBuilder b) {
+    $ShareapiUpdateShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiUpdateShareResponseApplicationJsonBuilder b) {
+    $ShareapiUpdateShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiDeleteShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
@@ -4105,11 +4585,25 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
   /// Serializer for ShareapiDeleteShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiDeleteShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiDeleteShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiDeleteShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiDeleteShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiDeleteShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiDeleteShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiDeleteShareResponseApplicationJsonInterface {
   ShareapiDeleteShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiDeleteShareResponseApplicationJson
@@ -4143,12 +4637,26 @@ abstract class ShareapiDeleteShareResponseApplicationJson
   /// Serializer for ShareapiDeleteShareResponseApplicationJson.
   static Serializer<ShareapiDeleteShareResponseApplicationJson> get serializer =>
       _$shareapiDeleteShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiDeleteShareResponseApplicationJsonBuilder b) {
+    $ShareapiDeleteShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiDeleteShareResponseApplicationJsonBuilder b) {
+    $ShareapiDeleteShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
@@ -4182,11 +4690,25 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
   /// Serializer for ShareapiAcceptShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiAcceptShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiAcceptShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $ShareapiAcceptShareResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareapiAcceptShareResponseApplicationJsonInterface {
   ShareapiAcceptShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareapiAcceptShareResponseApplicationJson
@@ -4220,6 +4742,16 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   /// Serializer for ShareapiAcceptShareResponseApplicationJson.
   static Serializer<ShareapiAcceptShareResponseApplicationJson> get serializer =>
       _$shareapiAcceptShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiAcceptShareResponseApplicationJsonBuilder b) {
+    $ShareapiAcceptShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiAcceptShareResponseApplicationJsonBuilder b) {
+    $ShareapiAcceptShareResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
@@ -4291,6 +4823,10 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
 abstract interface class $ShareeInterface {
   int? get count;
   String get label;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeInterfaceBuilder b) {}
 }
 
 abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> {
@@ -4317,12 +4853,26 @@ abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> 
 
   /// Serializer for Sharee.
   static Serializer<Sharee> get serializer => _$shareeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeValueInterface {
   int get shareType;
   String get shareWith;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeValueInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeValueInterfaceBuilder b) {}
 }
 
 abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, ShareeValueBuilder> {
@@ -4349,11 +4899,30 @@ abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, 
 
   /// Serializer for ShareeValue.
   static Serializer<ShareeValue> get serializer => _$shareeValueSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeValueBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeValueBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeCircle_ValueInterface implements $ShareeValueInterface {
   String get circle;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeCircle_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeCircle_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeCircle_Value
@@ -4382,12 +4951,31 @@ abstract class ShareeCircle_Value
 
   /// Serializer for ShareeCircle_Value.
   static Serializer<ShareeCircle_Value> get serializer => _$shareeCircleValueSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeCircle_ValueBuilder b) {
+    $ShareeCircle_ValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeCircle_ValueBuilder b) {
+    $ShareeCircle_ValueInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeCircleInterface implements $ShareeInterface {
   String get shareWithDescription;
   ShareeCircle_Value get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeCircleInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeCircleInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
@@ -4414,6 +5002,16 @@ abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircl
 
   /// Serializer for ShareeCircle.
   static Serializer<ShareeCircle> get serializer => _$shareeCircleSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeCircleBuilder b) {
+    $ShareeCircleInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeCircleBuilder b) {
+    $ShareeCircleInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4423,6 +5021,15 @@ abstract interface class $ShareeEmailInterface implements $ShareeInterface {
   String get type;
   String get shareWithDisplayNameUnique;
   ShareeValue get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeEmailInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeEmailInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
@@ -4449,11 +5056,30 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 
   /// Serializer for ShareeEmail.
   static Serializer<ShareeEmail> get serializer => _$shareeEmailSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeEmailBuilder b) {
+    $ShareeEmailInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeEmailBuilder b) {
+    $ShareeEmailInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRemoteGroup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRemoteGroup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemoteGroup_Value
@@ -4482,6 +5108,16 @@ abstract class ShareeRemoteGroup_Value
 
   /// Serializer for ShareeRemoteGroup_Value.
   static Serializer<ShareeRemoteGroup_Value> get serializer => _$shareeRemoteGroupValueSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRemoteGroup_ValueBuilder b) {
+    $ShareeRemoteGroup_ValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRemoteGroup_ValueBuilder b) {
+    $ShareeRemoteGroup_ValueInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4489,6 +5125,15 @@ abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface
   String get guid;
   String get name;
   ShareeRemoteGroup_Value get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRemoteGroupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRemoteGroupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemoteGroup
@@ -4516,11 +5161,30 @@ abstract class ShareeRemoteGroup
 
   /// Serializer for ShareeRemoteGroup.
   static Serializer<ShareeRemoteGroup> get serializer => _$shareeRemoteGroupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRemoteGroupBuilder b) {
+    $ShareeRemoteGroupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRemoteGroupBuilder b) {
+    $ShareeRemoteGroupInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeRemote_ValueInterface implements $ShareeValueInterface {
   String get server;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRemote_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRemote_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemote_Value
@@ -4549,6 +5213,16 @@ abstract class ShareeRemote_Value
 
   /// Serializer for ShareeRemote_Value.
   static Serializer<ShareeRemote_Value> get serializer => _$shareeRemoteValueSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRemote_ValueBuilder b) {
+    $ShareeRemote_ValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRemote_ValueBuilder b) {
+    $ShareeRemote_ValueInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4557,6 +5231,15 @@ abstract interface class $ShareeRemoteInterface implements $ShareeInterface {
   String get name;
   String get type;
   ShareeRemote_Value get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeRemoteInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeRemoteInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
@@ -4583,6 +5266,16 @@ abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemot
 
   /// Serializer for ShareeRemote.
   static Serializer<ShareeRemote> get serializer => _$shareeRemoteSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeRemoteBuilder b) {
+    $ShareeRemoteInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeRemoteBuilder b) {
+    $ShareeRemoteInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4591,6 +5284,10 @@ abstract interface class $ShareeUser_StatusInterface {
   String get message;
   String get icon;
   int? get clearAt;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeUser_StatusInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeUser_StatusInterfaceBuilder b) {}
 }
 
 abstract class ShareeUser_Status
@@ -4618,6 +5315,16 @@ abstract class ShareeUser_Status
 
   /// Serializer for ShareeUser_Status.
   static Serializer<ShareeUser_Status> get serializer => _$shareeUserStatusSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeUser_StatusBuilder b) {
+    $ShareeUser_StatusInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeUser_StatusBuilder b) {
+    $ShareeUser_StatusInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4627,6 +5334,15 @@ abstract interface class $ShareeUserInterface implements $ShareeInterface {
   String get shareWithDisplayNameUnique;
   ShareeUser_Status get status;
   ShareeValue get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeUserInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeUserInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
@@ -4653,6 +5369,16 @@ abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, Sha
 
   /// Serializer for ShareeUser.
   static Serializer<ShareeUser> get serializer => _$shareeUserSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeUserBuilder b) {
+    $ShareeUserInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeUserBuilder b) {
+    $ShareeUserInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4665,6 +5391,10 @@ abstract interface class $ShareesSearchResult_ExactInterface {
   BuiltList<ShareeRemote> get remotes;
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesSearchResult_ExactInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesSearchResult_ExactInterfaceBuilder b) {}
 }
 
 abstract class ShareesSearchResult_Exact
@@ -4693,12 +5423,26 @@ abstract class ShareesSearchResult_Exact
 
   /// Serializer for ShareesSearchResult_Exact.
   static Serializer<ShareesSearchResult_Exact> get serializer => _$shareesSearchResultExactSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesSearchResult_ExactBuilder b) {
+    $ShareesSearchResult_ExactInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesSearchResult_ExactBuilder b) {
+    $ShareesSearchResult_ExactInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $LookupInterface {
   String get value;
   int get verified;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LookupInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LookupInterfaceBuilder b) {}
 }
 
 abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> {
@@ -4725,6 +5469,16 @@ abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> 
 
   /// Serializer for Lookup.
   static Serializer<Lookup> get serializer => _$lookupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LookupBuilder b) {
+    $LookupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LookupBuilder b) {
+    $LookupInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4741,6 +5495,10 @@ abstract interface class $ShareeLookup_ExtraInterface {
   @BuiltValueField(wireName: 'website_signature')
   Lookup? get websiteSignature;
   Lookup? get userid;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeLookup_ExtraInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeLookup_ExtraInterfaceBuilder b) {}
 }
 
 abstract class ShareeLookup_Extra
@@ -4769,11 +5527,30 @@ abstract class ShareeLookup_Extra
 
   /// Serializer for ShareeLookup_Extra.
   static Serializer<ShareeLookup_Extra> get serializer => _$shareeLookupExtraSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeLookup_ExtraBuilder b) {
+    $ShareeLookup_ExtraInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeLookup_ExtraBuilder b) {
+    $ShareeLookup_ExtraInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeLookup_ValueInterface implements $ShareeValueInterface {
   bool get globalScale;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeLookup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeLookup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeLookup_Value
@@ -4802,12 +5579,31 @@ abstract class ShareeLookup_Value
 
   /// Serializer for ShareeLookup_Value.
   static Serializer<ShareeLookup_Value> get serializer => _$shareeLookupValueSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeLookup_ValueBuilder b) {
+    $ShareeLookup_ValueInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeLookup_ValueBuilder b) {
+    $ShareeLookup_ValueInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareeLookupInterface implements $ShareeInterface {
   ShareeLookup_Extra get extra;
   ShareeLookup_Value get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareeLookupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareeLookupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {
@@ -4834,6 +5630,16 @@ abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLooku
 
   /// Serializer for ShareeLookup.
   static Serializer<ShareeLookup> get serializer => _$shareeLookupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareeLookupBuilder b) {
+    $ShareeLookupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareeLookupBuilder b) {
+    $ShareeLookupInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4849,6 +5655,10 @@ abstract interface class $ShareesSearchResultInterface {
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
   bool get lookupEnabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesSearchResultInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesSearchResultInterfaceBuilder b) {}
 }
 
 abstract class ShareesSearchResult
@@ -4877,12 +5687,26 @@ abstract class ShareesSearchResult
 
   /// Serializer for ShareesSearchResult.
   static Serializer<ShareesSearchResult> get serializer => _$shareesSearchResultSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesSearchResultBuilder b) {
+    $ShareesSearchResultInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesSearchResultBuilder b) {
+    $ShareesSearchResultInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiSearchResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesSearchResult get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareesapiSearchResponseApplicationJson_Ocs
@@ -4916,11 +5740,25 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
   /// Serializer for ShareesapiSearchResponseApplicationJson_Ocs.
   static Serializer<ShareesapiSearchResponseApplicationJson_Ocs> get serializer =>
       _$shareesapiSearchResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiSearchResponseApplicationJson_OcsBuilder b) {
+    $ShareesapiSearchResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiSearchResponseApplicationJson_OcsBuilder b) {
+    $ShareesapiSearchResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiSearchResponseApplicationJsonInterface {
   ShareesapiSearchResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiSearchResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiSearchResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareesapiSearchResponseApplicationJson
@@ -4953,11 +5791,25 @@ abstract class ShareesapiSearchResponseApplicationJson
   /// Serializer for ShareesapiSearchResponseApplicationJson.
   static Serializer<ShareesapiSearchResponseApplicationJson> get serializer =>
       _$shareesapiSearchResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiSearchResponseApplicationJsonBuilder b) {
+    $ShareesapiSearchResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiSearchResponseApplicationJsonBuilder b) {
+    $ShareesapiSearchResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiShareesapiSearchHeadersInterface {
   String? get link;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiShareesapiSearchHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiShareesapiSearchHeadersInterfaceBuilder b) {}
 }
 
 abstract class ShareesapiShareesapiSearchHeaders
@@ -4989,6 +5841,16 @@ abstract class ShareesapiShareesapiSearchHeaders
 
   /// Serializer for ShareesapiShareesapiSearchHeaders.
   static Serializer<ShareesapiShareesapiSearchHeaders> get serializer => _$shareesapiShareesapiSearchHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiShareesapiSearchHeadersBuilder b) {
+    $ShareesapiShareesapiSearchHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiShareesapiSearchHeadersBuilder b) {
+    $ShareesapiShareesapiSearchHeadersInterface._validate(b);
+  }
 }
 
 typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
@@ -5001,6 +5863,10 @@ abstract interface class $ShareesRecommendedResult_ExactInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesRecommendedResult_ExactInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesRecommendedResult_ExactInterfaceBuilder b) {}
 }
 
 abstract class ShareesRecommendedResult_Exact
@@ -5032,6 +5898,16 @@ abstract class ShareesRecommendedResult_Exact
 
   /// Serializer for ShareesRecommendedResult_Exact.
   static Serializer<ShareesRecommendedResult_Exact> get serializer => _$shareesRecommendedResultExactSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesRecommendedResult_ExactBuilder b) {
+    $ShareesRecommendedResult_ExactInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesRecommendedResult_ExactBuilder b) {
+    $ShareesRecommendedResult_ExactInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5043,6 +5919,10 @@ abstract interface class $ShareesRecommendedResultInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesRecommendedResultInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesRecommendedResultInterfaceBuilder b) {}
 }
 
 abstract class ShareesRecommendedResult
@@ -5071,12 +5951,26 @@ abstract class ShareesRecommendedResult
 
   /// Serializer for ShareesRecommendedResult.
   static Serializer<ShareesRecommendedResult> get serializer => _$shareesRecommendedResultSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesRecommendedResultBuilder b) {
+    $ShareesRecommendedResultInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesRecommendedResultBuilder b) {
+    $ShareesRecommendedResultInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesRecommendedResult get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
@@ -5111,11 +6005,25 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
   /// Serializer for ShareesapiFindRecommendedResponseApplicationJson_Ocs.
   static Serializer<ShareesapiFindRecommendedResponseApplicationJson_Ocs> get serializer =>
       _$shareesapiFindRecommendedResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder b) {
+    $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder b) {
+    $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiFindRecommendedResponseApplicationJsonInterface {
   ShareesapiFindRecommendedResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ShareesapiFindRecommendedResponseApplicationJson
@@ -5150,12 +6058,26 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
   /// Serializer for ShareesapiFindRecommendedResponseApplicationJson.
   static Serializer<ShareesapiFindRecommendedResponseApplicationJson> get serializer =>
       _$shareesapiFindRecommendedResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiFindRecommendedResponseApplicationJsonBuilder b) {
+    $ShareesapiFindRecommendedResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiFindRecommendedResponseApplicationJsonBuilder b) {
+    $ShareesapiFindRecommendedResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Public_PasswordInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Public_PasswordInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Public_Password
@@ -5189,6 +6111,16 @@ abstract class Capabilities_FilesSharing_Public_Password
   /// Serializer for Capabilities_FilesSharing_Public_Password.
   static Serializer<Capabilities_FilesSharing_Public_Password> get serializer =>
       _$capabilitiesFilesSharingPublicPasswordSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Public_PasswordBuilder b) {
+    $Capabilities_FilesSharing_Public_PasswordInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Public_PasswordBuilder b) {
+    $Capabilities_FilesSharing_Public_PasswordInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5196,6 +6128,10 @@ abstract interface class $Capabilities_FilesSharing_Public_ExpireDateInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDate
@@ -5229,6 +6165,16 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Public_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Public_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5236,6 +6182,10 @@ abstract interface class $Capabilities_FilesSharing_Public_ExpireDateInternalInt
   bool get enabled;
   int? get days;
   bool? get enforced;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
@@ -5270,6 +6220,16 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDateInternal.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateInternalSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateInternalInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateInternalInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5277,6 +6237,10 @@ abstract interface class $Capabilities_FilesSharing_Public_ExpireDateRemoteInter
   bool get enabled;
   int? get days;
   bool? get enforced;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
@@ -5311,6 +6275,16 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
   /// Serializer for Capabilities_FilesSharing_Public_ExpireDateRemote.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateRemoteSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder b) {
+    $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5330,6 +6304,10 @@ abstract interface class $Capabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_PublicInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_PublicInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Public
@@ -5361,11 +6339,25 @@ abstract class Capabilities_FilesSharing_Public
 
   /// Serializer for Capabilities_FilesSharing_Public.
   static Serializer<Capabilities_FilesSharing_Public> get serializer => _$capabilitiesFilesSharingPublicSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_PublicBuilder b) {
+    $Capabilities_FilesSharing_PublicInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_PublicBuilder b) {
+    $Capabilities_FilesSharing_PublicInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_User_ExpireDate
@@ -5399,6 +6391,16 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
   /// Serializer for Capabilities_FilesSharing_User_ExpireDate.
   static Serializer<Capabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingUserExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_User_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_User_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_User_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_User_ExpireDateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5407,6 +6409,10 @@ abstract interface class $Capabilities_FilesSharing_UserInterface {
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_User_ExpireDate? get expireDate;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_UserInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_UserInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_User
@@ -5438,11 +6444,25 @@ abstract class Capabilities_FilesSharing_User
 
   /// Serializer for Capabilities_FilesSharing_User.
   static Serializer<Capabilities_FilesSharing_User> get serializer => _$capabilitiesFilesSharingUserSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_UserBuilder b) {
+    $Capabilities_FilesSharing_UserInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_UserBuilder b) {
+    $Capabilities_FilesSharing_UserInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Group_ExpireDate
@@ -5476,6 +6496,16 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
   /// Serializer for Capabilities_FilesSharing_Group_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingGroupExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Group_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Group_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Group_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Group_ExpireDateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5483,6 +6513,10 @@ abstract interface class $Capabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_GroupInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_GroupInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Group
@@ -5514,11 +6548,25 @@ abstract class Capabilities_FilesSharing_Group
 
   /// Serializer for Capabilities_FilesSharing_Group.
   static Serializer<Capabilities_FilesSharing_Group> get serializer => _$capabilitiesFilesSharingGroupSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_GroupBuilder b) {
+    $Capabilities_FilesSharing_GroupInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_GroupBuilder b) {
+    $Capabilities_FilesSharing_GroupInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Federation_ExpireDate
@@ -5552,11 +6600,25 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
   /// Serializer for Capabilities_FilesSharing_Federation_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingFederationExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Federation_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Federation_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Federation_ExpireDateBuilder b) {
+    $Capabilities_FilesSharing_Federation_ExpireDateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
@@ -5591,6 +6653,16 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
   /// Serializer for Capabilities_FilesSharing_Federation_ExpireDateSupported.
   static Serializer<Capabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$capabilitiesFilesSharingFederationExpireDateSupportedSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder b) {
+    $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder b) {
+    $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5601,6 +6673,10 @@ abstract interface class $Capabilities_FilesSharing_FederationInterface {
   Capabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
   Capabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_FederationInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_FederationInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Federation
@@ -5633,6 +6709,16 @@ abstract class Capabilities_FilesSharing_Federation
   /// Serializer for Capabilities_FilesSharing_Federation.
   static Serializer<Capabilities_FilesSharing_Federation> get serializer =>
       _$capabilitiesFilesSharingFederationSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_FederationBuilder b) {
+    $Capabilities_FilesSharing_FederationInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_FederationBuilder b) {
+    $Capabilities_FilesSharing_FederationInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5641,6 +6727,10 @@ abstract interface class $Capabilities_FilesSharing_ShareeInterface {
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharing_ShareeInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharing_ShareeInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing_Sharee
@@ -5672,6 +6762,16 @@ abstract class Capabilities_FilesSharing_Sharee
 
   /// Serializer for Capabilities_FilesSharing_Sharee.
   static Serializer<Capabilities_FilesSharing_Sharee> get serializer => _$capabilitiesFilesSharingShareeSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharing_ShareeBuilder b) {
+    $Capabilities_FilesSharing_ShareeInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharing_ShareeBuilder b) {
+    $Capabilities_FilesSharing_ShareeInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5688,6 +6788,10 @@ abstract interface class $Capabilities_FilesSharingInterface {
   int? get defaultPermissions;
   Capabilities_FilesSharing_Federation get federation;
   Capabilities_FilesSharing_Sharee get sharee;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesSharingInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesSharingInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_FilesSharing
@@ -5716,12 +6820,26 @@ abstract class Capabilities_FilesSharing
 
   /// Serializer for Capabilities_FilesSharing.
   static Serializer<Capabilities_FilesSharing> get serializer => _$capabilitiesFilesSharingSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesSharingBuilder b) {
+    $Capabilities_FilesSharingInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesSharingBuilder b) {
+    $Capabilities_FilesSharingInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities_FilesSharing get filesSharing;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -5748,6 +6866,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 /// Serialization extension for `ShareesapiSearchShareType`.

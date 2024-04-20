@@ -470,6 +470,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -496,11 +500,25 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface {
   String get configID;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiCreateResponseApplicationJson_Ocs_Data
@@ -534,12 +552,26 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs_Data
   /// Serializer for ConfigapiCreateResponseApplicationJson_Ocs_Data.
   static Serializer<ConfigapiCreateResponseApplicationJson_Ocs_Data> get serializer =>
       _$configapiCreateResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder b) {
+    $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder b) {
+    $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ConfigapiCreateResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiCreateResponseApplicationJson_Ocs
@@ -573,11 +605,25 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs
   /// Serializer for ConfigapiCreateResponseApplicationJson_Ocs.
   static Serializer<ConfigapiCreateResponseApplicationJson_Ocs> get serializer =>
       _$configapiCreateResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiCreateResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiCreateResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiCreateResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiCreateResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiCreateResponseApplicationJsonInterface {
   ConfigapiCreateResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiCreateResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiCreateResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiCreateResponseApplicationJson
@@ -610,6 +656,16 @@ abstract class ConfigapiCreateResponseApplicationJson
   /// Serializer for ConfigapiCreateResponseApplicationJson.
   static Serializer<ConfigapiCreateResponseApplicationJson> get serializer =>
       _$configapiCreateResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiCreateResponseApplicationJsonBuilder b) {
+    $ConfigapiCreateResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiCreateResponseApplicationJsonBuilder b) {
+    $ConfigapiCreateResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 class ConfigapiShowShowPassword extends EnumClass {
@@ -679,6 +735,10 @@ class _$ConfigapiShowShowPasswordSerializer implements PrimitiveSerializer<Confi
 abstract interface class $ConfigapiShowResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiShowResponseApplicationJson_Ocs
@@ -712,11 +772,25 @@ abstract class ConfigapiShowResponseApplicationJson_Ocs
   /// Serializer for ConfigapiShowResponseApplicationJson_Ocs.
   static Serializer<ConfigapiShowResponseApplicationJson_Ocs> get serializer =>
       _$configapiShowResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiShowResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiShowResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiShowResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiShowResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiShowResponseApplicationJsonInterface {
   ConfigapiShowResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiShowResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiShowResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiShowResponseApplicationJson
@@ -749,12 +823,26 @@ abstract class ConfigapiShowResponseApplicationJson
   /// Serializer for ConfigapiShowResponseApplicationJson.
   static Serializer<ConfigapiShowResponseApplicationJson> get serializer =>
       _$configapiShowResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiShowResponseApplicationJsonBuilder b) {
+    $ConfigapiShowResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiShowResponseApplicationJsonBuilder b) {
+    $ConfigapiShowResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiModifyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiModifyResponseApplicationJson_Ocs
@@ -788,11 +876,25 @@ abstract class ConfigapiModifyResponseApplicationJson_Ocs
   /// Serializer for ConfigapiModifyResponseApplicationJson_Ocs.
   static Serializer<ConfigapiModifyResponseApplicationJson_Ocs> get serializer =>
       _$configapiModifyResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiModifyResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiModifyResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiModifyResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiModifyResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiModifyResponseApplicationJsonInterface {
   ConfigapiModifyResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiModifyResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiModifyResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiModifyResponseApplicationJson
@@ -825,12 +927,26 @@ abstract class ConfigapiModifyResponseApplicationJson
   /// Serializer for ConfigapiModifyResponseApplicationJson.
   static Serializer<ConfigapiModifyResponseApplicationJson> get serializer =>
       _$configapiModifyResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiModifyResponseApplicationJsonBuilder b) {
+    $ConfigapiModifyResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiModifyResponseApplicationJsonBuilder b) {
+    $ConfigapiModifyResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiDeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiDeleteResponseApplicationJson_Ocs
@@ -864,11 +980,25 @@ abstract class ConfigapiDeleteResponseApplicationJson_Ocs
   /// Serializer for ConfigapiDeleteResponseApplicationJson_Ocs.
   static Serializer<ConfigapiDeleteResponseApplicationJson_Ocs> get serializer =>
       _$configapiDeleteResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiDeleteResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiDeleteResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiDeleteResponseApplicationJson_OcsBuilder b) {
+    $ConfigapiDeleteResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ConfigapiDeleteResponseApplicationJsonInterface {
   ConfigapiDeleteResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiDeleteResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiDeleteResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ConfigapiDeleteResponseApplicationJson
@@ -901,6 +1031,16 @@ abstract class ConfigapiDeleteResponseApplicationJson
   /// Serializer for ConfigapiDeleteResponseApplicationJson.
   static Serializer<ConfigapiDeleteResponseApplicationJson> get serializer =>
       _$configapiDeleteResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiDeleteResponseApplicationJsonBuilder b) {
+    $ConfigapiDeleteResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiDeleteResponseApplicationJsonBuilder b) {
+    $ConfigapiDeleteResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

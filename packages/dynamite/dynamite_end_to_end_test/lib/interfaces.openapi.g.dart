@@ -138,7 +138,9 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   String? get attribute => _$this._attribute;
   set attribute(covariant String? attribute) => _$this._attribute = attribute;
 
-  BaseBuilder();
+  BaseBuilder() {
+    Base._defaults(this);
+  }
 
   BaseBuilder get _$this {
     final $v = _$v;
@@ -164,6 +166,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   Base build() => _build();
 
   _$Base _build() {
+    Base._validate(this);
     final _$result = _$v ?? _$Base._(attribute: attribute);
     replace(_$result);
     return _$result;
@@ -219,7 +222,9 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
   String? get attribute => _$this._attribute;
   set attribute(covariant String? attribute) => _$this._attribute = attribute;
 
-  BaseInterfaceBuilder();
+  BaseInterfaceBuilder() {
+    BaseInterface._defaults(this);
+  }
 
   BaseInterfaceBuilder get _$this {
     final $v = _$v;
@@ -245,6 +250,7 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
   BaseInterface build() => _build();
 
   _$BaseInterface _build() {
+    BaseInterface._validate(this);
     final _$result = _$v ?? _$BaseInterface._(attribute: attribute);
     replace(_$result);
     return _$result;

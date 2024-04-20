@@ -756,7 +756,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -786,6 +788,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -875,7 +878,9 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  Widget_ButtonsBuilder();
+  Widget_ButtonsBuilder() {
+    Widget_Buttons._defaults(this);
+  }
 
   Widget_ButtonsBuilder get _$this {
     final $v = _$v;
@@ -903,6 +908,7 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
   Widget_Buttons build() => _build();
 
   _$Widget_Buttons _build() {
+    Widget_Buttons._validate(this);
     final _$result = _$v ??
         _$Widget_Buttons._(
             type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
@@ -1090,7 +1096,9 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
   ListBuilder<Widget_Buttons> get buttons => _$this._buttons ??= ListBuilder<Widget_Buttons>();
   set buttons(covariant ListBuilder<Widget_Buttons>? buttons) => _$this._buttons = buttons;
 
-  WidgetBuilder();
+  WidgetBuilder() {
+    Widget._defaults(this);
+  }
 
   WidgetBuilder get _$this {
     final $v = _$v;
@@ -1125,6 +1133,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
   Widget build() => _build();
 
   _$Widget _build() {
+    Widget._validate(this);
     _$Widget _$result;
     try {
       _$result = _$v ??
@@ -1230,7 +1239,9 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   MapBuilder<String, Widget> get data => _$this._data ??= MapBuilder<String, Widget>();
   set data(covariant MapBuilder<String, Widget>? data) => _$this._data = data;
 
-  DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
+  DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder() {
+    DashboardApiGetWidgetsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1257,6 +1268,7 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   DashboardApiGetWidgetsResponseApplicationJson_Ocs build() => _build();
 
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _build() {
+    DashboardApiGetWidgetsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -1337,7 +1349,9 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
       _$this._ocs ??= DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DashboardApiGetWidgetsResponseApplicationJsonBuilder();
+  DashboardApiGetWidgetsResponseApplicationJsonBuilder() {
+    DashboardApiGetWidgetsResponseApplicationJson._defaults(this);
+  }
 
   DashboardApiGetWidgetsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1363,6 +1377,7 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
   DashboardApiGetWidgetsResponseApplicationJson build() => _build();
 
   _$DashboardApiGetWidgetsResponseApplicationJson _build() {
+    DashboardApiGetWidgetsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson._(ocs: ocs.build());
@@ -1505,7 +1520,9 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
   String? get sinceId => _$this._sinceId;
   set sinceId(covariant String? sinceId) => _$this._sinceId = sinceId;
 
-  WidgetItemBuilder();
+  WidgetItemBuilder() {
+    WidgetItem._defaults(this);
+  }
 
   WidgetItemBuilder get _$this {
     final $v = _$v;
@@ -1536,6 +1553,7 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
   WidgetItem build() => _build();
 
   _$WidgetItem _build() {
+    WidgetItem._validate(this);
     final _$result = _$v ??
         _$WidgetItem._(
             subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
@@ -1623,7 +1641,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   MapBuilder<String, BuiltList<WidgetItem>> get data => _$this._data ??= MapBuilder<String, BuiltList<WidgetItem>>();
   set data(covariant MapBuilder<String, BuiltList<WidgetItem>>? data) => _$this._data = data;
 
-  DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+  DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder() {
+    DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -1650,6 +1670,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs build() => _build();
 
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _build() {
+    DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -1733,7 +1754,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
       _$this._ocs ??= DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
+  DashboardApiGetWidgetItemsResponseApplicationJsonBuilder() {
+    DashboardApiGetWidgetItemsResponseApplicationJson._defaults(this);
+  }
 
   DashboardApiGetWidgetItemsResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1759,6 +1782,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
   DashboardApiGetWidgetItemsResponseApplicationJson build() => _build();
 
   _$DashboardApiGetWidgetItemsResponseApplicationJson _build() {
+    DashboardApiGetWidgetItemsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson._(ocs: ocs.build());
@@ -1860,7 +1884,9 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
   set halfEmptyContentMessage(covariant String? halfEmptyContentMessage) =>
       _$this._halfEmptyContentMessage = halfEmptyContentMessage;
 
-  WidgetItemsBuilder();
+  WidgetItemsBuilder() {
+    WidgetItems._defaults(this);
+  }
 
   WidgetItemsBuilder get _$this {
     final $v = _$v;
@@ -1888,6 +1914,7 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
   WidgetItems build() => _build();
 
   _$WidgetItems _build() {
+    WidgetItems._validate(this);
     _$WidgetItems _$result;
     try {
       _$result = _$v ??
@@ -1986,7 +2013,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   MapBuilder<String, WidgetItems> get data => _$this._data ??= MapBuilder<String, WidgetItems>();
   set data(covariant MapBuilder<String, WidgetItems>? data) => _$this._data = data;
 
-  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder() {
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._defaults(this);
+  }
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2013,6 +2042,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs build() => _build();
 
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _build() {
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -2097,7 +2127,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
       _$this._ocs ??= DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
   set ocs(covariant DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
+  DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder() {
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson._defaults(this);
+  }
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2123,6 +2155,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
   DashboardApiGetWidgetItemsV2ResponseApplicationJson build() => _build();
 
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _build() {
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(ocs: ocs.build());

@@ -592,7 +592,9 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
   String? get errorType => _$this._errorType;
   set errorType(covariant String? errorType) => _$this._errorType = errorType;
 
-  NoteBuilder();
+  NoteBuilder() {
+    Note._defaults(this);
+  }
 
   NoteBuilder get _$this {
     final $v = _$v;
@@ -627,6 +629,7 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
   Note build() => _build();
 
   _$Note _build() {
+    Note._validate(this);
     final _$result = _$v ??
         _$Note._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Note', 'id'),
@@ -723,7 +726,9 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
   Settings_NoteMode? get noteMode => _$this._noteMode;
   set noteMode(covariant Settings_NoteMode? noteMode) => _$this._noteMode = noteMode;
 
-  SettingsBuilder();
+  SettingsBuilder() {
+    Settings._defaults(this);
+  }
 
   SettingsBuilder get _$this {
     final $v = _$v;
@@ -751,6 +756,7 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsIn
   Settings build() => _build();
 
   _$Settings _build() {
+    Settings._validate(this);
     final _$result = _$v ??
         _$Settings._(
             notesPath: BuiltValueNullFieldError.checkNotNull(notesPath, r'Settings', 'notesPath'),
@@ -825,7 +831,9 @@ class Capabilities_NotesBuilder
   String? get version => _$this._version;
   set version(covariant String? version) => _$this._version = version;
 
-  Capabilities_NotesBuilder();
+  Capabilities_NotesBuilder() {
+    Capabilities_Notes._defaults(this);
+  }
 
   Capabilities_NotesBuilder get _$this {
     final $v = _$v;
@@ -852,6 +860,7 @@ class Capabilities_NotesBuilder
   Capabilities_Notes build() => _build();
 
   _$Capabilities_Notes _build() {
+    Capabilities_Notes._validate(this);
     _$Capabilities_Notes _$result;
     try {
       _$result = _$v ?? _$Capabilities_Notes._(apiVersion: _apiVersion?.build(), version: version);
@@ -921,7 +930,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_NotesBuilder get notes => _$this._notes ??= Capabilities_NotesBuilder();
   set notes(covariant Capabilities_NotesBuilder? notes) => _$this._notes = notes;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -947,6 +958,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(notes: notes.build());
@@ -1068,7 +1080,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1098,6 +1112,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1175,7 +1190,9 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   ListBuilder<JsonObject> get data => _$this._data ??= ListBuilder<JsonObject>();
   set data(covariant ListBuilder<JsonObject>? data) => _$this._data = data;
 
-  EmptyOCS_OcsBuilder();
+  EmptyOCS_OcsBuilder() {
+    EmptyOCS_Ocs._defaults(this);
+  }
 
   EmptyOCS_OcsBuilder get _$this {
     final $v = _$v;
@@ -1202,6 +1219,7 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   EmptyOCS_Ocs build() => _build();
 
   _$EmptyOCS_Ocs _build() {
+    EmptyOCS_Ocs._validate(this);
     _$EmptyOCS_Ocs _$result;
     try {
       _$result = _$v ?? _$EmptyOCS_Ocs._(meta: meta.build(), data: data.build());
@@ -1272,7 +1290,9 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   EmptyOCS_OcsBuilder get ocs => _$this._ocs ??= EmptyOCS_OcsBuilder();
   set ocs(covariant EmptyOCS_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  EmptyOCSBuilder();
+  EmptyOCSBuilder() {
+    EmptyOCS._defaults(this);
+  }
 
   EmptyOCSBuilder get _$this {
     final $v = _$v;
@@ -1298,6 +1318,7 @@ class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSIn
   EmptyOCS build() => _build();
 
   _$EmptyOCS _build() {
+    EmptyOCS._validate(this);
     _$EmptyOCS _$result;
     try {
       _$result = _$v ?? _$EmptyOCS._(ocs: ocs.build());

@@ -159,7 +159,9 @@ class Capabilities_SystemtagsBuilder
   Capabilities_Systemtags_Enabled? get enabled => _$this._enabled;
   set enabled(covariant Capabilities_Systemtags_Enabled? enabled) => _$this._enabled = enabled;
 
-  Capabilities_SystemtagsBuilder();
+  Capabilities_SystemtagsBuilder() {
+    Capabilities_Systemtags._defaults(this);
+  }
 
   Capabilities_SystemtagsBuilder get _$this {
     final $v = _$v;
@@ -185,6 +187,7 @@ class Capabilities_SystemtagsBuilder
   Capabilities_Systemtags build() => _build();
 
   _$Capabilities_Systemtags _build() {
+    Capabilities_Systemtags._validate(this);
     final _$result = _$v ??
         _$Capabilities_Systemtags._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled'));
@@ -244,7 +247,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_SystemtagsBuilder get systemtags => _$this._systemtags ??= Capabilities_SystemtagsBuilder();
   set systemtags(covariant Capabilities_SystemtagsBuilder? systemtags) => _$this._systemtags = systemtags;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -270,6 +275,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(systemtags: systemtags.build());

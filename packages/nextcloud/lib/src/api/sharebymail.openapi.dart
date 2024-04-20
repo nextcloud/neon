@@ -28,6 +28,10 @@ part 'sharebymail.openapi.g.dart';
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
@@ -62,12 +66,26 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_Password
@@ -101,12 +119,26 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_Password.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
       _$capabilities0FilesSharingSharebymailPasswordSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_PasswordInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_PasswordInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
@@ -141,6 +173,16 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_ExpireDate.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$capabilities0FilesSharingSharebymailExpireDateSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder b) {
+    $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -153,6 +195,10 @@ abstract interface class $Capabilities0_FilesSharing_SharebymailInterface {
   Capabilities0_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail
@@ -185,11 +231,25 @@ abstract class Capabilities0_FilesSharing_Sharebymail
   /// Serializer for Capabilities0_FilesSharing_Sharebymail.
   static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
       _$capabilities0FilesSharingSharebymailSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0_FilesSharing_SharebymailBuilder b) {
+    $Capabilities0_FilesSharing_SharebymailInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0_FilesSharing_SharebymailBuilder b) {
+    $Capabilities0_FilesSharing_SharebymailInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities0_FilesSharingInterface {
   Capabilities0_FilesSharing_Sharebymail get sharebymail;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0_FilesSharingInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0_FilesSharingInterfaceBuilder b) {}
 }
 
 abstract class Capabilities0_FilesSharing
@@ -221,12 +281,26 @@ abstract class Capabilities0_FilesSharing
 
   /// Serializer for Capabilities0_FilesSharing.
   static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0_FilesSharingBuilder b) {
+    $Capabilities0_FilesSharingInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0_FilesSharingBuilder b) {
+    $Capabilities0_FilesSharingInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities0Interface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities0_FilesSharing get filesSharing;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities0InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities0InterfaceBuilder b) {}
 }
 
 abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
@@ -253,6 +327,16 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
 
   /// Serializer for Capabilities0.
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities0Builder b) {
+    $Capabilities0Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities0Builder b) {
+    $Capabilities0Interface._validate(b);
+  }
 }
 
 typedef Capabilities = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});

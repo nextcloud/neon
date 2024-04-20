@@ -1865,7 +1865,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -1895,6 +1897,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -1957,7 +1960,9 @@ class SuccessBuilder implements Builder<Success, SuccessBuilder>, $SuccessInterf
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  SuccessBuilder();
+  SuccessBuilder() {
+    Success._defaults(this);
+  }
 
   SuccessBuilder get _$this {
     final $v = _$v;
@@ -1983,6 +1988,7 @@ class SuccessBuilder implements Builder<Success, SuccessBuilder>, $SuccessInterf
   Success build() => _build();
 
   _$Success _build() {
+    Success._validate(this);
     final _$result = _$v ?? _$Success._(success: BuiltValueNullFieldError.checkNotNull(success, r'Success', 'success'));
     replace(_$result);
     return _$result;
@@ -2062,7 +2068,9 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
   SuccessBuilder get data => _$this._data ??= SuccessBuilder();
   set data(covariant SuccessBuilder? data) => _$this._data = data;
 
-  WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
+  WeatherStatusSetModeResponseApplicationJson_OcsBuilder() {
+    WeatherStatusSetModeResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2089,6 +2097,7 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
   WeatherStatusSetModeResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusSetModeResponseApplicationJson_Ocs _build() {
+    WeatherStatusSetModeResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetModeResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$WeatherStatusSetModeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -2169,7 +2178,9 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusSetModeResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetModeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusSetModeResponseApplicationJsonBuilder();
+  WeatherStatusSetModeResponseApplicationJsonBuilder() {
+    WeatherStatusSetModeResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusSetModeResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2195,6 +2206,7 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
   WeatherStatusSetModeResponseApplicationJson build() => _build();
 
   _$WeatherStatusSetModeResponseApplicationJson _build() {
+    WeatherStatusSetModeResponseApplicationJson._validate(this);
     _$WeatherStatusSetModeResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusSetModeResponseApplicationJson._(ocs: ocs.build());
@@ -2285,7 +2297,9 @@ class LocationBuilder implements Builder<Location, LocationBuilder>, $LocationIn
   String? get address => _$this._address;
   set address(covariant String? address) => _$this._address = address;
 
-  LocationBuilder();
+  LocationBuilder() {
+    Location._defaults(this);
+  }
 
   LocationBuilder get _$this {
     final $v = _$v;
@@ -2313,6 +2327,7 @@ class LocationBuilder implements Builder<Location, LocationBuilder>, $LocationIn
   Location build() => _build();
 
   _$Location _build() {
+    Location._validate(this);
     final _$result = _$v ?? _$Location._(lat: lat, lon: lon, address: address);
     replace(_$result);
     return _$result;
@@ -2412,7 +2427,9 @@ class LocationWithSuccessBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  LocationWithSuccessBuilder();
+  LocationWithSuccessBuilder() {
+    LocationWithSuccess._defaults(this);
+  }
 
   LocationWithSuccessBuilder get _$this {
     final $v = _$v;
@@ -2441,6 +2458,7 @@ class LocationWithSuccessBuilder
   LocationWithSuccess build() => _build();
 
   _$LocationWithSuccess _build() {
+    LocationWithSuccess._validate(this);
     final _$result = _$v ??
         _$LocationWithSuccess._(
             lat: lat,
@@ -2528,7 +2546,9 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
   LocationWithSuccessBuilder get data => _$this._data ??= LocationWithSuccessBuilder();
   set data(covariant LocationWithSuccessBuilder? data) => _$this._data = data;
 
-  WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
+  WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder() {
+    WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2555,6 +2575,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs _build() {
+    WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -2639,7 +2660,9 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder();
+  WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder() {
+    WeatherStatusUsePersonalAddressResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -2665,6 +2688,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
   WeatherStatusUsePersonalAddressResponseApplicationJson build() => _build();
 
   _$WeatherStatusUsePersonalAddressResponseApplicationJson _build() {
+    WeatherStatusUsePersonalAddressResponseApplicationJson._validate(this);
     _$WeatherStatusUsePersonalAddressResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusUsePersonalAddressResponseApplicationJson._(ocs: ocs.build());
@@ -2734,7 +2758,9 @@ class ModeBuilder implements Builder<Mode, ModeBuilder>, $ModeInterfaceBuilder {
   int? get mode => _$this._mode;
   set mode(covariant int? mode) => _$this._mode = mode;
 
-  ModeBuilder();
+  ModeBuilder() {
+    Mode._defaults(this);
+  }
 
   ModeBuilder get _$this {
     final $v = _$v;
@@ -2760,6 +2786,7 @@ class ModeBuilder implements Builder<Mode, ModeBuilder>, $ModeInterfaceBuilder {
   Mode build() => _build();
 
   _$Mode _build() {
+    Mode._validate(this);
     final _$result = _$v ?? _$Mode._(mode: BuiltValueNullFieldError.checkNotNull(mode, r'Mode', 'mode'));
     replace(_$result);
     return _$result;
@@ -2857,7 +2884,9 @@ class LocationWithModeBuilder
   int? get mode => _$this._mode;
   set mode(covariant int? mode) => _$this._mode = mode;
 
-  LocationWithModeBuilder();
+  LocationWithModeBuilder() {
+    LocationWithMode._defaults(this);
+  }
 
   LocationWithModeBuilder get _$this {
     final $v = _$v;
@@ -2886,6 +2915,7 @@ class LocationWithModeBuilder
   LocationWithMode build() => _build();
 
   _$LocationWithMode _build() {
+    LocationWithMode._validate(this);
     final _$result = _$v ??
         _$LocationWithMode._(
             lat: lat,
@@ -2971,7 +3001,9 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
   LocationWithModeBuilder get data => _$this._data ??= LocationWithModeBuilder();
   set data(covariant LocationWithModeBuilder? data) => _$this._data = data;
 
-  WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
+  WeatherStatusGetLocationResponseApplicationJson_OcsBuilder() {
+    WeatherStatusGetLocationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -2998,6 +3030,7 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
   WeatherStatusGetLocationResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs _build() {
+    WeatherStatusGetLocationResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusGetLocationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$WeatherStatusGetLocationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3080,7 +3113,9 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusGetLocationResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetLocationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusGetLocationResponseApplicationJsonBuilder();
+  WeatherStatusGetLocationResponseApplicationJsonBuilder() {
+    WeatherStatusGetLocationResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusGetLocationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3106,6 +3141,7 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
   WeatherStatusGetLocationResponseApplicationJson build() => _build();
 
   _$WeatherStatusGetLocationResponseApplicationJson _build() {
+    WeatherStatusGetLocationResponseApplicationJson._validate(this);
     _$WeatherStatusGetLocationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusGetLocationResponseApplicationJson._(ocs: ocs.build());
@@ -3199,7 +3235,9 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
   LocationWithSuccessBuilder get data => _$this._data ??= LocationWithSuccessBuilder();
   set data(covariant LocationWithSuccessBuilder? data) => _$this._data = data;
 
-  WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
+  WeatherStatusSetLocationResponseApplicationJson_OcsBuilder() {
+    WeatherStatusSetLocationResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -3226,6 +3264,7 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
   WeatherStatusSetLocationResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusSetLocationResponseApplicationJson_Ocs _build() {
+    WeatherStatusSetLocationResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetLocationResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$WeatherStatusSetLocationResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -3308,7 +3347,9 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusSetLocationResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetLocationResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusSetLocationResponseApplicationJsonBuilder();
+  WeatherStatusSetLocationResponseApplicationJsonBuilder() {
+    WeatherStatusSetLocationResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusSetLocationResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -3334,6 +3375,7 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
   WeatherStatusSetLocationResponseApplicationJson build() => _build();
 
   _$WeatherStatusSetLocationResponseApplicationJson _build() {
+    WeatherStatusSetLocationResponseApplicationJson._validate(this);
     _$WeatherStatusSetLocationResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusSetLocationResponseApplicationJson._(ocs: ocs.build());
@@ -3485,7 +3527,9 @@ class Forecast_Data_Instant_DetailsBuilder
   num? get windSpeed => _$this._windSpeed;
   set windSpeed(covariant num? windSpeed) => _$this._windSpeed = windSpeed;
 
-  Forecast_Data_Instant_DetailsBuilder();
+  Forecast_Data_Instant_DetailsBuilder() {
+    Forecast_Data_Instant_Details._defaults(this);
+  }
 
   Forecast_Data_Instant_DetailsBuilder get _$this {
     final $v = _$v;
@@ -3516,6 +3560,7 @@ class Forecast_Data_Instant_DetailsBuilder
   Forecast_Data_Instant_Details build() => _build();
 
   _$Forecast_Data_Instant_Details _build() {
+    Forecast_Data_Instant_Details._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Instant_Details._(
             airPressureAtSeaLevel: BuiltValueNullFieldError.checkNotNull(
@@ -3587,7 +3632,9 @@ class Forecast_Data_InstantBuilder
   Forecast_Data_Instant_DetailsBuilder get details => _$this._details ??= Forecast_Data_Instant_DetailsBuilder();
   set details(covariant Forecast_Data_Instant_DetailsBuilder? details) => _$this._details = details;
 
-  Forecast_Data_InstantBuilder();
+  Forecast_Data_InstantBuilder() {
+    Forecast_Data_Instant._defaults(this);
+  }
 
   Forecast_Data_InstantBuilder get _$this {
     final $v = _$v;
@@ -3613,6 +3660,7 @@ class Forecast_Data_InstantBuilder
   Forecast_Data_Instant build() => _build();
 
   _$Forecast_Data_Instant _build() {
+    Forecast_Data_Instant._validate(this);
     _$Forecast_Data_Instant _$result;
     try {
       _$result = _$v ?? _$Forecast_Data_Instant._(details: details.build());
@@ -3687,7 +3735,9 @@ class Forecast_Data_Next12Hours_SummaryBuilder
   String? get symbolCode => _$this._symbolCode;
   set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
-  Forecast_Data_Next12Hours_SummaryBuilder();
+  Forecast_Data_Next12Hours_SummaryBuilder() {
+    Forecast_Data_Next12Hours_Summary._defaults(this);
+  }
 
   Forecast_Data_Next12Hours_SummaryBuilder get _$this {
     final $v = _$v;
@@ -3713,6 +3763,7 @@ class Forecast_Data_Next12Hours_SummaryBuilder
   Forecast_Data_Next12Hours_Summary build() => _build();
 
   _$Forecast_Data_Next12Hours_Summary _build() {
+    Forecast_Data_Next12Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next12Hours_Summary._(
             symbolCode:
@@ -3777,7 +3828,9 @@ class Forecast_Data_Next12Hours_DetailsBuilder
   num? get precipitationAmount => _$this._precipitationAmount;
   set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
-  Forecast_Data_Next12Hours_DetailsBuilder();
+  Forecast_Data_Next12Hours_DetailsBuilder() {
+    Forecast_Data_Next12Hours_Details._defaults(this);
+  }
 
   Forecast_Data_Next12Hours_DetailsBuilder get _$this {
     final $v = _$v;
@@ -3803,6 +3856,7 @@ class Forecast_Data_Next12Hours_DetailsBuilder
   Forecast_Data_Next12Hours_Details build() => _build();
 
   _$Forecast_Data_Next12Hours_Details _build() {
+    Forecast_Data_Next12Hours_Details._validate(this);
     final _$result = _$v ?? _$Forecast_Data_Next12Hours_Details._(precipitationAmount: precipitationAmount);
     replace(_$result);
     return _$result;
@@ -3880,7 +3934,9 @@ class Forecast_Data_Next12HoursBuilder
       _$this._details ??= Forecast_Data_Next12Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next12Hours_DetailsBuilder? details) => _$this._details = details;
 
-  Forecast_Data_Next12HoursBuilder();
+  Forecast_Data_Next12HoursBuilder() {
+    Forecast_Data_Next12Hours._defaults(this);
+  }
 
   Forecast_Data_Next12HoursBuilder get _$this {
     final $v = _$v;
@@ -3907,6 +3963,7 @@ class Forecast_Data_Next12HoursBuilder
   Forecast_Data_Next12Hours build() => _build();
 
   _$Forecast_Data_Next12Hours _build() {
+    Forecast_Data_Next12Hours._validate(this);
     _$Forecast_Data_Next12Hours _$result;
     try {
       _$result = _$v ?? _$Forecast_Data_Next12Hours._(summary: summary.build(), details: details.build());
@@ -3982,7 +4039,9 @@ class Forecast_Data_Next1Hours_SummaryBuilder
   String? get symbolCode => _$this._symbolCode;
   set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
-  Forecast_Data_Next1Hours_SummaryBuilder();
+  Forecast_Data_Next1Hours_SummaryBuilder() {
+    Forecast_Data_Next1Hours_Summary._defaults(this);
+  }
 
   Forecast_Data_Next1Hours_SummaryBuilder get _$this {
     final $v = _$v;
@@ -4008,6 +4067,7 @@ class Forecast_Data_Next1Hours_SummaryBuilder
   Forecast_Data_Next1Hours_Summary build() => _build();
 
   _$Forecast_Data_Next1Hours_Summary _build() {
+    Forecast_Data_Next1Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next1Hours_Summary._(
             symbolCode:
@@ -4072,7 +4132,9 @@ class Forecast_Data_Next1Hours_DetailsBuilder
   num? get precipitationAmount => _$this._precipitationAmount;
   set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
-  Forecast_Data_Next1Hours_DetailsBuilder();
+  Forecast_Data_Next1Hours_DetailsBuilder() {
+    Forecast_Data_Next1Hours_Details._defaults(this);
+  }
 
   Forecast_Data_Next1Hours_DetailsBuilder get _$this {
     final $v = _$v;
@@ -4098,6 +4160,7 @@ class Forecast_Data_Next1Hours_DetailsBuilder
   Forecast_Data_Next1Hours_Details build() => _build();
 
   _$Forecast_Data_Next1Hours_Details _build() {
+    Forecast_Data_Next1Hours_Details._validate(this);
     final _$result = _$v ?? _$Forecast_Data_Next1Hours_Details._(precipitationAmount: precipitationAmount);
     replace(_$result);
     return _$result;
@@ -4173,7 +4236,9 @@ class Forecast_Data_Next1HoursBuilder
   Forecast_Data_Next1Hours_DetailsBuilder get details => _$this._details ??= Forecast_Data_Next1Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next1Hours_DetailsBuilder? details) => _$this._details = details;
 
-  Forecast_Data_Next1HoursBuilder();
+  Forecast_Data_Next1HoursBuilder() {
+    Forecast_Data_Next1Hours._defaults(this);
+  }
 
   Forecast_Data_Next1HoursBuilder get _$this {
     final $v = _$v;
@@ -4200,6 +4265,7 @@ class Forecast_Data_Next1HoursBuilder
   Forecast_Data_Next1Hours build() => _build();
 
   _$Forecast_Data_Next1Hours _build() {
+    Forecast_Data_Next1Hours._validate(this);
     _$Forecast_Data_Next1Hours _$result;
     try {
       _$result = _$v ?? _$Forecast_Data_Next1Hours._(summary: summary.build(), details: details.build());
@@ -4275,7 +4341,9 @@ class Forecast_Data_Next6Hours_SummaryBuilder
   String? get symbolCode => _$this._symbolCode;
   set symbolCode(covariant String? symbolCode) => _$this._symbolCode = symbolCode;
 
-  Forecast_Data_Next6Hours_SummaryBuilder();
+  Forecast_Data_Next6Hours_SummaryBuilder() {
+    Forecast_Data_Next6Hours_Summary._defaults(this);
+  }
 
   Forecast_Data_Next6Hours_SummaryBuilder get _$this {
     final $v = _$v;
@@ -4301,6 +4369,7 @@ class Forecast_Data_Next6Hours_SummaryBuilder
   Forecast_Data_Next6Hours_Summary build() => _build();
 
   _$Forecast_Data_Next6Hours_Summary _build() {
+    Forecast_Data_Next6Hours_Summary._validate(this);
     final _$result = _$v ??
         _$Forecast_Data_Next6Hours_Summary._(
             symbolCode:
@@ -4365,7 +4434,9 @@ class Forecast_Data_Next6Hours_DetailsBuilder
   num? get precipitationAmount => _$this._precipitationAmount;
   set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
-  Forecast_Data_Next6Hours_DetailsBuilder();
+  Forecast_Data_Next6Hours_DetailsBuilder() {
+    Forecast_Data_Next6Hours_Details._defaults(this);
+  }
 
   Forecast_Data_Next6Hours_DetailsBuilder get _$this {
     final $v = _$v;
@@ -4391,6 +4462,7 @@ class Forecast_Data_Next6Hours_DetailsBuilder
   Forecast_Data_Next6Hours_Details build() => _build();
 
   _$Forecast_Data_Next6Hours_Details _build() {
+    Forecast_Data_Next6Hours_Details._validate(this);
     final _$result = _$v ?? _$Forecast_Data_Next6Hours_Details._(precipitationAmount: precipitationAmount);
     replace(_$result);
     return _$result;
@@ -4466,7 +4538,9 @@ class Forecast_Data_Next6HoursBuilder
   Forecast_Data_Next6Hours_DetailsBuilder get details => _$this._details ??= Forecast_Data_Next6Hours_DetailsBuilder();
   set details(covariant Forecast_Data_Next6Hours_DetailsBuilder? details) => _$this._details = details;
 
-  Forecast_Data_Next6HoursBuilder();
+  Forecast_Data_Next6HoursBuilder() {
+    Forecast_Data_Next6Hours._defaults(this);
+  }
 
   Forecast_Data_Next6HoursBuilder get _$this {
     final $v = _$v;
@@ -4493,6 +4567,7 @@ class Forecast_Data_Next6HoursBuilder
   Forecast_Data_Next6Hours build() => _build();
 
   _$Forecast_Data_Next6Hours _build() {
+    Forecast_Data_Next6Hours._validate(this);
     _$Forecast_Data_Next6Hours _$result;
     try {
       _$result = _$v ?? _$Forecast_Data_Next6Hours._(summary: summary.build(), details: details.build());
@@ -4608,7 +4683,9 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
   Forecast_Data_Next6HoursBuilder get next6Hours => _$this._next6Hours ??= Forecast_Data_Next6HoursBuilder();
   set next6Hours(covariant Forecast_Data_Next6HoursBuilder? next6Hours) => _$this._next6Hours = next6Hours;
 
-  Forecast_DataBuilder();
+  Forecast_DataBuilder() {
+    Forecast_Data._defaults(this);
+  }
 
   Forecast_DataBuilder get _$this {
     final $v = _$v;
@@ -4637,6 +4714,7 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
   Forecast_Data build() => _build();
 
   _$Forecast_Data _build() {
+    Forecast_Data._validate(this);
     _$Forecast_Data _$result;
     try {
       _$result = _$v ??
@@ -4730,7 +4808,9 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
   Forecast_DataBuilder get data => _$this._data ??= Forecast_DataBuilder();
   set data(covariant Forecast_DataBuilder? data) => _$this._data = data;
 
-  ForecastBuilder();
+  ForecastBuilder() {
+    Forecast._defaults(this);
+  }
 
   ForecastBuilder get _$this {
     final $v = _$v;
@@ -4757,6 +4837,7 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastIn
   Forecast build() => _build();
 
   _$Forecast _build() {
+    Forecast._validate(this);
     _$Forecast _$result;
     try {
       _$result = _$v ??
@@ -4838,7 +4919,9 @@ class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder
   String? get error => _$this._error;
   set error(covariant String? error) => _$this._error = error;
 
-  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder();
+  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder() {
+    WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._defaults(this);
+  }
 
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder get _$this {
     final $v = _$v;
@@ -4864,6 +4947,7 @@ class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 build() => _build();
 
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 _build() {
+    WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._validate(this);
     final _$result = _$v ??
         _$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1._(
             error: BuiltValueNullFieldError.checkNotNull(
@@ -4950,7 +5034,9 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data? get data => _$this._data;
   set data(covariant WeatherStatusGetForecastResponseApplicationJson_Ocs_Data? data) => _$this._data = data;
 
-  WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
+  WeatherStatusGetForecastResponseApplicationJson_OcsBuilder() {
+    WeatherStatusGetForecastResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5062,7 +5148,9 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusGetForecastResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetForecastResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusGetForecastResponseApplicationJsonBuilder();
+  WeatherStatusGetForecastResponseApplicationJsonBuilder() {
+    WeatherStatusGetForecastResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusGetForecastResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5088,6 +5176,7 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
   WeatherStatusGetForecastResponseApplicationJson build() => _build();
 
   _$WeatherStatusGetForecastResponseApplicationJson _build() {
+    WeatherStatusGetForecastResponseApplicationJson._validate(this);
     _$WeatherStatusGetForecastResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusGetForecastResponseApplicationJson._(ocs: ocs.build());
@@ -5181,7 +5270,9 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
   ListBuilder<String> get data => _$this._data ??= ListBuilder<String>();
   set data(covariant ListBuilder<String>? data) => _$this._data = data;
 
-  WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
+  WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder() {
+    WeatherStatusGetFavoritesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5208,6 +5299,7 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs _build() {
+    WeatherStatusGetFavoritesResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -5291,7 +5383,9 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusGetFavoritesResponseApplicationJsonBuilder();
+  WeatherStatusGetFavoritesResponseApplicationJsonBuilder() {
+    WeatherStatusGetFavoritesResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusGetFavoritesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5317,6 +5411,7 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
   WeatherStatusGetFavoritesResponseApplicationJson build() => _build();
 
   _$WeatherStatusGetFavoritesResponseApplicationJson _build() {
+    WeatherStatusGetFavoritesResponseApplicationJson._validate(this);
     _$WeatherStatusGetFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusGetFavoritesResponseApplicationJson._(ocs: ocs.build());
@@ -5410,7 +5505,9 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
   SuccessBuilder get data => _$this._data ??= SuccessBuilder();
   set data(covariant SuccessBuilder? data) => _$this._data = data;
 
-  WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
+  WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder() {
+    WeatherStatusSetFavoritesResponseApplicationJson_Ocs._defaults(this);
+  }
 
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -5437,6 +5534,7 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs build() => _build();
 
   _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs _build() {
+    WeatherStatusSetFavoritesResponseApplicationJson_Ocs._validate(this);
     _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs _$result;
     try {
       _$result =
@@ -5520,7 +5618,9 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
       _$this._ocs ??= WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder();
   set ocs(covariant WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  WeatherStatusSetFavoritesResponseApplicationJsonBuilder();
+  WeatherStatusSetFavoritesResponseApplicationJsonBuilder() {
+    WeatherStatusSetFavoritesResponseApplicationJson._defaults(this);
+  }
 
   WeatherStatusSetFavoritesResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -5546,6 +5646,7 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
   WeatherStatusSetFavoritesResponseApplicationJson build() => _build();
 
   _$WeatherStatusSetFavoritesResponseApplicationJson _build() {
+    WeatherStatusSetFavoritesResponseApplicationJson._validate(this);
     _$WeatherStatusSetFavoritesResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$WeatherStatusSetFavoritesResponseApplicationJson._(ocs: ocs.build());
@@ -5620,7 +5721,9 @@ class Capabilities_WeatherStatusBuilder
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  Capabilities_WeatherStatusBuilder();
+  Capabilities_WeatherStatusBuilder() {
+    Capabilities_WeatherStatus._defaults(this);
+  }
 
   Capabilities_WeatherStatusBuilder get _$this {
     final $v = _$v;
@@ -5646,6 +5749,7 @@ class Capabilities_WeatherStatusBuilder
   Capabilities_WeatherStatus build() => _build();
 
   _$Capabilities_WeatherStatus _build() {
+    Capabilities_WeatherStatus._validate(this);
     final _$result = _$v ??
         _$Capabilities_WeatherStatus._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_WeatherStatus', 'enabled'));
@@ -5706,7 +5810,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   set weatherStatus(covariant Capabilities_WeatherStatusBuilder? weatherStatus) =>
       _$this._weatherStatus = weatherStatus;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -5732,6 +5838,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(weatherStatus: weatherStatus.build());

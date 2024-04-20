@@ -292,7 +292,9 @@ class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>,
   String? get attribute1OneOf => _$this._attribute1OneOf;
   set attribute1OneOf(covariant String? attribute1OneOf) => _$this._attribute1OneOf = attribute1OneOf;
 
-  ObjectOneOf0Builder();
+  ObjectOneOf0Builder() {
+    ObjectOneOf0._defaults(this);
+  }
 
   ObjectOneOf0Builder get _$this {
     final $v = _$v;
@@ -318,6 +320,7 @@ class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>,
   ObjectOneOf0 build() => _build();
 
   _$ObjectOneOf0 _build() {
+    ObjectOneOf0._validate(this);
     final _$result = _$v ??
         _$ObjectOneOf0._(
             attribute1OneOf:
@@ -378,7 +381,9 @@ class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>,
   String? get attribute2OneOf => _$this._attribute2OneOf;
   set attribute2OneOf(covariant String? attribute2OneOf) => _$this._attribute2OneOf = attribute2OneOf;
 
-  ObjectOneOf1Builder();
+  ObjectOneOf1Builder() {
+    ObjectOneOf1._defaults(this);
+  }
 
   ObjectOneOf1Builder get _$this {
     final $v = _$v;
@@ -404,6 +409,7 @@ class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>,
   ObjectOneOf1 build() => _build();
 
   _$ObjectOneOf1 _build() {
+    ObjectOneOf1._validate(this);
     final _$result = _$v ??
         _$ObjectOneOf1._(
             attribute2OneOf:
@@ -464,7 +470,9 @@ class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $M
   String? get attributeOneOf => _$this._attributeOneOf;
   set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
 
-  MixedOneOf1Builder();
+  MixedOneOf1Builder() {
+    MixedOneOf1._defaults(this);
+  }
 
   MixedOneOf1Builder get _$this {
     final $v = _$v;
@@ -490,6 +498,7 @@ class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $M
   MixedOneOf1 build() => _build();
 
   _$MixedOneOf1 _build() {
+    MixedOneOf1._validate(this);
     final _$result = _$v ??
         _$MixedOneOf1._(
             attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf'));
@@ -550,7 +559,9 @@ class OneObjectOneOf0Builder
   String? get attributeOneOf => _$this._attributeOneOf;
   set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
 
-  OneObjectOneOf0Builder();
+  OneObjectOneOf0Builder() {
+    OneObjectOneOf0._defaults(this);
+  }
 
   OneObjectOneOf0Builder get _$this {
     final $v = _$v;
@@ -576,6 +587,7 @@ class OneObjectOneOf0Builder
   OneObjectOneOf0 build() => _build();
 
   _$OneObjectOneOf0 _build() {
+    OneObjectOneOf0._validate(this);
     final _$result = _$v ??
         _$OneObjectOneOf0._(
             attributeOneOf:
@@ -638,7 +650,9 @@ class OneOfUnspecifiedArray0Builder
   String? get attributeOneOf => _$this._attributeOneOf;
   set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
 
-  OneOfUnspecifiedArray0Builder();
+  OneOfUnspecifiedArray0Builder() {
+    OneOfUnspecifiedArray0._defaults(this);
+  }
 
   OneOfUnspecifiedArray0Builder get _$this {
     final $v = _$v;
@@ -664,6 +678,7 @@ class OneOfUnspecifiedArray0Builder
   OneOfUnspecifiedArray0 build() => _build();
 
   _$OneOfUnspecifiedArray0 _build() {
+    OneOfUnspecifiedArray0._validate(this);
     final _$result = _$v ??
         _$OneOfUnspecifiedArray0._(
             attributeOneOf:
@@ -725,7 +740,9 @@ class OneOfStringArray0Builder
   String? get attributeOneOf => _$this._attributeOneOf;
   set attributeOneOf(covariant String? attributeOneOf) => _$this._attributeOneOf = attributeOneOf;
 
-  OneOfStringArray0Builder();
+  OneOfStringArray0Builder() {
+    OneOfStringArray0._defaults(this);
+  }
 
   OneOfStringArray0Builder get _$this {
     final $v = _$v;
@@ -751,6 +768,7 @@ class OneOfStringArray0Builder
   OneOfStringArray0 build() => _build();
 
   _$OneOfStringArray0 _build() {
+    OneOfStringArray0._validate(this);
     final _$result = _$v ??
         _$OneOfStringArray0._(
             attributeOneOf:

@@ -34,6 +34,12 @@ abstract interface class $OneValueSomeOfInObjectInterface {
   num get intDouble;
   @BuiltValueField(wireName: 'IntDoubleString')
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneValueSomeOfInObjectInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneValueSomeOfInObjectInterfaceBuilder b) {
+    b.intDoubleString?.validateOneOf();
+  }
 }
 
 /// Object with someOfs that only contain a single value (or are optimized to such).
@@ -59,9 +65,14 @@ abstract class OneValueSomeOfInObject
   /// Serializer for OneValueSomeOfInObject.
   static Serializer<OneValueSomeOfInObject> get serializer => _$oneValueSomeOfInObjectSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneValueSomeOfInObjectBuilder b) {
+    $OneValueSomeOfInObjectInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(OneValueSomeOfInObjectBuilder b) {
-    b.intDoubleString?.validateOneOf();
+    $OneValueSomeOfInObjectInterface._validate(b);
   }
 }
 

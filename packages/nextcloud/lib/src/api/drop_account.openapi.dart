@@ -27,6 +27,10 @@ part 'drop_account.openapi.g.dart';
 abstract interface class $Capabilities_DropAccount_DelayInterface {
   bool get enabled;
   int get hours;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_DropAccount_DelayInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_DropAccount_DelayInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_DropAccount_Delay
@@ -58,6 +62,16 @@ abstract class Capabilities_DropAccount_Delay
 
   /// Serializer for Capabilities_DropAccount_Delay.
   static Serializer<Capabilities_DropAccount_Delay> get serializer => _$capabilitiesDropAccountDelaySerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_DropAccount_DelayBuilder b) {
+    $Capabilities_DropAccount_DelayInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_DropAccount_DelayBuilder b) {
+    $Capabilities_DropAccount_DelayInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -67,6 +81,10 @@ abstract interface class $Capabilities_DropAccountInterface {
   String get apiVersion;
   Capabilities_DropAccount_Delay get delay;
   String? get details;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_DropAccountInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_DropAccountInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_DropAccount
@@ -95,12 +113,26 @@ abstract class Capabilities_DropAccount
 
   /// Serializer for Capabilities_DropAccount.
   static Serializer<Capabilities_DropAccount> get serializer => _$capabilitiesDropAccountSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_DropAccountBuilder b) {
+    $Capabilities_DropAccountInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_DropAccountBuilder b) {
+    $Capabilities_DropAccountInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'drop-account')
   Capabilities_DropAccount get dropAccount;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -127,6 +159,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

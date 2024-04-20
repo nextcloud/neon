@@ -236,6 +236,10 @@ class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPr
 @BuiltValue(instantiable: false)
 abstract interface class $Capabilities_FilesInterface {
   bool get undelete;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_FilesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_FilesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities_Files
@@ -264,11 +268,25 @@ abstract class Capabilities_Files
 
   /// Serializer for Capabilities_Files.
   static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_FilesBuilder b) {
+    $Capabilities_FilesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_FilesBuilder b) {
+    $Capabilities_FilesInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CapabilitiesInterface {
   Capabilities_Files get files;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
@@ -295,6 +313,16 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

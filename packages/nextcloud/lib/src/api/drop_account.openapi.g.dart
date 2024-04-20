@@ -220,7 +220,9 @@ class Capabilities_DropAccount_DelayBuilder
   int? get hours => _$this._hours;
   set hours(covariant int? hours) => _$this._hours = hours;
 
-  Capabilities_DropAccount_DelayBuilder();
+  Capabilities_DropAccount_DelayBuilder() {
+    Capabilities_DropAccount_Delay._defaults(this);
+  }
 
   Capabilities_DropAccount_DelayBuilder get _$this {
     final $v = _$v;
@@ -247,6 +249,7 @@ class Capabilities_DropAccount_DelayBuilder
   Capabilities_DropAccount_Delay build() => _build();
 
   _$Capabilities_DropAccount_Delay _build() {
+    Capabilities_DropAccount_Delay._validate(this);
     final _$result = _$v ??
         _$Capabilities_DropAccount_Delay._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
@@ -353,7 +356,9 @@ class Capabilities_DropAccountBuilder
   String? get details => _$this._details;
   set details(covariant String? details) => _$this._details = details;
 
-  Capabilities_DropAccountBuilder();
+  Capabilities_DropAccountBuilder() {
+    Capabilities_DropAccount._defaults(this);
+  }
 
   Capabilities_DropAccountBuilder get _$this {
     final $v = _$v;
@@ -382,6 +387,7 @@ class Capabilities_DropAccountBuilder
   Capabilities_DropAccount build() => _build();
 
   _$Capabilities_DropAccount _build() {
+    Capabilities_DropAccount._validate(this);
     _$Capabilities_DropAccount _$result;
     try {
       _$result = _$v ??
@@ -456,7 +462,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities_DropAccountBuilder get dropAccount => _$this._dropAccount ??= Capabilities_DropAccountBuilder();
   set dropAccount(covariant Capabilities_DropAccountBuilder? dropAccount) => _$this._dropAccount = dropAccount;
 
-  CapabilitiesBuilder();
+  CapabilitiesBuilder() {
+    Capabilities._defaults(this);
+  }
 
   CapabilitiesBuilder get _$this {
     final $v = _$v;
@@ -482,6 +490,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   Capabilities build() => _build();
 
   _$Capabilities _build() {
+    Capabilities._validate(this);
     _$Capabilities _$result;
     try {
       _$result = _$v ?? _$Capabilities._(dropAccount: dropAccount.build());

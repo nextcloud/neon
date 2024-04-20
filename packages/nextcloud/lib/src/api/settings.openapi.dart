@@ -130,6 +130,10 @@ class $LogSettingsClient {
 abstract interface class $LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder b) {}
 }
 
 abstract class LogSettingsLogSettingsDownloadHeaders
@@ -162,6 +166,16 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   /// Serializer for LogSettingsLogSettingsDownloadHeaders.
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
       _$logSettingsLogSettingsDownloadHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LogSettingsLogSettingsDownloadHeadersBuilder b) {
+    $LogSettingsLogSettingsDownloadHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(LogSettingsLogSettingsDownloadHeadersBuilder b) {
+    $LogSettingsLogSettingsDownloadHeadersInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

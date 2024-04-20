@@ -19,6 +19,10 @@ part 'interfaces.openapi.g.dart';
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterface {
   String? get attribute;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseInterfaceBuilder b) {}
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
@@ -39,11 +43,25 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
   /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseBuilder b) {
+    $BaseInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseBuilder b) {
+    $BaseInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterfaceInterface {
   String? get attribute;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseInterfaceInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseInterfaceInterfaceBuilder b) {}
 }
 
 abstract class BaseInterface implements $BaseInterfaceInterface, Built<BaseInterface, BaseInterfaceBuilder> {
@@ -64,6 +82,16 @@ abstract class BaseInterface implements $BaseInterfaceInterface, Built<BaseInter
 
   /// Serializer for BaseInterface.
   static Serializer<BaseInterface> get serializer => _$baseInterfaceSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseInterfaceBuilder b) {
+    $BaseInterfaceInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseInterfaceBuilder b) {
+    $BaseInterfaceInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

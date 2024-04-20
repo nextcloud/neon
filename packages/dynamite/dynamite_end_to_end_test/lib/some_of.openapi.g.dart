@@ -145,7 +145,9 @@ class OneValueSomeOfInObjectBuilder
   set intDoubleString(covariant OneValueSomeOfInObject_IntDoubleString? intDoubleString) =>
       _$this._intDoubleString = intDoubleString;
 
-  OneValueSomeOfInObjectBuilder();
+  OneValueSomeOfInObjectBuilder() {
+    OneValueSomeOfInObject._defaults(this);
+  }
 
   OneValueSomeOfInObjectBuilder get _$this {
     final $v = _$v;

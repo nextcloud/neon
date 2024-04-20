@@ -75,4 +75,23 @@ void main() {
     expect(object.toJson(), equals(json));
     expect(OneValueAllOf.fromJson(json), equals(object));
   });
+
+  test('default value inheritance', () {
+    var object = SubObject();
+
+    expect(object.value, '123');
+
+    object = object.rebuild((b) {
+      b.value = '1234';
+    });
+
+    expect(object.value, '1234');
+  });
+
+  test('validation inheritance', () {
+    expect(
+      () => SubObject((b) => b..value = 'abcd'),
+      throwsA(isA<FormatException>()),
+    );
+  });
 }

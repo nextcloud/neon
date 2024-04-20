@@ -1079,6 +1079,16 @@ abstract interface class $ThemingGetManifestResponseApplicationJson_IconsInterfa
   String get src;
   String get type;
   String get sizes;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {
+    _i5.checkMinLength(
+      b.src,
+      1,
+      'src',
+    );
+  }
 }
 
 abstract class ThemingGetManifestResponseApplicationJson_Icons
@@ -1113,13 +1123,14 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
       _$themingGetManifestResponseApplicationJsonIconsSerializer;
 
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
+    $ThemingGetManifestResponseApplicationJson_IconsInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
-    _i5.checkMinLength(
-      b.src,
-      1,
-      'src',
-    );
+    $ThemingGetManifestResponseApplicationJson_IconsInterface._validate(b);
   }
 }
 
@@ -1137,6 +1148,10 @@ abstract interface class $ThemingGetManifestResponseApplicationJsonInterface {
   String get description;
   BuiltList<ThemingGetManifestResponseApplicationJson_Icons> get icons;
   String get display;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ThemingGetManifestResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ThemingGetManifestResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ThemingGetManifestResponseApplicationJson
@@ -1170,6 +1185,16 @@ abstract class ThemingGetManifestResponseApplicationJson
   /// Serializer for ThemingGetManifestResponseApplicationJson.
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
       _$themingGetManifestResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ThemingGetManifestResponseApplicationJsonBuilder b) {
+    $ThemingGetManifestResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ThemingGetManifestResponseApplicationJsonBuilder b) {
+    $ThemingGetManifestResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1179,6 +1204,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -1205,12 +1234,26 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserThemeEnableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
@@ -1244,11 +1287,25 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   /// Serializer for UserThemeEnableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserThemeEnableThemeResponseApplicationJson_OcsBuilder b) {
+    $UserThemeEnableThemeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserThemeEnableThemeResponseApplicationJson_OcsBuilder b) {
+    $UserThemeEnableThemeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserThemeEnableThemeResponseApplicationJsonInterface {
   UserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson
@@ -1282,12 +1339,26 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   /// Serializer for UserThemeEnableThemeResponseApplicationJson.
   static Serializer<UserThemeEnableThemeResponseApplicationJson> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserThemeEnableThemeResponseApplicationJsonBuilder b) {
+    $UserThemeEnableThemeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserThemeEnableThemeResponseApplicationJsonBuilder b) {
+    $UserThemeEnableThemeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
@@ -1322,11 +1393,25 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   /// Serializer for UserThemeDisableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserThemeDisableThemeResponseApplicationJson_OcsBuilder b) {
+    $UserThemeDisableThemeResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserThemeDisableThemeResponseApplicationJson_OcsBuilder b) {
+    $UserThemeDisableThemeResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UserThemeDisableThemeResponseApplicationJsonInterface {
   UserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson
@@ -1360,6 +1445,16 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   /// Serializer for UserThemeDisableThemeResponseApplicationJson.
   static Serializer<UserThemeDisableThemeResponseApplicationJson> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserThemeDisableThemeResponseApplicationJsonBuilder b) {
+    $UserThemeDisableThemeResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserThemeDisableThemeResponseApplicationJsonBuilder b) {
+    $UserThemeDisableThemeResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1384,6 +1479,10 @@ abstract interface class $PublicCapabilities_ThemingInterface {
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicCapabilities_ThemingInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicCapabilities_ThemingInterfaceBuilder b) {}
 }
 
 abstract class PublicCapabilities_Theming
@@ -1415,11 +1514,25 @@ abstract class PublicCapabilities_Theming
 
   /// Serializer for PublicCapabilities_Theming.
   static Serializer<PublicCapabilities_Theming> get serializer => _$publicCapabilitiesThemingSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicCapabilities_ThemingBuilder b) {
+    $PublicCapabilities_ThemingInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicCapabilities_ThemingBuilder b) {
+    $PublicCapabilities_ThemingInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PublicCapabilitiesInterface {
   PublicCapabilities_Theming get theming;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicCapabilitiesInterfaceBuilder b) {}
 }
 
 abstract class PublicCapabilities
@@ -1448,6 +1561,16 @@ abstract class PublicCapabilities
 
   /// Serializer for PublicCapabilities.
   static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicCapabilitiesBuilder b) {
+    $PublicCapabilitiesInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

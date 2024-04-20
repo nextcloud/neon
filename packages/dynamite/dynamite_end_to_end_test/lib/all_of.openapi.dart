@@ -10,9 +10,10 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:meta/meta.dart' as _i1;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
 
 part 'all_of.openapi.g.dart';
 
@@ -23,6 +24,10 @@ abstract interface class $ObjectAllOfInterface {
   String get attribute1AllOf;
   @BuiltValueField(wireName: 'attribute2-allOf')
   String get attribute2AllOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ObjectAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ObjectAllOfInterfaceBuilder b) {}
 }
 
 /// All of with objects only.
@@ -44,6 +49,16 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 
   /// Serializer for ObjectAllOf.
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ObjectAllOfBuilder b) {
+    $ObjectAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ObjectAllOfBuilder b) {
+    $ObjectAllOfInterface._validate(b);
+  }
 }
 
 /// All of with one object value.
@@ -51,6 +66,10 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 abstract interface class $OneObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneObjectAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneObjectAllOfInterfaceBuilder b) {}
 }
 
 /// All of with one object value.
@@ -72,6 +91,16 @@ abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObje
 
   /// Serializer for OneObjectAllOf.
   static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneObjectAllOfBuilder b) {
+    $OneObjectAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneObjectAllOfBuilder b) {
+    $OneObjectAllOfInterface._validate(b);
+  }
 }
 
 /// All of with an primitive values.
@@ -81,6 +110,10 @@ abstract interface class $PrimitiveAllOfInterface {
   int get $int;
   @BuiltValueField(wireName: 'String')
   String get string;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PrimitiveAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PrimitiveAllOfInterfaceBuilder b) {}
 }
 
 /// All of with an primitive values.
@@ -102,6 +135,16 @@ abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<Primiti
 
   /// Serializer for PrimitiveAllOf.
   static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PrimitiveAllOfBuilder b) {
+    $PrimitiveAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PrimitiveAllOfBuilder b) {
+    $PrimitiveAllOfInterface._validate(b);
+  }
 }
 
 /// All of with object and primitive value.
@@ -111,6 +154,10 @@ abstract interface class $MixedAllOfInterface {
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($MixedAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($MixedAllOfInterfaceBuilder b) {}
 }
 
 /// All of with object and primitive value.
@@ -132,6 +179,16 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
 
   /// Serializer for MixedAllOf.
   static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MixedAllOfBuilder b) {
+    $MixedAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(MixedAllOfBuilder b) {
+    $MixedAllOfInterface._validate(b);
+  }
 }
 
 /// All of with one primitive value.
@@ -139,6 +196,10 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
 abstract interface class $OneValueAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OneValueAllOfInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OneValueAllOfInterfaceBuilder b) {}
 }
 
 /// All of with one primitive value.
@@ -160,6 +221,117 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
   /// Serializer for OneValueAllOf.
   static Serializer<OneValueAllOf> get serializer => _$oneValueAllOfSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OneValueAllOfBuilder b) {
+    $OneValueAllOfInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OneValueAllOfBuilder b) {
+    $OneValueAllOfInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SuperObjectInterface {
+  String get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SuperObjectInterfaceBuilder b) {
+    b.value = '123';
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SuperObjectInterfaceBuilder b) {
+    _i1.checkPattern(
+      b.value,
+      RegExp(r'^[0-9]*$'),
+      'value',
+    );
+    _i1.checkMinLength(
+      b.value,
+      3,
+      'value',
+    );
+    _i1.checkMaxLength(
+      b.value,
+      20,
+      'value',
+    );
+  }
+}
+
+abstract class SuperObject implements $SuperObjectInterface, Built<SuperObject, SuperObjectBuilder> {
+  /// Creates a new SuperObject object using the builder pattern.
+  factory SuperObject([void Function(SuperObjectBuilder)? b]) = _$SuperObject;
+
+  const SuperObject._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory SuperObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for SuperObject.
+  static Serializer<SuperObject> get serializer => _$superObjectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SuperObjectBuilder b) {
+    $SuperObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SuperObjectBuilder b) {
+    $SuperObjectInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SubObjectInterface implements $SuperObjectInterface {
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SubObjectInterfaceBuilder b) {
+    $SuperObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SubObjectInterfaceBuilder b) {
+    $SuperObjectInterface._validate(b);
+  }
+}
+
+abstract class SubObject implements $SubObjectInterface, Built<SubObject, SubObjectBuilder> {
+  /// Creates a new SubObject object using the builder pattern.
+  factory SubObject([void Function(SubObjectBuilder)? b]) = _$SubObject;
+
+  const SubObject._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory SubObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for SubObject.
+  static Serializer<SubObject> get serializer => _$subObjectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SubObjectBuilder b) {
+    $SubObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SubObjectBuilder b) {
+    $SubObjectInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start
@@ -167,7 +339,7 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
@@ -179,19 +351,23 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
       ..add(MixedAllOf.serializer)
       ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
-      ..add(OneValueAllOf.serializer))
+      ..add(OneValueAllOf.serializer)
+      ..addBuilderFactory(const FullType(SuperObject), SuperObjectBuilder.new)
+      ..add(SuperObject.serializer)
+      ..addBuilderFactory(const FullType(SubObject), SubObjectBuilder.new)
+      ..add(SubObject.serializer))
     .build();
 
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

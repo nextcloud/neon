@@ -882,6 +882,10 @@ class $Client extends _i1.DynamiteClient {
 @BuiltValue(instantiable: false)
 abstract interface class $CheckResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CheckResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CheckResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class CheckResponseApplicationJson
@@ -913,11 +917,25 @@ abstract class CheckResponseApplicationJson
 
   /// Serializer for CheckResponseApplicationJson.
   static Serializer<CheckResponseApplicationJson> get serializer => _$checkResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CheckResponseApplicationJsonBuilder b) {
+    $CheckResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CheckResponseApplicationJsonBuilder b) {
+    $CheckResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $SetKeepaliveResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SetKeepaliveResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SetKeepaliveResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class SetKeepaliveResponseApplicationJson
@@ -950,12 +968,26 @@ abstract class SetKeepaliveResponseApplicationJson
   /// Serializer for SetKeepaliveResponseApplicationJson.
   static Serializer<SetKeepaliveResponseApplicationJson> get serializer =>
       _$setKeepaliveResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SetKeepaliveResponseApplicationJsonBuilder b) {
+    $SetKeepaliveResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SetKeepaliveResponseApplicationJsonBuilder b) {
+    $SetKeepaliveResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CreateDeviceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CreateDeviceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class CreateDeviceResponseApplicationJson
@@ -988,11 +1020,25 @@ abstract class CreateDeviceResponseApplicationJson
   /// Serializer for CreateDeviceResponseApplicationJson.
   static Serializer<CreateDeviceResponseApplicationJson> get serializer =>
       _$createDeviceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CreateDeviceResponseApplicationJsonBuilder b) {
+    $CreateDeviceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CreateDeviceResponseApplicationJsonBuilder b) {
+    $CreateDeviceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $SyncDeviceResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SyncDeviceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SyncDeviceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class SyncDeviceResponseApplicationJson
@@ -1024,11 +1070,25 @@ abstract class SyncDeviceResponseApplicationJson
 
   /// Serializer for SyncDeviceResponseApplicationJson.
   static Serializer<SyncDeviceResponseApplicationJson> get serializer => _$syncDeviceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SyncDeviceResponseApplicationJsonBuilder b) {
+    $SyncDeviceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SyncDeviceResponseApplicationJsonBuilder b) {
+    $SyncDeviceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeleteDeviceResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeleteDeviceResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeleteDeviceResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DeleteDeviceResponseApplicationJson
@@ -1061,12 +1121,26 @@ abstract class DeleteDeviceResponseApplicationJson
   /// Serializer for DeleteDeviceResponseApplicationJson.
   static Serializer<DeleteDeviceResponseApplicationJson> get serializer =>
       _$deleteDeviceResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeleteDeviceResponseApplicationJsonBuilder b) {
+    $DeleteDeviceResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeleteDeviceResponseApplicationJsonBuilder b) {
+    $DeleteDeviceResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $CreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CreateAppResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CreateAppResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class CreateAppResponseApplicationJson
@@ -1098,11 +1172,25 @@ abstract class CreateAppResponseApplicationJson
 
   /// Serializer for CreateAppResponseApplicationJson.
   static Serializer<CreateAppResponseApplicationJson> get serializer => _$createAppResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CreateAppResponseApplicationJsonBuilder b) {
+    $CreateAppResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CreateAppResponseApplicationJsonBuilder b) {
+    $CreateAppResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $DeleteAppResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeleteAppResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeleteAppResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class DeleteAppResponseApplicationJson
@@ -1134,11 +1222,25 @@ abstract class DeleteAppResponseApplicationJson
 
   /// Serializer for DeleteAppResponseApplicationJson.
   static Serializer<DeleteAppResponseApplicationJson> get serializer => _$deleteAppResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeleteAppResponseApplicationJsonBuilder b) {
+    $DeleteAppResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeleteAppResponseApplicationJsonBuilder b) {
+    $DeleteAppResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
@@ -1173,11 +1275,25 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
       _$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder b) {
+    $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder b) {
+    $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedpushDiscoveryResponseApplicationJsonInterface {
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson
@@ -1211,11 +1327,25 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson.
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson> get serializer =>
       _$unifiedpushDiscoveryResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnifiedpushDiscoveryResponseApplicationJsonBuilder b) {
+    $UnifiedpushDiscoveryResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnifiedpushDiscoveryResponseApplicationJsonBuilder b) {
+    $UnifiedpushDiscoveryResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $PushResponseApplicationJsonInterface {
   bool get success;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PushResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PushResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class PushResponseApplicationJson
@@ -1247,11 +1377,25 @@ abstract class PushResponseApplicationJson
 
   /// Serializer for PushResponseApplicationJson.
   static Serializer<PushResponseApplicationJson> get serializer => _$pushResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PushResponseApplicationJsonBuilder b) {
+    $PushResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PushResponseApplicationJsonBuilder b) {
+    $PushResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
@@ -1286,11 +1430,25 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
       _$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder b) {
+    $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder b) {
+    $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GatewayMatrixDiscoveryResponseApplicationJsonInterface {
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson
@@ -1324,11 +1482,25 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson.
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson> get serializer =>
       _$gatewayMatrixDiscoveryResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GatewayMatrixDiscoveryResponseApplicationJsonBuilder b) {
+    $GatewayMatrixDiscoveryResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GatewayMatrixDiscoveryResponseApplicationJsonBuilder b) {
+    $GatewayMatrixDiscoveryResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $GatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GatewayMatrixResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GatewayMatrixResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class GatewayMatrixResponseApplicationJson
@@ -1361,6 +1533,16 @@ abstract class GatewayMatrixResponseApplicationJson
   /// Serializer for GatewayMatrixResponseApplicationJson.
   static Serializer<GatewayMatrixResponseApplicationJson> get serializer =>
       _$gatewayMatrixResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GatewayMatrixResponseApplicationJsonBuilder b) {
+    $GatewayMatrixResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GatewayMatrixResponseApplicationJsonBuilder b) {
+    $GatewayMatrixResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

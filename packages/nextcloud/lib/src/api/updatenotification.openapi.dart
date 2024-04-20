@@ -226,6 +226,10 @@ abstract interface class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OCSMetaInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OCSMetaInterfaceBuilder b) {}
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
@@ -252,12 +256,26 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OCSMetaBuilder b) {
+    $OCSMetaInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OCSMetaBuilder b) {
+    $OCSMetaInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AppInterface {
   String get appId;
   String get appName;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppInterfaceBuilder b) {}
 }
 
 abstract class App implements $AppInterface, Built<App, AppBuilder> {
@@ -284,12 +302,26 @@ abstract class App implements $AppInterface, Built<App, AppBuilder> {
 
   /// Serializer for App.
   static Serializer<App> get serializer => _$appSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppBuilder b) {
+    $AppInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppBuilder b) {
+    $AppInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
   BuiltList<App> get missing;
   BuiltList<App> get available;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
@@ -323,12 +355,26 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
   /// Serializer for ApiGetAppListResponseApplicationJson_Ocs_Data.
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
       _$apiGetAppListResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetAppListResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder b) {
+    $ApiGetAppListResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetAppListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppListResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs
@@ -362,11 +408,25 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
   /// Serializer for ApiGetAppListResponseApplicationJson_Ocs.
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs> get serializer =>
       _$apiGetAppListResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppListResponseApplicationJson_OcsBuilder b) {
+    $ApiGetAppListResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppListResponseApplicationJson_OcsBuilder b) {
+    $ApiGetAppListResponseApplicationJson_OcsInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $ApiGetAppListResponseApplicationJsonInterface {
   ApiGetAppListResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppListResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppListResponseApplicationJsonInterfaceBuilder b) {}
 }
 
 abstract class ApiGetAppListResponseApplicationJson
@@ -399,6 +459,16 @@ abstract class ApiGetAppListResponseApplicationJson
   /// Serializer for ApiGetAppListResponseApplicationJson.
   static Serializer<ApiGetAppListResponseApplicationJson> get serializer =>
       _$apiGetAppListResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppListResponseApplicationJsonBuilder b) {
+    $ApiGetAppListResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppListResponseApplicationJsonBuilder b) {
+    $ApiGetAppListResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 // coverage:ignore-start

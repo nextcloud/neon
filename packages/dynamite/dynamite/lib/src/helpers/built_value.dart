@@ -10,17 +10,16 @@ const interfaceSuffix = 'Interface';
 Spec buildBuiltClass(
   String className, {
   String? documentation,
-  Iterable<String>? defaults,
-  Iterable<Expression>? validators,
-  Iterable<Method>? methods,
 }) =>
     Class(
       (b) {
+        final interfaceClass = '\$$className$interfaceSuffix';
+
         b
           ..name = className
           ..abstract = true
           ..implements.addAll([
-            refer('\$$className$interfaceSuffix'),
+            refer(interfaceClass),
             refer(
               'Built<$className, ${className}Builder>',
             ),
@@ -35,67 +34,53 @@ Spec buildBuiltClass(
             buildSerializer(className),
           ]);
 
-        if (methods != null) {
-          b.methods.addAll(methods);
-        }
-
         if (documentation != null) {
           b.docs.addAll(escapeDescription(documentation));
         }
 
-        if (defaults != null && defaults.isNotEmpty) {
-          b.methods.add(
-            Method(
-              (b) => b
-                ..name = '_defaults'
-                ..returns = refer('void')
-                ..static = true
-                ..lambda = true
-                ..annotations.add(
-                  refer('BuiltValueHook').call([], {
-                    'initializeBuilder': literalTrue,
-                  }),
-                )
-                ..requiredParameters.add(
-                  Parameter(
-                    (b) => b
-                      ..name = 'b'
-                      ..type = refer('${className}Builder'),
-                  ),
-                )
-                ..body = Code(
-                  <String?>[
-                    'b',
-                    ...defaults,
-                  ].join(),
+        b.methods.add(
+          Method((b) {
+            b
+              ..name = '_defaults'
+              ..returns = refer('void')
+              ..static = true
+              ..annotations.add(
+                refer('BuiltValueHook').call([], {
+                  'initializeBuilder': literalTrue,
+                }),
+              )
+              ..requiredParameters.add(
+                Parameter(
+                  (b) => b
+                    ..name = 'b'
+                    ..type = refer('${className}Builder'),
                 ),
-            ),
-          );
-        }
+              )
+              ..body = Code('$interfaceClass._defaults(b);');
+          }),
+        );
 
-        if (validators != null && validators.isNotEmpty) {
-          b.methods.add(
-            Method((b) {
-              b
-                ..name = '_validate'
-                ..returns = refer('void')
-                ..annotations.add(
-                  refer('BuiltValueHook').call([], {'finalizeBuilder': literalTrue}),
-                )
-                ..static = true
-                ..requiredParameters.add(
-                  Parameter(
-                    (b) => b
-                      ..name = 'b'
-                      ..type = refer('${className}Builder'),
-                  ),
-                )
-                ..body = Block.of(
-                  validators.map((v) => v.statement),
-                );
-            }),
-          );
-        }
+        b.methods.add(
+          Method((b) {
+            b
+              ..name = '_validate'
+              ..returns = refer('void')
+              ..annotations.add(
+                refer('BuiltValueHook').call([], {
+                  'finalizeBuilder': literalTrue,
+                }),
+              )
+              ..static = true
+              ..requiredParameters.add(
+                Parameter(
+                  (b) => b
+                    ..name = 'b'
+                    ..type = refer('${className}Builder'),
+                ),
+              )
+              ..body = Code('$interfaceClass._validate(b);');
+          }),
+        );
       },
     );
 

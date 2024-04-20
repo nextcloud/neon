@@ -623,7 +623,9 @@ class CheckResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  CheckResponseApplicationJsonBuilder();
+  CheckResponseApplicationJsonBuilder() {
+    CheckResponseApplicationJson._defaults(this);
+  }
 
   CheckResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -649,6 +651,7 @@ class CheckResponseApplicationJsonBuilder
   CheckResponseApplicationJson build() => _build();
 
   _$CheckResponseApplicationJson _build() {
+    CheckResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CheckResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'));
@@ -712,7 +715,9 @@ class SetKeepaliveResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  SetKeepaliveResponseApplicationJsonBuilder();
+  SetKeepaliveResponseApplicationJsonBuilder() {
+    SetKeepaliveResponseApplicationJson._defaults(this);
+  }
 
   SetKeepaliveResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -738,6 +743,7 @@ class SetKeepaliveResponseApplicationJsonBuilder
   SetKeepaliveResponseApplicationJson build() => _build();
 
   _$SetKeepaliveResponseApplicationJson _build() {
+    SetKeepaliveResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$SetKeepaliveResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'));
@@ -815,7 +821,9 @@ class CreateDeviceResponseApplicationJsonBuilder
   String? get deviceId => _$this._deviceId;
   set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
 
-  CreateDeviceResponseApplicationJsonBuilder();
+  CreateDeviceResponseApplicationJsonBuilder() {
+    CreateDeviceResponseApplicationJson._defaults(this);
+  }
 
   CreateDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -842,6 +850,7 @@ class CreateDeviceResponseApplicationJsonBuilder
   CreateDeviceResponseApplicationJson build() => _build();
 
   _$CreateDeviceResponseApplicationJson _build() {
+    CreateDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CreateDeviceResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
@@ -907,7 +916,9 @@ class SyncDeviceResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  SyncDeviceResponseApplicationJsonBuilder();
+  SyncDeviceResponseApplicationJsonBuilder() {
+    SyncDeviceResponseApplicationJson._defaults(this);
+  }
 
   SyncDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -933,6 +944,7 @@ class SyncDeviceResponseApplicationJsonBuilder
   SyncDeviceResponseApplicationJson build() => _build();
 
   _$SyncDeviceResponseApplicationJson _build() {
+    SyncDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$SyncDeviceResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'));
@@ -996,7 +1008,9 @@ class DeleteDeviceResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  DeleteDeviceResponseApplicationJsonBuilder();
+  DeleteDeviceResponseApplicationJsonBuilder() {
+    DeleteDeviceResponseApplicationJson._defaults(this);
+  }
 
   DeleteDeviceResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1022,6 +1036,7 @@ class DeleteDeviceResponseApplicationJsonBuilder
   DeleteDeviceResponseApplicationJson build() => _build();
 
   _$DeleteDeviceResponseApplicationJson _build() {
+    DeleteDeviceResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$DeleteDeviceResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'));
@@ -1099,7 +1114,9 @@ class CreateAppResponseApplicationJsonBuilder
   String? get token => _$this._token;
   set token(covariant String? token) => _$this._token = token;
 
-  CreateAppResponseApplicationJsonBuilder();
+  CreateAppResponseApplicationJsonBuilder() {
+    CreateAppResponseApplicationJson._defaults(this);
+  }
 
   CreateAppResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1126,6 +1143,7 @@ class CreateAppResponseApplicationJsonBuilder
   CreateAppResponseApplicationJson build() => _build();
 
   _$CreateAppResponseApplicationJson _build() {
+    CreateAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$CreateAppResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
@@ -1190,7 +1208,9 @@ class DeleteAppResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  DeleteAppResponseApplicationJsonBuilder();
+  DeleteAppResponseApplicationJsonBuilder() {
+    DeleteAppResponseApplicationJson._defaults(this);
+  }
 
   DeleteAppResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1216,6 +1236,7 @@ class DeleteAppResponseApplicationJsonBuilder
   DeleteAppResponseApplicationJson build() => _build();
 
   _$DeleteAppResponseApplicationJson _build() {
+    DeleteAppResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$DeleteAppResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'));
@@ -1287,7 +1308,9 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
   int? get version => _$this._version;
   set version(covariant int? version) => _$this._version = version;
 
-  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder() {
+    UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._defaults(this);
+  }
 
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
     final $v = _$v;
@@ -1313,6 +1336,7 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush _build() {
+    UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
         _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
             version: BuiltValueNullFieldError.checkNotNull(
@@ -1384,7 +1408,9 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
   set unifiedpush(covariant UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
-  UnifiedpushDiscoveryResponseApplicationJsonBuilder();
+  UnifiedpushDiscoveryResponseApplicationJsonBuilder() {
+    UnifiedpushDiscoveryResponseApplicationJson._defaults(this);
+  }
 
   UnifiedpushDiscoveryResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1410,6 +1436,7 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
   UnifiedpushDiscoveryResponseApplicationJson build() => _build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson _build() {
+    UnifiedpushDiscoveryResponseApplicationJson._validate(this);
     _$UnifiedpushDiscoveryResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$UnifiedpushDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
@@ -1483,7 +1510,9 @@ class PushResponseApplicationJsonBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  PushResponseApplicationJsonBuilder();
+  PushResponseApplicationJsonBuilder() {
+    PushResponseApplicationJson._defaults(this);
+  }
 
   PushResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1509,6 +1538,7 @@ class PushResponseApplicationJsonBuilder
   PushResponseApplicationJson build() => _build();
 
   _$PushResponseApplicationJson _build() {
+    PushResponseApplicationJson._validate(this);
     final _$result = _$v ??
         _$PushResponseApplicationJson._(
             success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'));
@@ -1580,7 +1610,9 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
   String? get gateway => _$this._gateway;
   set gateway(covariant String? gateway) => _$this._gateway = gateway;
 
-  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
+  GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder() {
+    GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._defaults(this);
+  }
 
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get _$this {
     final $v = _$v;
@@ -1606,6 +1638,7 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush build() => _build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush _build() {
+    GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
     final _$result = _$v ??
         _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
             gateway: BuiltValueNullFieldError.checkNotNull(
@@ -1677,7 +1710,9 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
   set unifiedpush(covariant GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush) =>
       _$this._unifiedpush = unifiedpush;
 
-  GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
+  GatewayMatrixDiscoveryResponseApplicationJsonBuilder() {
+    GatewayMatrixDiscoveryResponseApplicationJson._defaults(this);
+  }
 
   GatewayMatrixDiscoveryResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1703,6 +1738,7 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
   GatewayMatrixDiscoveryResponseApplicationJson build() => _build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson _build() {
+    GatewayMatrixDiscoveryResponseApplicationJson._validate(this);
     _$GatewayMatrixDiscoveryResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$GatewayMatrixDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
@@ -1778,7 +1814,9 @@ class GatewayMatrixResponseApplicationJsonBuilder
   ListBuilder<String> get rejected => _$this._rejected ??= ListBuilder<String>();
   set rejected(covariant ListBuilder<String>? rejected) => _$this._rejected = rejected;
 
-  GatewayMatrixResponseApplicationJsonBuilder();
+  GatewayMatrixResponseApplicationJsonBuilder() {
+    GatewayMatrixResponseApplicationJson._defaults(this);
+  }
 
   GatewayMatrixResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -1804,6 +1842,7 @@ class GatewayMatrixResponseApplicationJsonBuilder
   GatewayMatrixResponseApplicationJson build() => _build();
 
   _$GatewayMatrixResponseApplicationJson _build() {
+    GatewayMatrixResponseApplicationJson._validate(this);
     _$GatewayMatrixResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$GatewayMatrixResponseApplicationJson._(rejected: rejected.build());

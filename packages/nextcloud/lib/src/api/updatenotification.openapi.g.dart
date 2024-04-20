@@ -385,7 +385,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   String? get itemsperpage => _$this._itemsperpage;
   set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
 
-  OCSMetaBuilder();
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
 
   OCSMetaBuilder get _$this {
     final $v = _$v;
@@ -415,6 +417,7 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
   OCSMeta build() => _build();
 
   _$OCSMeta _build() {
+    OCSMeta._validate(this);
     final _$result = _$v ??
         _$OCSMeta._(
             status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
@@ -491,7 +494,9 @@ class AppBuilder implements Builder<App, AppBuilder>, $AppInterfaceBuilder {
   String? get appName => _$this._appName;
   set appName(covariant String? appName) => _$this._appName = appName;
 
-  AppBuilder();
+  AppBuilder() {
+    App._defaults(this);
+  }
 
   AppBuilder get _$this {
     final $v = _$v;
@@ -518,6 +523,7 @@ class AppBuilder implements Builder<App, AppBuilder>, $AppInterfaceBuilder {
   App build() => _build();
 
   _$App _build() {
+    App._validate(this);
     final _$result = _$v ??
         _$App._(
             appId: BuiltValueNullFieldError.checkNotNull(appId, r'App', 'appId'),
@@ -601,7 +607,9 @@ class ApiGetAppListResponseApplicationJson_Ocs_DataBuilder
   ListBuilder<App> get available => _$this._available ??= ListBuilder<App>();
   set available(covariant ListBuilder<App>? available) => _$this._available = available;
 
-  ApiGetAppListResponseApplicationJson_Ocs_DataBuilder();
+  ApiGetAppListResponseApplicationJson_Ocs_DataBuilder() {
+    ApiGetAppListResponseApplicationJson_Ocs_Data._defaults(this);
+  }
 
   ApiGetAppListResponseApplicationJson_Ocs_DataBuilder get _$this {
     final $v = _$v;
@@ -628,6 +636,7 @@ class ApiGetAppListResponseApplicationJson_Ocs_DataBuilder
   ApiGetAppListResponseApplicationJson_Ocs_Data build() => _build();
 
   _$ApiGetAppListResponseApplicationJson_Ocs_Data _build() {
+    ApiGetAppListResponseApplicationJson_Ocs_Data._validate(this);
     _$ApiGetAppListResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
@@ -722,7 +731,9 @@ class ApiGetAppListResponseApplicationJson_OcsBuilder
       _$this._data ??= ApiGetAppListResponseApplicationJson_Ocs_DataBuilder();
   set data(covariant ApiGetAppListResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
 
-  ApiGetAppListResponseApplicationJson_OcsBuilder();
+  ApiGetAppListResponseApplicationJson_OcsBuilder() {
+    ApiGetAppListResponseApplicationJson_Ocs._defaults(this);
+  }
 
   ApiGetAppListResponseApplicationJson_OcsBuilder get _$this {
     final $v = _$v;
@@ -749,6 +760,7 @@ class ApiGetAppListResponseApplicationJson_OcsBuilder
   ApiGetAppListResponseApplicationJson_Ocs build() => _build();
 
   _$ApiGetAppListResponseApplicationJson_Ocs _build() {
+    ApiGetAppListResponseApplicationJson_Ocs._validate(this);
     _$ApiGetAppListResponseApplicationJson_Ocs _$result;
     try {
       _$result = _$v ?? _$ApiGetAppListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
@@ -827,7 +839,9 @@ class ApiGetAppListResponseApplicationJsonBuilder
       _$this._ocs ??= ApiGetAppListResponseApplicationJson_OcsBuilder();
   set ocs(covariant ApiGetAppListResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
 
-  ApiGetAppListResponseApplicationJsonBuilder();
+  ApiGetAppListResponseApplicationJsonBuilder() {
+    ApiGetAppListResponseApplicationJson._defaults(this);
+  }
 
   ApiGetAppListResponseApplicationJsonBuilder get _$this {
     final $v = _$v;
@@ -853,6 +867,7 @@ class ApiGetAppListResponseApplicationJsonBuilder
   ApiGetAppListResponseApplicationJson build() => _build();
 
   _$ApiGetAppListResponseApplicationJson _build() {
+    ApiGetAppListResponseApplicationJson._validate(this);
     _$ApiGetAppListResponseApplicationJson _$result;
     try {
       _$result = _$v ?? _$ApiGetAppListResponseApplicationJson._(ocs: ocs.build());

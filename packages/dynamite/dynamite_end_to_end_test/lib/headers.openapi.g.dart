@@ -182,7 +182,9 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
   String? get myHeader => _$this._myHeader;
   set myHeader(covariant String? myHeader) => _$this._myHeader = myHeader;
 
-  GetHeadersBuilder();
+  GetHeadersBuilder() {
+    GetHeaders._defaults(this);
+  }
 
   GetHeadersBuilder get _$this {
     final $v = _$v;
@@ -208,6 +210,7 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
   GetHeaders build() => _build();
 
   _$GetHeaders _build() {
+    GetHeaders._validate(this);
     final _$result = _$v ?? _$GetHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
@@ -267,7 +270,9 @@ class WithContentOperationIdHeadersBuilder
   String? get myHeader => _$this._myHeader;
   set myHeader(covariant String? myHeader) => _$this._myHeader = myHeader;
 
-  WithContentOperationIdHeadersBuilder();
+  WithContentOperationIdHeadersBuilder() {
+    WithContentOperationIdHeaders._defaults(this);
+  }
 
   WithContentOperationIdHeadersBuilder get _$this {
     final $v = _$v;
@@ -293,6 +298,7 @@ class WithContentOperationIdHeadersBuilder
   WithContentOperationIdHeaders build() => _build();
 
   _$WithContentOperationIdHeaders _build() {
+    WithContentOperationIdHeaders._validate(this);
     final _$result = _$v ?? _$WithContentOperationIdHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
@@ -350,7 +356,9 @@ class GetWithContentHeadersBuilder
   String? get myHeader => _$this._myHeader;
   set myHeader(covariant String? myHeader) => _$this._myHeader = myHeader;
 
-  GetWithContentHeadersBuilder();
+  GetWithContentHeadersBuilder() {
+    GetWithContentHeaders._defaults(this);
+  }
 
   GetWithContentHeadersBuilder get _$this {
     final $v = _$v;
@@ -376,6 +384,7 @@ class GetWithContentHeadersBuilder
   GetWithContentHeaders build() => _build();
 
   _$GetWithContentHeaders _build() {
+    GetWithContentHeaders._validate(this);
     final _$result = _$v ?? _$GetWithContentHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;

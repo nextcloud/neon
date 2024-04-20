@@ -518,7 +518,9 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
   set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
 
-  BaseBuilder();
+  BaseBuilder() {
+    Base._defaults(this);
+  }
 
   BaseBuilder get _$this {
     final $v = _$v;
@@ -553,6 +555,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   Base build() => _build();
 
   _$Base _build() {
+    Base._validate(this);
     _$Base _$result;
     try {
       _$result = _$v ??
@@ -819,7 +822,9 @@ class AdditionalPropertiesBuilder
       _$this._listString ??= MapBuilder<String, BuiltList<String>>();
   set listString(covariant MapBuilder<String, BuiltList<String>>? listString) => _$this._listString = listString;
 
-  AdditionalPropertiesBuilder();
+  AdditionalPropertiesBuilder() {
+    AdditionalProperties._defaults(this);
+  }
 
   AdditionalPropertiesBuilder get _$this {
     final $v = _$v;
@@ -858,6 +863,7 @@ class AdditionalPropertiesBuilder
   AdditionalProperties build() => _build();
 
   _$AdditionalProperties _build() {
+    AdditionalProperties._validate(this);
     _$AdditionalProperties _$result;
     try {
       _$result = _$v ??
