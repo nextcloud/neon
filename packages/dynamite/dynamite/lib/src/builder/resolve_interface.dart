@@ -11,38 +11,6 @@ import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
-Method generateProperty(
-  TypeResult type,
-  String propertyName,
-  String? description,
-) =>
-    Method(
-      (b) {
-        final name = toFieldName(toDartName(propertyName), type.name);
-        b
-          ..name = name
-          ..type = MethodType.getter
-          ..docs.addAll(escapeDescription(description));
-
-        if (type is TypeResultSomeOf && type.isSingleValue) {
-          b.returns = refer(type.dartType.name);
-        } else {
-          b.returns = refer(type.nullableName);
-        }
-
-        final builtValueFieldAnnotations = <String, Expression>{};
-        if (name != propertyName) {
-          builtValueFieldAnnotations['wireName'] = literalString(propertyName);
-        }
-
-        if (builtValueFieldAnnotations.isNotEmpty) {
-          b.annotations.add(
-            refer('BuiltValueField').call([], builtValueFieldAnnotations),
-          );
-        }
-      },
-    );
-
 Spec buildInterface(
   openapi.OpenAPI spec,
   State state,
@@ -62,45 +30,27 @@ Spec buildInterface(
       ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
 
     final defaults = <String>[];
-    final validators = <Expression>[];
+    final validators = BlockBuilder();
 
     if (schema case openapi.Schema(:final allOf) when allOf != null) {
-      for (final s in schema.allOf!) {
-        if (s.properties != null) {
-          final properties = s.properties!.entries;
-
-          b.methods.addAll(
-            properties.map((property) {
-              final propertyName = property.key;
-              final propertySchema = property.value;
-
-              final result = resolveType(
-                spec,
-                state,
-                toDartName(
-                  propertyName,
-                  identifier: identifier,
-                ),
-                propertySchema,
-                nullable: isDartParameterNullable(
-                  s.required.contains(propertyName),
-                  propertySchema,
-                ),
-              );
-
-              return generateProperty(
-                result,
-                propertyName,
-                propertySchema.formattedDescription,
-              );
-            }),
+      for (final schema in allOf) {
+        if (schema case openapi.Schema(properties: != null)) {
+          _generateProperties(
+            schema,
+            spec,
+            state,
+            identifier,
+            b,
+            defaults,
+            validators,
+            isHeader: isHeader,
           );
         } else {
           final object = resolveType(
             spec,
             state,
             identifier,
-            s,
+            schema,
             nullable: nullable,
           );
 
@@ -109,10 +59,10 @@ Spec buildInterface(
               refer('\$${object.name}$interfaceSuffix'),
             );
           } else {
-            final property = generateProperty(
+            final property = _generateProperty(
               object,
               object.className,
-              s.formattedDescription,
+              schema.formattedDescription,
             );
 
             b.methods.add(property);
@@ -120,66 +70,16 @@ Spec buildInterface(
         }
       }
     } else {
-      final properties = schema.properties?.entries;
-
-      if (properties == null || properties.isEmpty) {
-        throw StateError('The schema must have a non empty properties field.');
-      }
-
-      // resolveInterface is not suitable here as we need the resolved result.
-      for (final property in properties) {
-        final propertyName = property.key;
-        final propertySchema = property.value;
-        final dartName = toDartName(propertyName);
-
-        var result = resolveType(
-          spec,
-          state,
-          toDartName(
-            propertyName,
-            identifier: identifier,
-          ),
-          propertySchema,
-          nullable: isDartParameterNullable(
-            schema.required.contains(propertyName),
-            propertySchema,
-          ),
-        );
-
-        if (isHeader && result.className != 'String') {
-          result = TypeResultObject(
-            'Header',
-            generics: BuiltList([result]),
-            nullable: result.nullable,
-          );
-          state.resolvedTypes.add(result);
-        }
-
-        final method = generateProperty(
-          result,
-          propertyName,
-          propertySchema.formattedDescription,
-        );
-        b.methods.add(method);
-
-        final $default = propertySchema.$default;
-        if ($default != null) {
-          final value = $default.toString();
-          defaults.add('..$dartName = ${valueToEscapedValue(result, value)}');
-        }
-
-        if (result is TypeResultOneOf && !result.isSingleValue) {
-          validators.add(
-            refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]),
-          );
-        } else if (result is TypeResultAnyOf && !result.isSingleValue) {
-          validators.add(
-            refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]),
-          );
-        }
-
-        validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));
-      }
+      _generateProperties(
+        schema,
+        spec,
+        state,
+        identifier,
+        b,
+        defaults,
+        validators,
+        isHeader: isHeader,
+      );
     }
 
     b.methods.add(
@@ -230,15 +130,111 @@ Spec buildInterface(
                 ..name = 'b'
                 ..type = refer('${className}Builder'),
             ),
-          );
-        if (validators.isNotEmpty) {
-          b.body = Block.of(
-            validators.map((v) => v.statement),
-          );
-        } else {
-          b.body = const Code('');
-        }
+          )
+          ..body = validators.build();
       }),
     );
   });
+}
+
+void _generateProperties(
+  openapi.Schema schema,
+  openapi.OpenAPI spec,
+  State state,
+  String identifier,
+  ClassBuilder b,
+  List<String> defaults,
+  BlockBuilder validators, {
+  required bool isHeader,
+}) {
+  final properties = schema.properties?.entries;
+
+  if (properties == null || properties.isEmpty) {
+    throw StateError('The schema must have a non empty properties field.');
+  }
+
+  for (final property in properties) {
+    final propertyName = property.key;
+    final propertySchema = property.value;
+    final dartName = toDartName(propertyName);
+
+    var result = resolveType(
+      spec,
+      state,
+      toDartName(
+        propertyName,
+        identifier: identifier,
+      ),
+      propertySchema,
+      nullable: isDartParameterNullable(
+        schema.required.contains(propertyName),
+        propertySchema,
+      ),
+    );
+
+    if (isHeader && result.className != 'String') {
+      result = TypeResultObject(
+        'Header',
+        generics: BuiltList([result]),
+        nullable: result.nullable,
+      );
+      state.resolvedTypes.add(result);
+    }
+
+    final method = _generateProperty(
+      result,
+      propertyName,
+      propertySchema.formattedDescription,
+    );
+    b.methods.add(method);
+
+    final $default = propertySchema.$default;
+    if ($default != null) {
+      final value = $default.toString();
+      defaults.add('..$dartName = ${valueToEscapedValue(result, value)};');
+    }
+
+    if (result is TypeResultOneOf && !result.isSingleValue) {
+      final expression = refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]);
+      validators.addExpression(expression);
+    } else if (result is TypeResultAnyOf && !result.isSingleValue) {
+      final expression = refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]);
+      validators.addExpression(expression);
+    }
+
+    buildPatternCheck(propertySchema, 'b.$dartName', dartName).forEach(validators.addExpression);
+  }
+}
+
+Method _generateProperty(
+  TypeResult type,
+  String propertyName,
+  String? description,
+) {
+  return Method(
+    (b) {
+      final name = toFieldName(toDartName(propertyName), type.name);
+      b
+        ..name = name
+        ..type = MethodType.getter
+        ..docs.addAll(escapeDescription(description));
+
+      if (type is TypeResultSomeOf && type.isSingleValue) {
+        b.returns = refer(type.dartType.name);
+      } else {
+        b.returns = refer(type.nullableName);
+      }
+
+      final builtValueFieldAnnotations = <String, Expression>{};
+      if (name != propertyName) {
+        builtValueFieldAnnotations['wireName'] = literalString(propertyName);
+      }
+
+      if (builtValueFieldAnnotations.isNotEmpty) {
+        b.annotations.add(
+          refer('BuiltValueField').call([], builtValueFieldAnnotations),
+        );
+      }
+    },
+  );
 }
