@@ -1219,9 +1219,14 @@ abstract interface class $PrivateInterface implements $PublicInterface {
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PrivateInterfaceBuilder b) {}
+  static void _defaults($PrivateInterfaceBuilder b) {
+    $PublicInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PrivateInterfaceBuilder b) {}
+  static void _validate($PrivateInterfaceBuilder b) {
+    $PublicInterface._validate(b);
+  }
 }
 
 abstract class Private implements $PrivateInterface, Built<Private, PrivateBuilder> {

@@ -4915,9 +4915,14 @@ abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, 
 abstract interface class $ShareeCircle_ValueInterface implements $ShareeValueInterface {
   String get circle;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeCircle_ValueInterfaceBuilder b) {}
+  static void _defaults($ShareeCircle_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeCircle_ValueInterfaceBuilder b) {}
+  static void _validate($ShareeCircle_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeCircle_Value
@@ -4963,9 +4968,14 @@ abstract interface class $ShareeCircleInterface implements $ShareeInterface {
   String get shareWithDescription;
   ShareeCircle_Value get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeCircleInterfaceBuilder b) {}
+  static void _defaults($ShareeCircleInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeCircleInterfaceBuilder b) {}
+  static void _validate($ShareeCircleInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
@@ -5012,9 +5022,14 @@ abstract interface class $ShareeEmailInterface implements $ShareeInterface {
   String get shareWithDisplayNameUnique;
   ShareeValue get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeEmailInterfaceBuilder b) {}
+  static void _defaults($ShareeEmailInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeEmailInterfaceBuilder b) {}
+  static void _validate($ShareeEmailInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
@@ -5057,9 +5072,14 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 abstract interface class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeRemoteGroup_ValueInterfaceBuilder b) {}
+  static void _defaults($ShareeRemoteGroup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeRemoteGroup_ValueInterfaceBuilder b) {}
+  static void _validate($ShareeRemoteGroup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemoteGroup_Value
@@ -5106,9 +5126,14 @@ abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface
   String get name;
   ShareeRemoteGroup_Value get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeRemoteGroupInterfaceBuilder b) {}
+  static void _defaults($ShareeRemoteGroupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeRemoteGroupInterfaceBuilder b) {}
+  static void _validate($ShareeRemoteGroupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemoteGroup
@@ -5152,9 +5177,14 @@ abstract class ShareeRemoteGroup
 abstract interface class $ShareeRemote_ValueInterface implements $ShareeValueInterface {
   String get server;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeRemote_ValueInterfaceBuilder b) {}
+  static void _defaults($ShareeRemote_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeRemote_ValueInterfaceBuilder b) {}
+  static void _validate($ShareeRemote_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemote_Value
@@ -5202,9 +5232,14 @@ abstract interface class $ShareeRemoteInterface implements $ShareeInterface {
   String get type;
   ShareeRemote_Value get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeRemoteInterfaceBuilder b) {}
+  static void _defaults($ShareeRemoteInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeRemoteInterfaceBuilder b) {}
+  static void _validate($ShareeRemoteInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
@@ -5300,9 +5335,14 @@ abstract interface class $ShareeUserInterface implements $ShareeInterface {
   ShareeUser_Status get status;
   ShareeValue get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeUserInterfaceBuilder b) {}
+  static void _defaults($ShareeUserInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeUserInterfaceBuilder b) {}
+  static void _validate($ShareeUserInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
@@ -5503,9 +5543,14 @@ abstract class ShareeLookup_Extra
 abstract interface class $ShareeLookup_ValueInterface implements $ShareeValueInterface {
   bool get globalScale;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeLookup_ValueInterfaceBuilder b) {}
+  static void _defaults($ShareeLookup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeLookup_ValueInterfaceBuilder b) {}
+  static void _validate($ShareeLookup_ValueInterfaceBuilder b) {
+    $ShareeValueInterface._validate(b);
+  }
 }
 
 abstract class ShareeLookup_Value
@@ -5551,9 +5596,14 @@ abstract interface class $ShareeLookupInterface implements $ShareeInterface {
   ShareeLookup_Extra get extra;
   ShareeLookup_Value get value;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ShareeLookupInterfaceBuilder b) {}
+  static void _defaults($ShareeLookupInterfaceBuilder b) {
+    $ShareeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ShareeLookupInterfaceBuilder b) {}
+  static void _validate($ShareeLookupInterfaceBuilder b) {
+    $ShareeInterface._validate(b);
+  }
 }
 
 abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {

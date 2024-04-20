@@ -935,9 +935,16 @@ abstract class Location implements $LocationInterface, Built<Location, LocationB
 @BuiltValue(instantiable: false)
 abstract interface class $LocationWithSuccessInterface implements $LocationInterface, $SuccessInterface {
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($LocationWithSuccessInterfaceBuilder b) {}
+  static void _defaults($LocationWithSuccessInterfaceBuilder b) {
+    $LocationInterface._defaults(b);
+    $SuccessInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($LocationWithSuccessInterfaceBuilder b) {}
+  static void _validate($LocationWithSuccessInterfaceBuilder b) {
+    $LocationInterface._validate(b);
+    $SuccessInterface._validate(b);
+  }
 }
 
 abstract class LocationWithSuccess
@@ -1133,9 +1140,16 @@ abstract class Mode implements $ModeInterface, Built<Mode, ModeBuilder> {
 @BuiltValue(instantiable: false)
 abstract interface class $LocationWithModeInterface implements $LocationInterface, $ModeInterface {
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($LocationWithModeInterfaceBuilder b) {}
+  static void _defaults($LocationWithModeInterfaceBuilder b) {
+    $LocationInterface._defaults(b);
+    $ModeInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($LocationWithModeInterfaceBuilder b) {}
+  static void _validate($LocationWithModeInterfaceBuilder b) {
+    $LocationInterface._validate(b);
+    $ModeInterface._validate(b);
+  }
 }
 
 abstract class LocationWithMode

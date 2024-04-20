@@ -360,9 +360,14 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
 abstract interface class $PetInterface implements $NewPetInterface {
   int get id;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PetInterfaceBuilder b) {}
+  static void _defaults($PetInterfaceBuilder b) {
+    $NewPetInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PetInterfaceBuilder b) {}
+  static void _validate($PetInterfaceBuilder b) {
+    $NewPetInterface._validate(b);
+  }
 }
 
 abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {

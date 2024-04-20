@@ -441,9 +441,14 @@ abstract interface class $Object1Interface implements $Object2Interface {
   /// The uuid in an UUIDv4 format.
   int get id;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Object1InterfaceBuilder b) {}
+  static void _defaults($Object1InterfaceBuilder b) {
+    $Object2Interface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Object1InterfaceBuilder b) {}
+  static void _validate($Object1InterfaceBuilder b) {
+    $Object2Interface._validate(b);
+  }
 }
 
 /// A representation of the main object.

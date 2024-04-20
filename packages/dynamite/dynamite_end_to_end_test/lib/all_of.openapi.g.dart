@@ -11,6 +11,8 @@ Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer = _$OneObjectAllOfSerializ
 Serializer<PrimitiveAllOf> _$primitiveAllOfSerializer = _$PrimitiveAllOfSerializer();
 Serializer<MixedAllOf> _$mixedAllOfSerializer = _$MixedAllOfSerializer();
 Serializer<OneValueAllOf> _$oneValueAllOfSerializer = _$OneValueAllOfSerializer();
+Serializer<SuperObject> _$superObjectSerializer = _$SuperObjectSerializer();
+Serializer<SubObject> _$subObjectSerializer = _$SubObjectSerializer();
 
 class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   @override
@@ -209,6 +211,82 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
       switch (key) {
         case 'String':
           result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SuperObjectSerializer implements StructuredSerializer<SuperObject> {
+  @override
+  final Iterable<Type> types = const [SuperObject, _$SuperObject];
+  @override
+  final String wireName = 'SuperObject';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SuperObject object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SuperObject deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SuperObjectBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SubObjectSerializer implements StructuredSerializer<SubObject> {
+  @override
+  final Iterable<Type> types = const [SubObject, _$SubObject];
+  @override
+  final String wireName = 'SubObject';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SubObject object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SubObject deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SubObjectBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -698,6 +776,178 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
     OneValueAllOf._validate(this);
     final _$result =
         _$v ?? _$OneValueAllOf._(string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SuperObjectInterfaceBuilder {
+  void replace($SuperObjectInterface other);
+  void update(void Function($SuperObjectInterfaceBuilder) updates);
+  String? get value;
+  set value(String? value);
+}
+
+class _$SuperObject extends SuperObject {
+  @override
+  final String value;
+
+  factory _$SuperObject([void Function(SuperObjectBuilder)? updates]) =>
+      (SuperObjectBuilder()..update(updates))._build();
+
+  _$SuperObject._({required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value');
+  }
+
+  @override
+  SuperObject rebuild(void Function(SuperObjectBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  SuperObjectBuilder toBuilder() => SuperObjectBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SuperObject && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SuperObject')..add('value', value)).toString();
+  }
+}
+
+class SuperObjectBuilder implements Builder<SuperObject, SuperObjectBuilder>, $SuperObjectInterfaceBuilder {
+  _$SuperObject? _$v;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  SuperObjectBuilder() {
+    SuperObject._defaults(this);
+  }
+
+  SuperObjectBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SuperObject other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SuperObject;
+  }
+
+  @override
+  void update(void Function(SuperObjectBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SuperObject build() => _build();
+
+  _$SuperObject _build() {
+    SuperObject._validate(this);
+    final _$result =
+        _$v ?? _$SuperObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SubObjectInterfaceBuilder implements $SuperObjectInterfaceBuilder {
+  void replace(covariant $SubObjectInterface other);
+  void update(void Function($SubObjectInterfaceBuilder) updates);
+  String? get value;
+  set value(covariant String? value);
+}
+
+class _$SubObject extends SubObject {
+  @override
+  final String value;
+
+  factory _$SubObject([void Function(SubObjectBuilder)? updates]) => (SubObjectBuilder()..update(updates))._build();
+
+  _$SubObject._({required this.value}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value');
+  }
+
+  @override
+  SubObject rebuild(void Function(SubObjectBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  SubObjectBuilder toBuilder() => SubObjectBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SubObject && value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SubObject')..add('value', value)).toString();
+  }
+}
+
+class SubObjectBuilder implements Builder<SubObject, SubObjectBuilder>, $SubObjectInterfaceBuilder {
+  _$SubObject? _$v;
+
+  String? _value;
+  String? get value => _$this._value;
+  set value(covariant String? value) => _$this._value = value;
+
+  SubObjectBuilder() {
+    SubObject._defaults(this);
+  }
+
+  SubObjectBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SubObject other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SubObject;
+  }
+
+  @override
+  void update(void Function(SubObjectBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SubObject build() => _build();
+
+  _$SubObject _build() {
+    SubObject._validate(this);
+    final _$result = _$v ?? _$SubObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'));
     replace(_$result);
     return _$result;
   }

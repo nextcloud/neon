@@ -86,6 +86,29 @@
                         "type": "string"
                     }
                 ]
+            },
+            "SuperObject": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "pattern": "^[0-9]*$",
+                        "minLength": 3,
+                        "maxLength": 20,
+                        "default": "123"
+                    }
+                },
+                "required": [
+                    "value"
+                ]
+            },
+            "SubObject": {
+                "type": "object",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/SuperObject"
+                    }
+                ]
             }
         }
     },

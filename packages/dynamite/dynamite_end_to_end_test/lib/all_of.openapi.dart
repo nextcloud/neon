@@ -10,9 +10,10 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:meta/meta.dart' as _i1;
+import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/utils.dart' as _i1;
+import 'package:meta/meta.dart' as _i2;
 
 part 'all_of.openapi.g.dart';
 
@@ -232,12 +233,113 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $SuperObjectInterface {
+  String get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SuperObjectInterfaceBuilder b) {
+    b.value = '123';
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SuperObjectInterfaceBuilder b) {
+    _i1.checkPattern(
+      b.value,
+      RegExp(r'^[0-9]*$'),
+      'value',
+    );
+    _i1.checkMinLength(
+      b.value,
+      3,
+      'value',
+    );
+    _i1.checkMaxLength(
+      b.value,
+      20,
+      'value',
+    );
+  }
+}
+
+abstract class SuperObject implements $SuperObjectInterface, Built<SuperObject, SuperObjectBuilder> {
+  /// Creates a new SuperObject object using the builder pattern.
+  factory SuperObject([void Function(SuperObjectBuilder)? b]) = _$SuperObject;
+
+  const SuperObject._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory SuperObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for SuperObject.
+  static Serializer<SuperObject> get serializer => _$superObjectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SuperObjectBuilder b) {
+    $SuperObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SuperObjectBuilder b) {
+    $SuperObjectInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SubObjectInterface implements $SuperObjectInterface {
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SubObjectInterfaceBuilder b) {
+    $SuperObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SubObjectInterfaceBuilder b) {
+    $SuperObjectInterface._validate(b);
+  }
+}
+
+abstract class SubObject implements $SubObjectInterface, Built<SubObject, SubObjectBuilder> {
+  /// Creates a new SubObject object using the builder pattern.
+  factory SubObject([void Function(SubObjectBuilder)? b]) = _$SubObject;
+
+  const SubObject._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory SubObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for SubObject.
+  static Serializer<SubObject> get serializer => _$subObjectSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SubObjectBuilder b) {
+    $SubObjectInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SubObjectBuilder b) {
+    $SubObjectInterface._validate(b);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
@@ -249,19 +351,23 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
       ..add(MixedAllOf.serializer)
       ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
-      ..add(OneValueAllOf.serializer))
+      ..add(OneValueAllOf.serializer)
+      ..addBuilderFactory(const FullType(SuperObject), SuperObjectBuilder.new)
+      ..add(SuperObject.serializer)
+      ..addBuilderFactory(const FullType(SubObject), SubObjectBuilder.new)
+      ..add(SubObject.serializer))
     .build();
 
 /// Serializer for all values in this library.
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i1.visibleForTesting
+@_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i3.DynamiteDoubleSerializer())
+      ..addPlugin(_i4.StandardJsonPlugin())
+      ..addPlugin(const _i3.HeaderPlugin())
+      ..addPlugin(const _i3.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

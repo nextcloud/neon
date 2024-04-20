@@ -29,7 +29,7 @@ Spec buildInterface(
       ..name = className
       ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
 
-    final defaults = <String>[];
+    final defaults = StringBuffer();
     final validators = BlockBuilder();
 
     if (schema case openapi.Schema(:final allOf) when allOf != null) {
@@ -55,9 +55,11 @@ Spec buildInterface(
           );
 
           if (object is TypeResultObject) {
-            b.implements.add(
-              refer('\$${object.name}$interfaceSuffix'),
-            );
+            final interfaceName = '\$${object.name}$interfaceSuffix';
+            defaults.writeln('$interfaceName._defaults(b);');
+            validators.addExpression(refer('$interfaceName._validate').call([refer('b')]));
+
+            b.implements.add(refer(interfaceName));
           } else {
             final property = _generateProperty(
               object,
@@ -101,12 +103,7 @@ Spec buildInterface(
             ),
           );
         if (defaults.isNotEmpty) {
-          b.body = Code(
-            <String?>[
-              'b',
-              ...defaults,
-            ].join(),
-          );
+          b.body = Code(defaults.toString());
         } else {
           b.body = const Code('');
         }
@@ -143,7 +140,7 @@ void _generateProperties(
   State state,
   String identifier,
   ClassBuilder b,
-  List<String> defaults,
+  StringSink defaults,
   BlockBuilder validators, {
   required bool isHeader,
 }) {
@@ -191,7 +188,7 @@ void _generateProperties(
     final $default = propertySchema.$default;
     if ($default != null) {
       final value = $default.toString();
-      defaults.add('..$dartName = ${valueToEscapedValue(result, value)};');
+      defaults.writeln('b.$dartName = ${valueToEscapedValue(result, value)};');
     }
 
     if (result is TypeResultOneOf && !result.isSingleValue) {

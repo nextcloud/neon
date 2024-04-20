@@ -152,9 +152,14 @@ abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterfac
   @BuiltValueField(wireName: 'attribute-nested-allOf')
   String get attributeNestedAllOf;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BaseNestedAllOfInterfaceBuilder b) {}
+  static void _defaults($BaseNestedAllOfInterfaceBuilder b) {
+    $BaseAllOfInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BaseNestedAllOfInterfaceBuilder b) {}
+  static void _validate($BaseNestedAllOfInterfaceBuilder b) {
+    $BaseAllOfInterface._validate(b);
+  }
 }
 
 abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {

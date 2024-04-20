@@ -16199,9 +16199,14 @@ abstract interface class $BotWithDetailsInterface implements $BotInterface {
   @BuiltValueField(wireName: 'url_hash')
   String get urlHash;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotWithDetailsInterfaceBuilder b) {}
+  static void _defaults($BotWithDetailsInterfaceBuilder b) {
+    $BotInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotWithDetailsInterfaceBuilder b) {}
+  static void _validate($BotWithDetailsInterfaceBuilder b) {
+    $BotInterface._validate(b);
+  }
 }
 
 abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
@@ -21541,9 +21546,14 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
 abstract interface class $ChatMessageWithParentInterface implements $ChatMessageInterface {
   ChatMessage? get parent;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatMessageWithParentInterfaceBuilder b) {}
+  static void _defaults($ChatMessageWithParentInterfaceBuilder b) {
+    $ChatMessageInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatMessageWithParentInterfaceBuilder b) {}
+  static void _validate($ChatMessageWithParentInterfaceBuilder b) {
+    $ChatMessageInterface._validate(b);
+  }
 }
 
 abstract class ChatMessageWithParent
@@ -25587,9 +25597,16 @@ abstract class MatterbridgeProcessState
 abstract interface class $MatterbridgeWithProcessStateInterface
     implements $MatterbridgeInterface, $MatterbridgeProcessStateInterface {
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MatterbridgeWithProcessStateInterfaceBuilder b) {}
+  static void _defaults($MatterbridgeWithProcessStateInterfaceBuilder b) {
+    $MatterbridgeInterface._defaults(b);
+    $MatterbridgeProcessStateInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($MatterbridgeWithProcessStateInterfaceBuilder b) {}
+  static void _validate($MatterbridgeWithProcessStateInterfaceBuilder b) {
+    $MatterbridgeInterface._validate(b);
+    $MatterbridgeProcessStateInterface._validate(b);
+  }
 }
 
 abstract class MatterbridgeWithProcessState
@@ -42859,9 +42876,14 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
 abstract interface class $BotWithDetailsAndSecretInterface implements $BotWithDetailsInterface {
   String get secret;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotWithDetailsAndSecretInterfaceBuilder b) {}
+  static void _defaults($BotWithDetailsAndSecretInterfaceBuilder b) {
+    $BotWithDetailsInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotWithDetailsAndSecretInterfaceBuilder b) {}
+  static void _validate($BotWithDetailsAndSecretInterfaceBuilder b) {
+    $BotWithDetailsInterface._validate(b);
+  }
 }
 
 abstract class BotWithDetailsAndSecret

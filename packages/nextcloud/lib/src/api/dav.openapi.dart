@@ -850,9 +850,14 @@ abstract interface class $CurrentOutOfOfficeDataInterface implements $OutOfOffic
   int get endDate;
   String get shortMessage;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CurrentOutOfOfficeDataInterfaceBuilder b) {}
+  static void _defaults($CurrentOutOfOfficeDataInterfaceBuilder b) {
+    $OutOfOfficeDataCommonInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CurrentOutOfOfficeDataInterfaceBuilder b) {}
+  static void _validate($CurrentOutOfOfficeDataInterfaceBuilder b) {
+    $OutOfOfficeDataCommonInterface._validate(b);
+  }
 }
 
 abstract class CurrentOutOfOfficeData
@@ -1007,9 +1012,14 @@ abstract interface class $OutOfOfficeDataInterface implements $OutOfOfficeDataCo
   String get lastDay;
   String get status;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($OutOfOfficeDataInterfaceBuilder b) {}
+  static void _defaults($OutOfOfficeDataInterfaceBuilder b) {
+    $OutOfOfficeDataCommonInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($OutOfOfficeDataInterfaceBuilder b) {}
+  static void _validate($OutOfOfficeDataInterfaceBuilder b) {
+    $OutOfOfficeDataCommonInterface._validate(b);
+  }
 }
 
 abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOfOfficeData, OutOfOfficeDataBuilder> {
