@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 import 'package:rxdart/subjects.dart';
@@ -42,6 +43,45 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     token = room.token;
     this.room.add(Result.success(room));
 
+    unawaited(() async {
+      while (pollLoop) {
+        final lastKnownMessageId =
+            messages.valueOrNull?.data?.firstOrNull?.id ?? this.room.valueOrNull?.data?.lastMessage.chatMessage?.id;
+        if (lastKnownMessageId == null) {
+          log.fine('Last message ID not known');
+          await Future<void>.delayed(const Duration(seconds: 1));
+          continue;
+        }
+
+        log.info('Polling messages');
+
+        try {
+          final response = await account.client.spreed.chat.receiveMessages(
+            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$1,
+            token: token,
+            includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
+            lastKnownMessageId: lastKnownMessageId,
+            limit: 100,
+          );
+
+          updateLastCommonRead(response.headers.xChatLastCommonRead);
+          prependMessages(response.body.ocs.data.reversed);
+        } catch (error, stackTrace) {
+          if (error case DynamiteStatusCodeException(statusCode: 304)) {
+            log.info('Polling returned no new messages');
+          } else {
+            log.info(
+              'Error while waiting for new chat messages',
+              error,
+              stackTrace,
+            );
+          }
+        }
+      }
+
+      log.info('Polling messages done');
+    }());
+
     unawaited(refresh());
   }
 
@@ -50,6 +90,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   final Account account;
   late final String token;
+  bool pollLoop = true;
 
   @override
   final room = BehaviorSubject();
@@ -62,6 +103,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   void dispose() {
+    pollLoop = false;
     unawaited(account.client.spreed.room.leaveRoom(token: token));
 
     unawaited(room.close());
@@ -116,7 +158,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
         final m = response.body.ocs.data;
         if (m != null) {
-          prependMessage(m);
+          prependMessages([m]);
         }
       },
       refresh: () async {},
@@ -129,12 +171,28 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     }
   }
 
-  void prependMessage(spreed.ChatMessageWithParent message) {
-    final result = messages.value;
-    messages.add(
-      result.copyWith(
-        data: ((result.data?.toBuilder() ?? ListBuilder())..insert(0, message)).build(),
-      ),
-    );
+  void prependMessages(Iterable<spreed.ChatMessageWithParent> newMessages) {
+    if (messages.hasValue) {
+      final builder = ListBuilder<spreed.ChatMessageWithParent>(newMessages);
+
+      final result = messages.value;
+      if (result.hasData) {
+        final lastMessageID = newMessages.lastOrNull?.id;
+
+        if (lastMessageID == null) {
+          builder.addAll(result.requireData);
+        } else {
+          builder.addAll(result.requireData.where((message) => message.id < lastMessageID));
+        }
+      }
+
+      messages.add(
+        result.copyWith(
+          data: builder.build(),
+        ),
+      );
+    } else {
+      messages.add(Result.success(BuiltList(newMessages)));
+    }
   }
 }

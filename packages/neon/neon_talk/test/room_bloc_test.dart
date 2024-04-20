@@ -38,7 +38,25 @@ Account mockTalkAccount() {
           ),
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd'): {
-      'get': (match, queryParameters) => Response(
+      'get': (match, queryParameters) async {
+        final lookIntoFuture = queryParameters['lookIntoFuture']!.single == '1';
+        if (lookIntoFuture) {
+          // Simulate a new message received after some time
+          await Future<void>.delayed(const Duration(milliseconds: 1));
+          return Response(
+            json.encode({
+              'ocs': {
+                'meta': {'status': '', 'statuscode': 0},
+                'data': List.generate(2, (i) => getChatMessage(id: messageCount++)),
+              },
+            }),
+            200,
+            headers: {
+              'x-chat-last-common-read': '0',
+            },
+          );
+        } else {
+          return Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -49,7 +67,9 @@ Account mockTalkAccount() {
             headers: {
               'x-chat-last-common-read': '0',
             },
-          ),
+          );
+        }
+      },
       'post': (match, queryParameters) => Response(
             json.encode({
               'ocs': {
@@ -77,6 +97,7 @@ void main() {
   setUp(() {
     final room = MockRoom();
     when(() => room.token).thenReturn('abcd');
+    when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
 
     account = mockTalkAccount();
     bloc = TalkRoomBloc(
@@ -140,5 +161,21 @@ void main() {
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
     bloc.sendMessage('');
+  });
+
+  test('polling', () async {
+    expect(
+      bloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+      emitsInOrder([
+        Result<BuiltList<int>>.loading(),
+        Result.success(BuiltList<int>([2, 1, 0])),
+        Result.success(BuiltList<int>([4, 3, 2, 1, 0])),
+      ]),
+    );
+
+    expect(
+      bloc.lastCommonRead,
+      emitsInOrder([0, 0]),
+    );
   });
 }
