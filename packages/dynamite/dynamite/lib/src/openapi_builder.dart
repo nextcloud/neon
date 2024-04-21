@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:build/build.dart';
+import 'package:build/build.dart' hide log;
 import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
@@ -11,6 +11,7 @@ import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/helpers/version_checker.dart';
 import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
@@ -140,8 +141,12 @@ class OpenAPIBuilder implements Builder {
           formatter.format(outputString),
         ),
       );
-    } catch (e, s) {
-      print(s);
+    } catch (error, stackTrace) {
+      log.severe(
+        'Issue generating the library for $inputId',
+        error,
+        stackTrace,
+      );
 
       rethrow;
     }

@@ -3,6 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
 import 'package:dynamite/src/models/openapi/discriminator.dart';
 
@@ -84,9 +85,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
       if (!allowedIntegerFormats.contains(b.format)) {
         throw OpenAPISpecError('Format "${b.format}" is not allowed for ${b.type}. Use one of $allowedIntegerFormats.');
       } else if (b.format != null) {
-        print(
-          'All integers are represented as `int` meaning 64bit precision in the VM/wasm and 53bit precision on js.',
-        );
+        dynamiteLog.integerPrecision();
       }
     }
   }
