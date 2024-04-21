@@ -1,6 +1,6 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:collection/collection.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
 
 part 'security_scheme.g.dart';
 
@@ -22,5 +22,32 @@ abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBui
 
   String? get name;
 
-  Iterable<String> get fullName => [type, scheme, $in, name].whereNotNull();
+  @memoized
+  String get fullName {
+    final buffer = StringBuffer('Dynamite-')
+      ..write(type)
+      ..write('-');
+
+    if (scheme != null) {
+      buffer
+        ..write(scheme)
+        ..write('-');
+    }
+    if ($in != null) {
+      buffer
+        ..write($in)
+        ..write('-');
+    }
+    if (name != null) {
+      buffer
+        ..write(name)
+        ..write('-');
+    }
+    buffer.write('-Authentication');
+
+    return toDartName(
+      buffer.toString(),
+      className: true,
+    );
+  }
 }

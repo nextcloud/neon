@@ -153,6 +153,7 @@ class _$PathItem extends PathItem {
   final Operation? patch;
   @override
   final Operation? trace;
+  Map<PathItemOperation, Operation>? __operations;
 
   factory _$PathItem([void Function(PathItemBuilder)? updates]) => (PathItemBuilder()..update(updates))._build();
 
@@ -168,6 +169,9 @@ class _$PathItem extends PathItem {
       this.patch,
       this.trace})
       : super._();
+
+  @override
+  Map<PathItemOperation, Operation> get operations => __operations ??= super.operations;
 
   @override
   PathItem rebuild(void Function(PathItemBuilder) updates) => (toBuilder()..update(updates)).build();

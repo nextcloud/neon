@@ -63,9 +63,10 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   bool get nullable;
 
-  bool get isContentString =>
-      type == SchemaType.string && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
+  @memoized
+  bool get isContentString => type == SchemaType.string && contentMediaType != null && contentSchema != null;
 
+  @memoized
   String? get formattedDescription => formatDescription(description);
 
   @BuiltValueHook(finalizeBuilder: true)

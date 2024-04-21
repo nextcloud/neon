@@ -634,11 +634,8 @@ final authentication = $client.authentications?.firstWhereOrNull(
     ..writeAll(
       securityRequirements.map((requirement) {
         final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
-        final dynamiteAuth = toDartName(
-          'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
-          className: true,
-        );
-        return refer(dynamiteAuth, 'package:dynamite_runtime/http_client.dart')
+
+        return refer(securityScheme.fullName, 'package:dynamite_runtime/http_client.dart')
             .newInstance(const [])
             .accept(state.emitter)
             .toString();

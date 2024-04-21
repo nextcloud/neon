@@ -59,11 +59,22 @@ class _$Tag extends Tag {
   final String name;
   @override
   final String? description;
+  String? __formattedDescription;
+  bool ___formattedDescription = false;
 
   factory _$Tag([void Function(TagBuilder)? updates]) => (TagBuilder()..update(updates))._build();
 
   _$Tag._({required this.name, this.description}) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Tag', 'name');
+  }
+
+  @override
+  String? get formattedDescription {
+    if (!___formattedDescription) {
+      __formattedDescription = super.formattedDescription;
+      ___formattedDescription = true;
+    }
+    return __formattedDescription;
   }
 
   @override

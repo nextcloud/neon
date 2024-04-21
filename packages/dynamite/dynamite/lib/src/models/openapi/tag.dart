@@ -16,5 +16,6 @@ abstract class Tag implements Built<Tag, TagBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
+  @memoized
   String? get formattedDescription => formatDescription(description);
 }
