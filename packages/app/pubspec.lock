@@ -117,10 +117,10 @@ packages:
     dependency: transitive
     description:
       name: camera_avfoundation
-      sha256: "138242ed4e3030c2738ca70858e56714deb087c2f8ce8226c0aa61208f075882"
+      sha256: "9dbbb253aaf201a69c40cf95571f366ca936305d2de012684e21f6f1b1433d31"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.15+2"
+    version: "0.9.15+4"
   camera_platform_interface:
     dependency: transitive
     description:
@@ -177,14 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  code_builder:
-    dependency: transitive
-    description:
-      name: code_builder
-      sha256: f692079e25e7869c14132d39f223f8eec9830eb76131925143b2129c4bb01b37
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.10.0"
   collection:
     dependency: transitive
     description:
@@ -432,10 +424,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_local_notifications
-      sha256: a701df4866f9a38bb8e4450a54c143bbeeb0ce2381e7df5a36e1006f3b43bb28
+      sha256: "8cdc719114ab1c86c64bb7a86d3a679674c3637edd229e3a994797d4a1504ce4"
       url: "https://pub.dev"
     source: hosted
-    version: "17.0.1"
+    version: "17.1.0"
   flutter_local_notifications_linux:
     dependency: transitive
     description:
@@ -448,10 +440,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_local_notifications_platform_interface
-      sha256: "7cf643d6d5022f3baed0be777b0662cce5919c0a7b86e700299f22dc4ae660ef"
+      sha256: "340abf67df238f7f0ef58f4a26d2a83e1ab74c77ab03cd2b2d5018ac64db30b7"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0+1"
+    version: "7.1.0"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -461,10 +453,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_markdown
-      sha256: "15f39b20486760f9b85531ed2ef7f63e3a376210d2ff83614119ee93fda5670c"
+      sha256: "9921f9deda326f8a885e202b1e35237eadfc1345239a0f6f0f1ff287e047547f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.7.1"
   flutter_material_design_icons:
     dependency: transitive
     description:
@@ -986,14 +978,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.2"
-  pigeon:
-    dependency: transitive
-    description:
-      name: pigeon
-      sha256: be883401d09121c427ed9c5f6e96427787d93d335f55e5e2b0d780a0a22cd561
-      url: "https://pub.dev"
-    source: hosted
-    version: "18.0.0"
   platform:
     dependency: transitive
     description:
@@ -1014,10 +998,10 @@ packages:
     dependency: transitive
     description:
       name: pointycastle
-      sha256: "70fe966348fe08c34bf929582f1d8247d9d9408130723206472b4687227e4333"
+      sha256: "79fbafed02cfdbe85ef3fd06c7f4bc2cbcba0177e61b765264853d4253b21744"
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.0"
+    version: "3.9.0"
   pool:
     dependency: transitive
     description:
