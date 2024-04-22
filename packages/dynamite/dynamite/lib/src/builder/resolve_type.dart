@@ -73,12 +73,12 @@ TypeResult _resolveType(
       );
 
     case openapi.Schema(ref: != null):
-      final name = schema.ref!.split('/').last;
+      final name = schema.ref!.fragment.split('/').last;
       final subResult = resolveType(
         spec,
         state,
         toDartName(name, className: true),
-        spec.components!.schemas![name]!,
+        schema.resolveRef(state.rootJson),
         nullable: nullable,
       );
 

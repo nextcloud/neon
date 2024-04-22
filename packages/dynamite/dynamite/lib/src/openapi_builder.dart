@@ -55,17 +55,19 @@ class OpenAPIBuilder implements Builder {
     final outputId = inputId.changeExtension('.dart');
 
     try {
-      final spec = switch (inputId.extension) {
-        '.json' => openapi.serializers.deserializeWith(
-            openapi.OpenAPI.serializer,
-            json.decode(await buildStep.readAsString(inputId)),
-          )!,
-        '.yaml' => checkedYamlDecode(
+      final json = switch (inputId.extension) {
+        '.json' => jsonDecode(await buildStep.readAsString(inputId)) as Map<String, dynamic>,
+        '.yaml' => checkedYamlDecode<Map<String, dynamic>>(
             await buildStep.readAsString(inputId),
-            (m) => openapi.serializers.deserializeWith(openapi.OpenAPI.serializer, m)!,
+            (m) => m!.cast(),
           ),
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };
+
+      final spec = openapi.serializers.deserializeWith(
+        openapi.OpenAPI.serializer,
+        json,
+      )!;
 
       final version = Version.parse(spec.version);
       if (version < minSupportedVersion || version > maxSupportedVersion) {
@@ -73,7 +75,7 @@ class OpenAPIBuilder implements Builder {
       }
 
       final config = buildConfig.configFor(inputId.path);
-      final state = State(config);
+      final state = State(config, json);
 
       final output = Library((b) {
         final analyzerIgnores = state.buildConfig.analyzerIgnores;
