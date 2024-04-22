@@ -17,7 +17,6 @@ base:
         avoid_annotating_with_dynamic: false
         avoid_as: false
         avoid_catches_without_on_clauses: false
-        avoid_print: false
         diagnostic_describe_all_properties: false
         lines_longer_than_80_chars: false
         no_default_cases: false

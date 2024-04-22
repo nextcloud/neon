@@ -1,1 +1,5 @@
 include: package:neon_lints/dart.yaml
+
+linter:
+  rules:
+    avoid_print: false

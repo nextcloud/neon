@@ -3,6 +3,3 @@ include: package:neon_lints/src/base.yaml
 analyzer:
   plugins:
     - custom_lint
-linter:
-  rules:
-    avoid_print: true
