@@ -1,6 +1,7 @@
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -12,7 +13,7 @@ TypeResult? resolveMimeTypeDecode(
 ) {
   if (response.content != null) {
     if (response.content!.length > 1) {
-      print('Can not work with multiple mime types right now. Using the first supported.');
+      dynamiteLog.multipleMimeTypes();
     }
 
     for (final content in response.content!.entries) {

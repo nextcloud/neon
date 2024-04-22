@@ -3,6 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
 import 'package:dynamite/src/models/openapi/media_type.dart';
 import 'package:dynamite/src/models/openapi/schema.dart';
@@ -170,7 +171,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     }
 
     if (b.required! && b._$schema != null && b.$schema.$default != null) {
-      print('Required parameters should not specify default values.');
+      dynamiteLog.requiredParameters();
     }
 
     if (b._$schema != null && b._content != null) {

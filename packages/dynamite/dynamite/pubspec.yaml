@@ -20,6 +20,7 @@ dependencies:
   collection: ^1.0.0
   crypto: ^3.0.0
   dart_style: ^2.0.0
+  logging: ^1.2.0
   meta: ^1.0.0
   path: ^1.0.0
   pub_semver: ^2.1.0

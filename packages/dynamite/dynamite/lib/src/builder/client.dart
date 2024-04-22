@@ -8,6 +8,7 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
@@ -184,7 +185,7 @@ Iterable<Method> buildTags(
         }
 
         if (responses.length > 1) {
-          print('$operationName uses more than one response schema but we only generate the first one');
+          dynamiteLog.multipleResponseSchemas();
           responses = Map.fromEntries([responses.entries.first]);
         }
       }
@@ -234,7 +235,7 @@ Iterable<Method> buildTags(
       if (requestBody != null) {
         for (final content in requestBody.content.entries) {
           if (bodyParameter != null) {
-            print('Can not work with multiple mime types right now. Using the first supported.');
+            dynamiteLog.multipleMimeTypes();
             break;
           }
 
