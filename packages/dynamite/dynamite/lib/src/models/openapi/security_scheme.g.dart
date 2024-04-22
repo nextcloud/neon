@@ -93,6 +93,7 @@ class _$SecurityScheme extends SecurityScheme {
   final String? $in;
   @override
   final String? name;
+  String? __fullName;
 
   factory _$SecurityScheme([void Function(SecuritySchemeBuilder)? updates]) =>
       (SecuritySchemeBuilder()..update(updates))._build();
@@ -100,6 +101,9 @@ class _$SecurityScheme extends SecurityScheme {
   _$SecurityScheme._({required this.type, this.description, this.scheme, this.$in, this.name}) : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type');
   }
+
+  @override
+  String get fullName => __fullName ??= super.fullName;
 
   @override
   SecurityScheme rebuild(void Function(SecuritySchemeBuilder) updates) => (toBuilder()..update(updates)).build();

@@ -39,6 +39,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   ParameterStyle get style;
 
+  @memoized
   Schema? get schema {
     if ($schema != null) {
       return $schema;
@@ -178,6 +179,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     }
   }
 
+  @memoized
   String get formattedDescription {
     final name = toDartName(this.name);
     final buffer = StringBuffer()..write('  * [$name]');

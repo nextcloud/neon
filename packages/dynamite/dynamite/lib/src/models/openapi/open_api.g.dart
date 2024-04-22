@@ -124,6 +124,7 @@ class _$OpenAPI extends OpenAPI {
   final Components? components;
   @override
   final BuiltMap<String, PathItem>? paths;
+  bool? __hasAnySecurity;
 
   factory _$OpenAPI([void Function(OpenAPIBuilder)? updates]) => (OpenAPIBuilder()..update(updates))._build();
 
@@ -140,6 +141,9 @@ class _$OpenAPI extends OpenAPI {
     BuiltValueNullFieldError.checkNotNull(info, r'OpenAPI', 'info');
     BuiltValueNullFieldError.checkNotNull(servers, r'OpenAPI', 'servers');
   }
+
+  @override
+  bool get hasAnySecurity => __hasAnySecurity ??= super.hasAnySecurity;
 
   @override
   OpenAPI rebuild(void Function(OpenAPIBuilder) updates) => (toBuilder()..update(updates)).build();

@@ -34,6 +34,7 @@ abstract class PathItem implements Built<PathItem, PathItemBuilder> {
 
   Operation? get trace;
 
+  @memoized
   Map<PathItemOperation, Operation> get operations => <PathItemOperation, Operation>{
         if (get != null) PathItemOperation.get: get!,
         if (put != null) PathItemOperation.put: put!,

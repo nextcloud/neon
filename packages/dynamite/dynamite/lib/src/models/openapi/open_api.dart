@@ -33,6 +33,7 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
 
   BuiltMap<String, PathItem>? get paths;
 
+  @memoized
   bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
 
   @BuiltValueHook(finalizeBuilder: true)

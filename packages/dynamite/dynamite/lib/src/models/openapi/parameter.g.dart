@@ -220,6 +220,9 @@ class _$Parameter extends Parameter {
   final bool allowReserved;
   @override
   final ParameterStyle style;
+  Schema? __schema;
+  bool ___schema = false;
+  String? __formattedDescription;
 
   factory _$Parameter([void Function(ParameterBuilder)? updates]) => (ParameterBuilder()..update(updates))._build();
 
@@ -241,6 +244,18 @@ class _$Parameter extends Parameter {
     BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved');
     BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style');
   }
+
+  @override
+  Schema? get schema {
+    if (!___schema) {
+      __schema = super.schema;
+      ___schema = true;
+    }
+    return __schema;
+  }
+
+  @override
+  String get formattedDescription => __formattedDescription ??= super.formattedDescription;
 
   @override
   Parameter rebuild(void Function(ParameterBuilder) updates) => (toBuilder()..update(updates)).build();

@@ -321,6 +321,9 @@ class _$Schema extends Schema {
   final int? maxLength;
   @override
   final bool nullable;
+  bool? __isContentString;
+  String? __formattedDescription;
+  bool ___formattedDescription = false;
 
   factory _$Schema([void Function(SchemaBuilder)? updates]) => (SchemaBuilder()..update(updates))._build();
 
@@ -350,6 +353,18 @@ class _$Schema extends Schema {
     BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(required, r'Schema', 'required');
     BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable');
+  }
+
+  @override
+  bool get isContentString => __isContentString ??= super.isContentString;
+
+  @override
+  String? get formattedDescription {
+    if (!___formattedDescription) {
+      __formattedDescription = super.formattedDescription;
+      ___formattedDescription = true;
+    }
+    return __formattedDescription;
   }
 
   @override
