@@ -1,17 +1,22 @@
 import 'package:build/build.dart' hide log;
 import 'package:dynamite/src/helpers/logger.dart';
+import 'package:dynamite/src/models/dynamite_config/builder_type.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 
 // Also update the README.md if you change this.
-final dependencies = {
+final openapiDependencies = {
+  ...jsonSchemaDependencies,
+  'http': Version.parse('1.2.0'),
+  'uri': Version.parse('1.0.0'),
+};
+
+final jsonSchemaDependencies = {
   'built_collection': Version.parse('5.0.0'),
   'built_value': Version.parse('8.9.0'),
   'collection': Version.parse('1.0.0'),
   'dynamite_runtime': Version.parse('0.3.0'),
-  'http': Version.parse('1.2.0'),
   'meta': Version.parse('1.0.0'),
-  'uri': Version.parse('1.0.0'),
 };
 
 // Also update the README.md if you change this.
@@ -20,8 +25,13 @@ final devDependencies = {
 };
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
-Future<bool> helperVersionCheck(BuildStep buildStep) async {
+Future<bool> helperVersionCheck(BuildStep buildStep, DynamiteBuilder builderType) async {
   final pubspecAsset = AssetId(buildStep.inputId.package, 'pubspec.yaml');
+
+  final dependencies = switch (builderType) {
+    DynamiteBuilder.openapi => openapiDependencies,
+    DynamiteBuilder.jsonSchema => jsonSchemaDependencies,
+  };
 
   if (!await buildStep.canRead(pubspecAsset)) {
     log.severe('Failed to read the pubspec.yaml file. Version constraints of required packages can not be validated.');
