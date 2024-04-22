@@ -15,7 +15,7 @@ abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  BuiltMap<String, MediaType>? get content;
+  BuiltMap<String, MediaType> get content;
 
   bool get required;
 

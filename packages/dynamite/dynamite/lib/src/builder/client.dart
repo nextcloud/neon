@@ -232,7 +232,7 @@ Iterable<Method> buildTags(
       ({String mimeType, TypeResult result})? bodyParameter;
       final requestBody = operation.requestBody;
       if (requestBody != null) {
-        for (final content in requestBody.content!.entries) {
+        for (final content in requestBody.content.entries) {
           if (bodyParameter != null) {
             print('Can not work with multiple mime types right now. Using the first supported.');
             break;

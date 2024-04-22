@@ -45,15 +45,14 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       return $schema;
     }
 
-    if (content != null && content!.isNotEmpty) {
-      if (content!.length > 1) {
-        print('Can not work with multiple mime types right now. Using the first supported.');
-      }
+    if (content != null) {
+      final mediaType = content!.entries.single;
+
       return Schema(
         (b) => b
           ..type = SchemaType.string
-          ..contentMediaType = content!.entries.first.key
-          ..contentSchema = content!.entries.first.value.schema!.toBuilder(),
+          ..contentMediaType = mediaType.key
+          ..contentSchema.replace(mediaType.value.schema!),
       );
     }
 
