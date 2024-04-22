@@ -24,8 +24,14 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
   /// Search for a [term].
   void search(String term);
 
+  /// Enables searching in all providers.
+  void enableExtendedSearch();
+
+  /// Whether the search happens only in the providers of the active app or of all apps.
+  BehaviorSubject<bool?> get isExtendedSearch;
+
   /// The available search providers.
-  BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>>> get providers;
+  BehaviorSubject<Result<BuiltList<core.UnifiedSearchProvider>?>> get providers;
 
   /// Contains the unified search results mapped by provider.
   BehaviorSubject<BuiltMap<String, Result<core.UnifiedSearchResult>>> get results;
@@ -36,17 +42,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     required this.appsBloc,
     required this.account,
   }) {
-    providers.listen((result) async {
-      if (result.isLoading) {
-        return;
-      }
-
-      if (term.isEmpty) {
-        results.add(BuiltMap());
-        return;
-      }
-
-      await searchProviders(result.requireData.map((provider) => provider.id).toList());
+    appsBloc.activeApp.listen((_) {
+      term = '';
+      extendedSearchEnabled = false;
+      results.add(BuiltMap());
     });
   }
 
@@ -56,15 +55,20 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   final AppsBloc appsBloc;
   final Account account;
   String term = '';
+  bool extendedSearchEnabled = false;
 
   @override
-  final providers = BehaviorSubject.seeded(Result.success(BuiltList()));
+  final isExtendedSearch = BehaviorSubject.seeded(null);
+
+  @override
+  final providers = BehaviorSubject.seeded(Result.success(null));
 
   @override
   final results = BehaviorSubject.seeded(BuiltMap());
 
   @override
   void dispose() {
+    unawaited(isExtendedSearch.close());
     unawaited(providers.close());
     unawaited(results.close());
     super.dispose();
@@ -72,19 +76,53 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
-      account: account,
-      cacheKey: 'unified-search-providers',
-      subject: providers,
-      getRequest: account.client.core.unifiedSearch.$getProviders_Request,
-      serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
-      unwrap: (response) => response.body.ocs.data,
-    );
+    if (!providers.value.hasSuccessfulData) {
+      await RequestManager.instance.wrapNextcloud(
+        account: account,
+        cacheKey: 'unified-search-providers',
+        subject: providers,
+        getRequest: account.client.core.unifiedSearch.$getProviders_Request,
+        serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
+        unwrap: (response) => response.body.ocs.data,
+      );
+    }
+
+    if (term.isEmpty) {
+      results.add(BuiltMap());
+      isExtendedSearch.add(null);
+      extendedSearchEnabled = false;
+      return;
+    }
+
+    if (providers.value.hasData) {
+      final activeApp = appsBloc.activeApp.value;
+
+      var providerIDs = providers.value.requireData!.map((provider) => provider.id);
+      if (!extendedSearchEnabled) {
+        final matchingProviderIDs = providerIDs.where((id) => providerMatchesApp(id, activeApp));
+
+        if (matchingProviderIDs.isNotEmpty) {
+          providerIDs = matchingProviderIDs;
+        }
+
+        isExtendedSearch.add(matchingProviderIDs.isEmpty);
+      } else {
+        isExtendedSearch.add(true);
+      }
+
+      await searchProviders(providerIDs.toList());
+    }
   }
 
   @override
   Future<void> search(String term) async {
     this.term = term.trim();
+    await refresh();
+  }
+
+  @override
+  Future<void> enableExtendedSearch() async {
+    extendedSearchEnabled = true;
     await refresh();
   }
 

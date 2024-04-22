@@ -365,6 +365,12 @@ abstract class NeonLocalizations {
   /// **'No search results'**
   String get searchNoResults;
 
+  /// No description provided for @searchGlobally.
+  ///
+  /// In en, this message translates to:
+  /// **'Search globally'**
+  String get searchGlobally;
+
   /// No description provided for @settings.
   ///
   /// In en, this message translates to:

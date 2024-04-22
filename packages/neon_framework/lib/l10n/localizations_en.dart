@@ -179,6 +179,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get searchNoResults => 'No search results';
 
   @override
+  String get searchGlobally => 'Search globally';
+
+  @override
   String get settings => 'Settings';
 
   @override

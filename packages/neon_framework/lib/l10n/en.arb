@@ -100,6 +100,7 @@
     }
   },
   "searchNoResults": "No search results",
+  "searchGlobally": "Search globally",
   "settings": "Settings",
   "settingsApps": "Apps",
   "settingsAccount": "Account",

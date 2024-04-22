@@ -30,22 +30,35 @@ class NeonUnifiedSearchResults extends StatelessWidget {
   Widget build(BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
-    return ResultBuilder.behaviorSubject(
-      subject: bloc.providers,
-      builder: (context, providers) => NeonListView(
-        scrollKey: 'unified-search',
-        isLoading: providers.isLoading,
-        error: providers.error,
-        onRefresh: bloc.refresh,
-        itemCount: providers.data?.length ?? 0,
-        itemBuilder: (context, index) {
-          final provider = providers.requireData[index];
+    return StreamBuilder(
+      stream: bloc.isExtendedSearch,
+      builder: (context, isExtendedSearchSnapshot) => ResultBuilder.behaviorSubject(
+        subject: bloc.providers,
+        builder: (context, providers) => NeonListView(
+          scrollKey: 'unified-search',
+          isLoading: providers.isLoading,
+          error: providers.error,
+          onRefresh: bloc.refresh,
+          topFixedChildren: [
+            if (!(isExtendedSearchSnapshot.data ?? true))
+              Align(
+                child: ElevatedButton.icon(
+                  onPressed: bloc.enableExtendedSearch,
+                  label: Text(NeonLocalizations.of(context).searchGlobally),
+                  icon: Icon(AdaptiveIcons.search),
+                ),
+              ),
+          ],
+          itemCount: providers.data?.length ?? 0,
+          itemBuilder: (context, index) {
+            final provider = providers.data![index];
 
-          return NeonUnifiedSearchProvider(
-            provider: provider,
-            onSelected: onSelected,
-          );
-        },
+            return NeonUnifiedSearchProvider(
+              provider: provider,
+              onSelected: onSelected,
+            );
+          },
+        ),
       ),
     );
   }

@@ -12,6 +12,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/testing.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -80,6 +81,7 @@ void main() {
     body: '',
   );
 
+  late AppImplementation appImplementation;
   late BehaviorSubject<AppImplementation> activeApp;
   late AppsBloc appsBloc;
   late Account account;
@@ -90,8 +92,8 @@ void main() {
   });
 
   setUp(() {
-    final appImplementation = MockAppImplementation();
-    when(() => appImplementation.id).thenReturn('a');
+    appImplementation = MockAppImplementation();
+    when(() => appImplementation.id).thenReturn('test');
     activeApp = BehaviorSubject<AppImplementation>.seeded(appImplementation);
     appsBloc = MockAppsBloc();
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
@@ -110,16 +112,16 @@ void main() {
 
   group('search', () {
     for (final entry in {
-      '0': Result<BuiltList<String>>.success(BuiltList([])),
+      '0': null,
       '2': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
       'error': Result<BuiltList<String>>.error(error),
     }.entries) {
       test(entry.key, () {
         expect(
-          bloc.providers.transformResult((providers) => BuiltList<String>(providers.map((provider) => provider.id))),
+          bloc.providers.transformResult((providers) => BuiltList<String>(providers!.map((provider) => provider.id))),
           emitsInOrder([
-            Result.success(BuiltList<String>([])),
-            Result.success(BuiltList<String>([])).asLoading(),
+            Result.success(null),
+            Result.success(null).asLoading(),
             Result.success(BuiltList<String>(['a', 'b', 'c'])),
           ]),
         );
@@ -148,17 +150,17 @@ void main() {
               'c': Result<BuiltList<String>>.loading(),
             }),
             BuiltMap<String, Result<BuiltList<String>>>({
-              'a': entry.value,
+              if (entry.key != '0') 'a': entry.value,
               'b': Result<BuiltList<String>>.loading(),
               'c': Result<BuiltList<String>>.loading(),
             }),
             BuiltMap<String, Result<BuiltList<String>>>({
-              'a': entry.value,
+              if (entry.key != '0') 'a': entry.value,
               if (entry.key != '0') 'b': entry.value,
               'c': Result<BuiltList<String>>.loading(),
             }),
             BuiltMap<String, Result<BuiltList<String>>>({
-              'a': entry.value,
+              if (entry.key != '0') 'a': entry.value,
               if (entry.key != '0') 'b': entry.value,
               if (entry.key != '0') 'c': entry.value,
             }),
@@ -168,5 +170,110 @@ void main() {
         bloc.search(entry.key);
       });
     }
+  });
+
+  test('Active app change resets', () {
+    expect(
+      bloc.results,
+      emitsInOrder([
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+      ]),
+    );
+
+    activeApp.add(MockAppImplementation());
+  });
+
+  test('Extended search', () async {
+    when(() => appImplementation.id).thenReturn('a');
+
+    expect(
+      bloc.providers.transformResult((providers) => BuiltList<String>(providers!.map((provider) => provider.id))),
+      emitsInOrder([
+        Result.success(null),
+        Result.success(null).asLoading(),
+        Result.success(BuiltList<String>(['a', 'b', 'c'])),
+      ]),
+    );
+    expect(
+      bloc.results.map(
+        (results) => BuiltMap<String, Result<BuiltList<String>>>(
+          Map.fromEntries(
+            results.entries.map(
+              (e) => MapEntry(
+                e.key,
+                e.value.transform(
+                  (result) => BuiltList<String>(
+                    result.entries.map((entry) => entry.title),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+      emitsInOrder([
+        BuiltMap<String, Result<BuiltList<String>>>(),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.loading(),
+        }),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+        }),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.loading(),
+          'b': Result<BuiltList<String>>.loading(),
+          'c': Result<BuiltList<String>>.loading(),
+        }),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'b': Result<BuiltList<String>>.loading(),
+          'c': Result<BuiltList<String>>.loading(),
+        }),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'b': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'c': Result<BuiltList<String>>.loading(),
+        }),
+        BuiltMap<String, Result<BuiltList<String>>>({
+          'a': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'b': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'c': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+        }),
+      ]),
+    );
+    expect(
+      bloc.isExtendedSearch,
+      emitsInOrder([
+        null,
+        false,
+        true,
+      ]),
+    );
+
+    bloc.search('2');
+
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    bloc.enableExtendedSearch();
+  });
+
+  test('Reset', () {
+    expect(
+      bloc.results,
+      emitsInOrder([
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+        BuiltMap<String, Result<core.UnifiedSearchResult>>(),
+      ]),
+    );
+    expect(
+      bloc.isExtendedSearch,
+      emitsInOrder([
+        null,
+        null,
+      ]),
+    );
+
+    bloc.search('');
   });
 }
