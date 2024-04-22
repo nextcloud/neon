@@ -14,7 +14,6 @@ Iterable<Spec> generateSchemas(
     for (final schema in spec.components!.schemas!.entries) {
       final identifier = toDartName(schema.key, className: true);
       final result = resolveType(
-        spec,
         state,
         identifier,
         schema.value,

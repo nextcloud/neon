@@ -105,7 +105,7 @@ class OpenAPIBuilder implements Builder {
           ])
           ..body.addAll(generateClients(spec, state))
           ..body.addAll(generateSchemas(spec, state))
-          ..body.addAll(buildOfsExtensions(spec, state))
+          ..body.addAll(buildOfsExtensions(state))
           ..body.addAll(buildSerializer(state));
 
         // Part directive need to be generated after everything else so we know if we need it.

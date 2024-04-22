@@ -2,12 +2,10 @@ import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
 Iterable<Spec> buildOfsExtensions(
-  openapi.OpenAPI spec,
   State state,
 ) sync* {
   final typeResults = state.resolvedTypes.whereType<TypeResultSomeOf>().toSet();
