@@ -202,7 +202,6 @@ Iterable<Method> buildTags(
         );
 
         final result = resolveType(
-          spec,
           state,
           toDartName(
             '$operationName-${parameter.name}',
@@ -253,7 +252,6 @@ Iterable<Method> buildTags(
           );
 
           final result = resolveType(
-            spec,
             state,
             toDartName('$operationName-request-$mimeType', className: true),
             mediaType.schema!,
@@ -278,14 +276,12 @@ Iterable<Method> buildTags(
       final bodyType = buildBodyType(
         state,
         responseEntry.key,
-        spec,
         operationName,
         tag,
       );
       final headersType = buildHeaderType(
         state,
         responseEntry.key,
-        spec,
         operationName,
         tag,
       );
@@ -447,7 +443,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
 ({String name, String? fullType}) buildBodyType(
   State state,
   openapi.Response response,
-  openapi.OpenAPI spec,
   String operationName,
   String? tag,
 ) {
@@ -457,7 +452,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
 
   final dataType = resolveMimeTypeDecode(
     response,
-    spec,
     state,
     toDartName(identifierBuilder.toString(), className: true),
   );
@@ -472,7 +466,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
 ({String name, String? fullType}) buildHeaderType(
   State state,
   openapi.Response response,
-  openapi.OpenAPI spec,
   String operationName,
   String? tag,
 ) {
@@ -486,7 +479,6 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
       ..write(toDartName(operationName, className: true))
       ..write('Headers');
     headersType = resolveObject(
-      spec,
       state,
       identifierBuilder.toString(),
       json_schema.ObjectSchema(

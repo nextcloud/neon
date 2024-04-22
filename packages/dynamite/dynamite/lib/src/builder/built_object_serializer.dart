@@ -4,14 +4,12 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
 Spec buildBuiltClassSerializer(
   State state,
   String identifier,
-  openapi.OpenAPI spec,
   json_schema.ObjectSchema schema,
 ) =>
     Class(
@@ -69,8 +67,8 @@ Spec buildBuiltClassSerializer(
                 ),
               );
 
-            final properties = serializeProperty(state, identifier, spec, schema);
-            final nullableProperties = serializePropertyNullable(state, identifier, spec, schema);
+            final properties = serializeProperty(state, identifier, schema);
+            final nullableProperties = serializePropertyNullable(state, identifier, schema);
             final buffer = StringBuffer()
               ..write('final result = <Object?>[')
               ..writeAll(properties, '\n')
@@ -123,7 +121,7 @@ while (iterator.moveNext()) {
   iterator.moveNext();
   final value = iterator.current;
   switch (key) {
-    ${deserializeProperty(state, identifier, spec, schema).join('\n')}
+    ${deserializeProperty(state, identifier, schema).join('\n')}
   }
 }
 
@@ -136,7 +134,6 @@ return result.build();
 Iterable<String> deserializeProperty(
   State state,
   String identifier,
-  openapi.OpenAPI spec,
   json_schema.ObjectSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
@@ -144,7 +141,6 @@ Iterable<String> deserializeProperty(
     final propertySchema = property.value;
     final dartName = toDartName(propertyName);
     final result = resolveType(
-      spec,
       state,
       toDartName(
         propertyName,
@@ -168,7 +164,6 @@ Iterable<String> deserializeProperty(
 Iterable<String> serializePropertyNullable(
   State state,
   String identifier,
-  openapi.OpenAPI spec,
   json_schema.ObjectSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
@@ -176,7 +171,6 @@ Iterable<String> serializePropertyNullable(
     final propertySchema = property.value;
     final dartName = toDartName(propertyName);
     final result = resolveType(
-      spec,
       state,
       toDartName(
         propertyName,
@@ -203,7 +197,6 @@ if (value != null) {
 Iterable<String> serializeProperty(
   State state,
   String identifier,
-  openapi.OpenAPI spec,
   json_schema.ObjectSchema schema,
 ) sync* {
   for (final property in schema.properties!.entries) {
@@ -211,7 +204,6 @@ Iterable<String> serializeProperty(
     final propertySchema = property.value;
     final dartName = toDartName(propertyName);
     final result = resolveType(
-      spec,
       state,
       toDartName(
         propertyName,

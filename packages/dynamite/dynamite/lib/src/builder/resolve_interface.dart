@@ -9,11 +9,9 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 Spec buildInterface(
-  openapi.OpenAPI spec,
   State state,
   String identifier,
   json_schema.JsonSchema schema, {
@@ -38,7 +36,6 @@ Spec buildInterface(
         if (schema case json_schema.ObjectSchema(properties: != null)) {
           _generateProperties(
             schema,
-            spec,
             state,
             identifier,
             b,
@@ -48,7 +45,6 @@ Spec buildInterface(
           );
         } else {
           final object = resolveType(
-            spec,
             state,
             identifier,
             schema,
@@ -75,7 +71,6 @@ Spec buildInterface(
     } else {
       _generateProperties(
         schema as json_schema.ObjectSchema,
-        spec,
         state,
         identifier,
         b,
@@ -137,7 +132,6 @@ Spec buildInterface(
 
 void _generateProperties(
   json_schema.ObjectSchema schema,
-  openapi.OpenAPI spec,
   State state,
   String identifier,
   ClassBuilder b,
@@ -157,7 +151,6 @@ void _generateProperties(
     final dartName = toDartName(propertyName);
 
     var result = resolveType(
-      spec,
       state,
       toDartName(
         propertyName,
