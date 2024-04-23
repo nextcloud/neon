@@ -41,14 +41,8 @@ class OpenAPIBuilder implements Builder {
   @override
   Future<void> build(BuildStep buildStep) async {
     final result = await helperVersionCheck(buildStep);
-
-    if (result.messages.isNotEmpty) {
-      if (result.hasFatal) {
-        log.severe(result.messages);
-        return;
-      } else {
-        log.info(result.messages);
-      }
+    if (!result) {
+      return;
     }
 
     final inputId = buildStep.inputId;

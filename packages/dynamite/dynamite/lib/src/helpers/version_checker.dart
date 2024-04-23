@@ -1,4 +1,5 @@
-import 'package:build/build.dart';
+import 'package:build/build.dart' hide log;
+import 'package:dynamite/src/helpers/logger.dart';
 import 'package:pub_semver/pub_semver.dart';
 import 'package:pubspec_parse/pubspec_parse.dart';
 
@@ -19,50 +20,39 @@ final devDependencies = {
 };
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
-Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildStep) async {
+Future<bool> helperVersionCheck(BuildStep buildStep) async {
   final pubspecAsset = AssetId(buildStep.inputId.package, 'pubspec.yaml');
 
   if (!await buildStep.canRead(pubspecAsset)) {
-    return (
-      hasFatal: false,
-      messages: 'Failed to read the pubspec.yaml file. Version constraints of required packages can not be validated.',
-    );
+    log.severe('Failed to read the pubspec.yaml file. Version constraints of required packages can not be validated.');
+    return true;
   }
 
   final pubspecContent = await buildStep.readAsString(pubspecAsset);
   final pubspec = Pubspec.parse(pubspecContent, sourceUrl: pubspecAsset.uri);
 
-  final messages = StringBuffer();
   var hasFatal = false;
 
   for (final constraint in dependencies.entries) {
-    final result = _validateVersion(pubspec.dependencies, constraint.key, constraint.value);
+    final isFatal = _validateVersion(pubspec.dependencies, constraint.key, constraint.value);
 
-    if (result.message != null) {
-      messages.writeln(result.message);
-    }
-
-    if (result.isFatal) {
+    if (isFatal) {
       hasFatal = true;
     }
   }
 
   for (final constraint in devDependencies.entries) {
-    final result = _validateVersion(pubspec.devDependencies, constraint.key, constraint.value);
+    final isFatal = _validateVersion(pubspec.devDependencies, constraint.key, constraint.value);
 
-    if (result.message != null) {
-      messages.writeln(result.message);
-    }
-
-    if (result.isFatal) {
+    if (isFatal) {
       hasFatal = true;
     }
   }
 
-  return (hasFatal: hasFatal, messages: messages.toString());
+  return !hasFatal;
 }
 
-({bool isFatal, String? message}) _validateVersion(
+bool _validateVersion(
   Map<String, Dependency> dependencies,
   String packageName,
   Version minVersion,
@@ -71,18 +61,19 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildSte
   final maxVersion = minVersion.nextBreaking;
 
   if (dependency == null) {
-    return (
-      isFatal: false,
-      message:
-          'Could not find the dependency on `$packageName` in pubspec.yaml file. Compatibility check is being skipped.',
+    log.info(
+      'Could not find the dependency on `$packageName` in pubspec.yaml file. Compatibility check is being skipped.',
     );
+
+    return false;
   } else if (dependency is HostedDependency) {
     final constraint = dependency.version;
     final invalidConstraintMessage =
         'The version constraint $constraint on `$packageName` allows versions before $minVersion or after $maxVersion which is not allowed.';
 
     if (constraint is Version && (constraint < minVersion || constraint > maxVersion)) {
-      return (isFatal: true, message: invalidConstraintMessage);
+      log.severe(invalidConstraintMessage);
+      return true;
     }
 
     final range = constraint as VersionRange;
@@ -90,9 +81,10 @@ Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildSte
     final rangeMax = range.max;
 
     if (rangeMin == null || rangeMax == null || rangeMin < minVersion || rangeMax > maxVersion) {
-      return (isFatal: true, message: invalidConstraintMessage);
+      log.severe(invalidConstraintMessage);
+      return true;
     }
   }
 
-  return (isFatal: false, message: null);
+  return false;
 }
