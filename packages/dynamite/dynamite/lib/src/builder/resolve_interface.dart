@@ -24,7 +24,7 @@ Spec buildInterface(
     final className = '\$$identifier$interfaceSuffix';
 
     b
-      ..docs.addAll(escapeDescription(schema.formattedDescription))
+      ..docs.addAll(escapeDescription(schema.formattedDescription()))
       ..abstract = true
       ..modifier = ClassModifier.interface
       ..name = className
@@ -65,7 +65,7 @@ Spec buildInterface(
             final property = _generateProperty(
               object,
               object.className,
-              schema.formattedDescription,
+              schema,
             );
 
             b.methods.add(property);
@@ -182,7 +182,7 @@ void _generateProperties(
     final method = _generateProperty(
       result,
       propertyName,
-      propertySchema.formattedDescription,
+      propertySchema,
     );
     b.methods.add(method);
 
@@ -207,7 +207,7 @@ void _generateProperties(
 Method _generateProperty(
   TypeResult type,
   String propertyName,
-  String? description,
+  json_schema.JsonSchemaAnnotations schema,
 ) {
   return Method(
     (b) {
@@ -215,7 +215,13 @@ Method _generateProperty(
       b
         ..name = name
         ..type = MethodType.getter
-        ..docs.addAll(escapeDescription(description));
+        ..docs.addAll(
+          escapeDescription(schema.formattedDescription(attribute: true)),
+        );
+
+      if (schema.deprecated) {
+        b.annotations.add(refer('Deprecated').call([refer("''")]));
+      }
 
       if (type is TypeResultSomeOf && type.isSingleValue) {
         b.returns = refer(type.dartType.name);

@@ -235,6 +235,7 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
 @BuiltValue(instantiable: false)
 abstract interface class $SuperObjectInterface {
+  /// Defaults to `123`.
   String get value;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SuperObjectInterfaceBuilder b) {

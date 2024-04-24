@@ -387,7 +387,7 @@ class $NonRootClientClient {
   }
 }
 
-// ignore: public_member_api_docs
+/// Redirect for the Object2.
 typedef Redirect = Object2;
 
 /// A representation of the second Object type.
@@ -435,6 +435,8 @@ abstract class Object2 implements $Object2Interface, Built<Object2, Object2Build
   }
 }
 
+/// Title of this documentation.
+///
 /// A representation of the main object.
 @BuiltValue(instantiable: false)
 abstract interface class $Object1Interface implements $Object2Interface {
@@ -451,6 +453,8 @@ abstract interface class $Object1Interface implements $Object2Interface {
   }
 }
 
+/// Title of this documentation.
+///
 /// A representation of the main object.
 abstract class Object1 implements $Object1Interface, Built<Object1, Object1Builder> {
   /// Creates a new Object1 object using the builder pattern.

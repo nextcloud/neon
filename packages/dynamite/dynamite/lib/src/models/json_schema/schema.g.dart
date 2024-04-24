@@ -65,10 +65,14 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
   Iterable<Object?> serialize(Serializers serializers, GenericSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
       'uniqueItems',
       serializers.serialize(object.uniqueItems, specifiedType: const FullType(bool)),
       'required',
@@ -105,23 +109,11 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -140,6 +132,30 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -267,17 +283,8 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -292,6 +299,28 @@ class _$GenericSchemaSerializer implements StructuredSerializer<GenericSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -366,10 +395,14 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
   Iterable<Object?> serialize(Serializers serializers, BooleanSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.id;
@@ -402,23 +435,11 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -437,6 +458,30 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     return result;
   }
@@ -470,17 +515,8 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -495,6 +531,28 @@ class _$BooleanSchemaSerializer implements StructuredSerializer<BooleanSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -513,10 +571,14 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
   Iterable<Object?> serialize(Serializers serializers, IntegerSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.id;
@@ -549,23 +611,11 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -584,6 +634,30 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -647,17 +721,8 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -672,6 +737,28 @@ class _$IntegerSchemaSerializer implements StructuredSerializer<IntegerSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -705,10 +792,14 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
   Iterable<Object?> serialize(Serializers serializers, NumberSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.id;
@@ -741,23 +832,11 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -776,6 +855,30 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -839,17 +942,8 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -864,6 +958,28 @@ class _$NumberSchemaSerializer implements StructuredSerializer<NumberSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -897,10 +1013,14 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
   Iterable<Object?> serialize(Serializers serializers, StringSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.contentMediaType;
@@ -945,23 +1065,11 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -980,6 +1088,30 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.maxLength;
     if (value != null) {
@@ -1038,17 +1170,8 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -1063,6 +1186,28 @@ class _$StringSchemaSerializer implements StructuredSerializer<StringSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxLength':
           result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1090,10 +1235,14 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
   Iterable<Object?> serialize(Serializers serializers, ArraySchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
       'uniqueItems',
       serializers.serialize(object.uniqueItems, specifiedType: const FullType(bool)),
     ];
@@ -1134,23 +1283,11 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -1169,6 +1306,30 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.maxItems;
     if (value != null) {
@@ -1229,17 +1390,8 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -1254,6 +1406,28 @@ class _$ArraySchemaSerializer implements StructuredSerializer<ArraySchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxItems':
           result.maxItems = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1287,10 +1461,14 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
   Iterable<Object?> serialize(Serializers serializers, ObjectSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(BuiltSet, [FullType(String)])),
     ];
@@ -1338,23 +1516,11 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -1373,6 +1539,30 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.maxProperties;
     if (value != null) {
@@ -1436,17 +1626,8 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -1461,6 +1642,28 @@ class _$ObjectSchemaSerializer implements StructuredSerializer<ObjectSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'maxProperties':
           result.maxProperties = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
@@ -1496,10 +1699,14 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
   Iterable<Object?> serialize(Serializers serializers, NullSchema object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'deprecated',
-      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'nullable',
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
+      'deprecated',
+      serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(bool)),
+      'writeOnly',
+      serializers.serialize(object.writeOnly, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.id;
@@ -1532,23 +1739,11 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
         ..add('allOf')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonSchema)])));
     }
-    value = object.description;
-    if (value != null) {
-      result
-        ..add('description')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.type;
     if (value != null) {
       result
         ..add('type')
         ..add(serializers.serialize(value, specifiedType: const FullType(SchemaType)));
-    }
-    value = object.$default;
-    if (value != null) {
-      result
-        ..add('default')
-        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
     }
     value = object.$enum;
     if (value != null) {
@@ -1567,6 +1762,30 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
       result
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.title;
+    if (value != null) {
+      result
+        ..add('title')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.$default;
+    if (value != null) {
+      result
+        ..add('default')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    value = object.examples;
+    if (value != null) {
+      result
+        ..add('examples')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     return result;
   }
@@ -1600,17 +1819,8 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
           result.allOf.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonSchema)]))! as BuiltList<Object?>);
           break;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'deprecated':
-          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(SchemaType)) as SchemaType?;
-          break;
-        case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -1625,6 +1835,28 @@ class _$NullSchemaSerializer implements StructuredSerializer<NullSchema> {
           break;
         case 'format':
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'default':
+          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+        case 'deprecated':
+          result.deprecated = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'writeOnly':
+          result.writeOnly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'examples':
+          result.examples.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1673,17 +1905,8 @@ abstract mixin class JsonSchemaBuilder {
   ListBuilder<JsonSchema> get allOf;
   set allOf(ListBuilder<JsonSchema>? allOf);
 
-  String? get description;
-  set description(String? description);
-
-  bool? get deprecated;
-  set deprecated(bool? deprecated);
-
   SchemaType? get type;
   set type(SchemaType? type);
-
-  JsonObject? get $default;
-  set $default(JsonObject? $default);
 
   ListBuilder<JsonObject> get $enum;
   set $enum(ListBuilder<JsonObject>? $enum);
@@ -1696,6 +1919,27 @@ abstract mixin class JsonSchemaBuilder {
 
   String? get format;
   set format(String? format);
+
+  String? get title;
+  set title(String? title);
+
+  String? get description;
+  set description(String? description);
+
+  JsonObject? get $default;
+  set $default(JsonObject? $default);
+
+  bool? get deprecated;
+  set deprecated(bool? deprecated);
+
+  bool? get readOnly;
+  set readOnly(bool? readOnly);
+
+  bool? get writeOnly;
+  set writeOnly(bool? writeOnly);
+
+  ListBuilder<JsonObject> get examples;
+  set examples(ListBuilder<JsonObject>? examples);
 }
 
 class _$GenericSchema extends GenericSchema {
@@ -1710,13 +1954,7 @@ class _$GenericSchema extends GenericSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -1725,6 +1963,20 @@ class _$GenericSchema extends GenericSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final num? multipleOf;
   @override
@@ -1769,14 +2021,18 @@ class _$GenericSchema extends GenericSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
@@ -1795,8 +2051,10 @@ class _$GenericSchema extends GenericSchema {
       required this.required,
       this.dependentRequired})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'GenericSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly');
     BuiltValueNullFieldError.checkNotNull(uniqueItems, r'GenericSchema', 'uniqueItems');
     BuiltValueNullFieldError.checkNotNull(required, r'GenericSchema', 'required');
   }
@@ -1816,13 +2074,18 @@ class _$GenericSchema extends GenericSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         multipleOf == other.multipleOf &&
         maximum == other.maximum &&
         exclusiveMaximum == other.exclusiveMaximum &&
@@ -1850,13 +2113,18 @@ class _$GenericSchema extends GenericSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, multipleOf.hashCode);
     _$hash = $jc(_$hash, maximum.hashCode);
     _$hash = $jc(_$hash, exclusiveMaximum.hashCode);
@@ -1886,14 +2154,18 @@ class _$GenericSchema extends GenericSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -1938,21 +2210,9 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -1969,6 +2229,34 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
@@ -2049,14 +2337,18 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -2104,14 +2396,18 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'GenericSchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'GenericSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly'),
+              examples: _examples?.build(),
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -2144,6 +2440,9 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
         _$failedField = 'discriminator';
         _discriminator?.build();
 
+        _$failedField = 'examples';
+        _examples?.build();
+
         _$failedField = 'required';
         required.build();
       } catch (e) {
@@ -2168,13 +2467,7 @@ class _$BooleanSchema extends BooleanSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -2183,6 +2476,20 @@ class _$BooleanSchema extends BooleanSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
 
   factory _$BooleanSchema([void Function(BooleanSchemaBuilder)? updates]) =>
       (BooleanSchemaBuilder()..update(updates))._build();
@@ -2193,17 +2500,23 @@ class _$BooleanSchema extends BooleanSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
-      this.format})
+      this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly');
   }
 
   @override
@@ -2221,13 +2534,18 @@ class _$BooleanSchema extends BooleanSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
-        format == other.format;
+        format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples;
   }
 
   @override
@@ -2238,13 +2556,18 @@ class _$BooleanSchema extends BooleanSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2257,14 +2580,18 @@ class _$BooleanSchema extends BooleanSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
-          ..add('format', format))
+          ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples))
         .toString();
   }
 }
@@ -2292,21 +2619,9 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -2324,6 +2639,34 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
 
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
+
   BooleanSchemaBuilder() {
     BooleanSchema._initialize(this);
   }
@@ -2336,14 +2679,18 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2374,14 +2721,18 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable'),
-              format: format);
+              format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly'),
+              examples: _examples?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2396,6 +2747,9 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'BooleanSchema', _$failedField, e.toString());
       }
@@ -2418,13 +2772,7 @@ class _$IntegerSchema extends IntegerSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -2433,6 +2781,20 @@ class _$IntegerSchema extends IntegerSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final num? multipleOf;
   @override
@@ -2453,22 +2815,28 @@ class _$IntegerSchema extends IntegerSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
       this.minimum,
       this.exclusiveMinimum})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'IntegerSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly');
   }
 
   @override
@@ -2486,13 +2854,18 @@ class _$IntegerSchema extends IntegerSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         multipleOf == other.multipleOf &&
         maximum == other.maximum &&
         exclusiveMaximum == other.exclusiveMaximum &&
@@ -2508,13 +2881,18 @@ class _$IntegerSchema extends IntegerSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, multipleOf.hashCode);
     _$hash = $jc(_$hash, maximum.hashCode);
     _$hash = $jc(_$hash, exclusiveMaximum.hashCode);
@@ -2532,14 +2910,18 @@ class _$IntegerSchema extends IntegerSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -2572,21 +2954,9 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -2603,6 +2973,34 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
@@ -2636,14 +3034,18 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -2679,14 +3081,18 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'IntegerSchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'IntegerSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly'),
+              examples: _examples?.build(),
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -2706,6 +3112,9 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'IntegerSchema', _$failedField, e.toString());
       }
@@ -2728,13 +3137,7 @@ class _$NumberSchema extends NumberSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -2743,6 +3146,20 @@ class _$NumberSchema extends NumberSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final num? multipleOf;
   @override
@@ -2763,22 +3180,28 @@ class _$NumberSchema extends NumberSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
       this.minimum,
       this.exclusiveMinimum})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'NumberSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly');
   }
 
   @override
@@ -2796,13 +3219,18 @@ class _$NumberSchema extends NumberSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         multipleOf == other.multipleOf &&
         maximum == other.maximum &&
         exclusiveMaximum == other.exclusiveMaximum &&
@@ -2818,13 +3246,18 @@ class _$NumberSchema extends NumberSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, multipleOf.hashCode);
     _$hash = $jc(_$hash, maximum.hashCode);
     _$hash = $jc(_$hash, exclusiveMaximum.hashCode);
@@ -2842,14 +3275,18 @@ class _$NumberSchema extends NumberSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -2882,21 +3319,9 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -2913,6 +3338,34 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
@@ -2946,14 +3399,18 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -2989,14 +3446,18 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NumberSchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NumberSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly'),
+              examples: _examples?.build(),
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -3016,6 +3477,9 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'NumberSchema', _$failedField, e.toString());
       }
@@ -3042,13 +3506,7 @@ class _$StringSchema extends StringSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -3057,6 +3515,20 @@ class _$StringSchema extends StringSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final int? maxLength;
   @override
@@ -3076,20 +3548,26 @@ class _$StringSchema extends StringSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.maxLength,
       this.minLength,
       this.pattern})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'StringSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly');
   }
 
   @override
@@ -3112,13 +3590,18 @@ class _$StringSchema extends StringSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         maxLength == other.maxLength &&
         minLength == other.minLength &&
         pattern == other.pattern;
@@ -3134,13 +3617,18 @@ class _$StringSchema extends StringSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, maxLength.hashCode);
     _$hash = $jc(_$hash, minLength.hashCode);
     _$hash = $jc(_$hash, pattern.hashCode);
@@ -3158,14 +3646,18 @@ class _$StringSchema extends StringSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('maxLength', maxLength)
           ..add('minLength', minLength)
           ..add('pattern', pattern))
@@ -3204,21 +3696,9 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -3235,6 +3715,34 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   int? _maxLength;
   int? get maxLength => _$this._maxLength;
@@ -3262,14 +3770,18 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _maxLength = $v.maxLength;
       _minLength = $v.minLength;
       _pattern = $v.pattern;
@@ -3305,14 +3817,18 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'StringSchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'StringSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly'),
+              examples: _examples?.build(),
               maxLength: maxLength,
               minLength: minLength,
               pattern: pattern);
@@ -3330,6 +3846,9 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'StringSchema', _$failedField, e.toString());
       }
@@ -3354,13 +3873,7 @@ class _$ArraySchema extends ArraySchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -3369,6 +3882,20 @@ class _$ArraySchema extends ArraySchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final int? maxItems;
   @override
@@ -3390,22 +3917,28 @@ class _$ArraySchema extends ArraySchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.maxItems,
       this.minItems,
       required this.uniqueItems,
       this.maxContains,
       this.minContains})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'ArraySchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly');
     BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems');
   }
 
@@ -3425,13 +3958,18 @@ class _$ArraySchema extends ArraySchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         maxItems == other.maxItems &&
         minItems == other.minItems &&
         uniqueItems == other.uniqueItems &&
@@ -3448,13 +3986,18 @@ class _$ArraySchema extends ArraySchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, maxItems.hashCode);
     _$hash = $jc(_$hash, minItems.hashCode);
     _$hash = $jc(_$hash, uniqueItems.hashCode);
@@ -3473,14 +4016,18 @@ class _$ArraySchema extends ArraySchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('maxItems', maxItems)
           ..add('minItems', minItems)
           ..add('uniqueItems', uniqueItems)
@@ -3517,21 +4064,9 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -3548,6 +4083,34 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   int? _maxItems;
   int? get maxItems => _$this._maxItems;
@@ -3582,14 +4145,18 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _maxItems = $v.maxItems;
       _minItems = $v.minItems;
       _uniqueItems = $v.uniqueItems;
@@ -3626,14 +4193,18 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ArraySchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ArraySchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly'),
+              examples: _examples?.build(),
               maxItems: maxItems,
               minItems: minItems,
               uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems'),
@@ -3653,6 +4224,9 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ArraySchema', _$failedField, e.toString());
       }
@@ -3679,13 +4253,7 @@ class _$ObjectSchema extends ObjectSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -3694,6 +4262,20 @@ class _$ObjectSchema extends ObjectSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
   @override
   final int? maxProperties;
   @override
@@ -3714,21 +4296,27 @@ class _$ObjectSchema extends ObjectSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
       this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples,
       this.maxProperties,
       this.minProperties,
       required this.required,
       this.dependentRequired})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'ObjectSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly');
     BuiltValueNullFieldError.checkNotNull(required, r'ObjectSchema', 'required');
   }
 
@@ -3749,13 +4337,18 @@ class _$ObjectSchema extends ObjectSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
         format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples &&
         maxProperties == other.maxProperties &&
         minProperties == other.minProperties &&
         required == other.required &&
@@ -3772,13 +4365,18 @@ class _$ObjectSchema extends ObjectSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jc(_$hash, maxProperties.hashCode);
     _$hash = $jc(_$hash, minProperties.hashCode);
     _$hash = $jc(_$hash, required.hashCode);
@@ -3797,14 +4395,18 @@ class _$ObjectSchema extends ObjectSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
           ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples)
           ..add('maxProperties', maxProperties)
           ..add('minProperties', minProperties)
           ..add('required', required)
@@ -3845,21 +4447,9 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -3876,6 +4466,34 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
   String? _format;
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
+
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
   int? _maxProperties;
   int? get maxProperties => _$this._maxProperties;
@@ -3908,14 +4526,18 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _maxProperties = $v.maxProperties;
       _minProperties = $v.minProperties;
       _required = $v.required.toBuilder();
@@ -3952,14 +4574,18 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'ObjectSchema', 'nullable'),
               format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'ObjectSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly'),
+              examples: _examples?.build(),
               maxProperties: maxProperties,
               minProperties: minProperties,
               required: required.build(),
@@ -3981,6 +4607,9 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
 
         _$failedField = 'required';
         required.build();
@@ -4006,13 +4635,7 @@ class _$NullSchema extends NullSchema {
   @override
   final BuiltList<JsonSchema>? allOf;
   @override
-  final String? description;
-  @override
-  final bool deprecated;
-  @override
   final SchemaType? type;
-  @override
-  final JsonObject? $default;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -4021,6 +4644,20 @@ class _$NullSchema extends NullSchema {
   final bool nullable;
   @override
   final String? format;
+  @override
+  final String? title;
+  @override
+  final String? description;
+  @override
+  final JsonObject? $default;
+  @override
+  final bool deprecated;
+  @override
+  final bool readOnly;
+  @override
+  final bool writeOnly;
+  @override
+  final BuiltList<JsonObject>? examples;
 
   factory _$NullSchema([void Function(NullSchemaBuilder)? updates]) => (NullSchemaBuilder()..update(updates))._build();
 
@@ -4030,17 +4667,23 @@ class _$NullSchema extends NullSchema {
       this.oneOf,
       this.anyOf,
       this.allOf,
-      this.description,
-      required this.deprecated,
       this.type,
-      this.$default,
       this.$enum,
       this.discriminator,
       required this.nullable,
-      this.format})
+      this.format,
+      this.title,
+      this.description,
+      this.$default,
+      required this.deprecated,
+      required this.readOnly,
+      required this.writeOnly,
+      this.examples})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable');
+    BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated');
+    BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly');
   }
 
   @override
@@ -4058,13 +4701,18 @@ class _$NullSchema extends NullSchema {
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
         allOf == other.allOf &&
-        deprecated == other.deprecated &&
         type == other.type &&
-        $default == other.$default &&
         $enum == other.$enum &&
         discriminator == other.discriminator &&
         nullable == other.nullable &&
-        format == other.format;
+        format == other.format &&
+        title == other.title &&
+        description == other.description &&
+        $default == other.$default &&
+        deprecated == other.deprecated &&
+        readOnly == other.readOnly &&
+        writeOnly == other.writeOnly &&
+        examples == other.examples;
   }
 
   @override
@@ -4075,13 +4723,18 @@ class _$NullSchema extends NullSchema {
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
     _$hash = $jc(_$hash, allOf.hashCode);
-    _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, discriminator.hashCode);
     _$hash = $jc(_$hash, nullable.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, deprecated.hashCode);
+    _$hash = $jc(_$hash, readOnly.hashCode);
+    _$hash = $jc(_$hash, writeOnly.hashCode);
+    _$hash = $jc(_$hash, examples.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -4094,14 +4747,18 @@ class _$NullSchema extends NullSchema {
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
           ..add('allOf', allOf)
-          ..add('description', description)
-          ..add('deprecated', deprecated)
           ..add('type', type)
-          ..add('\$default', $default)
           ..add('\$enum', $enum)
           ..add('discriminator', discriminator)
           ..add('nullable', nullable)
-          ..add('format', format))
+          ..add('format', format)
+          ..add('title', title)
+          ..add('description', description)
+          ..add('\$default', $default)
+          ..add('deprecated', deprecated)
+          ..add('readOnly', readOnly)
+          ..add('writeOnly', writeOnly)
+          ..add('examples', examples))
         .toString();
   }
 }
@@ -4129,21 +4786,9 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
   ListBuilder<JsonSchema> get allOf => _$this._allOf ??= ListBuilder<JsonSchema>();
   set allOf(covariant ListBuilder<JsonSchema>? allOf) => _$this._allOf = allOf;
 
-  String? _description;
-  String? get description => _$this._description;
-  set description(covariant String? description) => _$this._description = description;
-
-  bool? _deprecated;
-  bool? get deprecated => _$this._deprecated;
-  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
-
   SchemaType? _type;
   SchemaType? get type => _$this._type;
   set type(covariant SchemaType? type) => _$this._type = type;
-
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(covariant JsonObject? $default) => _$this._$default = $default;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -4161,6 +4806,34 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
   String? get format => _$this._format;
   set format(covariant String? format) => _$this._format = format;
 
+  String? _title;
+  String? get title => _$this._title;
+  set title(covariant String? title) => _$this._title = title;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(covariant String? description) => _$this._description = description;
+
+  JsonObject? _$default;
+  JsonObject? get $default => _$this._$default;
+  set $default(covariant JsonObject? $default) => _$this._$default = $default;
+
+  bool? _deprecated;
+  bool? get deprecated => _$this._deprecated;
+  set deprecated(covariant bool? deprecated) => _$this._deprecated = deprecated;
+
+  bool? _readOnly;
+  bool? get readOnly => _$this._readOnly;
+  set readOnly(covariant bool? readOnly) => _$this._readOnly = readOnly;
+
+  bool? _writeOnly;
+  bool? get writeOnly => _$this._writeOnly;
+  set writeOnly(covariant bool? writeOnly) => _$this._writeOnly = writeOnly;
+
+  ListBuilder<JsonObject>? _examples;
+  ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
+  set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
+
   NullSchemaBuilder() {
     NullSchema._initialize(this);
   }
@@ -4173,14 +4846,18 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
       _allOf = $v.allOf?.toBuilder();
-      _description = $v.description;
-      _deprecated = $v.deprecated;
       _type = $v.type;
-      _$default = $v.$default;
       _$enum = $v.$enum?.toBuilder();
       _discriminator = $v.discriminator?.toBuilder();
       _nullable = $v.nullable;
       _format = $v.format;
+      _title = $v.title;
+      _description = $v.description;
+      _$default = $v.$default;
+      _deprecated = $v.deprecated;
+      _readOnly = $v.readOnly;
+      _writeOnly = $v.writeOnly;
+      _examples = $v.examples?.toBuilder();
       _$v = null;
     }
     return this;
@@ -4211,14 +4888,18 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),
               allOf: _allOf?.build(),
-              description: description,
-              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated'),
               type: type,
-              $default: $default,
               $enum: _$enum?.build(),
               discriminator: _discriminator?.build(),
               nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable'),
-              format: format);
+              format: format,
+              title: title,
+              description: description,
+              $default: $default,
+              deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated'),
+              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly'),
+              writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly'),
+              examples: _examples?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4233,6 +4914,9 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
         _$enum?.build();
         _$failedField = 'discriminator';
         _discriminator?.build();
+
+        _$failedField = 'examples';
+        _examples?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'NullSchema', _$failedField, e.toString());
       }

@@ -34,7 +34,8 @@ TypeResultObject resolveObject(
 
     final $class = buildBuiltClass(
       identifier,
-      documentation: schema.formattedDescription,
+      deprecated: schema.deprecated,
+      documentation: schema.formattedDescription(),
     );
 
     state.output.addAll([
