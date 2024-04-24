@@ -51,7 +51,7 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 |------------------------------------------------------------------------------------|------------------------|
 | [Server](https://github.com/nextcloud/server) (2)                                  | 27 - 28                |
 | [News app](https://github.com/nextcloud/news)                                      | 22 - 25                |
-| [Notes app](https://github.com/nextcloud/notes)                                    | 4.7 - 4.9              |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.7 - 4.10             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 27 - 28                |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 17 - 18                |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
