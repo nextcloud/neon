@@ -69,7 +69,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.5.1
-  json_serializable: ^6.7.1
+  json_serializable: ^6.8.0
   mocktail: ^1.0.3
   neon_lints:
     git:

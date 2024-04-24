@@ -7,7 +7,7 @@ part of 'notifications.dart';
 // **************************************************************************
 
 DecryptedSubject _$DecryptedSubjectFromJson(Map<String, dynamic> json) => DecryptedSubject(
-      nid: json['nid'] as int?,
+      nid: (json['nid'] as num?)?.toInt(),
       app: json['app'] as String?,
       subject: json['subject'] as String?,
       type: json['type'] as String?,
