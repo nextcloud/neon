@@ -61,11 +61,17 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
     ];
     Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('\$id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(Uri)));
+    }
     value = object.ref;
     if (value != null) {
       result
         ..add('\$ref')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Uri)));
     }
     value = object.oneOf;
     if (value != null) {
@@ -184,8 +190,11 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case '\$id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(Uri)) as Uri?;
+          break;
         case '\$ref':
-          result.ref = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.ref = serializers.deserialize(value, specifiedType: const FullType(Uri)) as Uri?;
           break;
         case 'oneOf':
           result.oneOf.replace(serializers.deserialize(value,
@@ -280,7 +289,9 @@ class _$SchemaTypeSerializer implements PrimitiveSerializer<SchemaType> {
 
 class _$Schema extends Schema {
   @override
-  final String? ref;
+  final Uri? id;
+  @override
+  final Uri? ref;
   @override
   final BuiltList<Schema>? oneOf;
   @override
@@ -328,7 +339,8 @@ class _$Schema extends Schema {
   factory _$Schema([void Function(SchemaBuilder)? updates]) => (SchemaBuilder()..update(updates))._build();
 
   _$Schema._(
-      {this.ref,
+      {this.id,
+      this.ref,
       this.oneOf,
       this.anyOf,
       this.allOf,
@@ -377,6 +389,7 @@ class _$Schema extends Schema {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Schema &&
+        id == other.id &&
         ref == other.ref &&
         oneOf == other.oneOf &&
         anyOf == other.anyOf &&
@@ -402,6 +415,7 @@ class _$Schema extends Schema {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, ref.hashCode);
     _$hash = $jc(_$hash, oneOf.hashCode);
     _$hash = $jc(_$hash, anyOf.hashCode);
@@ -429,6 +443,7 @@ class _$Schema extends Schema {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Schema')
+          ..add('id', id)
           ..add('ref', ref)
           ..add('oneOf', oneOf)
           ..add('anyOf', anyOf)
@@ -457,9 +472,13 @@ class _$Schema extends Schema {
 class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   _$Schema? _$v;
 
-  String? _ref;
-  String? get ref => _$this._ref;
-  set ref(String? ref) => _$this._ref = ref;
+  Uri? _id;
+  Uri? get id => _$this._id;
+  set id(Uri? id) => _$this._id = id;
+
+  Uri? _ref;
+  Uri? get ref => _$this._ref;
+  set ref(Uri? ref) => _$this._ref = ref;
 
   ListBuilder<Schema>? _oneOf;
   ListBuilder<Schema> get oneOf => _$this._oneOf ??= ListBuilder<Schema>();
@@ -546,6 +565,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   SchemaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id;
       _ref = $v.ref;
       _oneOf = $v.oneOf?.toBuilder();
       _anyOf = $v.anyOf?.toBuilder();
@@ -592,6 +612,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
     try {
       _$result = _$v ??
           _$Schema._(
+              id: id,
               ref: ref,
               oneOf: _oneOf?.build(),
               anyOf: _anyOf?.build(),

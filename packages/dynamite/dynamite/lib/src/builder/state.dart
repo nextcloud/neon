@@ -3,9 +3,11 @@ import 'package:dynamite/src/models/dynamite_config/config.dart';
 import 'package:dynamite/src/models/type_result.dart';
 
 class State {
-  State(this.buildConfig);
+  State(this.buildConfig, this.rootJson);
 
   final DynamiteConfig buildConfig;
+
+  final Map<String, dynamic> rootJson;
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};

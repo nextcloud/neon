@@ -5,7 +5,8 @@ import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
-import 'package:dynamite/src/models/openapi/discriminator.dart';
+import 'package:dynamite/src/models/openapi.dart';
+import 'package:rfc_6901/rfc_6901.dart';
 
 part 'schema.g.dart';
 
@@ -16,8 +17,37 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   static Serializer<Schema> get serializer => _$schemaSerializer;
 
+  @BuiltValueField(wireName: r'$id')
+  Uri? get id;
+
   @BuiltValueField(wireName: r'$ref')
-  String? get ref;
+  Uri? get ref;
+
+  Schema resolveRef(Map<String, dynamic> json) {
+    if (ref == null) {
+      throw StateError(r'Referenced schema can only be resolved when a $ref is present');
+    }
+
+    final rootID = json[r'$id'] as String?;
+
+    final Uri uri;
+    if (rootID != null) {
+      uri = Uri.parse(rootID).resolveUri(ref!);
+    } else {
+      uri = ref!;
+    }
+
+    // Only relative references are supported.
+    final value = JsonPointer(uri.fragment).read(json);
+    var schema = serializers.deserializeWith(serializer, value)!;
+    if (schema.id == null) {
+      schema = schema.rebuild((b) {
+        b.id = uri;
+      });
+    }
+
+    return schema;
+  }
 
   BuiltList<Schema>? get oneOf;
 
