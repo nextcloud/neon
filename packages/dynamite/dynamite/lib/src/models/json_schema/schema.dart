@@ -2,19 +2,17 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/helpers/default_value.dart';
-import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
+import 'package:dynamite/src/models/json_schema/annotations.dart';
 import 'package:dynamite/src/models/json_schema/validators.dart';
 import 'package:dynamite/src/models/openapi.dart';
-import 'package:meta/meta.dart';
 import 'package:rfc_6901/rfc_6901.dart';
 
 part 'schema.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class JsonSchema with Validator {
+abstract interface class JsonSchema with Validator, JsonSchemaAnnotations {
   @BuiltValueField(wireName: r'$id')
   Uri? get id;
 
@@ -27,17 +25,8 @@ abstract interface class JsonSchema with Validator {
 
   BuiltList<JsonSchema>? get allOf;
 
-  @BuiltValueField(compare: false)
-  String? get description;
-
-  bool get deprecated;
-
   /// https://json-schema.org/understanding-json-schema/reference/type
   JsonSchemaType? get type;
-
-  @BuiltValueField(wireName: 'default')
-  @protected
-  JsonObject? get rawDefault;
 
   @BuiltValueField(wireName: 'enum')
   BuiltList<JsonObject>? get $enum;
@@ -55,17 +44,17 @@ abstract interface class JsonSchema with Validator {
   static void _defaults(JsonSchemaBuilder b) {
     b
       ..deprecated ??= false
-      ..nullable ??= false;
+      ..nullable ??= false
+      ..readOnly ??= false
+      ..writeOnly ??= false;
+
+    if (b.rawDefault != null && b.examples.isEmpty) {
+      b.examples.add(b.rawDefault!);
+    }
   }
 }
 
 extension SchemaExtension on JsonSchema {
-  String? get formattedDescription => formatDescription(description);
-
-  String? get $default => encodeDefault(rawDefault);
-
-  String? get defaultDescription => encodeDefault(rawDefault, constant: false);
-
   JsonSchema resolveRef(Map<String, dynamic> json) {
     if (ref == null) {
       throw StateError(r'Referenced schema can only be resolved when a $ref is present');
@@ -94,7 +83,7 @@ extension SchemaExtension on JsonSchema {
 }
 
 abstract class GenericSchema
-    with Validator, NumberValidator, StringValidator, ArrayValidator, ObjectValidator
+    with Validator, NumberValidator, StringValidator, ArrayValidator, ObjectValidator, JsonSchemaAnnotations
     implements JsonSchema, Built<GenericSchema, GenericSchemaBuilder> {
   factory GenericSchema([void Function(GenericSchemaBuilder) updates]) = _$GenericSchema;
   const GenericSchema._();
@@ -113,7 +102,9 @@ abstract class GenericSchema
   }
 }
 
-abstract class BooleanSchema implements JsonSchema, Built<BooleanSchema, BooleanSchemaBuilder> {
+abstract class BooleanSchema
+    with JsonSchemaAnnotations
+    implements JsonSchema, Built<BooleanSchema, BooleanSchemaBuilder> {
   factory BooleanSchema([void Function(BooleanSchemaBuilder) updates]) = _$BooleanSchema;
   const BooleanSchema._();
 
@@ -134,7 +125,9 @@ abstract class BooleanSchema implements JsonSchema, Built<BooleanSchema, Boolean
   }
 }
 
-abstract class IntegerSchema with NumberValidator implements JsonSchema, Built<IntegerSchema, IntegerSchemaBuilder> {
+abstract class IntegerSchema
+    with NumberValidator, JsonSchemaAnnotations
+    implements JsonSchema, Built<IntegerSchema, IntegerSchemaBuilder> {
   factory IntegerSchema([void Function(IntegerSchemaBuilder) updates]) = _$IntegerSchema;
   IntegerSchema._();
 
@@ -162,7 +155,9 @@ abstract class IntegerSchema with NumberValidator implements JsonSchema, Built<I
   }
 }
 
-abstract class NumberSchema with NumberValidator implements JsonSchema, Built<NumberSchema, NumberSchemaBuilder> {
+abstract class NumberSchema
+    with NumberValidator, JsonSchemaAnnotations
+    implements JsonSchema, Built<NumberSchema, NumberSchemaBuilder> {
   factory NumberSchema([void Function(NumberSchemaBuilder) updates]) = _$NumberSchema;
   const NumberSchema._();
 
@@ -188,7 +183,9 @@ abstract class NumberSchema with NumberValidator implements JsonSchema, Built<Nu
   }
 }
 
-abstract class StringSchema with StringValidator implements JsonSchema, Built<StringSchema, StringSchemaBuilder> {
+abstract class StringSchema
+    with StringValidator, JsonSchemaAnnotations
+    implements JsonSchema, Built<StringSchema, StringSchemaBuilder> {
   factory StringSchema([void Function(StringSchemaBuilder) updates]) = _$StringSchema;
   const StringSchema._();
 
@@ -216,7 +213,9 @@ abstract class StringSchema with StringValidator implements JsonSchema, Built<St
   }
 }
 
-abstract class ArraySchema with ArrayValidator implements JsonSchema, Built<ArraySchema, ArraySchemaBuilder> {
+abstract class ArraySchema
+    with ArrayValidator, JsonSchemaAnnotations
+    implements JsonSchema, Built<ArraySchema, ArraySchemaBuilder> {
   factory ArraySchema([void Function(ArraySchemaBuilder) updates]) = _$ArraySchema;
   const ArraySchema._();
 
@@ -241,7 +240,9 @@ abstract class ArraySchema with ArrayValidator implements JsonSchema, Built<Arra
   }
 }
 
-abstract class ObjectSchema with ObjectValidator implements JsonSchema, Built<ObjectSchema, ObjectSchemaBuilder> {
+abstract class ObjectSchema
+    with ObjectValidator, JsonSchemaAnnotations
+    implements JsonSchema, Built<ObjectSchema, ObjectSchemaBuilder> {
   factory ObjectSchema([void Function(ObjectSchemaBuilder) updates]) = _$ObjectSchema;
   const ObjectSchema._();
 
@@ -266,7 +267,7 @@ abstract class ObjectSchema with ObjectValidator implements JsonSchema, Built<Ob
   }
 }
 
-abstract class NullSchema implements JsonSchema, Built<NullSchema, NullSchemaBuilder> {
+abstract class NullSchema with JsonSchemaAnnotations implements JsonSchema, Built<NullSchema, NullSchemaBuilder> {
   factory NullSchema([void Function(NullSchemaBuilder) updates]) = _$NullSchema;
   const NullSchema._();
 

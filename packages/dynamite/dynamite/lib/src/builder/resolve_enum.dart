@@ -31,14 +31,22 @@ TypeResult resolveEnum(
       values.add((dartName: dartName, value: value, name: name));
     }
 
-    final $class = Class(
-      (b) => b
-        ..docs.addAll(escapeDescription(schema.formattedDescription))
+    final $class = Class((b) {
+      if (schema.deprecated) {
+        b.annotations.add(refer('Deprecated').call([refer("''")]));
+      }
+
+      b
+        ..docs.addAll(escapeDescription(schema.formattedDescription()))
         ..name = identifier
         ..extend = refer('EnumClass')
         ..constructors.add(
-          Constructor(
-            (b) => b
+          Constructor((b) {
+            if (schema.deprecated) {
+              b.annotations.add(refer('Deprecated').call([refer("''")]));
+            }
+
+            b
               ..name = '_'
               ..constant = true
               ..requiredParameters.add(
@@ -47,8 +55,8 @@ TypeResult resolveEnum(
                     ..name = 'name'
                     ..toSuper = true,
                 ),
-              ),
-          ),
+              );
+          }),
         )
         ..fields.addAll(
           values.map(
@@ -112,8 +120,8 @@ TypeResult resolveEnum(
               ..body = Code('_\$jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}'),
           ),
           buildSerializer(identifier, 'const _\$${identifier}Serializer()'),
-        ]),
-    );
+        ]);
+    });
 
     final serializer = Class(
       (b) => b

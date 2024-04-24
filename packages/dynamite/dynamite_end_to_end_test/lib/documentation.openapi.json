@@ -103,6 +103,7 @@
   "components": {
     "schemas": {
       "Object1": {
+        "title": "Title of this documentation",
         "description": "A representation of the main object",
         "allOf": [
           {

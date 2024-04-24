@@ -18,9 +18,16 @@ import 'package:meta/meta.dart' as _i2;
 
 part 'any_of.openapi.g.dart';
 
+/// Any of with one object value.
 typedef OneObjectAnyOf = OneObjectAnyOf0;
+
+/// Any of with one primitive value.
 typedef OneValueAnyOf = String;
+
+/// Any of with an integer and double.
 typedef AnyOfIntDouble = num;
+
+/// Any of with an integer, double and number.
 typedef AnyOfIntDoubleNum = num;
 
 @BuiltValue(instantiable: false)
