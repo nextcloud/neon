@@ -24,7 +24,7 @@ dependencies:
       path: packages/neon_framework
   nextcloud: ^5.0.2
   rxdart: ^0.27.0
-  share_plus: ^8.0.2
+  share_plus: ^9.0.0
   timezone: ^0.9.3
   url_launcher: ^6.0.0
   wakelock_plus: ^1.0.0
