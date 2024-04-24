@@ -46,7 +46,11 @@ jobs:
           if [ -z "$packages" ]; then exit 0; fi
           packages_glob="$(printf ",%s" "${packages[@]}")"
           packages_glob="${packages_glob:1}"
-          MELOS_PACKAGES="$packages_glob" melos test
+          if [ -n "$packages_glob" ]; then
+            MELOS_PACKAGES="$packages_glob" melos test
+          else
+            melos test
+          fi
 
       - name: Setup Codecov
         run: |
