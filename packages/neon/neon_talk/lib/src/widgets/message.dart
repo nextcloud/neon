@@ -9,7 +9,7 @@ import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
-import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;

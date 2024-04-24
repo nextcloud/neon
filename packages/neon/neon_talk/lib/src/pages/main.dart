@@ -9,7 +9,7 @@ import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:neon_talk/src/pages/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
-import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
