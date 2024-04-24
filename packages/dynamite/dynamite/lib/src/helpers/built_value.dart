@@ -1,6 +1,7 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 
 const interfaceSuffix = 'Interface';
 
@@ -8,81 +9,88 @@ const interfaceSuffix = 'Interface';
 ///
 /// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
-  String className, {
-  String? documentation,
-}) =>
-    Class(
-      (b) {
-        final interfaceClass = '\$$className$interfaceSuffix';
+  String className,
+  json_schema.JsonSchemaAnnotations schema,
+) {
+  return Class(
+    (b) {
+      final interfaceClass = '\$$className$interfaceSuffix';
+      final deprecated = schema.deprecated;
 
-        b
-          ..name = className
-          ..abstract = true
-          ..implements.addAll([
-            refer(interfaceClass),
-            refer(
-              'Built<$className, ${className}Builder>',
-            ),
-          ])
-          ..constructors.addAll([
-            builtValueConstructor(className),
-            hiddenConstructor,
-            fromJsonConstructor,
-          ])
-          ..methods.addAll([
-            toJsonMethod,
-            buildSerializer(className),
-          ]);
+      b
+        ..name = className
+        ..abstract = true
+        ..implements.addAll([
+          refer(interfaceClass),
+          refer(
+            'Built<$className, ${className}Builder>',
+          ),
+        ])
+        ..constructors.addAll([
+          builtValueConstructor(className, deprecated: deprecated),
+          hiddenConstructor(deprecated: deprecated),
+          fromJsonConstructor(deprecated: deprecated),
+        ])
+        ..methods.addAll([
+          toJsonMethod,
+          buildSerializer(className),
+        ]);
 
-        if (documentation != null) {
-          b.docs.addAll(escapeDescription(documentation));
-        }
+      final documentation = schema.formattedDescription();
+      if (documentation != null) {
+        b.docs.addAll(escapeDescription(documentation));
+      }
 
-        b.methods.add(
-          Method((b) {
-            b
-              ..name = '_defaults'
-              ..returns = refer('void')
-              ..static = true
-              ..annotations.add(
-                refer('BuiltValueHook').call([], {
-                  'initializeBuilder': literalTrue,
-                }),
-              )
-              ..requiredParameters.add(
-                Parameter(
-                  (b) => b
-                    ..name = 'b'
-                    ..type = refer('${className}Builder'),
-                ),
-              )
-              ..body = Code('$interfaceClass._defaults(b);');
-          }),
-        );
+      if (deprecated) {
+        b.annotations.add(refer('Deprecated').call([refer("''")]));
+      }
 
-        b.methods.add(
-          Method((b) {
-            b
-              ..name = '_validate'
-              ..returns = refer('void')
-              ..annotations.add(
-                refer('BuiltValueHook').call([], {
-                  'finalizeBuilder': literalTrue,
-                }),
-              )
-              ..static = true
-              ..requiredParameters.add(
-                Parameter(
-                  (b) => b
-                    ..name = 'b'
-                    ..type = refer('${className}Builder'),
-                ),
-              )
-              ..body = Code('$interfaceClass._validate(b);');
-          }),
-        );
-      },
-    );
+      b.methods.add(
+        Method((b) {
+          b
+            ..name = '_defaults'
+            ..returns = refer('void')
+            ..static = true
+            ..annotations.add(
+              refer('BuiltValueHook').call([], {
+                'initializeBuilder': literalTrue,
+              }),
+            )
+            ..requiredParameters.add(
+              Parameter(
+                (b) => b
+                  ..name = 'b'
+                  ..type = refer('${className}Builder'),
+              ),
+            )
+            ..body = Code('$interfaceClass._defaults(b);');
+        }),
+      );
+
+      b.methods.add(
+        Method((b) {
+          b
+            ..name = '_validate'
+            ..returns = refer('void')
+            ..annotations.add(
+              refer('BuiltValueHook').call([], {
+                'finalizeBuilder': literalTrue,
+              }),
+            )
+            ..static = true
+            ..requiredParameters.add(
+              Parameter(
+                (b) => b
+                  ..name = 'b'
+                  ..type = refer('${className}Builder'),
+              ),
+            )
+            ..body = Code('$interfaceClass._validate(b);');
+        }),
+      );
+    },
+  );
+}
 
 Method get toJsonMethod => Method(
       (b) => b
@@ -114,43 +122,68 @@ Method buildSerializer(String className, [String? serializerName]) => Method((b)
       }
     });
 
-Constructor builtValueConstructor(String className) => Constructor(
-      (b) => b
-        ..docs.add('/// Creates a new $className object using the builder pattern.')
-        ..factory = true
-        ..lambda = true
-        ..optionalParameters.add(
-          Parameter(
-            (b) => b
-              ..name = 'b'
-              ..type = refer('void Function(${className}Builder)?'),
-          ),
-        )
-        ..redirect = refer('_\$$className'),
-    );
+Constructor builtValueConstructor(
+  String className, {
+  required bool deprecated,
+}) {
+  return Constructor((b) {
+    b
+      ..docs.add('/// Creates a new $className object using the builder pattern.')
+      ..factory = true
+      ..lambda = true
+      ..optionalParameters.add(
+        Parameter(
+          (b) => b
+            ..name = 'b'
+            ..type = refer('void Function(${className}Builder)?'),
+        ),
+      )
+      ..redirect = refer('_\$$className');
 
-Constructor get hiddenConstructor => Constructor(
-      (b) => b
-        ..name = '_'
-        ..constant = true,
-    );
+    if (deprecated) {
+      b.annotations.add(refer('Deprecated').call([refer("''")]));
+    }
+  });
+}
 
-Constructor get fromJsonConstructor => Constructor(
-      (b) => b
-        ..docs.addAll([
-          '/// Creates a new object from the given [json] data.',
-          '///',
-          '/// Use [toJson] to serialize it back into json.',
-        ])
-        ..factory = true
-        ..name = 'fromJson'
-        ..lambda = true
-        ..requiredParameters.add(
-          Parameter(
-            (b) => b
-              ..name = 'json'
-              ..type = refer('Map<String, dynamic>'),
-          ),
-        )
-        ..body = const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!'),
-    );
+Constructor hiddenConstructor({
+  required bool deprecated,
+}) {
+  return Constructor((b) {
+    b
+      ..name = '_'
+      ..constant = true;
+
+    if (deprecated) {
+      b.annotations.add(refer('Deprecated').call([refer("''")]));
+    }
+  });
+}
+
+Constructor fromJsonConstructor({
+  required bool deprecated,
+}) {
+  return Constructor((b) {
+    b
+      ..docs.addAll([
+        '/// Creates a new object from the given [json] data.',
+        '///',
+        '/// Use [toJson] to serialize it back into json.',
+      ])
+      ..factory = true
+      ..name = 'fromJson'
+      ..lambda = true
+      ..requiredParameters.add(
+        Parameter(
+          (b) => b
+            ..name = 'json'
+            ..type = refer('Map<String, dynamic>'),
+        ),
+      )
+      ..body = const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!');
+
+    if (deprecated) {
+      b.annotations.add(refer('Deprecated').call([refer("''")]));
+    }
+  });
+}

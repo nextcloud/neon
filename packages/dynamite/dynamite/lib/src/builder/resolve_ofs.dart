@@ -52,9 +52,13 @@ TypeResult resolveSomeOf(
   if (state.resolvedTypes.add(result) && !result.isSingleValue) {
     final $typedef = TypeDef((b) {
       b
-        ..docs.addAll(escapeDescription(schema.formattedDescription))
+        ..docs.addAll(escapeDescription(schema.formattedDescription()))
         ..name = result.className
         ..definition = refer(result.dartType.name);
+
+      if (schema.deprecated) {
+        b.annotations.add(refer('Deprecated').call([refer("''")]));
+      }
     });
 
     state.output.add($typedef);

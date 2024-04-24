@@ -122,6 +122,7 @@ void main() {
         expect(response.body.folders[0].id, 1);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
+        // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[0].feeds, hasLength(0));
       });
 
@@ -312,6 +313,7 @@ void main() {
         expect(response.body.folders[0].id, 1);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
+        // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[0].feeds, hasLength(0));
 
         response = await client.news.listFolders();
@@ -322,6 +324,7 @@ void main() {
         expect(response.body.folders[0].id, 1);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
+        // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[0].feeds, hasLength(0));
       });
 
@@ -385,10 +388,12 @@ void main() {
         expect(response.body.folders[0].id, 1);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
+        // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[0].feeds, hasLength(0));
         expect(response.body.folders[1].id, 2);
         expect(response.body.folders[1].name, 'test2');
         expect(response.body.folders[1].opened, true);
+        // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[1].feeds, hasLength(0));
       });
 
