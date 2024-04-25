@@ -38,6 +38,13 @@ abstract interface class $TestObjectInterface {
   BuiltList<int>? get arrayUnique;
   @BuiltValueField(wireName: 'array-multiple-checks')
   BuiltList<int>? get arrayMultipleChecks;
+  num? get multipleOf;
+  num? get maximum;
+  num? get exclusiveMaximum;
+  num? get minimum;
+  num? get exclusiveMinimum;
+  @BuiltValueField(wireName: 'number-multiple-checks')
+  num? get numberMultipleChecks;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TestObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -85,6 +92,40 @@ abstract interface class $TestObjectInterface {
       uniqueItems: true,
       minItems: 3,
       maxItems: 20,
+    );
+    _i1.checkNumber(
+      b.multipleOf,
+      'multipleOf',
+      multipleOf: 0,
+    );
+    _i1.checkNumber(
+      b.maximum,
+      'maximum',
+      maximum: 0,
+    );
+    _i1.checkNumber(
+      b.exclusiveMaximum,
+      'exclusiveMaximum',
+      exclusiveMaximum: 0,
+    );
+    _i1.checkNumber(
+      b.minimum,
+      'minimum',
+      minimum: 0,
+    );
+    _i1.checkNumber(
+      b.exclusiveMinimum,
+      'exclusiveMinimum',
+      exclusiveMinimum: 0,
+    );
+    _i1.checkNumber(
+      b.numberMultipleChecks,
+      'numberMultipleChecks',
+      multipleOf: 1,
+      maximum: 0,
+      exclusiveMaximum: 0.1,
+      minimum: 0,
+      exclusiveMinimum: -0.1,
     );
   }
 }
@@ -138,6 +179,15 @@ abstract interface class $TestObjectUnspecifiedInterface {
       'value',
       minItems: 3,
       maxItems: 20,
+    );
+    _i1.checkNumber(
+      b.value,
+      'value',
+      multipleOf: 1,
+      maximum: 0,
+      exclusiveMaximum: 0,
+      minimum: 0,
+      exclusiveMinimum: 0,
     );
   }
 }

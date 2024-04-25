@@ -68,6 +68,42 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
         ..add('array-multiple-checks')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
     }
+    value = object.multipleOf;
+    if (value != null) {
+      result
+        ..add('multipleOf')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.maximum;
+    if (value != null) {
+      result
+        ..add('maximum')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.exclusiveMaximum;
+    if (value != null) {
+      result
+        ..add('exclusiveMaximum')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.minimum;
+    if (value != null) {
+      result
+        ..add('minimum')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.exclusiveMinimum;
+    if (value != null) {
+      result
+        ..add('exclusiveMinimum')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.numberMultipleChecks;
+    if (value != null) {
+      result
+        ..add('number-multiple-checks')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
     return result;
   }
 
@@ -110,6 +146,24 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
         case 'array-multiple-checks':
           result.arrayMultipleChecks.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+          break;
+        case 'multipleOf':
+          result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          break;
+        case 'maximum':
+          result.maximum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          break;
+        case 'exclusiveMaximum':
+          result.exclusiveMaximum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          break;
+        case 'minimum':
+          result.minimum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          break;
+        case 'exclusiveMinimum':
+          result.exclusiveMinimum = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          break;
+        case 'number-multiple-checks':
+          result.numberMultipleChecks = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
       }
     }
@@ -185,6 +239,24 @@ abstract mixin class $TestObjectInterfaceBuilder {
 
   ListBuilder<int> get arrayMultipleChecks;
   set arrayMultipleChecks(ListBuilder<int>? arrayMultipleChecks);
+
+  num? get multipleOf;
+  set multipleOf(num? multipleOf);
+
+  num? get maximum;
+  set maximum(num? maximum);
+
+  num? get exclusiveMaximum;
+  set exclusiveMaximum(num? exclusiveMaximum);
+
+  num? get minimum;
+  set minimum(num? minimum);
+
+  num? get exclusiveMinimum;
+  set exclusiveMinimum(num? exclusiveMinimum);
+
+  num? get numberMultipleChecks;
+  set numberMultipleChecks(num? numberMultipleChecks);
 }
 
 class _$TestObject extends TestObject {
@@ -204,6 +276,18 @@ class _$TestObject extends TestObject {
   final BuiltList<int>? arrayUnique;
   @override
   final BuiltList<int>? arrayMultipleChecks;
+  @override
+  final num? multipleOf;
+  @override
+  final num? maximum;
+  @override
+  final num? exclusiveMaximum;
+  @override
+  final num? minimum;
+  @override
+  final num? exclusiveMinimum;
+  @override
+  final num? numberMultipleChecks;
 
   factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
 
@@ -215,7 +299,13 @@ class _$TestObject extends TestObject {
       this.minItems,
       this.maxItems,
       this.arrayUnique,
-      this.arrayMultipleChecks})
+      this.arrayMultipleChecks,
+      this.multipleOf,
+      this.maximum,
+      this.exclusiveMaximum,
+      this.minimum,
+      this.exclusiveMinimum,
+      this.numberMultipleChecks})
       : super._();
 
   @override
@@ -235,7 +325,13 @@ class _$TestObject extends TestObject {
         minItems == other.minItems &&
         maxItems == other.maxItems &&
         arrayUnique == other.arrayUnique &&
-        arrayMultipleChecks == other.arrayMultipleChecks;
+        arrayMultipleChecks == other.arrayMultipleChecks &&
+        multipleOf == other.multipleOf &&
+        maximum == other.maximum &&
+        exclusiveMaximum == other.exclusiveMaximum &&
+        minimum == other.minimum &&
+        exclusiveMinimum == other.exclusiveMinimum &&
+        numberMultipleChecks == other.numberMultipleChecks;
   }
 
   @override
@@ -249,6 +345,12 @@ class _$TestObject extends TestObject {
     _$hash = $jc(_$hash, maxItems.hashCode);
     _$hash = $jc(_$hash, arrayUnique.hashCode);
     _$hash = $jc(_$hash, arrayMultipleChecks.hashCode);
+    _$hash = $jc(_$hash, multipleOf.hashCode);
+    _$hash = $jc(_$hash, maximum.hashCode);
+    _$hash = $jc(_$hash, exclusiveMaximum.hashCode);
+    _$hash = $jc(_$hash, minimum.hashCode);
+    _$hash = $jc(_$hash, exclusiveMinimum.hashCode);
+    _$hash = $jc(_$hash, numberMultipleChecks.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -263,7 +365,13 @@ class _$TestObject extends TestObject {
           ..add('minItems', minItems)
           ..add('maxItems', maxItems)
           ..add('arrayUnique', arrayUnique)
-          ..add('arrayMultipleChecks', arrayMultipleChecks))
+          ..add('arrayMultipleChecks', arrayMultipleChecks)
+          ..add('multipleOf', multipleOf)
+          ..add('maximum', maximum)
+          ..add('exclusiveMaximum', exclusiveMaximum)
+          ..add('minimum', minimum)
+          ..add('exclusiveMinimum', exclusiveMinimum)
+          ..add('numberMultipleChecks', numberMultipleChecks))
         .toString();
   }
 }
@@ -305,6 +413,30 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
   set arrayMultipleChecks(covariant ListBuilder<int>? arrayMultipleChecks) =>
       _$this._arrayMultipleChecks = arrayMultipleChecks;
 
+  num? _multipleOf;
+  num? get multipleOf => _$this._multipleOf;
+  set multipleOf(covariant num? multipleOf) => _$this._multipleOf = multipleOf;
+
+  num? _maximum;
+  num? get maximum => _$this._maximum;
+  set maximum(covariant num? maximum) => _$this._maximum = maximum;
+
+  num? _exclusiveMaximum;
+  num? get exclusiveMaximum => _$this._exclusiveMaximum;
+  set exclusiveMaximum(covariant num? exclusiveMaximum) => _$this._exclusiveMaximum = exclusiveMaximum;
+
+  num? _minimum;
+  num? get minimum => _$this._minimum;
+  set minimum(covariant num? minimum) => _$this._minimum = minimum;
+
+  num? _exclusiveMinimum;
+  num? get exclusiveMinimum => _$this._exclusiveMinimum;
+  set exclusiveMinimum(covariant num? exclusiveMinimum) => _$this._exclusiveMinimum = exclusiveMinimum;
+
+  num? _numberMultipleChecks;
+  num? get numberMultipleChecks => _$this._numberMultipleChecks;
+  set numberMultipleChecks(covariant num? numberMultipleChecks) => _$this._numberMultipleChecks = numberMultipleChecks;
+
   TestObjectBuilder() {
     TestObject._defaults(this);
   }
@@ -320,6 +452,12 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
       _maxItems = $v.maxItems?.toBuilder();
       _arrayUnique = $v.arrayUnique?.toBuilder();
       _arrayMultipleChecks = $v.arrayMultipleChecks?.toBuilder();
+      _multipleOf = $v.multipleOf;
+      _maximum = $v.maximum;
+      _exclusiveMaximum = $v.exclusiveMaximum;
+      _minimum = $v.minimum;
+      _exclusiveMinimum = $v.exclusiveMinimum;
+      _numberMultipleChecks = $v.numberMultipleChecks;
       _$v = null;
     }
     return this;
@@ -352,7 +490,13 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
               minItems: _minItems?.build(),
               maxItems: _maxItems?.build(),
               arrayUnique: _arrayUnique?.build(),
-              arrayMultipleChecks: _arrayMultipleChecks?.build());
+              arrayMultipleChecks: _arrayMultipleChecks?.build(),
+              multipleOf: multipleOf,
+              maximum: maximum,
+              exclusiveMaximum: exclusiveMaximum,
+              minimum: minimum,
+              exclusiveMinimum: exclusiveMinimum,
+              numberMultipleChecks: numberMultipleChecks);
     } catch (_) {
       late String _$failedField;
       try {
