@@ -88,10 +88,10 @@ class $ApiClient {
   }) {
     final _parameters = <String, Object?>{};
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
+    _i4.checkString(
+      $version,
       'version',
+      pattern: RegExp(r'^1$'),
     );
     _parameters['version'] = $version;
 
@@ -203,10 +203,10 @@ class $ApiClient {
     _parameters['dueDate'] = $dueDate;
 
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
+    _i4.checkString(
+      $version,
       'version',
+      pattern: RegExp(r'^1$'),
     );
     _parameters['version'] = $version;
 
@@ -318,10 +318,10 @@ class $ApiClient {
   }) {
     final _parameters = <String, Object?>{};
     final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $version as String?,
-      RegExp(r'^1$'),
+    _i4.checkString(
+      $version,
       'version',
+      pattern: RegExp(r'^1$'),
     );
     _parameters['version'] = $version;
 

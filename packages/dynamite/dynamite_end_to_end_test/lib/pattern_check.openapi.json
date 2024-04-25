@@ -41,13 +41,34 @@
                             "type": "integer"
                         }
                     },
+                    "array-unique": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
                     "array-multiple-checks": {
                         "type": "array",
                         "minItems": 3,
                         "maxItems": 20,
+                        "uniqueItems": true,
                         "items": {
                             "type": "integer"
                         }
+                    }
+                }
+            },
+            "TestObjectUnspecified": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "minItems": 3,
+                        "maxItems": 20,
+                        "pattern": "^[0-9]*$",
+                        "minLength": 3,
+                        "maxLength": 20,
+                        "unique": true
                     }
                 }
             }

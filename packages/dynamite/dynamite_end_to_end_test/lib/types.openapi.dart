@@ -53,10 +53,10 @@ abstract interface class $BaseInterface {
   static void _defaults($BaseInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($BaseInterfaceBuilder b) {
-    _i1.checkMaxItems(
-      b.listNever.length,
-      0,
+    _i1.checkIterable(
+      b.listNever,
       'listNever',
+      maxItems: 0,
     );
   }
 }

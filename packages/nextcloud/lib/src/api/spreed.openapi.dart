@@ -129,10 +129,10 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -242,10 +242,10 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -349,10 +349,10 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -463,10 +463,10 @@ class $AvatarClient {
     _parameters['emoji'] = $emoji;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -579,10 +579,10 @@ class $AvatarClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -933,10 +933,10 @@ class $AvatarClient {
     _parameters['cloudId'] = $cloudId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1063,10 +1063,10 @@ class $AvatarClient {
     _parameters['cloudId'] = $cloudId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1185,10 +1185,10 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1295,10 +1295,10 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1412,10 +1412,10 @@ class $BotClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1542,10 +1542,10 @@ class $BotClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1688,10 +1688,10 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1818,10 +1818,10 @@ class $BotClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -1959,10 +1959,10 @@ class $BreakoutRoomClient {
     _parameters['amount'] = $amount;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2086,10 +2086,10 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2205,10 +2205,10 @@ class $BreakoutRoomClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2329,10 +2329,10 @@ class $BreakoutRoomClient {
     _parameters['attendeeMap'] = $attendeeMap;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2445,10 +2445,10 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2557,10 +2557,10 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2672,10 +2672,10 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2786,10 +2786,10 @@ class $BreakoutRoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -2903,10 +2903,10 @@ class $BreakoutRoomClient {
     _parameters['target'] = $target;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3026,10 +3026,10 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3139,10 +3139,10 @@ class $CallClient {
     _parameters['flags'] = $flags;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3259,10 +3259,10 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3397,10 +3397,10 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3514,10 +3514,10 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3634,10 +3634,10 @@ class $CallClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3783,10 +3783,10 @@ class $ChatClient {
     _parameters['lookIntoFuture'] = $lookIntoFuture;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -3985,10 +3985,10 @@ class $ChatClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4132,10 +4132,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4256,10 +4256,10 @@ class $ChatClient {
     _parameters['message'] = $message;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4385,10 +4385,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4509,10 +4509,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4636,10 +4636,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4759,10 +4759,10 @@ class $ChatClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4881,10 +4881,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -4999,10 +4999,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -5113,10 +5113,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -5227,10 +5227,10 @@ class $ChatClient {
     _parameters['search'] = $search;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -5361,10 +5361,10 @@ class $ChatClient {
     _parameters['objectType'] = $objectType;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -5509,10 +5509,10 @@ class $ChatClient {
     _parameters['objectId'] = $objectId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -5654,10 +5654,10 @@ class $ChatClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -6231,10 +6231,10 @@ class $FilesIntegrationClient {
   }) {
     final _parameters = <String, Object?>{};
     final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $fileId as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $fileId,
       'fileId',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['fileId'] = $fileId;
 
@@ -6355,10 +6355,10 @@ class $FilesIntegrationClient {
   }) {
     final _parameters = <String, Object?>{};
     final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $shareToken as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $shareToken,
       'shareToken',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['shareToken'] = $shareToken;
 
@@ -6597,10 +6597,10 @@ class $GuestClient {
     _parameters['displayName'] = $displayName;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7084,10 +7084,10 @@ class $InternalSignalingClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7199,10 +7199,10 @@ class $InternalSignalingClient {
     _parameters['messages'] = $messages;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7317,10 +7317,10 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7435,10 +7435,10 @@ class $MatterbridgeClient {
     _parameters['enabled'] = $enabled;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7563,10 +7563,10 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -7675,10 +7675,10 @@ class $MatterbridgeClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8027,10 +8027,10 @@ class $PollClient {
     _parameters['maxVotes'] = $maxVotes;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8149,10 +8149,10 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8266,10 +8266,10 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8392,10 +8392,10 @@ class $PollClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8519,10 +8519,10 @@ class $ReactionClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8648,10 +8648,10 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8774,10 +8774,10 @@ class $ReactionClient {
     _parameters['reaction'] = $reaction;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -8903,10 +8903,10 @@ class $RecordingClient {
     _parameters['status'] = $status;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -9015,10 +9015,10 @@ class $RecordingClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -9129,10 +9129,10 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -9255,10 +9255,10 @@ class $RecordingClient {
     _parameters['timestamp'] = $timestamp;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -9476,10 +9476,10 @@ class $RecordingClient {
     _parameters['owner'] = $owner;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10086,10 +10086,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10198,10 +10198,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10311,10 +10311,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10420,10 +10420,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10534,10 +10534,10 @@ class $RoomClient {
     _parameters['description'] = $description;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10651,10 +10651,10 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10769,10 +10769,10 @@ class $RoomClient {
     _parameters['scope'] = $scope;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -10888,10 +10888,10 @@ class $RoomClient {
     _parameters['password'] = $password;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11007,18 +11007,18 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
     final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
-    _i4.checkPattern(
-      $mode as String?,
-      RegExp(r'^(call|default)$'),
+    _i4.checkString(
+      $mode,
       'mode',
+      pattern: RegExp(r'^(call|default)$'),
     );
     _parameters['mode'] = $mode;
 
@@ -11133,10 +11133,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11262,10 +11262,10 @@ class $RoomClient {
     _parameters['newParticipant'] = $newParticipant;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11390,10 +11390,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11517,10 +11517,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11636,10 +11636,10 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11769,10 +11769,10 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -11902,10 +11902,10 @@ class $RoomClient {
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12027,10 +12027,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12151,10 +12151,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12260,10 +12260,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12384,10 +12384,10 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12504,10 +12504,10 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12625,10 +12625,10 @@ class $RoomClient {
     _parameters['attendeeId'] = $attendeeId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12738,10 +12738,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12846,10 +12846,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -12960,10 +12960,10 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13079,10 +13079,10 @@ class $RoomClient {
     _parameters['level'] = $level;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13199,10 +13199,10 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13326,10 +13326,10 @@ class $RoomClient {
     _parameters['state'] = $state;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13449,10 +13449,10 @@ class $RoomClient {
     _parameters['recordingConsent'] = $recordingConsent;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13570,10 +13570,10 @@ class $RoomClient {
     _parameters['seconds'] = $seconds;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13683,10 +13683,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13796,10 +13796,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -13912,18 +13912,18 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
     final $pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $pin as String?,
-      RegExp(r'^\d{7,32}$'),
+    _i4.checkString(
+      $pin,
       'pin',
+      pattern: RegExp(r'^\d{7,32}$'),
     );
     _parameters['pin'] = $pin;
 
@@ -14042,10 +14042,10 @@ class $RoomClient {
     _parameters['pin'] = $pin;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -14166,10 +14166,10 @@ class $RoomClient {
     _parameters['number'] = $number;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -14292,10 +14292,10 @@ class $RoomClient {
   }) {
     final _parameters = <String, Object?>{};
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 
@@ -14412,10 +14412,10 @@ class $RoomClient {
     _parameters['callId'] = $callId;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
+    _i4.checkString(
+      $token,
       'token',
+      pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
     _parameters['token'] = $token;
 

@@ -143,10 +143,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['anyOf'] = $anyOf;
 
     final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
-    _i4.checkPattern(
-      $enumPattern as String?,
-      RegExp('[a-z]'),
+    _i4.checkString(
+      $enumPattern,
       'enumPattern',
+      pattern: RegExp('[a-z]'),
     );
     _parameters['enum_pattern'] = $enumPattern;
 
@@ -355,10 +355,10 @@ class $Client extends _i1.DynamiteClient {
     }
 
     final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
-    _i4.checkPattern(
-      $enumPattern as String?,
-      RegExp('[a-z]'),
+    _i4.checkString(
+      $enumPattern,
       'enumPattern',
+      pattern: RegExp('[a-z]'),
     );
     if ($enumPattern != null) {
       _request.headers['enum_pattern'] = const _i4.HeaderEncoder().convert($enumPattern);

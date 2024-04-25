@@ -10,6 +10,7 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i3;
@@ -32,61 +33,57 @@ abstract interface class $TestObjectInterface {
   BuiltList<int>? get minItems;
   @BuiltValueField(wireName: 'max-items')
   BuiltList<int>? get maxItems;
+  @BuiltValueField(wireName: 'array-unique')
+  BuiltList<int>? get arrayUnique;
   @BuiltValueField(wireName: 'array-multiple-checks')
   BuiltList<int>? get arrayMultipleChecks;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TestObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($TestObjectInterfaceBuilder b) {
-    _i1.checkPattern(
+    _i1.checkString(
       b.onlyNumbers,
-      RegExp(r'^[0-9]*$'),
       'onlyNumbers',
+      pattern: RegExp(r'^[0-9]*$'),
     );
-    _i1.checkMinLength(
+    _i1.checkString(
       b.minLength,
-      3,
       'minLength',
+      minLength: 3,
     );
-    _i1.checkMaxLength(
+    _i1.checkString(
       b.maxLength,
-      20,
       'maxLength',
+      maxLength: 20,
     );
-    _i1.checkPattern(
+    _i1.checkString(
       b.stringMultipleChecks,
-      RegExp(r'^[0-9]*$'),
       'stringMultipleChecks',
+      pattern: RegExp(r'^[0-9]*$'),
+      minLength: 3,
+      maxLength: 20,
     );
-    _i1.checkMinLength(
-      b.stringMultipleChecks,
-      3,
-      'stringMultipleChecks',
-    );
-    _i1.checkMaxLength(
-      b.stringMultipleChecks,
-      20,
-      'stringMultipleChecks',
-    );
-    _i1.checkMinItems(
-      b.minItems.length,
-      3,
+    _i1.checkIterable(
+      b.minItems,
       'minItems',
+      minItems: 3,
     );
-    _i1.checkMaxItems(
-      b.maxItems.length,
-      20,
+    _i1.checkIterable(
+      b.maxItems,
       'maxItems',
+      maxItems: 20,
     );
-    _i1.checkMinItems(
-      b.arrayMultipleChecks.length,
-      3,
-      'arrayMultipleChecks',
+    _i1.checkIterable(
+      b.arrayUnique,
+      'arrayUnique',
+      uniqueItems: true,
     );
-    _i1.checkMaxItems(
-      b.arrayMultipleChecks.length,
-      20,
+    _i1.checkIterable(
+      b.arrayMultipleChecks,
       'arrayMultipleChecks',
+      uniqueItems: true,
+      minItems: 3,
+      maxItems: 20,
     );
   }
 }
@@ -121,6 +118,61 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
   }
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class $TestObjectUnspecifiedInterface {
+  JsonObject? get value;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TestObjectUnspecifiedInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TestObjectUnspecifiedInterfaceBuilder b) {
+    _i1.checkString(
+      b.value,
+      'value',
+      pattern: RegExp(r'^[0-9]*$'),
+      minLength: 3,
+      maxLength: 20,
+    );
+    _i1.checkIterable(
+      b.value,
+      'value',
+      minItems: 3,
+      maxItems: 20,
+    );
+  }
+}
+
+abstract class TestObjectUnspecified
+    implements $TestObjectUnspecifiedInterface, Built<TestObjectUnspecified, TestObjectUnspecifiedBuilder> {
+  /// Creates a new TestObjectUnspecified object using the builder pattern.
+  factory TestObjectUnspecified([void Function(TestObjectUnspecifiedBuilder)? b]) = _$TestObjectUnspecified;
+
+  const TestObjectUnspecified._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory TestObjectUnspecified.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for TestObjectUnspecified.
+  static Serializer<TestObjectUnspecified> get serializer => _$testObjectUnspecifiedSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TestObjectUnspecifiedBuilder b) {
+    $TestObjectUnspecifiedInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TestObjectUnspecifiedBuilder b) {
+    $TestObjectUnspecifiedInterface._validate(b);
+  }
+}
+
 // coverage:ignore-start
 /// Serializer for all values in this library.
 ///
@@ -131,7 +183,9 @@ final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
       ..add(TestObject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(TestObjectUnspecified), TestObjectUnspecifiedBuilder.new)
+      ..add(TestObjectUnspecified.serializer))
     .build();
 
 /// Serializer for all values in this library.
