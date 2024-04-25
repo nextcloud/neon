@@ -92,6 +92,10 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   int? get maxLength;
 
+  int? get minItems;
+
+  int? get maxItems;
+
   bool get nullable;
 
   @memoized

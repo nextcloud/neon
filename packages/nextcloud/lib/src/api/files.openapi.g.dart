@@ -1292,6 +1292,12 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
         ..add('iconClass')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.iconSvgInline;
+    if (value != null) {
+      result
+        ..add('iconSvgInline')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.ratio;
     if (value != null) {
       result
@@ -1323,6 +1329,9 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
           break;
         case 'iconClass':
           result.iconClass = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'iconSvgInline':
+          result.iconSvgInline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'mimetypes':
           result.mimetypes.replace(serializers.deserialize(value,
@@ -2079,6 +2088,9 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
       serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
       'blacklisted_files',
       serializers.serialize(object.blacklistedFiles, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'forbidden_filename_characters',
+      serializers.serialize(object.forbiddenFilenameCharacters,
+          specifiedType: const FullType(BuiltList, [FullType(String)])),
       'directEditing',
       serializers.serialize(object.directEditing, specifiedType: const FullType(Capabilities_Files_DirectEditing)),
     ];
@@ -2103,6 +2115,10 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
         case 'blacklisted_files':
           result.blacklistedFiles.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+        case 'forbidden_filename_characters':
+          result.forbiddenFilenameCharacters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'directEditing':
           result.directEditing.replace(serializers.deserialize(value,
@@ -5006,6 +5022,9 @@ abstract mixin class $TemplateFileCreatorInterfaceBuilder {
   String? get iconClass;
   set iconClass(String? iconClass);
 
+  String? get iconSvgInline;
+  set iconSvgInline(String? iconSvgInline);
+
   ListBuilder<String> get mimetypes;
   set mimetypes(ListBuilder<String>? mimetypes);
 
@@ -5026,6 +5045,8 @@ class _$TemplateFileCreator extends TemplateFileCreator {
   @override
   final String? iconClass;
   @override
+  final String? iconSvgInline;
+  @override
   final BuiltList<String> mimetypes;
   @override
   final double? ratio;
@@ -5040,6 +5061,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
       required this.label,
       required this.$extension,
       this.iconClass,
+      this.iconSvgInline,
       required this.mimetypes,
       this.ratio,
       required this.actionLabel})
@@ -5066,6 +5088,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
         label == other.label &&
         $extension == other.$extension &&
         iconClass == other.iconClass &&
+        iconSvgInline == other.iconSvgInline &&
         mimetypes == other.mimetypes &&
         ratio == other.ratio &&
         actionLabel == other.actionLabel;
@@ -5078,6 +5101,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
     _$hash = $jc(_$hash, label.hashCode);
     _$hash = $jc(_$hash, $extension.hashCode);
     _$hash = $jc(_$hash, iconClass.hashCode);
+    _$hash = $jc(_$hash, iconSvgInline.hashCode);
     _$hash = $jc(_$hash, mimetypes.hashCode);
     _$hash = $jc(_$hash, ratio.hashCode);
     _$hash = $jc(_$hash, actionLabel.hashCode);
@@ -5092,6 +5116,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
           ..add('label', label)
           ..add('\$extension', $extension)
           ..add('iconClass', iconClass)
+          ..add('iconSvgInline', iconSvgInline)
           ..add('mimetypes', mimetypes)
           ..add('ratio', ratio)
           ..add('actionLabel', actionLabel))
@@ -5119,6 +5144,10 @@ class TemplateFileCreatorBuilder
   String? get iconClass => _$this._iconClass;
   set iconClass(covariant String? iconClass) => _$this._iconClass = iconClass;
 
+  String? _iconSvgInline;
+  String? get iconSvgInline => _$this._iconSvgInline;
+  set iconSvgInline(covariant String? iconSvgInline) => _$this._iconSvgInline = iconSvgInline;
+
   ListBuilder<String>? _mimetypes;
   ListBuilder<String> get mimetypes => _$this._mimetypes ??= ListBuilder<String>();
   set mimetypes(covariant ListBuilder<String>? mimetypes) => _$this._mimetypes = mimetypes;
@@ -5142,6 +5171,7 @@ class TemplateFileCreatorBuilder
       _label = $v.label;
       _$extension = $v.$extension;
       _iconClass = $v.iconClass;
+      _iconSvgInline = $v.iconSvgInline;
       _mimetypes = $v.mimetypes.toBuilder();
       _ratio = $v.ratio;
       _actionLabel = $v.actionLabel;
@@ -5174,6 +5204,7 @@ class TemplateFileCreatorBuilder
               label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label'),
               $extension: BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreator', '\$extension'),
               iconClass: iconClass,
+              iconSvgInline: iconSvgInline,
               mimetypes: mimetypes.build(),
               ratio: ratio,
               actionLabel: BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreator', 'actionLabel'));
@@ -7055,6 +7086,9 @@ abstract mixin class $Capabilities_FilesInterfaceBuilder {
   ListBuilder<JsonObject> get blacklistedFiles;
   set blacklistedFiles(ListBuilder<JsonObject>? blacklistedFiles);
 
+  ListBuilder<String> get forbiddenFilenameCharacters;
+  set forbiddenFilenameCharacters(ListBuilder<String>? forbiddenFilenameCharacters);
+
   Capabilities_Files_DirectEditingBuilder get directEditing;
   set directEditing(Capabilities_Files_DirectEditingBuilder? directEditing);
 }
@@ -7065,15 +7099,23 @@ class _$Capabilities_Files extends Capabilities_Files {
   @override
   final BuiltList<JsonObject> blacklistedFiles;
   @override
+  final BuiltList<String> forbiddenFilenameCharacters;
+  @override
   final Capabilities_Files_DirectEditing directEditing;
 
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
       (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$Capabilities_Files._({required this.bigfilechunking, required this.blacklistedFiles, required this.directEditing})
+  _$Capabilities_Files._(
+      {required this.bigfilechunking,
+      required this.blacklistedFiles,
+      required this.forbiddenFilenameCharacters,
+      required this.directEditing})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking');
     BuiltValueNullFieldError.checkNotNull(blacklistedFiles, r'Capabilities_Files', 'blacklistedFiles');
+    BuiltValueNullFieldError.checkNotNull(
+        forbiddenFilenameCharacters, r'Capabilities_Files', 'forbiddenFilenameCharacters');
     BuiltValueNullFieldError.checkNotNull(directEditing, r'Capabilities_Files', 'directEditing');
   }
 
@@ -7090,6 +7132,7 @@ class _$Capabilities_Files extends Capabilities_Files {
     return other is Capabilities_Files &&
         bigfilechunking == other.bigfilechunking &&
         blacklistedFiles == other.blacklistedFiles &&
+        forbiddenFilenameCharacters == other.forbiddenFilenameCharacters &&
         directEditing == other.directEditing;
   }
 
@@ -7098,6 +7141,7 @@ class _$Capabilities_Files extends Capabilities_Files {
     var _$hash = 0;
     _$hash = $jc(_$hash, bigfilechunking.hashCode);
     _$hash = $jc(_$hash, blacklistedFiles.hashCode);
+    _$hash = $jc(_$hash, forbiddenFilenameCharacters.hashCode);
     _$hash = $jc(_$hash, directEditing.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -7108,6 +7152,7 @@ class _$Capabilities_Files extends Capabilities_Files {
     return (newBuiltValueToStringHelper(r'Capabilities_Files')
           ..add('bigfilechunking', bigfilechunking)
           ..add('blacklistedFiles', blacklistedFiles)
+          ..add('forbiddenFilenameCharacters', forbiddenFilenameCharacters)
           ..add('directEditing', directEditing))
         .toString();
   }
@@ -7126,6 +7171,11 @@ class Capabilities_FilesBuilder
   set blacklistedFiles(covariant ListBuilder<JsonObject>? blacklistedFiles) =>
       _$this._blacklistedFiles = blacklistedFiles;
 
+  ListBuilder<String>? _forbiddenFilenameCharacters;
+  ListBuilder<String> get forbiddenFilenameCharacters => _$this._forbiddenFilenameCharacters ??= ListBuilder<String>();
+  set forbiddenFilenameCharacters(covariant ListBuilder<String>? forbiddenFilenameCharacters) =>
+      _$this._forbiddenFilenameCharacters = forbiddenFilenameCharacters;
+
   Capabilities_Files_DirectEditingBuilder? _directEditing;
   Capabilities_Files_DirectEditingBuilder get directEditing =>
       _$this._directEditing ??= Capabilities_Files_DirectEditingBuilder();
@@ -7141,6 +7191,7 @@ class Capabilities_FilesBuilder
     if ($v != null) {
       _bigfilechunking = $v.bigfilechunking;
       _blacklistedFiles = $v.blacklistedFiles.toBuilder();
+      _forbiddenFilenameCharacters = $v.forbiddenFilenameCharacters.toBuilder();
       _directEditing = $v.directEditing.toBuilder();
       _$v = null;
     }
@@ -7170,12 +7221,15 @@ class Capabilities_FilesBuilder
               bigfilechunking:
                   BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
               blacklistedFiles: blacklistedFiles.build(),
+              forbiddenFilenameCharacters: forbiddenFilenameCharacters.build(),
               directEditing: directEditing.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'blacklistedFiles';
         blacklistedFiles.build();
+        _$failedField = 'forbiddenFilenameCharacters';
+        forbiddenFilenameCharacters.build();
         _$failedField = 'directEditing';
         directEditing.build();
       } catch (e) {

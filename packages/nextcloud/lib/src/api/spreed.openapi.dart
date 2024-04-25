@@ -57,9 +57,11 @@ class $Client extends _i1.DynamiteClient {
 
   late final $CallClient call = $CallClient(this);
 
-  late final $CertificateClient certificate = $CertificateClient(this);
-
   late final $ChatClient chat = $ChatClient(this);
+
+  late final $ExternalSignalingClient externalSignaling = $ExternalSignalingClient(this);
+
+  late final $FederationClient federation = $FederationClient(this);
 
   late final $FilesIntegrationClient filesIntegration = $FilesIntegrationClient(this);
 
@@ -67,13 +69,11 @@ class $Client extends _i1.DynamiteClient {
 
   late final $HostedSignalingServerClient hostedSignalingServer = $HostedSignalingServerClient(this);
 
+  late final $InternalSignalingClient internalSignaling = $InternalSignalingClient(this);
+
   late final $MatterbridgeClient matterbridge = $MatterbridgeClient(this);
 
-  late final $MatterbridgeSettingsClient matterbridgeSettings = $MatterbridgeSettingsClient(this);
-
   late final $PollClient poll = $PollClient(this);
-
-  late final $PublicShareAuthClient publicShareAuth = $PublicShareAuthClient(this);
 
   late final $ReactionClient reaction = $ReactionClient(this);
 
@@ -85,7 +85,7 @@ class $Client extends _i1.DynamiteClient {
 
   late final $SignalingClient signaling = $SignalingClient(this);
 
-  late final $TempAvatarClient tempAvatar = $TempAvatarClient(this);
+  late final $UserAvatarClient userAvatar = $UserAvatarClient(this);
 }
 
 class $AvatarClient {
@@ -650,6 +650,500 @@ class $AvatarClient {
     final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$getUserProxyAvatarWithoutRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarWithoutRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the avatar of a cloudId user when inviting users while creating a conversation.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUserProxyAvatarWithoutRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [getUserProxyAvatarWithoutRoom] for a method executing this request and parsing the response.
+  ///  * [$getUserProxyAvatarWithoutRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getUserProxyAvatarWithoutRoom_Request({
+    required String cloudId,
+    required AvatarGetUserProxyAvatarWithoutRoomSize size,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme? darkTheme,
+    AvatarGetUserProxyAvatarWithoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = $cloudId;
+
+    final $size =
+        _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomSize));
+    _parameters['size'] = $size;
+
+    var $darkTheme = _$jsonSerializers.serialize(
+      darkTheme,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomDarkTheme),
+    );
+    $darkTheme ??= 0;
+    _parameters['darkTheme'] = $darkTheme;
+
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}{?cloudId*,darkTheme*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the avatar of a cloudId user when inviting users while creating a conversation.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [$getUserProxyAvatarWithoutRoom_Request] for the request send by this method.
+  ///  * [$getUserProxyAvatarWithoutRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarWithoutRoom({
+    required String cloudId,
+    required AvatarGetUserProxyAvatarWithoutRoomSize size,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme? darkTheme,
+    AvatarGetUserProxyAvatarWithoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getUserProxyAvatarWithoutRoom_Request(
+      cloudId: cloudId,
+      size: size,
+      darkTheme: darkTheme,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getUserProxyAvatarWithoutRoom_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getUserProxyAvatarDarkWithoutRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarDarkWithoutRoom_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the dark mode avatar of a cloudId user when inviting users while creating a conversation.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUserProxyAvatarDarkWithoutRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [getUserProxyAvatarDarkWithoutRoom] for a method executing this request and parsing the response.
+  ///  * [$getUserProxyAvatarDarkWithoutRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getUserProxyAvatarDarkWithoutRoom_Request({
+    required String cloudId,
+    required AvatarGetUserProxyAvatarDarkWithoutRoomSize size,
+    AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = $cloudId;
+
+    final $size =
+        _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomSize));
+    _parameters['size'] = $size;
+
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark{?cloudId*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the dark mode avatar of a cloudId user when inviting users while creating a conversation.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [$getUserProxyAvatarDarkWithoutRoom_Request] for the request send by this method.
+  ///  * [$getUserProxyAvatarDarkWithoutRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarDarkWithoutRoom({
+    required String cloudId,
+    required AvatarGetUserProxyAvatarDarkWithoutRoomSize size,
+    AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getUserProxyAvatarDarkWithoutRoom_Request(
+      cloudId: cloudId,
+      size: size,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getUserProxyAvatarDarkWithoutRoom_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getUserProxyAvatar_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatar_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the avatar of a cloudId user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUserProxyAvatar] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [getUserProxyAvatar] for a method executing this request and parsing the response.
+  ///  * [$getUserProxyAvatar_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getUserProxyAvatar_Request({
+    required String cloudId,
+    required String token,
+    required AvatarGetUserProxyAvatarSize size,
+    AvatarGetUserProxyAvatarDarkTheme? darkTheme,
+    AvatarGetUserProxyAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = $cloudId;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarSize));
+    _parameters['size'] = $size;
+
+    var $darkTheme =
+        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkTheme));
+    $darkTheme ??= 0;
+    _parameters['darkTheme'] = $darkTheme;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}{?cloudId*,darkTheme*}',
+    ).expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the avatar of a cloudId user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [$getUserProxyAvatar_Request] for the request send by this method.
+  ///  * [$getUserProxyAvatar_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatar({
+    required String cloudId,
+    required String token,
+    required AvatarGetUserProxyAvatarSize size,
+    AvatarGetUserProxyAvatarDarkTheme? darkTheme,
+    AvatarGetUserProxyAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getUserProxyAvatar_Request(
+      cloudId: cloudId,
+      token: token,
+      size: size,
+      darkTheme: darkTheme,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getUserProxyAvatar_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getUserProxyAvatarDark_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarDark_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(Uint8List),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the dark mode avatar of a cloudId user.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getUserProxyAvatarDark] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [getUserProxyAvatarDark] for a method executing this request and parsing the response.
+  ///  * [$getUserProxyAvatarDark_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getUserProxyAvatarDark_Request({
+    required String cloudId,
+    required String token,
+    required AvatarGetUserProxyAvatarDarkSize size,
+    AvatarGetUserProxyAvatarDarkApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = $cloudId;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkSize));
+    _parameters['size'] = $size;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark{?cloudId*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = '*/*';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the dark mode avatar of a cloudId user.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [size] Avatar size.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: User avatar returned
+  ///
+  /// See:
+  ///  * [$getUserProxyAvatarDark_Request] for the request send by this method.
+  ///  * [$getUserProxyAvatarDark_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarDark({
+    required String cloudId,
+    required String token,
+    required AvatarGetUserProxyAvatarDarkSize size,
+    AvatarGetUserProxyAvatarDarkApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getUserProxyAvatarDark_Request(
+      cloudId: cloudId,
+      token: token,
+      size: size,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getUserProxyAvatarDark_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 }
 
 class $BotClient {
@@ -657,6 +1151,346 @@ class $BotClient {
   $BotClient(this._rootClient);
 
   final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$listBots_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotListBotsResponseApplicationJson, void> $listBots_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// List bots.
+  ///
+  /// Returns a `DynamiteRequest` backing the [listBots] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [listBots] for a method executing this request and parsing the response.
+  ///  * [$listBots_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listBots_Request({
+    required String token,
+    BotListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// List bots.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [$listBots_Request] for the request send by this method.
+  ///  * [$listBots_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
+    required String token,
+    BotListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $listBots_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $listBots_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<BotListBotsResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$enableBot_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotEnableBotResponseApplicationJson, void> $enableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotEnableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 201},
+      );
+
+  /// Enables a bot.
+  ///
+  /// Returns a `DynamiteRequest` backing the [enableBot] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [botId] ID of the bot.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot already enabled
+  ///   * 201: Bot enabled successfully
+  ///   * 400: Enabling bot errored
+  ///
+  /// See:
+  ///  * [enableBot] for a method executing this request and parsing the response.
+  ///  * [$enableBot_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $enableBot_Request({
+    required String token,
+    required int botId,
+    BotEnableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    _parameters['botId'] = $botId;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Enables a bot.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [botId] ID of the bot.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot already enabled
+  ///   * 201: Bot enabled successfully
+  ///   * 400: Enabling bot errored
+  ///
+  /// See:
+  ///  * [$enableBot_Request] for the request send by this method.
+  ///  * [$enableBot_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
+    required String token,
+    required int botId,
+    BotEnableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $enableBot_Request(
+      token: token,
+      botId: botId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $enableBot_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<BotEnableBotResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$disableBot_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotDisableBotResponseApplicationJson, void> $disableBot_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BotDisableBotResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Disables a bot.
+  ///
+  /// Returns a `DynamiteRequest` backing the [disableBot] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [botId] ID of the bot.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot disabled successfully
+  ///   * 400: Disabling bot errored
+  ///
+  /// See:
+  ///  * [disableBot] for a method executing this request and parsing the response.
+  ///  * [$disableBot_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $disableBot_Request({
+    required String token,
+    required int botId,
+    BotDisableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    _parameters['botId'] = $botId;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Disables a bot.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [botId] ID of the bot.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot disabled successfully
+  ///   * 400: Disabling bot errored
+  ///
+  /// See:
+  ///  * [$disableBot_Request] for the request send by this method.
+  ///  * [$disableBot_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
+    required String token,
+    required int botId,
+    BotDisableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $disableBot_Request(
+      token: token,
+      botId: botId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $disableBot_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<BotDisableBotResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 
   /// Builds a serializer to parse the response of [$sendMessage_Request].
   @_i2.experimental
@@ -1067,445 +1901,6 @@ class $BotClient {
     final _serializer = $deleteReaction_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<BotDeleteReactionResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$listBots_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<BotListBotsResponseApplicationJson, void> $listBots_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotListBotsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// List bots.
-  ///
-  /// Returns a `DynamiteRequest` backing the [listBots] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [listBots] for a method executing this request and parsing the response.
-  ///  * [$listBots_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $listBots_Request({
-    required String token,
-    BotListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// List bots.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [$listBots_Request] for the request send by this method.
-  ///  * [$listBots_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
-    required String token,
-    BotListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $listBots_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $listBots_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<BotListBotsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$enableBot_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<BotEnableBotResponseApplicationJson, void> $enableBot_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotEnableBotResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
-
-  /// Enables a bot.
-  ///
-  /// Returns a `DynamiteRequest` backing the [enableBot] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [botId] ID of the bot.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot already enabled
-  ///   * 201: Bot enabled successfully
-  ///   * 400: Enabling bot errored
-  ///
-  /// See:
-  ///  * [enableBot] for a method executing this request and parsing the response.
-  ///  * [$enableBot_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $enableBot_Request({
-    required String token,
-    required int botId,
-    BotEnableBotApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
-    _parameters['botId'] = $botId;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Enables a bot.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [botId] ID of the bot.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot already enabled
-  ///   * 201: Bot enabled successfully
-  ///   * 400: Enabling bot errored
-  ///
-  /// See:
-  ///  * [$enableBot_Request] for the request send by this method.
-  ///  * [$enableBot_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
-    required String token,
-    required int botId,
-    BotEnableBotApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $enableBot_Request(
-      token: token,
-      botId: botId,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $enableBot_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<BotEnableBotResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$disableBot_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<BotDisableBotResponseApplicationJson, void> $disableBot_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotDisableBotResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Disables a bot.
-  ///
-  /// Returns a `DynamiteRequest` backing the [disableBot] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [botId] ID of the bot.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot disabled successfully
-  ///   * 400: Disabling bot errored
-  ///
-  /// See:
-  ///  * [disableBot] for a method executing this request and parsing the response.
-  ///  * [$disableBot_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $disableBot_Request({
-    required String token,
-    required int botId,
-    BotDisableBotApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
-    _parameters['botId'] = $botId;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('delete', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Disables a bot.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [botId] ID of the bot.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot disabled successfully
-  ///   * 400: Disabling bot errored
-  ///
-  /// See:
-  ///  * [$disableBot_Request] for the request send by this method.
-  ///  * [$disableBot_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
-    required String token,
-    required int botId,
-    BotDisableBotApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $disableBot_Request(
-      token: token,
-      botId: botId,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $disableBot_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<BotDisableBotResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$adminListBots_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<BotAdminListBotsResponseApplicationJson, void> $adminListBots_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// List admin bots.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a `DynamiteRequest` backing the [adminListBots] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [adminListBots] for a method executing this request and parsing the response.
-  ///  * [$adminListBots_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $adminListBots_Request({
-    BotAdminListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// List admin bots.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Bot list returned
-  ///
-  /// See:
-  ///  * [$adminListBots_Request] for the request send by this method.
-  ///  * [$adminListBots_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
-    BotAdminListBotsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $adminListBots_Request(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $adminListBots_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<BotAdminListBotsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2855,8 +3250,8 @@ class $CallClient {
   @_i2.experimental
   _i3.Request $joinCall_Request({
     required String token,
-    CallJoinCallFlags? flags,
-    CallJoinCallForcePermissions? forcePermissions,
+    int? flags,
+    int? forcePermissions,
     CallJoinCallSilent? silent,
     CallJoinCallRecordingConsent? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
@@ -2871,11 +3266,10 @@ class $CallClient {
     );
     _parameters['token'] = $token;
 
-    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(CallJoinCallFlags));
+    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
     _parameters['flags'] = $flags;
 
-    final $forcePermissions =
-        _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(CallJoinCallForcePermissions));
+    final $forcePermissions = _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(int));
     _parameters['forcePermissions'] = $forcePermissions;
 
     var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(CallJoinCallSilent));
@@ -2943,8 +3337,8 @@ class $CallClient {
   ///  * [$joinCall_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CallJoinCallResponseApplicationJson, void>> joinCall({
     required String token,
-    CallJoinCallFlags? flags,
-    CallJoinCallForcePermissions? forcePermissions,
+    int? flags,
+    int? forcePermissions,
     CallJoinCallSilent? silent,
     CallJoinCallRecordingConsent? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
@@ -3322,127 +3716,6 @@ class $CallClient {
   }
 }
 
-class $CertificateClient {
-  /// Creates a new `DynamiteClient` for certificate requests.
-  $CertificateClient(this._rootClient);
-
-  final $Client _rootClient;
-
-  /// Builds a serializer to parse the response of [$getCertificateExpiration_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<CertificateGetCertificateExpirationResponseApplicationJson, void>
-      $getCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
-
-  /// Get the certificate expiration for a host.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getCertificateExpiration] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [host] Host to check.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Certificate expiration returned
-  ///   * 400: Getting certificate expiration is not possible
-  ///
-  /// See:
-  ///  * [getCertificateExpiration] for a method executing this request and parsing the response.
-  ///  * [$getCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $getCertificateExpiration_Request({
-    required String host,
-    CertificateGetCertificateExpirationApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
-    _parameters['host'] = $host;
-
-    var $apiVersion = _$jsonSerializers.serialize(
-      apiVersion,
-      specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
-    );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Get the certificate expiration for a host.
-  ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [host] Host to check.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Certificate expiration returned
-  ///   * 400: Getting certificate expiration is not possible
-  ///
-  /// See:
-  ///  * [$getCertificateExpiration_Request] for the request send by this method.
-  ///  * [$getCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
-      getCertificateExpiration({
-    required String host,
-    CertificateGetCertificateExpirationApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $getCertificateExpiration_Request(
-      host: host,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $getCertificateExpiration_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<CertificateGetCertificateExpirationResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-}
-
 class $ChatClient {
   /// Creates a new `DynamiteClient` for chat requests.
   $ChatClient(this._rootClient);
@@ -3456,7 +3729,7 @@ class $ChatClient {
             bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
             headersType: const FullType(ChatChatReceiveMessagesHeaders),
             serializers: _$jsonSerializers,
-            validStatuses: const {200, 304},
+            validStatuses: const {200},
           );
 
   /// Receives chat messages from the given room.
@@ -3691,6 +3964,7 @@ class $ChatClient {
   ///   * 400: Sending message is not possible
   ///   * 404: Actor not found
   ///   * 413: Message too long
+  ///   * 429: Mention rate limit exceeded (guests only)
   ///
   /// See:
   ///  * [sendMessage] for a method executing this request and parsing the response.
@@ -3788,6 +4062,7 @@ class $ChatClient {
   ///   * 400: Sending message is not possible
   ///   * 404: Actor not found
   ///   * 413: Message too long
+  ///   * 429: Mention rate limit exceeded (guests only)
   ///
   /// See:
   ///  * [$sendMessage_Request] for the request send by this method.
@@ -3934,6 +4209,141 @@ class $ChatClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
+  /// Builds a serializer to parse the response of [$editMessage_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>
+      $editMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(ChatEditMessageResponseApplicationJson),
+            headersType: const FullType(ChatChatEditMessageHeaders),
+            serializers: _$jsonSerializers,
+            validStatuses: const {200, 202},
+          );
+
+  /// Edit a chat message.
+  ///
+  /// Returns a `DynamiteRequest` backing the [editMessage] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [message] the message to send.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [messageId] ID of the message.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Message edited successfully
+  ///   * 202: Message edited successfully, but a bot or Matterbridge is configured, so the information can be replicated to other services
+  ///   * 400: Editing message is not possible, e.g. when the new message is empty or the message is too old
+  ///   * 403: Missing permissions to edit message
+  ///   * 404: Message not found
+  ///   * 405: Editing this message type is not allowed
+  ///   * 413: Message too long
+  ///
+  /// See:
+  ///  * [editMessage] for a method executing this request and parsing the response.
+  ///  * [$editMessage_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $editMessage_Request({
+    required String message,
+    required String token,
+    required int messageId,
+    ChatEditMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = $message;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    _parameters['messageId'] = $messageId;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatEditMessageApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}{?message*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Edit a chat message.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [message] the message to send.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [messageId] ID of the message.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Message edited successfully
+  ///   * 202: Message edited successfully, but a bot or Matterbridge is configured, so the information can be replicated to other services
+  ///   * 400: Editing message is not possible, e.g. when the new message is empty or the message is too old
+  ///   * 403: Missing permissions to edit message
+  ///   * 404: Message not found
+  ///   * 405: Editing this message type is not allowed
+  ///   * 413: Message too long
+  ///
+  /// See:
+  ///  * [$editMessage_Request] for the request send by this method.
+  ///  * [$editMessage_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>> editMessage({
+    required String message,
+    required String token,
+    required int messageId,
+    ChatEditMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $editMessage_Request(
+      message: message,
+      token: token,
+      messageId: messageId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $editMessage_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
   /// Builds a serializer to parse the response of [$deleteMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>
@@ -3957,11 +4367,11 @@ class $ChatClient {
   ///
   /// Status codes:
   ///   * 200: Message deleted successfully
-  ///   * 202: Message deleted successfully, but Matterbridge is configured, so the information can be replicated elsewhere
+  ///   * 202: Message deleted successfully, but a bot or Matterbridge is configured, so the information can be replicated elsewhere
   ///   * 400: Deleting message is not possible
   ///   * 403: Missing permissions to delete message
   ///   * 404: Message not found
-  ///   * 405: Deleting message is not allowed
+  ///   * 405: Deleting this message type is not allowed
   ///
   /// See:
   ///  * [deleteMessage] for a method executing this request and parsing the response.
@@ -4007,8 +4417,6 @@ class $ChatClient {
       _request.headers.addAll(
         authentication.headers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
 // coverage:ignore-end
@@ -4032,11 +4440,11 @@ class $ChatClient {
   ///
   /// Status codes:
   ///   * 200: Message deleted successfully
-  ///   * 202: Message deleted successfully, but Matterbridge is configured, so the information can be replicated elsewhere
+  ///   * 202: Message deleted successfully, but a bot or Matterbridge is configured, so the information can be replicated elsewhere
   ///   * 400: Deleting message is not possible
   ///   * 403: Missing permissions to delete message
   ///   * 404: Message not found
-  ///   * 405: Deleting message is not allowed
+  ///   * 405: Deleting this message type is not allowed
   ///
   /// See:
   ///  * [$deleteMessage_Request] for the request send by this method.
@@ -4069,7 +4477,7 @@ class $ChatClient {
             bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
             headersType: const FullType(ChatChatGetMessageContextHeaders),
             serializers: _$jsonSerializers,
-            validStatuses: const {200, 304},
+            validStatuses: const {200},
           );
 
   /// Get the context of a message.
@@ -4571,7 +4979,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [lastReadMessage] ID if the last read message.
+  ///   * [lastReadMessage] ID if the last read message (Optional only with `chat-read-last` capability).
   ///   * [apiVersion] Defaults to `v1`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4584,15 +4992,12 @@ class $ChatClient {
   ///  * [$setReadMarker_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setReadMarker_Request({
-    required int lastReadMessage,
     required String token,
+    int? lastReadMessage,
     ChatSetReadMarkerApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $lastReadMessage = _$jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
-    _parameters['lastReadMessage'] = $lastReadMessage;
-
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkPattern(
       $token as String?,
@@ -4600,6 +5005,9 @@ class $ChatClient {
       'token',
     );
     _parameters['token'] = $token;
+
+    final $lastReadMessage = _$jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
+    _parameters['lastReadMessage'] = $lastReadMessage;
 
     var $apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
@@ -4623,8 +5031,6 @@ class $ChatClient {
       _request.headers.addAll(
         authentication.headers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
 // coverage:ignore-end
@@ -4641,7 +5047,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [lastReadMessage] ID if the last read message.
+  ///   * [lastReadMessage] ID if the last read message (Optional only with `chat-read-last` capability).
   ///   * [apiVersion] Defaults to `v1`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4653,14 +5059,14 @@ class $ChatClient {
   ///  * [$setReadMarker_Request] for the request send by this method.
   ///  * [$setReadMarker_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>> setReadMarker({
-    required int lastReadMessage,
     required String token,
+    int? lastReadMessage,
     ChatSetReadMarkerApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setReadMarker_Request(
-      lastReadMessage: lastReadMessage,
       token: token,
+      lastReadMessage: lastReadMessage,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -4734,8 +5140,6 @@ class $ChatClient {
       _request.headers.addAll(
         authentication.headers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
 // coverage:ignore-end
@@ -5335,6 +5739,452 @@ class $ChatClient {
   }
 }
 
+class $ExternalSignalingClient {
+  /// Creates a new `DynamiteClient` for external_signaling requests.
+  $ExternalSignalingClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$signalingGetSettings_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetSettingsResponseApplicationJson, void> $signalingGetSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the signaling settings.
+  ///
+  /// Returns a `DynamiteRequest` backing the [signalingGetSettings] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the room. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling settings returned
+  ///   * 401: Recording request invalid
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [signalingGetSettings] for a method executing this request and parsing the response.
+  ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $signalingGetSettings_Request({
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    $token ??= '';
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the signaling settings.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the room. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling settings returned
+  ///   * 401: Recording request invalid
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [$signalingGetSettings_Request] for the request send by this method.
+  ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> signalingGetSettings({
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $signalingGetSettings_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $signalingGetSettings_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<SignalingGetSettingsResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+class $FederationClient {
+  /// Creates a new `DynamiteClient` for federation requests.
+  $FederationClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$acceptShare_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<FederationAcceptShareResponseApplicationJson, void> $acceptShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(FederationAcceptShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Accept a federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a `DynamiteRequest` backing the [acceptShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Invite accepted successfully
+  ///   * 400: Invite can not be accepted (maybe it was accepted already)
+  ///   * 410: Remote server could not be reached to notify about the acceptance
+  ///   * 404: Invite can not be found
+  ///
+  /// See:
+  ///  * [acceptShare] for a method executing this request and parsing the response.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $acceptShare_Request({
+    required int id,
+    FederationAcceptShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationAcceptShareApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Accept a federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Invite accepted successfully
+  ///   * 400: Invite can not be accepted (maybe it was accepted already)
+  ///   * 410: Remote server could not be reached to notify about the acceptance
+  ///   * 404: Invite can not be found
+  ///
+  /// See:
+  ///  * [$acceptShare_Request] for the request send by this method.
+  ///  * [$acceptShare_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<FederationAcceptShareResponseApplicationJson, void>> acceptShare({
+    required int id,
+    FederationAcceptShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $acceptShare_Request(
+      id: id,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $acceptShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<FederationAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$rejectShare_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<FederationRejectShareResponseApplicationJson, void> $rejectShare_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(FederationRejectShareResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Decline a federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a `DynamiteRequest` backing the [rejectShare] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Invite declined successfully
+  ///   * 404: Invite can not be found
+  ///   * 400: Invite was already accepted, use the "Remove the current user from a room" endpoint instead
+  ///
+  /// See:
+  ///  * [rejectShare] for a method executing this request and parsing the response.
+  ///  * [$rejectShare_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $rejectShare_Request({
+    required int id,
+    FederationRejectShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationRejectShareApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Decline a federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [id] ID of the share.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Invite declined successfully
+  ///   * 404: Invite can not be found
+  ///   * 400: Invite was already accepted, use the "Remove the current user from a room" endpoint instead
+  ///
+  /// See:
+  ///  * [$rejectShare_Request] for the request send by this method.
+  ///  * [$rejectShare_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<FederationRejectShareResponseApplicationJson, void>> rejectShare({
+    required int id,
+    FederationRejectShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $rejectShare_Request(
+      id: id,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $rejectShare_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<FederationRejectShareResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$getShares_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<FederationGetSharesResponseApplicationJson, void> $getShares_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(FederationGetSharesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get a list of federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getShares] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Get list of received federation invites successfully
+  ///
+  /// See:
+  ///  * [getShares] for a method executing this request and parsing the response.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getShares_Request({
+    FederationGetSharesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationGetSharesApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get a list of federation invites.
+  ///
+  /// 🚧 Draft: Still work in progress.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Get list of received federation invites successfully
+  ///
+  /// See:
+  ///  * [$getShares_Request] for the request send by this method.
+  ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<FederationGetSharesResponseApplicationJson, void>> getShares({
+    FederationGetSharesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getShares_Request(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getShares_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<FederationGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
 class $FilesIntegrationClient {
   /// Creates a new `DynamiteClient` for files_integration requests.
   $FilesIntegrationClient(this._rootClient);
@@ -5584,6 +6434,117 @@ class $FilesIntegrationClient {
     final _serializer = $getRoomByShareToken_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$publicShareAuthCreateRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<PublicShareAuthCreateRoomResponseApplicationJson, void>
+      $publicShareAuthCreateRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {201},
+          );
+
+  /// Creates a new room for video verification (requesting the password of a share).
+  ///
+  /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
+  /// The share must have "send password by Talk" enabled; an error is returned otherwise.
+  ///
+  /// Returns a `DynamiteRequest` backing the [publicShareAuthCreateRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shareToken] Token of the file share.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: Room created successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [publicShareAuthCreateRoom] for a method executing this request and parsing the response.
+  ///  * [$publicShareAuthCreateRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $publicShareAuthCreateRoom_Request({
+    required String shareToken,
+    PublicShareAuthCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    _parameters['shareToken'] = $shareToken;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Creates a new room for video verification (requesting the password of a share).
+  ///
+  /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
+  /// The share must have "send password by Talk" enabled; an error is returned otherwise.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [shareToken] Token of the file share.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 201: Room created successfully
+  ///   * 404: Share not found
+  ///
+  /// See:
+  ///  * [$publicShareAuthCreateRoom_Request] for the request send by this method.
+  ///  * [$publicShareAuthCreateRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> publicShareAuthCreateRoom({
+    required String shareToken,
+    PublicShareAuthCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $publicShareAuthCreateRoom_Request(
+      shareToken: shareToken,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $publicShareAuthCreateRoom_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<PublicShareAuthCreateRoomResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -5871,9 +6832,8 @@ class $HostedSignalingServerClient {
 
   /// Builds a serializer to parse the response of [$deleteAccount_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson, void> $deleteAccount_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
+  _i1.DynamiteSerializer<void, void> $deleteAccount_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {204},
@@ -5915,7 +6875,6 @@ class $HostedSignalingServerClient {
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
-    _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
       (auth) => switch (auth) {
@@ -5959,7 +6918,7 @@ class $HostedSignalingServerClient {
   /// See:
   ///  * [$deleteAccount_Request] for the request send by this method.
   ///  * [$deleteAccount_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccount({
+  Future<_i1.DynamiteResponse<void, void>> deleteAccount({
     HostedSignalingServerDeleteAccountApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -5970,9 +6929,350 @@ class $HostedSignalingServerClient {
     final _response = await _rootClient.httpClient.send(_request);
 
     final _serializer = $deleteAccount_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+class $InternalSignalingClient {
+  /// Creates a new `DynamiteClient` for internal_signaling requests.
+  $InternalSignalingClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$signalingGetSettings_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingGetSettingsResponseApplicationJson, void> $signalingGetSettings_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Get the signaling settings.
+  ///
+  /// Returns a `DynamiteRequest` backing the [signalingGetSettings] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the room. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling settings returned
+  ///   * 401: Recording request invalid
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [signalingGetSettings] for a method executing this request and parsing the response.
+  ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $signalingGetSettings_Request({
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    $token ??= '';
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the signaling settings.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [token] Token of the room. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling settings returned
+  ///   * 401: Recording request invalid
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [$signalingGetSettings_Request] for the request send by this method.
+  ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> signalingGetSettings({
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $signalingGetSettings_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $signalingGetSettings_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        await _i1.ResponseConverter<SignalingGetSettingsResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$signalingPullMessages_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingPullMessagesResponseApplicationJson, void> $signalingPullMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200, 404, 409},
+      );
+
+  /// Get signaling messages.
+  ///
+  /// Returns a `DynamiteRequest` backing the [signalingPullMessages] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling messages returned
+  ///   * 404: Session, room or participant not found
+  ///   * 409: Session killed
+  ///   * 400: Getting signaling messages is not possible
+  ///
+  /// See:
+  ///  * [signalingPullMessages] for a method executing this request and parsing the response.
+  ///  * [$signalingPullMessages_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $signalingPullMessages_Request({
+    required String token,
+    SignalingPullMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get signaling messages.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling messages returned
+  ///   * 404: Session, room or participant not found
+  ///   * 409: Session killed
+  ///   * 400: Getting signaling messages is not possible
+  ///
+  /// See:
+  ///  * [$signalingPullMessages_Request] for the request send by this method.
+  ///  * [$signalingPullMessages_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> signalingPullMessages({
+    required String token,
+    SignalingPullMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $signalingPullMessages_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $signalingPullMessages_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<SignalingPullMessagesResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$signalingSendMessages_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<SignalingSendMessagesResponseApplicationJson, void> $signalingSendMessages_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Send signaling messages.
+  ///
+  /// Returns a `DynamiteRequest` backing the [signalingSendMessages] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messages] JSON encoded messages.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling message sent successfully
+  ///   * 400: Sending signaling message is not possible
+  ///
+  /// See:
+  ///  * [signalingSendMessages] for a method executing this request and parsing the response.
+  ///  * [$signalingSendMessages_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $signalingSendMessages_Request({
+    required String messages,
+    required String token,
+    SignalingSendMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
+    _parameters['messages'] = $messages;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Send signaling messages.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [messages] JSON encoded messages.
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Signaling message sent successfully
+  ///   * 400: Sending signaling message is not possible
+  ///
+  /// See:
+  ///  * [$signalingSendMessages_Request] for the request send by this method.
+  ///  * [$signalingSendMessages_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> signalingSendMessages({
+    required String messages,
+    required String token,
+    SignalingSendMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $signalingSendMessages_Request(
+      messages: messages,
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $signalingSendMessages_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<SignalingSendMessagesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -6452,18 +7752,11 @@ class $MatterbridgeClient {
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
-}
 
-class $MatterbridgeSettingsClient {
-  /// Creates a new `DynamiteClient` for matterbridge_settings requests.
-  $MatterbridgeSettingsClient(this._rootClient);
-
-  final $Client _rootClient;
-
-  /// Builds a serializer to parse the response of [$stopAllBridges_Request].
+  /// Builds a serializer to parse the response of [$matterbridgeSettingsStopAllBridges_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>
-      $stopAllBridges_Serializer() => _i1.DynamiteSerializer(
+      $matterbridgeSettingsStopAllBridges_Serializer() => _i1.DynamiteSerializer(
             bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
@@ -6474,7 +7767,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a `DynamiteRequest` backing the [stopAllBridges] operation.
+  /// Returns a `DynamiteRequest` backing the [matterbridgeSettingsStopAllBridges] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6486,10 +7779,10 @@ class $MatterbridgeSettingsClient {
   ///   * 406: Stopping all bridges is not possible
   ///
   /// See:
-  ///  * [stopAllBridges] for a method executing this request and parsing the response.
-  ///  * [$stopAllBridges_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [matterbridgeSettingsStopAllBridges] for a method executing this request and parsing the response.
+  ///  * [$matterbridgeSettingsStopAllBridges_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $stopAllBridges_Request({
+  _i3.Request $matterbridgeSettingsStopAllBridges_Request({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -6545,29 +7838,30 @@ class $MatterbridgeSettingsClient {
   ///   * 406: Stopping all bridges is not possible
   ///
   /// See:
-  ///  * [$stopAllBridges_Request] for the request send by this method.
-  ///  * [$stopAllBridges_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridges({
+  ///  * [$matterbridgeSettingsStopAllBridges_Request] for the request send by this method.
+  ///  * [$matterbridgeSettingsStopAllBridges_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>>
+      matterbridgeSettingsStopAllBridges({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $stopAllBridges_Request(
+    final _request = $matterbridgeSettingsStopAllBridges_Request(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $stopAllBridges_Serializer();
+    final _serializer = $matterbridgeSettingsStopAllBridges_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$getMatterbridgeVersion_Request].
+  /// Builds a serializer to parse the response of [$matterbridgeSettingsGetMatterbridgeVersion_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
-      $getMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
+      $matterbridgeSettingsGetMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
             bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
             headersType: null,
             serializers: _$jsonSerializers,
@@ -6578,7 +7872,7 @@ class $MatterbridgeSettingsClient {
   ///
   /// This endpoint requires admin access.
   ///
-  /// Returns a `DynamiteRequest` backing the [getMatterbridgeVersion] operation.
+  /// Returns a `DynamiteRequest` backing the [matterbridgeSettingsGetMatterbridgeVersion] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -6590,10 +7884,10 @@ class $MatterbridgeSettingsClient {
   ///   * 400: Getting bridge version is not possible
   ///
   /// See:
-  ///  * [getMatterbridgeVersion] for a method executing this request and parsing the response.
-  ///  * [$getMatterbridgeVersion_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [matterbridgeSettingsGetMatterbridgeVersion] for a method executing this request and parsing the response.
+  ///  * [$matterbridgeSettingsGetMatterbridgeVersion_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getMatterbridgeVersion_Request({
+  _i3.Request $matterbridgeSettingsGetMatterbridgeVersion_Request({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -6649,20 +7943,20 @@ class $MatterbridgeSettingsClient {
   ///   * 400: Getting bridge version is not possible
   ///
   /// See:
-  ///  * [$getMatterbridgeVersion_Request] for the request send by this method.
-  ///  * [$getMatterbridgeVersion_Serializer] for a converter to parse the `Response` from an executed request.
+  ///  * [$matterbridgeSettingsGetMatterbridgeVersion_Request] for the request send by this method.
+  ///  * [$matterbridgeSettingsGetMatterbridgeVersion_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
-      getMatterbridgeVersion({
+      matterbridgeSettingsGetMatterbridgeVersion({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getMatterbridgeVersion_Request(
+    final _request = $matterbridgeSettingsGetMatterbridgeVersion_Request(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $getMatterbridgeVersion_Serializer();
+    final _serializer = $matterbridgeSettingsGetMatterbridgeVersion_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
       _serializer,
@@ -7176,124 +8470,6 @@ class $PollClient {
     final _serializer = $closePoll_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<PollClosePollResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-}
-
-class $PublicShareAuthClient {
-  /// Creates a new `DynamiteClient` for public_share_auth requests.
-  $PublicShareAuthClient(this._rootClient);
-
-  final $Client _rootClient;
-
-  /// Builds a serializer to parse the response of [$createRoom_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<PublicShareAuthCreateRoomResponseApplicationJson, void> $createRoom_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {201},
-      );
-
-  /// Creates a new room for video verification (requesting the password of a share).
-  ///
-  /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
-  /// The share must have "send password by Talk" enabled; an error is returned otherwise.
-  ///
-  /// Returns a `DynamiteRequest` backing the [createRoom] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [shareToken] Token of the file share.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 201: Room created successfully
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [createRoom] for a method executing this request and parsing the response.
-  ///  * [$createRoom_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $createRoom_Request({
-    required String shareToken,
-    PublicShareAuthCreateRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    _parameters['shareToken'] = $shareToken;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Creates a new room for video verification (requesting the password of a share).
-  ///
-  /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
-  /// The share must have "send password by Talk" enabled; an error is returned otherwise.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [shareToken] Token of the file share.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 201: Room created successfully
-  ///   * 404: Share not found
-  ///
-  /// See:
-  ///  * [$createRoom_Request] for the request send by this method.
-  ///  * [$createRoom_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoom({
-    required String shareToken,
-    PublicShareAuthCreateRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $createRoom_Request(
-      shareToken: shareToken,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $createRoom_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<PublicShareAuthCreateRoomResponseApplicationJson, void>(_serializer)
-            .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -7913,123 +9089,6 @@ class $RecordingClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$store_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<RecordingStoreResponseApplicationJson, void> $store_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingStoreResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Store the recording.
-  ///
-  /// Returns a `DynamiteRequest` backing the [store] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [owner] User that will own the recording file.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Recording stored successfully
-  ///   * 400: Storing recording is not possible
-  ///   * 401: Missing permissions to store recording
-  ///
-  /// See:
-  ///  * [store] for a method executing this request and parsing the response.
-  ///  * [$store_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $store_Request({
-    required String owner,
-    required String token,
-    RecordingStoreApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $owner = _$jsonSerializers.serialize(owner, specifiedType: const FullType(String));
-    _parameters['owner'] = $owner;
-
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
-        .expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Store the recording.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [owner] User that will own the recording file.
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Recording stored successfully
-  ///   * 400: Storing recording is not possible
-  ///   * 401: Missing permissions to store recording
-  ///
-  /// See:
-  ///  * [$store_Request] for the request send by this method.
-  ///  * [$store_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
-    required String owner,
-    required String token,
-    RecordingStoreApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $store_Request(
-      owner: owner,
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $store_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<RecordingStoreResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
   /// Builds a serializer to parse the response of [$notificationDismiss_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingNotificationDismissResponseApplicationJson, void> $notificationDismiss_Serializer() =>
@@ -8279,55 +9338,47 @@ class $RecordingClient {
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$getWelcomeMessage_Request].
+  /// Builds a serializer to parse the response of [$backend_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<RecordingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+  _i1.DynamiteSerializer<RecordingBackendResponseApplicationJson, void> $backend_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingBackendResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
 
-  /// Get the welcome message of a recording server.
+  /// Update the recording status as a backend.
   ///
-  /// This endpoint requires admin access.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getWelcomeMessage] operation.
+  /// Returns a `DynamiteRequest` backing the [backend] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
-  ///   * [serverId] ID of the server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Recording server not found or not configured
-  ///   * 500
+  ///   * 200: Recording status updated successfully
+  ///   * 400: Updating recording status is not possible
+  ///   * 403: Missing permissions to update recording status
+  ///   * 404: Room not found
   ///
   /// See:
-  ///  * [getWelcomeMessage] for a method executing this request and parsing the response.
-  ///  * [$getWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [backend] for a method executing this request and parsing the response.
+  ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getWelcomeMessage_Request({
-    required int serverId,
-    RecordingGetWelcomeMessageApiVersion? apiVersion,
+  _i3.Request $backend_Request({
+    RecordingBackendApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
-    _parameters['serverId'] = $serverId;
-
     var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingBackendApiVersion));
     $apiVersion ??= 'v1';
     _parameters['apiVersion'] = $apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/backend').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
+    final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
     final authentication = _rootClient.authentications?.firstWhereOrNull(
@@ -8341,8 +9392,6 @@ class $RecordingClient {
       _request.headers.addAll(
         authentication.headers,
       );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
     }
 
 // coverage:ignore-end
@@ -8353,42 +9402,154 @@ class $RecordingClient {
     return _request;
   }
 
-  /// Get the welcome message of a recording server.
-  ///
-  /// This endpoint requires admin access.
+  /// Update the recording status as a backend.
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `v1`.
-  ///   * [serverId] ID of the server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
-  ///   * 200: Welcome message returned
-  ///   * 404: Recording server not found or not configured
-  ///   * 500
+  ///   * 200: Recording status updated successfully
+  ///   * 400: Updating recording status is not possible
+  ///   * 403: Missing permissions to update recording status
+  ///   * 404: Room not found
   ///
   /// See:
-  ///  * [$getWelcomeMessage_Request] for the request send by this method.
-  ///  * [$getWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
-    required int serverId,
-    RecordingGetWelcomeMessageApiVersion? apiVersion,
+  ///  * [$backend_Request] for the request send by this method.
+  ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RecordingBackendResponseApplicationJson, void>> backend({
+    RecordingBackendApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getWelcomeMessage_Request(
-      serverId: serverId,
+    final _request = $backend_Request(
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $getWelcomeMessage_Serializer();
+    final _serializer = $backend_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RecordingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        await _i1.ResponseConverter<RecordingBackendResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$store_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingStoreResponseApplicationJson, void> $store_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(RecordingStoreResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Store the recording.
+  ///
+  /// Returns a `DynamiteRequest` backing the [store] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [owner] User that will own the recording file.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Recording stored successfully
+  ///   * 400: Storing recording is not possible
+  ///   * 401: Missing permissions to store recording
+  ///
+  /// See:
+  ///  * [store] for a method executing this request and parsing the response.
+  ///  * [$store_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $store_Request({
+    required String owner,
+    required String token,
+    RecordingStoreApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $owner = _$jsonSerializers.serialize(owner, specifiedType: const FullType(String));
+    _parameters['owner'] = $owner;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Store the recording.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [owner] User that will own the recording file.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Recording stored successfully
+  ///   * 400: Storing recording is not possible
+  ///   * 401: Missing permissions to store recording
+  ///
+  /// See:
+  ///  * [$store_Request] for the request send by this method.
+  ///  * [$store_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
+    required String owner,
+    required String token,
+    RecordingStoreApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $store_Request(
+      owner: owner,
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $store_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RecordingStoreResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -8997,229 +10158,6 @@ class $RoomClient {
     final _rawResponse =
         await _i1.ResponseConverter<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(_serializer)
             .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$renameRoom_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<RoomRenameRoomResponseApplicationJson, void> $renameRoom_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 400},
-      );
-
-  /// Rename a room.
-  ///
-  /// Returns a `DynamiteRequest` backing the [renameRoom] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [roomName] New name.
-  ///   * [apiVersion] Defaults to `v4`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Room renamed successfully
-  ///   * 400: Renaming room is not possible
-  ///
-  /// See:
-  ///  * [renameRoom] for a method executing this request and parsing the response.
-  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $renameRoom_Request({
-    required String roomName,
-    required String token,
-    RoomRenameRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $roomName = _$jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
-    _parameters['roomName'] = $roomName;
-
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('put', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Rename a room.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [roomName] New name.
-  ///   * [apiVersion] Defaults to `v4`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Room renamed successfully
-  ///   * 400: Renaming room is not possible
-  ///
-  /// See:
-  ///  * [$renameRoom_Request] for the request send by this method.
-  ///  * [$renameRoom_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
-    required String roomName,
-    required String token,
-    RoomRenameRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $renameRoom_Request(
-      roomName: roomName,
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $renameRoom_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<RoomRenameRoomResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$deleteRoom_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<RoomDeleteRoomResponseApplicationJson, void> $deleteRoom_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 400},
-      );
-
-  /// Delete a room.
-  ///
-  /// Returns a `DynamiteRequest` backing the [deleteRoom] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Room successfully deleted
-  ///   * 400: Deleting room is not possible
-  ///
-  /// See:
-  ///  * [deleteRoom] for a method executing this request and parsing the response.
-  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $deleteRoom_Request({
-    required String token,
-    RoomDeleteRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('delete', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Delete a room.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
-  ///   * [token]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Room successfully deleted
-  ///   * 400: Deleting room is not possible
-  ///
-  /// See:
-  ///  * [$deleteRoom_Request] for the request send by this method.
-  ///  * [$deleteRoom_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
-    required String token,
-    RoomDeleteRoomApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $deleteRoom_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $deleteRoom_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<RoomDeleteRoomResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -10058,15 +10996,14 @@ class $RoomClient {
   ///  * [$setPermissions_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setPermissions_Request({
-    required RoomSetPermissionsPermissions permissions,
+    required int permissions,
     required String token,
     required RoomSetPermissionsMode mode,
     RoomSetPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $permissions =
-        _$jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetPermissionsPermissions));
+    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -10138,7 +11075,7 @@ class $RoomClient {
   ///  * [$setPermissions_Request] for the request send by this method.
   ///  * [$setPermissions_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissions({
-    required RoomSetPermissionsPermissions permissions,
+    required int permissions,
     required String token,
     required RoomSetPermissionsMode mode,
     RoomSetPermissionsApiVersion? apiVersion,
@@ -10815,7 +11752,7 @@ class $RoomClient {
   _i3.Request $setAttendeePermissions_Request({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
-    required RoomSetAttendeePermissionsPermissions permissions,
+    required int permissions,
     required String token,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10828,8 +11765,7 @@ class $RoomClient {
         _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAttendeePermissionsMethod));
     _parameters['method'] = $method;
 
-    final $permissions =
-        _$jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetAttendeePermissionsPermissions));
+    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -10898,7 +11834,7 @@ class $RoomClient {
   Future<_i1.DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
     required int attendeeId,
     required RoomSetAttendeePermissionsMethod method,
-    required RoomSetAttendeePermissionsPermissions permissions,
+    required int permissions,
     required String token,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10952,7 +11888,7 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $setAllAttendeesPermissions_Request({
     required RoomSetAllAttendeesPermissionsMethod method,
-    required RoomSetAllAttendeesPermissionsPermissions permissions,
+    required int permissions,
     required String token,
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10962,10 +11898,7 @@ class $RoomClient {
         _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAllAttendeesPermissionsMethod));
     _parameters['method'] = $method;
 
-    final $permissions = _$jsonSerializers.serialize(
-      permissions,
-      specifiedType: const FullType(RoomSetAllAttendeesPermissionsPermissions),
-    );
+    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _parameters['permissions'] = $permissions;
 
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -11032,7 +11965,7 @@ class $RoomClient {
   ///  * [$setAllAttendeesPermissions_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>> setAllAttendeesPermissions({
     required RoomSetAllAttendeesPermissionsMethod method,
-    required RoomSetAllAttendeesPermissionsPermissions permissions,
+    required int permissions,
     required String token,
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11055,9 +11988,10 @@ class $RoomClient {
 
   /// Builds a serializer to parse the response of [$joinRoom_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<RoomJoinRoomResponseApplicationJson, void> $joinRoom_Serializer() => _i1.DynamiteSerializer(
+  _i1.DynamiteSerializer<RoomJoinRoomResponseApplicationJson, RoomRoomJoinRoomHeaders> $joinRoom_Serializer() =>
+      _i1.DynamiteSerializer(
         bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
-        headersType: null,
+        headersType: const FullType(RoomRoomJoinRoomHeaders),
         serializers: _$jsonSerializers,
         validStatuses: const {200},
       );
@@ -11161,7 +12095,7 @@ class $RoomClient {
   /// See:
   ///  * [$joinRoom_Request] for the request send by this method.
   ///  * [$joinRoom_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
+  Future<_i1.DynamiteResponse<RoomJoinRoomResponseApplicationJson, RoomRoomJoinRoomHeaders>> joinRoom({
     required String token,
     String? password,
     RoomJoinRoomForce? force,
@@ -11179,7 +12113,8 @@ class $RoomClient {
 
     final _serializer = $joinRoom_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RoomJoinRoomResponseApplicationJson, void>(_serializer).convert(_response);
+        await _i1.ResponseConverter<RoomJoinRoomResponseApplicationJson, RoomRoomJoinRoomHeaders>(_serializer)
+            .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -12711,6 +13646,862 @@ class $RoomClient {
         .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
+
+  /// Builds a serializer to parse the response of [$getCapabilities_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>
+      $getCapabilities_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomGetCapabilitiesResponseApplicationJson),
+            headersType: const FullType(RoomRoomGetCapabilitiesHeaders),
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Get capabilities for a room.
+  ///
+  /// See "Capability handling in federated conversations" in https://github.com/nextcloud/spreed/issues/10680 to learn which capabilities should be considered from the local server or from the remote server.
+  ///
+  /// Returns a `DynamiteRequest` backing the [getCapabilities] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Get capabilities successfully
+  ///
+  /// See:
+  ///  * [getCapabilities] for a method executing this request and parsing the response.
+  ///  * [$getCapabilities_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $getCapabilities_Request({
+    required String token,
+    RoomGetCapabilitiesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetCapabilitiesApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/capabilities').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get capabilities for a room.
+  ///
+  /// See "Capability handling in federated conversations" in https://github.com/nextcloud/spreed/issues/10680 to learn which capabilities should be considered from the local server or from the remote server.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Get capabilities successfully
+  ///
+  /// See:
+  ///  * [$getCapabilities_Request] for the request send by this method.
+  ///  * [$getCapabilities_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>>
+      getCapabilities({
+    required String token,
+    RoomGetCapabilitiesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $getCapabilities_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $getCapabilities_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>(
+      _serializer,
+    ).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$joinFederatedRoom_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomJoinFederatedRoomResponseApplicationJson, RoomRoomJoinFederatedRoomHeaders>
+      $joinFederatedRoom_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomJoinFederatedRoomResponseApplicationJson),
+            headersType: const FullType(RoomRoomJoinFederatedRoomHeaders),
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Fake join a room on the host server to verify the federated user is still part of it.
+  ///
+  /// Returns a `DynamiteRequest` backing the [joinFederatedRoom] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Federated user is still part of the room
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [joinFederatedRoom] for a method executing this request and parsing the response.
+  ///  * [$joinFederatedRoom_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $joinFederatedRoom_Request({
+    required String token,
+    RoomJoinFederatedRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinFederatedRoomApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Fake join a room on the host server to verify the federated user is still part of it.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token] Token of the room.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Federated user is still part of the room
+  ///   * 404: Room not found
+  ///
+  /// See:
+  ///  * [$joinFederatedRoom_Request] for the request send by this method.
+  ///  * [$joinFederatedRoom_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomJoinFederatedRoomResponseApplicationJson, RoomRoomJoinFederatedRoomHeaders>>
+      joinFederatedRoom({
+    required String token,
+    RoomJoinFederatedRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $joinFederatedRoom_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $joinFederatedRoom_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RoomJoinFederatedRoomResponseApplicationJson, RoomRoomJoinFederatedRoomHeaders>(
+      _serializer,
+    ).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$verifyDialInPinDeprecated_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>
+      $verifyDialInPinDeprecated_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Verify a dial-in PIN (SIP bridge).
+  ///
+  /// Returns a `DynamiteRequest` backing the [verifyDialInPinDeprecated] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [pin] PIN the participant used to dial-in.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant returned
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant not found
+  ///   * 501: SIP dial-in is not configured
+  ///
+  /// See:
+  ///  * [verifyDialInPinDeprecated] for a method executing this request and parsing the response.
+  ///  * [$verifyDialInPinDeprecated_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $verifyDialInPinDeprecated_Request({
+    required String token,
+    required String pin,
+    RoomVerifyDialInPinDeprecatedApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $pin as String?,
+      RegExp(r'^\d{7,32}$'),
+      'pin',
+    );
+    _parameters['pin'] = $pin;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinDeprecatedApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/pin/{pin}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Verify a dial-in PIN (SIP bridge).
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [pin] PIN the participant used to dial-in.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant returned
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant not found
+  ///   * 501: SIP dial-in is not configured
+  ///
+  /// See:
+  ///  * [$verifyDialInPinDeprecated_Request] for the request send by this method.
+  ///  * [$verifyDialInPinDeprecated_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>> verifyDialInPinDeprecated({
+    required String token,
+    required String pin,
+    RoomVerifyDialInPinDeprecatedApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $verifyDialInPinDeprecated_Request(
+      token: token,
+      pin: pin,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $verifyDialInPinDeprecated_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$verifyDialInPin_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomVerifyDialInPinResponseApplicationJson, void> $verifyDialInPin_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomVerifyDialInPinResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Verify a dial-in PIN (SIP bridge).
+  ///
+  /// Returns a `DynamiteRequest` backing the [verifyDialInPin] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pin] PIN the participant used to dial-in.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant returned
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant not found
+  ///   * 501: SIP dial-in is not configured
+  ///
+  /// See:
+  ///  * [verifyDialInPin] for a method executing this request and parsing the response.
+  ///  * [$verifyDialInPin_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $verifyDialInPin_Request({
+    required String pin,
+    required String token,
+    RoomVerifyDialInPinApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
+    _parameters['pin'] = $pin;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialin{?pin*}')
+        .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Verify a dial-in PIN (SIP bridge).
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [pin] PIN the participant used to dial-in.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant returned
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant not found
+  ///   * 501: SIP dial-in is not configured
+  ///
+  /// See:
+  ///  * [$verifyDialInPin_Request] for the request send by this method.
+  ///  * [$verifyDialInPin_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomVerifyDialInPinResponseApplicationJson, void>> verifyDialInPin({
+    required String pin,
+    required String token,
+    RoomVerifyDialInPinApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $verifyDialInPin_Request(
+      pin: pin,
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $verifyDialInPin_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RoomVerifyDialInPinResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$verifyDialOutNumber_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomVerifyDialOutNumberResponseApplicationJson, void> $verifyDialOutNumber_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomVerifyDialOutNumberResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Verify a dial-out number (SIP bridge).
+  ///
+  /// Returns a `DynamiteRequest` backing the [verifyDialOutNumber] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [number] E164 formatted phone number.
+  ///   * [options] Additional details to verify the validity of the request.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant created successfully
+  ///   * 400: Phone number and details could not be confirmed
+  ///   * 401: SIP request invalid
+  ///   * 404: Phone number is not invited as a participant
+  ///   * 501: SIP dial-out is not configured
+  ///
+  /// See:
+  ///  * [verifyDialOutNumber] for a method executing this request and parsing the response.
+  ///  * [$verifyDialOutNumber_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $verifyDialOutNumber_Request({
+    required String number,
+    required String token,
+    ContentString<RoomVerifyDialOutNumberOptions>? options,
+    RoomVerifyDialOutNumberApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $number = _$jsonSerializers.serialize(number, specifiedType: const FullType(String));
+    _parameters['number'] = $number;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $options = _$jsonSerializers.serialize(
+      options,
+      specifiedType: const FullType(ContentString, [FullType(RoomVerifyDialOutNumberOptions)]),
+    );
+    _parameters['options'] = $options;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialOutNumberApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialout{?number*,options*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Verify a dial-out number (SIP bridge).
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [number] E164 formatted phone number.
+  ///   * [options] Additional details to verify the validity of the request.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant created successfully
+  ///   * 400: Phone number and details could not be confirmed
+  ///   * 401: SIP request invalid
+  ///   * 404: Phone number is not invited as a participant
+  ///   * 501: SIP dial-out is not configured
+  ///
+  /// See:
+  ///  * [$verifyDialOutNumber_Request] for the request send by this method.
+  ///  * [$verifyDialOutNumber_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomVerifyDialOutNumberResponseApplicationJson, void>> verifyDialOutNumber({
+    required String number,
+    required String token,
+    ContentString<RoomVerifyDialOutNumberOptions>? options,
+    RoomVerifyDialOutNumberApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $verifyDialOutNumber_Request(
+      number: number,
+      token: token,
+      options: options,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $verifyDialOutNumber_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<RoomVerifyDialOutNumberResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$createGuestByDialIn_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomCreateGuestByDialInResponseApplicationJson, void> $createGuestByDialIn_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(RoomCreateGuestByDialInResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Create a guest by their dial-in.
+  ///
+  /// Returns a `DynamiteRequest` backing the [createGuestByDialIn] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant created successfully
+  ///   * 400: SIP not enabled
+  ///   * 401: SIP request invalid
+  ///
+  /// See:
+  ///  * [createGuestByDialIn] for a method executing this request and parsing the response.
+  ///  * [$createGuestByDialIn_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $createGuestByDialIn_Request({
+    required String token,
+    RoomCreateGuestByDialInApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateGuestByDialInApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/open-dial-in').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Create a guest by their dial-in.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Participant created successfully
+  ///   * 400: SIP not enabled
+  ///   * 401: SIP request invalid
+  ///
+  /// See:
+  ///  * [$createGuestByDialIn_Request] for the request send by this method.
+  ///  * [$createGuestByDialIn_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomCreateGuestByDialInResponseApplicationJson, void>> createGuestByDialIn({
+    required String token,
+    RoomCreateGuestByDialInApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $createGuestByDialIn_Request(
+      token: token,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $createGuestByDialIn_Serializer();
+    final _rawResponse = await _i1.ResponseConverter<RoomCreateGuestByDialInResponseApplicationJson, void>(_serializer)
+        .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$rejectedDialOutRequest_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RoomRejectedDialOutRequestResponseApplicationJson, void>
+      $rejectedDialOutRequest_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200, 400, 401, 404, 501},
+          );
+
+  /// Reset call ID of a dial-out participant when the SIP gateway rejected it.
+  ///
+  /// Returns a `DynamiteRequest` backing the [rejectedDialOutRequest] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
+  ///   * [options] Additional details to verify the validity of the request.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Call ID reset
+  ///   * 400: Call ID mismatch or attendeeId not found in $options
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant was not found
+  ///   * 501: SIP dial-out is not configured
+  ///
+  /// See:
+  ///  * [rejectedDialOutRequest] for a method executing this request and parsing the response.
+  ///  * [$rejectedDialOutRequest_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $rejectedDialOutRequest_Request({
+    required String callId,
+    required String token,
+    ContentString<RoomRejectedDialOutRequestOptions>? options,
+    RoomRejectedDialOutRequestApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $callId = _$jsonSerializers.serialize(callId, specifiedType: const FullType(String));
+    _parameters['callId'] = $callId;
+
+    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _i4.checkPattern(
+      $token as String?,
+      RegExp(r'^[a-z0-9]{4,30}$'),
+      'token',
+    );
+    _parameters['token'] = $token;
+
+    final $options = _$jsonSerializers.serialize(
+      options,
+      specifiedType: const FullType(ContentString, [FullType(RoomRejectedDialOutRequestOptions)]),
+    );
+    _parameters['options'] = $options;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRejectedDialOutRequestApiVersion));
+    $apiVersion ??= 'v4';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout{?callId*,options*}')
+            .expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Reset call ID of a dial-out participant when the SIP gateway rejected it.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
+  ///   * [options] Additional details to verify the validity of the request.
+  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [token]
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Call ID reset
+  ///   * 400: Call ID mismatch or attendeeId not found in $options
+  ///   * 401: SIP request invalid
+  ///   * 404: Participant was not found
+  ///   * 501: SIP dial-out is not configured
+  ///
+  /// See:
+  ///  * [$rejectedDialOutRequest_Request] for the request send by this method.
+  ///  * [$rejectedDialOutRequest_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RoomRejectedDialOutRequestResponseApplicationJson, void>> rejectedDialOutRequest({
+    required String callId,
+    required String token,
+    ContentString<RoomRejectedDialOutRequestOptions>? options,
+    RoomRejectedDialOutRequestApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $rejectedDialOutRequest_Request(
+      callId: callId,
+      token: token,
+      options: options,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $rejectedDialOutRequest_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RoomRejectedDialOutRequestResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
 }
 
 class $SettingsClient {
@@ -12830,6 +14621,332 @@ class $SettingsClient {
     final _serializer = $setUserSetting_Serializer();
     final _rawResponse = await _i1.ResponseConverter<SettingsSetUserSettingResponseApplicationJson, void>(_serializer)
         .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$botAdminListBots_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<BotAdminListBotsResponseApplicationJson, void> $botAdminListBots_Serializer() =>
+      _i1.DynamiteSerializer(
+        bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// List admin bots.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [botAdminListBots] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [botAdminListBots] for a method executing this request and parsing the response.
+  ///  * [$botAdminListBots_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $botAdminListBots_Request({
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// List admin bots.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Bot list returned
+  ///
+  /// See:
+  ///  * [$botAdminListBots_Request] for the request send by this method.
+  ///  * [$botAdminListBots_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> botAdminListBots({
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $botAdminListBots_Request(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $botAdminListBots_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<BotAdminListBotsResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$certificateGetCertificateExpiration_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<CertificateGetCertificateExpirationResponseApplicationJson, void>
+      $certificateGetCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Get the certificate expiration for a host.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [certificateGetCertificateExpiration] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [host] Host to check.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Certificate expiration returned
+  ///   * 400: Getting certificate expiration is not possible
+  ///
+  /// See:
+  ///  * [certificateGetCertificateExpiration] for a method executing this request and parsing the response.
+  ///  * [$certificateGetCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $certificateGetCertificateExpiration_Request({
+    required String host,
+    CertificateGetCertificateExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
+    _parameters['host'] = $host;
+
+    var $apiVersion = _$jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the certificate expiration for a host.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [host] Host to check.
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Certificate expiration returned
+  ///   * 400: Getting certificate expiration is not possible
+  ///
+  /// See:
+  ///  * [$certificateGetCertificateExpiration_Request] for the request send by this method.
+  ///  * [$certificateGetCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
+      certificateGetCertificateExpiration({
+    required String host,
+    CertificateGetCertificateExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $certificateGetCertificateExpiration_Request(
+      host: host,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $certificateGetCertificateExpiration_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<CertificateGetCertificateExpirationResponseApplicationJson, void>(_serializer)
+            .convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+
+  /// Builds a serializer to parse the response of [$recordingGetWelcomeMessage_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<RecordingGetWelcomeMessageResponseApplicationJson, void>
+      $recordingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
+
+  /// Get the welcome message of a recording server.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a `DynamiteRequest` backing the [recordingGetWelcomeMessage] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [serverId] ID of the server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Recording server not found or not configured
+  ///   * 500
+  ///
+  /// See:
+  ///  * [recordingGetWelcomeMessage] for a method executing this request and parsing the response.
+  ///  * [$recordingGetWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $recordingGetWelcomeMessage_Request({
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    _parameters['serverId'] = $serverId;
+
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+    $apiVersion ??= 'v1';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Get the welcome message of a recording server.
+  ///
+  /// This endpoint requires admin access.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [serverId] ID of the server.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Welcome message returned
+  ///   * 404: Recording server not found or not configured
+  ///   * 500
+  ///
+  /// See:
+  ///  * [$recordingGetWelcomeMessage_Request] for the request send by this method.
+  ///  * [$recordingGetWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> recordingGetWelcomeMessage({
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $recordingGetWelcomeMessage_Request(
+      serverId: serverId,
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $recordingGetWelcomeMessage_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<RecordingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
+            .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -12961,366 +15078,23 @@ class $SettingsClient {
         .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
-}
 
-class $SignalingClient {
-  /// Creates a new `DynamiteClient` for signaling requests.
-  $SignalingClient(this._rootClient);
-
-  final $Client _rootClient;
-
-  /// Builds a serializer to parse the response of [$getSettings_Request].
+  /// Builds a serializer to parse the response of [$signalingGetWelcomeMessage_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<SignalingGetSettingsResponseApplicationJson, void> $getSettings_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Get the signaling settings.
-  ///
-  /// Returns a `DynamiteRequest` backing the [getSettings] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling settings returned
-  ///   * 401: Recording request invalid
-  ///   * 404: Room not found
-  ///
-  /// See:
-  ///  * [getSettings] for a method executing this request and parsing the response.
-  ///  * [$getSettings_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $getSettings_Request({
-    String? token,
-    SignalingGetSettingsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    $token ??= '';
-    _parameters['token'] = $token;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Get the signaling settings.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling settings returned
-  ///   * 401: Recording request invalid
-  ///   * 404: Room not found
-  ///
-  /// See:
-  ///  * [$getSettings_Request] for the request send by this method.
-  ///  * [$getSettings_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettings({
-    String? token,
-    SignalingGetSettingsApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $getSettings_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $getSettings_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<SignalingGetSettingsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$pullMessages_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<SignalingPullMessagesResponseApplicationJson, void> $pullMessages_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404, 409},
-      );
-
-  /// Get signaling messages.
-  ///
-  /// Returns a `DynamiteRequest` backing the [pullMessages] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [token] Token of the room.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling messages returned
-  ///   * 404: Session, room or participant not found
-  ///   * 409: Session killed
-  ///   * 400: Getting signaling messages is not possible
-  ///
-  /// See:
-  ///  * [pullMessages] for a method executing this request and parsing the response.
-  ///  * [$pullMessages_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $pullMessages_Request({
-    required String token,
-    SignalingPullMessagesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Get signaling messages.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [token] Token of the room.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling messages returned
-  ///   * 404: Session, room or participant not found
-  ///   * 409: Session killed
-  ///   * 400: Getting signaling messages is not possible
-  ///
-  /// See:
-  ///  * [$pullMessages_Request] for the request send by this method.
-  ///  * [$pullMessages_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessages({
-    required String token,
-    SignalingPullMessagesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $pullMessages_Request(
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $pullMessages_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<SignalingPullMessagesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$sendMessages_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<SignalingSendMessagesResponseApplicationJson, void> $sendMessages_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Send signaling messages.
-  ///
-  /// Returns a `DynamiteRequest` backing the [sendMessages] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [messages] JSON encoded messages.
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [token] Token of the room.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling message sent successfully
-  ///   * 400: Sending signaling message is not possible
-  ///
-  /// See:
-  ///  * [sendMessages] for a method executing this request and parsing the response.
-  ///  * [$sendMessages_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $sendMessages_Request({
-    required String messages,
-    required String token,
-    SignalingSendMessagesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, Object?>{};
-    final $messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
-    _parameters['messages'] = $messages;
-
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $token as String?,
-      RegExp(r'^[a-z0-9]{4,30}$'),
-      'token',
-    );
-    _parameters['token'] = $token;
-
-    var $apiVersion =
-        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
-    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    }
-
-// coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
-
-    return _request;
-  }
-
-  /// Send signaling messages.
-  ///
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [messages] JSON encoded messages.
-  ///   * [apiVersion] Defaults to `v3`.
-  ///   * [token] Token of the room.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Signaling message sent successfully
-  ///   * 400: Sending signaling message is not possible
-  ///
-  /// See:
-  ///  * [$sendMessages_Request] for the request send by this method.
-  ///  * [$sendMessages_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
-    required String messages,
-    required String token,
-    SignalingSendMessagesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final _request = $sendMessages_Request(
-      messages: messages,
-      token: token,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-    final _response = await _rootClient.httpClient.send(_request);
-
-    final _serializer = $sendMessages_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<SignalingSendMessagesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
-  }
-
-  /// Builds a serializer to parse the response of [$getWelcomeMessage_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<SignalingGetWelcomeMessageResponseApplicationJson, void> $getWelcomeMessage_Serializer() =>
-      _i1.DynamiteSerializer(
-        bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+  _i1.DynamiteSerializer<SignalingGetWelcomeMessageResponseApplicationJson, void>
+      $signalingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
+            bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+            headersType: null,
+            serializers: _$jsonSerializers,
+            validStatuses: const {200},
+          );
 
   /// Get the welcome message from a signaling server.
   ///
   /// Only available for logged-in users because guests can not use the apps right now.
   /// This endpoint requires admin access.
   ///
-  /// Returns a `DynamiteRequest` backing the [getWelcomeMessage] operation.
+  /// Returns a `DynamiteRequest` backing the [signalingGetWelcomeMessage] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13334,10 +15108,10 @@ class $SignalingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [getWelcomeMessage] for a method executing this request and parsing the response.
-  ///  * [$getWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [signalingGetWelcomeMessage] for a method executing this request and parsing the response.
+  ///  * [$signalingGetWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getWelcomeMessage_Request({
+  _i3.Request $signalingGetWelcomeMessage_Request({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -13399,21 +15173,21 @@ class $SignalingClient {
   ///   * 500
   ///
   /// See:
-  ///  * [$getWelcomeMessage_Request] for the request send by this method.
-  ///  * [$getWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
+  ///  * [$signalingGetWelcomeMessage_Request] for the request send by this method.
+  ///  * [$signalingGetWelcomeMessage_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> signalingGetWelcomeMessage({
     required int serverId,
     SignalingGetWelcomeMessageApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
-    final _request = $getWelcomeMessage_Request(
+    final _request = $signalingGetWelcomeMessage_Request(
       serverId: serverId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $getWelcomeMessage_Serializer();
+    final _serializer = $signalingGetWelcomeMessage_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<SignalingGetWelcomeMessageResponseApplicationJson, void>(_serializer)
             .convert(_response);
@@ -13421,15 +15195,118 @@ class $SignalingClient {
   }
 }
 
-class $TempAvatarClient {
-  /// Creates a new `DynamiteClient` for temp_avatar requests.
-  $TempAvatarClient(this._rootClient);
+class $SignalingClient {
+  /// Creates a new `DynamiteClient` for signaling requests.
+  $SignalingClient(this._rootClient);
 
   final $Client _rootClient;
 
-  /// Builds a serializer to parse the response of [$postAvatar_Request].
+  /// Builds a serializer to parse the response of [$backend_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<TempAvatarPostAvatarResponseApplicationJson, void> $postAvatar_Serializer() =>
+  _i1.DynamiteSerializer<SignalingBackendResponseApplicationJson, void> $backend_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(SignalingBackendResponseApplicationJson),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Backend API to query information required for standalone signaling servers.
+  ///
+  /// See sections "Backend validation" in https://nextcloud-spreed-signaling.readthedocs.io/en/latest/standalone-signaling-api-v1/#backend-requests.
+  ///
+  /// Returns a `DynamiteRequest` backing the [backend] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Always, sorry about that
+  ///
+  /// See:
+  ///  * [backend] for a method executing this request and parsing the response.
+  ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $backend_Request({
+    SignalingBackendApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) {
+    final _parameters = <String, Object?>{};
+    var $apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingBackendApiVersion));
+    $apiVersion ??= 'v3';
+    _parameters['apiVersion'] = $apiVersion;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/backend').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _rootClient.authentications?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+
+    return _request;
+  }
+
+  /// Backend API to query information required for standalone signaling servers.
+  ///
+  /// See sections "Backend validation" in https://nextcloud-spreed-signaling.readthedocs.io/en/latest/standalone-signaling-api-v1/#backend-requests.
+  ///
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Always, sorry about that
+  ///
+  /// See:
+  ///  * [$backend_Request] for the request send by this method.
+  ///  * [$backend_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<SignalingBackendResponseApplicationJson, void>> backend({
+    SignalingBackendApiVersion? apiVersion,
+    bool? oCSAPIRequest,
+  }) async {
+    final _request = $backend_Request(
+      apiVersion: apiVersion,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+    final _response = await _rootClient.httpClient.send(_request);
+
+    final _serializer = $backend_Serializer();
+    final _rawResponse =
+        await _i1.ResponseConverter<SignalingBackendResponseApplicationJson, void>(_serializer).convert(_response);
+    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+class $UserAvatarClient {
+  /// Creates a new `DynamiteClient` for user_avatar requests.
+  $UserAvatarClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$tempAvatarPostAvatar_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<TempAvatarPostAvatarResponseApplicationJson, void> $tempAvatarPostAvatar_Serializer() =>
       _i1.DynamiteSerializer(
         bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
         headersType: null,
@@ -13439,7 +15316,7 @@ class $TempAvatarClient {
 
   /// Upload your avatar as a user.
   ///
-  /// Returns a `DynamiteRequest` backing the [postAvatar] operation.
+  /// Returns a `DynamiteRequest` backing the [tempAvatarPostAvatar] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13450,10 +15327,10 @@ class $TempAvatarClient {
   ///   * 400: Uploading avatar is not possible
   ///
   /// See:
-  ///  * [postAvatar] for a method executing this request and parsing the response.
-  ///  * [$postAvatar_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [tempAvatarPostAvatar] for a method executing this request and parsing the response.
+  ///  * [$tempAvatarPostAvatar_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $postAvatar_Request({bool? oCSAPIRequest}) {
+  _i3.Request $tempAvatarPostAvatar_Request({bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
@@ -13495,25 +15372,25 @@ class $TempAvatarClient {
   ///   * 400: Uploading avatar is not possible
   ///
   /// See:
-  ///  * [$postAvatar_Request] for the request send by this method.
-  ///  * [$postAvatar_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({
+  ///  * [$tempAvatarPostAvatar_Request] for the request send by this method.
+  ///  * [$tempAvatarPostAvatar_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> tempAvatarPostAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $postAvatar_Request(
+    final _request = $tempAvatarPostAvatar_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $postAvatar_Serializer();
+    final _serializer = $tempAvatarPostAvatar_Serializer();
     final _rawResponse =
         await _i1.ResponseConverter<TempAvatarPostAvatarResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
-  /// Builds a serializer to parse the response of [$deleteAvatar_Request].
+  /// Builds a serializer to parse the response of [$tempAvatarDeleteAvatar_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<TempAvatarDeleteAvatarResponseApplicationJson, void> $deleteAvatar_Serializer() =>
+  _i1.DynamiteSerializer<TempAvatarDeleteAvatarResponseApplicationJson, void> $tempAvatarDeleteAvatar_Serializer() =>
       _i1.DynamiteSerializer(
         bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
         headersType: null,
@@ -13523,7 +15400,7 @@ class $TempAvatarClient {
 
   /// Delete your avatar as a user.
   ///
-  /// Returns a `DynamiteRequest` backing the [deleteAvatar] operation.
+  /// Returns a `DynamiteRequest` backing the [tempAvatarDeleteAvatar] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
@@ -13534,10 +15411,10 @@ class $TempAvatarClient {
   ///   * 400: Deleting avatar is not possible
   ///
   /// See:
-  ///  * [deleteAvatar] for a method executing this request and parsing the response.
-  ///  * [$deleteAvatar_Serializer] for a converter to parse the `Response` from an executed this request.
+  ///  * [tempAvatarDeleteAvatar] for a method executing this request and parsing the response.
+  ///  * [$tempAvatarDeleteAvatar_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $deleteAvatar_Request({bool? oCSAPIRequest}) {
+  _i3.Request $tempAvatarDeleteAvatar_Request({bool? oCSAPIRequest}) {
     const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
@@ -13579,22 +15456,24 @@ class $TempAvatarClient {
   ///   * 400: Deleting avatar is not possible
   ///
   /// See:
-  ///  * [$deleteAvatar_Request] for the request send by this method.
-  ///  * [$deleteAvatar_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
+  ///  * [$tempAvatarDeleteAvatar_Request] for the request send by this method.
+  ///  * [$tempAvatarDeleteAvatar_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> tempAvatarDeleteAvatar({
     bool? oCSAPIRequest,
   }) async {
-    final _request = $deleteAvatar_Request(
+    final _request = $tempAvatarDeleteAvatar_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
     final _response = await _rootClient.httpClient.send(_request);
 
-    final _serializer = $deleteAvatar_Serializer();
+    final _serializer = $tempAvatarDeleteAvatar_Serializer();
     final _rawResponse = await _i1.ResponseConverter<TempAvatarDeleteAvatarResponseApplicationJson, void>(_serializer)
         .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
+
+typedef ChatProxyMessage = BaseMessage;
 
 class AvatarGetAvatarDarkTheme extends EnumClass {
   const AvatarGetAvatarDarkTheme._(super.name);
@@ -13917,63 +15796,6 @@ class _$ActorTypeSerializer implements PrimitiveSerializer<ActorType> {
       _fromWire[serialized]!;
 }
 
-class ChatMessage_Deleted extends EnumClass {
-  const ChatMessage_Deleted._(super.name);
-
-  /// `true`
-  @BuiltValueEnumConst(wireName: 'true')
-  static const ChatMessage_Deleted $true = _$chatMessageDeleted$true;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ChatMessage_Deleted> get values => _$chatMessageDeletedValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static ChatMessage_Deleted valueOf(String name) => _$valueOfChatMessage_Deleted(name);
-
-  /// Returns the serialized value of this enum value.
-  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
-
-  /// Serializer for ChatMessage_Deleted.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatMessage_Deleted> get serializer => const _$ChatMessage_DeletedSerializer();
-}
-
-class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage_Deleted> {
-  const _$ChatMessage_DeletedSerializer();
-
-  static const Map<ChatMessage_Deleted, Object> _toWire = <ChatMessage_Deleted, Object>{
-    ChatMessage_Deleted.$true: true,
-  };
-
-  static const Map<Object, ChatMessage_Deleted> _fromWire = <Object, ChatMessage_Deleted>{
-    true: ChatMessage_Deleted.$true,
-  };
-
-  @override
-  Iterable<Type> get types => const [ChatMessage_Deleted];
-
-  @override
-  String get wireName => 'ChatMessage_Deleted';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    ChatMessage_Deleted object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  ChatMessage_Deleted deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 class RichObjectParameter_CallType extends EnumClass {
   const RichObjectParameter_CallType._(super.name);
 
@@ -14039,6 +15861,8 @@ class _$RichObjectParameter_CallTypeSerializer implements PrimitiveSerializer<Ri
   }) =>
       _fromWire[serialized]!;
 }
+
+typedef RichObjectParameter_Size = ({int? $int, String? string});
 
 class RichObjectParameter_PreviewAvailable extends EnumClass {
   const RichObjectParameter_PreviewAvailable._(super.name);
@@ -14234,6 +16058,9 @@ class _$RichObjectParameter_AssignableSerializer implements PrimitiveSerializer<
       _fromWire[serialized]!;
 }
 
+typedef RichObjectParameter_Width = ({int? $int, String? string});
+typedef RichObjectParameter_Height = ({int? $int, String? string});
+
 @BuiltValue(instantiable: false)
 abstract interface class $RichObjectParameterInterface {
   String get type;
@@ -14249,7 +16076,7 @@ abstract interface class $RichObjectParameterInterface {
   String? get messageId;
   String? get boardname;
   String? get stackname;
-  int? get size;
+  RichObjectParameter_Size? get size;
   String? get path;
   String? get mimetype;
   @BuiltValueField(wireName: 'preview-available')
@@ -14264,12 +16091,16 @@ abstract interface class $RichObjectParameterInterface {
   RichObjectParameter_Assignable? get assignable;
   String? get conversation;
   String? get etag;
-  int? get width;
-  int? get height;
+  RichObjectParameter_Width? get width;
+  RichObjectParameter_Height? get height;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RichObjectParameterInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RichObjectParameterInterfaceBuilder b) {}
+  static void _validate($RichObjectParameterInterfaceBuilder b) {
+    b.size?.validateOneOf();
+    b.width?.validateOneOf();
+    b.height?.validateOneOf();
+  }
 }
 
 abstract class RichObjectParameter
@@ -14418,27 +16249,138 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMessageInterface {
+abstract interface class $BaseMessageInterface {
   String get actorDisplayName;
   String get actorId;
   ActorType get actorType;
-  ChatMessage_Deleted? get deleted;
   int get expirationTimestamp;
-  int get id;
-  bool get isReplyable;
-  bool? get markdown;
   String get message;
   BuiltMap<String, RichObjectParameter> get messageParameters;
   MessageType get messageType;
+  String get systemMessage;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BaseMessageInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BaseMessageInterfaceBuilder b) {}
+}
+
+abstract class BaseMessage implements $BaseMessageInterface, Built<BaseMessage, BaseMessageBuilder> {
+  /// Creates a new BaseMessage object using the builder pattern.
+  factory BaseMessage([void Function(BaseMessageBuilder)? b]) = _$BaseMessage;
+
+  // coverage:ignore-start
+  const BaseMessage._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BaseMessage.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BaseMessage.
+  static Serializer<BaseMessage> get serializer => _$baseMessageSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseMessageBuilder b) {
+    $BaseMessageInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BaseMessageBuilder b) {
+    $BaseMessageInterface._validate(b);
+  }
+}
+
+class ChatMessage_Deleted extends EnumClass {
+  const ChatMessage_Deleted._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const ChatMessage_Deleted $true = _$chatMessageDeleted$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatMessage_Deleted> get values => _$chatMessageDeletedValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatMessage_Deleted valueOf(String name) => _$valueOfChatMessage_Deleted(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for ChatMessage_Deleted.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMessage_Deleted> get serializer => const _$ChatMessage_DeletedSerializer();
+}
+
+class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage_Deleted> {
+  const _$ChatMessage_DeletedSerializer();
+
+  static const Map<ChatMessage_Deleted, Object> _toWire = <ChatMessage_Deleted, Object>{
+    ChatMessage_Deleted.$true: true,
+  };
+
+  static const Map<Object, ChatMessage_Deleted> _fromWire = <Object, ChatMessage_Deleted>{
+    true: ChatMessage_Deleted.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatMessage_Deleted];
+
+  @override
+  String get wireName => 'ChatMessage_Deleted';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMessage_Deleted object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatMessage_Deleted deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatMessageInterface implements $BaseMessageInterface {
+  ChatMessage_Deleted? get deleted;
+  int get id;
+  bool get isReplyable;
+  bool? get markdown;
   BuiltMap<String, int> get reactions;
   String get referenceId;
-  String get systemMessage;
   int get timestamp;
   String get token;
+  String? get lastEditActorDisplayName;
+  String? get lastEditActorId;
+  ActorType? get lastEditActorType;
+  int? get lastEditTimestamp;
+  bool? get silent;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatMessageInterfaceBuilder b) {}
+  static void _defaults($ChatMessageInterfaceBuilder b) {
+    $BaseMessageInterface._defaults(b);
+  }
+
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatMessageInterfaceBuilder b) {}
+  static void _validate($ChatMessageInterfaceBuilder b) {
+    $BaseMessageInterface._validate(b);
+  }
 }
 
 abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, ChatMessageBuilder> {
@@ -14477,7 +16419,8 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
   }
 }
 
-typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+typedef RoomLastMessage = ({BaseMessage? baseMessage, ChatMessage? chatMessage});
+typedef Room_LastMessage = ({BaseMessage? baseMessage, BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 @BuiltValue(instantiable: false)
 abstract interface class $RoomInterface {
@@ -14539,7 +16482,7 @@ abstract interface class $RoomInterface {
   static void _defaults($RoomInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($RoomInterfaceBuilder b) {
-    b.lastMessage?.validateOneOf();
+    b.lastMessage?.validateAnyOf();
   }
 }
 
@@ -15060,6 +17003,1174 @@ class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<A
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarWithoutRoomSize extends EnumClass {
+  const AvatarGetUserProxyAvatarWithoutRoomSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetUserProxyAvatarWithoutRoomSize $64 = _$avatarGetUserProxyAvatarWithoutRoomSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetUserProxyAvatarWithoutRoomSize $512 = _$avatarGetUserProxyAvatarWithoutRoomSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarWithoutRoomSize> get values =>
+      _$avatarGetUserProxyAvatarWithoutRoomSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarWithoutRoomSize valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarWithoutRoomSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarWithoutRoomSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarWithoutRoomSize> get serializer =>
+      const _$AvatarGetUserProxyAvatarWithoutRoomSizeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarWithoutRoomSizeSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarWithoutRoomSize> {
+  const _$AvatarGetUserProxyAvatarWithoutRoomSizeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarWithoutRoomSize, Object> _toWire =
+      <AvatarGetUserProxyAvatarWithoutRoomSize, Object>{
+    AvatarGetUserProxyAvatarWithoutRoomSize.$64: 64,
+    AvatarGetUserProxyAvatarWithoutRoomSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomSize> _fromWire =
+      <Object, AvatarGetUserProxyAvatarWithoutRoomSize>{
+    64: AvatarGetUserProxyAvatarWithoutRoomSize.$64,
+    512: AvatarGetUserProxyAvatarWithoutRoomSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomSize];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarWithoutRoomSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarWithoutRoomSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarWithoutRoomSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarWithoutRoomDarkTheme extends EnumClass {
+  const AvatarGetUserProxyAvatarWithoutRoomDarkTheme._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetUserProxyAvatarWithoutRoomDarkTheme $0 = _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetUserProxyAvatarWithoutRoomDarkTheme $1 = _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> get values =>
+      _$avatarGetUserProxyAvatarWithoutRoomDarkThemeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarWithoutRoomDarkTheme valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarWithoutRoomDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarWithoutRoomDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> get serializer =>
+      const _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> {
+  const _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object> _toWire =
+      <AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object>{
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0: 0,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1: 1,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme> _fromWire =
+      <Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme>{
+    0: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0,
+    1: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomDarkTheme];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarWithoutRoomDarkTheme';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarWithoutRoomDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarWithoutRoomApiVersion extends EnumClass {
+  const AvatarGetUserProxyAvatarWithoutRoomApiVersion._(super.name);
+
+  /// `v1`
+  static const AvatarGetUserProxyAvatarWithoutRoomApiVersion v1 = _$avatarGetUserProxyAvatarWithoutRoomApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarWithoutRoomApiVersion> get values =>
+      _$avatarGetUserProxyAvatarWithoutRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarWithoutRoomApiVersion valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarWithoutRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for AvatarGetUserProxyAvatarWithoutRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarWithoutRoomApiVersion> get serializer =>
+      const _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarWithoutRoomApiVersion> {
+  const _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarWithoutRoomApiVersion, Object> _toWire =
+      <AvatarGetUserProxyAvatarWithoutRoomApiVersion, Object>{
+    AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomApiVersion> _fromWire =
+      <Object, AvatarGetUserProxyAvatarWithoutRoomApiVersion>{
+    'v1': AvatarGetUserProxyAvatarWithoutRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarWithoutRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarWithoutRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarWithoutRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarDarkWithoutRoomSize extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkWithoutRoomSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetUserProxyAvatarDarkWithoutRoomSize $64 = _$avatarGetUserProxyAvatarDarkWithoutRoomSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetUserProxyAvatarDarkWithoutRoomSize $512 = _$avatarGetUserProxyAvatarDarkWithoutRoomSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkWithoutRoomSize> get values =>
+      _$avatarGetUserProxyAvatarDarkWithoutRoomSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkWithoutRoomSize valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarDarkWithoutRoomSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkWithoutRoomSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkWithoutRoomSize> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkWithoutRoomSizeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarDarkWithoutRoomSizeSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkWithoutRoomSize> {
+  const _$AvatarGetUserProxyAvatarDarkWithoutRoomSizeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarDarkWithoutRoomSize, Object> _toWire =
+      <AvatarGetUserProxyAvatarDarkWithoutRoomSize, Object>{
+    AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64: 64,
+    AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarDarkWithoutRoomSize> _fromWire =
+      <Object, AvatarGetUserProxyAvatarDarkWithoutRoomSize>{
+    64: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64,
+    512: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkWithoutRoomSize];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkWithoutRoomSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkWithoutRoomSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarDarkWithoutRoomSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion._(super.name);
+
+  /// `v1`
+  static const AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion v1 =
+      _$avatarGetUserProxyAvatarDarkWithoutRoomApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion> get values =>
+      _$avatarGetUserProxyAvatarDarkWithoutRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarDarkWithoutRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion> {
+  const _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion, Object> _toWire =
+      <AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion, Object>{
+    AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion> _fromWire =
+      <Object, AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion>{
+    'v1': AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarSize extends EnumClass {
+  const AvatarGetUserProxyAvatarSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetUserProxyAvatarSize $64 = _$avatarGetUserProxyAvatarSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetUserProxyAvatarSize $512 = _$avatarGetUserProxyAvatarSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarSize> get values => _$avatarGetUserProxyAvatarSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarSize valueOf(String name) => _$valueOfAvatarGetUserProxyAvatarSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarSize> get serializer => const _$AvatarGetUserProxyAvatarSizeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarSizeSerializer implements PrimitiveSerializer<AvatarGetUserProxyAvatarSize> {
+  const _$AvatarGetUserProxyAvatarSizeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarSize, Object> _toWire = <AvatarGetUserProxyAvatarSize, Object>{
+    AvatarGetUserProxyAvatarSize.$64: 64,
+    AvatarGetUserProxyAvatarSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarSize> _fromWire = <Object, AvatarGetUserProxyAvatarSize>{
+    64: AvatarGetUserProxyAvatarSize.$64,
+    512: AvatarGetUserProxyAvatarSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarSize];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarDarkTheme extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkTheme._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetUserProxyAvatarDarkTheme $0 = _$avatarGetUserProxyAvatarDarkTheme$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetUserProxyAvatarDarkTheme $1 = _$avatarGetUserProxyAvatarDarkTheme$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkTheme> get values => _$avatarGetUserProxyAvatarDarkThemeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkTheme valueOf(String name) => _$valueOfAvatarGetUserProxyAvatarDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkTheme> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkThemeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarDarkThemeSerializer implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkTheme> {
+  const _$AvatarGetUserProxyAvatarDarkThemeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarDarkTheme, Object> _toWire = <AvatarGetUserProxyAvatarDarkTheme, Object>{
+    AvatarGetUserProxyAvatarDarkTheme.$0: 0,
+    AvatarGetUserProxyAvatarDarkTheme.$1: 1,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarDarkTheme> _fromWire = <Object, AvatarGetUserProxyAvatarDarkTheme>{
+    0: AvatarGetUserProxyAvatarDarkTheme.$0,
+    1: AvatarGetUserProxyAvatarDarkTheme.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkTheme];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkTheme';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarApiVersion extends EnumClass {
+  const AvatarGetUserProxyAvatarApiVersion._(super.name);
+
+  /// `v1`
+  static const AvatarGetUserProxyAvatarApiVersion v1 = _$avatarGetUserProxyAvatarApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarApiVersion> get values => _$avatarGetUserProxyAvatarApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetUserProxyAvatarApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for AvatarGetUserProxyAvatarApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarApiVersion> get serializer =>
+      const _$AvatarGetUserProxyAvatarApiVersionSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarApiVersionSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarApiVersion> {
+  const _$AvatarGetUserProxyAvatarApiVersionSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarApiVersion, Object> _toWire = <AvatarGetUserProxyAvatarApiVersion, Object>{
+    AvatarGetUserProxyAvatarApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarApiVersion> _fromWire = <Object, AvatarGetUserProxyAvatarApiVersion>{
+    'v1': AvatarGetUserProxyAvatarApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarDarkSize extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkSize._(super.name);
+
+  /// `64`
+  @BuiltValueEnumConst(wireName: '64')
+  static const AvatarGetUserProxyAvatarDarkSize $64 = _$avatarGetUserProxyAvatarDarkSize$64;
+
+  /// `512`
+  @BuiltValueEnumConst(wireName: '512')
+  static const AvatarGetUserProxyAvatarDarkSize $512 = _$avatarGetUserProxyAvatarDarkSize$512;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkSize> get values => _$avatarGetUserProxyAvatarDarkSizeValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkSize valueOf(String name) => _$valueOfAvatarGetUserProxyAvatarDarkSize(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkSize.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkSize> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkSizeSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarDarkSizeSerializer implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkSize> {
+  const _$AvatarGetUserProxyAvatarDarkSizeSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarDarkSize, Object> _toWire = <AvatarGetUserProxyAvatarDarkSize, Object>{
+    AvatarGetUserProxyAvatarDarkSize.$64: 64,
+    AvatarGetUserProxyAvatarDarkSize.$512: 512,
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarDarkSize> _fromWire = <Object, AvatarGetUserProxyAvatarDarkSize>{
+    64: AvatarGetUserProxyAvatarDarkSize.$64,
+    512: AvatarGetUserProxyAvatarDarkSize.$512,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkSize];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkSize';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkSize object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarDarkSize deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class AvatarGetUserProxyAvatarDarkApiVersion extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkApiVersion._(super.name);
+
+  /// `v1`
+  static const AvatarGetUserProxyAvatarDarkApiVersion v1 = _$avatarGetUserProxyAvatarDarkApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkApiVersion> get values => _$avatarGetUserProxyAvatarDarkApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkApiVersion valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarDarkApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkApiVersion> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkApiVersionSerializer();
+}
+
+class _$AvatarGetUserProxyAvatarDarkApiVersionSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkApiVersion> {
+  const _$AvatarGetUserProxyAvatarDarkApiVersionSerializer();
+
+  static const Map<AvatarGetUserProxyAvatarDarkApiVersion, Object> _toWire =
+      <AvatarGetUserProxyAvatarDarkApiVersion, Object>{
+    AvatarGetUserProxyAvatarDarkApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetUserProxyAvatarDarkApiVersion> _fromWire =
+      <Object, AvatarGetUserProxyAvatarDarkApiVersion>{
+    'v1': AvatarGetUserProxyAvatarDarkApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetUserProxyAvatarDarkApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class BotListBotsApiVersion extends EnumClass {
+  const BotListBotsApiVersion._(super.name);
+
+  /// `v1`
+  static const BotListBotsApiVersion v1 = _$botListBotsApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotListBotsApiVersion> get values => _$botListBotsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for BotListBotsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotListBotsApiVersion> get serializer => const _$BotListBotsApiVersionSerializer();
+}
+
+class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBotsApiVersion> {
+  const _$BotListBotsApiVersionSerializer();
+
+  static const Map<BotListBotsApiVersion, Object> _toWire = <BotListBotsApiVersion, Object>{
+    BotListBotsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotListBotsApiVersion> _fromWire = <Object, BotListBotsApiVersion>{
+    'v1': BotListBotsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotListBotsApiVersion];
+
+  @override
+  String get wireName => 'BotListBotsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotListBotsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotListBotsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotInterface {
+  String? get description;
+  int get id;
+  String get name;
+  int get state;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotInterfaceBuilder b) {}
+}
+
+abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
+  /// Creates a new Bot object using the builder pattern.
+  factory Bot([void Function(BotBuilder)? b]) = _$Bot;
+
+  // coverage:ignore-start
+  const Bot._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Bot.
+  static Serializer<Bot> get serializer => _$botSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotBuilder b) {
+    $BotInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotBuilder b) {
+    $BotInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotListBotsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<Bot> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class BotListBotsResponseApplicationJson_Ocs
+    implements
+        $BotListBotsResponseApplicationJson_OcsInterface,
+        Built<BotListBotsResponseApplicationJson_Ocs, BotListBotsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotListBotsResponseApplicationJson_Ocs object using the builder pattern.
+  factory BotListBotsResponseApplicationJson_Ocs([void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b]) =
+      _$BotListBotsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const BotListBotsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotListBotsResponseApplicationJson_Ocs.
+  static Serializer<BotListBotsResponseApplicationJson_Ocs> get serializer =>
+      _$botListBotsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotListBotsResponseApplicationJson_OcsBuilder b) {
+    $BotListBotsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotListBotsResponseApplicationJson_OcsBuilder b) {
+    $BotListBotsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotListBotsResponseApplicationJsonInterface {
+  BotListBotsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotListBotsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotListBotsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class BotListBotsResponseApplicationJson
+    implements
+        $BotListBotsResponseApplicationJsonInterface,
+        Built<BotListBotsResponseApplicationJson, BotListBotsResponseApplicationJsonBuilder> {
+  /// Creates a new BotListBotsResponseApplicationJson object using the builder pattern.
+  factory BotListBotsResponseApplicationJson([void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
+      _$BotListBotsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const BotListBotsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotListBotsResponseApplicationJson.
+  static Serializer<BotListBotsResponseApplicationJson> get serializer =>
+      _$botListBotsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotListBotsResponseApplicationJsonBuilder b) {
+    $BotListBotsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotListBotsResponseApplicationJsonBuilder b) {
+    $BotListBotsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class BotEnableBotApiVersion extends EnumClass {
+  const BotEnableBotApiVersion._(super.name);
+
+  /// `v1`
+  static const BotEnableBotApiVersion v1 = _$botEnableBotApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotEnableBotApiVersion> get values => _$botEnableBotApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for BotEnableBotApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotEnableBotApiVersion> get serializer => const _$BotEnableBotApiVersionSerializer();
+}
+
+class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnableBotApiVersion> {
+  const _$BotEnableBotApiVersionSerializer();
+
+  static const Map<BotEnableBotApiVersion, Object> _toWire = <BotEnableBotApiVersion, Object>{
+    BotEnableBotApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotEnableBotApiVersion> _fromWire = <Object, BotEnableBotApiVersion>{
+    'v1': BotEnableBotApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotEnableBotApiVersion];
+
+  @override
+  String get wireName => 'BotEnableBotApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotEnableBotApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotEnableBotApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotEnableBotResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Bot? get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotEnableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotEnableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class BotEnableBotResponseApplicationJson_Ocs
+    implements
+        $BotEnableBotResponseApplicationJson_OcsInterface,
+        Built<BotEnableBotResponseApplicationJson_Ocs, BotEnableBotResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotEnableBotResponseApplicationJson_Ocs object using the builder pattern.
+  factory BotEnableBotResponseApplicationJson_Ocs([void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b]) =
+      _$BotEnableBotResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const BotEnableBotResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotEnableBotResponseApplicationJson_Ocs.
+  static Serializer<BotEnableBotResponseApplicationJson_Ocs> get serializer =>
+      _$botEnableBotResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotEnableBotResponseApplicationJson_OcsBuilder b) {
+    $BotEnableBotResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotEnableBotResponseApplicationJson_OcsBuilder b) {
+    $BotEnableBotResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotEnableBotResponseApplicationJsonInterface {
+  BotEnableBotResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotEnableBotResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotEnableBotResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class BotEnableBotResponseApplicationJson
+    implements
+        $BotEnableBotResponseApplicationJsonInterface,
+        Built<BotEnableBotResponseApplicationJson, BotEnableBotResponseApplicationJsonBuilder> {
+  /// Creates a new BotEnableBotResponseApplicationJson object using the builder pattern.
+  factory BotEnableBotResponseApplicationJson([void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
+      _$BotEnableBotResponseApplicationJson;
+
+  // coverage:ignore-start
+  const BotEnableBotResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotEnableBotResponseApplicationJson.
+  static Serializer<BotEnableBotResponseApplicationJson> get serializer =>
+      _$botEnableBotResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotEnableBotResponseApplicationJsonBuilder b) {
+    $BotEnableBotResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotEnableBotResponseApplicationJsonBuilder b) {
+    $BotEnableBotResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class BotDisableBotApiVersion extends EnumClass {
+  const BotDisableBotApiVersion._(super.name);
+
+  /// `v1`
+  static const BotDisableBotApiVersion v1 = _$botDisableBotApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotDisableBotApiVersion> get values => _$botDisableBotApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for BotDisableBotApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotDisableBotApiVersion> get serializer => const _$BotDisableBotApiVersionSerializer();
+}
+
+class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisableBotApiVersion> {
+  const _$BotDisableBotApiVersionSerializer();
+
+  static const Map<BotDisableBotApiVersion, Object> _toWire = <BotDisableBotApiVersion, Object>{
+    BotDisableBotApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotDisableBotApiVersion> _fromWire = <Object, BotDisableBotApiVersion>{
+    'v1': BotDisableBotApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotDisableBotApiVersion];
+
+  @override
+  String get wireName => 'BotDisableBotApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotDisableBotApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotDisableBotApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotDisableBotResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Bot? get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotDisableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotDisableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class BotDisableBotResponseApplicationJson_Ocs
+    implements
+        $BotDisableBotResponseApplicationJson_OcsInterface,
+        Built<BotDisableBotResponseApplicationJson_Ocs, BotDisableBotResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotDisableBotResponseApplicationJson_Ocs object using the builder pattern.
+  factory BotDisableBotResponseApplicationJson_Ocs([
+    void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$BotDisableBotResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const BotDisableBotResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotDisableBotResponseApplicationJson_Ocs.
+  static Serializer<BotDisableBotResponseApplicationJson_Ocs> get serializer =>
+      _$botDisableBotResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotDisableBotResponseApplicationJson_OcsBuilder b) {
+    $BotDisableBotResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotDisableBotResponseApplicationJson_OcsBuilder b) {
+    $BotDisableBotResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotDisableBotResponseApplicationJsonInterface {
+  BotDisableBotResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotDisableBotResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotDisableBotResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class BotDisableBotResponseApplicationJson
+    implements
+        $BotDisableBotResponseApplicationJsonInterface,
+        Built<BotDisableBotResponseApplicationJson, BotDisableBotResponseApplicationJsonBuilder> {
+  /// Creates a new BotDisableBotResponseApplicationJson object using the builder pattern.
+  factory BotDisableBotResponseApplicationJson([void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
+      _$BotDisableBotResponseApplicationJson;
+
+  // coverage:ignore-start
+  const BotDisableBotResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotDisableBotResponseApplicationJson.
+  static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
+      _$botDisableBotResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotDisableBotResponseApplicationJsonBuilder b) {
+    $BotDisableBotResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotDisableBotResponseApplicationJsonBuilder b) {
+    $BotDisableBotResponseApplicationJsonInterface._validate(b);
+  }
 }
 
 class BotSendMessageSilent extends EnumClass {
@@ -15601,751 +18712,6 @@ abstract class BotDeleteReactionResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(BotDeleteReactionResponseApplicationJsonBuilder b) {
     $BotDeleteReactionResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class BotListBotsApiVersion extends EnumClass {
-  const BotListBotsApiVersion._(super.name);
-
-  /// `v1`
-  static const BotListBotsApiVersion v1 = _$botListBotsApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<BotListBotsApiVersion> get values => _$botListBotsApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for BotListBotsApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BotListBotsApiVersion> get serializer => const _$BotListBotsApiVersionSerializer();
-}
-
-class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBotsApiVersion> {
-  const _$BotListBotsApiVersionSerializer();
-
-  static const Map<BotListBotsApiVersion, Object> _toWire = <BotListBotsApiVersion, Object>{
-    BotListBotsApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, BotListBotsApiVersion> _fromWire = <Object, BotListBotsApiVersion>{
-    'v1': BotListBotsApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [BotListBotsApiVersion];
-
-  @override
-  String get wireName => 'BotListBotsApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BotListBotsApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  BotListBotsApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotInterface {
-  String? get description;
-  int get id;
-  String get name;
-  int get state;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotInterfaceBuilder b) {}
-}
-
-abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
-  /// Creates a new Bot object using the builder pattern.
-  factory Bot([void Function(BotBuilder)? b]) = _$Bot;
-
-  // coverage:ignore-start
-  const Bot._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Bot.
-  static Serializer<Bot> get serializer => _$botSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotBuilder b) {
-    $BotInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotBuilder b) {
-    $BotInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotListBotsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<Bot> get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class BotListBotsResponseApplicationJson_Ocs
-    implements
-        $BotListBotsResponseApplicationJson_OcsInterface,
-        Built<BotListBotsResponseApplicationJson_Ocs, BotListBotsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new BotListBotsResponseApplicationJson_Ocs object using the builder pattern.
-  factory BotListBotsResponseApplicationJson_Ocs([void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b]) =
-      _$BotListBotsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const BotListBotsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotListBotsResponseApplicationJson_Ocs.
-  static Serializer<BotListBotsResponseApplicationJson_Ocs> get serializer =>
-      _$botListBotsResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotListBotsResponseApplicationJson_OcsBuilder b) {
-    $BotListBotsResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotListBotsResponseApplicationJson_OcsBuilder b) {
-    $BotListBotsResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotListBotsResponseApplicationJsonInterface {
-  BotListBotsResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotListBotsResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotListBotsResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class BotListBotsResponseApplicationJson
-    implements
-        $BotListBotsResponseApplicationJsonInterface,
-        Built<BotListBotsResponseApplicationJson, BotListBotsResponseApplicationJsonBuilder> {
-  /// Creates a new BotListBotsResponseApplicationJson object using the builder pattern.
-  factory BotListBotsResponseApplicationJson([void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
-      _$BotListBotsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const BotListBotsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotListBotsResponseApplicationJson.
-  static Serializer<BotListBotsResponseApplicationJson> get serializer =>
-      _$botListBotsResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotListBotsResponseApplicationJsonBuilder b) {
-    $BotListBotsResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotListBotsResponseApplicationJsonBuilder b) {
-    $BotListBotsResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class BotEnableBotApiVersion extends EnumClass {
-  const BotEnableBotApiVersion._(super.name);
-
-  /// `v1`
-  static const BotEnableBotApiVersion v1 = _$botEnableBotApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<BotEnableBotApiVersion> get values => _$botEnableBotApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for BotEnableBotApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BotEnableBotApiVersion> get serializer => const _$BotEnableBotApiVersionSerializer();
-}
-
-class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnableBotApiVersion> {
-  const _$BotEnableBotApiVersionSerializer();
-
-  static const Map<BotEnableBotApiVersion, Object> _toWire = <BotEnableBotApiVersion, Object>{
-    BotEnableBotApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, BotEnableBotApiVersion> _fromWire = <Object, BotEnableBotApiVersion>{
-    'v1': BotEnableBotApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [BotEnableBotApiVersion];
-
-  @override
-  String get wireName => 'BotEnableBotApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BotEnableBotApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  BotEnableBotApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotEnableBotResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  Bot? get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotEnableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotEnableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class BotEnableBotResponseApplicationJson_Ocs
-    implements
-        $BotEnableBotResponseApplicationJson_OcsInterface,
-        Built<BotEnableBotResponseApplicationJson_Ocs, BotEnableBotResponseApplicationJson_OcsBuilder> {
-  /// Creates a new BotEnableBotResponseApplicationJson_Ocs object using the builder pattern.
-  factory BotEnableBotResponseApplicationJson_Ocs([void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b]) =
-      _$BotEnableBotResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const BotEnableBotResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotEnableBotResponseApplicationJson_Ocs.
-  static Serializer<BotEnableBotResponseApplicationJson_Ocs> get serializer =>
-      _$botEnableBotResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotEnableBotResponseApplicationJson_OcsBuilder b) {
-    $BotEnableBotResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotEnableBotResponseApplicationJson_OcsBuilder b) {
-    $BotEnableBotResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotEnableBotResponseApplicationJsonInterface {
-  BotEnableBotResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotEnableBotResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotEnableBotResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class BotEnableBotResponseApplicationJson
-    implements
-        $BotEnableBotResponseApplicationJsonInterface,
-        Built<BotEnableBotResponseApplicationJson, BotEnableBotResponseApplicationJsonBuilder> {
-  /// Creates a new BotEnableBotResponseApplicationJson object using the builder pattern.
-  factory BotEnableBotResponseApplicationJson([void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
-      _$BotEnableBotResponseApplicationJson;
-
-  // coverage:ignore-start
-  const BotEnableBotResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotEnableBotResponseApplicationJson.
-  static Serializer<BotEnableBotResponseApplicationJson> get serializer =>
-      _$botEnableBotResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotEnableBotResponseApplicationJsonBuilder b) {
-    $BotEnableBotResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotEnableBotResponseApplicationJsonBuilder b) {
-    $BotEnableBotResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class BotDisableBotApiVersion extends EnumClass {
-  const BotDisableBotApiVersion._(super.name);
-
-  /// `v1`
-  static const BotDisableBotApiVersion v1 = _$botDisableBotApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<BotDisableBotApiVersion> get values => _$botDisableBotApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for BotDisableBotApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BotDisableBotApiVersion> get serializer => const _$BotDisableBotApiVersionSerializer();
-}
-
-class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisableBotApiVersion> {
-  const _$BotDisableBotApiVersionSerializer();
-
-  static const Map<BotDisableBotApiVersion, Object> _toWire = <BotDisableBotApiVersion, Object>{
-    BotDisableBotApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, BotDisableBotApiVersion> _fromWire = <Object, BotDisableBotApiVersion>{
-    'v1': BotDisableBotApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [BotDisableBotApiVersion];
-
-  @override
-  String get wireName => 'BotDisableBotApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BotDisableBotApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  BotDisableBotApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotDisableBotResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  Bot? get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotDisableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotDisableBotResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class BotDisableBotResponseApplicationJson_Ocs
-    implements
-        $BotDisableBotResponseApplicationJson_OcsInterface,
-        Built<BotDisableBotResponseApplicationJson_Ocs, BotDisableBotResponseApplicationJson_OcsBuilder> {
-  /// Creates a new BotDisableBotResponseApplicationJson_Ocs object using the builder pattern.
-  factory BotDisableBotResponseApplicationJson_Ocs([
-    void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$BotDisableBotResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const BotDisableBotResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotDisableBotResponseApplicationJson_Ocs.
-  static Serializer<BotDisableBotResponseApplicationJson_Ocs> get serializer =>
-      _$botDisableBotResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotDisableBotResponseApplicationJson_OcsBuilder b) {
-    $BotDisableBotResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotDisableBotResponseApplicationJson_OcsBuilder b) {
-    $BotDisableBotResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotDisableBotResponseApplicationJsonInterface {
-  BotDisableBotResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotDisableBotResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotDisableBotResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class BotDisableBotResponseApplicationJson
-    implements
-        $BotDisableBotResponseApplicationJsonInterface,
-        Built<BotDisableBotResponseApplicationJson, BotDisableBotResponseApplicationJsonBuilder> {
-  /// Creates a new BotDisableBotResponseApplicationJson object using the builder pattern.
-  factory BotDisableBotResponseApplicationJson([void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
-      _$BotDisableBotResponseApplicationJson;
-
-  // coverage:ignore-start
-  const BotDisableBotResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotDisableBotResponseApplicationJson.
-  static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
-      _$botDisableBotResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotDisableBotResponseApplicationJsonBuilder b) {
-    $BotDisableBotResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotDisableBotResponseApplicationJsonBuilder b) {
-    $BotDisableBotResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class BotAdminListBotsApiVersion extends EnumClass {
-  const BotAdminListBotsApiVersion._(super.name);
-
-  /// `v1`
-  static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for BotAdminListBotsApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
-}
-
-class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
-  const _$BotAdminListBotsApiVersionSerializer();
-
-  static const Map<BotAdminListBotsApiVersion, Object> _toWire = <BotAdminListBotsApiVersion, Object>{
-    BotAdminListBotsApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, BotAdminListBotsApiVersion> _fromWire = <Object, BotAdminListBotsApiVersion>{
-    'v1': BotAdminListBotsApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [BotAdminListBotsApiVersion];
-
-  @override
-  String get wireName => 'BotAdminListBotsApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    BotAdminListBotsApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  BotAdminListBotsApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsInterface implements $BotInterface {
-  @BuiltValueField(wireName: 'error_count')
-  int get errorCount;
-  int get features;
-  @BuiltValueField(wireName: 'last_error_date')
-  int get lastErrorDate;
-  @BuiltValueField(wireName: 'last_error_message')
-  String get lastErrorMessage;
-  String get url;
-  @BuiltValueField(wireName: 'url_hash')
-  String get urlHash;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotWithDetailsInterfaceBuilder b) {
-    $BotInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotWithDetailsInterfaceBuilder b) {
-    $BotInterface._validate(b);
-  }
-}
-
-abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
-  /// Creates a new BotWithDetails object using the builder pattern.
-  factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
-
-  // coverage:ignore-start
-  const BotWithDetails._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotWithDetails.
-  static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotWithDetailsBuilder b) {
-    $BotWithDetailsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotWithDetailsBuilder b) {
-    $BotWithDetailsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<BotWithDetails> get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class BotAdminListBotsResponseApplicationJson_Ocs
-    implements
-        $BotAdminListBotsResponseApplicationJson_OcsInterface,
-        Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new BotAdminListBotsResponseApplicationJson_Ocs object using the builder pattern.
-  factory BotAdminListBotsResponseApplicationJson_Ocs([
-    void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const BotAdminListBotsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
-  static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotAdminListBotsResponseApplicationJson_OcsBuilder b) {
-    $BotAdminListBotsResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotAdminListBotsResponseApplicationJson_OcsBuilder b) {
-    $BotAdminListBotsResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
-  BotAdminListBotsResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotAdminListBotsResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotAdminListBotsResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class BotAdminListBotsResponseApplicationJson
-    implements
-        $BotAdminListBotsResponseApplicationJsonInterface,
-        Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
-  /// Creates a new BotAdminListBotsResponseApplicationJson object using the builder pattern.
-  factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
-      _$BotAdminListBotsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const BotAdminListBotsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotAdminListBotsResponseApplicationJson.
-  static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotAdminListBotsResponseApplicationJsonBuilder b) {
-    $BotAdminListBotsResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotAdminListBotsResponseApplicationJsonBuilder b) {
-    $BotAdminListBotsResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -18321,1740 +20687,6 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   }
 }
 
-class CallJoinCallFlags extends EnumClass {
-  const CallJoinCallFlags._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const CallJoinCallFlags $0 = _$callJoinCallFlags$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const CallJoinCallFlags $1 = _$callJoinCallFlags$1;
-
-  /// `2`
-  @BuiltValueEnumConst(wireName: '2')
-  static const CallJoinCallFlags $2 = _$callJoinCallFlags$2;
-
-  /// `3`
-  @BuiltValueEnumConst(wireName: '3')
-  static const CallJoinCallFlags $3 = _$callJoinCallFlags$3;
-
-  /// `4`
-  @BuiltValueEnumConst(wireName: '4')
-  static const CallJoinCallFlags $4 = _$callJoinCallFlags$4;
-
-  /// `5`
-  @BuiltValueEnumConst(wireName: '5')
-  static const CallJoinCallFlags $5 = _$callJoinCallFlags$5;
-
-  /// `6`
-  @BuiltValueEnumConst(wireName: '6')
-  static const CallJoinCallFlags $6 = _$callJoinCallFlags$6;
-
-  /// `7`
-  @BuiltValueEnumConst(wireName: '7')
-  static const CallJoinCallFlags $7 = _$callJoinCallFlags$7;
-
-  /// `8`
-  @BuiltValueEnumConst(wireName: '8')
-  static const CallJoinCallFlags $8 = _$callJoinCallFlags$8;
-
-  /// `9`
-  @BuiltValueEnumConst(wireName: '9')
-  static const CallJoinCallFlags $9 = _$callJoinCallFlags$9;
-
-  /// `10`
-  @BuiltValueEnumConst(wireName: '10')
-  static const CallJoinCallFlags $10 = _$callJoinCallFlags$10;
-
-  /// `11`
-  @BuiltValueEnumConst(wireName: '11')
-  static const CallJoinCallFlags $11 = _$callJoinCallFlags$11;
-
-  /// `12`
-  @BuiltValueEnumConst(wireName: '12')
-  static const CallJoinCallFlags $12 = _$callJoinCallFlags$12;
-
-  /// `13`
-  @BuiltValueEnumConst(wireName: '13')
-  static const CallJoinCallFlags $13 = _$callJoinCallFlags$13;
-
-  /// `14`
-  @BuiltValueEnumConst(wireName: '14')
-  static const CallJoinCallFlags $14 = _$callJoinCallFlags$14;
-
-  /// `15`
-  @BuiltValueEnumConst(wireName: '15')
-  static const CallJoinCallFlags $15 = _$callJoinCallFlags$15;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<CallJoinCallFlags> get values => _$callJoinCallFlagsValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static CallJoinCallFlags valueOf(String name) => _$valueOfCallJoinCallFlags(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for CallJoinCallFlags.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CallJoinCallFlags> get serializer => const _$CallJoinCallFlagsSerializer();
-}
-
-class _$CallJoinCallFlagsSerializer implements PrimitiveSerializer<CallJoinCallFlags> {
-  const _$CallJoinCallFlagsSerializer();
-
-  static const Map<CallJoinCallFlags, Object> _toWire = <CallJoinCallFlags, Object>{
-    CallJoinCallFlags.$0: 0,
-    CallJoinCallFlags.$1: 1,
-    CallJoinCallFlags.$2: 2,
-    CallJoinCallFlags.$3: 3,
-    CallJoinCallFlags.$4: 4,
-    CallJoinCallFlags.$5: 5,
-    CallJoinCallFlags.$6: 6,
-    CallJoinCallFlags.$7: 7,
-    CallJoinCallFlags.$8: 8,
-    CallJoinCallFlags.$9: 9,
-    CallJoinCallFlags.$10: 10,
-    CallJoinCallFlags.$11: 11,
-    CallJoinCallFlags.$12: 12,
-    CallJoinCallFlags.$13: 13,
-    CallJoinCallFlags.$14: 14,
-    CallJoinCallFlags.$15: 15,
-  };
-
-  static const Map<Object, CallJoinCallFlags> _fromWire = <Object, CallJoinCallFlags>{
-    0: CallJoinCallFlags.$0,
-    1: CallJoinCallFlags.$1,
-    2: CallJoinCallFlags.$2,
-    3: CallJoinCallFlags.$3,
-    4: CallJoinCallFlags.$4,
-    5: CallJoinCallFlags.$5,
-    6: CallJoinCallFlags.$6,
-    7: CallJoinCallFlags.$7,
-    8: CallJoinCallFlags.$8,
-    9: CallJoinCallFlags.$9,
-    10: CallJoinCallFlags.$10,
-    11: CallJoinCallFlags.$11,
-    12: CallJoinCallFlags.$12,
-    13: CallJoinCallFlags.$13,
-    14: CallJoinCallFlags.$14,
-    15: CallJoinCallFlags.$15,
-  };
-
-  @override
-  Iterable<Type> get types => const [CallJoinCallFlags];
-
-  @override
-  String get wireName => 'CallJoinCallFlags';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    CallJoinCallFlags object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  CallJoinCallFlags deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class CallJoinCallForcePermissions extends EnumClass {
-  const CallJoinCallForcePermissions._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const CallJoinCallForcePermissions $0 = _$callJoinCallForcePermissions$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const CallJoinCallForcePermissions $1 = _$callJoinCallForcePermissions$1;
-
-  /// `2`
-  @BuiltValueEnumConst(wireName: '2')
-  static const CallJoinCallForcePermissions $2 = _$callJoinCallForcePermissions$2;
-
-  /// `3`
-  @BuiltValueEnumConst(wireName: '3')
-  static const CallJoinCallForcePermissions $3 = _$callJoinCallForcePermissions$3;
-
-  /// `4`
-  @BuiltValueEnumConst(wireName: '4')
-  static const CallJoinCallForcePermissions $4 = _$callJoinCallForcePermissions$4;
-
-  /// `5`
-  @BuiltValueEnumConst(wireName: '5')
-  static const CallJoinCallForcePermissions $5 = _$callJoinCallForcePermissions$5;
-
-  /// `6`
-  @BuiltValueEnumConst(wireName: '6')
-  static const CallJoinCallForcePermissions $6 = _$callJoinCallForcePermissions$6;
-
-  /// `7`
-  @BuiltValueEnumConst(wireName: '7')
-  static const CallJoinCallForcePermissions $7 = _$callJoinCallForcePermissions$7;
-
-  /// `8`
-  @BuiltValueEnumConst(wireName: '8')
-  static const CallJoinCallForcePermissions $8 = _$callJoinCallForcePermissions$8;
-
-  /// `9`
-  @BuiltValueEnumConst(wireName: '9')
-  static const CallJoinCallForcePermissions $9 = _$callJoinCallForcePermissions$9;
-
-  /// `10`
-  @BuiltValueEnumConst(wireName: '10')
-  static const CallJoinCallForcePermissions $10 = _$callJoinCallForcePermissions$10;
-
-  /// `11`
-  @BuiltValueEnumConst(wireName: '11')
-  static const CallJoinCallForcePermissions $11 = _$callJoinCallForcePermissions$11;
-
-  /// `12`
-  @BuiltValueEnumConst(wireName: '12')
-  static const CallJoinCallForcePermissions $12 = _$callJoinCallForcePermissions$12;
-
-  /// `13`
-  @BuiltValueEnumConst(wireName: '13')
-  static const CallJoinCallForcePermissions $13 = _$callJoinCallForcePermissions$13;
-
-  /// `14`
-  @BuiltValueEnumConst(wireName: '14')
-  static const CallJoinCallForcePermissions $14 = _$callJoinCallForcePermissions$14;
-
-  /// `15`
-  @BuiltValueEnumConst(wireName: '15')
-  static const CallJoinCallForcePermissions $15 = _$callJoinCallForcePermissions$15;
-
-  /// `16`
-  @BuiltValueEnumConst(wireName: '16')
-  static const CallJoinCallForcePermissions $16 = _$callJoinCallForcePermissions$16;
-
-  /// `17`
-  @BuiltValueEnumConst(wireName: '17')
-  static const CallJoinCallForcePermissions $17 = _$callJoinCallForcePermissions$17;
-
-  /// `18`
-  @BuiltValueEnumConst(wireName: '18')
-  static const CallJoinCallForcePermissions $18 = _$callJoinCallForcePermissions$18;
-
-  /// `19`
-  @BuiltValueEnumConst(wireName: '19')
-  static const CallJoinCallForcePermissions $19 = _$callJoinCallForcePermissions$19;
-
-  /// `20`
-  @BuiltValueEnumConst(wireName: '20')
-  static const CallJoinCallForcePermissions $20 = _$callJoinCallForcePermissions$20;
-
-  /// `21`
-  @BuiltValueEnumConst(wireName: '21')
-  static const CallJoinCallForcePermissions $21 = _$callJoinCallForcePermissions$21;
-
-  /// `22`
-  @BuiltValueEnumConst(wireName: '22')
-  static const CallJoinCallForcePermissions $22 = _$callJoinCallForcePermissions$22;
-
-  /// `23`
-  @BuiltValueEnumConst(wireName: '23')
-  static const CallJoinCallForcePermissions $23 = _$callJoinCallForcePermissions$23;
-
-  /// `24`
-  @BuiltValueEnumConst(wireName: '24')
-  static const CallJoinCallForcePermissions $24 = _$callJoinCallForcePermissions$24;
-
-  /// `25`
-  @BuiltValueEnumConst(wireName: '25')
-  static const CallJoinCallForcePermissions $25 = _$callJoinCallForcePermissions$25;
-
-  /// `26`
-  @BuiltValueEnumConst(wireName: '26')
-  static const CallJoinCallForcePermissions $26 = _$callJoinCallForcePermissions$26;
-
-  /// `27`
-  @BuiltValueEnumConst(wireName: '27')
-  static const CallJoinCallForcePermissions $27 = _$callJoinCallForcePermissions$27;
-
-  /// `28`
-  @BuiltValueEnumConst(wireName: '28')
-  static const CallJoinCallForcePermissions $28 = _$callJoinCallForcePermissions$28;
-
-  /// `29`
-  @BuiltValueEnumConst(wireName: '29')
-  static const CallJoinCallForcePermissions $29 = _$callJoinCallForcePermissions$29;
-
-  /// `30`
-  @BuiltValueEnumConst(wireName: '30')
-  static const CallJoinCallForcePermissions $30 = _$callJoinCallForcePermissions$30;
-
-  /// `31`
-  @BuiltValueEnumConst(wireName: '31')
-  static const CallJoinCallForcePermissions $31 = _$callJoinCallForcePermissions$31;
-
-  /// `32`
-  @BuiltValueEnumConst(wireName: '32')
-  static const CallJoinCallForcePermissions $32 = _$callJoinCallForcePermissions$32;
-
-  /// `33`
-  @BuiltValueEnumConst(wireName: '33')
-  static const CallJoinCallForcePermissions $33 = _$callJoinCallForcePermissions$33;
-
-  /// `34`
-  @BuiltValueEnumConst(wireName: '34')
-  static const CallJoinCallForcePermissions $34 = _$callJoinCallForcePermissions$34;
-
-  /// `35`
-  @BuiltValueEnumConst(wireName: '35')
-  static const CallJoinCallForcePermissions $35 = _$callJoinCallForcePermissions$35;
-
-  /// `36`
-  @BuiltValueEnumConst(wireName: '36')
-  static const CallJoinCallForcePermissions $36 = _$callJoinCallForcePermissions$36;
-
-  /// `37`
-  @BuiltValueEnumConst(wireName: '37')
-  static const CallJoinCallForcePermissions $37 = _$callJoinCallForcePermissions$37;
-
-  /// `38`
-  @BuiltValueEnumConst(wireName: '38')
-  static const CallJoinCallForcePermissions $38 = _$callJoinCallForcePermissions$38;
-
-  /// `39`
-  @BuiltValueEnumConst(wireName: '39')
-  static const CallJoinCallForcePermissions $39 = _$callJoinCallForcePermissions$39;
-
-  /// `40`
-  @BuiltValueEnumConst(wireName: '40')
-  static const CallJoinCallForcePermissions $40 = _$callJoinCallForcePermissions$40;
-
-  /// `41`
-  @BuiltValueEnumConst(wireName: '41')
-  static const CallJoinCallForcePermissions $41 = _$callJoinCallForcePermissions$41;
-
-  /// `42`
-  @BuiltValueEnumConst(wireName: '42')
-  static const CallJoinCallForcePermissions $42 = _$callJoinCallForcePermissions$42;
-
-  /// `43`
-  @BuiltValueEnumConst(wireName: '43')
-  static const CallJoinCallForcePermissions $43 = _$callJoinCallForcePermissions$43;
-
-  /// `44`
-  @BuiltValueEnumConst(wireName: '44')
-  static const CallJoinCallForcePermissions $44 = _$callJoinCallForcePermissions$44;
-
-  /// `45`
-  @BuiltValueEnumConst(wireName: '45')
-  static const CallJoinCallForcePermissions $45 = _$callJoinCallForcePermissions$45;
-
-  /// `46`
-  @BuiltValueEnumConst(wireName: '46')
-  static const CallJoinCallForcePermissions $46 = _$callJoinCallForcePermissions$46;
-
-  /// `47`
-  @BuiltValueEnumConst(wireName: '47')
-  static const CallJoinCallForcePermissions $47 = _$callJoinCallForcePermissions$47;
-
-  /// `48`
-  @BuiltValueEnumConst(wireName: '48')
-  static const CallJoinCallForcePermissions $48 = _$callJoinCallForcePermissions$48;
-
-  /// `49`
-  @BuiltValueEnumConst(wireName: '49')
-  static const CallJoinCallForcePermissions $49 = _$callJoinCallForcePermissions$49;
-
-  /// `50`
-  @BuiltValueEnumConst(wireName: '50')
-  static const CallJoinCallForcePermissions $50 = _$callJoinCallForcePermissions$50;
-
-  /// `51`
-  @BuiltValueEnumConst(wireName: '51')
-  static const CallJoinCallForcePermissions $51 = _$callJoinCallForcePermissions$51;
-
-  /// `52`
-  @BuiltValueEnumConst(wireName: '52')
-  static const CallJoinCallForcePermissions $52 = _$callJoinCallForcePermissions$52;
-
-  /// `53`
-  @BuiltValueEnumConst(wireName: '53')
-  static const CallJoinCallForcePermissions $53 = _$callJoinCallForcePermissions$53;
-
-  /// `54`
-  @BuiltValueEnumConst(wireName: '54')
-  static const CallJoinCallForcePermissions $54 = _$callJoinCallForcePermissions$54;
-
-  /// `55`
-  @BuiltValueEnumConst(wireName: '55')
-  static const CallJoinCallForcePermissions $55 = _$callJoinCallForcePermissions$55;
-
-  /// `56`
-  @BuiltValueEnumConst(wireName: '56')
-  static const CallJoinCallForcePermissions $56 = _$callJoinCallForcePermissions$56;
-
-  /// `57`
-  @BuiltValueEnumConst(wireName: '57')
-  static const CallJoinCallForcePermissions $57 = _$callJoinCallForcePermissions$57;
-
-  /// `58`
-  @BuiltValueEnumConst(wireName: '58')
-  static const CallJoinCallForcePermissions $58 = _$callJoinCallForcePermissions$58;
-
-  /// `59`
-  @BuiltValueEnumConst(wireName: '59')
-  static const CallJoinCallForcePermissions $59 = _$callJoinCallForcePermissions$59;
-
-  /// `60`
-  @BuiltValueEnumConst(wireName: '60')
-  static const CallJoinCallForcePermissions $60 = _$callJoinCallForcePermissions$60;
-
-  /// `61`
-  @BuiltValueEnumConst(wireName: '61')
-  static const CallJoinCallForcePermissions $61 = _$callJoinCallForcePermissions$61;
-
-  /// `62`
-  @BuiltValueEnumConst(wireName: '62')
-  static const CallJoinCallForcePermissions $62 = _$callJoinCallForcePermissions$62;
-
-  /// `63`
-  @BuiltValueEnumConst(wireName: '63')
-  static const CallJoinCallForcePermissions $63 = _$callJoinCallForcePermissions$63;
-
-  /// `64`
-  @BuiltValueEnumConst(wireName: '64')
-  static const CallJoinCallForcePermissions $64 = _$callJoinCallForcePermissions$64;
-
-  /// `65`
-  @BuiltValueEnumConst(wireName: '65')
-  static const CallJoinCallForcePermissions $65 = _$callJoinCallForcePermissions$65;
-
-  /// `66`
-  @BuiltValueEnumConst(wireName: '66')
-  static const CallJoinCallForcePermissions $66 = _$callJoinCallForcePermissions$66;
-
-  /// `67`
-  @BuiltValueEnumConst(wireName: '67')
-  static const CallJoinCallForcePermissions $67 = _$callJoinCallForcePermissions$67;
-
-  /// `68`
-  @BuiltValueEnumConst(wireName: '68')
-  static const CallJoinCallForcePermissions $68 = _$callJoinCallForcePermissions$68;
-
-  /// `69`
-  @BuiltValueEnumConst(wireName: '69')
-  static const CallJoinCallForcePermissions $69 = _$callJoinCallForcePermissions$69;
-
-  /// `70`
-  @BuiltValueEnumConst(wireName: '70')
-  static const CallJoinCallForcePermissions $70 = _$callJoinCallForcePermissions$70;
-
-  /// `71`
-  @BuiltValueEnumConst(wireName: '71')
-  static const CallJoinCallForcePermissions $71 = _$callJoinCallForcePermissions$71;
-
-  /// `72`
-  @BuiltValueEnumConst(wireName: '72')
-  static const CallJoinCallForcePermissions $72 = _$callJoinCallForcePermissions$72;
-
-  /// `73`
-  @BuiltValueEnumConst(wireName: '73')
-  static const CallJoinCallForcePermissions $73 = _$callJoinCallForcePermissions$73;
-
-  /// `74`
-  @BuiltValueEnumConst(wireName: '74')
-  static const CallJoinCallForcePermissions $74 = _$callJoinCallForcePermissions$74;
-
-  /// `75`
-  @BuiltValueEnumConst(wireName: '75')
-  static const CallJoinCallForcePermissions $75 = _$callJoinCallForcePermissions$75;
-
-  /// `76`
-  @BuiltValueEnumConst(wireName: '76')
-  static const CallJoinCallForcePermissions $76 = _$callJoinCallForcePermissions$76;
-
-  /// `77`
-  @BuiltValueEnumConst(wireName: '77')
-  static const CallJoinCallForcePermissions $77 = _$callJoinCallForcePermissions$77;
-
-  /// `78`
-  @BuiltValueEnumConst(wireName: '78')
-  static const CallJoinCallForcePermissions $78 = _$callJoinCallForcePermissions$78;
-
-  /// `79`
-  @BuiltValueEnumConst(wireName: '79')
-  static const CallJoinCallForcePermissions $79 = _$callJoinCallForcePermissions$79;
-
-  /// `80`
-  @BuiltValueEnumConst(wireName: '80')
-  static const CallJoinCallForcePermissions $80 = _$callJoinCallForcePermissions$80;
-
-  /// `81`
-  @BuiltValueEnumConst(wireName: '81')
-  static const CallJoinCallForcePermissions $81 = _$callJoinCallForcePermissions$81;
-
-  /// `82`
-  @BuiltValueEnumConst(wireName: '82')
-  static const CallJoinCallForcePermissions $82 = _$callJoinCallForcePermissions$82;
-
-  /// `83`
-  @BuiltValueEnumConst(wireName: '83')
-  static const CallJoinCallForcePermissions $83 = _$callJoinCallForcePermissions$83;
-
-  /// `84`
-  @BuiltValueEnumConst(wireName: '84')
-  static const CallJoinCallForcePermissions $84 = _$callJoinCallForcePermissions$84;
-
-  /// `85`
-  @BuiltValueEnumConst(wireName: '85')
-  static const CallJoinCallForcePermissions $85 = _$callJoinCallForcePermissions$85;
-
-  /// `86`
-  @BuiltValueEnumConst(wireName: '86')
-  static const CallJoinCallForcePermissions $86 = _$callJoinCallForcePermissions$86;
-
-  /// `87`
-  @BuiltValueEnumConst(wireName: '87')
-  static const CallJoinCallForcePermissions $87 = _$callJoinCallForcePermissions$87;
-
-  /// `88`
-  @BuiltValueEnumConst(wireName: '88')
-  static const CallJoinCallForcePermissions $88 = _$callJoinCallForcePermissions$88;
-
-  /// `89`
-  @BuiltValueEnumConst(wireName: '89')
-  static const CallJoinCallForcePermissions $89 = _$callJoinCallForcePermissions$89;
-
-  /// `90`
-  @BuiltValueEnumConst(wireName: '90')
-  static const CallJoinCallForcePermissions $90 = _$callJoinCallForcePermissions$90;
-
-  /// `91`
-  @BuiltValueEnumConst(wireName: '91')
-  static const CallJoinCallForcePermissions $91 = _$callJoinCallForcePermissions$91;
-
-  /// `92`
-  @BuiltValueEnumConst(wireName: '92')
-  static const CallJoinCallForcePermissions $92 = _$callJoinCallForcePermissions$92;
-
-  /// `93`
-  @BuiltValueEnumConst(wireName: '93')
-  static const CallJoinCallForcePermissions $93 = _$callJoinCallForcePermissions$93;
-
-  /// `94`
-  @BuiltValueEnumConst(wireName: '94')
-  static const CallJoinCallForcePermissions $94 = _$callJoinCallForcePermissions$94;
-
-  /// `95`
-  @BuiltValueEnumConst(wireName: '95')
-  static const CallJoinCallForcePermissions $95 = _$callJoinCallForcePermissions$95;
-
-  /// `96`
-  @BuiltValueEnumConst(wireName: '96')
-  static const CallJoinCallForcePermissions $96 = _$callJoinCallForcePermissions$96;
-
-  /// `97`
-  @BuiltValueEnumConst(wireName: '97')
-  static const CallJoinCallForcePermissions $97 = _$callJoinCallForcePermissions$97;
-
-  /// `98`
-  @BuiltValueEnumConst(wireName: '98')
-  static const CallJoinCallForcePermissions $98 = _$callJoinCallForcePermissions$98;
-
-  /// `99`
-  @BuiltValueEnumConst(wireName: '99')
-  static const CallJoinCallForcePermissions $99 = _$callJoinCallForcePermissions$99;
-
-  /// `100`
-  @BuiltValueEnumConst(wireName: '100')
-  static const CallJoinCallForcePermissions $100 = _$callJoinCallForcePermissions$100;
-
-  /// `101`
-  @BuiltValueEnumConst(wireName: '101')
-  static const CallJoinCallForcePermissions $101 = _$callJoinCallForcePermissions$101;
-
-  /// `102`
-  @BuiltValueEnumConst(wireName: '102')
-  static const CallJoinCallForcePermissions $102 = _$callJoinCallForcePermissions$102;
-
-  /// `103`
-  @BuiltValueEnumConst(wireName: '103')
-  static const CallJoinCallForcePermissions $103 = _$callJoinCallForcePermissions$103;
-
-  /// `104`
-  @BuiltValueEnumConst(wireName: '104')
-  static const CallJoinCallForcePermissions $104 = _$callJoinCallForcePermissions$104;
-
-  /// `105`
-  @BuiltValueEnumConst(wireName: '105')
-  static const CallJoinCallForcePermissions $105 = _$callJoinCallForcePermissions$105;
-
-  /// `106`
-  @BuiltValueEnumConst(wireName: '106')
-  static const CallJoinCallForcePermissions $106 = _$callJoinCallForcePermissions$106;
-
-  /// `107`
-  @BuiltValueEnumConst(wireName: '107')
-  static const CallJoinCallForcePermissions $107 = _$callJoinCallForcePermissions$107;
-
-  /// `108`
-  @BuiltValueEnumConst(wireName: '108')
-  static const CallJoinCallForcePermissions $108 = _$callJoinCallForcePermissions$108;
-
-  /// `109`
-  @BuiltValueEnumConst(wireName: '109')
-  static const CallJoinCallForcePermissions $109 = _$callJoinCallForcePermissions$109;
-
-  /// `110`
-  @BuiltValueEnumConst(wireName: '110')
-  static const CallJoinCallForcePermissions $110 = _$callJoinCallForcePermissions$110;
-
-  /// `111`
-  @BuiltValueEnumConst(wireName: '111')
-  static const CallJoinCallForcePermissions $111 = _$callJoinCallForcePermissions$111;
-
-  /// `112`
-  @BuiltValueEnumConst(wireName: '112')
-  static const CallJoinCallForcePermissions $112 = _$callJoinCallForcePermissions$112;
-
-  /// `113`
-  @BuiltValueEnumConst(wireName: '113')
-  static const CallJoinCallForcePermissions $113 = _$callJoinCallForcePermissions$113;
-
-  /// `114`
-  @BuiltValueEnumConst(wireName: '114')
-  static const CallJoinCallForcePermissions $114 = _$callJoinCallForcePermissions$114;
-
-  /// `115`
-  @BuiltValueEnumConst(wireName: '115')
-  static const CallJoinCallForcePermissions $115 = _$callJoinCallForcePermissions$115;
-
-  /// `116`
-  @BuiltValueEnumConst(wireName: '116')
-  static const CallJoinCallForcePermissions $116 = _$callJoinCallForcePermissions$116;
-
-  /// `117`
-  @BuiltValueEnumConst(wireName: '117')
-  static const CallJoinCallForcePermissions $117 = _$callJoinCallForcePermissions$117;
-
-  /// `118`
-  @BuiltValueEnumConst(wireName: '118')
-  static const CallJoinCallForcePermissions $118 = _$callJoinCallForcePermissions$118;
-
-  /// `119`
-  @BuiltValueEnumConst(wireName: '119')
-  static const CallJoinCallForcePermissions $119 = _$callJoinCallForcePermissions$119;
-
-  /// `120`
-  @BuiltValueEnumConst(wireName: '120')
-  static const CallJoinCallForcePermissions $120 = _$callJoinCallForcePermissions$120;
-
-  /// `121`
-  @BuiltValueEnumConst(wireName: '121')
-  static const CallJoinCallForcePermissions $121 = _$callJoinCallForcePermissions$121;
-
-  /// `122`
-  @BuiltValueEnumConst(wireName: '122')
-  static const CallJoinCallForcePermissions $122 = _$callJoinCallForcePermissions$122;
-
-  /// `123`
-  @BuiltValueEnumConst(wireName: '123')
-  static const CallJoinCallForcePermissions $123 = _$callJoinCallForcePermissions$123;
-
-  /// `124`
-  @BuiltValueEnumConst(wireName: '124')
-  static const CallJoinCallForcePermissions $124 = _$callJoinCallForcePermissions$124;
-
-  /// `125`
-  @BuiltValueEnumConst(wireName: '125')
-  static const CallJoinCallForcePermissions $125 = _$callJoinCallForcePermissions$125;
-
-  /// `126`
-  @BuiltValueEnumConst(wireName: '126')
-  static const CallJoinCallForcePermissions $126 = _$callJoinCallForcePermissions$126;
-
-  /// `127`
-  @BuiltValueEnumConst(wireName: '127')
-  static const CallJoinCallForcePermissions $127 = _$callJoinCallForcePermissions$127;
-
-  /// `128`
-  @BuiltValueEnumConst(wireName: '128')
-  static const CallJoinCallForcePermissions $128 = _$callJoinCallForcePermissions$128;
-
-  /// `129`
-  @BuiltValueEnumConst(wireName: '129')
-  static const CallJoinCallForcePermissions $129 = _$callJoinCallForcePermissions$129;
-
-  /// `130`
-  @BuiltValueEnumConst(wireName: '130')
-  static const CallJoinCallForcePermissions $130 = _$callJoinCallForcePermissions$130;
-
-  /// `131`
-  @BuiltValueEnumConst(wireName: '131')
-  static const CallJoinCallForcePermissions $131 = _$callJoinCallForcePermissions$131;
-
-  /// `132`
-  @BuiltValueEnumConst(wireName: '132')
-  static const CallJoinCallForcePermissions $132 = _$callJoinCallForcePermissions$132;
-
-  /// `133`
-  @BuiltValueEnumConst(wireName: '133')
-  static const CallJoinCallForcePermissions $133 = _$callJoinCallForcePermissions$133;
-
-  /// `134`
-  @BuiltValueEnumConst(wireName: '134')
-  static const CallJoinCallForcePermissions $134 = _$callJoinCallForcePermissions$134;
-
-  /// `135`
-  @BuiltValueEnumConst(wireName: '135')
-  static const CallJoinCallForcePermissions $135 = _$callJoinCallForcePermissions$135;
-
-  /// `136`
-  @BuiltValueEnumConst(wireName: '136')
-  static const CallJoinCallForcePermissions $136 = _$callJoinCallForcePermissions$136;
-
-  /// `137`
-  @BuiltValueEnumConst(wireName: '137')
-  static const CallJoinCallForcePermissions $137 = _$callJoinCallForcePermissions$137;
-
-  /// `138`
-  @BuiltValueEnumConst(wireName: '138')
-  static const CallJoinCallForcePermissions $138 = _$callJoinCallForcePermissions$138;
-
-  /// `139`
-  @BuiltValueEnumConst(wireName: '139')
-  static const CallJoinCallForcePermissions $139 = _$callJoinCallForcePermissions$139;
-
-  /// `140`
-  @BuiltValueEnumConst(wireName: '140')
-  static const CallJoinCallForcePermissions $140 = _$callJoinCallForcePermissions$140;
-
-  /// `141`
-  @BuiltValueEnumConst(wireName: '141')
-  static const CallJoinCallForcePermissions $141 = _$callJoinCallForcePermissions$141;
-
-  /// `142`
-  @BuiltValueEnumConst(wireName: '142')
-  static const CallJoinCallForcePermissions $142 = _$callJoinCallForcePermissions$142;
-
-  /// `143`
-  @BuiltValueEnumConst(wireName: '143')
-  static const CallJoinCallForcePermissions $143 = _$callJoinCallForcePermissions$143;
-
-  /// `144`
-  @BuiltValueEnumConst(wireName: '144')
-  static const CallJoinCallForcePermissions $144 = _$callJoinCallForcePermissions$144;
-
-  /// `145`
-  @BuiltValueEnumConst(wireName: '145')
-  static const CallJoinCallForcePermissions $145 = _$callJoinCallForcePermissions$145;
-
-  /// `146`
-  @BuiltValueEnumConst(wireName: '146')
-  static const CallJoinCallForcePermissions $146 = _$callJoinCallForcePermissions$146;
-
-  /// `147`
-  @BuiltValueEnumConst(wireName: '147')
-  static const CallJoinCallForcePermissions $147 = _$callJoinCallForcePermissions$147;
-
-  /// `148`
-  @BuiltValueEnumConst(wireName: '148')
-  static const CallJoinCallForcePermissions $148 = _$callJoinCallForcePermissions$148;
-
-  /// `149`
-  @BuiltValueEnumConst(wireName: '149')
-  static const CallJoinCallForcePermissions $149 = _$callJoinCallForcePermissions$149;
-
-  /// `150`
-  @BuiltValueEnumConst(wireName: '150')
-  static const CallJoinCallForcePermissions $150 = _$callJoinCallForcePermissions$150;
-
-  /// `151`
-  @BuiltValueEnumConst(wireName: '151')
-  static const CallJoinCallForcePermissions $151 = _$callJoinCallForcePermissions$151;
-
-  /// `152`
-  @BuiltValueEnumConst(wireName: '152')
-  static const CallJoinCallForcePermissions $152 = _$callJoinCallForcePermissions$152;
-
-  /// `153`
-  @BuiltValueEnumConst(wireName: '153')
-  static const CallJoinCallForcePermissions $153 = _$callJoinCallForcePermissions$153;
-
-  /// `154`
-  @BuiltValueEnumConst(wireName: '154')
-  static const CallJoinCallForcePermissions $154 = _$callJoinCallForcePermissions$154;
-
-  /// `155`
-  @BuiltValueEnumConst(wireName: '155')
-  static const CallJoinCallForcePermissions $155 = _$callJoinCallForcePermissions$155;
-
-  /// `156`
-  @BuiltValueEnumConst(wireName: '156')
-  static const CallJoinCallForcePermissions $156 = _$callJoinCallForcePermissions$156;
-
-  /// `157`
-  @BuiltValueEnumConst(wireName: '157')
-  static const CallJoinCallForcePermissions $157 = _$callJoinCallForcePermissions$157;
-
-  /// `158`
-  @BuiltValueEnumConst(wireName: '158')
-  static const CallJoinCallForcePermissions $158 = _$callJoinCallForcePermissions$158;
-
-  /// `159`
-  @BuiltValueEnumConst(wireName: '159')
-  static const CallJoinCallForcePermissions $159 = _$callJoinCallForcePermissions$159;
-
-  /// `160`
-  @BuiltValueEnumConst(wireName: '160')
-  static const CallJoinCallForcePermissions $160 = _$callJoinCallForcePermissions$160;
-
-  /// `161`
-  @BuiltValueEnumConst(wireName: '161')
-  static const CallJoinCallForcePermissions $161 = _$callJoinCallForcePermissions$161;
-
-  /// `162`
-  @BuiltValueEnumConst(wireName: '162')
-  static const CallJoinCallForcePermissions $162 = _$callJoinCallForcePermissions$162;
-
-  /// `163`
-  @BuiltValueEnumConst(wireName: '163')
-  static const CallJoinCallForcePermissions $163 = _$callJoinCallForcePermissions$163;
-
-  /// `164`
-  @BuiltValueEnumConst(wireName: '164')
-  static const CallJoinCallForcePermissions $164 = _$callJoinCallForcePermissions$164;
-
-  /// `165`
-  @BuiltValueEnumConst(wireName: '165')
-  static const CallJoinCallForcePermissions $165 = _$callJoinCallForcePermissions$165;
-
-  /// `166`
-  @BuiltValueEnumConst(wireName: '166')
-  static const CallJoinCallForcePermissions $166 = _$callJoinCallForcePermissions$166;
-
-  /// `167`
-  @BuiltValueEnumConst(wireName: '167')
-  static const CallJoinCallForcePermissions $167 = _$callJoinCallForcePermissions$167;
-
-  /// `168`
-  @BuiltValueEnumConst(wireName: '168')
-  static const CallJoinCallForcePermissions $168 = _$callJoinCallForcePermissions$168;
-
-  /// `169`
-  @BuiltValueEnumConst(wireName: '169')
-  static const CallJoinCallForcePermissions $169 = _$callJoinCallForcePermissions$169;
-
-  /// `170`
-  @BuiltValueEnumConst(wireName: '170')
-  static const CallJoinCallForcePermissions $170 = _$callJoinCallForcePermissions$170;
-
-  /// `171`
-  @BuiltValueEnumConst(wireName: '171')
-  static const CallJoinCallForcePermissions $171 = _$callJoinCallForcePermissions$171;
-
-  /// `172`
-  @BuiltValueEnumConst(wireName: '172')
-  static const CallJoinCallForcePermissions $172 = _$callJoinCallForcePermissions$172;
-
-  /// `173`
-  @BuiltValueEnumConst(wireName: '173')
-  static const CallJoinCallForcePermissions $173 = _$callJoinCallForcePermissions$173;
-
-  /// `174`
-  @BuiltValueEnumConst(wireName: '174')
-  static const CallJoinCallForcePermissions $174 = _$callJoinCallForcePermissions$174;
-
-  /// `175`
-  @BuiltValueEnumConst(wireName: '175')
-  static const CallJoinCallForcePermissions $175 = _$callJoinCallForcePermissions$175;
-
-  /// `176`
-  @BuiltValueEnumConst(wireName: '176')
-  static const CallJoinCallForcePermissions $176 = _$callJoinCallForcePermissions$176;
-
-  /// `177`
-  @BuiltValueEnumConst(wireName: '177')
-  static const CallJoinCallForcePermissions $177 = _$callJoinCallForcePermissions$177;
-
-  /// `178`
-  @BuiltValueEnumConst(wireName: '178')
-  static const CallJoinCallForcePermissions $178 = _$callJoinCallForcePermissions$178;
-
-  /// `179`
-  @BuiltValueEnumConst(wireName: '179')
-  static const CallJoinCallForcePermissions $179 = _$callJoinCallForcePermissions$179;
-
-  /// `180`
-  @BuiltValueEnumConst(wireName: '180')
-  static const CallJoinCallForcePermissions $180 = _$callJoinCallForcePermissions$180;
-
-  /// `181`
-  @BuiltValueEnumConst(wireName: '181')
-  static const CallJoinCallForcePermissions $181 = _$callJoinCallForcePermissions$181;
-
-  /// `182`
-  @BuiltValueEnumConst(wireName: '182')
-  static const CallJoinCallForcePermissions $182 = _$callJoinCallForcePermissions$182;
-
-  /// `183`
-  @BuiltValueEnumConst(wireName: '183')
-  static const CallJoinCallForcePermissions $183 = _$callJoinCallForcePermissions$183;
-
-  /// `184`
-  @BuiltValueEnumConst(wireName: '184')
-  static const CallJoinCallForcePermissions $184 = _$callJoinCallForcePermissions$184;
-
-  /// `185`
-  @BuiltValueEnumConst(wireName: '185')
-  static const CallJoinCallForcePermissions $185 = _$callJoinCallForcePermissions$185;
-
-  /// `186`
-  @BuiltValueEnumConst(wireName: '186')
-  static const CallJoinCallForcePermissions $186 = _$callJoinCallForcePermissions$186;
-
-  /// `187`
-  @BuiltValueEnumConst(wireName: '187')
-  static const CallJoinCallForcePermissions $187 = _$callJoinCallForcePermissions$187;
-
-  /// `188`
-  @BuiltValueEnumConst(wireName: '188')
-  static const CallJoinCallForcePermissions $188 = _$callJoinCallForcePermissions$188;
-
-  /// `189`
-  @BuiltValueEnumConst(wireName: '189')
-  static const CallJoinCallForcePermissions $189 = _$callJoinCallForcePermissions$189;
-
-  /// `190`
-  @BuiltValueEnumConst(wireName: '190')
-  static const CallJoinCallForcePermissions $190 = _$callJoinCallForcePermissions$190;
-
-  /// `191`
-  @BuiltValueEnumConst(wireName: '191')
-  static const CallJoinCallForcePermissions $191 = _$callJoinCallForcePermissions$191;
-
-  /// `192`
-  @BuiltValueEnumConst(wireName: '192')
-  static const CallJoinCallForcePermissions $192 = _$callJoinCallForcePermissions$192;
-
-  /// `193`
-  @BuiltValueEnumConst(wireName: '193')
-  static const CallJoinCallForcePermissions $193 = _$callJoinCallForcePermissions$193;
-
-  /// `194`
-  @BuiltValueEnumConst(wireName: '194')
-  static const CallJoinCallForcePermissions $194 = _$callJoinCallForcePermissions$194;
-
-  /// `195`
-  @BuiltValueEnumConst(wireName: '195')
-  static const CallJoinCallForcePermissions $195 = _$callJoinCallForcePermissions$195;
-
-  /// `196`
-  @BuiltValueEnumConst(wireName: '196')
-  static const CallJoinCallForcePermissions $196 = _$callJoinCallForcePermissions$196;
-
-  /// `197`
-  @BuiltValueEnumConst(wireName: '197')
-  static const CallJoinCallForcePermissions $197 = _$callJoinCallForcePermissions$197;
-
-  /// `198`
-  @BuiltValueEnumConst(wireName: '198')
-  static const CallJoinCallForcePermissions $198 = _$callJoinCallForcePermissions$198;
-
-  /// `199`
-  @BuiltValueEnumConst(wireName: '199')
-  static const CallJoinCallForcePermissions $199 = _$callJoinCallForcePermissions$199;
-
-  /// `200`
-  @BuiltValueEnumConst(wireName: '200')
-  static const CallJoinCallForcePermissions $200 = _$callJoinCallForcePermissions$200;
-
-  /// `201`
-  @BuiltValueEnumConst(wireName: '201')
-  static const CallJoinCallForcePermissions $201 = _$callJoinCallForcePermissions$201;
-
-  /// `202`
-  @BuiltValueEnumConst(wireName: '202')
-  static const CallJoinCallForcePermissions $202 = _$callJoinCallForcePermissions$202;
-
-  /// `203`
-  @BuiltValueEnumConst(wireName: '203')
-  static const CallJoinCallForcePermissions $203 = _$callJoinCallForcePermissions$203;
-
-  /// `204`
-  @BuiltValueEnumConst(wireName: '204')
-  static const CallJoinCallForcePermissions $204 = _$callJoinCallForcePermissions$204;
-
-  /// `205`
-  @BuiltValueEnumConst(wireName: '205')
-  static const CallJoinCallForcePermissions $205 = _$callJoinCallForcePermissions$205;
-
-  /// `206`
-  @BuiltValueEnumConst(wireName: '206')
-  static const CallJoinCallForcePermissions $206 = _$callJoinCallForcePermissions$206;
-
-  /// `207`
-  @BuiltValueEnumConst(wireName: '207')
-  static const CallJoinCallForcePermissions $207 = _$callJoinCallForcePermissions$207;
-
-  /// `208`
-  @BuiltValueEnumConst(wireName: '208')
-  static const CallJoinCallForcePermissions $208 = _$callJoinCallForcePermissions$208;
-
-  /// `209`
-  @BuiltValueEnumConst(wireName: '209')
-  static const CallJoinCallForcePermissions $209 = _$callJoinCallForcePermissions$209;
-
-  /// `210`
-  @BuiltValueEnumConst(wireName: '210')
-  static const CallJoinCallForcePermissions $210 = _$callJoinCallForcePermissions$210;
-
-  /// `211`
-  @BuiltValueEnumConst(wireName: '211')
-  static const CallJoinCallForcePermissions $211 = _$callJoinCallForcePermissions$211;
-
-  /// `212`
-  @BuiltValueEnumConst(wireName: '212')
-  static const CallJoinCallForcePermissions $212 = _$callJoinCallForcePermissions$212;
-
-  /// `213`
-  @BuiltValueEnumConst(wireName: '213')
-  static const CallJoinCallForcePermissions $213 = _$callJoinCallForcePermissions$213;
-
-  /// `214`
-  @BuiltValueEnumConst(wireName: '214')
-  static const CallJoinCallForcePermissions $214 = _$callJoinCallForcePermissions$214;
-
-  /// `215`
-  @BuiltValueEnumConst(wireName: '215')
-  static const CallJoinCallForcePermissions $215 = _$callJoinCallForcePermissions$215;
-
-  /// `216`
-  @BuiltValueEnumConst(wireName: '216')
-  static const CallJoinCallForcePermissions $216 = _$callJoinCallForcePermissions$216;
-
-  /// `217`
-  @BuiltValueEnumConst(wireName: '217')
-  static const CallJoinCallForcePermissions $217 = _$callJoinCallForcePermissions$217;
-
-  /// `218`
-  @BuiltValueEnumConst(wireName: '218')
-  static const CallJoinCallForcePermissions $218 = _$callJoinCallForcePermissions$218;
-
-  /// `219`
-  @BuiltValueEnumConst(wireName: '219')
-  static const CallJoinCallForcePermissions $219 = _$callJoinCallForcePermissions$219;
-
-  /// `220`
-  @BuiltValueEnumConst(wireName: '220')
-  static const CallJoinCallForcePermissions $220 = _$callJoinCallForcePermissions$220;
-
-  /// `221`
-  @BuiltValueEnumConst(wireName: '221')
-  static const CallJoinCallForcePermissions $221 = _$callJoinCallForcePermissions$221;
-
-  /// `222`
-  @BuiltValueEnumConst(wireName: '222')
-  static const CallJoinCallForcePermissions $222 = _$callJoinCallForcePermissions$222;
-
-  /// `223`
-  @BuiltValueEnumConst(wireName: '223')
-  static const CallJoinCallForcePermissions $223 = _$callJoinCallForcePermissions$223;
-
-  /// `224`
-  @BuiltValueEnumConst(wireName: '224')
-  static const CallJoinCallForcePermissions $224 = _$callJoinCallForcePermissions$224;
-
-  /// `225`
-  @BuiltValueEnumConst(wireName: '225')
-  static const CallJoinCallForcePermissions $225 = _$callJoinCallForcePermissions$225;
-
-  /// `226`
-  @BuiltValueEnumConst(wireName: '226')
-  static const CallJoinCallForcePermissions $226 = _$callJoinCallForcePermissions$226;
-
-  /// `227`
-  @BuiltValueEnumConst(wireName: '227')
-  static const CallJoinCallForcePermissions $227 = _$callJoinCallForcePermissions$227;
-
-  /// `228`
-  @BuiltValueEnumConst(wireName: '228')
-  static const CallJoinCallForcePermissions $228 = _$callJoinCallForcePermissions$228;
-
-  /// `229`
-  @BuiltValueEnumConst(wireName: '229')
-  static const CallJoinCallForcePermissions $229 = _$callJoinCallForcePermissions$229;
-
-  /// `230`
-  @BuiltValueEnumConst(wireName: '230')
-  static const CallJoinCallForcePermissions $230 = _$callJoinCallForcePermissions$230;
-
-  /// `231`
-  @BuiltValueEnumConst(wireName: '231')
-  static const CallJoinCallForcePermissions $231 = _$callJoinCallForcePermissions$231;
-
-  /// `232`
-  @BuiltValueEnumConst(wireName: '232')
-  static const CallJoinCallForcePermissions $232 = _$callJoinCallForcePermissions$232;
-
-  /// `233`
-  @BuiltValueEnumConst(wireName: '233')
-  static const CallJoinCallForcePermissions $233 = _$callJoinCallForcePermissions$233;
-
-  /// `234`
-  @BuiltValueEnumConst(wireName: '234')
-  static const CallJoinCallForcePermissions $234 = _$callJoinCallForcePermissions$234;
-
-  /// `235`
-  @BuiltValueEnumConst(wireName: '235')
-  static const CallJoinCallForcePermissions $235 = _$callJoinCallForcePermissions$235;
-
-  /// `236`
-  @BuiltValueEnumConst(wireName: '236')
-  static const CallJoinCallForcePermissions $236 = _$callJoinCallForcePermissions$236;
-
-  /// `237`
-  @BuiltValueEnumConst(wireName: '237')
-  static const CallJoinCallForcePermissions $237 = _$callJoinCallForcePermissions$237;
-
-  /// `238`
-  @BuiltValueEnumConst(wireName: '238')
-  static const CallJoinCallForcePermissions $238 = _$callJoinCallForcePermissions$238;
-
-  /// `239`
-  @BuiltValueEnumConst(wireName: '239')
-  static const CallJoinCallForcePermissions $239 = _$callJoinCallForcePermissions$239;
-
-  /// `240`
-  @BuiltValueEnumConst(wireName: '240')
-  static const CallJoinCallForcePermissions $240 = _$callJoinCallForcePermissions$240;
-
-  /// `241`
-  @BuiltValueEnumConst(wireName: '241')
-  static const CallJoinCallForcePermissions $241 = _$callJoinCallForcePermissions$241;
-
-  /// `242`
-  @BuiltValueEnumConst(wireName: '242')
-  static const CallJoinCallForcePermissions $242 = _$callJoinCallForcePermissions$242;
-
-  /// `243`
-  @BuiltValueEnumConst(wireName: '243')
-  static const CallJoinCallForcePermissions $243 = _$callJoinCallForcePermissions$243;
-
-  /// `244`
-  @BuiltValueEnumConst(wireName: '244')
-  static const CallJoinCallForcePermissions $244 = _$callJoinCallForcePermissions$244;
-
-  /// `245`
-  @BuiltValueEnumConst(wireName: '245')
-  static const CallJoinCallForcePermissions $245 = _$callJoinCallForcePermissions$245;
-
-  /// `246`
-  @BuiltValueEnumConst(wireName: '246')
-  static const CallJoinCallForcePermissions $246 = _$callJoinCallForcePermissions$246;
-
-  /// `247`
-  @BuiltValueEnumConst(wireName: '247')
-  static const CallJoinCallForcePermissions $247 = _$callJoinCallForcePermissions$247;
-
-  /// `248`
-  @BuiltValueEnumConst(wireName: '248')
-  static const CallJoinCallForcePermissions $248 = _$callJoinCallForcePermissions$248;
-
-  /// `249`
-  @BuiltValueEnumConst(wireName: '249')
-  static const CallJoinCallForcePermissions $249 = _$callJoinCallForcePermissions$249;
-
-  /// `250`
-  @BuiltValueEnumConst(wireName: '250')
-  static const CallJoinCallForcePermissions $250 = _$callJoinCallForcePermissions$250;
-
-  /// `251`
-  @BuiltValueEnumConst(wireName: '251')
-  static const CallJoinCallForcePermissions $251 = _$callJoinCallForcePermissions$251;
-
-  /// `252`
-  @BuiltValueEnumConst(wireName: '252')
-  static const CallJoinCallForcePermissions $252 = _$callJoinCallForcePermissions$252;
-
-  /// `253`
-  @BuiltValueEnumConst(wireName: '253')
-  static const CallJoinCallForcePermissions $253 = _$callJoinCallForcePermissions$253;
-
-  /// `254`
-  @BuiltValueEnumConst(wireName: '254')
-  static const CallJoinCallForcePermissions $254 = _$callJoinCallForcePermissions$254;
-
-  /// `255`
-  @BuiltValueEnumConst(wireName: '255')
-  static const CallJoinCallForcePermissions $255 = _$callJoinCallForcePermissions$255;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<CallJoinCallForcePermissions> get values => _$callJoinCallForcePermissionsValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static CallJoinCallForcePermissions valueOf(String name) => _$valueOfCallJoinCallForcePermissions(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for CallJoinCallForcePermissions.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CallJoinCallForcePermissions> get serializer => const _$CallJoinCallForcePermissionsSerializer();
-}
-
-class _$CallJoinCallForcePermissionsSerializer implements PrimitiveSerializer<CallJoinCallForcePermissions> {
-  const _$CallJoinCallForcePermissionsSerializer();
-
-  static const Map<CallJoinCallForcePermissions, Object> _toWire = <CallJoinCallForcePermissions, Object>{
-    CallJoinCallForcePermissions.$0: 0,
-    CallJoinCallForcePermissions.$1: 1,
-    CallJoinCallForcePermissions.$2: 2,
-    CallJoinCallForcePermissions.$3: 3,
-    CallJoinCallForcePermissions.$4: 4,
-    CallJoinCallForcePermissions.$5: 5,
-    CallJoinCallForcePermissions.$6: 6,
-    CallJoinCallForcePermissions.$7: 7,
-    CallJoinCallForcePermissions.$8: 8,
-    CallJoinCallForcePermissions.$9: 9,
-    CallJoinCallForcePermissions.$10: 10,
-    CallJoinCallForcePermissions.$11: 11,
-    CallJoinCallForcePermissions.$12: 12,
-    CallJoinCallForcePermissions.$13: 13,
-    CallJoinCallForcePermissions.$14: 14,
-    CallJoinCallForcePermissions.$15: 15,
-    CallJoinCallForcePermissions.$16: 16,
-    CallJoinCallForcePermissions.$17: 17,
-    CallJoinCallForcePermissions.$18: 18,
-    CallJoinCallForcePermissions.$19: 19,
-    CallJoinCallForcePermissions.$20: 20,
-    CallJoinCallForcePermissions.$21: 21,
-    CallJoinCallForcePermissions.$22: 22,
-    CallJoinCallForcePermissions.$23: 23,
-    CallJoinCallForcePermissions.$24: 24,
-    CallJoinCallForcePermissions.$25: 25,
-    CallJoinCallForcePermissions.$26: 26,
-    CallJoinCallForcePermissions.$27: 27,
-    CallJoinCallForcePermissions.$28: 28,
-    CallJoinCallForcePermissions.$29: 29,
-    CallJoinCallForcePermissions.$30: 30,
-    CallJoinCallForcePermissions.$31: 31,
-    CallJoinCallForcePermissions.$32: 32,
-    CallJoinCallForcePermissions.$33: 33,
-    CallJoinCallForcePermissions.$34: 34,
-    CallJoinCallForcePermissions.$35: 35,
-    CallJoinCallForcePermissions.$36: 36,
-    CallJoinCallForcePermissions.$37: 37,
-    CallJoinCallForcePermissions.$38: 38,
-    CallJoinCallForcePermissions.$39: 39,
-    CallJoinCallForcePermissions.$40: 40,
-    CallJoinCallForcePermissions.$41: 41,
-    CallJoinCallForcePermissions.$42: 42,
-    CallJoinCallForcePermissions.$43: 43,
-    CallJoinCallForcePermissions.$44: 44,
-    CallJoinCallForcePermissions.$45: 45,
-    CallJoinCallForcePermissions.$46: 46,
-    CallJoinCallForcePermissions.$47: 47,
-    CallJoinCallForcePermissions.$48: 48,
-    CallJoinCallForcePermissions.$49: 49,
-    CallJoinCallForcePermissions.$50: 50,
-    CallJoinCallForcePermissions.$51: 51,
-    CallJoinCallForcePermissions.$52: 52,
-    CallJoinCallForcePermissions.$53: 53,
-    CallJoinCallForcePermissions.$54: 54,
-    CallJoinCallForcePermissions.$55: 55,
-    CallJoinCallForcePermissions.$56: 56,
-    CallJoinCallForcePermissions.$57: 57,
-    CallJoinCallForcePermissions.$58: 58,
-    CallJoinCallForcePermissions.$59: 59,
-    CallJoinCallForcePermissions.$60: 60,
-    CallJoinCallForcePermissions.$61: 61,
-    CallJoinCallForcePermissions.$62: 62,
-    CallJoinCallForcePermissions.$63: 63,
-    CallJoinCallForcePermissions.$64: 64,
-    CallJoinCallForcePermissions.$65: 65,
-    CallJoinCallForcePermissions.$66: 66,
-    CallJoinCallForcePermissions.$67: 67,
-    CallJoinCallForcePermissions.$68: 68,
-    CallJoinCallForcePermissions.$69: 69,
-    CallJoinCallForcePermissions.$70: 70,
-    CallJoinCallForcePermissions.$71: 71,
-    CallJoinCallForcePermissions.$72: 72,
-    CallJoinCallForcePermissions.$73: 73,
-    CallJoinCallForcePermissions.$74: 74,
-    CallJoinCallForcePermissions.$75: 75,
-    CallJoinCallForcePermissions.$76: 76,
-    CallJoinCallForcePermissions.$77: 77,
-    CallJoinCallForcePermissions.$78: 78,
-    CallJoinCallForcePermissions.$79: 79,
-    CallJoinCallForcePermissions.$80: 80,
-    CallJoinCallForcePermissions.$81: 81,
-    CallJoinCallForcePermissions.$82: 82,
-    CallJoinCallForcePermissions.$83: 83,
-    CallJoinCallForcePermissions.$84: 84,
-    CallJoinCallForcePermissions.$85: 85,
-    CallJoinCallForcePermissions.$86: 86,
-    CallJoinCallForcePermissions.$87: 87,
-    CallJoinCallForcePermissions.$88: 88,
-    CallJoinCallForcePermissions.$89: 89,
-    CallJoinCallForcePermissions.$90: 90,
-    CallJoinCallForcePermissions.$91: 91,
-    CallJoinCallForcePermissions.$92: 92,
-    CallJoinCallForcePermissions.$93: 93,
-    CallJoinCallForcePermissions.$94: 94,
-    CallJoinCallForcePermissions.$95: 95,
-    CallJoinCallForcePermissions.$96: 96,
-    CallJoinCallForcePermissions.$97: 97,
-    CallJoinCallForcePermissions.$98: 98,
-    CallJoinCallForcePermissions.$99: 99,
-    CallJoinCallForcePermissions.$100: 100,
-    CallJoinCallForcePermissions.$101: 101,
-    CallJoinCallForcePermissions.$102: 102,
-    CallJoinCallForcePermissions.$103: 103,
-    CallJoinCallForcePermissions.$104: 104,
-    CallJoinCallForcePermissions.$105: 105,
-    CallJoinCallForcePermissions.$106: 106,
-    CallJoinCallForcePermissions.$107: 107,
-    CallJoinCallForcePermissions.$108: 108,
-    CallJoinCallForcePermissions.$109: 109,
-    CallJoinCallForcePermissions.$110: 110,
-    CallJoinCallForcePermissions.$111: 111,
-    CallJoinCallForcePermissions.$112: 112,
-    CallJoinCallForcePermissions.$113: 113,
-    CallJoinCallForcePermissions.$114: 114,
-    CallJoinCallForcePermissions.$115: 115,
-    CallJoinCallForcePermissions.$116: 116,
-    CallJoinCallForcePermissions.$117: 117,
-    CallJoinCallForcePermissions.$118: 118,
-    CallJoinCallForcePermissions.$119: 119,
-    CallJoinCallForcePermissions.$120: 120,
-    CallJoinCallForcePermissions.$121: 121,
-    CallJoinCallForcePermissions.$122: 122,
-    CallJoinCallForcePermissions.$123: 123,
-    CallJoinCallForcePermissions.$124: 124,
-    CallJoinCallForcePermissions.$125: 125,
-    CallJoinCallForcePermissions.$126: 126,
-    CallJoinCallForcePermissions.$127: 127,
-    CallJoinCallForcePermissions.$128: 128,
-    CallJoinCallForcePermissions.$129: 129,
-    CallJoinCallForcePermissions.$130: 130,
-    CallJoinCallForcePermissions.$131: 131,
-    CallJoinCallForcePermissions.$132: 132,
-    CallJoinCallForcePermissions.$133: 133,
-    CallJoinCallForcePermissions.$134: 134,
-    CallJoinCallForcePermissions.$135: 135,
-    CallJoinCallForcePermissions.$136: 136,
-    CallJoinCallForcePermissions.$137: 137,
-    CallJoinCallForcePermissions.$138: 138,
-    CallJoinCallForcePermissions.$139: 139,
-    CallJoinCallForcePermissions.$140: 140,
-    CallJoinCallForcePermissions.$141: 141,
-    CallJoinCallForcePermissions.$142: 142,
-    CallJoinCallForcePermissions.$143: 143,
-    CallJoinCallForcePermissions.$144: 144,
-    CallJoinCallForcePermissions.$145: 145,
-    CallJoinCallForcePermissions.$146: 146,
-    CallJoinCallForcePermissions.$147: 147,
-    CallJoinCallForcePermissions.$148: 148,
-    CallJoinCallForcePermissions.$149: 149,
-    CallJoinCallForcePermissions.$150: 150,
-    CallJoinCallForcePermissions.$151: 151,
-    CallJoinCallForcePermissions.$152: 152,
-    CallJoinCallForcePermissions.$153: 153,
-    CallJoinCallForcePermissions.$154: 154,
-    CallJoinCallForcePermissions.$155: 155,
-    CallJoinCallForcePermissions.$156: 156,
-    CallJoinCallForcePermissions.$157: 157,
-    CallJoinCallForcePermissions.$158: 158,
-    CallJoinCallForcePermissions.$159: 159,
-    CallJoinCallForcePermissions.$160: 160,
-    CallJoinCallForcePermissions.$161: 161,
-    CallJoinCallForcePermissions.$162: 162,
-    CallJoinCallForcePermissions.$163: 163,
-    CallJoinCallForcePermissions.$164: 164,
-    CallJoinCallForcePermissions.$165: 165,
-    CallJoinCallForcePermissions.$166: 166,
-    CallJoinCallForcePermissions.$167: 167,
-    CallJoinCallForcePermissions.$168: 168,
-    CallJoinCallForcePermissions.$169: 169,
-    CallJoinCallForcePermissions.$170: 170,
-    CallJoinCallForcePermissions.$171: 171,
-    CallJoinCallForcePermissions.$172: 172,
-    CallJoinCallForcePermissions.$173: 173,
-    CallJoinCallForcePermissions.$174: 174,
-    CallJoinCallForcePermissions.$175: 175,
-    CallJoinCallForcePermissions.$176: 176,
-    CallJoinCallForcePermissions.$177: 177,
-    CallJoinCallForcePermissions.$178: 178,
-    CallJoinCallForcePermissions.$179: 179,
-    CallJoinCallForcePermissions.$180: 180,
-    CallJoinCallForcePermissions.$181: 181,
-    CallJoinCallForcePermissions.$182: 182,
-    CallJoinCallForcePermissions.$183: 183,
-    CallJoinCallForcePermissions.$184: 184,
-    CallJoinCallForcePermissions.$185: 185,
-    CallJoinCallForcePermissions.$186: 186,
-    CallJoinCallForcePermissions.$187: 187,
-    CallJoinCallForcePermissions.$188: 188,
-    CallJoinCallForcePermissions.$189: 189,
-    CallJoinCallForcePermissions.$190: 190,
-    CallJoinCallForcePermissions.$191: 191,
-    CallJoinCallForcePermissions.$192: 192,
-    CallJoinCallForcePermissions.$193: 193,
-    CallJoinCallForcePermissions.$194: 194,
-    CallJoinCallForcePermissions.$195: 195,
-    CallJoinCallForcePermissions.$196: 196,
-    CallJoinCallForcePermissions.$197: 197,
-    CallJoinCallForcePermissions.$198: 198,
-    CallJoinCallForcePermissions.$199: 199,
-    CallJoinCallForcePermissions.$200: 200,
-    CallJoinCallForcePermissions.$201: 201,
-    CallJoinCallForcePermissions.$202: 202,
-    CallJoinCallForcePermissions.$203: 203,
-    CallJoinCallForcePermissions.$204: 204,
-    CallJoinCallForcePermissions.$205: 205,
-    CallJoinCallForcePermissions.$206: 206,
-    CallJoinCallForcePermissions.$207: 207,
-    CallJoinCallForcePermissions.$208: 208,
-    CallJoinCallForcePermissions.$209: 209,
-    CallJoinCallForcePermissions.$210: 210,
-    CallJoinCallForcePermissions.$211: 211,
-    CallJoinCallForcePermissions.$212: 212,
-    CallJoinCallForcePermissions.$213: 213,
-    CallJoinCallForcePermissions.$214: 214,
-    CallJoinCallForcePermissions.$215: 215,
-    CallJoinCallForcePermissions.$216: 216,
-    CallJoinCallForcePermissions.$217: 217,
-    CallJoinCallForcePermissions.$218: 218,
-    CallJoinCallForcePermissions.$219: 219,
-    CallJoinCallForcePermissions.$220: 220,
-    CallJoinCallForcePermissions.$221: 221,
-    CallJoinCallForcePermissions.$222: 222,
-    CallJoinCallForcePermissions.$223: 223,
-    CallJoinCallForcePermissions.$224: 224,
-    CallJoinCallForcePermissions.$225: 225,
-    CallJoinCallForcePermissions.$226: 226,
-    CallJoinCallForcePermissions.$227: 227,
-    CallJoinCallForcePermissions.$228: 228,
-    CallJoinCallForcePermissions.$229: 229,
-    CallJoinCallForcePermissions.$230: 230,
-    CallJoinCallForcePermissions.$231: 231,
-    CallJoinCallForcePermissions.$232: 232,
-    CallJoinCallForcePermissions.$233: 233,
-    CallJoinCallForcePermissions.$234: 234,
-    CallJoinCallForcePermissions.$235: 235,
-    CallJoinCallForcePermissions.$236: 236,
-    CallJoinCallForcePermissions.$237: 237,
-    CallJoinCallForcePermissions.$238: 238,
-    CallJoinCallForcePermissions.$239: 239,
-    CallJoinCallForcePermissions.$240: 240,
-    CallJoinCallForcePermissions.$241: 241,
-    CallJoinCallForcePermissions.$242: 242,
-    CallJoinCallForcePermissions.$243: 243,
-    CallJoinCallForcePermissions.$244: 244,
-    CallJoinCallForcePermissions.$245: 245,
-    CallJoinCallForcePermissions.$246: 246,
-    CallJoinCallForcePermissions.$247: 247,
-    CallJoinCallForcePermissions.$248: 248,
-    CallJoinCallForcePermissions.$249: 249,
-    CallJoinCallForcePermissions.$250: 250,
-    CallJoinCallForcePermissions.$251: 251,
-    CallJoinCallForcePermissions.$252: 252,
-    CallJoinCallForcePermissions.$253: 253,
-    CallJoinCallForcePermissions.$254: 254,
-    CallJoinCallForcePermissions.$255: 255,
-  };
-
-  static const Map<Object, CallJoinCallForcePermissions> _fromWire = <Object, CallJoinCallForcePermissions>{
-    0: CallJoinCallForcePermissions.$0,
-    1: CallJoinCallForcePermissions.$1,
-    2: CallJoinCallForcePermissions.$2,
-    3: CallJoinCallForcePermissions.$3,
-    4: CallJoinCallForcePermissions.$4,
-    5: CallJoinCallForcePermissions.$5,
-    6: CallJoinCallForcePermissions.$6,
-    7: CallJoinCallForcePermissions.$7,
-    8: CallJoinCallForcePermissions.$8,
-    9: CallJoinCallForcePermissions.$9,
-    10: CallJoinCallForcePermissions.$10,
-    11: CallJoinCallForcePermissions.$11,
-    12: CallJoinCallForcePermissions.$12,
-    13: CallJoinCallForcePermissions.$13,
-    14: CallJoinCallForcePermissions.$14,
-    15: CallJoinCallForcePermissions.$15,
-    16: CallJoinCallForcePermissions.$16,
-    17: CallJoinCallForcePermissions.$17,
-    18: CallJoinCallForcePermissions.$18,
-    19: CallJoinCallForcePermissions.$19,
-    20: CallJoinCallForcePermissions.$20,
-    21: CallJoinCallForcePermissions.$21,
-    22: CallJoinCallForcePermissions.$22,
-    23: CallJoinCallForcePermissions.$23,
-    24: CallJoinCallForcePermissions.$24,
-    25: CallJoinCallForcePermissions.$25,
-    26: CallJoinCallForcePermissions.$26,
-    27: CallJoinCallForcePermissions.$27,
-    28: CallJoinCallForcePermissions.$28,
-    29: CallJoinCallForcePermissions.$29,
-    30: CallJoinCallForcePermissions.$30,
-    31: CallJoinCallForcePermissions.$31,
-    32: CallJoinCallForcePermissions.$32,
-    33: CallJoinCallForcePermissions.$33,
-    34: CallJoinCallForcePermissions.$34,
-    35: CallJoinCallForcePermissions.$35,
-    36: CallJoinCallForcePermissions.$36,
-    37: CallJoinCallForcePermissions.$37,
-    38: CallJoinCallForcePermissions.$38,
-    39: CallJoinCallForcePermissions.$39,
-    40: CallJoinCallForcePermissions.$40,
-    41: CallJoinCallForcePermissions.$41,
-    42: CallJoinCallForcePermissions.$42,
-    43: CallJoinCallForcePermissions.$43,
-    44: CallJoinCallForcePermissions.$44,
-    45: CallJoinCallForcePermissions.$45,
-    46: CallJoinCallForcePermissions.$46,
-    47: CallJoinCallForcePermissions.$47,
-    48: CallJoinCallForcePermissions.$48,
-    49: CallJoinCallForcePermissions.$49,
-    50: CallJoinCallForcePermissions.$50,
-    51: CallJoinCallForcePermissions.$51,
-    52: CallJoinCallForcePermissions.$52,
-    53: CallJoinCallForcePermissions.$53,
-    54: CallJoinCallForcePermissions.$54,
-    55: CallJoinCallForcePermissions.$55,
-    56: CallJoinCallForcePermissions.$56,
-    57: CallJoinCallForcePermissions.$57,
-    58: CallJoinCallForcePermissions.$58,
-    59: CallJoinCallForcePermissions.$59,
-    60: CallJoinCallForcePermissions.$60,
-    61: CallJoinCallForcePermissions.$61,
-    62: CallJoinCallForcePermissions.$62,
-    63: CallJoinCallForcePermissions.$63,
-    64: CallJoinCallForcePermissions.$64,
-    65: CallJoinCallForcePermissions.$65,
-    66: CallJoinCallForcePermissions.$66,
-    67: CallJoinCallForcePermissions.$67,
-    68: CallJoinCallForcePermissions.$68,
-    69: CallJoinCallForcePermissions.$69,
-    70: CallJoinCallForcePermissions.$70,
-    71: CallJoinCallForcePermissions.$71,
-    72: CallJoinCallForcePermissions.$72,
-    73: CallJoinCallForcePermissions.$73,
-    74: CallJoinCallForcePermissions.$74,
-    75: CallJoinCallForcePermissions.$75,
-    76: CallJoinCallForcePermissions.$76,
-    77: CallJoinCallForcePermissions.$77,
-    78: CallJoinCallForcePermissions.$78,
-    79: CallJoinCallForcePermissions.$79,
-    80: CallJoinCallForcePermissions.$80,
-    81: CallJoinCallForcePermissions.$81,
-    82: CallJoinCallForcePermissions.$82,
-    83: CallJoinCallForcePermissions.$83,
-    84: CallJoinCallForcePermissions.$84,
-    85: CallJoinCallForcePermissions.$85,
-    86: CallJoinCallForcePermissions.$86,
-    87: CallJoinCallForcePermissions.$87,
-    88: CallJoinCallForcePermissions.$88,
-    89: CallJoinCallForcePermissions.$89,
-    90: CallJoinCallForcePermissions.$90,
-    91: CallJoinCallForcePermissions.$91,
-    92: CallJoinCallForcePermissions.$92,
-    93: CallJoinCallForcePermissions.$93,
-    94: CallJoinCallForcePermissions.$94,
-    95: CallJoinCallForcePermissions.$95,
-    96: CallJoinCallForcePermissions.$96,
-    97: CallJoinCallForcePermissions.$97,
-    98: CallJoinCallForcePermissions.$98,
-    99: CallJoinCallForcePermissions.$99,
-    100: CallJoinCallForcePermissions.$100,
-    101: CallJoinCallForcePermissions.$101,
-    102: CallJoinCallForcePermissions.$102,
-    103: CallJoinCallForcePermissions.$103,
-    104: CallJoinCallForcePermissions.$104,
-    105: CallJoinCallForcePermissions.$105,
-    106: CallJoinCallForcePermissions.$106,
-    107: CallJoinCallForcePermissions.$107,
-    108: CallJoinCallForcePermissions.$108,
-    109: CallJoinCallForcePermissions.$109,
-    110: CallJoinCallForcePermissions.$110,
-    111: CallJoinCallForcePermissions.$111,
-    112: CallJoinCallForcePermissions.$112,
-    113: CallJoinCallForcePermissions.$113,
-    114: CallJoinCallForcePermissions.$114,
-    115: CallJoinCallForcePermissions.$115,
-    116: CallJoinCallForcePermissions.$116,
-    117: CallJoinCallForcePermissions.$117,
-    118: CallJoinCallForcePermissions.$118,
-    119: CallJoinCallForcePermissions.$119,
-    120: CallJoinCallForcePermissions.$120,
-    121: CallJoinCallForcePermissions.$121,
-    122: CallJoinCallForcePermissions.$122,
-    123: CallJoinCallForcePermissions.$123,
-    124: CallJoinCallForcePermissions.$124,
-    125: CallJoinCallForcePermissions.$125,
-    126: CallJoinCallForcePermissions.$126,
-    127: CallJoinCallForcePermissions.$127,
-    128: CallJoinCallForcePermissions.$128,
-    129: CallJoinCallForcePermissions.$129,
-    130: CallJoinCallForcePermissions.$130,
-    131: CallJoinCallForcePermissions.$131,
-    132: CallJoinCallForcePermissions.$132,
-    133: CallJoinCallForcePermissions.$133,
-    134: CallJoinCallForcePermissions.$134,
-    135: CallJoinCallForcePermissions.$135,
-    136: CallJoinCallForcePermissions.$136,
-    137: CallJoinCallForcePermissions.$137,
-    138: CallJoinCallForcePermissions.$138,
-    139: CallJoinCallForcePermissions.$139,
-    140: CallJoinCallForcePermissions.$140,
-    141: CallJoinCallForcePermissions.$141,
-    142: CallJoinCallForcePermissions.$142,
-    143: CallJoinCallForcePermissions.$143,
-    144: CallJoinCallForcePermissions.$144,
-    145: CallJoinCallForcePermissions.$145,
-    146: CallJoinCallForcePermissions.$146,
-    147: CallJoinCallForcePermissions.$147,
-    148: CallJoinCallForcePermissions.$148,
-    149: CallJoinCallForcePermissions.$149,
-    150: CallJoinCallForcePermissions.$150,
-    151: CallJoinCallForcePermissions.$151,
-    152: CallJoinCallForcePermissions.$152,
-    153: CallJoinCallForcePermissions.$153,
-    154: CallJoinCallForcePermissions.$154,
-    155: CallJoinCallForcePermissions.$155,
-    156: CallJoinCallForcePermissions.$156,
-    157: CallJoinCallForcePermissions.$157,
-    158: CallJoinCallForcePermissions.$158,
-    159: CallJoinCallForcePermissions.$159,
-    160: CallJoinCallForcePermissions.$160,
-    161: CallJoinCallForcePermissions.$161,
-    162: CallJoinCallForcePermissions.$162,
-    163: CallJoinCallForcePermissions.$163,
-    164: CallJoinCallForcePermissions.$164,
-    165: CallJoinCallForcePermissions.$165,
-    166: CallJoinCallForcePermissions.$166,
-    167: CallJoinCallForcePermissions.$167,
-    168: CallJoinCallForcePermissions.$168,
-    169: CallJoinCallForcePermissions.$169,
-    170: CallJoinCallForcePermissions.$170,
-    171: CallJoinCallForcePermissions.$171,
-    172: CallJoinCallForcePermissions.$172,
-    173: CallJoinCallForcePermissions.$173,
-    174: CallJoinCallForcePermissions.$174,
-    175: CallJoinCallForcePermissions.$175,
-    176: CallJoinCallForcePermissions.$176,
-    177: CallJoinCallForcePermissions.$177,
-    178: CallJoinCallForcePermissions.$178,
-    179: CallJoinCallForcePermissions.$179,
-    180: CallJoinCallForcePermissions.$180,
-    181: CallJoinCallForcePermissions.$181,
-    182: CallJoinCallForcePermissions.$182,
-    183: CallJoinCallForcePermissions.$183,
-    184: CallJoinCallForcePermissions.$184,
-    185: CallJoinCallForcePermissions.$185,
-    186: CallJoinCallForcePermissions.$186,
-    187: CallJoinCallForcePermissions.$187,
-    188: CallJoinCallForcePermissions.$188,
-    189: CallJoinCallForcePermissions.$189,
-    190: CallJoinCallForcePermissions.$190,
-    191: CallJoinCallForcePermissions.$191,
-    192: CallJoinCallForcePermissions.$192,
-    193: CallJoinCallForcePermissions.$193,
-    194: CallJoinCallForcePermissions.$194,
-    195: CallJoinCallForcePermissions.$195,
-    196: CallJoinCallForcePermissions.$196,
-    197: CallJoinCallForcePermissions.$197,
-    198: CallJoinCallForcePermissions.$198,
-    199: CallJoinCallForcePermissions.$199,
-    200: CallJoinCallForcePermissions.$200,
-    201: CallJoinCallForcePermissions.$201,
-    202: CallJoinCallForcePermissions.$202,
-    203: CallJoinCallForcePermissions.$203,
-    204: CallJoinCallForcePermissions.$204,
-    205: CallJoinCallForcePermissions.$205,
-    206: CallJoinCallForcePermissions.$206,
-    207: CallJoinCallForcePermissions.$207,
-    208: CallJoinCallForcePermissions.$208,
-    209: CallJoinCallForcePermissions.$209,
-    210: CallJoinCallForcePermissions.$210,
-    211: CallJoinCallForcePermissions.$211,
-    212: CallJoinCallForcePermissions.$212,
-    213: CallJoinCallForcePermissions.$213,
-    214: CallJoinCallForcePermissions.$214,
-    215: CallJoinCallForcePermissions.$215,
-    216: CallJoinCallForcePermissions.$216,
-    217: CallJoinCallForcePermissions.$217,
-    218: CallJoinCallForcePermissions.$218,
-    219: CallJoinCallForcePermissions.$219,
-    220: CallJoinCallForcePermissions.$220,
-    221: CallJoinCallForcePermissions.$221,
-    222: CallJoinCallForcePermissions.$222,
-    223: CallJoinCallForcePermissions.$223,
-    224: CallJoinCallForcePermissions.$224,
-    225: CallJoinCallForcePermissions.$225,
-    226: CallJoinCallForcePermissions.$226,
-    227: CallJoinCallForcePermissions.$227,
-    228: CallJoinCallForcePermissions.$228,
-    229: CallJoinCallForcePermissions.$229,
-    230: CallJoinCallForcePermissions.$230,
-    231: CallJoinCallForcePermissions.$231,
-    232: CallJoinCallForcePermissions.$232,
-    233: CallJoinCallForcePermissions.$233,
-    234: CallJoinCallForcePermissions.$234,
-    235: CallJoinCallForcePermissions.$235,
-    236: CallJoinCallForcePermissions.$236,
-    237: CallJoinCallForcePermissions.$237,
-    238: CallJoinCallForcePermissions.$238,
-    239: CallJoinCallForcePermissions.$239,
-    240: CallJoinCallForcePermissions.$240,
-    241: CallJoinCallForcePermissions.$241,
-    242: CallJoinCallForcePermissions.$242,
-    243: CallJoinCallForcePermissions.$243,
-    244: CallJoinCallForcePermissions.$244,
-    245: CallJoinCallForcePermissions.$245,
-    246: CallJoinCallForcePermissions.$246,
-    247: CallJoinCallForcePermissions.$247,
-    248: CallJoinCallForcePermissions.$248,
-    249: CallJoinCallForcePermissions.$249,
-    250: CallJoinCallForcePermissions.$250,
-    251: CallJoinCallForcePermissions.$251,
-    252: CallJoinCallForcePermissions.$252,
-    253: CallJoinCallForcePermissions.$253,
-    254: CallJoinCallForcePermissions.$254,
-    255: CallJoinCallForcePermissions.$255,
-  };
-
-  @override
-  Iterable<Type> get types => const [CallJoinCallForcePermissions];
-
-  @override
-  String get wireName => 'CallJoinCallForcePermissions';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    CallJoinCallForcePermissions object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  CallJoinCallForcePermissions deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 class CallJoinCallSilent extends EnumClass {
   const CallJoinCallSilent._(super.name);
 
@@ -20933,229 +21565,6 @@ abstract class CallSipDialOutResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(CallSipDialOutResponseApplicationJsonBuilder b) {
     $CallSipDialOutResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class CertificateGetCertificateExpirationApiVersion extends EnumClass {
-  const CertificateGetCertificateExpirationApiVersion._(super.name);
-
-  /// `v1`
-  static const CertificateGetCertificateExpirationApiVersion v1 = _$certificateGetCertificateExpirationApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<CertificateGetCertificateExpirationApiVersion> get values =>
-      _$certificateGetCertificateExpirationApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
-      _$valueOfCertificateGetCertificateExpirationApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for CertificateGetCertificateExpirationApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CertificateGetCertificateExpirationApiVersion> get serializer =>
-      const _$CertificateGetCertificateExpirationApiVersionSerializer();
-}
-
-class _$CertificateGetCertificateExpirationApiVersionSerializer
-    implements PrimitiveSerializer<CertificateGetCertificateExpirationApiVersion> {
-  const _$CertificateGetCertificateExpirationApiVersionSerializer();
-
-  static const Map<CertificateGetCertificateExpirationApiVersion, Object> _toWire =
-      <CertificateGetCertificateExpirationApiVersion, Object>{
-    CertificateGetCertificateExpirationApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, CertificateGetCertificateExpirationApiVersion> _fromWire =
-      <Object, CertificateGetCertificateExpirationApiVersion>{
-    'v1': CertificateGetCertificateExpirationApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [CertificateGetCertificateExpirationApiVersion];
-
-  @override
-  String get wireName => 'CertificateGetCertificateExpirationApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    CertificateGetCertificateExpirationApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  CertificateGetCertificateExpirationApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
-  @BuiltValueField(wireName: 'expiration_in_days')
-  int? get expirationInDays;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-}
-
-abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data
-    implements
-        $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
-            CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
-    void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.
-  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CertificateGetCertificateExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
-    implements
-        $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
-            CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
-  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs object using the builder pattern.
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
-    void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const CertificateGetCertificateExpirationResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs.
-  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJsonInterface {
-  CertificateGetCertificateExpirationResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CertificateGetCertificateExpirationResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class CertificateGetCertificateExpirationResponseApplicationJson
-    implements
-        $CertificateGetCertificateExpirationResponseApplicationJsonInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson,
-            CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
-  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson object using the builder pattern.
-  factory CertificateGetCertificateExpirationResponseApplicationJson([
-    void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
-  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson;
-
-  // coverage:ignore-start
-  const CertificateGetCertificateExpirationResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson.
-  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJsonBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CertificateGetCertificateExpirationResponseApplicationJsonBuilder b) {
-    $CertificateGetCertificateExpirationResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -22237,6 +22646,217 @@ abstract class ChatChatClearHistoryHeaders
   }
 }
 
+class ChatEditMessageApiVersion extends EnumClass {
+  const ChatEditMessageApiVersion._(super.name);
+
+  /// `v1`
+  static const ChatEditMessageApiVersion v1 = _$chatEditMessageApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatEditMessageApiVersion> get values => _$chatEditMessageApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatEditMessageApiVersion valueOf(String name) => _$valueOfChatEditMessageApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for ChatEditMessageApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatEditMessageApiVersion> get serializer => const _$ChatEditMessageApiVersionSerializer();
+}
+
+class _$ChatEditMessageApiVersionSerializer implements PrimitiveSerializer<ChatEditMessageApiVersion> {
+  const _$ChatEditMessageApiVersionSerializer();
+
+  static const Map<ChatEditMessageApiVersion, Object> _toWire = <ChatEditMessageApiVersion, Object>{
+    ChatEditMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatEditMessageApiVersion> _fromWire = <Object, ChatEditMessageApiVersion>{
+    'v1': ChatEditMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatEditMessageApiVersion];
+
+  @override
+  String get wireName => 'ChatEditMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatEditMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatEditMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatEditMessageResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  ChatMessageWithParent get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatEditMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatEditMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class ChatEditMessageResponseApplicationJson_Ocs
+    implements
+        $ChatEditMessageResponseApplicationJson_OcsInterface,
+        Built<ChatEditMessageResponseApplicationJson_Ocs, ChatEditMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ChatEditMessageResponseApplicationJson_Ocs object using the builder pattern.
+  factory ChatEditMessageResponseApplicationJson_Ocs([
+    void Function(ChatEditMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$ChatEditMessageResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const ChatEditMessageResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatEditMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatEditMessageResponseApplicationJson_Ocs.
+  static Serializer<ChatEditMessageResponseApplicationJson_Ocs> get serializer =>
+      _$chatEditMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatEditMessageResponseApplicationJson_OcsBuilder b) {
+    $ChatEditMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatEditMessageResponseApplicationJson_OcsBuilder b) {
+    $ChatEditMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatEditMessageResponseApplicationJsonInterface {
+  ChatEditMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatEditMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatEditMessageResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ChatEditMessageResponseApplicationJson
+    implements
+        $ChatEditMessageResponseApplicationJsonInterface,
+        Built<ChatEditMessageResponseApplicationJson, ChatEditMessageResponseApplicationJsonBuilder> {
+  /// Creates a new ChatEditMessageResponseApplicationJson object using the builder pattern.
+  factory ChatEditMessageResponseApplicationJson([void Function(ChatEditMessageResponseApplicationJsonBuilder)? b]) =
+      _$ChatEditMessageResponseApplicationJson;
+
+  // coverage:ignore-start
+  const ChatEditMessageResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatEditMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatEditMessageResponseApplicationJson.
+  static Serializer<ChatEditMessageResponseApplicationJson> get serializer =>
+      _$chatEditMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatEditMessageResponseApplicationJsonBuilder b) {
+    $ChatEditMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatEditMessageResponseApplicationJsonBuilder b) {
+    $ChatEditMessageResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $ChatChatEditMessageHeadersInterface {
+  @BuiltValueField(wireName: 'x-chat-last-common-read')
+  String? get xChatLastCommonRead;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatChatEditMessageHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatChatEditMessageHeadersInterfaceBuilder b) {}
+}
+
+abstract class ChatChatEditMessageHeaders
+    implements
+        $ChatChatEditMessageHeadersInterface,
+        Built<ChatChatEditMessageHeaders, ChatChatEditMessageHeadersBuilder> {
+  /// Creates a new ChatChatEditMessageHeaders object using the builder pattern.
+  factory ChatChatEditMessageHeaders([void Function(ChatChatEditMessageHeadersBuilder)? b]) =
+      _$ChatChatEditMessageHeaders;
+
+  // coverage:ignore-start
+  const ChatChatEditMessageHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatChatEditMessageHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatChatEditMessageHeaders.
+  static Serializer<ChatChatEditMessageHeaders> get serializer => _$chatChatEditMessageHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatChatEditMessageHeadersBuilder b) {
+    $ChatChatEditMessageHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatChatEditMessageHeadersBuilder b) {
+    $ChatChatEditMessageHeadersInterface._validate(b);
+  }
+}
+
 class ChatDeleteMessageApiVersion extends EnumClass {
   const ChatDeleteMessageApiVersion._(super.name);
 
@@ -23090,9 +23710,62 @@ class _$ChatDeleteReminderApiVersionSerializer implements PrimitiveSerializer<Ch
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface {
+  String? get error;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ChatDeleteReminderResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ChatDeleteReminderResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class ChatDeleteReminderResponseApplicationJson_Ocs_Data
+    implements
+        $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface,
+        Built<ChatDeleteReminderResponseApplicationJson_Ocs_Data,
+            ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new ChatDeleteReminderResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory ChatDeleteReminderResponseApplicationJson_Ocs_Data([
+    void Function(ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$ChatDeleteReminderResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const ChatDeleteReminderResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ChatDeleteReminderResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ChatDeleteReminderResponseApplicationJson_Ocs_Data.
+  static Serializer<ChatDeleteReminderResponseApplicationJson_Ocs_Data> get serializer =>
+      _$chatDeleteReminderResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder b) {
+    $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder b) {
+    $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $ChatDeleteReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  ChatDeleteReminderResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatDeleteReminderResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -23253,7 +23926,7 @@ class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<Cha
 @BuiltValue(instantiable: false)
 abstract interface class $ChatSetReadMarkerResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatSetReadMarkerResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -23465,7 +24138,7 @@ class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMa
 @BuiltValue(instantiable: false)
 abstract interface class $ChatMarkUnreadResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  JsonObject get data;
+  Room get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatMarkUnreadResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -23738,6 +24411,7 @@ abstract interface class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
+  String get mentionId;
   String? get status;
   int? get statusClearAt;
   String? get statusIcon;
@@ -24492,6 +25166,1023 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   }
 }
 
+class SignalingGetSettingsApiVersion extends EnumClass {
+  const SignalingGetSettingsApiVersion._(super.name);
+
+  /// `v3`
+  static const SignalingGetSettingsApiVersion v3 = _$signalingGetSettingsApiVersionV3;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingGetSettingsApiVersion> get values => _$signalingGetSettingsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingGetSettingsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingGetSettingsApiVersion> get serializer =>
+      const _$SignalingGetSettingsApiVersionSerializer();
+}
+
+class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<SignalingGetSettingsApiVersion> {
+  const _$SignalingGetSettingsApiVersionSerializer();
+
+  static const Map<SignalingGetSettingsApiVersion, Object> _toWire = <SignalingGetSettingsApiVersion, Object>{
+    SignalingGetSettingsApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingGetSettingsApiVersion> _fromWire = <Object, SignalingGetSettingsApiVersion>{
+    'v3': SignalingGetSettingsApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingGetSettingsApiVersion];
+
+  @override
+  String get wireName => 'SignalingGetSettingsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingGetSettingsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingGetSettingsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettings_HelloAuthParams_10Interface {
+  String? get userid;
+  String get ticket;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettings_HelloAuthParams_10InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettings_HelloAuthParams_10InterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings_HelloAuthParams_10
+    implements
+        $SignalingSettings_HelloAuthParams_10Interface,
+        Built<SignalingSettings_HelloAuthParams_10, SignalingSettings_HelloAuthParams_10Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_10 object using the builder pattern.
+  factory SignalingSettings_HelloAuthParams_10([void Function(SignalingSettings_HelloAuthParams_10Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_10;
+
+  // coverage:ignore-start
+  const SignalingSettings_HelloAuthParams_10._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings_HelloAuthParams_10.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings_HelloAuthParams_10.
+  static Serializer<SignalingSettings_HelloAuthParams_10> get serializer =>
+      _$signalingSettingsHelloAuthParams10Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettings_HelloAuthParams_10Builder b) {
+    $SignalingSettings_HelloAuthParams_10Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettings_HelloAuthParams_10Builder b) {
+    $SignalingSettings_HelloAuthParams_10Interface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettings_HelloAuthParams_20Interface {
+  String get token;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettings_HelloAuthParams_20InterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettings_HelloAuthParams_20InterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings_HelloAuthParams_20
+    implements
+        $SignalingSettings_HelloAuthParams_20Interface,
+        Built<SignalingSettings_HelloAuthParams_20, SignalingSettings_HelloAuthParams_20Builder> {
+  /// Creates a new SignalingSettings_HelloAuthParams_20 object using the builder pattern.
+  factory SignalingSettings_HelloAuthParams_20([void Function(SignalingSettings_HelloAuthParams_20Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_20;
+
+  // coverage:ignore-start
+  const SignalingSettings_HelloAuthParams_20._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings_HelloAuthParams_20.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings_HelloAuthParams_20.
+  static Serializer<SignalingSettings_HelloAuthParams_20> get serializer =>
+      _$signalingSettingsHelloAuthParams20Serializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettings_HelloAuthParams_20Builder b) {
+    $SignalingSettings_HelloAuthParams_20Interface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettings_HelloAuthParams_20Builder b) {
+    $SignalingSettings_HelloAuthParams_20Interface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettings_HelloAuthParamsInterface {
+  @BuiltValueField(wireName: '1.0')
+  SignalingSettings_HelloAuthParams_10 get $10;
+  @BuiltValueField(wireName: '2.0')
+  SignalingSettings_HelloAuthParams_20 get $20;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettings_HelloAuthParamsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettings_HelloAuthParamsInterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings_HelloAuthParams
+    implements
+        $SignalingSettings_HelloAuthParamsInterface,
+        Built<SignalingSettings_HelloAuthParams, SignalingSettings_HelloAuthParamsBuilder> {
+  /// Creates a new SignalingSettings_HelloAuthParams object using the builder pattern.
+  factory SignalingSettings_HelloAuthParams([void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
+      _$SignalingSettings_HelloAuthParams;
+
+  // coverage:ignore-start
+  const SignalingSettings_HelloAuthParams._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings_HelloAuthParams.
+  static Serializer<SignalingSettings_HelloAuthParams> get serializer => _$signalingSettingsHelloAuthParamsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettings_HelloAuthParamsBuilder b) {
+    $SignalingSettings_HelloAuthParamsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettings_HelloAuthParamsBuilder b) {
+    $SignalingSettings_HelloAuthParamsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettings_StunserversInterface {
+  BuiltList<String> get urls;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettings_StunserversInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettings_StunserversInterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings_Stunservers
+    implements
+        $SignalingSettings_StunserversInterface,
+        Built<SignalingSettings_Stunservers, SignalingSettings_StunserversBuilder> {
+  /// Creates a new SignalingSettings_Stunservers object using the builder pattern.
+  factory SignalingSettings_Stunservers([void Function(SignalingSettings_StunserversBuilder)? b]) =
+      _$SignalingSettings_Stunservers;
+
+  // coverage:ignore-start
+  const SignalingSettings_Stunservers._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings_Stunservers.
+  static Serializer<SignalingSettings_Stunservers> get serializer => _$signalingSettingsStunserversSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettings_StunserversBuilder b) {
+    $SignalingSettings_StunserversInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettings_StunserversBuilder b) {
+    $SignalingSettings_StunserversInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettings_TurnserversInterface {
+  BuiltList<String> get urls;
+  String get username;
+  JsonObject get credential;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettings_TurnserversInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettings_TurnserversInterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings_Turnservers
+    implements
+        $SignalingSettings_TurnserversInterface,
+        Built<SignalingSettings_Turnservers, SignalingSettings_TurnserversBuilder> {
+  /// Creates a new SignalingSettings_Turnservers object using the builder pattern.
+  factory SignalingSettings_Turnservers([void Function(SignalingSettings_TurnserversBuilder)? b]) =
+      _$SignalingSettings_Turnservers;
+
+  // coverage:ignore-start
+  const SignalingSettings_Turnservers._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings_Turnservers.
+  static Serializer<SignalingSettings_Turnservers> get serializer => _$signalingSettingsTurnserversSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettings_TurnserversBuilder b) {
+    $SignalingSettings_TurnserversInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettings_TurnserversBuilder b) {
+    $SignalingSettings_TurnserversInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSettingsInterface {
+  SignalingSettings_HelloAuthParams get helloAuthParams;
+  bool get hideWarning;
+  String get server;
+  String get signalingMode;
+  String get sipDialinInfo;
+  BuiltList<SignalingSettings_Stunservers> get stunservers;
+  String get ticket;
+  BuiltList<SignalingSettings_Turnservers> get turnservers;
+  String? get userId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSettingsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSettingsInterfaceBuilder b) {}
+}
+
+abstract class SignalingSettings
+    implements $SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
+  /// Creates a new SignalingSettings object using the builder pattern.
+  factory SignalingSettings([void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
+
+  // coverage:ignore-start
+  const SignalingSettings._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSettings.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSettings.
+  static Serializer<SignalingSettings> get serializer => _$signalingSettingsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSettingsBuilder b) {
+    $SignalingSettingsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSettingsBuilder b) {
+    $SignalingSettingsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingGetSettingsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  SignalingSettings get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingGetSettingsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingGetSettingsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class SignalingGetSettingsResponseApplicationJson_Ocs
+    implements
+        $SignalingGetSettingsResponseApplicationJson_OcsInterface,
+        Built<SignalingGetSettingsResponseApplicationJson_Ocs, SignalingGetSettingsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingGetSettingsResponseApplicationJson_Ocs object using the builder pattern.
+  factory SignalingGetSettingsResponseApplicationJson_Ocs([
+    void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SignalingGetSettingsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const SignalingGetSettingsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingGetSettingsResponseApplicationJson_Ocs.
+  static Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> get serializer =>
+      _$signalingGetSettingsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingGetSettingsResponseApplicationJson_OcsBuilder b) {
+    $SignalingGetSettingsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingGetSettingsResponseApplicationJson_OcsBuilder b) {
+    $SignalingGetSettingsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingGetSettingsResponseApplicationJsonInterface {
+  SignalingGetSettingsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingGetSettingsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingGetSettingsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class SignalingGetSettingsResponseApplicationJson
+    implements
+        $SignalingGetSettingsResponseApplicationJsonInterface,
+        Built<SignalingGetSettingsResponseApplicationJson, SignalingGetSettingsResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingGetSettingsResponseApplicationJson object using the builder pattern.
+  factory SignalingGetSettingsResponseApplicationJson([
+    void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
+  ]) = _$SignalingGetSettingsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const SignalingGetSettingsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingGetSettingsResponseApplicationJson.
+  static Serializer<SignalingGetSettingsResponseApplicationJson> get serializer =>
+      _$signalingGetSettingsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingGetSettingsResponseApplicationJsonBuilder b) {
+    $SignalingGetSettingsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingGetSettingsResponseApplicationJsonBuilder b) {
+    $SignalingGetSettingsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class FederationAcceptShareApiVersion extends EnumClass {
+  const FederationAcceptShareApiVersion._(super.name);
+
+  /// `v1`
+  static const FederationAcceptShareApiVersion v1 = _$federationAcceptShareApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<FederationAcceptShareApiVersion> get values => _$federationAcceptShareApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static FederationAcceptShareApiVersion valueOf(String name) => _$valueOfFederationAcceptShareApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for FederationAcceptShareApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationAcceptShareApiVersion> get serializer =>
+      const _$FederationAcceptShareApiVersionSerializer();
+}
+
+class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer<FederationAcceptShareApiVersion> {
+  const _$FederationAcceptShareApiVersionSerializer();
+
+  static const Map<FederationAcceptShareApiVersion, Object> _toWire = <FederationAcceptShareApiVersion, Object>{
+    FederationAcceptShareApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationAcceptShareApiVersion> _fromWire = <Object, FederationAcceptShareApiVersion>{
+    'v1': FederationAcceptShareApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationAcceptShareApiVersion];
+
+  @override
+  String get wireName => 'FederationAcceptShareApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationAcceptShareApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationAcceptShareApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationAcceptShareResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class FederationAcceptShareResponseApplicationJson_Ocs
+    implements
+        $FederationAcceptShareResponseApplicationJson_OcsInterface,
+        Built<FederationAcceptShareResponseApplicationJson_Ocs,
+            FederationAcceptShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new FederationAcceptShareResponseApplicationJson_Ocs object using the builder pattern.
+  factory FederationAcceptShareResponseApplicationJson_Ocs([
+    void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FederationAcceptShareResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const FederationAcceptShareResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationAcceptShareResponseApplicationJson_Ocs.
+  static Serializer<FederationAcceptShareResponseApplicationJson_Ocs> get serializer =>
+      _$federationAcceptShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $FederationAcceptShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationAcceptShareResponseApplicationJson_OcsBuilder b) {
+    $FederationAcceptShareResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationAcceptShareResponseApplicationJsonInterface {
+  FederationAcceptShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class FederationAcceptShareResponseApplicationJson
+    implements
+        $FederationAcceptShareResponseApplicationJsonInterface,
+        Built<FederationAcceptShareResponseApplicationJson, FederationAcceptShareResponseApplicationJsonBuilder> {
+  /// Creates a new FederationAcceptShareResponseApplicationJson object using the builder pattern.
+  factory FederationAcceptShareResponseApplicationJson([
+    void Function(FederationAcceptShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FederationAcceptShareResponseApplicationJson;
+
+  // coverage:ignore-start
+  const FederationAcceptShareResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationAcceptShareResponseApplicationJson.
+  static Serializer<FederationAcceptShareResponseApplicationJson> get serializer =>
+      _$federationAcceptShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationAcceptShareResponseApplicationJsonBuilder b) {
+    $FederationAcceptShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationAcceptShareResponseApplicationJsonBuilder b) {
+    $FederationAcceptShareResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class FederationRejectShareApiVersion extends EnumClass {
+  const FederationRejectShareApiVersion._(super.name);
+
+  /// `v1`
+  static const FederationRejectShareApiVersion v1 = _$federationRejectShareApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<FederationRejectShareApiVersion> get values => _$federationRejectShareApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static FederationRejectShareApiVersion valueOf(String name) => _$valueOfFederationRejectShareApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for FederationRejectShareApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationRejectShareApiVersion> get serializer =>
+      const _$FederationRejectShareApiVersionSerializer();
+}
+
+class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer<FederationRejectShareApiVersion> {
+  const _$FederationRejectShareApiVersionSerializer();
+
+  static const Map<FederationRejectShareApiVersion, Object> _toWire = <FederationRejectShareApiVersion, Object>{
+    FederationRejectShareApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationRejectShareApiVersion> _fromWire = <Object, FederationRejectShareApiVersion>{
+    'v1': FederationRejectShareApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationRejectShareApiVersion];
+
+  @override
+  String get wireName => 'FederationRejectShareApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationRejectShareApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationRejectShareApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationRejectShareResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationRejectShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationRejectShareResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class FederationRejectShareResponseApplicationJson_Ocs
+    implements
+        $FederationRejectShareResponseApplicationJson_OcsInterface,
+        Built<FederationRejectShareResponseApplicationJson_Ocs,
+            FederationRejectShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new FederationRejectShareResponseApplicationJson_Ocs object using the builder pattern.
+  factory FederationRejectShareResponseApplicationJson_Ocs([
+    void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FederationRejectShareResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const FederationRejectShareResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationRejectShareResponseApplicationJson_Ocs.
+  static Serializer<FederationRejectShareResponseApplicationJson_Ocs> get serializer =>
+      _$federationRejectShareResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationRejectShareResponseApplicationJson_OcsBuilder b) {
+    $FederationRejectShareResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationRejectShareResponseApplicationJson_OcsBuilder b) {
+    $FederationRejectShareResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationRejectShareResponseApplicationJsonInterface {
+  FederationRejectShareResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationRejectShareResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationRejectShareResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class FederationRejectShareResponseApplicationJson
+    implements
+        $FederationRejectShareResponseApplicationJsonInterface,
+        Built<FederationRejectShareResponseApplicationJson, FederationRejectShareResponseApplicationJsonBuilder> {
+  /// Creates a new FederationRejectShareResponseApplicationJson object using the builder pattern.
+  factory FederationRejectShareResponseApplicationJson([
+    void Function(FederationRejectShareResponseApplicationJsonBuilder)? b,
+  ]) = _$FederationRejectShareResponseApplicationJson;
+
+  // coverage:ignore-start
+  const FederationRejectShareResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationRejectShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationRejectShareResponseApplicationJson.
+  static Serializer<FederationRejectShareResponseApplicationJson> get serializer =>
+      _$federationRejectShareResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationRejectShareResponseApplicationJsonBuilder b) {
+    $FederationRejectShareResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationRejectShareResponseApplicationJsonBuilder b) {
+    $FederationRejectShareResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class FederationGetSharesApiVersion extends EnumClass {
+  const FederationGetSharesApiVersion._(super.name);
+
+  /// `v1`
+  static const FederationGetSharesApiVersion v1 = _$federationGetSharesApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<FederationGetSharesApiVersion> get values => _$federationGetSharesApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static FederationGetSharesApiVersion valueOf(String name) => _$valueOfFederationGetSharesApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for FederationGetSharesApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationGetSharesApiVersion> get serializer => const _$FederationGetSharesApiVersionSerializer();
+}
+
+class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<FederationGetSharesApiVersion> {
+  const _$FederationGetSharesApiVersionSerializer();
+
+  static const Map<FederationGetSharesApiVersion, Object> _toWire = <FederationGetSharesApiVersion, Object>{
+    FederationGetSharesApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationGetSharesApiVersion> _fromWire = <Object, FederationGetSharesApiVersion>{
+    'v1': FederationGetSharesApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationGetSharesApiVersion];
+
+  @override
+  String get wireName => 'FederationGetSharesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationGetSharesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationGetSharesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationInviteInterface {
+  int get id;
+  int get state;
+  String get localCloudId;
+  String get localToken;
+  int get remoteAttendeeId;
+  String get remoteServerUrl;
+  String get remoteToken;
+  String get roomName;
+  String get userId;
+  String get inviterCloudId;
+  String get inviterDisplayName;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationInviteInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationInviteInterfaceBuilder b) {}
+}
+
+abstract class FederationInvite
+    implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
+  /// Creates a new FederationInvite object using the builder pattern.
+  factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
+
+  // coverage:ignore-start
+  const FederationInvite._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationInvite.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationInvite.
+  static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationInviteBuilder b) {
+    $FederationInviteInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationInviteBuilder b) {
+    $FederationInviteInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationGetSharesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<FederationInvite> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class FederationGetSharesResponseApplicationJson_Ocs
+    implements
+        $FederationGetSharesResponseApplicationJson_OcsInterface,
+        Built<FederationGetSharesResponseApplicationJson_Ocs, FederationGetSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new FederationGetSharesResponseApplicationJson_Ocs object using the builder pattern.
+  factory FederationGetSharesResponseApplicationJson_Ocs([
+    void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$FederationGetSharesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const FederationGetSharesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationGetSharesResponseApplicationJson_Ocs.
+  static Serializer<FederationGetSharesResponseApplicationJson_Ocs> get serializer =>
+      _$federationGetSharesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationGetSharesResponseApplicationJson_OcsBuilder b) {
+    $FederationGetSharesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationGetSharesResponseApplicationJson_OcsBuilder b) {
+    $FederationGetSharesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $FederationGetSharesResponseApplicationJsonInterface {
+  FederationGetSharesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($FederationGetSharesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($FederationGetSharesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class FederationGetSharesResponseApplicationJson
+    implements
+        $FederationGetSharesResponseApplicationJsonInterface,
+        Built<FederationGetSharesResponseApplicationJson, FederationGetSharesResponseApplicationJsonBuilder> {
+  /// Creates a new FederationGetSharesResponseApplicationJson object using the builder pattern.
+  factory FederationGetSharesResponseApplicationJson([
+    void Function(FederationGetSharesResponseApplicationJsonBuilder)? b,
+  ]) = _$FederationGetSharesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const FederationGetSharesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory FederationGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for FederationGetSharesResponseApplicationJson.
+  static Serializer<FederationGetSharesResponseApplicationJson> get serializer =>
+      _$federationGetSharesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(FederationGetSharesResponseApplicationJsonBuilder b) {
+    $FederationGetSharesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(FederationGetSharesResponseApplicationJsonBuilder b) {
+    $FederationGetSharesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByFileIdApiVersion._(super.name);
 
@@ -24938,6 +26629,227 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   }
 }
 
+class PublicShareAuthCreateRoomApiVersion extends EnumClass {
+  const PublicShareAuthCreateRoomApiVersion._(super.name);
+
+  /// `v1`
+  static const PublicShareAuthCreateRoomApiVersion v1 = _$publicShareAuthCreateRoomApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PublicShareAuthCreateRoomApiVersion> get values => _$publicShareAuthCreateRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for PublicShareAuthCreateRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicShareAuthCreateRoomApiVersion> get serializer =>
+      const _$PublicShareAuthCreateRoomApiVersionSerializer();
+}
+
+class _$PublicShareAuthCreateRoomApiVersionSerializer
+    implements PrimitiveSerializer<PublicShareAuthCreateRoomApiVersion> {
+  const _$PublicShareAuthCreateRoomApiVersionSerializer();
+
+  static const Map<PublicShareAuthCreateRoomApiVersion, Object> _toWire = <PublicShareAuthCreateRoomApiVersion, Object>{
+    PublicShareAuthCreateRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PublicShareAuthCreateRoomApiVersion> _fromWire =
+      <Object, PublicShareAuthCreateRoomApiVersion>{
+    'v1': PublicShareAuthCreateRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PublicShareAuthCreateRoomApiVersion];
+
+  @override
+  String get wireName => 'PublicShareAuthCreateRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PublicShareAuthCreateRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PublicShareAuthCreateRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
+  String get token;
+  String get name;
+  String get displayName;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
+    implements
+        $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
+        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
+            PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
+    void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.
+  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> get serializer =>
+      _$publicShareAuthCreateRoomResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicShareAuthCreateRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
+    implements
+        $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
+        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
+            PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
+    void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const PublicShareAuthCreateRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs.
+  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> get serializer =>
+      _$publicShareAuthCreateRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
+  PublicShareAuthCreateRoomResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicShareAuthCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PublicShareAuthCreateRoomResponseApplicationJson
+    implements
+        $PublicShareAuthCreateRoomResponseApplicationJsonInterface,
+        Built<PublicShareAuthCreateRoomResponseApplicationJson,
+            PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
+  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson object using the builder pattern.
+  factory PublicShareAuthCreateRoomResponseApplicationJson([
+    void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
+  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const PublicShareAuthCreateRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson.
+  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson> get serializer =>
+      _$publicShareAuthCreateRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJsonBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicShareAuthCreateRoomResponseApplicationJsonBuilder b) {
+    $PublicShareAuthCreateRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class GuestSetDisplayNameApiVersion extends EnumClass {
   const GuestSetDisplayNameApiVersion._(super.name);
 
@@ -25330,35 +27242,367 @@ class _$HostedSignalingServerDeleteAccountApiVersionSerializer
       _fromWire[serialized]!;
 }
 
+class SignalingPullMessagesApiVersion extends EnumClass {
+  const SignalingPullMessagesApiVersion._(super.name);
+
+  /// `v3`
+  static const SignalingPullMessagesApiVersion v3 = _$signalingPullMessagesApiVersionV3;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingPullMessagesApiVersion> get values => _$signalingPullMessagesApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingPullMessagesApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingPullMessagesApiVersion> get serializer =>
+      const _$SignalingPullMessagesApiVersionSerializer();
+}
+
+class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingPullMessagesApiVersion> {
+  const _$SignalingPullMessagesApiVersionSerializer();
+
+  static const Map<SignalingPullMessagesApiVersion, Object> _toWire = <SignalingPullMessagesApiVersion, Object>{
+    SignalingPullMessagesApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingPullMessagesApiVersion> _fromWire = <Object, SignalingPullMessagesApiVersion>{
+    'v3': SignalingPullMessagesApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingPullMessagesApiVersion];
+
+  @override
+  String get wireName => 'SignalingPullMessagesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingPullMessagesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingPullMessagesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
-abstract interface class $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface {
+abstract interface class $SignalingSessionInterface {
+  int get inCall;
+  int get lastPing;
+  int get participantPermissions;
+  int get roomId;
+  String get sessionId;
+  String get userId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingSessionInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingSessionInterfaceBuilder b) {}
+}
+
+abstract class SignalingSession
+    implements $SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
+  /// Creates a new SignalingSession object using the builder pattern.
+  factory SignalingSession([void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
+
+  // coverage:ignore-start
+  const SignalingSession._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingSession.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingSession.
+  static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingSessionBuilder b) {
+    $SignalingSessionInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingSessionBuilder b) {
+    $SignalingSessionInterface._validate(b);
+  }
+}
+
+typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
+  BuiltList<SignalingSession>? builtListSignalingSession,
+  String? string
+});
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
+  String get type;
+  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {
+    b.data?.validateOneOf();
+  }
+}
+
+abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
+    implements
+        $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
+        Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
+            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
+    void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const SignalingPullMessagesResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
+  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
+      _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
+    $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
+    $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingPullMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingPullMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class SignalingPullMessagesResponseApplicationJson_Ocs
+    implements
+        $SignalingPullMessagesResponseApplicationJson_OcsInterface,
+        Built<SignalingPullMessagesResponseApplicationJson_Ocs,
+            SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs object using the builder pattern.
+  factory SignalingPullMessagesResponseApplicationJson_Ocs([
+    void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const SignalingPullMessagesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs.
+  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs> get serializer =>
+      _$signalingPullMessagesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingPullMessagesResponseApplicationJson_OcsBuilder b) {
+    $SignalingPullMessagesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingPullMessagesResponseApplicationJson_OcsBuilder b) {
+    $SignalingPullMessagesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingPullMessagesResponseApplicationJsonInterface {
+  SignalingPullMessagesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingPullMessagesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingPullMessagesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class SignalingPullMessagesResponseApplicationJson
+    implements
+        $SignalingPullMessagesResponseApplicationJsonInterface,
+        Built<SignalingPullMessagesResponseApplicationJson, SignalingPullMessagesResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingPullMessagesResponseApplicationJson object using the builder pattern.
+  factory SignalingPullMessagesResponseApplicationJson([
+    void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
+  ]) = _$SignalingPullMessagesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const SignalingPullMessagesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingPullMessagesResponseApplicationJson.
+  static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
+      _$signalingPullMessagesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingPullMessagesResponseApplicationJsonBuilder b) {
+    $SignalingPullMessagesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingPullMessagesResponseApplicationJsonBuilder b) {
+    $SignalingPullMessagesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class SignalingSendMessagesApiVersion extends EnumClass {
+  const SignalingSendMessagesApiVersion._(super.name);
+
+  /// `v3`
+  static const SignalingSendMessagesApiVersion v3 = _$signalingSendMessagesApiVersionV3;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingSendMessagesApiVersion> get values => _$signalingSendMessagesApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingSendMessagesApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSendMessagesApiVersion> get serializer =>
+      const _$SignalingSendMessagesApiVersionSerializer();
+}
+
+class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingSendMessagesApiVersion> {
+  const _$SignalingSendMessagesApiVersionSerializer();
+
+  static const Map<SignalingSendMessagesApiVersion, Object> _toWire = <SignalingSendMessagesApiVersion, Object>{
+    SignalingSendMessagesApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingSendMessagesApiVersion> _fromWire = <Object, SignalingSendMessagesApiVersion>{
+    'v3': SignalingSendMessagesApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingSendMessagesApiVersion];
+
+  @override
+  String get wireName => 'SignalingSendMessagesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingSendMessagesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingSendMessagesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _defaults($SignalingSendMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _validate($SignalingSendMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
-abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
+abstract class SignalingSendMessagesResponseApplicationJson_Ocs
     implements
-        $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface,
-        Built<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
-            HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder> {
-  /// Creates a new HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs object using the builder pattern.
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs([
-    void Function(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs;
+        $SignalingSendMessagesResponseApplicationJson_OcsInterface,
+        Built<SignalingSendMessagesResponseApplicationJson_Ocs,
+            SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingSendMessagesResponseApplicationJson_Ocs object using the builder pattern.
+  factory SignalingSendMessagesResponseApplicationJson_Ocs([
+    void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SignalingSendMessagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs._();
+  const SignalingSendMessagesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -25369,49 +27613,48 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.
-  static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs> get serializer =>
-      _$hostedSignalingServerDeleteAccountResponseApplicationJsonOcsSerializer;
+  /// Serializer for SignalingSendMessagesResponseApplicationJson_Ocs.
+  static Serializer<SignalingSendMessagesResponseApplicationJson_Ocs> get serializer =>
+      _$signalingSendMessagesResponseApplicationJsonOcsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder b) {
-    $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface._defaults(b);
+  static void _defaults(SignalingSendMessagesResponseApplicationJson_OcsBuilder b) {
+    $SignalingSendMessagesResponseApplicationJson_OcsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder b) {
-    $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface._validate(b);
+  static void _validate(SignalingSendMessagesResponseApplicationJson_OcsBuilder b) {
+    $SignalingSendMessagesResponseApplicationJson_OcsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface {
-  HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs get ocs;
+abstract interface class $SignalingSendMessagesResponseApplicationJsonInterface {
+  SignalingSendMessagesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($HostedSignalingServerDeleteAccountResponseApplicationJsonInterfaceBuilder b) {}
+  static void _defaults($SignalingSendMessagesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($HostedSignalingServerDeleteAccountResponseApplicationJsonInterfaceBuilder b) {}
+  static void _validate($SignalingSendMessagesResponseApplicationJsonInterfaceBuilder b) {}
 }
 
-abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
+abstract class SignalingSendMessagesResponseApplicationJson
     implements
-        $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface,
-        Built<HostedSignalingServerDeleteAccountResponseApplicationJson,
-            HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder> {
-  /// Creates a new HostedSignalingServerDeleteAccountResponseApplicationJson object using the builder pattern.
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson([
-    void Function(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder)? b,
-  ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson;
+        $SignalingSendMessagesResponseApplicationJsonInterface,
+        Built<SignalingSendMessagesResponseApplicationJson, SignalingSendMessagesResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingSendMessagesResponseApplicationJson object using the builder pattern.
+  factory SignalingSendMessagesResponseApplicationJson([
+    void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
+  ]) = _$SignalingSendMessagesResponseApplicationJson;
 
   // coverage:ignore-start
-  const HostedSignalingServerDeleteAccountResponseApplicationJson._();
+  const SignalingSendMessagesResponseApplicationJson._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -25422,18 +27665,18 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for HostedSignalingServerDeleteAccountResponseApplicationJson.
-  static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson> get serializer =>
-      _$hostedSignalingServerDeleteAccountResponseApplicationJsonSerializer;
+  /// Serializer for SignalingSendMessagesResponseApplicationJson.
+  static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
+      _$signalingSendMessagesResponseApplicationJsonSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder b) {
-    $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface._defaults(b);
+  static void _defaults(SignalingSendMessagesResponseApplicationJsonBuilder b) {
+    $SignalingSendMessagesResponseApplicationJsonInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder b) {
-    $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface._validate(b);
+  static void _validate(SignalingSendMessagesResponseApplicationJsonBuilder b) {
+    $SignalingSendMessagesResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -27533,227 +29776,6 @@ abstract class PollClosePollResponseApplicationJson
   }
 }
 
-class PublicShareAuthCreateRoomApiVersion extends EnumClass {
-  const PublicShareAuthCreateRoomApiVersion._(super.name);
-
-  /// `v1`
-  static const PublicShareAuthCreateRoomApiVersion v1 = _$publicShareAuthCreateRoomApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<PublicShareAuthCreateRoomApiVersion> get values => _$publicShareAuthCreateRoomApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for PublicShareAuthCreateRoomApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicShareAuthCreateRoomApiVersion> get serializer =>
-      const _$PublicShareAuthCreateRoomApiVersionSerializer();
-}
-
-class _$PublicShareAuthCreateRoomApiVersionSerializer
-    implements PrimitiveSerializer<PublicShareAuthCreateRoomApiVersion> {
-  const _$PublicShareAuthCreateRoomApiVersionSerializer();
-
-  static const Map<PublicShareAuthCreateRoomApiVersion, Object> _toWire = <PublicShareAuthCreateRoomApiVersion, Object>{
-    PublicShareAuthCreateRoomApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, PublicShareAuthCreateRoomApiVersion> _fromWire =
-      <Object, PublicShareAuthCreateRoomApiVersion>{
-    'v1': PublicShareAuthCreateRoomApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [PublicShareAuthCreateRoomApiVersion];
-
-  @override
-  String get wireName => 'PublicShareAuthCreateRoomApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    PublicShareAuthCreateRoomApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  PublicShareAuthCreateRoomApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
-  String get token;
-  String get name;
-  String get displayName;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-}
-
-abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
-    implements
-        $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
-            PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
-    void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.
-  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicShareAuthCreateRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
-    implements
-        $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
-            PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
-  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs object using the builder pattern.
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
-    void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const PublicShareAuthCreateRoomResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs.
-  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
-  PublicShareAuthCreateRoomResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicShareAuthCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicShareAuthCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class PublicShareAuthCreateRoomResponseApplicationJson
-    implements
-        $PublicShareAuthCreateRoomResponseApplicationJsonInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson,
-            PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
-  /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson object using the builder pattern.
-  factory PublicShareAuthCreateRoomResponseApplicationJson([
-    void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
-  ]) = _$PublicShareAuthCreateRoomResponseApplicationJson;
-
-  // coverage:ignore-start
-  const PublicShareAuthCreateRoomResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson.
-  static Serializer<PublicShareAuthCreateRoomResponseApplicationJson> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicShareAuthCreateRoomResponseApplicationJsonBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicShareAuthCreateRoomResponseApplicationJsonBuilder b) {
-    $PublicShareAuthCreateRoomResponseApplicationJsonInterface._validate(b);
-  }
-}
-
 class ReactionGetReactionsApiVersion extends EnumClass {
   const ReactionGetReactionsApiVersion._(super.name);
 
@@ -28604,166 +30626,6 @@ abstract class RecordingStopResponseApplicationJson
   }
 }
 
-class RecordingStoreApiVersion extends EnumClass {
-  const RecordingStoreApiVersion._(super.name);
-
-  /// `v1`
-  static const RecordingStoreApiVersion v1 = _$recordingStoreApiVersionV1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RecordingStoreApiVersion> get values => _$recordingStoreApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RecordingStoreApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RecordingStoreApiVersion> get serializer => const _$RecordingStoreApiVersionSerializer();
-}
-
-class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<RecordingStoreApiVersion> {
-  const _$RecordingStoreApiVersionSerializer();
-
-  static const Map<RecordingStoreApiVersion, Object> _toWire = <RecordingStoreApiVersion, Object>{
-    RecordingStoreApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, RecordingStoreApiVersion> _fromWire = <Object, RecordingStoreApiVersion>{
-    'v1': RecordingStoreApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [RecordingStoreApiVersion];
-
-  @override
-  String get wireName => 'RecordingStoreApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RecordingStoreApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RecordingStoreApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingStoreResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingStoreResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingStoreResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class RecordingStoreResponseApplicationJson_Ocs
-    implements
-        $RecordingStoreResponseApplicationJson_OcsInterface,
-        Built<RecordingStoreResponseApplicationJson_Ocs, RecordingStoreResponseApplicationJson_OcsBuilder> {
-  /// Creates a new RecordingStoreResponseApplicationJson_Ocs object using the builder pattern.
-  factory RecordingStoreResponseApplicationJson_Ocs([
-    void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RecordingStoreResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const RecordingStoreResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingStoreResponseApplicationJson_Ocs.
-  static Serializer<RecordingStoreResponseApplicationJson_Ocs> get serializer =>
-      _$recordingStoreResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingStoreResponseApplicationJson_OcsBuilder b) {
-    $RecordingStoreResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingStoreResponseApplicationJson_OcsBuilder b) {
-    $RecordingStoreResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingStoreResponseApplicationJsonInterface {
-  RecordingStoreResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingStoreResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingStoreResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class RecordingStoreResponseApplicationJson
-    implements
-        $RecordingStoreResponseApplicationJsonInterface,
-        Built<RecordingStoreResponseApplicationJson, RecordingStoreResponseApplicationJsonBuilder> {
-  /// Creates a new RecordingStoreResponseApplicationJson object using the builder pattern.
-  factory RecordingStoreResponseApplicationJson([void Function(RecordingStoreResponseApplicationJsonBuilder)? b]) =
-      _$RecordingStoreResponseApplicationJson;
-
-  // coverage:ignore-start
-  const RecordingStoreResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingStoreResponseApplicationJson.
-  static Serializer<RecordingStoreResponseApplicationJson> get serializer =>
-      _$recordingStoreResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingStoreResponseApplicationJsonBuilder b) {
-    $RecordingStoreResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingStoreResponseApplicationJsonBuilder b) {
-    $RecordingStoreResponseApplicationJsonInterface._validate(b);
-  }
-}
-
 class RecordingNotificationDismissApiVersion extends EnumClass {
   const RecordingNotificationDismissApiVersion._(super.name);
 
@@ -29094,60 +30956,55 @@ abstract class RecordingShareToChatResponseApplicationJson
   }
 }
 
-class RecordingGetWelcomeMessageApiVersion extends EnumClass {
-  const RecordingGetWelcomeMessageApiVersion._(super.name);
+class RecordingBackendApiVersion extends EnumClass {
+  const RecordingBackendApiVersion._(super.name);
 
   /// `v1`
-  static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
+  static const RecordingBackendApiVersion v1 = _$recordingBackendApiVersionV1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
+  static BuiltSet<RecordingBackendApiVersion> get values => _$recordingBackendApiVersionValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
-      _$valueOfRecordingGetWelcomeMessageApiVersion(name);
+  static RecordingBackendApiVersion valueOf(String name) => _$valueOfRecordingBackendApiVersion(name);
 
   /// Returns the serialized value of this enum value.
   String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
-  /// Serializer for RecordingGetWelcomeMessageApiVersion.
+  /// Serializer for RecordingBackendApiVersion.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
-      const _$RecordingGetWelcomeMessageApiVersionSerializer();
+  static Serializer<RecordingBackendApiVersion> get serializer => const _$RecordingBackendApiVersionSerializer();
 }
 
-class _$RecordingGetWelcomeMessageApiVersionSerializer
-    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
-  const _$RecordingGetWelcomeMessageApiVersionSerializer();
+class _$RecordingBackendApiVersionSerializer implements PrimitiveSerializer<RecordingBackendApiVersion> {
+  const _$RecordingBackendApiVersionSerializer();
 
-  static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
-      <RecordingGetWelcomeMessageApiVersion, Object>{
-    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
+  static const Map<RecordingBackendApiVersion, Object> _toWire = <RecordingBackendApiVersion, Object>{
+    RecordingBackendApiVersion.v1: 'v1',
   };
 
-  static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
-      <Object, RecordingGetWelcomeMessageApiVersion>{
-    'v1': RecordingGetWelcomeMessageApiVersion.v1,
+  static const Map<Object, RecordingBackendApiVersion> _fromWire = <Object, RecordingBackendApiVersion>{
+    'v1': RecordingBackendApiVersion.v1,
   };
 
   @override
-  Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
+  Iterable<Type> get types => const [RecordingBackendApiVersion];
 
   @override
-  String get wireName => 'RecordingGetWelcomeMessageApiVersion';
+  String get wireName => 'RecordingBackendApiVersion';
 
   @override
   Object serialize(
     Serializers serializers,
-    RecordingGetWelcomeMessageApiVersion object, {
+    RecordingBackendApiVersion object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  RecordingGetWelcomeMessageApiVersion deserialize(
+  RecordingBackendApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -29156,87 +31013,33 @@ class _$RecordingGetWelcomeMessageApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
-  double get version;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-}
-
-abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
-    implements
-        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingBackendResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
+  JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _defaults($RecordingBackendResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  static void _validate($RecordingBackendResponseApplicationJson_OcsInterfaceBuilder b) {}
 }
 
-abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
+abstract class RecordingBackendResponseApplicationJson_Ocs
     implements
-        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
-            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
+        $RecordingBackendResponseApplicationJson_OcsInterface,
+        Built<RecordingBackendResponseApplicationJson_Ocs, RecordingBackendResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingBackendResponseApplicationJson_Ocs object using the builder pattern.
+  factory RecordingBackendResponseApplicationJson_Ocs([
+    void Function(RecordingBackendResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RecordingBackendResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs._();
+  const RecordingBackendResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingBackendResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -29247,49 +31050,47 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+  /// Serializer for RecordingBackendResponseApplicationJson_Ocs.
+  static Serializer<RecordingBackendResponseApplicationJson_Ocs> get serializer =>
+      _$recordingBackendResponseApplicationJsonOcsSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface._defaults(b);
+  static void _defaults(RecordingBackendResponseApplicationJson_OcsBuilder b) {
+    $RecordingBackendResponseApplicationJson_OcsInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface._validate(b);
+  static void _validate(RecordingBackendResponseApplicationJson_OcsBuilder b) {
+    $RecordingBackendResponseApplicationJson_OcsInterface._validate(b);
   }
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
-  RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
+abstract interface class $RecordingBackendResponseApplicationJsonInterface {
+  RecordingBackendResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
+  static void _defaults($RecordingBackendResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
+  static void _validate($RecordingBackendResponseApplicationJsonInterfaceBuilder b) {}
 }
 
-abstract class RecordingGetWelcomeMessageResponseApplicationJson
+abstract class RecordingBackendResponseApplicationJson
     implements
-        $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson,
-            RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
-  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
-  factory RecordingGetWelcomeMessageResponseApplicationJson([
-    void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
-  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
+        $RecordingBackendResponseApplicationJsonInterface,
+        Built<RecordingBackendResponseApplicationJson, RecordingBackendResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingBackendResponseApplicationJson object using the builder pattern.
+  factory RecordingBackendResponseApplicationJson([void Function(RecordingBackendResponseApplicationJsonBuilder)? b]) =
+      _$RecordingBackendResponseApplicationJson;
 
   // coverage:ignore-start
-  const RecordingGetWelcomeMessageResponseApplicationJson._();
+  const RecordingBackendResponseApplicationJson._();
   // coverage:ignore-end
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingBackendResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -29300,18 +31101,178 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
-  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
+  /// Serializer for RecordingBackendResponseApplicationJson.
+  static Serializer<RecordingBackendResponseApplicationJson> get serializer =>
+      _$recordingBackendResponseApplicationJsonSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJsonBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJsonInterface._defaults(b);
+  static void _defaults(RecordingBackendResponseApplicationJsonBuilder b) {
+    $RecordingBackendResponseApplicationJsonInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingGetWelcomeMessageResponseApplicationJsonBuilder b) {
-    $RecordingGetWelcomeMessageResponseApplicationJsonInterface._validate(b);
+  static void _validate(RecordingBackendResponseApplicationJsonBuilder b) {
+    $RecordingBackendResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RecordingStoreApiVersion extends EnumClass {
+  const RecordingStoreApiVersion._(super.name);
+
+  /// `v1`
+  static const RecordingStoreApiVersion v1 = _$recordingStoreApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RecordingStoreApiVersion> get values => _$recordingStoreApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RecordingStoreApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingStoreApiVersion> get serializer => const _$RecordingStoreApiVersionSerializer();
+}
+
+class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<RecordingStoreApiVersion> {
+  const _$RecordingStoreApiVersionSerializer();
+
+  static const Map<RecordingStoreApiVersion, Object> _toWire = <RecordingStoreApiVersion, Object>{
+    RecordingStoreApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingStoreApiVersion> _fromWire = <Object, RecordingStoreApiVersion>{
+    'v1': RecordingStoreApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingStoreApiVersion];
+
+  @override
+  String get wireName => 'RecordingStoreApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingStoreApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingStoreApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingStoreResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RecordingStoreResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RecordingStoreResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RecordingStoreResponseApplicationJson_Ocs
+    implements
+        $RecordingStoreResponseApplicationJson_OcsInterface,
+        Built<RecordingStoreResponseApplicationJson_Ocs, RecordingStoreResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingStoreResponseApplicationJson_Ocs object using the builder pattern.
+  factory RecordingStoreResponseApplicationJson_Ocs([
+    void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RecordingStoreResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RecordingStoreResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingStoreResponseApplicationJson_Ocs.
+  static Serializer<RecordingStoreResponseApplicationJson_Ocs> get serializer =>
+      _$recordingStoreResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RecordingStoreResponseApplicationJson_OcsBuilder b) {
+    $RecordingStoreResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RecordingStoreResponseApplicationJson_OcsBuilder b) {
+    $RecordingStoreResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingStoreResponseApplicationJsonInterface {
+  RecordingStoreResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RecordingStoreResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RecordingStoreResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RecordingStoreResponseApplicationJson
+    implements
+        $RecordingStoreResponseApplicationJsonInterface,
+        Built<RecordingStoreResponseApplicationJson, RecordingStoreResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingStoreResponseApplicationJson object using the builder pattern.
+  factory RecordingStoreResponseApplicationJson([void Function(RecordingStoreResponseApplicationJsonBuilder)? b]) =
+      _$RecordingStoreResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RecordingStoreResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingStoreResponseApplicationJson.
+  static Serializer<RecordingStoreResponseApplicationJson> get serializer =>
+      _$recordingStoreResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RecordingStoreResponseApplicationJsonBuilder b) {
+    $RecordingStoreResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RecordingStoreResponseApplicationJsonBuilder b) {
+    $RecordingStoreResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -29606,6 +31567,8 @@ abstract interface class $RoomRoomGetRoomsHeadersInterface {
   String? get xNextcloudTalkHash;
   @BuiltValueField(wireName: 'x-nextcloud-talk-modified-before')
   String? get xNextcloudTalkModifiedBefore;
+  @BuiltValueField(wireName: 'x-nextcloud-talk-federation-invites')
+  String? get xNextcloudTalkFederationInvites;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRoomGetRoomsHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -30402,326 +32365,6 @@ abstract class RoomRoomGetSingleRoomHeaders
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(RoomRoomGetSingleRoomHeadersBuilder b) {
     $RoomRoomGetSingleRoomHeadersInterface._validate(b);
-  }
-}
-
-class RoomRenameRoomApiVersion extends EnumClass {
-  const RoomRenameRoomApiVersion._(super.name);
-
-  /// `v4`
-  static const RoomRenameRoomApiVersion v4 = _$roomRenameRoomApiVersionV4;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RoomRenameRoomApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomRenameRoomApiVersion> get serializer => const _$RoomRenameRoomApiVersionSerializer();
-}
-
-class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRenameRoomApiVersion> {
-  const _$RoomRenameRoomApiVersionSerializer();
-
-  static const Map<RoomRenameRoomApiVersion, Object> _toWire = <RoomRenameRoomApiVersion, Object>{
-    RoomRenameRoomApiVersion.v4: 'v4',
-  };
-
-  static const Map<Object, RoomRenameRoomApiVersion> _fromWire = <Object, RoomRenameRoomApiVersion>{
-    'v4': RoomRenameRoomApiVersion.v4,
-  };
-
-  @override
-  Iterable<Type> get types => const [RoomRenameRoomApiVersion];
-
-  @override
-  String get wireName => 'RoomRenameRoomApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RoomRenameRoomApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RoomRenameRoomApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RoomRenameRoomResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomRenameRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class RoomRenameRoomResponseApplicationJson_Ocs
-    implements
-        $RoomRenameRoomResponseApplicationJson_OcsInterface,
-        Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
-  /// Creates a new RoomRenameRoomResponseApplicationJson_Ocs object using the builder pattern.
-  factory RoomRenameRoomResponseApplicationJson_Ocs([
-    void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RoomRenameRoomResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const RoomRenameRoomResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRenameRoomResponseApplicationJson_Ocs.
-  static Serializer<RoomRenameRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomRenameRoomResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
-    $RoomRenameRoomResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomRenameRoomResponseApplicationJson_OcsBuilder b) {
-    $RoomRenameRoomResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RoomRenameRoomResponseApplicationJsonInterface {
-  RoomRenameRoomResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomRenameRoomResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class RoomRenameRoomResponseApplicationJson
-    implements
-        $RoomRenameRoomResponseApplicationJsonInterface,
-        Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
-  /// Creates a new RoomRenameRoomResponseApplicationJson object using the builder pattern.
-  factory RoomRenameRoomResponseApplicationJson([void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b]) =
-      _$RoomRenameRoomResponseApplicationJson;
-
-  // coverage:ignore-start
-  const RoomRenameRoomResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRenameRoomResponseApplicationJson.
-  static Serializer<RoomRenameRoomResponseApplicationJson> get serializer =>
-      _$roomRenameRoomResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomRenameRoomResponseApplicationJsonBuilder b) {
-    $RoomRenameRoomResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomRenameRoomResponseApplicationJsonBuilder b) {
-    $RoomRenameRoomResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class RoomDeleteRoomApiVersion extends EnumClass {
-  const RoomDeleteRoomApiVersion._(super.name);
-
-  /// `v4`
-  static const RoomDeleteRoomApiVersion v4 = _$roomDeleteRoomApiVersionV4;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RoomDeleteRoomApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomDeleteRoomApiVersion> get serializer => const _$RoomDeleteRoomApiVersionSerializer();
-}
-
-class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDeleteRoomApiVersion> {
-  const _$RoomDeleteRoomApiVersionSerializer();
-
-  static const Map<RoomDeleteRoomApiVersion, Object> _toWire = <RoomDeleteRoomApiVersion, Object>{
-    RoomDeleteRoomApiVersion.v4: 'v4',
-  };
-
-  static const Map<Object, RoomDeleteRoomApiVersion> _fromWire = <Object, RoomDeleteRoomApiVersion>{
-    'v4': RoomDeleteRoomApiVersion.v4,
-  };
-
-  @override
-  Iterable<Type> get types => const [RoomDeleteRoomApiVersion];
-
-  @override
-  String get wireName => 'RoomDeleteRoomApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RoomDeleteRoomApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RoomDeleteRoomApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RoomDeleteRoomResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomDeleteRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class RoomDeleteRoomResponseApplicationJson_Ocs
-    implements
-        $RoomDeleteRoomResponseApplicationJson_OcsInterface,
-        Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
-  /// Creates a new RoomDeleteRoomResponseApplicationJson_Ocs object using the builder pattern.
-  factory RoomDeleteRoomResponseApplicationJson_Ocs([
-    void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RoomDeleteRoomResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const RoomDeleteRoomResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomDeleteRoomResponseApplicationJson_Ocs.
-  static Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomDeleteRoomResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
-    $RoomDeleteRoomResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomDeleteRoomResponseApplicationJson_OcsBuilder b) {
-    $RoomDeleteRoomResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $RoomDeleteRoomResponseApplicationJsonInterface {
-  RoomDeleteRoomResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomDeleteRoomResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class RoomDeleteRoomResponseApplicationJson
-    implements
-        $RoomDeleteRoomResponseApplicationJsonInterface,
-        Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
-  /// Creates a new RoomDeleteRoomResponseApplicationJson object using the builder pattern.
-  factory RoomDeleteRoomResponseApplicationJson([void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b]) =
-      _$RoomDeleteRoomResponseApplicationJson;
-
-  // coverage:ignore-start
-  const RoomDeleteRoomResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomDeleteRoomResponseApplicationJson.
-  static Serializer<RoomDeleteRoomResponseApplicationJson> get serializer =>
-      _$roomDeleteRoomResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomDeleteRoomResponseApplicationJsonBuilder b) {
-    $RoomDeleteRoomResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomDeleteRoomResponseApplicationJsonBuilder b) {
-    $RoomDeleteRoomResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -31980,1593 +33623,6 @@ abstract class RoomSetPasswordResponseApplicationJson
   }
 }
 
-class RoomSetPermissionsPermissions extends EnumClass {
-  const RoomSetPermissionsPermissions._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const RoomSetPermissionsPermissions $0 = _$roomSetPermissionsPermissions$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const RoomSetPermissionsPermissions $1 = _$roomSetPermissionsPermissions$1;
-
-  /// `2`
-  @BuiltValueEnumConst(wireName: '2')
-  static const RoomSetPermissionsPermissions $2 = _$roomSetPermissionsPermissions$2;
-
-  /// `3`
-  @BuiltValueEnumConst(wireName: '3')
-  static const RoomSetPermissionsPermissions $3 = _$roomSetPermissionsPermissions$3;
-
-  /// `4`
-  @BuiltValueEnumConst(wireName: '4')
-  static const RoomSetPermissionsPermissions $4 = _$roomSetPermissionsPermissions$4;
-
-  /// `5`
-  @BuiltValueEnumConst(wireName: '5')
-  static const RoomSetPermissionsPermissions $5 = _$roomSetPermissionsPermissions$5;
-
-  /// `6`
-  @BuiltValueEnumConst(wireName: '6')
-  static const RoomSetPermissionsPermissions $6 = _$roomSetPermissionsPermissions$6;
-
-  /// `7`
-  @BuiltValueEnumConst(wireName: '7')
-  static const RoomSetPermissionsPermissions $7 = _$roomSetPermissionsPermissions$7;
-
-  /// `8`
-  @BuiltValueEnumConst(wireName: '8')
-  static const RoomSetPermissionsPermissions $8 = _$roomSetPermissionsPermissions$8;
-
-  /// `9`
-  @BuiltValueEnumConst(wireName: '9')
-  static const RoomSetPermissionsPermissions $9 = _$roomSetPermissionsPermissions$9;
-
-  /// `10`
-  @BuiltValueEnumConst(wireName: '10')
-  static const RoomSetPermissionsPermissions $10 = _$roomSetPermissionsPermissions$10;
-
-  /// `11`
-  @BuiltValueEnumConst(wireName: '11')
-  static const RoomSetPermissionsPermissions $11 = _$roomSetPermissionsPermissions$11;
-
-  /// `12`
-  @BuiltValueEnumConst(wireName: '12')
-  static const RoomSetPermissionsPermissions $12 = _$roomSetPermissionsPermissions$12;
-
-  /// `13`
-  @BuiltValueEnumConst(wireName: '13')
-  static const RoomSetPermissionsPermissions $13 = _$roomSetPermissionsPermissions$13;
-
-  /// `14`
-  @BuiltValueEnumConst(wireName: '14')
-  static const RoomSetPermissionsPermissions $14 = _$roomSetPermissionsPermissions$14;
-
-  /// `15`
-  @BuiltValueEnumConst(wireName: '15')
-  static const RoomSetPermissionsPermissions $15 = _$roomSetPermissionsPermissions$15;
-
-  /// `16`
-  @BuiltValueEnumConst(wireName: '16')
-  static const RoomSetPermissionsPermissions $16 = _$roomSetPermissionsPermissions$16;
-
-  /// `17`
-  @BuiltValueEnumConst(wireName: '17')
-  static const RoomSetPermissionsPermissions $17 = _$roomSetPermissionsPermissions$17;
-
-  /// `18`
-  @BuiltValueEnumConst(wireName: '18')
-  static const RoomSetPermissionsPermissions $18 = _$roomSetPermissionsPermissions$18;
-
-  /// `19`
-  @BuiltValueEnumConst(wireName: '19')
-  static const RoomSetPermissionsPermissions $19 = _$roomSetPermissionsPermissions$19;
-
-  /// `20`
-  @BuiltValueEnumConst(wireName: '20')
-  static const RoomSetPermissionsPermissions $20 = _$roomSetPermissionsPermissions$20;
-
-  /// `21`
-  @BuiltValueEnumConst(wireName: '21')
-  static const RoomSetPermissionsPermissions $21 = _$roomSetPermissionsPermissions$21;
-
-  /// `22`
-  @BuiltValueEnumConst(wireName: '22')
-  static const RoomSetPermissionsPermissions $22 = _$roomSetPermissionsPermissions$22;
-
-  /// `23`
-  @BuiltValueEnumConst(wireName: '23')
-  static const RoomSetPermissionsPermissions $23 = _$roomSetPermissionsPermissions$23;
-
-  /// `24`
-  @BuiltValueEnumConst(wireName: '24')
-  static const RoomSetPermissionsPermissions $24 = _$roomSetPermissionsPermissions$24;
-
-  /// `25`
-  @BuiltValueEnumConst(wireName: '25')
-  static const RoomSetPermissionsPermissions $25 = _$roomSetPermissionsPermissions$25;
-
-  /// `26`
-  @BuiltValueEnumConst(wireName: '26')
-  static const RoomSetPermissionsPermissions $26 = _$roomSetPermissionsPermissions$26;
-
-  /// `27`
-  @BuiltValueEnumConst(wireName: '27')
-  static const RoomSetPermissionsPermissions $27 = _$roomSetPermissionsPermissions$27;
-
-  /// `28`
-  @BuiltValueEnumConst(wireName: '28')
-  static const RoomSetPermissionsPermissions $28 = _$roomSetPermissionsPermissions$28;
-
-  /// `29`
-  @BuiltValueEnumConst(wireName: '29')
-  static const RoomSetPermissionsPermissions $29 = _$roomSetPermissionsPermissions$29;
-
-  /// `30`
-  @BuiltValueEnumConst(wireName: '30')
-  static const RoomSetPermissionsPermissions $30 = _$roomSetPermissionsPermissions$30;
-
-  /// `31`
-  @BuiltValueEnumConst(wireName: '31')
-  static const RoomSetPermissionsPermissions $31 = _$roomSetPermissionsPermissions$31;
-
-  /// `32`
-  @BuiltValueEnumConst(wireName: '32')
-  static const RoomSetPermissionsPermissions $32 = _$roomSetPermissionsPermissions$32;
-
-  /// `33`
-  @BuiltValueEnumConst(wireName: '33')
-  static const RoomSetPermissionsPermissions $33 = _$roomSetPermissionsPermissions$33;
-
-  /// `34`
-  @BuiltValueEnumConst(wireName: '34')
-  static const RoomSetPermissionsPermissions $34 = _$roomSetPermissionsPermissions$34;
-
-  /// `35`
-  @BuiltValueEnumConst(wireName: '35')
-  static const RoomSetPermissionsPermissions $35 = _$roomSetPermissionsPermissions$35;
-
-  /// `36`
-  @BuiltValueEnumConst(wireName: '36')
-  static const RoomSetPermissionsPermissions $36 = _$roomSetPermissionsPermissions$36;
-
-  /// `37`
-  @BuiltValueEnumConst(wireName: '37')
-  static const RoomSetPermissionsPermissions $37 = _$roomSetPermissionsPermissions$37;
-
-  /// `38`
-  @BuiltValueEnumConst(wireName: '38')
-  static const RoomSetPermissionsPermissions $38 = _$roomSetPermissionsPermissions$38;
-
-  /// `39`
-  @BuiltValueEnumConst(wireName: '39')
-  static const RoomSetPermissionsPermissions $39 = _$roomSetPermissionsPermissions$39;
-
-  /// `40`
-  @BuiltValueEnumConst(wireName: '40')
-  static const RoomSetPermissionsPermissions $40 = _$roomSetPermissionsPermissions$40;
-
-  /// `41`
-  @BuiltValueEnumConst(wireName: '41')
-  static const RoomSetPermissionsPermissions $41 = _$roomSetPermissionsPermissions$41;
-
-  /// `42`
-  @BuiltValueEnumConst(wireName: '42')
-  static const RoomSetPermissionsPermissions $42 = _$roomSetPermissionsPermissions$42;
-
-  /// `43`
-  @BuiltValueEnumConst(wireName: '43')
-  static const RoomSetPermissionsPermissions $43 = _$roomSetPermissionsPermissions$43;
-
-  /// `44`
-  @BuiltValueEnumConst(wireName: '44')
-  static const RoomSetPermissionsPermissions $44 = _$roomSetPermissionsPermissions$44;
-
-  /// `45`
-  @BuiltValueEnumConst(wireName: '45')
-  static const RoomSetPermissionsPermissions $45 = _$roomSetPermissionsPermissions$45;
-
-  /// `46`
-  @BuiltValueEnumConst(wireName: '46')
-  static const RoomSetPermissionsPermissions $46 = _$roomSetPermissionsPermissions$46;
-
-  /// `47`
-  @BuiltValueEnumConst(wireName: '47')
-  static const RoomSetPermissionsPermissions $47 = _$roomSetPermissionsPermissions$47;
-
-  /// `48`
-  @BuiltValueEnumConst(wireName: '48')
-  static const RoomSetPermissionsPermissions $48 = _$roomSetPermissionsPermissions$48;
-
-  /// `49`
-  @BuiltValueEnumConst(wireName: '49')
-  static const RoomSetPermissionsPermissions $49 = _$roomSetPermissionsPermissions$49;
-
-  /// `50`
-  @BuiltValueEnumConst(wireName: '50')
-  static const RoomSetPermissionsPermissions $50 = _$roomSetPermissionsPermissions$50;
-
-  /// `51`
-  @BuiltValueEnumConst(wireName: '51')
-  static const RoomSetPermissionsPermissions $51 = _$roomSetPermissionsPermissions$51;
-
-  /// `52`
-  @BuiltValueEnumConst(wireName: '52')
-  static const RoomSetPermissionsPermissions $52 = _$roomSetPermissionsPermissions$52;
-
-  /// `53`
-  @BuiltValueEnumConst(wireName: '53')
-  static const RoomSetPermissionsPermissions $53 = _$roomSetPermissionsPermissions$53;
-
-  /// `54`
-  @BuiltValueEnumConst(wireName: '54')
-  static const RoomSetPermissionsPermissions $54 = _$roomSetPermissionsPermissions$54;
-
-  /// `55`
-  @BuiltValueEnumConst(wireName: '55')
-  static const RoomSetPermissionsPermissions $55 = _$roomSetPermissionsPermissions$55;
-
-  /// `56`
-  @BuiltValueEnumConst(wireName: '56')
-  static const RoomSetPermissionsPermissions $56 = _$roomSetPermissionsPermissions$56;
-
-  /// `57`
-  @BuiltValueEnumConst(wireName: '57')
-  static const RoomSetPermissionsPermissions $57 = _$roomSetPermissionsPermissions$57;
-
-  /// `58`
-  @BuiltValueEnumConst(wireName: '58')
-  static const RoomSetPermissionsPermissions $58 = _$roomSetPermissionsPermissions$58;
-
-  /// `59`
-  @BuiltValueEnumConst(wireName: '59')
-  static const RoomSetPermissionsPermissions $59 = _$roomSetPermissionsPermissions$59;
-
-  /// `60`
-  @BuiltValueEnumConst(wireName: '60')
-  static const RoomSetPermissionsPermissions $60 = _$roomSetPermissionsPermissions$60;
-
-  /// `61`
-  @BuiltValueEnumConst(wireName: '61')
-  static const RoomSetPermissionsPermissions $61 = _$roomSetPermissionsPermissions$61;
-
-  /// `62`
-  @BuiltValueEnumConst(wireName: '62')
-  static const RoomSetPermissionsPermissions $62 = _$roomSetPermissionsPermissions$62;
-
-  /// `63`
-  @BuiltValueEnumConst(wireName: '63')
-  static const RoomSetPermissionsPermissions $63 = _$roomSetPermissionsPermissions$63;
-
-  /// `64`
-  @BuiltValueEnumConst(wireName: '64')
-  static const RoomSetPermissionsPermissions $64 = _$roomSetPermissionsPermissions$64;
-
-  /// `65`
-  @BuiltValueEnumConst(wireName: '65')
-  static const RoomSetPermissionsPermissions $65 = _$roomSetPermissionsPermissions$65;
-
-  /// `66`
-  @BuiltValueEnumConst(wireName: '66')
-  static const RoomSetPermissionsPermissions $66 = _$roomSetPermissionsPermissions$66;
-
-  /// `67`
-  @BuiltValueEnumConst(wireName: '67')
-  static const RoomSetPermissionsPermissions $67 = _$roomSetPermissionsPermissions$67;
-
-  /// `68`
-  @BuiltValueEnumConst(wireName: '68')
-  static const RoomSetPermissionsPermissions $68 = _$roomSetPermissionsPermissions$68;
-
-  /// `69`
-  @BuiltValueEnumConst(wireName: '69')
-  static const RoomSetPermissionsPermissions $69 = _$roomSetPermissionsPermissions$69;
-
-  /// `70`
-  @BuiltValueEnumConst(wireName: '70')
-  static const RoomSetPermissionsPermissions $70 = _$roomSetPermissionsPermissions$70;
-
-  /// `71`
-  @BuiltValueEnumConst(wireName: '71')
-  static const RoomSetPermissionsPermissions $71 = _$roomSetPermissionsPermissions$71;
-
-  /// `72`
-  @BuiltValueEnumConst(wireName: '72')
-  static const RoomSetPermissionsPermissions $72 = _$roomSetPermissionsPermissions$72;
-
-  /// `73`
-  @BuiltValueEnumConst(wireName: '73')
-  static const RoomSetPermissionsPermissions $73 = _$roomSetPermissionsPermissions$73;
-
-  /// `74`
-  @BuiltValueEnumConst(wireName: '74')
-  static const RoomSetPermissionsPermissions $74 = _$roomSetPermissionsPermissions$74;
-
-  /// `75`
-  @BuiltValueEnumConst(wireName: '75')
-  static const RoomSetPermissionsPermissions $75 = _$roomSetPermissionsPermissions$75;
-
-  /// `76`
-  @BuiltValueEnumConst(wireName: '76')
-  static const RoomSetPermissionsPermissions $76 = _$roomSetPermissionsPermissions$76;
-
-  /// `77`
-  @BuiltValueEnumConst(wireName: '77')
-  static const RoomSetPermissionsPermissions $77 = _$roomSetPermissionsPermissions$77;
-
-  /// `78`
-  @BuiltValueEnumConst(wireName: '78')
-  static const RoomSetPermissionsPermissions $78 = _$roomSetPermissionsPermissions$78;
-
-  /// `79`
-  @BuiltValueEnumConst(wireName: '79')
-  static const RoomSetPermissionsPermissions $79 = _$roomSetPermissionsPermissions$79;
-
-  /// `80`
-  @BuiltValueEnumConst(wireName: '80')
-  static const RoomSetPermissionsPermissions $80 = _$roomSetPermissionsPermissions$80;
-
-  /// `81`
-  @BuiltValueEnumConst(wireName: '81')
-  static const RoomSetPermissionsPermissions $81 = _$roomSetPermissionsPermissions$81;
-
-  /// `82`
-  @BuiltValueEnumConst(wireName: '82')
-  static const RoomSetPermissionsPermissions $82 = _$roomSetPermissionsPermissions$82;
-
-  /// `83`
-  @BuiltValueEnumConst(wireName: '83')
-  static const RoomSetPermissionsPermissions $83 = _$roomSetPermissionsPermissions$83;
-
-  /// `84`
-  @BuiltValueEnumConst(wireName: '84')
-  static const RoomSetPermissionsPermissions $84 = _$roomSetPermissionsPermissions$84;
-
-  /// `85`
-  @BuiltValueEnumConst(wireName: '85')
-  static const RoomSetPermissionsPermissions $85 = _$roomSetPermissionsPermissions$85;
-
-  /// `86`
-  @BuiltValueEnumConst(wireName: '86')
-  static const RoomSetPermissionsPermissions $86 = _$roomSetPermissionsPermissions$86;
-
-  /// `87`
-  @BuiltValueEnumConst(wireName: '87')
-  static const RoomSetPermissionsPermissions $87 = _$roomSetPermissionsPermissions$87;
-
-  /// `88`
-  @BuiltValueEnumConst(wireName: '88')
-  static const RoomSetPermissionsPermissions $88 = _$roomSetPermissionsPermissions$88;
-
-  /// `89`
-  @BuiltValueEnumConst(wireName: '89')
-  static const RoomSetPermissionsPermissions $89 = _$roomSetPermissionsPermissions$89;
-
-  /// `90`
-  @BuiltValueEnumConst(wireName: '90')
-  static const RoomSetPermissionsPermissions $90 = _$roomSetPermissionsPermissions$90;
-
-  /// `91`
-  @BuiltValueEnumConst(wireName: '91')
-  static const RoomSetPermissionsPermissions $91 = _$roomSetPermissionsPermissions$91;
-
-  /// `92`
-  @BuiltValueEnumConst(wireName: '92')
-  static const RoomSetPermissionsPermissions $92 = _$roomSetPermissionsPermissions$92;
-
-  /// `93`
-  @BuiltValueEnumConst(wireName: '93')
-  static const RoomSetPermissionsPermissions $93 = _$roomSetPermissionsPermissions$93;
-
-  /// `94`
-  @BuiltValueEnumConst(wireName: '94')
-  static const RoomSetPermissionsPermissions $94 = _$roomSetPermissionsPermissions$94;
-
-  /// `95`
-  @BuiltValueEnumConst(wireName: '95')
-  static const RoomSetPermissionsPermissions $95 = _$roomSetPermissionsPermissions$95;
-
-  /// `96`
-  @BuiltValueEnumConst(wireName: '96')
-  static const RoomSetPermissionsPermissions $96 = _$roomSetPermissionsPermissions$96;
-
-  /// `97`
-  @BuiltValueEnumConst(wireName: '97')
-  static const RoomSetPermissionsPermissions $97 = _$roomSetPermissionsPermissions$97;
-
-  /// `98`
-  @BuiltValueEnumConst(wireName: '98')
-  static const RoomSetPermissionsPermissions $98 = _$roomSetPermissionsPermissions$98;
-
-  /// `99`
-  @BuiltValueEnumConst(wireName: '99')
-  static const RoomSetPermissionsPermissions $99 = _$roomSetPermissionsPermissions$99;
-
-  /// `100`
-  @BuiltValueEnumConst(wireName: '100')
-  static const RoomSetPermissionsPermissions $100 = _$roomSetPermissionsPermissions$100;
-
-  /// `101`
-  @BuiltValueEnumConst(wireName: '101')
-  static const RoomSetPermissionsPermissions $101 = _$roomSetPermissionsPermissions$101;
-
-  /// `102`
-  @BuiltValueEnumConst(wireName: '102')
-  static const RoomSetPermissionsPermissions $102 = _$roomSetPermissionsPermissions$102;
-
-  /// `103`
-  @BuiltValueEnumConst(wireName: '103')
-  static const RoomSetPermissionsPermissions $103 = _$roomSetPermissionsPermissions$103;
-
-  /// `104`
-  @BuiltValueEnumConst(wireName: '104')
-  static const RoomSetPermissionsPermissions $104 = _$roomSetPermissionsPermissions$104;
-
-  /// `105`
-  @BuiltValueEnumConst(wireName: '105')
-  static const RoomSetPermissionsPermissions $105 = _$roomSetPermissionsPermissions$105;
-
-  /// `106`
-  @BuiltValueEnumConst(wireName: '106')
-  static const RoomSetPermissionsPermissions $106 = _$roomSetPermissionsPermissions$106;
-
-  /// `107`
-  @BuiltValueEnumConst(wireName: '107')
-  static const RoomSetPermissionsPermissions $107 = _$roomSetPermissionsPermissions$107;
-
-  /// `108`
-  @BuiltValueEnumConst(wireName: '108')
-  static const RoomSetPermissionsPermissions $108 = _$roomSetPermissionsPermissions$108;
-
-  /// `109`
-  @BuiltValueEnumConst(wireName: '109')
-  static const RoomSetPermissionsPermissions $109 = _$roomSetPermissionsPermissions$109;
-
-  /// `110`
-  @BuiltValueEnumConst(wireName: '110')
-  static const RoomSetPermissionsPermissions $110 = _$roomSetPermissionsPermissions$110;
-
-  /// `111`
-  @BuiltValueEnumConst(wireName: '111')
-  static const RoomSetPermissionsPermissions $111 = _$roomSetPermissionsPermissions$111;
-
-  /// `112`
-  @BuiltValueEnumConst(wireName: '112')
-  static const RoomSetPermissionsPermissions $112 = _$roomSetPermissionsPermissions$112;
-
-  /// `113`
-  @BuiltValueEnumConst(wireName: '113')
-  static const RoomSetPermissionsPermissions $113 = _$roomSetPermissionsPermissions$113;
-
-  /// `114`
-  @BuiltValueEnumConst(wireName: '114')
-  static const RoomSetPermissionsPermissions $114 = _$roomSetPermissionsPermissions$114;
-
-  /// `115`
-  @BuiltValueEnumConst(wireName: '115')
-  static const RoomSetPermissionsPermissions $115 = _$roomSetPermissionsPermissions$115;
-
-  /// `116`
-  @BuiltValueEnumConst(wireName: '116')
-  static const RoomSetPermissionsPermissions $116 = _$roomSetPermissionsPermissions$116;
-
-  /// `117`
-  @BuiltValueEnumConst(wireName: '117')
-  static const RoomSetPermissionsPermissions $117 = _$roomSetPermissionsPermissions$117;
-
-  /// `118`
-  @BuiltValueEnumConst(wireName: '118')
-  static const RoomSetPermissionsPermissions $118 = _$roomSetPermissionsPermissions$118;
-
-  /// `119`
-  @BuiltValueEnumConst(wireName: '119')
-  static const RoomSetPermissionsPermissions $119 = _$roomSetPermissionsPermissions$119;
-
-  /// `120`
-  @BuiltValueEnumConst(wireName: '120')
-  static const RoomSetPermissionsPermissions $120 = _$roomSetPermissionsPermissions$120;
-
-  /// `121`
-  @BuiltValueEnumConst(wireName: '121')
-  static const RoomSetPermissionsPermissions $121 = _$roomSetPermissionsPermissions$121;
-
-  /// `122`
-  @BuiltValueEnumConst(wireName: '122')
-  static const RoomSetPermissionsPermissions $122 = _$roomSetPermissionsPermissions$122;
-
-  /// `123`
-  @BuiltValueEnumConst(wireName: '123')
-  static const RoomSetPermissionsPermissions $123 = _$roomSetPermissionsPermissions$123;
-
-  /// `124`
-  @BuiltValueEnumConst(wireName: '124')
-  static const RoomSetPermissionsPermissions $124 = _$roomSetPermissionsPermissions$124;
-
-  /// `125`
-  @BuiltValueEnumConst(wireName: '125')
-  static const RoomSetPermissionsPermissions $125 = _$roomSetPermissionsPermissions$125;
-
-  /// `126`
-  @BuiltValueEnumConst(wireName: '126')
-  static const RoomSetPermissionsPermissions $126 = _$roomSetPermissionsPermissions$126;
-
-  /// `127`
-  @BuiltValueEnumConst(wireName: '127')
-  static const RoomSetPermissionsPermissions $127 = _$roomSetPermissionsPermissions$127;
-
-  /// `128`
-  @BuiltValueEnumConst(wireName: '128')
-  static const RoomSetPermissionsPermissions $128 = _$roomSetPermissionsPermissions$128;
-
-  /// `129`
-  @BuiltValueEnumConst(wireName: '129')
-  static const RoomSetPermissionsPermissions $129 = _$roomSetPermissionsPermissions$129;
-
-  /// `130`
-  @BuiltValueEnumConst(wireName: '130')
-  static const RoomSetPermissionsPermissions $130 = _$roomSetPermissionsPermissions$130;
-
-  /// `131`
-  @BuiltValueEnumConst(wireName: '131')
-  static const RoomSetPermissionsPermissions $131 = _$roomSetPermissionsPermissions$131;
-
-  /// `132`
-  @BuiltValueEnumConst(wireName: '132')
-  static const RoomSetPermissionsPermissions $132 = _$roomSetPermissionsPermissions$132;
-
-  /// `133`
-  @BuiltValueEnumConst(wireName: '133')
-  static const RoomSetPermissionsPermissions $133 = _$roomSetPermissionsPermissions$133;
-
-  /// `134`
-  @BuiltValueEnumConst(wireName: '134')
-  static const RoomSetPermissionsPermissions $134 = _$roomSetPermissionsPermissions$134;
-
-  /// `135`
-  @BuiltValueEnumConst(wireName: '135')
-  static const RoomSetPermissionsPermissions $135 = _$roomSetPermissionsPermissions$135;
-
-  /// `136`
-  @BuiltValueEnumConst(wireName: '136')
-  static const RoomSetPermissionsPermissions $136 = _$roomSetPermissionsPermissions$136;
-
-  /// `137`
-  @BuiltValueEnumConst(wireName: '137')
-  static const RoomSetPermissionsPermissions $137 = _$roomSetPermissionsPermissions$137;
-
-  /// `138`
-  @BuiltValueEnumConst(wireName: '138')
-  static const RoomSetPermissionsPermissions $138 = _$roomSetPermissionsPermissions$138;
-
-  /// `139`
-  @BuiltValueEnumConst(wireName: '139')
-  static const RoomSetPermissionsPermissions $139 = _$roomSetPermissionsPermissions$139;
-
-  /// `140`
-  @BuiltValueEnumConst(wireName: '140')
-  static const RoomSetPermissionsPermissions $140 = _$roomSetPermissionsPermissions$140;
-
-  /// `141`
-  @BuiltValueEnumConst(wireName: '141')
-  static const RoomSetPermissionsPermissions $141 = _$roomSetPermissionsPermissions$141;
-
-  /// `142`
-  @BuiltValueEnumConst(wireName: '142')
-  static const RoomSetPermissionsPermissions $142 = _$roomSetPermissionsPermissions$142;
-
-  /// `143`
-  @BuiltValueEnumConst(wireName: '143')
-  static const RoomSetPermissionsPermissions $143 = _$roomSetPermissionsPermissions$143;
-
-  /// `144`
-  @BuiltValueEnumConst(wireName: '144')
-  static const RoomSetPermissionsPermissions $144 = _$roomSetPermissionsPermissions$144;
-
-  /// `145`
-  @BuiltValueEnumConst(wireName: '145')
-  static const RoomSetPermissionsPermissions $145 = _$roomSetPermissionsPermissions$145;
-
-  /// `146`
-  @BuiltValueEnumConst(wireName: '146')
-  static const RoomSetPermissionsPermissions $146 = _$roomSetPermissionsPermissions$146;
-
-  /// `147`
-  @BuiltValueEnumConst(wireName: '147')
-  static const RoomSetPermissionsPermissions $147 = _$roomSetPermissionsPermissions$147;
-
-  /// `148`
-  @BuiltValueEnumConst(wireName: '148')
-  static const RoomSetPermissionsPermissions $148 = _$roomSetPermissionsPermissions$148;
-
-  /// `149`
-  @BuiltValueEnumConst(wireName: '149')
-  static const RoomSetPermissionsPermissions $149 = _$roomSetPermissionsPermissions$149;
-
-  /// `150`
-  @BuiltValueEnumConst(wireName: '150')
-  static const RoomSetPermissionsPermissions $150 = _$roomSetPermissionsPermissions$150;
-
-  /// `151`
-  @BuiltValueEnumConst(wireName: '151')
-  static const RoomSetPermissionsPermissions $151 = _$roomSetPermissionsPermissions$151;
-
-  /// `152`
-  @BuiltValueEnumConst(wireName: '152')
-  static const RoomSetPermissionsPermissions $152 = _$roomSetPermissionsPermissions$152;
-
-  /// `153`
-  @BuiltValueEnumConst(wireName: '153')
-  static const RoomSetPermissionsPermissions $153 = _$roomSetPermissionsPermissions$153;
-
-  /// `154`
-  @BuiltValueEnumConst(wireName: '154')
-  static const RoomSetPermissionsPermissions $154 = _$roomSetPermissionsPermissions$154;
-
-  /// `155`
-  @BuiltValueEnumConst(wireName: '155')
-  static const RoomSetPermissionsPermissions $155 = _$roomSetPermissionsPermissions$155;
-
-  /// `156`
-  @BuiltValueEnumConst(wireName: '156')
-  static const RoomSetPermissionsPermissions $156 = _$roomSetPermissionsPermissions$156;
-
-  /// `157`
-  @BuiltValueEnumConst(wireName: '157')
-  static const RoomSetPermissionsPermissions $157 = _$roomSetPermissionsPermissions$157;
-
-  /// `158`
-  @BuiltValueEnumConst(wireName: '158')
-  static const RoomSetPermissionsPermissions $158 = _$roomSetPermissionsPermissions$158;
-
-  /// `159`
-  @BuiltValueEnumConst(wireName: '159')
-  static const RoomSetPermissionsPermissions $159 = _$roomSetPermissionsPermissions$159;
-
-  /// `160`
-  @BuiltValueEnumConst(wireName: '160')
-  static const RoomSetPermissionsPermissions $160 = _$roomSetPermissionsPermissions$160;
-
-  /// `161`
-  @BuiltValueEnumConst(wireName: '161')
-  static const RoomSetPermissionsPermissions $161 = _$roomSetPermissionsPermissions$161;
-
-  /// `162`
-  @BuiltValueEnumConst(wireName: '162')
-  static const RoomSetPermissionsPermissions $162 = _$roomSetPermissionsPermissions$162;
-
-  /// `163`
-  @BuiltValueEnumConst(wireName: '163')
-  static const RoomSetPermissionsPermissions $163 = _$roomSetPermissionsPermissions$163;
-
-  /// `164`
-  @BuiltValueEnumConst(wireName: '164')
-  static const RoomSetPermissionsPermissions $164 = _$roomSetPermissionsPermissions$164;
-
-  /// `165`
-  @BuiltValueEnumConst(wireName: '165')
-  static const RoomSetPermissionsPermissions $165 = _$roomSetPermissionsPermissions$165;
-
-  /// `166`
-  @BuiltValueEnumConst(wireName: '166')
-  static const RoomSetPermissionsPermissions $166 = _$roomSetPermissionsPermissions$166;
-
-  /// `167`
-  @BuiltValueEnumConst(wireName: '167')
-  static const RoomSetPermissionsPermissions $167 = _$roomSetPermissionsPermissions$167;
-
-  /// `168`
-  @BuiltValueEnumConst(wireName: '168')
-  static const RoomSetPermissionsPermissions $168 = _$roomSetPermissionsPermissions$168;
-
-  /// `169`
-  @BuiltValueEnumConst(wireName: '169')
-  static const RoomSetPermissionsPermissions $169 = _$roomSetPermissionsPermissions$169;
-
-  /// `170`
-  @BuiltValueEnumConst(wireName: '170')
-  static const RoomSetPermissionsPermissions $170 = _$roomSetPermissionsPermissions$170;
-
-  /// `171`
-  @BuiltValueEnumConst(wireName: '171')
-  static const RoomSetPermissionsPermissions $171 = _$roomSetPermissionsPermissions$171;
-
-  /// `172`
-  @BuiltValueEnumConst(wireName: '172')
-  static const RoomSetPermissionsPermissions $172 = _$roomSetPermissionsPermissions$172;
-
-  /// `173`
-  @BuiltValueEnumConst(wireName: '173')
-  static const RoomSetPermissionsPermissions $173 = _$roomSetPermissionsPermissions$173;
-
-  /// `174`
-  @BuiltValueEnumConst(wireName: '174')
-  static const RoomSetPermissionsPermissions $174 = _$roomSetPermissionsPermissions$174;
-
-  /// `175`
-  @BuiltValueEnumConst(wireName: '175')
-  static const RoomSetPermissionsPermissions $175 = _$roomSetPermissionsPermissions$175;
-
-  /// `176`
-  @BuiltValueEnumConst(wireName: '176')
-  static const RoomSetPermissionsPermissions $176 = _$roomSetPermissionsPermissions$176;
-
-  /// `177`
-  @BuiltValueEnumConst(wireName: '177')
-  static const RoomSetPermissionsPermissions $177 = _$roomSetPermissionsPermissions$177;
-
-  /// `178`
-  @BuiltValueEnumConst(wireName: '178')
-  static const RoomSetPermissionsPermissions $178 = _$roomSetPermissionsPermissions$178;
-
-  /// `179`
-  @BuiltValueEnumConst(wireName: '179')
-  static const RoomSetPermissionsPermissions $179 = _$roomSetPermissionsPermissions$179;
-
-  /// `180`
-  @BuiltValueEnumConst(wireName: '180')
-  static const RoomSetPermissionsPermissions $180 = _$roomSetPermissionsPermissions$180;
-
-  /// `181`
-  @BuiltValueEnumConst(wireName: '181')
-  static const RoomSetPermissionsPermissions $181 = _$roomSetPermissionsPermissions$181;
-
-  /// `182`
-  @BuiltValueEnumConst(wireName: '182')
-  static const RoomSetPermissionsPermissions $182 = _$roomSetPermissionsPermissions$182;
-
-  /// `183`
-  @BuiltValueEnumConst(wireName: '183')
-  static const RoomSetPermissionsPermissions $183 = _$roomSetPermissionsPermissions$183;
-
-  /// `184`
-  @BuiltValueEnumConst(wireName: '184')
-  static const RoomSetPermissionsPermissions $184 = _$roomSetPermissionsPermissions$184;
-
-  /// `185`
-  @BuiltValueEnumConst(wireName: '185')
-  static const RoomSetPermissionsPermissions $185 = _$roomSetPermissionsPermissions$185;
-
-  /// `186`
-  @BuiltValueEnumConst(wireName: '186')
-  static const RoomSetPermissionsPermissions $186 = _$roomSetPermissionsPermissions$186;
-
-  /// `187`
-  @BuiltValueEnumConst(wireName: '187')
-  static const RoomSetPermissionsPermissions $187 = _$roomSetPermissionsPermissions$187;
-
-  /// `188`
-  @BuiltValueEnumConst(wireName: '188')
-  static const RoomSetPermissionsPermissions $188 = _$roomSetPermissionsPermissions$188;
-
-  /// `189`
-  @BuiltValueEnumConst(wireName: '189')
-  static const RoomSetPermissionsPermissions $189 = _$roomSetPermissionsPermissions$189;
-
-  /// `190`
-  @BuiltValueEnumConst(wireName: '190')
-  static const RoomSetPermissionsPermissions $190 = _$roomSetPermissionsPermissions$190;
-
-  /// `191`
-  @BuiltValueEnumConst(wireName: '191')
-  static const RoomSetPermissionsPermissions $191 = _$roomSetPermissionsPermissions$191;
-
-  /// `192`
-  @BuiltValueEnumConst(wireName: '192')
-  static const RoomSetPermissionsPermissions $192 = _$roomSetPermissionsPermissions$192;
-
-  /// `193`
-  @BuiltValueEnumConst(wireName: '193')
-  static const RoomSetPermissionsPermissions $193 = _$roomSetPermissionsPermissions$193;
-
-  /// `194`
-  @BuiltValueEnumConst(wireName: '194')
-  static const RoomSetPermissionsPermissions $194 = _$roomSetPermissionsPermissions$194;
-
-  /// `195`
-  @BuiltValueEnumConst(wireName: '195')
-  static const RoomSetPermissionsPermissions $195 = _$roomSetPermissionsPermissions$195;
-
-  /// `196`
-  @BuiltValueEnumConst(wireName: '196')
-  static const RoomSetPermissionsPermissions $196 = _$roomSetPermissionsPermissions$196;
-
-  /// `197`
-  @BuiltValueEnumConst(wireName: '197')
-  static const RoomSetPermissionsPermissions $197 = _$roomSetPermissionsPermissions$197;
-
-  /// `198`
-  @BuiltValueEnumConst(wireName: '198')
-  static const RoomSetPermissionsPermissions $198 = _$roomSetPermissionsPermissions$198;
-
-  /// `199`
-  @BuiltValueEnumConst(wireName: '199')
-  static const RoomSetPermissionsPermissions $199 = _$roomSetPermissionsPermissions$199;
-
-  /// `200`
-  @BuiltValueEnumConst(wireName: '200')
-  static const RoomSetPermissionsPermissions $200 = _$roomSetPermissionsPermissions$200;
-
-  /// `201`
-  @BuiltValueEnumConst(wireName: '201')
-  static const RoomSetPermissionsPermissions $201 = _$roomSetPermissionsPermissions$201;
-
-  /// `202`
-  @BuiltValueEnumConst(wireName: '202')
-  static const RoomSetPermissionsPermissions $202 = _$roomSetPermissionsPermissions$202;
-
-  /// `203`
-  @BuiltValueEnumConst(wireName: '203')
-  static const RoomSetPermissionsPermissions $203 = _$roomSetPermissionsPermissions$203;
-
-  /// `204`
-  @BuiltValueEnumConst(wireName: '204')
-  static const RoomSetPermissionsPermissions $204 = _$roomSetPermissionsPermissions$204;
-
-  /// `205`
-  @BuiltValueEnumConst(wireName: '205')
-  static const RoomSetPermissionsPermissions $205 = _$roomSetPermissionsPermissions$205;
-
-  /// `206`
-  @BuiltValueEnumConst(wireName: '206')
-  static const RoomSetPermissionsPermissions $206 = _$roomSetPermissionsPermissions$206;
-
-  /// `207`
-  @BuiltValueEnumConst(wireName: '207')
-  static const RoomSetPermissionsPermissions $207 = _$roomSetPermissionsPermissions$207;
-
-  /// `208`
-  @BuiltValueEnumConst(wireName: '208')
-  static const RoomSetPermissionsPermissions $208 = _$roomSetPermissionsPermissions$208;
-
-  /// `209`
-  @BuiltValueEnumConst(wireName: '209')
-  static const RoomSetPermissionsPermissions $209 = _$roomSetPermissionsPermissions$209;
-
-  /// `210`
-  @BuiltValueEnumConst(wireName: '210')
-  static const RoomSetPermissionsPermissions $210 = _$roomSetPermissionsPermissions$210;
-
-  /// `211`
-  @BuiltValueEnumConst(wireName: '211')
-  static const RoomSetPermissionsPermissions $211 = _$roomSetPermissionsPermissions$211;
-
-  /// `212`
-  @BuiltValueEnumConst(wireName: '212')
-  static const RoomSetPermissionsPermissions $212 = _$roomSetPermissionsPermissions$212;
-
-  /// `213`
-  @BuiltValueEnumConst(wireName: '213')
-  static const RoomSetPermissionsPermissions $213 = _$roomSetPermissionsPermissions$213;
-
-  /// `214`
-  @BuiltValueEnumConst(wireName: '214')
-  static const RoomSetPermissionsPermissions $214 = _$roomSetPermissionsPermissions$214;
-
-  /// `215`
-  @BuiltValueEnumConst(wireName: '215')
-  static const RoomSetPermissionsPermissions $215 = _$roomSetPermissionsPermissions$215;
-
-  /// `216`
-  @BuiltValueEnumConst(wireName: '216')
-  static const RoomSetPermissionsPermissions $216 = _$roomSetPermissionsPermissions$216;
-
-  /// `217`
-  @BuiltValueEnumConst(wireName: '217')
-  static const RoomSetPermissionsPermissions $217 = _$roomSetPermissionsPermissions$217;
-
-  /// `218`
-  @BuiltValueEnumConst(wireName: '218')
-  static const RoomSetPermissionsPermissions $218 = _$roomSetPermissionsPermissions$218;
-
-  /// `219`
-  @BuiltValueEnumConst(wireName: '219')
-  static const RoomSetPermissionsPermissions $219 = _$roomSetPermissionsPermissions$219;
-
-  /// `220`
-  @BuiltValueEnumConst(wireName: '220')
-  static const RoomSetPermissionsPermissions $220 = _$roomSetPermissionsPermissions$220;
-
-  /// `221`
-  @BuiltValueEnumConst(wireName: '221')
-  static const RoomSetPermissionsPermissions $221 = _$roomSetPermissionsPermissions$221;
-
-  /// `222`
-  @BuiltValueEnumConst(wireName: '222')
-  static const RoomSetPermissionsPermissions $222 = _$roomSetPermissionsPermissions$222;
-
-  /// `223`
-  @BuiltValueEnumConst(wireName: '223')
-  static const RoomSetPermissionsPermissions $223 = _$roomSetPermissionsPermissions$223;
-
-  /// `224`
-  @BuiltValueEnumConst(wireName: '224')
-  static const RoomSetPermissionsPermissions $224 = _$roomSetPermissionsPermissions$224;
-
-  /// `225`
-  @BuiltValueEnumConst(wireName: '225')
-  static const RoomSetPermissionsPermissions $225 = _$roomSetPermissionsPermissions$225;
-
-  /// `226`
-  @BuiltValueEnumConst(wireName: '226')
-  static const RoomSetPermissionsPermissions $226 = _$roomSetPermissionsPermissions$226;
-
-  /// `227`
-  @BuiltValueEnumConst(wireName: '227')
-  static const RoomSetPermissionsPermissions $227 = _$roomSetPermissionsPermissions$227;
-
-  /// `228`
-  @BuiltValueEnumConst(wireName: '228')
-  static const RoomSetPermissionsPermissions $228 = _$roomSetPermissionsPermissions$228;
-
-  /// `229`
-  @BuiltValueEnumConst(wireName: '229')
-  static const RoomSetPermissionsPermissions $229 = _$roomSetPermissionsPermissions$229;
-
-  /// `230`
-  @BuiltValueEnumConst(wireName: '230')
-  static const RoomSetPermissionsPermissions $230 = _$roomSetPermissionsPermissions$230;
-
-  /// `231`
-  @BuiltValueEnumConst(wireName: '231')
-  static const RoomSetPermissionsPermissions $231 = _$roomSetPermissionsPermissions$231;
-
-  /// `232`
-  @BuiltValueEnumConst(wireName: '232')
-  static const RoomSetPermissionsPermissions $232 = _$roomSetPermissionsPermissions$232;
-
-  /// `233`
-  @BuiltValueEnumConst(wireName: '233')
-  static const RoomSetPermissionsPermissions $233 = _$roomSetPermissionsPermissions$233;
-
-  /// `234`
-  @BuiltValueEnumConst(wireName: '234')
-  static const RoomSetPermissionsPermissions $234 = _$roomSetPermissionsPermissions$234;
-
-  /// `235`
-  @BuiltValueEnumConst(wireName: '235')
-  static const RoomSetPermissionsPermissions $235 = _$roomSetPermissionsPermissions$235;
-
-  /// `236`
-  @BuiltValueEnumConst(wireName: '236')
-  static const RoomSetPermissionsPermissions $236 = _$roomSetPermissionsPermissions$236;
-
-  /// `237`
-  @BuiltValueEnumConst(wireName: '237')
-  static const RoomSetPermissionsPermissions $237 = _$roomSetPermissionsPermissions$237;
-
-  /// `238`
-  @BuiltValueEnumConst(wireName: '238')
-  static const RoomSetPermissionsPermissions $238 = _$roomSetPermissionsPermissions$238;
-
-  /// `239`
-  @BuiltValueEnumConst(wireName: '239')
-  static const RoomSetPermissionsPermissions $239 = _$roomSetPermissionsPermissions$239;
-
-  /// `240`
-  @BuiltValueEnumConst(wireName: '240')
-  static const RoomSetPermissionsPermissions $240 = _$roomSetPermissionsPermissions$240;
-
-  /// `241`
-  @BuiltValueEnumConst(wireName: '241')
-  static const RoomSetPermissionsPermissions $241 = _$roomSetPermissionsPermissions$241;
-
-  /// `242`
-  @BuiltValueEnumConst(wireName: '242')
-  static const RoomSetPermissionsPermissions $242 = _$roomSetPermissionsPermissions$242;
-
-  /// `243`
-  @BuiltValueEnumConst(wireName: '243')
-  static const RoomSetPermissionsPermissions $243 = _$roomSetPermissionsPermissions$243;
-
-  /// `244`
-  @BuiltValueEnumConst(wireName: '244')
-  static const RoomSetPermissionsPermissions $244 = _$roomSetPermissionsPermissions$244;
-
-  /// `245`
-  @BuiltValueEnumConst(wireName: '245')
-  static const RoomSetPermissionsPermissions $245 = _$roomSetPermissionsPermissions$245;
-
-  /// `246`
-  @BuiltValueEnumConst(wireName: '246')
-  static const RoomSetPermissionsPermissions $246 = _$roomSetPermissionsPermissions$246;
-
-  /// `247`
-  @BuiltValueEnumConst(wireName: '247')
-  static const RoomSetPermissionsPermissions $247 = _$roomSetPermissionsPermissions$247;
-
-  /// `248`
-  @BuiltValueEnumConst(wireName: '248')
-  static const RoomSetPermissionsPermissions $248 = _$roomSetPermissionsPermissions$248;
-
-  /// `249`
-  @BuiltValueEnumConst(wireName: '249')
-  static const RoomSetPermissionsPermissions $249 = _$roomSetPermissionsPermissions$249;
-
-  /// `250`
-  @BuiltValueEnumConst(wireName: '250')
-  static const RoomSetPermissionsPermissions $250 = _$roomSetPermissionsPermissions$250;
-
-  /// `251`
-  @BuiltValueEnumConst(wireName: '251')
-  static const RoomSetPermissionsPermissions $251 = _$roomSetPermissionsPermissions$251;
-
-  /// `252`
-  @BuiltValueEnumConst(wireName: '252')
-  static const RoomSetPermissionsPermissions $252 = _$roomSetPermissionsPermissions$252;
-
-  /// `253`
-  @BuiltValueEnumConst(wireName: '253')
-  static const RoomSetPermissionsPermissions $253 = _$roomSetPermissionsPermissions$253;
-
-  /// `254`
-  @BuiltValueEnumConst(wireName: '254')
-  static const RoomSetPermissionsPermissions $254 = _$roomSetPermissionsPermissions$254;
-
-  /// `255`
-  @BuiltValueEnumConst(wireName: '255')
-  static const RoomSetPermissionsPermissions $255 = _$roomSetPermissionsPermissions$255;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RoomSetPermissionsPermissions> get values => _$roomSetPermissionsPermissionsValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RoomSetPermissionsPermissions valueOf(String name) => _$valueOfRoomSetPermissionsPermissions(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for RoomSetPermissionsPermissions.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomSetPermissionsPermissions> get serializer => const _$RoomSetPermissionsPermissionsSerializer();
-}
-
-class _$RoomSetPermissionsPermissionsSerializer implements PrimitiveSerializer<RoomSetPermissionsPermissions> {
-  const _$RoomSetPermissionsPermissionsSerializer();
-
-  static const Map<RoomSetPermissionsPermissions, Object> _toWire = <RoomSetPermissionsPermissions, Object>{
-    RoomSetPermissionsPermissions.$0: 0,
-    RoomSetPermissionsPermissions.$1: 1,
-    RoomSetPermissionsPermissions.$2: 2,
-    RoomSetPermissionsPermissions.$3: 3,
-    RoomSetPermissionsPermissions.$4: 4,
-    RoomSetPermissionsPermissions.$5: 5,
-    RoomSetPermissionsPermissions.$6: 6,
-    RoomSetPermissionsPermissions.$7: 7,
-    RoomSetPermissionsPermissions.$8: 8,
-    RoomSetPermissionsPermissions.$9: 9,
-    RoomSetPermissionsPermissions.$10: 10,
-    RoomSetPermissionsPermissions.$11: 11,
-    RoomSetPermissionsPermissions.$12: 12,
-    RoomSetPermissionsPermissions.$13: 13,
-    RoomSetPermissionsPermissions.$14: 14,
-    RoomSetPermissionsPermissions.$15: 15,
-    RoomSetPermissionsPermissions.$16: 16,
-    RoomSetPermissionsPermissions.$17: 17,
-    RoomSetPermissionsPermissions.$18: 18,
-    RoomSetPermissionsPermissions.$19: 19,
-    RoomSetPermissionsPermissions.$20: 20,
-    RoomSetPermissionsPermissions.$21: 21,
-    RoomSetPermissionsPermissions.$22: 22,
-    RoomSetPermissionsPermissions.$23: 23,
-    RoomSetPermissionsPermissions.$24: 24,
-    RoomSetPermissionsPermissions.$25: 25,
-    RoomSetPermissionsPermissions.$26: 26,
-    RoomSetPermissionsPermissions.$27: 27,
-    RoomSetPermissionsPermissions.$28: 28,
-    RoomSetPermissionsPermissions.$29: 29,
-    RoomSetPermissionsPermissions.$30: 30,
-    RoomSetPermissionsPermissions.$31: 31,
-    RoomSetPermissionsPermissions.$32: 32,
-    RoomSetPermissionsPermissions.$33: 33,
-    RoomSetPermissionsPermissions.$34: 34,
-    RoomSetPermissionsPermissions.$35: 35,
-    RoomSetPermissionsPermissions.$36: 36,
-    RoomSetPermissionsPermissions.$37: 37,
-    RoomSetPermissionsPermissions.$38: 38,
-    RoomSetPermissionsPermissions.$39: 39,
-    RoomSetPermissionsPermissions.$40: 40,
-    RoomSetPermissionsPermissions.$41: 41,
-    RoomSetPermissionsPermissions.$42: 42,
-    RoomSetPermissionsPermissions.$43: 43,
-    RoomSetPermissionsPermissions.$44: 44,
-    RoomSetPermissionsPermissions.$45: 45,
-    RoomSetPermissionsPermissions.$46: 46,
-    RoomSetPermissionsPermissions.$47: 47,
-    RoomSetPermissionsPermissions.$48: 48,
-    RoomSetPermissionsPermissions.$49: 49,
-    RoomSetPermissionsPermissions.$50: 50,
-    RoomSetPermissionsPermissions.$51: 51,
-    RoomSetPermissionsPermissions.$52: 52,
-    RoomSetPermissionsPermissions.$53: 53,
-    RoomSetPermissionsPermissions.$54: 54,
-    RoomSetPermissionsPermissions.$55: 55,
-    RoomSetPermissionsPermissions.$56: 56,
-    RoomSetPermissionsPermissions.$57: 57,
-    RoomSetPermissionsPermissions.$58: 58,
-    RoomSetPermissionsPermissions.$59: 59,
-    RoomSetPermissionsPermissions.$60: 60,
-    RoomSetPermissionsPermissions.$61: 61,
-    RoomSetPermissionsPermissions.$62: 62,
-    RoomSetPermissionsPermissions.$63: 63,
-    RoomSetPermissionsPermissions.$64: 64,
-    RoomSetPermissionsPermissions.$65: 65,
-    RoomSetPermissionsPermissions.$66: 66,
-    RoomSetPermissionsPermissions.$67: 67,
-    RoomSetPermissionsPermissions.$68: 68,
-    RoomSetPermissionsPermissions.$69: 69,
-    RoomSetPermissionsPermissions.$70: 70,
-    RoomSetPermissionsPermissions.$71: 71,
-    RoomSetPermissionsPermissions.$72: 72,
-    RoomSetPermissionsPermissions.$73: 73,
-    RoomSetPermissionsPermissions.$74: 74,
-    RoomSetPermissionsPermissions.$75: 75,
-    RoomSetPermissionsPermissions.$76: 76,
-    RoomSetPermissionsPermissions.$77: 77,
-    RoomSetPermissionsPermissions.$78: 78,
-    RoomSetPermissionsPermissions.$79: 79,
-    RoomSetPermissionsPermissions.$80: 80,
-    RoomSetPermissionsPermissions.$81: 81,
-    RoomSetPermissionsPermissions.$82: 82,
-    RoomSetPermissionsPermissions.$83: 83,
-    RoomSetPermissionsPermissions.$84: 84,
-    RoomSetPermissionsPermissions.$85: 85,
-    RoomSetPermissionsPermissions.$86: 86,
-    RoomSetPermissionsPermissions.$87: 87,
-    RoomSetPermissionsPermissions.$88: 88,
-    RoomSetPermissionsPermissions.$89: 89,
-    RoomSetPermissionsPermissions.$90: 90,
-    RoomSetPermissionsPermissions.$91: 91,
-    RoomSetPermissionsPermissions.$92: 92,
-    RoomSetPermissionsPermissions.$93: 93,
-    RoomSetPermissionsPermissions.$94: 94,
-    RoomSetPermissionsPermissions.$95: 95,
-    RoomSetPermissionsPermissions.$96: 96,
-    RoomSetPermissionsPermissions.$97: 97,
-    RoomSetPermissionsPermissions.$98: 98,
-    RoomSetPermissionsPermissions.$99: 99,
-    RoomSetPermissionsPermissions.$100: 100,
-    RoomSetPermissionsPermissions.$101: 101,
-    RoomSetPermissionsPermissions.$102: 102,
-    RoomSetPermissionsPermissions.$103: 103,
-    RoomSetPermissionsPermissions.$104: 104,
-    RoomSetPermissionsPermissions.$105: 105,
-    RoomSetPermissionsPermissions.$106: 106,
-    RoomSetPermissionsPermissions.$107: 107,
-    RoomSetPermissionsPermissions.$108: 108,
-    RoomSetPermissionsPermissions.$109: 109,
-    RoomSetPermissionsPermissions.$110: 110,
-    RoomSetPermissionsPermissions.$111: 111,
-    RoomSetPermissionsPermissions.$112: 112,
-    RoomSetPermissionsPermissions.$113: 113,
-    RoomSetPermissionsPermissions.$114: 114,
-    RoomSetPermissionsPermissions.$115: 115,
-    RoomSetPermissionsPermissions.$116: 116,
-    RoomSetPermissionsPermissions.$117: 117,
-    RoomSetPermissionsPermissions.$118: 118,
-    RoomSetPermissionsPermissions.$119: 119,
-    RoomSetPermissionsPermissions.$120: 120,
-    RoomSetPermissionsPermissions.$121: 121,
-    RoomSetPermissionsPermissions.$122: 122,
-    RoomSetPermissionsPermissions.$123: 123,
-    RoomSetPermissionsPermissions.$124: 124,
-    RoomSetPermissionsPermissions.$125: 125,
-    RoomSetPermissionsPermissions.$126: 126,
-    RoomSetPermissionsPermissions.$127: 127,
-    RoomSetPermissionsPermissions.$128: 128,
-    RoomSetPermissionsPermissions.$129: 129,
-    RoomSetPermissionsPermissions.$130: 130,
-    RoomSetPermissionsPermissions.$131: 131,
-    RoomSetPermissionsPermissions.$132: 132,
-    RoomSetPermissionsPermissions.$133: 133,
-    RoomSetPermissionsPermissions.$134: 134,
-    RoomSetPermissionsPermissions.$135: 135,
-    RoomSetPermissionsPermissions.$136: 136,
-    RoomSetPermissionsPermissions.$137: 137,
-    RoomSetPermissionsPermissions.$138: 138,
-    RoomSetPermissionsPermissions.$139: 139,
-    RoomSetPermissionsPermissions.$140: 140,
-    RoomSetPermissionsPermissions.$141: 141,
-    RoomSetPermissionsPermissions.$142: 142,
-    RoomSetPermissionsPermissions.$143: 143,
-    RoomSetPermissionsPermissions.$144: 144,
-    RoomSetPermissionsPermissions.$145: 145,
-    RoomSetPermissionsPermissions.$146: 146,
-    RoomSetPermissionsPermissions.$147: 147,
-    RoomSetPermissionsPermissions.$148: 148,
-    RoomSetPermissionsPermissions.$149: 149,
-    RoomSetPermissionsPermissions.$150: 150,
-    RoomSetPermissionsPermissions.$151: 151,
-    RoomSetPermissionsPermissions.$152: 152,
-    RoomSetPermissionsPermissions.$153: 153,
-    RoomSetPermissionsPermissions.$154: 154,
-    RoomSetPermissionsPermissions.$155: 155,
-    RoomSetPermissionsPermissions.$156: 156,
-    RoomSetPermissionsPermissions.$157: 157,
-    RoomSetPermissionsPermissions.$158: 158,
-    RoomSetPermissionsPermissions.$159: 159,
-    RoomSetPermissionsPermissions.$160: 160,
-    RoomSetPermissionsPermissions.$161: 161,
-    RoomSetPermissionsPermissions.$162: 162,
-    RoomSetPermissionsPermissions.$163: 163,
-    RoomSetPermissionsPermissions.$164: 164,
-    RoomSetPermissionsPermissions.$165: 165,
-    RoomSetPermissionsPermissions.$166: 166,
-    RoomSetPermissionsPermissions.$167: 167,
-    RoomSetPermissionsPermissions.$168: 168,
-    RoomSetPermissionsPermissions.$169: 169,
-    RoomSetPermissionsPermissions.$170: 170,
-    RoomSetPermissionsPermissions.$171: 171,
-    RoomSetPermissionsPermissions.$172: 172,
-    RoomSetPermissionsPermissions.$173: 173,
-    RoomSetPermissionsPermissions.$174: 174,
-    RoomSetPermissionsPermissions.$175: 175,
-    RoomSetPermissionsPermissions.$176: 176,
-    RoomSetPermissionsPermissions.$177: 177,
-    RoomSetPermissionsPermissions.$178: 178,
-    RoomSetPermissionsPermissions.$179: 179,
-    RoomSetPermissionsPermissions.$180: 180,
-    RoomSetPermissionsPermissions.$181: 181,
-    RoomSetPermissionsPermissions.$182: 182,
-    RoomSetPermissionsPermissions.$183: 183,
-    RoomSetPermissionsPermissions.$184: 184,
-    RoomSetPermissionsPermissions.$185: 185,
-    RoomSetPermissionsPermissions.$186: 186,
-    RoomSetPermissionsPermissions.$187: 187,
-    RoomSetPermissionsPermissions.$188: 188,
-    RoomSetPermissionsPermissions.$189: 189,
-    RoomSetPermissionsPermissions.$190: 190,
-    RoomSetPermissionsPermissions.$191: 191,
-    RoomSetPermissionsPermissions.$192: 192,
-    RoomSetPermissionsPermissions.$193: 193,
-    RoomSetPermissionsPermissions.$194: 194,
-    RoomSetPermissionsPermissions.$195: 195,
-    RoomSetPermissionsPermissions.$196: 196,
-    RoomSetPermissionsPermissions.$197: 197,
-    RoomSetPermissionsPermissions.$198: 198,
-    RoomSetPermissionsPermissions.$199: 199,
-    RoomSetPermissionsPermissions.$200: 200,
-    RoomSetPermissionsPermissions.$201: 201,
-    RoomSetPermissionsPermissions.$202: 202,
-    RoomSetPermissionsPermissions.$203: 203,
-    RoomSetPermissionsPermissions.$204: 204,
-    RoomSetPermissionsPermissions.$205: 205,
-    RoomSetPermissionsPermissions.$206: 206,
-    RoomSetPermissionsPermissions.$207: 207,
-    RoomSetPermissionsPermissions.$208: 208,
-    RoomSetPermissionsPermissions.$209: 209,
-    RoomSetPermissionsPermissions.$210: 210,
-    RoomSetPermissionsPermissions.$211: 211,
-    RoomSetPermissionsPermissions.$212: 212,
-    RoomSetPermissionsPermissions.$213: 213,
-    RoomSetPermissionsPermissions.$214: 214,
-    RoomSetPermissionsPermissions.$215: 215,
-    RoomSetPermissionsPermissions.$216: 216,
-    RoomSetPermissionsPermissions.$217: 217,
-    RoomSetPermissionsPermissions.$218: 218,
-    RoomSetPermissionsPermissions.$219: 219,
-    RoomSetPermissionsPermissions.$220: 220,
-    RoomSetPermissionsPermissions.$221: 221,
-    RoomSetPermissionsPermissions.$222: 222,
-    RoomSetPermissionsPermissions.$223: 223,
-    RoomSetPermissionsPermissions.$224: 224,
-    RoomSetPermissionsPermissions.$225: 225,
-    RoomSetPermissionsPermissions.$226: 226,
-    RoomSetPermissionsPermissions.$227: 227,
-    RoomSetPermissionsPermissions.$228: 228,
-    RoomSetPermissionsPermissions.$229: 229,
-    RoomSetPermissionsPermissions.$230: 230,
-    RoomSetPermissionsPermissions.$231: 231,
-    RoomSetPermissionsPermissions.$232: 232,
-    RoomSetPermissionsPermissions.$233: 233,
-    RoomSetPermissionsPermissions.$234: 234,
-    RoomSetPermissionsPermissions.$235: 235,
-    RoomSetPermissionsPermissions.$236: 236,
-    RoomSetPermissionsPermissions.$237: 237,
-    RoomSetPermissionsPermissions.$238: 238,
-    RoomSetPermissionsPermissions.$239: 239,
-    RoomSetPermissionsPermissions.$240: 240,
-    RoomSetPermissionsPermissions.$241: 241,
-    RoomSetPermissionsPermissions.$242: 242,
-    RoomSetPermissionsPermissions.$243: 243,
-    RoomSetPermissionsPermissions.$244: 244,
-    RoomSetPermissionsPermissions.$245: 245,
-    RoomSetPermissionsPermissions.$246: 246,
-    RoomSetPermissionsPermissions.$247: 247,
-    RoomSetPermissionsPermissions.$248: 248,
-    RoomSetPermissionsPermissions.$249: 249,
-    RoomSetPermissionsPermissions.$250: 250,
-    RoomSetPermissionsPermissions.$251: 251,
-    RoomSetPermissionsPermissions.$252: 252,
-    RoomSetPermissionsPermissions.$253: 253,
-    RoomSetPermissionsPermissions.$254: 254,
-    RoomSetPermissionsPermissions.$255: 255,
-  };
-
-  static const Map<Object, RoomSetPermissionsPermissions> _fromWire = <Object, RoomSetPermissionsPermissions>{
-    0: RoomSetPermissionsPermissions.$0,
-    1: RoomSetPermissionsPermissions.$1,
-    2: RoomSetPermissionsPermissions.$2,
-    3: RoomSetPermissionsPermissions.$3,
-    4: RoomSetPermissionsPermissions.$4,
-    5: RoomSetPermissionsPermissions.$5,
-    6: RoomSetPermissionsPermissions.$6,
-    7: RoomSetPermissionsPermissions.$7,
-    8: RoomSetPermissionsPermissions.$8,
-    9: RoomSetPermissionsPermissions.$9,
-    10: RoomSetPermissionsPermissions.$10,
-    11: RoomSetPermissionsPermissions.$11,
-    12: RoomSetPermissionsPermissions.$12,
-    13: RoomSetPermissionsPermissions.$13,
-    14: RoomSetPermissionsPermissions.$14,
-    15: RoomSetPermissionsPermissions.$15,
-    16: RoomSetPermissionsPermissions.$16,
-    17: RoomSetPermissionsPermissions.$17,
-    18: RoomSetPermissionsPermissions.$18,
-    19: RoomSetPermissionsPermissions.$19,
-    20: RoomSetPermissionsPermissions.$20,
-    21: RoomSetPermissionsPermissions.$21,
-    22: RoomSetPermissionsPermissions.$22,
-    23: RoomSetPermissionsPermissions.$23,
-    24: RoomSetPermissionsPermissions.$24,
-    25: RoomSetPermissionsPermissions.$25,
-    26: RoomSetPermissionsPermissions.$26,
-    27: RoomSetPermissionsPermissions.$27,
-    28: RoomSetPermissionsPermissions.$28,
-    29: RoomSetPermissionsPermissions.$29,
-    30: RoomSetPermissionsPermissions.$30,
-    31: RoomSetPermissionsPermissions.$31,
-    32: RoomSetPermissionsPermissions.$32,
-    33: RoomSetPermissionsPermissions.$33,
-    34: RoomSetPermissionsPermissions.$34,
-    35: RoomSetPermissionsPermissions.$35,
-    36: RoomSetPermissionsPermissions.$36,
-    37: RoomSetPermissionsPermissions.$37,
-    38: RoomSetPermissionsPermissions.$38,
-    39: RoomSetPermissionsPermissions.$39,
-    40: RoomSetPermissionsPermissions.$40,
-    41: RoomSetPermissionsPermissions.$41,
-    42: RoomSetPermissionsPermissions.$42,
-    43: RoomSetPermissionsPermissions.$43,
-    44: RoomSetPermissionsPermissions.$44,
-    45: RoomSetPermissionsPermissions.$45,
-    46: RoomSetPermissionsPermissions.$46,
-    47: RoomSetPermissionsPermissions.$47,
-    48: RoomSetPermissionsPermissions.$48,
-    49: RoomSetPermissionsPermissions.$49,
-    50: RoomSetPermissionsPermissions.$50,
-    51: RoomSetPermissionsPermissions.$51,
-    52: RoomSetPermissionsPermissions.$52,
-    53: RoomSetPermissionsPermissions.$53,
-    54: RoomSetPermissionsPermissions.$54,
-    55: RoomSetPermissionsPermissions.$55,
-    56: RoomSetPermissionsPermissions.$56,
-    57: RoomSetPermissionsPermissions.$57,
-    58: RoomSetPermissionsPermissions.$58,
-    59: RoomSetPermissionsPermissions.$59,
-    60: RoomSetPermissionsPermissions.$60,
-    61: RoomSetPermissionsPermissions.$61,
-    62: RoomSetPermissionsPermissions.$62,
-    63: RoomSetPermissionsPermissions.$63,
-    64: RoomSetPermissionsPermissions.$64,
-    65: RoomSetPermissionsPermissions.$65,
-    66: RoomSetPermissionsPermissions.$66,
-    67: RoomSetPermissionsPermissions.$67,
-    68: RoomSetPermissionsPermissions.$68,
-    69: RoomSetPermissionsPermissions.$69,
-    70: RoomSetPermissionsPermissions.$70,
-    71: RoomSetPermissionsPermissions.$71,
-    72: RoomSetPermissionsPermissions.$72,
-    73: RoomSetPermissionsPermissions.$73,
-    74: RoomSetPermissionsPermissions.$74,
-    75: RoomSetPermissionsPermissions.$75,
-    76: RoomSetPermissionsPermissions.$76,
-    77: RoomSetPermissionsPermissions.$77,
-    78: RoomSetPermissionsPermissions.$78,
-    79: RoomSetPermissionsPermissions.$79,
-    80: RoomSetPermissionsPermissions.$80,
-    81: RoomSetPermissionsPermissions.$81,
-    82: RoomSetPermissionsPermissions.$82,
-    83: RoomSetPermissionsPermissions.$83,
-    84: RoomSetPermissionsPermissions.$84,
-    85: RoomSetPermissionsPermissions.$85,
-    86: RoomSetPermissionsPermissions.$86,
-    87: RoomSetPermissionsPermissions.$87,
-    88: RoomSetPermissionsPermissions.$88,
-    89: RoomSetPermissionsPermissions.$89,
-    90: RoomSetPermissionsPermissions.$90,
-    91: RoomSetPermissionsPermissions.$91,
-    92: RoomSetPermissionsPermissions.$92,
-    93: RoomSetPermissionsPermissions.$93,
-    94: RoomSetPermissionsPermissions.$94,
-    95: RoomSetPermissionsPermissions.$95,
-    96: RoomSetPermissionsPermissions.$96,
-    97: RoomSetPermissionsPermissions.$97,
-    98: RoomSetPermissionsPermissions.$98,
-    99: RoomSetPermissionsPermissions.$99,
-    100: RoomSetPermissionsPermissions.$100,
-    101: RoomSetPermissionsPermissions.$101,
-    102: RoomSetPermissionsPermissions.$102,
-    103: RoomSetPermissionsPermissions.$103,
-    104: RoomSetPermissionsPermissions.$104,
-    105: RoomSetPermissionsPermissions.$105,
-    106: RoomSetPermissionsPermissions.$106,
-    107: RoomSetPermissionsPermissions.$107,
-    108: RoomSetPermissionsPermissions.$108,
-    109: RoomSetPermissionsPermissions.$109,
-    110: RoomSetPermissionsPermissions.$110,
-    111: RoomSetPermissionsPermissions.$111,
-    112: RoomSetPermissionsPermissions.$112,
-    113: RoomSetPermissionsPermissions.$113,
-    114: RoomSetPermissionsPermissions.$114,
-    115: RoomSetPermissionsPermissions.$115,
-    116: RoomSetPermissionsPermissions.$116,
-    117: RoomSetPermissionsPermissions.$117,
-    118: RoomSetPermissionsPermissions.$118,
-    119: RoomSetPermissionsPermissions.$119,
-    120: RoomSetPermissionsPermissions.$120,
-    121: RoomSetPermissionsPermissions.$121,
-    122: RoomSetPermissionsPermissions.$122,
-    123: RoomSetPermissionsPermissions.$123,
-    124: RoomSetPermissionsPermissions.$124,
-    125: RoomSetPermissionsPermissions.$125,
-    126: RoomSetPermissionsPermissions.$126,
-    127: RoomSetPermissionsPermissions.$127,
-    128: RoomSetPermissionsPermissions.$128,
-    129: RoomSetPermissionsPermissions.$129,
-    130: RoomSetPermissionsPermissions.$130,
-    131: RoomSetPermissionsPermissions.$131,
-    132: RoomSetPermissionsPermissions.$132,
-    133: RoomSetPermissionsPermissions.$133,
-    134: RoomSetPermissionsPermissions.$134,
-    135: RoomSetPermissionsPermissions.$135,
-    136: RoomSetPermissionsPermissions.$136,
-    137: RoomSetPermissionsPermissions.$137,
-    138: RoomSetPermissionsPermissions.$138,
-    139: RoomSetPermissionsPermissions.$139,
-    140: RoomSetPermissionsPermissions.$140,
-    141: RoomSetPermissionsPermissions.$141,
-    142: RoomSetPermissionsPermissions.$142,
-    143: RoomSetPermissionsPermissions.$143,
-    144: RoomSetPermissionsPermissions.$144,
-    145: RoomSetPermissionsPermissions.$145,
-    146: RoomSetPermissionsPermissions.$146,
-    147: RoomSetPermissionsPermissions.$147,
-    148: RoomSetPermissionsPermissions.$148,
-    149: RoomSetPermissionsPermissions.$149,
-    150: RoomSetPermissionsPermissions.$150,
-    151: RoomSetPermissionsPermissions.$151,
-    152: RoomSetPermissionsPermissions.$152,
-    153: RoomSetPermissionsPermissions.$153,
-    154: RoomSetPermissionsPermissions.$154,
-    155: RoomSetPermissionsPermissions.$155,
-    156: RoomSetPermissionsPermissions.$156,
-    157: RoomSetPermissionsPermissions.$157,
-    158: RoomSetPermissionsPermissions.$158,
-    159: RoomSetPermissionsPermissions.$159,
-    160: RoomSetPermissionsPermissions.$160,
-    161: RoomSetPermissionsPermissions.$161,
-    162: RoomSetPermissionsPermissions.$162,
-    163: RoomSetPermissionsPermissions.$163,
-    164: RoomSetPermissionsPermissions.$164,
-    165: RoomSetPermissionsPermissions.$165,
-    166: RoomSetPermissionsPermissions.$166,
-    167: RoomSetPermissionsPermissions.$167,
-    168: RoomSetPermissionsPermissions.$168,
-    169: RoomSetPermissionsPermissions.$169,
-    170: RoomSetPermissionsPermissions.$170,
-    171: RoomSetPermissionsPermissions.$171,
-    172: RoomSetPermissionsPermissions.$172,
-    173: RoomSetPermissionsPermissions.$173,
-    174: RoomSetPermissionsPermissions.$174,
-    175: RoomSetPermissionsPermissions.$175,
-    176: RoomSetPermissionsPermissions.$176,
-    177: RoomSetPermissionsPermissions.$177,
-    178: RoomSetPermissionsPermissions.$178,
-    179: RoomSetPermissionsPermissions.$179,
-    180: RoomSetPermissionsPermissions.$180,
-    181: RoomSetPermissionsPermissions.$181,
-    182: RoomSetPermissionsPermissions.$182,
-    183: RoomSetPermissionsPermissions.$183,
-    184: RoomSetPermissionsPermissions.$184,
-    185: RoomSetPermissionsPermissions.$185,
-    186: RoomSetPermissionsPermissions.$186,
-    187: RoomSetPermissionsPermissions.$187,
-    188: RoomSetPermissionsPermissions.$188,
-    189: RoomSetPermissionsPermissions.$189,
-    190: RoomSetPermissionsPermissions.$190,
-    191: RoomSetPermissionsPermissions.$191,
-    192: RoomSetPermissionsPermissions.$192,
-    193: RoomSetPermissionsPermissions.$193,
-    194: RoomSetPermissionsPermissions.$194,
-    195: RoomSetPermissionsPermissions.$195,
-    196: RoomSetPermissionsPermissions.$196,
-    197: RoomSetPermissionsPermissions.$197,
-    198: RoomSetPermissionsPermissions.$198,
-    199: RoomSetPermissionsPermissions.$199,
-    200: RoomSetPermissionsPermissions.$200,
-    201: RoomSetPermissionsPermissions.$201,
-    202: RoomSetPermissionsPermissions.$202,
-    203: RoomSetPermissionsPermissions.$203,
-    204: RoomSetPermissionsPermissions.$204,
-    205: RoomSetPermissionsPermissions.$205,
-    206: RoomSetPermissionsPermissions.$206,
-    207: RoomSetPermissionsPermissions.$207,
-    208: RoomSetPermissionsPermissions.$208,
-    209: RoomSetPermissionsPermissions.$209,
-    210: RoomSetPermissionsPermissions.$210,
-    211: RoomSetPermissionsPermissions.$211,
-    212: RoomSetPermissionsPermissions.$212,
-    213: RoomSetPermissionsPermissions.$213,
-    214: RoomSetPermissionsPermissions.$214,
-    215: RoomSetPermissionsPermissions.$215,
-    216: RoomSetPermissionsPermissions.$216,
-    217: RoomSetPermissionsPermissions.$217,
-    218: RoomSetPermissionsPermissions.$218,
-    219: RoomSetPermissionsPermissions.$219,
-    220: RoomSetPermissionsPermissions.$220,
-    221: RoomSetPermissionsPermissions.$221,
-    222: RoomSetPermissionsPermissions.$222,
-    223: RoomSetPermissionsPermissions.$223,
-    224: RoomSetPermissionsPermissions.$224,
-    225: RoomSetPermissionsPermissions.$225,
-    226: RoomSetPermissionsPermissions.$226,
-    227: RoomSetPermissionsPermissions.$227,
-    228: RoomSetPermissionsPermissions.$228,
-    229: RoomSetPermissionsPermissions.$229,
-    230: RoomSetPermissionsPermissions.$230,
-    231: RoomSetPermissionsPermissions.$231,
-    232: RoomSetPermissionsPermissions.$232,
-    233: RoomSetPermissionsPermissions.$233,
-    234: RoomSetPermissionsPermissions.$234,
-    235: RoomSetPermissionsPermissions.$235,
-    236: RoomSetPermissionsPermissions.$236,
-    237: RoomSetPermissionsPermissions.$237,
-    238: RoomSetPermissionsPermissions.$238,
-    239: RoomSetPermissionsPermissions.$239,
-    240: RoomSetPermissionsPermissions.$240,
-    241: RoomSetPermissionsPermissions.$241,
-    242: RoomSetPermissionsPermissions.$242,
-    243: RoomSetPermissionsPermissions.$243,
-    244: RoomSetPermissionsPermissions.$244,
-    245: RoomSetPermissionsPermissions.$245,
-    246: RoomSetPermissionsPermissions.$246,
-    247: RoomSetPermissionsPermissions.$247,
-    248: RoomSetPermissionsPermissions.$248,
-    249: RoomSetPermissionsPermissions.$249,
-    250: RoomSetPermissionsPermissions.$250,
-    251: RoomSetPermissionsPermissions.$251,
-    252: RoomSetPermissionsPermissions.$252,
-    253: RoomSetPermissionsPermissions.$253,
-    254: RoomSetPermissionsPermissions.$254,
-    255: RoomSetPermissionsPermissions.$255,
-  };
-
-  @override
-  Iterable<Type> get types => const [RoomSetPermissionsPermissions];
-
-  @override
-  String get wireName => 'RoomSetPermissionsPermissions';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RoomSetPermissionsPermissions object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RoomSetPermissionsPermissions deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 class RoomSetPermissionsMode extends EnumClass {
   const RoomSetPermissionsMode._(super.name);
 
@@ -34143,8 +34199,9 @@ class RoomAddParticipantToRoomSource extends EnumClass {
   /// `emails`
   static const RoomAddParticipantToRoomSource emails = _$roomAddParticipantToRoomSourceEmails;
 
-  /// `remotes`
-  static const RoomAddParticipantToRoomSource remotes = _$roomAddParticipantToRoomSourceRemotes;
+  /// `federated_users`
+  @BuiltValueEnumConst(wireName: 'federated_users')
+  static const RoomAddParticipantToRoomSource federatedUsers = _$roomAddParticipantToRoomSourceFederatedUsers;
 
   /// `phones`
   static const RoomAddParticipantToRoomSource phones = _$roomAddParticipantToRoomSourcePhones;
@@ -34174,7 +34231,7 @@ class _$RoomAddParticipantToRoomSourceSerializer implements PrimitiveSerializer<
     RoomAddParticipantToRoomSource.groups: 'groups',
     RoomAddParticipantToRoomSource.circles: 'circles',
     RoomAddParticipantToRoomSource.emails: 'emails',
-    RoomAddParticipantToRoomSource.remotes: 'remotes',
+    RoomAddParticipantToRoomSource.federatedUsers: 'federated_users',
     RoomAddParticipantToRoomSource.phones: 'phones',
   };
 
@@ -34183,7 +34240,7 @@ class _$RoomAddParticipantToRoomSourceSerializer implements PrimitiveSerializer<
     'groups': RoomAddParticipantToRoomSource.groups,
     'circles': RoomAddParticipantToRoomSource.circles,
     'emails': RoomAddParticipantToRoomSource.emails,
-    'remotes': RoomAddParticipantToRoomSource.remotes,
+    'federated_users': RoomAddParticipantToRoomSource.federatedUsers,
     'phones': RoomAddParticipantToRoomSource.phones,
   };
 
@@ -35124,1598 +35181,6 @@ class _$RoomSetAttendeePermissionsMethodSerializer implements PrimitiveSerialize
       _fromWire[serialized]!;
 }
 
-class RoomSetAttendeePermissionsPermissions extends EnumClass {
-  const RoomSetAttendeePermissionsPermissions._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const RoomSetAttendeePermissionsPermissions $0 = _$roomSetAttendeePermissionsPermissions$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const RoomSetAttendeePermissionsPermissions $1 = _$roomSetAttendeePermissionsPermissions$1;
-
-  /// `2`
-  @BuiltValueEnumConst(wireName: '2')
-  static const RoomSetAttendeePermissionsPermissions $2 = _$roomSetAttendeePermissionsPermissions$2;
-
-  /// `3`
-  @BuiltValueEnumConst(wireName: '3')
-  static const RoomSetAttendeePermissionsPermissions $3 = _$roomSetAttendeePermissionsPermissions$3;
-
-  /// `4`
-  @BuiltValueEnumConst(wireName: '4')
-  static const RoomSetAttendeePermissionsPermissions $4 = _$roomSetAttendeePermissionsPermissions$4;
-
-  /// `5`
-  @BuiltValueEnumConst(wireName: '5')
-  static const RoomSetAttendeePermissionsPermissions $5 = _$roomSetAttendeePermissionsPermissions$5;
-
-  /// `6`
-  @BuiltValueEnumConst(wireName: '6')
-  static const RoomSetAttendeePermissionsPermissions $6 = _$roomSetAttendeePermissionsPermissions$6;
-
-  /// `7`
-  @BuiltValueEnumConst(wireName: '7')
-  static const RoomSetAttendeePermissionsPermissions $7 = _$roomSetAttendeePermissionsPermissions$7;
-
-  /// `8`
-  @BuiltValueEnumConst(wireName: '8')
-  static const RoomSetAttendeePermissionsPermissions $8 = _$roomSetAttendeePermissionsPermissions$8;
-
-  /// `9`
-  @BuiltValueEnumConst(wireName: '9')
-  static const RoomSetAttendeePermissionsPermissions $9 = _$roomSetAttendeePermissionsPermissions$9;
-
-  /// `10`
-  @BuiltValueEnumConst(wireName: '10')
-  static const RoomSetAttendeePermissionsPermissions $10 = _$roomSetAttendeePermissionsPermissions$10;
-
-  /// `11`
-  @BuiltValueEnumConst(wireName: '11')
-  static const RoomSetAttendeePermissionsPermissions $11 = _$roomSetAttendeePermissionsPermissions$11;
-
-  /// `12`
-  @BuiltValueEnumConst(wireName: '12')
-  static const RoomSetAttendeePermissionsPermissions $12 = _$roomSetAttendeePermissionsPermissions$12;
-
-  /// `13`
-  @BuiltValueEnumConst(wireName: '13')
-  static const RoomSetAttendeePermissionsPermissions $13 = _$roomSetAttendeePermissionsPermissions$13;
-
-  /// `14`
-  @BuiltValueEnumConst(wireName: '14')
-  static const RoomSetAttendeePermissionsPermissions $14 = _$roomSetAttendeePermissionsPermissions$14;
-
-  /// `15`
-  @BuiltValueEnumConst(wireName: '15')
-  static const RoomSetAttendeePermissionsPermissions $15 = _$roomSetAttendeePermissionsPermissions$15;
-
-  /// `16`
-  @BuiltValueEnumConst(wireName: '16')
-  static const RoomSetAttendeePermissionsPermissions $16 = _$roomSetAttendeePermissionsPermissions$16;
-
-  /// `17`
-  @BuiltValueEnumConst(wireName: '17')
-  static const RoomSetAttendeePermissionsPermissions $17 = _$roomSetAttendeePermissionsPermissions$17;
-
-  /// `18`
-  @BuiltValueEnumConst(wireName: '18')
-  static const RoomSetAttendeePermissionsPermissions $18 = _$roomSetAttendeePermissionsPermissions$18;
-
-  /// `19`
-  @BuiltValueEnumConst(wireName: '19')
-  static const RoomSetAttendeePermissionsPermissions $19 = _$roomSetAttendeePermissionsPermissions$19;
-
-  /// `20`
-  @BuiltValueEnumConst(wireName: '20')
-  static const RoomSetAttendeePermissionsPermissions $20 = _$roomSetAttendeePermissionsPermissions$20;
-
-  /// `21`
-  @BuiltValueEnumConst(wireName: '21')
-  static const RoomSetAttendeePermissionsPermissions $21 = _$roomSetAttendeePermissionsPermissions$21;
-
-  /// `22`
-  @BuiltValueEnumConst(wireName: '22')
-  static const RoomSetAttendeePermissionsPermissions $22 = _$roomSetAttendeePermissionsPermissions$22;
-
-  /// `23`
-  @BuiltValueEnumConst(wireName: '23')
-  static const RoomSetAttendeePermissionsPermissions $23 = _$roomSetAttendeePermissionsPermissions$23;
-
-  /// `24`
-  @BuiltValueEnumConst(wireName: '24')
-  static const RoomSetAttendeePermissionsPermissions $24 = _$roomSetAttendeePermissionsPermissions$24;
-
-  /// `25`
-  @BuiltValueEnumConst(wireName: '25')
-  static const RoomSetAttendeePermissionsPermissions $25 = _$roomSetAttendeePermissionsPermissions$25;
-
-  /// `26`
-  @BuiltValueEnumConst(wireName: '26')
-  static const RoomSetAttendeePermissionsPermissions $26 = _$roomSetAttendeePermissionsPermissions$26;
-
-  /// `27`
-  @BuiltValueEnumConst(wireName: '27')
-  static const RoomSetAttendeePermissionsPermissions $27 = _$roomSetAttendeePermissionsPermissions$27;
-
-  /// `28`
-  @BuiltValueEnumConst(wireName: '28')
-  static const RoomSetAttendeePermissionsPermissions $28 = _$roomSetAttendeePermissionsPermissions$28;
-
-  /// `29`
-  @BuiltValueEnumConst(wireName: '29')
-  static const RoomSetAttendeePermissionsPermissions $29 = _$roomSetAttendeePermissionsPermissions$29;
-
-  /// `30`
-  @BuiltValueEnumConst(wireName: '30')
-  static const RoomSetAttendeePermissionsPermissions $30 = _$roomSetAttendeePermissionsPermissions$30;
-
-  /// `31`
-  @BuiltValueEnumConst(wireName: '31')
-  static const RoomSetAttendeePermissionsPermissions $31 = _$roomSetAttendeePermissionsPermissions$31;
-
-  /// `32`
-  @BuiltValueEnumConst(wireName: '32')
-  static const RoomSetAttendeePermissionsPermissions $32 = _$roomSetAttendeePermissionsPermissions$32;
-
-  /// `33`
-  @BuiltValueEnumConst(wireName: '33')
-  static const RoomSetAttendeePermissionsPermissions $33 = _$roomSetAttendeePermissionsPermissions$33;
-
-  /// `34`
-  @BuiltValueEnumConst(wireName: '34')
-  static const RoomSetAttendeePermissionsPermissions $34 = _$roomSetAttendeePermissionsPermissions$34;
-
-  /// `35`
-  @BuiltValueEnumConst(wireName: '35')
-  static const RoomSetAttendeePermissionsPermissions $35 = _$roomSetAttendeePermissionsPermissions$35;
-
-  /// `36`
-  @BuiltValueEnumConst(wireName: '36')
-  static const RoomSetAttendeePermissionsPermissions $36 = _$roomSetAttendeePermissionsPermissions$36;
-
-  /// `37`
-  @BuiltValueEnumConst(wireName: '37')
-  static const RoomSetAttendeePermissionsPermissions $37 = _$roomSetAttendeePermissionsPermissions$37;
-
-  /// `38`
-  @BuiltValueEnumConst(wireName: '38')
-  static const RoomSetAttendeePermissionsPermissions $38 = _$roomSetAttendeePermissionsPermissions$38;
-
-  /// `39`
-  @BuiltValueEnumConst(wireName: '39')
-  static const RoomSetAttendeePermissionsPermissions $39 = _$roomSetAttendeePermissionsPermissions$39;
-
-  /// `40`
-  @BuiltValueEnumConst(wireName: '40')
-  static const RoomSetAttendeePermissionsPermissions $40 = _$roomSetAttendeePermissionsPermissions$40;
-
-  /// `41`
-  @BuiltValueEnumConst(wireName: '41')
-  static const RoomSetAttendeePermissionsPermissions $41 = _$roomSetAttendeePermissionsPermissions$41;
-
-  /// `42`
-  @BuiltValueEnumConst(wireName: '42')
-  static const RoomSetAttendeePermissionsPermissions $42 = _$roomSetAttendeePermissionsPermissions$42;
-
-  /// `43`
-  @BuiltValueEnumConst(wireName: '43')
-  static const RoomSetAttendeePermissionsPermissions $43 = _$roomSetAttendeePermissionsPermissions$43;
-
-  /// `44`
-  @BuiltValueEnumConst(wireName: '44')
-  static const RoomSetAttendeePermissionsPermissions $44 = _$roomSetAttendeePermissionsPermissions$44;
-
-  /// `45`
-  @BuiltValueEnumConst(wireName: '45')
-  static const RoomSetAttendeePermissionsPermissions $45 = _$roomSetAttendeePermissionsPermissions$45;
-
-  /// `46`
-  @BuiltValueEnumConst(wireName: '46')
-  static const RoomSetAttendeePermissionsPermissions $46 = _$roomSetAttendeePermissionsPermissions$46;
-
-  /// `47`
-  @BuiltValueEnumConst(wireName: '47')
-  static const RoomSetAttendeePermissionsPermissions $47 = _$roomSetAttendeePermissionsPermissions$47;
-
-  /// `48`
-  @BuiltValueEnumConst(wireName: '48')
-  static const RoomSetAttendeePermissionsPermissions $48 = _$roomSetAttendeePermissionsPermissions$48;
-
-  /// `49`
-  @BuiltValueEnumConst(wireName: '49')
-  static const RoomSetAttendeePermissionsPermissions $49 = _$roomSetAttendeePermissionsPermissions$49;
-
-  /// `50`
-  @BuiltValueEnumConst(wireName: '50')
-  static const RoomSetAttendeePermissionsPermissions $50 = _$roomSetAttendeePermissionsPermissions$50;
-
-  /// `51`
-  @BuiltValueEnumConst(wireName: '51')
-  static const RoomSetAttendeePermissionsPermissions $51 = _$roomSetAttendeePermissionsPermissions$51;
-
-  /// `52`
-  @BuiltValueEnumConst(wireName: '52')
-  static const RoomSetAttendeePermissionsPermissions $52 = _$roomSetAttendeePermissionsPermissions$52;
-
-  /// `53`
-  @BuiltValueEnumConst(wireName: '53')
-  static const RoomSetAttendeePermissionsPermissions $53 = _$roomSetAttendeePermissionsPermissions$53;
-
-  /// `54`
-  @BuiltValueEnumConst(wireName: '54')
-  static const RoomSetAttendeePermissionsPermissions $54 = _$roomSetAttendeePermissionsPermissions$54;
-
-  /// `55`
-  @BuiltValueEnumConst(wireName: '55')
-  static const RoomSetAttendeePermissionsPermissions $55 = _$roomSetAttendeePermissionsPermissions$55;
-
-  /// `56`
-  @BuiltValueEnumConst(wireName: '56')
-  static const RoomSetAttendeePermissionsPermissions $56 = _$roomSetAttendeePermissionsPermissions$56;
-
-  /// `57`
-  @BuiltValueEnumConst(wireName: '57')
-  static const RoomSetAttendeePermissionsPermissions $57 = _$roomSetAttendeePermissionsPermissions$57;
-
-  /// `58`
-  @BuiltValueEnumConst(wireName: '58')
-  static const RoomSetAttendeePermissionsPermissions $58 = _$roomSetAttendeePermissionsPermissions$58;
-
-  /// `59`
-  @BuiltValueEnumConst(wireName: '59')
-  static const RoomSetAttendeePermissionsPermissions $59 = _$roomSetAttendeePermissionsPermissions$59;
-
-  /// `60`
-  @BuiltValueEnumConst(wireName: '60')
-  static const RoomSetAttendeePermissionsPermissions $60 = _$roomSetAttendeePermissionsPermissions$60;
-
-  /// `61`
-  @BuiltValueEnumConst(wireName: '61')
-  static const RoomSetAttendeePermissionsPermissions $61 = _$roomSetAttendeePermissionsPermissions$61;
-
-  /// `62`
-  @BuiltValueEnumConst(wireName: '62')
-  static const RoomSetAttendeePermissionsPermissions $62 = _$roomSetAttendeePermissionsPermissions$62;
-
-  /// `63`
-  @BuiltValueEnumConst(wireName: '63')
-  static const RoomSetAttendeePermissionsPermissions $63 = _$roomSetAttendeePermissionsPermissions$63;
-
-  /// `64`
-  @BuiltValueEnumConst(wireName: '64')
-  static const RoomSetAttendeePermissionsPermissions $64 = _$roomSetAttendeePermissionsPermissions$64;
-
-  /// `65`
-  @BuiltValueEnumConst(wireName: '65')
-  static const RoomSetAttendeePermissionsPermissions $65 = _$roomSetAttendeePermissionsPermissions$65;
-
-  /// `66`
-  @BuiltValueEnumConst(wireName: '66')
-  static const RoomSetAttendeePermissionsPermissions $66 = _$roomSetAttendeePermissionsPermissions$66;
-
-  /// `67`
-  @BuiltValueEnumConst(wireName: '67')
-  static const RoomSetAttendeePermissionsPermissions $67 = _$roomSetAttendeePermissionsPermissions$67;
-
-  /// `68`
-  @BuiltValueEnumConst(wireName: '68')
-  static const RoomSetAttendeePermissionsPermissions $68 = _$roomSetAttendeePermissionsPermissions$68;
-
-  /// `69`
-  @BuiltValueEnumConst(wireName: '69')
-  static const RoomSetAttendeePermissionsPermissions $69 = _$roomSetAttendeePermissionsPermissions$69;
-
-  /// `70`
-  @BuiltValueEnumConst(wireName: '70')
-  static const RoomSetAttendeePermissionsPermissions $70 = _$roomSetAttendeePermissionsPermissions$70;
-
-  /// `71`
-  @BuiltValueEnumConst(wireName: '71')
-  static const RoomSetAttendeePermissionsPermissions $71 = _$roomSetAttendeePermissionsPermissions$71;
-
-  /// `72`
-  @BuiltValueEnumConst(wireName: '72')
-  static const RoomSetAttendeePermissionsPermissions $72 = _$roomSetAttendeePermissionsPermissions$72;
-
-  /// `73`
-  @BuiltValueEnumConst(wireName: '73')
-  static const RoomSetAttendeePermissionsPermissions $73 = _$roomSetAttendeePermissionsPermissions$73;
-
-  /// `74`
-  @BuiltValueEnumConst(wireName: '74')
-  static const RoomSetAttendeePermissionsPermissions $74 = _$roomSetAttendeePermissionsPermissions$74;
-
-  /// `75`
-  @BuiltValueEnumConst(wireName: '75')
-  static const RoomSetAttendeePermissionsPermissions $75 = _$roomSetAttendeePermissionsPermissions$75;
-
-  /// `76`
-  @BuiltValueEnumConst(wireName: '76')
-  static const RoomSetAttendeePermissionsPermissions $76 = _$roomSetAttendeePermissionsPermissions$76;
-
-  /// `77`
-  @BuiltValueEnumConst(wireName: '77')
-  static const RoomSetAttendeePermissionsPermissions $77 = _$roomSetAttendeePermissionsPermissions$77;
-
-  /// `78`
-  @BuiltValueEnumConst(wireName: '78')
-  static const RoomSetAttendeePermissionsPermissions $78 = _$roomSetAttendeePermissionsPermissions$78;
-
-  /// `79`
-  @BuiltValueEnumConst(wireName: '79')
-  static const RoomSetAttendeePermissionsPermissions $79 = _$roomSetAttendeePermissionsPermissions$79;
-
-  /// `80`
-  @BuiltValueEnumConst(wireName: '80')
-  static const RoomSetAttendeePermissionsPermissions $80 = _$roomSetAttendeePermissionsPermissions$80;
-
-  /// `81`
-  @BuiltValueEnumConst(wireName: '81')
-  static const RoomSetAttendeePermissionsPermissions $81 = _$roomSetAttendeePermissionsPermissions$81;
-
-  /// `82`
-  @BuiltValueEnumConst(wireName: '82')
-  static const RoomSetAttendeePermissionsPermissions $82 = _$roomSetAttendeePermissionsPermissions$82;
-
-  /// `83`
-  @BuiltValueEnumConst(wireName: '83')
-  static const RoomSetAttendeePermissionsPermissions $83 = _$roomSetAttendeePermissionsPermissions$83;
-
-  /// `84`
-  @BuiltValueEnumConst(wireName: '84')
-  static const RoomSetAttendeePermissionsPermissions $84 = _$roomSetAttendeePermissionsPermissions$84;
-
-  /// `85`
-  @BuiltValueEnumConst(wireName: '85')
-  static const RoomSetAttendeePermissionsPermissions $85 = _$roomSetAttendeePermissionsPermissions$85;
-
-  /// `86`
-  @BuiltValueEnumConst(wireName: '86')
-  static const RoomSetAttendeePermissionsPermissions $86 = _$roomSetAttendeePermissionsPermissions$86;
-
-  /// `87`
-  @BuiltValueEnumConst(wireName: '87')
-  static const RoomSetAttendeePermissionsPermissions $87 = _$roomSetAttendeePermissionsPermissions$87;
-
-  /// `88`
-  @BuiltValueEnumConst(wireName: '88')
-  static const RoomSetAttendeePermissionsPermissions $88 = _$roomSetAttendeePermissionsPermissions$88;
-
-  /// `89`
-  @BuiltValueEnumConst(wireName: '89')
-  static const RoomSetAttendeePermissionsPermissions $89 = _$roomSetAttendeePermissionsPermissions$89;
-
-  /// `90`
-  @BuiltValueEnumConst(wireName: '90')
-  static const RoomSetAttendeePermissionsPermissions $90 = _$roomSetAttendeePermissionsPermissions$90;
-
-  /// `91`
-  @BuiltValueEnumConst(wireName: '91')
-  static const RoomSetAttendeePermissionsPermissions $91 = _$roomSetAttendeePermissionsPermissions$91;
-
-  /// `92`
-  @BuiltValueEnumConst(wireName: '92')
-  static const RoomSetAttendeePermissionsPermissions $92 = _$roomSetAttendeePermissionsPermissions$92;
-
-  /// `93`
-  @BuiltValueEnumConst(wireName: '93')
-  static const RoomSetAttendeePermissionsPermissions $93 = _$roomSetAttendeePermissionsPermissions$93;
-
-  /// `94`
-  @BuiltValueEnumConst(wireName: '94')
-  static const RoomSetAttendeePermissionsPermissions $94 = _$roomSetAttendeePermissionsPermissions$94;
-
-  /// `95`
-  @BuiltValueEnumConst(wireName: '95')
-  static const RoomSetAttendeePermissionsPermissions $95 = _$roomSetAttendeePermissionsPermissions$95;
-
-  /// `96`
-  @BuiltValueEnumConst(wireName: '96')
-  static const RoomSetAttendeePermissionsPermissions $96 = _$roomSetAttendeePermissionsPermissions$96;
-
-  /// `97`
-  @BuiltValueEnumConst(wireName: '97')
-  static const RoomSetAttendeePermissionsPermissions $97 = _$roomSetAttendeePermissionsPermissions$97;
-
-  /// `98`
-  @BuiltValueEnumConst(wireName: '98')
-  static const RoomSetAttendeePermissionsPermissions $98 = _$roomSetAttendeePermissionsPermissions$98;
-
-  /// `99`
-  @BuiltValueEnumConst(wireName: '99')
-  static const RoomSetAttendeePermissionsPermissions $99 = _$roomSetAttendeePermissionsPermissions$99;
-
-  /// `100`
-  @BuiltValueEnumConst(wireName: '100')
-  static const RoomSetAttendeePermissionsPermissions $100 = _$roomSetAttendeePermissionsPermissions$100;
-
-  /// `101`
-  @BuiltValueEnumConst(wireName: '101')
-  static const RoomSetAttendeePermissionsPermissions $101 = _$roomSetAttendeePermissionsPermissions$101;
-
-  /// `102`
-  @BuiltValueEnumConst(wireName: '102')
-  static const RoomSetAttendeePermissionsPermissions $102 = _$roomSetAttendeePermissionsPermissions$102;
-
-  /// `103`
-  @BuiltValueEnumConst(wireName: '103')
-  static const RoomSetAttendeePermissionsPermissions $103 = _$roomSetAttendeePermissionsPermissions$103;
-
-  /// `104`
-  @BuiltValueEnumConst(wireName: '104')
-  static const RoomSetAttendeePermissionsPermissions $104 = _$roomSetAttendeePermissionsPermissions$104;
-
-  /// `105`
-  @BuiltValueEnumConst(wireName: '105')
-  static const RoomSetAttendeePermissionsPermissions $105 = _$roomSetAttendeePermissionsPermissions$105;
-
-  /// `106`
-  @BuiltValueEnumConst(wireName: '106')
-  static const RoomSetAttendeePermissionsPermissions $106 = _$roomSetAttendeePermissionsPermissions$106;
-
-  /// `107`
-  @BuiltValueEnumConst(wireName: '107')
-  static const RoomSetAttendeePermissionsPermissions $107 = _$roomSetAttendeePermissionsPermissions$107;
-
-  /// `108`
-  @BuiltValueEnumConst(wireName: '108')
-  static const RoomSetAttendeePermissionsPermissions $108 = _$roomSetAttendeePermissionsPermissions$108;
-
-  /// `109`
-  @BuiltValueEnumConst(wireName: '109')
-  static const RoomSetAttendeePermissionsPermissions $109 = _$roomSetAttendeePermissionsPermissions$109;
-
-  /// `110`
-  @BuiltValueEnumConst(wireName: '110')
-  static const RoomSetAttendeePermissionsPermissions $110 = _$roomSetAttendeePermissionsPermissions$110;
-
-  /// `111`
-  @BuiltValueEnumConst(wireName: '111')
-  static const RoomSetAttendeePermissionsPermissions $111 = _$roomSetAttendeePermissionsPermissions$111;
-
-  /// `112`
-  @BuiltValueEnumConst(wireName: '112')
-  static const RoomSetAttendeePermissionsPermissions $112 = _$roomSetAttendeePermissionsPermissions$112;
-
-  /// `113`
-  @BuiltValueEnumConst(wireName: '113')
-  static const RoomSetAttendeePermissionsPermissions $113 = _$roomSetAttendeePermissionsPermissions$113;
-
-  /// `114`
-  @BuiltValueEnumConst(wireName: '114')
-  static const RoomSetAttendeePermissionsPermissions $114 = _$roomSetAttendeePermissionsPermissions$114;
-
-  /// `115`
-  @BuiltValueEnumConst(wireName: '115')
-  static const RoomSetAttendeePermissionsPermissions $115 = _$roomSetAttendeePermissionsPermissions$115;
-
-  /// `116`
-  @BuiltValueEnumConst(wireName: '116')
-  static const RoomSetAttendeePermissionsPermissions $116 = _$roomSetAttendeePermissionsPermissions$116;
-
-  /// `117`
-  @BuiltValueEnumConst(wireName: '117')
-  static const RoomSetAttendeePermissionsPermissions $117 = _$roomSetAttendeePermissionsPermissions$117;
-
-  /// `118`
-  @BuiltValueEnumConst(wireName: '118')
-  static const RoomSetAttendeePermissionsPermissions $118 = _$roomSetAttendeePermissionsPermissions$118;
-
-  /// `119`
-  @BuiltValueEnumConst(wireName: '119')
-  static const RoomSetAttendeePermissionsPermissions $119 = _$roomSetAttendeePermissionsPermissions$119;
-
-  /// `120`
-  @BuiltValueEnumConst(wireName: '120')
-  static const RoomSetAttendeePermissionsPermissions $120 = _$roomSetAttendeePermissionsPermissions$120;
-
-  /// `121`
-  @BuiltValueEnumConst(wireName: '121')
-  static const RoomSetAttendeePermissionsPermissions $121 = _$roomSetAttendeePermissionsPermissions$121;
-
-  /// `122`
-  @BuiltValueEnumConst(wireName: '122')
-  static const RoomSetAttendeePermissionsPermissions $122 = _$roomSetAttendeePermissionsPermissions$122;
-
-  /// `123`
-  @BuiltValueEnumConst(wireName: '123')
-  static const RoomSetAttendeePermissionsPermissions $123 = _$roomSetAttendeePermissionsPermissions$123;
-
-  /// `124`
-  @BuiltValueEnumConst(wireName: '124')
-  static const RoomSetAttendeePermissionsPermissions $124 = _$roomSetAttendeePermissionsPermissions$124;
-
-  /// `125`
-  @BuiltValueEnumConst(wireName: '125')
-  static const RoomSetAttendeePermissionsPermissions $125 = _$roomSetAttendeePermissionsPermissions$125;
-
-  /// `126`
-  @BuiltValueEnumConst(wireName: '126')
-  static const RoomSetAttendeePermissionsPermissions $126 = _$roomSetAttendeePermissionsPermissions$126;
-
-  /// `127`
-  @BuiltValueEnumConst(wireName: '127')
-  static const RoomSetAttendeePermissionsPermissions $127 = _$roomSetAttendeePermissionsPermissions$127;
-
-  /// `128`
-  @BuiltValueEnumConst(wireName: '128')
-  static const RoomSetAttendeePermissionsPermissions $128 = _$roomSetAttendeePermissionsPermissions$128;
-
-  /// `129`
-  @BuiltValueEnumConst(wireName: '129')
-  static const RoomSetAttendeePermissionsPermissions $129 = _$roomSetAttendeePermissionsPermissions$129;
-
-  /// `130`
-  @BuiltValueEnumConst(wireName: '130')
-  static const RoomSetAttendeePermissionsPermissions $130 = _$roomSetAttendeePermissionsPermissions$130;
-
-  /// `131`
-  @BuiltValueEnumConst(wireName: '131')
-  static const RoomSetAttendeePermissionsPermissions $131 = _$roomSetAttendeePermissionsPermissions$131;
-
-  /// `132`
-  @BuiltValueEnumConst(wireName: '132')
-  static const RoomSetAttendeePermissionsPermissions $132 = _$roomSetAttendeePermissionsPermissions$132;
-
-  /// `133`
-  @BuiltValueEnumConst(wireName: '133')
-  static const RoomSetAttendeePermissionsPermissions $133 = _$roomSetAttendeePermissionsPermissions$133;
-
-  /// `134`
-  @BuiltValueEnumConst(wireName: '134')
-  static const RoomSetAttendeePermissionsPermissions $134 = _$roomSetAttendeePermissionsPermissions$134;
-
-  /// `135`
-  @BuiltValueEnumConst(wireName: '135')
-  static const RoomSetAttendeePermissionsPermissions $135 = _$roomSetAttendeePermissionsPermissions$135;
-
-  /// `136`
-  @BuiltValueEnumConst(wireName: '136')
-  static const RoomSetAttendeePermissionsPermissions $136 = _$roomSetAttendeePermissionsPermissions$136;
-
-  /// `137`
-  @BuiltValueEnumConst(wireName: '137')
-  static const RoomSetAttendeePermissionsPermissions $137 = _$roomSetAttendeePermissionsPermissions$137;
-
-  /// `138`
-  @BuiltValueEnumConst(wireName: '138')
-  static const RoomSetAttendeePermissionsPermissions $138 = _$roomSetAttendeePermissionsPermissions$138;
-
-  /// `139`
-  @BuiltValueEnumConst(wireName: '139')
-  static const RoomSetAttendeePermissionsPermissions $139 = _$roomSetAttendeePermissionsPermissions$139;
-
-  /// `140`
-  @BuiltValueEnumConst(wireName: '140')
-  static const RoomSetAttendeePermissionsPermissions $140 = _$roomSetAttendeePermissionsPermissions$140;
-
-  /// `141`
-  @BuiltValueEnumConst(wireName: '141')
-  static const RoomSetAttendeePermissionsPermissions $141 = _$roomSetAttendeePermissionsPermissions$141;
-
-  /// `142`
-  @BuiltValueEnumConst(wireName: '142')
-  static const RoomSetAttendeePermissionsPermissions $142 = _$roomSetAttendeePermissionsPermissions$142;
-
-  /// `143`
-  @BuiltValueEnumConst(wireName: '143')
-  static const RoomSetAttendeePermissionsPermissions $143 = _$roomSetAttendeePermissionsPermissions$143;
-
-  /// `144`
-  @BuiltValueEnumConst(wireName: '144')
-  static const RoomSetAttendeePermissionsPermissions $144 = _$roomSetAttendeePermissionsPermissions$144;
-
-  /// `145`
-  @BuiltValueEnumConst(wireName: '145')
-  static const RoomSetAttendeePermissionsPermissions $145 = _$roomSetAttendeePermissionsPermissions$145;
-
-  /// `146`
-  @BuiltValueEnumConst(wireName: '146')
-  static const RoomSetAttendeePermissionsPermissions $146 = _$roomSetAttendeePermissionsPermissions$146;
-
-  /// `147`
-  @BuiltValueEnumConst(wireName: '147')
-  static const RoomSetAttendeePermissionsPermissions $147 = _$roomSetAttendeePermissionsPermissions$147;
-
-  /// `148`
-  @BuiltValueEnumConst(wireName: '148')
-  static const RoomSetAttendeePermissionsPermissions $148 = _$roomSetAttendeePermissionsPermissions$148;
-
-  /// `149`
-  @BuiltValueEnumConst(wireName: '149')
-  static const RoomSetAttendeePermissionsPermissions $149 = _$roomSetAttendeePermissionsPermissions$149;
-
-  /// `150`
-  @BuiltValueEnumConst(wireName: '150')
-  static const RoomSetAttendeePermissionsPermissions $150 = _$roomSetAttendeePermissionsPermissions$150;
-
-  /// `151`
-  @BuiltValueEnumConst(wireName: '151')
-  static const RoomSetAttendeePermissionsPermissions $151 = _$roomSetAttendeePermissionsPermissions$151;
-
-  /// `152`
-  @BuiltValueEnumConst(wireName: '152')
-  static const RoomSetAttendeePermissionsPermissions $152 = _$roomSetAttendeePermissionsPermissions$152;
-
-  /// `153`
-  @BuiltValueEnumConst(wireName: '153')
-  static const RoomSetAttendeePermissionsPermissions $153 = _$roomSetAttendeePermissionsPermissions$153;
-
-  /// `154`
-  @BuiltValueEnumConst(wireName: '154')
-  static const RoomSetAttendeePermissionsPermissions $154 = _$roomSetAttendeePermissionsPermissions$154;
-
-  /// `155`
-  @BuiltValueEnumConst(wireName: '155')
-  static const RoomSetAttendeePermissionsPermissions $155 = _$roomSetAttendeePermissionsPermissions$155;
-
-  /// `156`
-  @BuiltValueEnumConst(wireName: '156')
-  static const RoomSetAttendeePermissionsPermissions $156 = _$roomSetAttendeePermissionsPermissions$156;
-
-  /// `157`
-  @BuiltValueEnumConst(wireName: '157')
-  static const RoomSetAttendeePermissionsPermissions $157 = _$roomSetAttendeePermissionsPermissions$157;
-
-  /// `158`
-  @BuiltValueEnumConst(wireName: '158')
-  static const RoomSetAttendeePermissionsPermissions $158 = _$roomSetAttendeePermissionsPermissions$158;
-
-  /// `159`
-  @BuiltValueEnumConst(wireName: '159')
-  static const RoomSetAttendeePermissionsPermissions $159 = _$roomSetAttendeePermissionsPermissions$159;
-
-  /// `160`
-  @BuiltValueEnumConst(wireName: '160')
-  static const RoomSetAttendeePermissionsPermissions $160 = _$roomSetAttendeePermissionsPermissions$160;
-
-  /// `161`
-  @BuiltValueEnumConst(wireName: '161')
-  static const RoomSetAttendeePermissionsPermissions $161 = _$roomSetAttendeePermissionsPermissions$161;
-
-  /// `162`
-  @BuiltValueEnumConst(wireName: '162')
-  static const RoomSetAttendeePermissionsPermissions $162 = _$roomSetAttendeePermissionsPermissions$162;
-
-  /// `163`
-  @BuiltValueEnumConst(wireName: '163')
-  static const RoomSetAttendeePermissionsPermissions $163 = _$roomSetAttendeePermissionsPermissions$163;
-
-  /// `164`
-  @BuiltValueEnumConst(wireName: '164')
-  static const RoomSetAttendeePermissionsPermissions $164 = _$roomSetAttendeePermissionsPermissions$164;
-
-  /// `165`
-  @BuiltValueEnumConst(wireName: '165')
-  static const RoomSetAttendeePermissionsPermissions $165 = _$roomSetAttendeePermissionsPermissions$165;
-
-  /// `166`
-  @BuiltValueEnumConst(wireName: '166')
-  static const RoomSetAttendeePermissionsPermissions $166 = _$roomSetAttendeePermissionsPermissions$166;
-
-  /// `167`
-  @BuiltValueEnumConst(wireName: '167')
-  static const RoomSetAttendeePermissionsPermissions $167 = _$roomSetAttendeePermissionsPermissions$167;
-
-  /// `168`
-  @BuiltValueEnumConst(wireName: '168')
-  static const RoomSetAttendeePermissionsPermissions $168 = _$roomSetAttendeePermissionsPermissions$168;
-
-  /// `169`
-  @BuiltValueEnumConst(wireName: '169')
-  static const RoomSetAttendeePermissionsPermissions $169 = _$roomSetAttendeePermissionsPermissions$169;
-
-  /// `170`
-  @BuiltValueEnumConst(wireName: '170')
-  static const RoomSetAttendeePermissionsPermissions $170 = _$roomSetAttendeePermissionsPermissions$170;
-
-  /// `171`
-  @BuiltValueEnumConst(wireName: '171')
-  static const RoomSetAttendeePermissionsPermissions $171 = _$roomSetAttendeePermissionsPermissions$171;
-
-  /// `172`
-  @BuiltValueEnumConst(wireName: '172')
-  static const RoomSetAttendeePermissionsPermissions $172 = _$roomSetAttendeePermissionsPermissions$172;
-
-  /// `173`
-  @BuiltValueEnumConst(wireName: '173')
-  static const RoomSetAttendeePermissionsPermissions $173 = _$roomSetAttendeePermissionsPermissions$173;
-
-  /// `174`
-  @BuiltValueEnumConst(wireName: '174')
-  static const RoomSetAttendeePermissionsPermissions $174 = _$roomSetAttendeePermissionsPermissions$174;
-
-  /// `175`
-  @BuiltValueEnumConst(wireName: '175')
-  static const RoomSetAttendeePermissionsPermissions $175 = _$roomSetAttendeePermissionsPermissions$175;
-
-  /// `176`
-  @BuiltValueEnumConst(wireName: '176')
-  static const RoomSetAttendeePermissionsPermissions $176 = _$roomSetAttendeePermissionsPermissions$176;
-
-  /// `177`
-  @BuiltValueEnumConst(wireName: '177')
-  static const RoomSetAttendeePermissionsPermissions $177 = _$roomSetAttendeePermissionsPermissions$177;
-
-  /// `178`
-  @BuiltValueEnumConst(wireName: '178')
-  static const RoomSetAttendeePermissionsPermissions $178 = _$roomSetAttendeePermissionsPermissions$178;
-
-  /// `179`
-  @BuiltValueEnumConst(wireName: '179')
-  static const RoomSetAttendeePermissionsPermissions $179 = _$roomSetAttendeePermissionsPermissions$179;
-
-  /// `180`
-  @BuiltValueEnumConst(wireName: '180')
-  static const RoomSetAttendeePermissionsPermissions $180 = _$roomSetAttendeePermissionsPermissions$180;
-
-  /// `181`
-  @BuiltValueEnumConst(wireName: '181')
-  static const RoomSetAttendeePermissionsPermissions $181 = _$roomSetAttendeePermissionsPermissions$181;
-
-  /// `182`
-  @BuiltValueEnumConst(wireName: '182')
-  static const RoomSetAttendeePermissionsPermissions $182 = _$roomSetAttendeePermissionsPermissions$182;
-
-  /// `183`
-  @BuiltValueEnumConst(wireName: '183')
-  static const RoomSetAttendeePermissionsPermissions $183 = _$roomSetAttendeePermissionsPermissions$183;
-
-  /// `184`
-  @BuiltValueEnumConst(wireName: '184')
-  static const RoomSetAttendeePermissionsPermissions $184 = _$roomSetAttendeePermissionsPermissions$184;
-
-  /// `185`
-  @BuiltValueEnumConst(wireName: '185')
-  static const RoomSetAttendeePermissionsPermissions $185 = _$roomSetAttendeePermissionsPermissions$185;
-
-  /// `186`
-  @BuiltValueEnumConst(wireName: '186')
-  static const RoomSetAttendeePermissionsPermissions $186 = _$roomSetAttendeePermissionsPermissions$186;
-
-  /// `187`
-  @BuiltValueEnumConst(wireName: '187')
-  static const RoomSetAttendeePermissionsPermissions $187 = _$roomSetAttendeePermissionsPermissions$187;
-
-  /// `188`
-  @BuiltValueEnumConst(wireName: '188')
-  static const RoomSetAttendeePermissionsPermissions $188 = _$roomSetAttendeePermissionsPermissions$188;
-
-  /// `189`
-  @BuiltValueEnumConst(wireName: '189')
-  static const RoomSetAttendeePermissionsPermissions $189 = _$roomSetAttendeePermissionsPermissions$189;
-
-  /// `190`
-  @BuiltValueEnumConst(wireName: '190')
-  static const RoomSetAttendeePermissionsPermissions $190 = _$roomSetAttendeePermissionsPermissions$190;
-
-  /// `191`
-  @BuiltValueEnumConst(wireName: '191')
-  static const RoomSetAttendeePermissionsPermissions $191 = _$roomSetAttendeePermissionsPermissions$191;
-
-  /// `192`
-  @BuiltValueEnumConst(wireName: '192')
-  static const RoomSetAttendeePermissionsPermissions $192 = _$roomSetAttendeePermissionsPermissions$192;
-
-  /// `193`
-  @BuiltValueEnumConst(wireName: '193')
-  static const RoomSetAttendeePermissionsPermissions $193 = _$roomSetAttendeePermissionsPermissions$193;
-
-  /// `194`
-  @BuiltValueEnumConst(wireName: '194')
-  static const RoomSetAttendeePermissionsPermissions $194 = _$roomSetAttendeePermissionsPermissions$194;
-
-  /// `195`
-  @BuiltValueEnumConst(wireName: '195')
-  static const RoomSetAttendeePermissionsPermissions $195 = _$roomSetAttendeePermissionsPermissions$195;
-
-  /// `196`
-  @BuiltValueEnumConst(wireName: '196')
-  static const RoomSetAttendeePermissionsPermissions $196 = _$roomSetAttendeePermissionsPermissions$196;
-
-  /// `197`
-  @BuiltValueEnumConst(wireName: '197')
-  static const RoomSetAttendeePermissionsPermissions $197 = _$roomSetAttendeePermissionsPermissions$197;
-
-  /// `198`
-  @BuiltValueEnumConst(wireName: '198')
-  static const RoomSetAttendeePermissionsPermissions $198 = _$roomSetAttendeePermissionsPermissions$198;
-
-  /// `199`
-  @BuiltValueEnumConst(wireName: '199')
-  static const RoomSetAttendeePermissionsPermissions $199 = _$roomSetAttendeePermissionsPermissions$199;
-
-  /// `200`
-  @BuiltValueEnumConst(wireName: '200')
-  static const RoomSetAttendeePermissionsPermissions $200 = _$roomSetAttendeePermissionsPermissions$200;
-
-  /// `201`
-  @BuiltValueEnumConst(wireName: '201')
-  static const RoomSetAttendeePermissionsPermissions $201 = _$roomSetAttendeePermissionsPermissions$201;
-
-  /// `202`
-  @BuiltValueEnumConst(wireName: '202')
-  static const RoomSetAttendeePermissionsPermissions $202 = _$roomSetAttendeePermissionsPermissions$202;
-
-  /// `203`
-  @BuiltValueEnumConst(wireName: '203')
-  static const RoomSetAttendeePermissionsPermissions $203 = _$roomSetAttendeePermissionsPermissions$203;
-
-  /// `204`
-  @BuiltValueEnumConst(wireName: '204')
-  static const RoomSetAttendeePermissionsPermissions $204 = _$roomSetAttendeePermissionsPermissions$204;
-
-  /// `205`
-  @BuiltValueEnumConst(wireName: '205')
-  static const RoomSetAttendeePermissionsPermissions $205 = _$roomSetAttendeePermissionsPermissions$205;
-
-  /// `206`
-  @BuiltValueEnumConst(wireName: '206')
-  static const RoomSetAttendeePermissionsPermissions $206 = _$roomSetAttendeePermissionsPermissions$206;
-
-  /// `207`
-  @BuiltValueEnumConst(wireName: '207')
-  static const RoomSetAttendeePermissionsPermissions $207 = _$roomSetAttendeePermissionsPermissions$207;
-
-  /// `208`
-  @BuiltValueEnumConst(wireName: '208')
-  static const RoomSetAttendeePermissionsPermissions $208 = _$roomSetAttendeePermissionsPermissions$208;
-
-  /// `209`
-  @BuiltValueEnumConst(wireName: '209')
-  static const RoomSetAttendeePermissionsPermissions $209 = _$roomSetAttendeePermissionsPermissions$209;
-
-  /// `210`
-  @BuiltValueEnumConst(wireName: '210')
-  static const RoomSetAttendeePermissionsPermissions $210 = _$roomSetAttendeePermissionsPermissions$210;
-
-  /// `211`
-  @BuiltValueEnumConst(wireName: '211')
-  static const RoomSetAttendeePermissionsPermissions $211 = _$roomSetAttendeePermissionsPermissions$211;
-
-  /// `212`
-  @BuiltValueEnumConst(wireName: '212')
-  static const RoomSetAttendeePermissionsPermissions $212 = _$roomSetAttendeePermissionsPermissions$212;
-
-  /// `213`
-  @BuiltValueEnumConst(wireName: '213')
-  static const RoomSetAttendeePermissionsPermissions $213 = _$roomSetAttendeePermissionsPermissions$213;
-
-  /// `214`
-  @BuiltValueEnumConst(wireName: '214')
-  static const RoomSetAttendeePermissionsPermissions $214 = _$roomSetAttendeePermissionsPermissions$214;
-
-  /// `215`
-  @BuiltValueEnumConst(wireName: '215')
-  static const RoomSetAttendeePermissionsPermissions $215 = _$roomSetAttendeePermissionsPermissions$215;
-
-  /// `216`
-  @BuiltValueEnumConst(wireName: '216')
-  static const RoomSetAttendeePermissionsPermissions $216 = _$roomSetAttendeePermissionsPermissions$216;
-
-  /// `217`
-  @BuiltValueEnumConst(wireName: '217')
-  static const RoomSetAttendeePermissionsPermissions $217 = _$roomSetAttendeePermissionsPermissions$217;
-
-  /// `218`
-  @BuiltValueEnumConst(wireName: '218')
-  static const RoomSetAttendeePermissionsPermissions $218 = _$roomSetAttendeePermissionsPermissions$218;
-
-  /// `219`
-  @BuiltValueEnumConst(wireName: '219')
-  static const RoomSetAttendeePermissionsPermissions $219 = _$roomSetAttendeePermissionsPermissions$219;
-
-  /// `220`
-  @BuiltValueEnumConst(wireName: '220')
-  static const RoomSetAttendeePermissionsPermissions $220 = _$roomSetAttendeePermissionsPermissions$220;
-
-  /// `221`
-  @BuiltValueEnumConst(wireName: '221')
-  static const RoomSetAttendeePermissionsPermissions $221 = _$roomSetAttendeePermissionsPermissions$221;
-
-  /// `222`
-  @BuiltValueEnumConst(wireName: '222')
-  static const RoomSetAttendeePermissionsPermissions $222 = _$roomSetAttendeePermissionsPermissions$222;
-
-  /// `223`
-  @BuiltValueEnumConst(wireName: '223')
-  static const RoomSetAttendeePermissionsPermissions $223 = _$roomSetAttendeePermissionsPermissions$223;
-
-  /// `224`
-  @BuiltValueEnumConst(wireName: '224')
-  static const RoomSetAttendeePermissionsPermissions $224 = _$roomSetAttendeePermissionsPermissions$224;
-
-  /// `225`
-  @BuiltValueEnumConst(wireName: '225')
-  static const RoomSetAttendeePermissionsPermissions $225 = _$roomSetAttendeePermissionsPermissions$225;
-
-  /// `226`
-  @BuiltValueEnumConst(wireName: '226')
-  static const RoomSetAttendeePermissionsPermissions $226 = _$roomSetAttendeePermissionsPermissions$226;
-
-  /// `227`
-  @BuiltValueEnumConst(wireName: '227')
-  static const RoomSetAttendeePermissionsPermissions $227 = _$roomSetAttendeePermissionsPermissions$227;
-
-  /// `228`
-  @BuiltValueEnumConst(wireName: '228')
-  static const RoomSetAttendeePermissionsPermissions $228 = _$roomSetAttendeePermissionsPermissions$228;
-
-  /// `229`
-  @BuiltValueEnumConst(wireName: '229')
-  static const RoomSetAttendeePermissionsPermissions $229 = _$roomSetAttendeePermissionsPermissions$229;
-
-  /// `230`
-  @BuiltValueEnumConst(wireName: '230')
-  static const RoomSetAttendeePermissionsPermissions $230 = _$roomSetAttendeePermissionsPermissions$230;
-
-  /// `231`
-  @BuiltValueEnumConst(wireName: '231')
-  static const RoomSetAttendeePermissionsPermissions $231 = _$roomSetAttendeePermissionsPermissions$231;
-
-  /// `232`
-  @BuiltValueEnumConst(wireName: '232')
-  static const RoomSetAttendeePermissionsPermissions $232 = _$roomSetAttendeePermissionsPermissions$232;
-
-  /// `233`
-  @BuiltValueEnumConst(wireName: '233')
-  static const RoomSetAttendeePermissionsPermissions $233 = _$roomSetAttendeePermissionsPermissions$233;
-
-  /// `234`
-  @BuiltValueEnumConst(wireName: '234')
-  static const RoomSetAttendeePermissionsPermissions $234 = _$roomSetAttendeePermissionsPermissions$234;
-
-  /// `235`
-  @BuiltValueEnumConst(wireName: '235')
-  static const RoomSetAttendeePermissionsPermissions $235 = _$roomSetAttendeePermissionsPermissions$235;
-
-  /// `236`
-  @BuiltValueEnumConst(wireName: '236')
-  static const RoomSetAttendeePermissionsPermissions $236 = _$roomSetAttendeePermissionsPermissions$236;
-
-  /// `237`
-  @BuiltValueEnumConst(wireName: '237')
-  static const RoomSetAttendeePermissionsPermissions $237 = _$roomSetAttendeePermissionsPermissions$237;
-
-  /// `238`
-  @BuiltValueEnumConst(wireName: '238')
-  static const RoomSetAttendeePermissionsPermissions $238 = _$roomSetAttendeePermissionsPermissions$238;
-
-  /// `239`
-  @BuiltValueEnumConst(wireName: '239')
-  static const RoomSetAttendeePermissionsPermissions $239 = _$roomSetAttendeePermissionsPermissions$239;
-
-  /// `240`
-  @BuiltValueEnumConst(wireName: '240')
-  static const RoomSetAttendeePermissionsPermissions $240 = _$roomSetAttendeePermissionsPermissions$240;
-
-  /// `241`
-  @BuiltValueEnumConst(wireName: '241')
-  static const RoomSetAttendeePermissionsPermissions $241 = _$roomSetAttendeePermissionsPermissions$241;
-
-  /// `242`
-  @BuiltValueEnumConst(wireName: '242')
-  static const RoomSetAttendeePermissionsPermissions $242 = _$roomSetAttendeePermissionsPermissions$242;
-
-  /// `243`
-  @BuiltValueEnumConst(wireName: '243')
-  static const RoomSetAttendeePermissionsPermissions $243 = _$roomSetAttendeePermissionsPermissions$243;
-
-  /// `244`
-  @BuiltValueEnumConst(wireName: '244')
-  static const RoomSetAttendeePermissionsPermissions $244 = _$roomSetAttendeePermissionsPermissions$244;
-
-  /// `245`
-  @BuiltValueEnumConst(wireName: '245')
-  static const RoomSetAttendeePermissionsPermissions $245 = _$roomSetAttendeePermissionsPermissions$245;
-
-  /// `246`
-  @BuiltValueEnumConst(wireName: '246')
-  static const RoomSetAttendeePermissionsPermissions $246 = _$roomSetAttendeePermissionsPermissions$246;
-
-  /// `247`
-  @BuiltValueEnumConst(wireName: '247')
-  static const RoomSetAttendeePermissionsPermissions $247 = _$roomSetAttendeePermissionsPermissions$247;
-
-  /// `248`
-  @BuiltValueEnumConst(wireName: '248')
-  static const RoomSetAttendeePermissionsPermissions $248 = _$roomSetAttendeePermissionsPermissions$248;
-
-  /// `249`
-  @BuiltValueEnumConst(wireName: '249')
-  static const RoomSetAttendeePermissionsPermissions $249 = _$roomSetAttendeePermissionsPermissions$249;
-
-  /// `250`
-  @BuiltValueEnumConst(wireName: '250')
-  static const RoomSetAttendeePermissionsPermissions $250 = _$roomSetAttendeePermissionsPermissions$250;
-
-  /// `251`
-  @BuiltValueEnumConst(wireName: '251')
-  static const RoomSetAttendeePermissionsPermissions $251 = _$roomSetAttendeePermissionsPermissions$251;
-
-  /// `252`
-  @BuiltValueEnumConst(wireName: '252')
-  static const RoomSetAttendeePermissionsPermissions $252 = _$roomSetAttendeePermissionsPermissions$252;
-
-  /// `253`
-  @BuiltValueEnumConst(wireName: '253')
-  static const RoomSetAttendeePermissionsPermissions $253 = _$roomSetAttendeePermissionsPermissions$253;
-
-  /// `254`
-  @BuiltValueEnumConst(wireName: '254')
-  static const RoomSetAttendeePermissionsPermissions $254 = _$roomSetAttendeePermissionsPermissions$254;
-
-  /// `255`
-  @BuiltValueEnumConst(wireName: '255')
-  static const RoomSetAttendeePermissionsPermissions $255 = _$roomSetAttendeePermissionsPermissions$255;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RoomSetAttendeePermissionsPermissions> get values => _$roomSetAttendeePermissionsPermissionsValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RoomSetAttendeePermissionsPermissions valueOf(String name) =>
-      _$valueOfRoomSetAttendeePermissionsPermissions(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for RoomSetAttendeePermissionsPermissions.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomSetAttendeePermissionsPermissions> get serializer =>
-      const _$RoomSetAttendeePermissionsPermissionsSerializer();
-}
-
-class _$RoomSetAttendeePermissionsPermissionsSerializer
-    implements PrimitiveSerializer<RoomSetAttendeePermissionsPermissions> {
-  const _$RoomSetAttendeePermissionsPermissionsSerializer();
-
-  static const Map<RoomSetAttendeePermissionsPermissions, Object> _toWire =
-      <RoomSetAttendeePermissionsPermissions, Object>{
-    RoomSetAttendeePermissionsPermissions.$0: 0,
-    RoomSetAttendeePermissionsPermissions.$1: 1,
-    RoomSetAttendeePermissionsPermissions.$2: 2,
-    RoomSetAttendeePermissionsPermissions.$3: 3,
-    RoomSetAttendeePermissionsPermissions.$4: 4,
-    RoomSetAttendeePermissionsPermissions.$5: 5,
-    RoomSetAttendeePermissionsPermissions.$6: 6,
-    RoomSetAttendeePermissionsPermissions.$7: 7,
-    RoomSetAttendeePermissionsPermissions.$8: 8,
-    RoomSetAttendeePermissionsPermissions.$9: 9,
-    RoomSetAttendeePermissionsPermissions.$10: 10,
-    RoomSetAttendeePermissionsPermissions.$11: 11,
-    RoomSetAttendeePermissionsPermissions.$12: 12,
-    RoomSetAttendeePermissionsPermissions.$13: 13,
-    RoomSetAttendeePermissionsPermissions.$14: 14,
-    RoomSetAttendeePermissionsPermissions.$15: 15,
-    RoomSetAttendeePermissionsPermissions.$16: 16,
-    RoomSetAttendeePermissionsPermissions.$17: 17,
-    RoomSetAttendeePermissionsPermissions.$18: 18,
-    RoomSetAttendeePermissionsPermissions.$19: 19,
-    RoomSetAttendeePermissionsPermissions.$20: 20,
-    RoomSetAttendeePermissionsPermissions.$21: 21,
-    RoomSetAttendeePermissionsPermissions.$22: 22,
-    RoomSetAttendeePermissionsPermissions.$23: 23,
-    RoomSetAttendeePermissionsPermissions.$24: 24,
-    RoomSetAttendeePermissionsPermissions.$25: 25,
-    RoomSetAttendeePermissionsPermissions.$26: 26,
-    RoomSetAttendeePermissionsPermissions.$27: 27,
-    RoomSetAttendeePermissionsPermissions.$28: 28,
-    RoomSetAttendeePermissionsPermissions.$29: 29,
-    RoomSetAttendeePermissionsPermissions.$30: 30,
-    RoomSetAttendeePermissionsPermissions.$31: 31,
-    RoomSetAttendeePermissionsPermissions.$32: 32,
-    RoomSetAttendeePermissionsPermissions.$33: 33,
-    RoomSetAttendeePermissionsPermissions.$34: 34,
-    RoomSetAttendeePermissionsPermissions.$35: 35,
-    RoomSetAttendeePermissionsPermissions.$36: 36,
-    RoomSetAttendeePermissionsPermissions.$37: 37,
-    RoomSetAttendeePermissionsPermissions.$38: 38,
-    RoomSetAttendeePermissionsPermissions.$39: 39,
-    RoomSetAttendeePermissionsPermissions.$40: 40,
-    RoomSetAttendeePermissionsPermissions.$41: 41,
-    RoomSetAttendeePermissionsPermissions.$42: 42,
-    RoomSetAttendeePermissionsPermissions.$43: 43,
-    RoomSetAttendeePermissionsPermissions.$44: 44,
-    RoomSetAttendeePermissionsPermissions.$45: 45,
-    RoomSetAttendeePermissionsPermissions.$46: 46,
-    RoomSetAttendeePermissionsPermissions.$47: 47,
-    RoomSetAttendeePermissionsPermissions.$48: 48,
-    RoomSetAttendeePermissionsPermissions.$49: 49,
-    RoomSetAttendeePermissionsPermissions.$50: 50,
-    RoomSetAttendeePermissionsPermissions.$51: 51,
-    RoomSetAttendeePermissionsPermissions.$52: 52,
-    RoomSetAttendeePermissionsPermissions.$53: 53,
-    RoomSetAttendeePermissionsPermissions.$54: 54,
-    RoomSetAttendeePermissionsPermissions.$55: 55,
-    RoomSetAttendeePermissionsPermissions.$56: 56,
-    RoomSetAttendeePermissionsPermissions.$57: 57,
-    RoomSetAttendeePermissionsPermissions.$58: 58,
-    RoomSetAttendeePermissionsPermissions.$59: 59,
-    RoomSetAttendeePermissionsPermissions.$60: 60,
-    RoomSetAttendeePermissionsPermissions.$61: 61,
-    RoomSetAttendeePermissionsPermissions.$62: 62,
-    RoomSetAttendeePermissionsPermissions.$63: 63,
-    RoomSetAttendeePermissionsPermissions.$64: 64,
-    RoomSetAttendeePermissionsPermissions.$65: 65,
-    RoomSetAttendeePermissionsPermissions.$66: 66,
-    RoomSetAttendeePermissionsPermissions.$67: 67,
-    RoomSetAttendeePermissionsPermissions.$68: 68,
-    RoomSetAttendeePermissionsPermissions.$69: 69,
-    RoomSetAttendeePermissionsPermissions.$70: 70,
-    RoomSetAttendeePermissionsPermissions.$71: 71,
-    RoomSetAttendeePermissionsPermissions.$72: 72,
-    RoomSetAttendeePermissionsPermissions.$73: 73,
-    RoomSetAttendeePermissionsPermissions.$74: 74,
-    RoomSetAttendeePermissionsPermissions.$75: 75,
-    RoomSetAttendeePermissionsPermissions.$76: 76,
-    RoomSetAttendeePermissionsPermissions.$77: 77,
-    RoomSetAttendeePermissionsPermissions.$78: 78,
-    RoomSetAttendeePermissionsPermissions.$79: 79,
-    RoomSetAttendeePermissionsPermissions.$80: 80,
-    RoomSetAttendeePermissionsPermissions.$81: 81,
-    RoomSetAttendeePermissionsPermissions.$82: 82,
-    RoomSetAttendeePermissionsPermissions.$83: 83,
-    RoomSetAttendeePermissionsPermissions.$84: 84,
-    RoomSetAttendeePermissionsPermissions.$85: 85,
-    RoomSetAttendeePermissionsPermissions.$86: 86,
-    RoomSetAttendeePermissionsPermissions.$87: 87,
-    RoomSetAttendeePermissionsPermissions.$88: 88,
-    RoomSetAttendeePermissionsPermissions.$89: 89,
-    RoomSetAttendeePermissionsPermissions.$90: 90,
-    RoomSetAttendeePermissionsPermissions.$91: 91,
-    RoomSetAttendeePermissionsPermissions.$92: 92,
-    RoomSetAttendeePermissionsPermissions.$93: 93,
-    RoomSetAttendeePermissionsPermissions.$94: 94,
-    RoomSetAttendeePermissionsPermissions.$95: 95,
-    RoomSetAttendeePermissionsPermissions.$96: 96,
-    RoomSetAttendeePermissionsPermissions.$97: 97,
-    RoomSetAttendeePermissionsPermissions.$98: 98,
-    RoomSetAttendeePermissionsPermissions.$99: 99,
-    RoomSetAttendeePermissionsPermissions.$100: 100,
-    RoomSetAttendeePermissionsPermissions.$101: 101,
-    RoomSetAttendeePermissionsPermissions.$102: 102,
-    RoomSetAttendeePermissionsPermissions.$103: 103,
-    RoomSetAttendeePermissionsPermissions.$104: 104,
-    RoomSetAttendeePermissionsPermissions.$105: 105,
-    RoomSetAttendeePermissionsPermissions.$106: 106,
-    RoomSetAttendeePermissionsPermissions.$107: 107,
-    RoomSetAttendeePermissionsPermissions.$108: 108,
-    RoomSetAttendeePermissionsPermissions.$109: 109,
-    RoomSetAttendeePermissionsPermissions.$110: 110,
-    RoomSetAttendeePermissionsPermissions.$111: 111,
-    RoomSetAttendeePermissionsPermissions.$112: 112,
-    RoomSetAttendeePermissionsPermissions.$113: 113,
-    RoomSetAttendeePermissionsPermissions.$114: 114,
-    RoomSetAttendeePermissionsPermissions.$115: 115,
-    RoomSetAttendeePermissionsPermissions.$116: 116,
-    RoomSetAttendeePermissionsPermissions.$117: 117,
-    RoomSetAttendeePermissionsPermissions.$118: 118,
-    RoomSetAttendeePermissionsPermissions.$119: 119,
-    RoomSetAttendeePermissionsPermissions.$120: 120,
-    RoomSetAttendeePermissionsPermissions.$121: 121,
-    RoomSetAttendeePermissionsPermissions.$122: 122,
-    RoomSetAttendeePermissionsPermissions.$123: 123,
-    RoomSetAttendeePermissionsPermissions.$124: 124,
-    RoomSetAttendeePermissionsPermissions.$125: 125,
-    RoomSetAttendeePermissionsPermissions.$126: 126,
-    RoomSetAttendeePermissionsPermissions.$127: 127,
-    RoomSetAttendeePermissionsPermissions.$128: 128,
-    RoomSetAttendeePermissionsPermissions.$129: 129,
-    RoomSetAttendeePermissionsPermissions.$130: 130,
-    RoomSetAttendeePermissionsPermissions.$131: 131,
-    RoomSetAttendeePermissionsPermissions.$132: 132,
-    RoomSetAttendeePermissionsPermissions.$133: 133,
-    RoomSetAttendeePermissionsPermissions.$134: 134,
-    RoomSetAttendeePermissionsPermissions.$135: 135,
-    RoomSetAttendeePermissionsPermissions.$136: 136,
-    RoomSetAttendeePermissionsPermissions.$137: 137,
-    RoomSetAttendeePermissionsPermissions.$138: 138,
-    RoomSetAttendeePermissionsPermissions.$139: 139,
-    RoomSetAttendeePermissionsPermissions.$140: 140,
-    RoomSetAttendeePermissionsPermissions.$141: 141,
-    RoomSetAttendeePermissionsPermissions.$142: 142,
-    RoomSetAttendeePermissionsPermissions.$143: 143,
-    RoomSetAttendeePermissionsPermissions.$144: 144,
-    RoomSetAttendeePermissionsPermissions.$145: 145,
-    RoomSetAttendeePermissionsPermissions.$146: 146,
-    RoomSetAttendeePermissionsPermissions.$147: 147,
-    RoomSetAttendeePermissionsPermissions.$148: 148,
-    RoomSetAttendeePermissionsPermissions.$149: 149,
-    RoomSetAttendeePermissionsPermissions.$150: 150,
-    RoomSetAttendeePermissionsPermissions.$151: 151,
-    RoomSetAttendeePermissionsPermissions.$152: 152,
-    RoomSetAttendeePermissionsPermissions.$153: 153,
-    RoomSetAttendeePermissionsPermissions.$154: 154,
-    RoomSetAttendeePermissionsPermissions.$155: 155,
-    RoomSetAttendeePermissionsPermissions.$156: 156,
-    RoomSetAttendeePermissionsPermissions.$157: 157,
-    RoomSetAttendeePermissionsPermissions.$158: 158,
-    RoomSetAttendeePermissionsPermissions.$159: 159,
-    RoomSetAttendeePermissionsPermissions.$160: 160,
-    RoomSetAttendeePermissionsPermissions.$161: 161,
-    RoomSetAttendeePermissionsPermissions.$162: 162,
-    RoomSetAttendeePermissionsPermissions.$163: 163,
-    RoomSetAttendeePermissionsPermissions.$164: 164,
-    RoomSetAttendeePermissionsPermissions.$165: 165,
-    RoomSetAttendeePermissionsPermissions.$166: 166,
-    RoomSetAttendeePermissionsPermissions.$167: 167,
-    RoomSetAttendeePermissionsPermissions.$168: 168,
-    RoomSetAttendeePermissionsPermissions.$169: 169,
-    RoomSetAttendeePermissionsPermissions.$170: 170,
-    RoomSetAttendeePermissionsPermissions.$171: 171,
-    RoomSetAttendeePermissionsPermissions.$172: 172,
-    RoomSetAttendeePermissionsPermissions.$173: 173,
-    RoomSetAttendeePermissionsPermissions.$174: 174,
-    RoomSetAttendeePermissionsPermissions.$175: 175,
-    RoomSetAttendeePermissionsPermissions.$176: 176,
-    RoomSetAttendeePermissionsPermissions.$177: 177,
-    RoomSetAttendeePermissionsPermissions.$178: 178,
-    RoomSetAttendeePermissionsPermissions.$179: 179,
-    RoomSetAttendeePermissionsPermissions.$180: 180,
-    RoomSetAttendeePermissionsPermissions.$181: 181,
-    RoomSetAttendeePermissionsPermissions.$182: 182,
-    RoomSetAttendeePermissionsPermissions.$183: 183,
-    RoomSetAttendeePermissionsPermissions.$184: 184,
-    RoomSetAttendeePermissionsPermissions.$185: 185,
-    RoomSetAttendeePermissionsPermissions.$186: 186,
-    RoomSetAttendeePermissionsPermissions.$187: 187,
-    RoomSetAttendeePermissionsPermissions.$188: 188,
-    RoomSetAttendeePermissionsPermissions.$189: 189,
-    RoomSetAttendeePermissionsPermissions.$190: 190,
-    RoomSetAttendeePermissionsPermissions.$191: 191,
-    RoomSetAttendeePermissionsPermissions.$192: 192,
-    RoomSetAttendeePermissionsPermissions.$193: 193,
-    RoomSetAttendeePermissionsPermissions.$194: 194,
-    RoomSetAttendeePermissionsPermissions.$195: 195,
-    RoomSetAttendeePermissionsPermissions.$196: 196,
-    RoomSetAttendeePermissionsPermissions.$197: 197,
-    RoomSetAttendeePermissionsPermissions.$198: 198,
-    RoomSetAttendeePermissionsPermissions.$199: 199,
-    RoomSetAttendeePermissionsPermissions.$200: 200,
-    RoomSetAttendeePermissionsPermissions.$201: 201,
-    RoomSetAttendeePermissionsPermissions.$202: 202,
-    RoomSetAttendeePermissionsPermissions.$203: 203,
-    RoomSetAttendeePermissionsPermissions.$204: 204,
-    RoomSetAttendeePermissionsPermissions.$205: 205,
-    RoomSetAttendeePermissionsPermissions.$206: 206,
-    RoomSetAttendeePermissionsPermissions.$207: 207,
-    RoomSetAttendeePermissionsPermissions.$208: 208,
-    RoomSetAttendeePermissionsPermissions.$209: 209,
-    RoomSetAttendeePermissionsPermissions.$210: 210,
-    RoomSetAttendeePermissionsPermissions.$211: 211,
-    RoomSetAttendeePermissionsPermissions.$212: 212,
-    RoomSetAttendeePermissionsPermissions.$213: 213,
-    RoomSetAttendeePermissionsPermissions.$214: 214,
-    RoomSetAttendeePermissionsPermissions.$215: 215,
-    RoomSetAttendeePermissionsPermissions.$216: 216,
-    RoomSetAttendeePermissionsPermissions.$217: 217,
-    RoomSetAttendeePermissionsPermissions.$218: 218,
-    RoomSetAttendeePermissionsPermissions.$219: 219,
-    RoomSetAttendeePermissionsPermissions.$220: 220,
-    RoomSetAttendeePermissionsPermissions.$221: 221,
-    RoomSetAttendeePermissionsPermissions.$222: 222,
-    RoomSetAttendeePermissionsPermissions.$223: 223,
-    RoomSetAttendeePermissionsPermissions.$224: 224,
-    RoomSetAttendeePermissionsPermissions.$225: 225,
-    RoomSetAttendeePermissionsPermissions.$226: 226,
-    RoomSetAttendeePermissionsPermissions.$227: 227,
-    RoomSetAttendeePermissionsPermissions.$228: 228,
-    RoomSetAttendeePermissionsPermissions.$229: 229,
-    RoomSetAttendeePermissionsPermissions.$230: 230,
-    RoomSetAttendeePermissionsPermissions.$231: 231,
-    RoomSetAttendeePermissionsPermissions.$232: 232,
-    RoomSetAttendeePermissionsPermissions.$233: 233,
-    RoomSetAttendeePermissionsPermissions.$234: 234,
-    RoomSetAttendeePermissionsPermissions.$235: 235,
-    RoomSetAttendeePermissionsPermissions.$236: 236,
-    RoomSetAttendeePermissionsPermissions.$237: 237,
-    RoomSetAttendeePermissionsPermissions.$238: 238,
-    RoomSetAttendeePermissionsPermissions.$239: 239,
-    RoomSetAttendeePermissionsPermissions.$240: 240,
-    RoomSetAttendeePermissionsPermissions.$241: 241,
-    RoomSetAttendeePermissionsPermissions.$242: 242,
-    RoomSetAttendeePermissionsPermissions.$243: 243,
-    RoomSetAttendeePermissionsPermissions.$244: 244,
-    RoomSetAttendeePermissionsPermissions.$245: 245,
-    RoomSetAttendeePermissionsPermissions.$246: 246,
-    RoomSetAttendeePermissionsPermissions.$247: 247,
-    RoomSetAttendeePermissionsPermissions.$248: 248,
-    RoomSetAttendeePermissionsPermissions.$249: 249,
-    RoomSetAttendeePermissionsPermissions.$250: 250,
-    RoomSetAttendeePermissionsPermissions.$251: 251,
-    RoomSetAttendeePermissionsPermissions.$252: 252,
-    RoomSetAttendeePermissionsPermissions.$253: 253,
-    RoomSetAttendeePermissionsPermissions.$254: 254,
-    RoomSetAttendeePermissionsPermissions.$255: 255,
-  };
-
-  static const Map<Object, RoomSetAttendeePermissionsPermissions> _fromWire =
-      <Object, RoomSetAttendeePermissionsPermissions>{
-    0: RoomSetAttendeePermissionsPermissions.$0,
-    1: RoomSetAttendeePermissionsPermissions.$1,
-    2: RoomSetAttendeePermissionsPermissions.$2,
-    3: RoomSetAttendeePermissionsPermissions.$3,
-    4: RoomSetAttendeePermissionsPermissions.$4,
-    5: RoomSetAttendeePermissionsPermissions.$5,
-    6: RoomSetAttendeePermissionsPermissions.$6,
-    7: RoomSetAttendeePermissionsPermissions.$7,
-    8: RoomSetAttendeePermissionsPermissions.$8,
-    9: RoomSetAttendeePermissionsPermissions.$9,
-    10: RoomSetAttendeePermissionsPermissions.$10,
-    11: RoomSetAttendeePermissionsPermissions.$11,
-    12: RoomSetAttendeePermissionsPermissions.$12,
-    13: RoomSetAttendeePermissionsPermissions.$13,
-    14: RoomSetAttendeePermissionsPermissions.$14,
-    15: RoomSetAttendeePermissionsPermissions.$15,
-    16: RoomSetAttendeePermissionsPermissions.$16,
-    17: RoomSetAttendeePermissionsPermissions.$17,
-    18: RoomSetAttendeePermissionsPermissions.$18,
-    19: RoomSetAttendeePermissionsPermissions.$19,
-    20: RoomSetAttendeePermissionsPermissions.$20,
-    21: RoomSetAttendeePermissionsPermissions.$21,
-    22: RoomSetAttendeePermissionsPermissions.$22,
-    23: RoomSetAttendeePermissionsPermissions.$23,
-    24: RoomSetAttendeePermissionsPermissions.$24,
-    25: RoomSetAttendeePermissionsPermissions.$25,
-    26: RoomSetAttendeePermissionsPermissions.$26,
-    27: RoomSetAttendeePermissionsPermissions.$27,
-    28: RoomSetAttendeePermissionsPermissions.$28,
-    29: RoomSetAttendeePermissionsPermissions.$29,
-    30: RoomSetAttendeePermissionsPermissions.$30,
-    31: RoomSetAttendeePermissionsPermissions.$31,
-    32: RoomSetAttendeePermissionsPermissions.$32,
-    33: RoomSetAttendeePermissionsPermissions.$33,
-    34: RoomSetAttendeePermissionsPermissions.$34,
-    35: RoomSetAttendeePermissionsPermissions.$35,
-    36: RoomSetAttendeePermissionsPermissions.$36,
-    37: RoomSetAttendeePermissionsPermissions.$37,
-    38: RoomSetAttendeePermissionsPermissions.$38,
-    39: RoomSetAttendeePermissionsPermissions.$39,
-    40: RoomSetAttendeePermissionsPermissions.$40,
-    41: RoomSetAttendeePermissionsPermissions.$41,
-    42: RoomSetAttendeePermissionsPermissions.$42,
-    43: RoomSetAttendeePermissionsPermissions.$43,
-    44: RoomSetAttendeePermissionsPermissions.$44,
-    45: RoomSetAttendeePermissionsPermissions.$45,
-    46: RoomSetAttendeePermissionsPermissions.$46,
-    47: RoomSetAttendeePermissionsPermissions.$47,
-    48: RoomSetAttendeePermissionsPermissions.$48,
-    49: RoomSetAttendeePermissionsPermissions.$49,
-    50: RoomSetAttendeePermissionsPermissions.$50,
-    51: RoomSetAttendeePermissionsPermissions.$51,
-    52: RoomSetAttendeePermissionsPermissions.$52,
-    53: RoomSetAttendeePermissionsPermissions.$53,
-    54: RoomSetAttendeePermissionsPermissions.$54,
-    55: RoomSetAttendeePermissionsPermissions.$55,
-    56: RoomSetAttendeePermissionsPermissions.$56,
-    57: RoomSetAttendeePermissionsPermissions.$57,
-    58: RoomSetAttendeePermissionsPermissions.$58,
-    59: RoomSetAttendeePermissionsPermissions.$59,
-    60: RoomSetAttendeePermissionsPermissions.$60,
-    61: RoomSetAttendeePermissionsPermissions.$61,
-    62: RoomSetAttendeePermissionsPermissions.$62,
-    63: RoomSetAttendeePermissionsPermissions.$63,
-    64: RoomSetAttendeePermissionsPermissions.$64,
-    65: RoomSetAttendeePermissionsPermissions.$65,
-    66: RoomSetAttendeePermissionsPermissions.$66,
-    67: RoomSetAttendeePermissionsPermissions.$67,
-    68: RoomSetAttendeePermissionsPermissions.$68,
-    69: RoomSetAttendeePermissionsPermissions.$69,
-    70: RoomSetAttendeePermissionsPermissions.$70,
-    71: RoomSetAttendeePermissionsPermissions.$71,
-    72: RoomSetAttendeePermissionsPermissions.$72,
-    73: RoomSetAttendeePermissionsPermissions.$73,
-    74: RoomSetAttendeePermissionsPermissions.$74,
-    75: RoomSetAttendeePermissionsPermissions.$75,
-    76: RoomSetAttendeePermissionsPermissions.$76,
-    77: RoomSetAttendeePermissionsPermissions.$77,
-    78: RoomSetAttendeePermissionsPermissions.$78,
-    79: RoomSetAttendeePermissionsPermissions.$79,
-    80: RoomSetAttendeePermissionsPermissions.$80,
-    81: RoomSetAttendeePermissionsPermissions.$81,
-    82: RoomSetAttendeePermissionsPermissions.$82,
-    83: RoomSetAttendeePermissionsPermissions.$83,
-    84: RoomSetAttendeePermissionsPermissions.$84,
-    85: RoomSetAttendeePermissionsPermissions.$85,
-    86: RoomSetAttendeePermissionsPermissions.$86,
-    87: RoomSetAttendeePermissionsPermissions.$87,
-    88: RoomSetAttendeePermissionsPermissions.$88,
-    89: RoomSetAttendeePermissionsPermissions.$89,
-    90: RoomSetAttendeePermissionsPermissions.$90,
-    91: RoomSetAttendeePermissionsPermissions.$91,
-    92: RoomSetAttendeePermissionsPermissions.$92,
-    93: RoomSetAttendeePermissionsPermissions.$93,
-    94: RoomSetAttendeePermissionsPermissions.$94,
-    95: RoomSetAttendeePermissionsPermissions.$95,
-    96: RoomSetAttendeePermissionsPermissions.$96,
-    97: RoomSetAttendeePermissionsPermissions.$97,
-    98: RoomSetAttendeePermissionsPermissions.$98,
-    99: RoomSetAttendeePermissionsPermissions.$99,
-    100: RoomSetAttendeePermissionsPermissions.$100,
-    101: RoomSetAttendeePermissionsPermissions.$101,
-    102: RoomSetAttendeePermissionsPermissions.$102,
-    103: RoomSetAttendeePermissionsPermissions.$103,
-    104: RoomSetAttendeePermissionsPermissions.$104,
-    105: RoomSetAttendeePermissionsPermissions.$105,
-    106: RoomSetAttendeePermissionsPermissions.$106,
-    107: RoomSetAttendeePermissionsPermissions.$107,
-    108: RoomSetAttendeePermissionsPermissions.$108,
-    109: RoomSetAttendeePermissionsPermissions.$109,
-    110: RoomSetAttendeePermissionsPermissions.$110,
-    111: RoomSetAttendeePermissionsPermissions.$111,
-    112: RoomSetAttendeePermissionsPermissions.$112,
-    113: RoomSetAttendeePermissionsPermissions.$113,
-    114: RoomSetAttendeePermissionsPermissions.$114,
-    115: RoomSetAttendeePermissionsPermissions.$115,
-    116: RoomSetAttendeePermissionsPermissions.$116,
-    117: RoomSetAttendeePermissionsPermissions.$117,
-    118: RoomSetAttendeePermissionsPermissions.$118,
-    119: RoomSetAttendeePermissionsPermissions.$119,
-    120: RoomSetAttendeePermissionsPermissions.$120,
-    121: RoomSetAttendeePermissionsPermissions.$121,
-    122: RoomSetAttendeePermissionsPermissions.$122,
-    123: RoomSetAttendeePermissionsPermissions.$123,
-    124: RoomSetAttendeePermissionsPermissions.$124,
-    125: RoomSetAttendeePermissionsPermissions.$125,
-    126: RoomSetAttendeePermissionsPermissions.$126,
-    127: RoomSetAttendeePermissionsPermissions.$127,
-    128: RoomSetAttendeePermissionsPermissions.$128,
-    129: RoomSetAttendeePermissionsPermissions.$129,
-    130: RoomSetAttendeePermissionsPermissions.$130,
-    131: RoomSetAttendeePermissionsPermissions.$131,
-    132: RoomSetAttendeePermissionsPermissions.$132,
-    133: RoomSetAttendeePermissionsPermissions.$133,
-    134: RoomSetAttendeePermissionsPermissions.$134,
-    135: RoomSetAttendeePermissionsPermissions.$135,
-    136: RoomSetAttendeePermissionsPermissions.$136,
-    137: RoomSetAttendeePermissionsPermissions.$137,
-    138: RoomSetAttendeePermissionsPermissions.$138,
-    139: RoomSetAttendeePermissionsPermissions.$139,
-    140: RoomSetAttendeePermissionsPermissions.$140,
-    141: RoomSetAttendeePermissionsPermissions.$141,
-    142: RoomSetAttendeePermissionsPermissions.$142,
-    143: RoomSetAttendeePermissionsPermissions.$143,
-    144: RoomSetAttendeePermissionsPermissions.$144,
-    145: RoomSetAttendeePermissionsPermissions.$145,
-    146: RoomSetAttendeePermissionsPermissions.$146,
-    147: RoomSetAttendeePermissionsPermissions.$147,
-    148: RoomSetAttendeePermissionsPermissions.$148,
-    149: RoomSetAttendeePermissionsPermissions.$149,
-    150: RoomSetAttendeePermissionsPermissions.$150,
-    151: RoomSetAttendeePermissionsPermissions.$151,
-    152: RoomSetAttendeePermissionsPermissions.$152,
-    153: RoomSetAttendeePermissionsPermissions.$153,
-    154: RoomSetAttendeePermissionsPermissions.$154,
-    155: RoomSetAttendeePermissionsPermissions.$155,
-    156: RoomSetAttendeePermissionsPermissions.$156,
-    157: RoomSetAttendeePermissionsPermissions.$157,
-    158: RoomSetAttendeePermissionsPermissions.$158,
-    159: RoomSetAttendeePermissionsPermissions.$159,
-    160: RoomSetAttendeePermissionsPermissions.$160,
-    161: RoomSetAttendeePermissionsPermissions.$161,
-    162: RoomSetAttendeePermissionsPermissions.$162,
-    163: RoomSetAttendeePermissionsPermissions.$163,
-    164: RoomSetAttendeePermissionsPermissions.$164,
-    165: RoomSetAttendeePermissionsPermissions.$165,
-    166: RoomSetAttendeePermissionsPermissions.$166,
-    167: RoomSetAttendeePermissionsPermissions.$167,
-    168: RoomSetAttendeePermissionsPermissions.$168,
-    169: RoomSetAttendeePermissionsPermissions.$169,
-    170: RoomSetAttendeePermissionsPermissions.$170,
-    171: RoomSetAttendeePermissionsPermissions.$171,
-    172: RoomSetAttendeePermissionsPermissions.$172,
-    173: RoomSetAttendeePermissionsPermissions.$173,
-    174: RoomSetAttendeePermissionsPermissions.$174,
-    175: RoomSetAttendeePermissionsPermissions.$175,
-    176: RoomSetAttendeePermissionsPermissions.$176,
-    177: RoomSetAttendeePermissionsPermissions.$177,
-    178: RoomSetAttendeePermissionsPermissions.$178,
-    179: RoomSetAttendeePermissionsPermissions.$179,
-    180: RoomSetAttendeePermissionsPermissions.$180,
-    181: RoomSetAttendeePermissionsPermissions.$181,
-    182: RoomSetAttendeePermissionsPermissions.$182,
-    183: RoomSetAttendeePermissionsPermissions.$183,
-    184: RoomSetAttendeePermissionsPermissions.$184,
-    185: RoomSetAttendeePermissionsPermissions.$185,
-    186: RoomSetAttendeePermissionsPermissions.$186,
-    187: RoomSetAttendeePermissionsPermissions.$187,
-    188: RoomSetAttendeePermissionsPermissions.$188,
-    189: RoomSetAttendeePermissionsPermissions.$189,
-    190: RoomSetAttendeePermissionsPermissions.$190,
-    191: RoomSetAttendeePermissionsPermissions.$191,
-    192: RoomSetAttendeePermissionsPermissions.$192,
-    193: RoomSetAttendeePermissionsPermissions.$193,
-    194: RoomSetAttendeePermissionsPermissions.$194,
-    195: RoomSetAttendeePermissionsPermissions.$195,
-    196: RoomSetAttendeePermissionsPermissions.$196,
-    197: RoomSetAttendeePermissionsPermissions.$197,
-    198: RoomSetAttendeePermissionsPermissions.$198,
-    199: RoomSetAttendeePermissionsPermissions.$199,
-    200: RoomSetAttendeePermissionsPermissions.$200,
-    201: RoomSetAttendeePermissionsPermissions.$201,
-    202: RoomSetAttendeePermissionsPermissions.$202,
-    203: RoomSetAttendeePermissionsPermissions.$203,
-    204: RoomSetAttendeePermissionsPermissions.$204,
-    205: RoomSetAttendeePermissionsPermissions.$205,
-    206: RoomSetAttendeePermissionsPermissions.$206,
-    207: RoomSetAttendeePermissionsPermissions.$207,
-    208: RoomSetAttendeePermissionsPermissions.$208,
-    209: RoomSetAttendeePermissionsPermissions.$209,
-    210: RoomSetAttendeePermissionsPermissions.$210,
-    211: RoomSetAttendeePermissionsPermissions.$211,
-    212: RoomSetAttendeePermissionsPermissions.$212,
-    213: RoomSetAttendeePermissionsPermissions.$213,
-    214: RoomSetAttendeePermissionsPermissions.$214,
-    215: RoomSetAttendeePermissionsPermissions.$215,
-    216: RoomSetAttendeePermissionsPermissions.$216,
-    217: RoomSetAttendeePermissionsPermissions.$217,
-    218: RoomSetAttendeePermissionsPermissions.$218,
-    219: RoomSetAttendeePermissionsPermissions.$219,
-    220: RoomSetAttendeePermissionsPermissions.$220,
-    221: RoomSetAttendeePermissionsPermissions.$221,
-    222: RoomSetAttendeePermissionsPermissions.$222,
-    223: RoomSetAttendeePermissionsPermissions.$223,
-    224: RoomSetAttendeePermissionsPermissions.$224,
-    225: RoomSetAttendeePermissionsPermissions.$225,
-    226: RoomSetAttendeePermissionsPermissions.$226,
-    227: RoomSetAttendeePermissionsPermissions.$227,
-    228: RoomSetAttendeePermissionsPermissions.$228,
-    229: RoomSetAttendeePermissionsPermissions.$229,
-    230: RoomSetAttendeePermissionsPermissions.$230,
-    231: RoomSetAttendeePermissionsPermissions.$231,
-    232: RoomSetAttendeePermissionsPermissions.$232,
-    233: RoomSetAttendeePermissionsPermissions.$233,
-    234: RoomSetAttendeePermissionsPermissions.$234,
-    235: RoomSetAttendeePermissionsPermissions.$235,
-    236: RoomSetAttendeePermissionsPermissions.$236,
-    237: RoomSetAttendeePermissionsPermissions.$237,
-    238: RoomSetAttendeePermissionsPermissions.$238,
-    239: RoomSetAttendeePermissionsPermissions.$239,
-    240: RoomSetAttendeePermissionsPermissions.$240,
-    241: RoomSetAttendeePermissionsPermissions.$241,
-    242: RoomSetAttendeePermissionsPermissions.$242,
-    243: RoomSetAttendeePermissionsPermissions.$243,
-    244: RoomSetAttendeePermissionsPermissions.$244,
-    245: RoomSetAttendeePermissionsPermissions.$245,
-    246: RoomSetAttendeePermissionsPermissions.$246,
-    247: RoomSetAttendeePermissionsPermissions.$247,
-    248: RoomSetAttendeePermissionsPermissions.$248,
-    249: RoomSetAttendeePermissionsPermissions.$249,
-    250: RoomSetAttendeePermissionsPermissions.$250,
-    251: RoomSetAttendeePermissionsPermissions.$251,
-    252: RoomSetAttendeePermissionsPermissions.$252,
-    253: RoomSetAttendeePermissionsPermissions.$253,
-    254: RoomSetAttendeePermissionsPermissions.$254,
-    255: RoomSetAttendeePermissionsPermissions.$255,
-  };
-
-  @override
-  Iterable<Type> get types => const [RoomSetAttendeePermissionsPermissions];
-
-  @override
-  String get wireName => 'RoomSetAttendeePermissionsPermissions';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RoomSetAttendeePermissionsPermissions object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RoomSetAttendeePermissionsPermissions deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   const RoomSetAttendeePermissionsApiVersion._(super.name);
 
@@ -36949,1599 +35414,6 @@ class _$RoomSetAllAttendeesPermissionsMethodSerializer
 
   @override
   RoomSetAllAttendeesPermissionsMethod deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class RoomSetAllAttendeesPermissionsPermissions extends EnumClass {
-  const RoomSetAllAttendeesPermissionsPermissions._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const RoomSetAllAttendeesPermissionsPermissions $0 = _$roomSetAllAttendeesPermissionsPermissions$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const RoomSetAllAttendeesPermissionsPermissions $1 = _$roomSetAllAttendeesPermissionsPermissions$1;
-
-  /// `2`
-  @BuiltValueEnumConst(wireName: '2')
-  static const RoomSetAllAttendeesPermissionsPermissions $2 = _$roomSetAllAttendeesPermissionsPermissions$2;
-
-  /// `3`
-  @BuiltValueEnumConst(wireName: '3')
-  static const RoomSetAllAttendeesPermissionsPermissions $3 = _$roomSetAllAttendeesPermissionsPermissions$3;
-
-  /// `4`
-  @BuiltValueEnumConst(wireName: '4')
-  static const RoomSetAllAttendeesPermissionsPermissions $4 = _$roomSetAllAttendeesPermissionsPermissions$4;
-
-  /// `5`
-  @BuiltValueEnumConst(wireName: '5')
-  static const RoomSetAllAttendeesPermissionsPermissions $5 = _$roomSetAllAttendeesPermissionsPermissions$5;
-
-  /// `6`
-  @BuiltValueEnumConst(wireName: '6')
-  static const RoomSetAllAttendeesPermissionsPermissions $6 = _$roomSetAllAttendeesPermissionsPermissions$6;
-
-  /// `7`
-  @BuiltValueEnumConst(wireName: '7')
-  static const RoomSetAllAttendeesPermissionsPermissions $7 = _$roomSetAllAttendeesPermissionsPermissions$7;
-
-  /// `8`
-  @BuiltValueEnumConst(wireName: '8')
-  static const RoomSetAllAttendeesPermissionsPermissions $8 = _$roomSetAllAttendeesPermissionsPermissions$8;
-
-  /// `9`
-  @BuiltValueEnumConst(wireName: '9')
-  static const RoomSetAllAttendeesPermissionsPermissions $9 = _$roomSetAllAttendeesPermissionsPermissions$9;
-
-  /// `10`
-  @BuiltValueEnumConst(wireName: '10')
-  static const RoomSetAllAttendeesPermissionsPermissions $10 = _$roomSetAllAttendeesPermissionsPermissions$10;
-
-  /// `11`
-  @BuiltValueEnumConst(wireName: '11')
-  static const RoomSetAllAttendeesPermissionsPermissions $11 = _$roomSetAllAttendeesPermissionsPermissions$11;
-
-  /// `12`
-  @BuiltValueEnumConst(wireName: '12')
-  static const RoomSetAllAttendeesPermissionsPermissions $12 = _$roomSetAllAttendeesPermissionsPermissions$12;
-
-  /// `13`
-  @BuiltValueEnumConst(wireName: '13')
-  static const RoomSetAllAttendeesPermissionsPermissions $13 = _$roomSetAllAttendeesPermissionsPermissions$13;
-
-  /// `14`
-  @BuiltValueEnumConst(wireName: '14')
-  static const RoomSetAllAttendeesPermissionsPermissions $14 = _$roomSetAllAttendeesPermissionsPermissions$14;
-
-  /// `15`
-  @BuiltValueEnumConst(wireName: '15')
-  static const RoomSetAllAttendeesPermissionsPermissions $15 = _$roomSetAllAttendeesPermissionsPermissions$15;
-
-  /// `16`
-  @BuiltValueEnumConst(wireName: '16')
-  static const RoomSetAllAttendeesPermissionsPermissions $16 = _$roomSetAllAttendeesPermissionsPermissions$16;
-
-  /// `17`
-  @BuiltValueEnumConst(wireName: '17')
-  static const RoomSetAllAttendeesPermissionsPermissions $17 = _$roomSetAllAttendeesPermissionsPermissions$17;
-
-  /// `18`
-  @BuiltValueEnumConst(wireName: '18')
-  static const RoomSetAllAttendeesPermissionsPermissions $18 = _$roomSetAllAttendeesPermissionsPermissions$18;
-
-  /// `19`
-  @BuiltValueEnumConst(wireName: '19')
-  static const RoomSetAllAttendeesPermissionsPermissions $19 = _$roomSetAllAttendeesPermissionsPermissions$19;
-
-  /// `20`
-  @BuiltValueEnumConst(wireName: '20')
-  static const RoomSetAllAttendeesPermissionsPermissions $20 = _$roomSetAllAttendeesPermissionsPermissions$20;
-
-  /// `21`
-  @BuiltValueEnumConst(wireName: '21')
-  static const RoomSetAllAttendeesPermissionsPermissions $21 = _$roomSetAllAttendeesPermissionsPermissions$21;
-
-  /// `22`
-  @BuiltValueEnumConst(wireName: '22')
-  static const RoomSetAllAttendeesPermissionsPermissions $22 = _$roomSetAllAttendeesPermissionsPermissions$22;
-
-  /// `23`
-  @BuiltValueEnumConst(wireName: '23')
-  static const RoomSetAllAttendeesPermissionsPermissions $23 = _$roomSetAllAttendeesPermissionsPermissions$23;
-
-  /// `24`
-  @BuiltValueEnumConst(wireName: '24')
-  static const RoomSetAllAttendeesPermissionsPermissions $24 = _$roomSetAllAttendeesPermissionsPermissions$24;
-
-  /// `25`
-  @BuiltValueEnumConst(wireName: '25')
-  static const RoomSetAllAttendeesPermissionsPermissions $25 = _$roomSetAllAttendeesPermissionsPermissions$25;
-
-  /// `26`
-  @BuiltValueEnumConst(wireName: '26')
-  static const RoomSetAllAttendeesPermissionsPermissions $26 = _$roomSetAllAttendeesPermissionsPermissions$26;
-
-  /// `27`
-  @BuiltValueEnumConst(wireName: '27')
-  static const RoomSetAllAttendeesPermissionsPermissions $27 = _$roomSetAllAttendeesPermissionsPermissions$27;
-
-  /// `28`
-  @BuiltValueEnumConst(wireName: '28')
-  static const RoomSetAllAttendeesPermissionsPermissions $28 = _$roomSetAllAttendeesPermissionsPermissions$28;
-
-  /// `29`
-  @BuiltValueEnumConst(wireName: '29')
-  static const RoomSetAllAttendeesPermissionsPermissions $29 = _$roomSetAllAttendeesPermissionsPermissions$29;
-
-  /// `30`
-  @BuiltValueEnumConst(wireName: '30')
-  static const RoomSetAllAttendeesPermissionsPermissions $30 = _$roomSetAllAttendeesPermissionsPermissions$30;
-
-  /// `31`
-  @BuiltValueEnumConst(wireName: '31')
-  static const RoomSetAllAttendeesPermissionsPermissions $31 = _$roomSetAllAttendeesPermissionsPermissions$31;
-
-  /// `32`
-  @BuiltValueEnumConst(wireName: '32')
-  static const RoomSetAllAttendeesPermissionsPermissions $32 = _$roomSetAllAttendeesPermissionsPermissions$32;
-
-  /// `33`
-  @BuiltValueEnumConst(wireName: '33')
-  static const RoomSetAllAttendeesPermissionsPermissions $33 = _$roomSetAllAttendeesPermissionsPermissions$33;
-
-  /// `34`
-  @BuiltValueEnumConst(wireName: '34')
-  static const RoomSetAllAttendeesPermissionsPermissions $34 = _$roomSetAllAttendeesPermissionsPermissions$34;
-
-  /// `35`
-  @BuiltValueEnumConst(wireName: '35')
-  static const RoomSetAllAttendeesPermissionsPermissions $35 = _$roomSetAllAttendeesPermissionsPermissions$35;
-
-  /// `36`
-  @BuiltValueEnumConst(wireName: '36')
-  static const RoomSetAllAttendeesPermissionsPermissions $36 = _$roomSetAllAttendeesPermissionsPermissions$36;
-
-  /// `37`
-  @BuiltValueEnumConst(wireName: '37')
-  static const RoomSetAllAttendeesPermissionsPermissions $37 = _$roomSetAllAttendeesPermissionsPermissions$37;
-
-  /// `38`
-  @BuiltValueEnumConst(wireName: '38')
-  static const RoomSetAllAttendeesPermissionsPermissions $38 = _$roomSetAllAttendeesPermissionsPermissions$38;
-
-  /// `39`
-  @BuiltValueEnumConst(wireName: '39')
-  static const RoomSetAllAttendeesPermissionsPermissions $39 = _$roomSetAllAttendeesPermissionsPermissions$39;
-
-  /// `40`
-  @BuiltValueEnumConst(wireName: '40')
-  static const RoomSetAllAttendeesPermissionsPermissions $40 = _$roomSetAllAttendeesPermissionsPermissions$40;
-
-  /// `41`
-  @BuiltValueEnumConst(wireName: '41')
-  static const RoomSetAllAttendeesPermissionsPermissions $41 = _$roomSetAllAttendeesPermissionsPermissions$41;
-
-  /// `42`
-  @BuiltValueEnumConst(wireName: '42')
-  static const RoomSetAllAttendeesPermissionsPermissions $42 = _$roomSetAllAttendeesPermissionsPermissions$42;
-
-  /// `43`
-  @BuiltValueEnumConst(wireName: '43')
-  static const RoomSetAllAttendeesPermissionsPermissions $43 = _$roomSetAllAttendeesPermissionsPermissions$43;
-
-  /// `44`
-  @BuiltValueEnumConst(wireName: '44')
-  static const RoomSetAllAttendeesPermissionsPermissions $44 = _$roomSetAllAttendeesPermissionsPermissions$44;
-
-  /// `45`
-  @BuiltValueEnumConst(wireName: '45')
-  static const RoomSetAllAttendeesPermissionsPermissions $45 = _$roomSetAllAttendeesPermissionsPermissions$45;
-
-  /// `46`
-  @BuiltValueEnumConst(wireName: '46')
-  static const RoomSetAllAttendeesPermissionsPermissions $46 = _$roomSetAllAttendeesPermissionsPermissions$46;
-
-  /// `47`
-  @BuiltValueEnumConst(wireName: '47')
-  static const RoomSetAllAttendeesPermissionsPermissions $47 = _$roomSetAllAttendeesPermissionsPermissions$47;
-
-  /// `48`
-  @BuiltValueEnumConst(wireName: '48')
-  static const RoomSetAllAttendeesPermissionsPermissions $48 = _$roomSetAllAttendeesPermissionsPermissions$48;
-
-  /// `49`
-  @BuiltValueEnumConst(wireName: '49')
-  static const RoomSetAllAttendeesPermissionsPermissions $49 = _$roomSetAllAttendeesPermissionsPermissions$49;
-
-  /// `50`
-  @BuiltValueEnumConst(wireName: '50')
-  static const RoomSetAllAttendeesPermissionsPermissions $50 = _$roomSetAllAttendeesPermissionsPermissions$50;
-
-  /// `51`
-  @BuiltValueEnumConst(wireName: '51')
-  static const RoomSetAllAttendeesPermissionsPermissions $51 = _$roomSetAllAttendeesPermissionsPermissions$51;
-
-  /// `52`
-  @BuiltValueEnumConst(wireName: '52')
-  static const RoomSetAllAttendeesPermissionsPermissions $52 = _$roomSetAllAttendeesPermissionsPermissions$52;
-
-  /// `53`
-  @BuiltValueEnumConst(wireName: '53')
-  static const RoomSetAllAttendeesPermissionsPermissions $53 = _$roomSetAllAttendeesPermissionsPermissions$53;
-
-  /// `54`
-  @BuiltValueEnumConst(wireName: '54')
-  static const RoomSetAllAttendeesPermissionsPermissions $54 = _$roomSetAllAttendeesPermissionsPermissions$54;
-
-  /// `55`
-  @BuiltValueEnumConst(wireName: '55')
-  static const RoomSetAllAttendeesPermissionsPermissions $55 = _$roomSetAllAttendeesPermissionsPermissions$55;
-
-  /// `56`
-  @BuiltValueEnumConst(wireName: '56')
-  static const RoomSetAllAttendeesPermissionsPermissions $56 = _$roomSetAllAttendeesPermissionsPermissions$56;
-
-  /// `57`
-  @BuiltValueEnumConst(wireName: '57')
-  static const RoomSetAllAttendeesPermissionsPermissions $57 = _$roomSetAllAttendeesPermissionsPermissions$57;
-
-  /// `58`
-  @BuiltValueEnumConst(wireName: '58')
-  static const RoomSetAllAttendeesPermissionsPermissions $58 = _$roomSetAllAttendeesPermissionsPermissions$58;
-
-  /// `59`
-  @BuiltValueEnumConst(wireName: '59')
-  static const RoomSetAllAttendeesPermissionsPermissions $59 = _$roomSetAllAttendeesPermissionsPermissions$59;
-
-  /// `60`
-  @BuiltValueEnumConst(wireName: '60')
-  static const RoomSetAllAttendeesPermissionsPermissions $60 = _$roomSetAllAttendeesPermissionsPermissions$60;
-
-  /// `61`
-  @BuiltValueEnumConst(wireName: '61')
-  static const RoomSetAllAttendeesPermissionsPermissions $61 = _$roomSetAllAttendeesPermissionsPermissions$61;
-
-  /// `62`
-  @BuiltValueEnumConst(wireName: '62')
-  static const RoomSetAllAttendeesPermissionsPermissions $62 = _$roomSetAllAttendeesPermissionsPermissions$62;
-
-  /// `63`
-  @BuiltValueEnumConst(wireName: '63')
-  static const RoomSetAllAttendeesPermissionsPermissions $63 = _$roomSetAllAttendeesPermissionsPermissions$63;
-
-  /// `64`
-  @BuiltValueEnumConst(wireName: '64')
-  static const RoomSetAllAttendeesPermissionsPermissions $64 = _$roomSetAllAttendeesPermissionsPermissions$64;
-
-  /// `65`
-  @BuiltValueEnumConst(wireName: '65')
-  static const RoomSetAllAttendeesPermissionsPermissions $65 = _$roomSetAllAttendeesPermissionsPermissions$65;
-
-  /// `66`
-  @BuiltValueEnumConst(wireName: '66')
-  static const RoomSetAllAttendeesPermissionsPermissions $66 = _$roomSetAllAttendeesPermissionsPermissions$66;
-
-  /// `67`
-  @BuiltValueEnumConst(wireName: '67')
-  static const RoomSetAllAttendeesPermissionsPermissions $67 = _$roomSetAllAttendeesPermissionsPermissions$67;
-
-  /// `68`
-  @BuiltValueEnumConst(wireName: '68')
-  static const RoomSetAllAttendeesPermissionsPermissions $68 = _$roomSetAllAttendeesPermissionsPermissions$68;
-
-  /// `69`
-  @BuiltValueEnumConst(wireName: '69')
-  static const RoomSetAllAttendeesPermissionsPermissions $69 = _$roomSetAllAttendeesPermissionsPermissions$69;
-
-  /// `70`
-  @BuiltValueEnumConst(wireName: '70')
-  static const RoomSetAllAttendeesPermissionsPermissions $70 = _$roomSetAllAttendeesPermissionsPermissions$70;
-
-  /// `71`
-  @BuiltValueEnumConst(wireName: '71')
-  static const RoomSetAllAttendeesPermissionsPermissions $71 = _$roomSetAllAttendeesPermissionsPermissions$71;
-
-  /// `72`
-  @BuiltValueEnumConst(wireName: '72')
-  static const RoomSetAllAttendeesPermissionsPermissions $72 = _$roomSetAllAttendeesPermissionsPermissions$72;
-
-  /// `73`
-  @BuiltValueEnumConst(wireName: '73')
-  static const RoomSetAllAttendeesPermissionsPermissions $73 = _$roomSetAllAttendeesPermissionsPermissions$73;
-
-  /// `74`
-  @BuiltValueEnumConst(wireName: '74')
-  static const RoomSetAllAttendeesPermissionsPermissions $74 = _$roomSetAllAttendeesPermissionsPermissions$74;
-
-  /// `75`
-  @BuiltValueEnumConst(wireName: '75')
-  static const RoomSetAllAttendeesPermissionsPermissions $75 = _$roomSetAllAttendeesPermissionsPermissions$75;
-
-  /// `76`
-  @BuiltValueEnumConst(wireName: '76')
-  static const RoomSetAllAttendeesPermissionsPermissions $76 = _$roomSetAllAttendeesPermissionsPermissions$76;
-
-  /// `77`
-  @BuiltValueEnumConst(wireName: '77')
-  static const RoomSetAllAttendeesPermissionsPermissions $77 = _$roomSetAllAttendeesPermissionsPermissions$77;
-
-  /// `78`
-  @BuiltValueEnumConst(wireName: '78')
-  static const RoomSetAllAttendeesPermissionsPermissions $78 = _$roomSetAllAttendeesPermissionsPermissions$78;
-
-  /// `79`
-  @BuiltValueEnumConst(wireName: '79')
-  static const RoomSetAllAttendeesPermissionsPermissions $79 = _$roomSetAllAttendeesPermissionsPermissions$79;
-
-  /// `80`
-  @BuiltValueEnumConst(wireName: '80')
-  static const RoomSetAllAttendeesPermissionsPermissions $80 = _$roomSetAllAttendeesPermissionsPermissions$80;
-
-  /// `81`
-  @BuiltValueEnumConst(wireName: '81')
-  static const RoomSetAllAttendeesPermissionsPermissions $81 = _$roomSetAllAttendeesPermissionsPermissions$81;
-
-  /// `82`
-  @BuiltValueEnumConst(wireName: '82')
-  static const RoomSetAllAttendeesPermissionsPermissions $82 = _$roomSetAllAttendeesPermissionsPermissions$82;
-
-  /// `83`
-  @BuiltValueEnumConst(wireName: '83')
-  static const RoomSetAllAttendeesPermissionsPermissions $83 = _$roomSetAllAttendeesPermissionsPermissions$83;
-
-  /// `84`
-  @BuiltValueEnumConst(wireName: '84')
-  static const RoomSetAllAttendeesPermissionsPermissions $84 = _$roomSetAllAttendeesPermissionsPermissions$84;
-
-  /// `85`
-  @BuiltValueEnumConst(wireName: '85')
-  static const RoomSetAllAttendeesPermissionsPermissions $85 = _$roomSetAllAttendeesPermissionsPermissions$85;
-
-  /// `86`
-  @BuiltValueEnumConst(wireName: '86')
-  static const RoomSetAllAttendeesPermissionsPermissions $86 = _$roomSetAllAttendeesPermissionsPermissions$86;
-
-  /// `87`
-  @BuiltValueEnumConst(wireName: '87')
-  static const RoomSetAllAttendeesPermissionsPermissions $87 = _$roomSetAllAttendeesPermissionsPermissions$87;
-
-  /// `88`
-  @BuiltValueEnumConst(wireName: '88')
-  static const RoomSetAllAttendeesPermissionsPermissions $88 = _$roomSetAllAttendeesPermissionsPermissions$88;
-
-  /// `89`
-  @BuiltValueEnumConst(wireName: '89')
-  static const RoomSetAllAttendeesPermissionsPermissions $89 = _$roomSetAllAttendeesPermissionsPermissions$89;
-
-  /// `90`
-  @BuiltValueEnumConst(wireName: '90')
-  static const RoomSetAllAttendeesPermissionsPermissions $90 = _$roomSetAllAttendeesPermissionsPermissions$90;
-
-  /// `91`
-  @BuiltValueEnumConst(wireName: '91')
-  static const RoomSetAllAttendeesPermissionsPermissions $91 = _$roomSetAllAttendeesPermissionsPermissions$91;
-
-  /// `92`
-  @BuiltValueEnumConst(wireName: '92')
-  static const RoomSetAllAttendeesPermissionsPermissions $92 = _$roomSetAllAttendeesPermissionsPermissions$92;
-
-  /// `93`
-  @BuiltValueEnumConst(wireName: '93')
-  static const RoomSetAllAttendeesPermissionsPermissions $93 = _$roomSetAllAttendeesPermissionsPermissions$93;
-
-  /// `94`
-  @BuiltValueEnumConst(wireName: '94')
-  static const RoomSetAllAttendeesPermissionsPermissions $94 = _$roomSetAllAttendeesPermissionsPermissions$94;
-
-  /// `95`
-  @BuiltValueEnumConst(wireName: '95')
-  static const RoomSetAllAttendeesPermissionsPermissions $95 = _$roomSetAllAttendeesPermissionsPermissions$95;
-
-  /// `96`
-  @BuiltValueEnumConst(wireName: '96')
-  static const RoomSetAllAttendeesPermissionsPermissions $96 = _$roomSetAllAttendeesPermissionsPermissions$96;
-
-  /// `97`
-  @BuiltValueEnumConst(wireName: '97')
-  static const RoomSetAllAttendeesPermissionsPermissions $97 = _$roomSetAllAttendeesPermissionsPermissions$97;
-
-  /// `98`
-  @BuiltValueEnumConst(wireName: '98')
-  static const RoomSetAllAttendeesPermissionsPermissions $98 = _$roomSetAllAttendeesPermissionsPermissions$98;
-
-  /// `99`
-  @BuiltValueEnumConst(wireName: '99')
-  static const RoomSetAllAttendeesPermissionsPermissions $99 = _$roomSetAllAttendeesPermissionsPermissions$99;
-
-  /// `100`
-  @BuiltValueEnumConst(wireName: '100')
-  static const RoomSetAllAttendeesPermissionsPermissions $100 = _$roomSetAllAttendeesPermissionsPermissions$100;
-
-  /// `101`
-  @BuiltValueEnumConst(wireName: '101')
-  static const RoomSetAllAttendeesPermissionsPermissions $101 = _$roomSetAllAttendeesPermissionsPermissions$101;
-
-  /// `102`
-  @BuiltValueEnumConst(wireName: '102')
-  static const RoomSetAllAttendeesPermissionsPermissions $102 = _$roomSetAllAttendeesPermissionsPermissions$102;
-
-  /// `103`
-  @BuiltValueEnumConst(wireName: '103')
-  static const RoomSetAllAttendeesPermissionsPermissions $103 = _$roomSetAllAttendeesPermissionsPermissions$103;
-
-  /// `104`
-  @BuiltValueEnumConst(wireName: '104')
-  static const RoomSetAllAttendeesPermissionsPermissions $104 = _$roomSetAllAttendeesPermissionsPermissions$104;
-
-  /// `105`
-  @BuiltValueEnumConst(wireName: '105')
-  static const RoomSetAllAttendeesPermissionsPermissions $105 = _$roomSetAllAttendeesPermissionsPermissions$105;
-
-  /// `106`
-  @BuiltValueEnumConst(wireName: '106')
-  static const RoomSetAllAttendeesPermissionsPermissions $106 = _$roomSetAllAttendeesPermissionsPermissions$106;
-
-  /// `107`
-  @BuiltValueEnumConst(wireName: '107')
-  static const RoomSetAllAttendeesPermissionsPermissions $107 = _$roomSetAllAttendeesPermissionsPermissions$107;
-
-  /// `108`
-  @BuiltValueEnumConst(wireName: '108')
-  static const RoomSetAllAttendeesPermissionsPermissions $108 = _$roomSetAllAttendeesPermissionsPermissions$108;
-
-  /// `109`
-  @BuiltValueEnumConst(wireName: '109')
-  static const RoomSetAllAttendeesPermissionsPermissions $109 = _$roomSetAllAttendeesPermissionsPermissions$109;
-
-  /// `110`
-  @BuiltValueEnumConst(wireName: '110')
-  static const RoomSetAllAttendeesPermissionsPermissions $110 = _$roomSetAllAttendeesPermissionsPermissions$110;
-
-  /// `111`
-  @BuiltValueEnumConst(wireName: '111')
-  static const RoomSetAllAttendeesPermissionsPermissions $111 = _$roomSetAllAttendeesPermissionsPermissions$111;
-
-  /// `112`
-  @BuiltValueEnumConst(wireName: '112')
-  static const RoomSetAllAttendeesPermissionsPermissions $112 = _$roomSetAllAttendeesPermissionsPermissions$112;
-
-  /// `113`
-  @BuiltValueEnumConst(wireName: '113')
-  static const RoomSetAllAttendeesPermissionsPermissions $113 = _$roomSetAllAttendeesPermissionsPermissions$113;
-
-  /// `114`
-  @BuiltValueEnumConst(wireName: '114')
-  static const RoomSetAllAttendeesPermissionsPermissions $114 = _$roomSetAllAttendeesPermissionsPermissions$114;
-
-  /// `115`
-  @BuiltValueEnumConst(wireName: '115')
-  static const RoomSetAllAttendeesPermissionsPermissions $115 = _$roomSetAllAttendeesPermissionsPermissions$115;
-
-  /// `116`
-  @BuiltValueEnumConst(wireName: '116')
-  static const RoomSetAllAttendeesPermissionsPermissions $116 = _$roomSetAllAttendeesPermissionsPermissions$116;
-
-  /// `117`
-  @BuiltValueEnumConst(wireName: '117')
-  static const RoomSetAllAttendeesPermissionsPermissions $117 = _$roomSetAllAttendeesPermissionsPermissions$117;
-
-  /// `118`
-  @BuiltValueEnumConst(wireName: '118')
-  static const RoomSetAllAttendeesPermissionsPermissions $118 = _$roomSetAllAttendeesPermissionsPermissions$118;
-
-  /// `119`
-  @BuiltValueEnumConst(wireName: '119')
-  static const RoomSetAllAttendeesPermissionsPermissions $119 = _$roomSetAllAttendeesPermissionsPermissions$119;
-
-  /// `120`
-  @BuiltValueEnumConst(wireName: '120')
-  static const RoomSetAllAttendeesPermissionsPermissions $120 = _$roomSetAllAttendeesPermissionsPermissions$120;
-
-  /// `121`
-  @BuiltValueEnumConst(wireName: '121')
-  static const RoomSetAllAttendeesPermissionsPermissions $121 = _$roomSetAllAttendeesPermissionsPermissions$121;
-
-  /// `122`
-  @BuiltValueEnumConst(wireName: '122')
-  static const RoomSetAllAttendeesPermissionsPermissions $122 = _$roomSetAllAttendeesPermissionsPermissions$122;
-
-  /// `123`
-  @BuiltValueEnumConst(wireName: '123')
-  static const RoomSetAllAttendeesPermissionsPermissions $123 = _$roomSetAllAttendeesPermissionsPermissions$123;
-
-  /// `124`
-  @BuiltValueEnumConst(wireName: '124')
-  static const RoomSetAllAttendeesPermissionsPermissions $124 = _$roomSetAllAttendeesPermissionsPermissions$124;
-
-  /// `125`
-  @BuiltValueEnumConst(wireName: '125')
-  static const RoomSetAllAttendeesPermissionsPermissions $125 = _$roomSetAllAttendeesPermissionsPermissions$125;
-
-  /// `126`
-  @BuiltValueEnumConst(wireName: '126')
-  static const RoomSetAllAttendeesPermissionsPermissions $126 = _$roomSetAllAttendeesPermissionsPermissions$126;
-
-  /// `127`
-  @BuiltValueEnumConst(wireName: '127')
-  static const RoomSetAllAttendeesPermissionsPermissions $127 = _$roomSetAllAttendeesPermissionsPermissions$127;
-
-  /// `128`
-  @BuiltValueEnumConst(wireName: '128')
-  static const RoomSetAllAttendeesPermissionsPermissions $128 = _$roomSetAllAttendeesPermissionsPermissions$128;
-
-  /// `129`
-  @BuiltValueEnumConst(wireName: '129')
-  static const RoomSetAllAttendeesPermissionsPermissions $129 = _$roomSetAllAttendeesPermissionsPermissions$129;
-
-  /// `130`
-  @BuiltValueEnumConst(wireName: '130')
-  static const RoomSetAllAttendeesPermissionsPermissions $130 = _$roomSetAllAttendeesPermissionsPermissions$130;
-
-  /// `131`
-  @BuiltValueEnumConst(wireName: '131')
-  static const RoomSetAllAttendeesPermissionsPermissions $131 = _$roomSetAllAttendeesPermissionsPermissions$131;
-
-  /// `132`
-  @BuiltValueEnumConst(wireName: '132')
-  static const RoomSetAllAttendeesPermissionsPermissions $132 = _$roomSetAllAttendeesPermissionsPermissions$132;
-
-  /// `133`
-  @BuiltValueEnumConst(wireName: '133')
-  static const RoomSetAllAttendeesPermissionsPermissions $133 = _$roomSetAllAttendeesPermissionsPermissions$133;
-
-  /// `134`
-  @BuiltValueEnumConst(wireName: '134')
-  static const RoomSetAllAttendeesPermissionsPermissions $134 = _$roomSetAllAttendeesPermissionsPermissions$134;
-
-  /// `135`
-  @BuiltValueEnumConst(wireName: '135')
-  static const RoomSetAllAttendeesPermissionsPermissions $135 = _$roomSetAllAttendeesPermissionsPermissions$135;
-
-  /// `136`
-  @BuiltValueEnumConst(wireName: '136')
-  static const RoomSetAllAttendeesPermissionsPermissions $136 = _$roomSetAllAttendeesPermissionsPermissions$136;
-
-  /// `137`
-  @BuiltValueEnumConst(wireName: '137')
-  static const RoomSetAllAttendeesPermissionsPermissions $137 = _$roomSetAllAttendeesPermissionsPermissions$137;
-
-  /// `138`
-  @BuiltValueEnumConst(wireName: '138')
-  static const RoomSetAllAttendeesPermissionsPermissions $138 = _$roomSetAllAttendeesPermissionsPermissions$138;
-
-  /// `139`
-  @BuiltValueEnumConst(wireName: '139')
-  static const RoomSetAllAttendeesPermissionsPermissions $139 = _$roomSetAllAttendeesPermissionsPermissions$139;
-
-  /// `140`
-  @BuiltValueEnumConst(wireName: '140')
-  static const RoomSetAllAttendeesPermissionsPermissions $140 = _$roomSetAllAttendeesPermissionsPermissions$140;
-
-  /// `141`
-  @BuiltValueEnumConst(wireName: '141')
-  static const RoomSetAllAttendeesPermissionsPermissions $141 = _$roomSetAllAttendeesPermissionsPermissions$141;
-
-  /// `142`
-  @BuiltValueEnumConst(wireName: '142')
-  static const RoomSetAllAttendeesPermissionsPermissions $142 = _$roomSetAllAttendeesPermissionsPermissions$142;
-
-  /// `143`
-  @BuiltValueEnumConst(wireName: '143')
-  static const RoomSetAllAttendeesPermissionsPermissions $143 = _$roomSetAllAttendeesPermissionsPermissions$143;
-
-  /// `144`
-  @BuiltValueEnumConst(wireName: '144')
-  static const RoomSetAllAttendeesPermissionsPermissions $144 = _$roomSetAllAttendeesPermissionsPermissions$144;
-
-  /// `145`
-  @BuiltValueEnumConst(wireName: '145')
-  static const RoomSetAllAttendeesPermissionsPermissions $145 = _$roomSetAllAttendeesPermissionsPermissions$145;
-
-  /// `146`
-  @BuiltValueEnumConst(wireName: '146')
-  static const RoomSetAllAttendeesPermissionsPermissions $146 = _$roomSetAllAttendeesPermissionsPermissions$146;
-
-  /// `147`
-  @BuiltValueEnumConst(wireName: '147')
-  static const RoomSetAllAttendeesPermissionsPermissions $147 = _$roomSetAllAttendeesPermissionsPermissions$147;
-
-  /// `148`
-  @BuiltValueEnumConst(wireName: '148')
-  static const RoomSetAllAttendeesPermissionsPermissions $148 = _$roomSetAllAttendeesPermissionsPermissions$148;
-
-  /// `149`
-  @BuiltValueEnumConst(wireName: '149')
-  static const RoomSetAllAttendeesPermissionsPermissions $149 = _$roomSetAllAttendeesPermissionsPermissions$149;
-
-  /// `150`
-  @BuiltValueEnumConst(wireName: '150')
-  static const RoomSetAllAttendeesPermissionsPermissions $150 = _$roomSetAllAttendeesPermissionsPermissions$150;
-
-  /// `151`
-  @BuiltValueEnumConst(wireName: '151')
-  static const RoomSetAllAttendeesPermissionsPermissions $151 = _$roomSetAllAttendeesPermissionsPermissions$151;
-
-  /// `152`
-  @BuiltValueEnumConst(wireName: '152')
-  static const RoomSetAllAttendeesPermissionsPermissions $152 = _$roomSetAllAttendeesPermissionsPermissions$152;
-
-  /// `153`
-  @BuiltValueEnumConst(wireName: '153')
-  static const RoomSetAllAttendeesPermissionsPermissions $153 = _$roomSetAllAttendeesPermissionsPermissions$153;
-
-  /// `154`
-  @BuiltValueEnumConst(wireName: '154')
-  static const RoomSetAllAttendeesPermissionsPermissions $154 = _$roomSetAllAttendeesPermissionsPermissions$154;
-
-  /// `155`
-  @BuiltValueEnumConst(wireName: '155')
-  static const RoomSetAllAttendeesPermissionsPermissions $155 = _$roomSetAllAttendeesPermissionsPermissions$155;
-
-  /// `156`
-  @BuiltValueEnumConst(wireName: '156')
-  static const RoomSetAllAttendeesPermissionsPermissions $156 = _$roomSetAllAttendeesPermissionsPermissions$156;
-
-  /// `157`
-  @BuiltValueEnumConst(wireName: '157')
-  static const RoomSetAllAttendeesPermissionsPermissions $157 = _$roomSetAllAttendeesPermissionsPermissions$157;
-
-  /// `158`
-  @BuiltValueEnumConst(wireName: '158')
-  static const RoomSetAllAttendeesPermissionsPermissions $158 = _$roomSetAllAttendeesPermissionsPermissions$158;
-
-  /// `159`
-  @BuiltValueEnumConst(wireName: '159')
-  static const RoomSetAllAttendeesPermissionsPermissions $159 = _$roomSetAllAttendeesPermissionsPermissions$159;
-
-  /// `160`
-  @BuiltValueEnumConst(wireName: '160')
-  static const RoomSetAllAttendeesPermissionsPermissions $160 = _$roomSetAllAttendeesPermissionsPermissions$160;
-
-  /// `161`
-  @BuiltValueEnumConst(wireName: '161')
-  static const RoomSetAllAttendeesPermissionsPermissions $161 = _$roomSetAllAttendeesPermissionsPermissions$161;
-
-  /// `162`
-  @BuiltValueEnumConst(wireName: '162')
-  static const RoomSetAllAttendeesPermissionsPermissions $162 = _$roomSetAllAttendeesPermissionsPermissions$162;
-
-  /// `163`
-  @BuiltValueEnumConst(wireName: '163')
-  static const RoomSetAllAttendeesPermissionsPermissions $163 = _$roomSetAllAttendeesPermissionsPermissions$163;
-
-  /// `164`
-  @BuiltValueEnumConst(wireName: '164')
-  static const RoomSetAllAttendeesPermissionsPermissions $164 = _$roomSetAllAttendeesPermissionsPermissions$164;
-
-  /// `165`
-  @BuiltValueEnumConst(wireName: '165')
-  static const RoomSetAllAttendeesPermissionsPermissions $165 = _$roomSetAllAttendeesPermissionsPermissions$165;
-
-  /// `166`
-  @BuiltValueEnumConst(wireName: '166')
-  static const RoomSetAllAttendeesPermissionsPermissions $166 = _$roomSetAllAttendeesPermissionsPermissions$166;
-
-  /// `167`
-  @BuiltValueEnumConst(wireName: '167')
-  static const RoomSetAllAttendeesPermissionsPermissions $167 = _$roomSetAllAttendeesPermissionsPermissions$167;
-
-  /// `168`
-  @BuiltValueEnumConst(wireName: '168')
-  static const RoomSetAllAttendeesPermissionsPermissions $168 = _$roomSetAllAttendeesPermissionsPermissions$168;
-
-  /// `169`
-  @BuiltValueEnumConst(wireName: '169')
-  static const RoomSetAllAttendeesPermissionsPermissions $169 = _$roomSetAllAttendeesPermissionsPermissions$169;
-
-  /// `170`
-  @BuiltValueEnumConst(wireName: '170')
-  static const RoomSetAllAttendeesPermissionsPermissions $170 = _$roomSetAllAttendeesPermissionsPermissions$170;
-
-  /// `171`
-  @BuiltValueEnumConst(wireName: '171')
-  static const RoomSetAllAttendeesPermissionsPermissions $171 = _$roomSetAllAttendeesPermissionsPermissions$171;
-
-  /// `172`
-  @BuiltValueEnumConst(wireName: '172')
-  static const RoomSetAllAttendeesPermissionsPermissions $172 = _$roomSetAllAttendeesPermissionsPermissions$172;
-
-  /// `173`
-  @BuiltValueEnumConst(wireName: '173')
-  static const RoomSetAllAttendeesPermissionsPermissions $173 = _$roomSetAllAttendeesPermissionsPermissions$173;
-
-  /// `174`
-  @BuiltValueEnumConst(wireName: '174')
-  static const RoomSetAllAttendeesPermissionsPermissions $174 = _$roomSetAllAttendeesPermissionsPermissions$174;
-
-  /// `175`
-  @BuiltValueEnumConst(wireName: '175')
-  static const RoomSetAllAttendeesPermissionsPermissions $175 = _$roomSetAllAttendeesPermissionsPermissions$175;
-
-  /// `176`
-  @BuiltValueEnumConst(wireName: '176')
-  static const RoomSetAllAttendeesPermissionsPermissions $176 = _$roomSetAllAttendeesPermissionsPermissions$176;
-
-  /// `177`
-  @BuiltValueEnumConst(wireName: '177')
-  static const RoomSetAllAttendeesPermissionsPermissions $177 = _$roomSetAllAttendeesPermissionsPermissions$177;
-
-  /// `178`
-  @BuiltValueEnumConst(wireName: '178')
-  static const RoomSetAllAttendeesPermissionsPermissions $178 = _$roomSetAllAttendeesPermissionsPermissions$178;
-
-  /// `179`
-  @BuiltValueEnumConst(wireName: '179')
-  static const RoomSetAllAttendeesPermissionsPermissions $179 = _$roomSetAllAttendeesPermissionsPermissions$179;
-
-  /// `180`
-  @BuiltValueEnumConst(wireName: '180')
-  static const RoomSetAllAttendeesPermissionsPermissions $180 = _$roomSetAllAttendeesPermissionsPermissions$180;
-
-  /// `181`
-  @BuiltValueEnumConst(wireName: '181')
-  static const RoomSetAllAttendeesPermissionsPermissions $181 = _$roomSetAllAttendeesPermissionsPermissions$181;
-
-  /// `182`
-  @BuiltValueEnumConst(wireName: '182')
-  static const RoomSetAllAttendeesPermissionsPermissions $182 = _$roomSetAllAttendeesPermissionsPermissions$182;
-
-  /// `183`
-  @BuiltValueEnumConst(wireName: '183')
-  static const RoomSetAllAttendeesPermissionsPermissions $183 = _$roomSetAllAttendeesPermissionsPermissions$183;
-
-  /// `184`
-  @BuiltValueEnumConst(wireName: '184')
-  static const RoomSetAllAttendeesPermissionsPermissions $184 = _$roomSetAllAttendeesPermissionsPermissions$184;
-
-  /// `185`
-  @BuiltValueEnumConst(wireName: '185')
-  static const RoomSetAllAttendeesPermissionsPermissions $185 = _$roomSetAllAttendeesPermissionsPermissions$185;
-
-  /// `186`
-  @BuiltValueEnumConst(wireName: '186')
-  static const RoomSetAllAttendeesPermissionsPermissions $186 = _$roomSetAllAttendeesPermissionsPermissions$186;
-
-  /// `187`
-  @BuiltValueEnumConst(wireName: '187')
-  static const RoomSetAllAttendeesPermissionsPermissions $187 = _$roomSetAllAttendeesPermissionsPermissions$187;
-
-  /// `188`
-  @BuiltValueEnumConst(wireName: '188')
-  static const RoomSetAllAttendeesPermissionsPermissions $188 = _$roomSetAllAttendeesPermissionsPermissions$188;
-
-  /// `189`
-  @BuiltValueEnumConst(wireName: '189')
-  static const RoomSetAllAttendeesPermissionsPermissions $189 = _$roomSetAllAttendeesPermissionsPermissions$189;
-
-  /// `190`
-  @BuiltValueEnumConst(wireName: '190')
-  static const RoomSetAllAttendeesPermissionsPermissions $190 = _$roomSetAllAttendeesPermissionsPermissions$190;
-
-  /// `191`
-  @BuiltValueEnumConst(wireName: '191')
-  static const RoomSetAllAttendeesPermissionsPermissions $191 = _$roomSetAllAttendeesPermissionsPermissions$191;
-
-  /// `192`
-  @BuiltValueEnumConst(wireName: '192')
-  static const RoomSetAllAttendeesPermissionsPermissions $192 = _$roomSetAllAttendeesPermissionsPermissions$192;
-
-  /// `193`
-  @BuiltValueEnumConst(wireName: '193')
-  static const RoomSetAllAttendeesPermissionsPermissions $193 = _$roomSetAllAttendeesPermissionsPermissions$193;
-
-  /// `194`
-  @BuiltValueEnumConst(wireName: '194')
-  static const RoomSetAllAttendeesPermissionsPermissions $194 = _$roomSetAllAttendeesPermissionsPermissions$194;
-
-  /// `195`
-  @BuiltValueEnumConst(wireName: '195')
-  static const RoomSetAllAttendeesPermissionsPermissions $195 = _$roomSetAllAttendeesPermissionsPermissions$195;
-
-  /// `196`
-  @BuiltValueEnumConst(wireName: '196')
-  static const RoomSetAllAttendeesPermissionsPermissions $196 = _$roomSetAllAttendeesPermissionsPermissions$196;
-
-  /// `197`
-  @BuiltValueEnumConst(wireName: '197')
-  static const RoomSetAllAttendeesPermissionsPermissions $197 = _$roomSetAllAttendeesPermissionsPermissions$197;
-
-  /// `198`
-  @BuiltValueEnumConst(wireName: '198')
-  static const RoomSetAllAttendeesPermissionsPermissions $198 = _$roomSetAllAttendeesPermissionsPermissions$198;
-
-  /// `199`
-  @BuiltValueEnumConst(wireName: '199')
-  static const RoomSetAllAttendeesPermissionsPermissions $199 = _$roomSetAllAttendeesPermissionsPermissions$199;
-
-  /// `200`
-  @BuiltValueEnumConst(wireName: '200')
-  static const RoomSetAllAttendeesPermissionsPermissions $200 = _$roomSetAllAttendeesPermissionsPermissions$200;
-
-  /// `201`
-  @BuiltValueEnumConst(wireName: '201')
-  static const RoomSetAllAttendeesPermissionsPermissions $201 = _$roomSetAllAttendeesPermissionsPermissions$201;
-
-  /// `202`
-  @BuiltValueEnumConst(wireName: '202')
-  static const RoomSetAllAttendeesPermissionsPermissions $202 = _$roomSetAllAttendeesPermissionsPermissions$202;
-
-  /// `203`
-  @BuiltValueEnumConst(wireName: '203')
-  static const RoomSetAllAttendeesPermissionsPermissions $203 = _$roomSetAllAttendeesPermissionsPermissions$203;
-
-  /// `204`
-  @BuiltValueEnumConst(wireName: '204')
-  static const RoomSetAllAttendeesPermissionsPermissions $204 = _$roomSetAllAttendeesPermissionsPermissions$204;
-
-  /// `205`
-  @BuiltValueEnumConst(wireName: '205')
-  static const RoomSetAllAttendeesPermissionsPermissions $205 = _$roomSetAllAttendeesPermissionsPermissions$205;
-
-  /// `206`
-  @BuiltValueEnumConst(wireName: '206')
-  static const RoomSetAllAttendeesPermissionsPermissions $206 = _$roomSetAllAttendeesPermissionsPermissions$206;
-
-  /// `207`
-  @BuiltValueEnumConst(wireName: '207')
-  static const RoomSetAllAttendeesPermissionsPermissions $207 = _$roomSetAllAttendeesPermissionsPermissions$207;
-
-  /// `208`
-  @BuiltValueEnumConst(wireName: '208')
-  static const RoomSetAllAttendeesPermissionsPermissions $208 = _$roomSetAllAttendeesPermissionsPermissions$208;
-
-  /// `209`
-  @BuiltValueEnumConst(wireName: '209')
-  static const RoomSetAllAttendeesPermissionsPermissions $209 = _$roomSetAllAttendeesPermissionsPermissions$209;
-
-  /// `210`
-  @BuiltValueEnumConst(wireName: '210')
-  static const RoomSetAllAttendeesPermissionsPermissions $210 = _$roomSetAllAttendeesPermissionsPermissions$210;
-
-  /// `211`
-  @BuiltValueEnumConst(wireName: '211')
-  static const RoomSetAllAttendeesPermissionsPermissions $211 = _$roomSetAllAttendeesPermissionsPermissions$211;
-
-  /// `212`
-  @BuiltValueEnumConst(wireName: '212')
-  static const RoomSetAllAttendeesPermissionsPermissions $212 = _$roomSetAllAttendeesPermissionsPermissions$212;
-
-  /// `213`
-  @BuiltValueEnumConst(wireName: '213')
-  static const RoomSetAllAttendeesPermissionsPermissions $213 = _$roomSetAllAttendeesPermissionsPermissions$213;
-
-  /// `214`
-  @BuiltValueEnumConst(wireName: '214')
-  static const RoomSetAllAttendeesPermissionsPermissions $214 = _$roomSetAllAttendeesPermissionsPermissions$214;
-
-  /// `215`
-  @BuiltValueEnumConst(wireName: '215')
-  static const RoomSetAllAttendeesPermissionsPermissions $215 = _$roomSetAllAttendeesPermissionsPermissions$215;
-
-  /// `216`
-  @BuiltValueEnumConst(wireName: '216')
-  static const RoomSetAllAttendeesPermissionsPermissions $216 = _$roomSetAllAttendeesPermissionsPermissions$216;
-
-  /// `217`
-  @BuiltValueEnumConst(wireName: '217')
-  static const RoomSetAllAttendeesPermissionsPermissions $217 = _$roomSetAllAttendeesPermissionsPermissions$217;
-
-  /// `218`
-  @BuiltValueEnumConst(wireName: '218')
-  static const RoomSetAllAttendeesPermissionsPermissions $218 = _$roomSetAllAttendeesPermissionsPermissions$218;
-
-  /// `219`
-  @BuiltValueEnumConst(wireName: '219')
-  static const RoomSetAllAttendeesPermissionsPermissions $219 = _$roomSetAllAttendeesPermissionsPermissions$219;
-
-  /// `220`
-  @BuiltValueEnumConst(wireName: '220')
-  static const RoomSetAllAttendeesPermissionsPermissions $220 = _$roomSetAllAttendeesPermissionsPermissions$220;
-
-  /// `221`
-  @BuiltValueEnumConst(wireName: '221')
-  static const RoomSetAllAttendeesPermissionsPermissions $221 = _$roomSetAllAttendeesPermissionsPermissions$221;
-
-  /// `222`
-  @BuiltValueEnumConst(wireName: '222')
-  static const RoomSetAllAttendeesPermissionsPermissions $222 = _$roomSetAllAttendeesPermissionsPermissions$222;
-
-  /// `223`
-  @BuiltValueEnumConst(wireName: '223')
-  static const RoomSetAllAttendeesPermissionsPermissions $223 = _$roomSetAllAttendeesPermissionsPermissions$223;
-
-  /// `224`
-  @BuiltValueEnumConst(wireName: '224')
-  static const RoomSetAllAttendeesPermissionsPermissions $224 = _$roomSetAllAttendeesPermissionsPermissions$224;
-
-  /// `225`
-  @BuiltValueEnumConst(wireName: '225')
-  static const RoomSetAllAttendeesPermissionsPermissions $225 = _$roomSetAllAttendeesPermissionsPermissions$225;
-
-  /// `226`
-  @BuiltValueEnumConst(wireName: '226')
-  static const RoomSetAllAttendeesPermissionsPermissions $226 = _$roomSetAllAttendeesPermissionsPermissions$226;
-
-  /// `227`
-  @BuiltValueEnumConst(wireName: '227')
-  static const RoomSetAllAttendeesPermissionsPermissions $227 = _$roomSetAllAttendeesPermissionsPermissions$227;
-
-  /// `228`
-  @BuiltValueEnumConst(wireName: '228')
-  static const RoomSetAllAttendeesPermissionsPermissions $228 = _$roomSetAllAttendeesPermissionsPermissions$228;
-
-  /// `229`
-  @BuiltValueEnumConst(wireName: '229')
-  static const RoomSetAllAttendeesPermissionsPermissions $229 = _$roomSetAllAttendeesPermissionsPermissions$229;
-
-  /// `230`
-  @BuiltValueEnumConst(wireName: '230')
-  static const RoomSetAllAttendeesPermissionsPermissions $230 = _$roomSetAllAttendeesPermissionsPermissions$230;
-
-  /// `231`
-  @BuiltValueEnumConst(wireName: '231')
-  static const RoomSetAllAttendeesPermissionsPermissions $231 = _$roomSetAllAttendeesPermissionsPermissions$231;
-
-  /// `232`
-  @BuiltValueEnumConst(wireName: '232')
-  static const RoomSetAllAttendeesPermissionsPermissions $232 = _$roomSetAllAttendeesPermissionsPermissions$232;
-
-  /// `233`
-  @BuiltValueEnumConst(wireName: '233')
-  static const RoomSetAllAttendeesPermissionsPermissions $233 = _$roomSetAllAttendeesPermissionsPermissions$233;
-
-  /// `234`
-  @BuiltValueEnumConst(wireName: '234')
-  static const RoomSetAllAttendeesPermissionsPermissions $234 = _$roomSetAllAttendeesPermissionsPermissions$234;
-
-  /// `235`
-  @BuiltValueEnumConst(wireName: '235')
-  static const RoomSetAllAttendeesPermissionsPermissions $235 = _$roomSetAllAttendeesPermissionsPermissions$235;
-
-  /// `236`
-  @BuiltValueEnumConst(wireName: '236')
-  static const RoomSetAllAttendeesPermissionsPermissions $236 = _$roomSetAllAttendeesPermissionsPermissions$236;
-
-  /// `237`
-  @BuiltValueEnumConst(wireName: '237')
-  static const RoomSetAllAttendeesPermissionsPermissions $237 = _$roomSetAllAttendeesPermissionsPermissions$237;
-
-  /// `238`
-  @BuiltValueEnumConst(wireName: '238')
-  static const RoomSetAllAttendeesPermissionsPermissions $238 = _$roomSetAllAttendeesPermissionsPermissions$238;
-
-  /// `239`
-  @BuiltValueEnumConst(wireName: '239')
-  static const RoomSetAllAttendeesPermissionsPermissions $239 = _$roomSetAllAttendeesPermissionsPermissions$239;
-
-  /// `240`
-  @BuiltValueEnumConst(wireName: '240')
-  static const RoomSetAllAttendeesPermissionsPermissions $240 = _$roomSetAllAttendeesPermissionsPermissions$240;
-
-  /// `241`
-  @BuiltValueEnumConst(wireName: '241')
-  static const RoomSetAllAttendeesPermissionsPermissions $241 = _$roomSetAllAttendeesPermissionsPermissions$241;
-
-  /// `242`
-  @BuiltValueEnumConst(wireName: '242')
-  static const RoomSetAllAttendeesPermissionsPermissions $242 = _$roomSetAllAttendeesPermissionsPermissions$242;
-
-  /// `243`
-  @BuiltValueEnumConst(wireName: '243')
-  static const RoomSetAllAttendeesPermissionsPermissions $243 = _$roomSetAllAttendeesPermissionsPermissions$243;
-
-  /// `244`
-  @BuiltValueEnumConst(wireName: '244')
-  static const RoomSetAllAttendeesPermissionsPermissions $244 = _$roomSetAllAttendeesPermissionsPermissions$244;
-
-  /// `245`
-  @BuiltValueEnumConst(wireName: '245')
-  static const RoomSetAllAttendeesPermissionsPermissions $245 = _$roomSetAllAttendeesPermissionsPermissions$245;
-
-  /// `246`
-  @BuiltValueEnumConst(wireName: '246')
-  static const RoomSetAllAttendeesPermissionsPermissions $246 = _$roomSetAllAttendeesPermissionsPermissions$246;
-
-  /// `247`
-  @BuiltValueEnumConst(wireName: '247')
-  static const RoomSetAllAttendeesPermissionsPermissions $247 = _$roomSetAllAttendeesPermissionsPermissions$247;
-
-  /// `248`
-  @BuiltValueEnumConst(wireName: '248')
-  static const RoomSetAllAttendeesPermissionsPermissions $248 = _$roomSetAllAttendeesPermissionsPermissions$248;
-
-  /// `249`
-  @BuiltValueEnumConst(wireName: '249')
-  static const RoomSetAllAttendeesPermissionsPermissions $249 = _$roomSetAllAttendeesPermissionsPermissions$249;
-
-  /// `250`
-  @BuiltValueEnumConst(wireName: '250')
-  static const RoomSetAllAttendeesPermissionsPermissions $250 = _$roomSetAllAttendeesPermissionsPermissions$250;
-
-  /// `251`
-  @BuiltValueEnumConst(wireName: '251')
-  static const RoomSetAllAttendeesPermissionsPermissions $251 = _$roomSetAllAttendeesPermissionsPermissions$251;
-
-  /// `252`
-  @BuiltValueEnumConst(wireName: '252')
-  static const RoomSetAllAttendeesPermissionsPermissions $252 = _$roomSetAllAttendeesPermissionsPermissions$252;
-
-  /// `253`
-  @BuiltValueEnumConst(wireName: '253')
-  static const RoomSetAllAttendeesPermissionsPermissions $253 = _$roomSetAllAttendeesPermissionsPermissions$253;
-
-  /// `254`
-  @BuiltValueEnumConst(wireName: '254')
-  static const RoomSetAllAttendeesPermissionsPermissions $254 = _$roomSetAllAttendeesPermissionsPermissions$254;
-
-  /// `255`
-  @BuiltValueEnumConst(wireName: '255')
-  static const RoomSetAllAttendeesPermissionsPermissions $255 = _$roomSetAllAttendeesPermissionsPermissions$255;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RoomSetAllAttendeesPermissionsPermissions> get values =>
-      _$roomSetAllAttendeesPermissionsPermissionsValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RoomSetAllAttendeesPermissionsPermissions valueOf(String name) =>
-      _$valueOfRoomSetAllAttendeesPermissionsPermissions(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for RoomSetAllAttendeesPermissionsPermissions.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomSetAllAttendeesPermissionsPermissions> get serializer =>
-      const _$RoomSetAllAttendeesPermissionsPermissionsSerializer();
-}
-
-class _$RoomSetAllAttendeesPermissionsPermissionsSerializer
-    implements PrimitiveSerializer<RoomSetAllAttendeesPermissionsPermissions> {
-  const _$RoomSetAllAttendeesPermissionsPermissionsSerializer();
-
-  static const Map<RoomSetAllAttendeesPermissionsPermissions, Object> _toWire =
-      <RoomSetAllAttendeesPermissionsPermissions, Object>{
-    RoomSetAllAttendeesPermissionsPermissions.$0: 0,
-    RoomSetAllAttendeesPermissionsPermissions.$1: 1,
-    RoomSetAllAttendeesPermissionsPermissions.$2: 2,
-    RoomSetAllAttendeesPermissionsPermissions.$3: 3,
-    RoomSetAllAttendeesPermissionsPermissions.$4: 4,
-    RoomSetAllAttendeesPermissionsPermissions.$5: 5,
-    RoomSetAllAttendeesPermissionsPermissions.$6: 6,
-    RoomSetAllAttendeesPermissionsPermissions.$7: 7,
-    RoomSetAllAttendeesPermissionsPermissions.$8: 8,
-    RoomSetAllAttendeesPermissionsPermissions.$9: 9,
-    RoomSetAllAttendeesPermissionsPermissions.$10: 10,
-    RoomSetAllAttendeesPermissionsPermissions.$11: 11,
-    RoomSetAllAttendeesPermissionsPermissions.$12: 12,
-    RoomSetAllAttendeesPermissionsPermissions.$13: 13,
-    RoomSetAllAttendeesPermissionsPermissions.$14: 14,
-    RoomSetAllAttendeesPermissionsPermissions.$15: 15,
-    RoomSetAllAttendeesPermissionsPermissions.$16: 16,
-    RoomSetAllAttendeesPermissionsPermissions.$17: 17,
-    RoomSetAllAttendeesPermissionsPermissions.$18: 18,
-    RoomSetAllAttendeesPermissionsPermissions.$19: 19,
-    RoomSetAllAttendeesPermissionsPermissions.$20: 20,
-    RoomSetAllAttendeesPermissionsPermissions.$21: 21,
-    RoomSetAllAttendeesPermissionsPermissions.$22: 22,
-    RoomSetAllAttendeesPermissionsPermissions.$23: 23,
-    RoomSetAllAttendeesPermissionsPermissions.$24: 24,
-    RoomSetAllAttendeesPermissionsPermissions.$25: 25,
-    RoomSetAllAttendeesPermissionsPermissions.$26: 26,
-    RoomSetAllAttendeesPermissionsPermissions.$27: 27,
-    RoomSetAllAttendeesPermissionsPermissions.$28: 28,
-    RoomSetAllAttendeesPermissionsPermissions.$29: 29,
-    RoomSetAllAttendeesPermissionsPermissions.$30: 30,
-    RoomSetAllAttendeesPermissionsPermissions.$31: 31,
-    RoomSetAllAttendeesPermissionsPermissions.$32: 32,
-    RoomSetAllAttendeesPermissionsPermissions.$33: 33,
-    RoomSetAllAttendeesPermissionsPermissions.$34: 34,
-    RoomSetAllAttendeesPermissionsPermissions.$35: 35,
-    RoomSetAllAttendeesPermissionsPermissions.$36: 36,
-    RoomSetAllAttendeesPermissionsPermissions.$37: 37,
-    RoomSetAllAttendeesPermissionsPermissions.$38: 38,
-    RoomSetAllAttendeesPermissionsPermissions.$39: 39,
-    RoomSetAllAttendeesPermissionsPermissions.$40: 40,
-    RoomSetAllAttendeesPermissionsPermissions.$41: 41,
-    RoomSetAllAttendeesPermissionsPermissions.$42: 42,
-    RoomSetAllAttendeesPermissionsPermissions.$43: 43,
-    RoomSetAllAttendeesPermissionsPermissions.$44: 44,
-    RoomSetAllAttendeesPermissionsPermissions.$45: 45,
-    RoomSetAllAttendeesPermissionsPermissions.$46: 46,
-    RoomSetAllAttendeesPermissionsPermissions.$47: 47,
-    RoomSetAllAttendeesPermissionsPermissions.$48: 48,
-    RoomSetAllAttendeesPermissionsPermissions.$49: 49,
-    RoomSetAllAttendeesPermissionsPermissions.$50: 50,
-    RoomSetAllAttendeesPermissionsPermissions.$51: 51,
-    RoomSetAllAttendeesPermissionsPermissions.$52: 52,
-    RoomSetAllAttendeesPermissionsPermissions.$53: 53,
-    RoomSetAllAttendeesPermissionsPermissions.$54: 54,
-    RoomSetAllAttendeesPermissionsPermissions.$55: 55,
-    RoomSetAllAttendeesPermissionsPermissions.$56: 56,
-    RoomSetAllAttendeesPermissionsPermissions.$57: 57,
-    RoomSetAllAttendeesPermissionsPermissions.$58: 58,
-    RoomSetAllAttendeesPermissionsPermissions.$59: 59,
-    RoomSetAllAttendeesPermissionsPermissions.$60: 60,
-    RoomSetAllAttendeesPermissionsPermissions.$61: 61,
-    RoomSetAllAttendeesPermissionsPermissions.$62: 62,
-    RoomSetAllAttendeesPermissionsPermissions.$63: 63,
-    RoomSetAllAttendeesPermissionsPermissions.$64: 64,
-    RoomSetAllAttendeesPermissionsPermissions.$65: 65,
-    RoomSetAllAttendeesPermissionsPermissions.$66: 66,
-    RoomSetAllAttendeesPermissionsPermissions.$67: 67,
-    RoomSetAllAttendeesPermissionsPermissions.$68: 68,
-    RoomSetAllAttendeesPermissionsPermissions.$69: 69,
-    RoomSetAllAttendeesPermissionsPermissions.$70: 70,
-    RoomSetAllAttendeesPermissionsPermissions.$71: 71,
-    RoomSetAllAttendeesPermissionsPermissions.$72: 72,
-    RoomSetAllAttendeesPermissionsPermissions.$73: 73,
-    RoomSetAllAttendeesPermissionsPermissions.$74: 74,
-    RoomSetAllAttendeesPermissionsPermissions.$75: 75,
-    RoomSetAllAttendeesPermissionsPermissions.$76: 76,
-    RoomSetAllAttendeesPermissionsPermissions.$77: 77,
-    RoomSetAllAttendeesPermissionsPermissions.$78: 78,
-    RoomSetAllAttendeesPermissionsPermissions.$79: 79,
-    RoomSetAllAttendeesPermissionsPermissions.$80: 80,
-    RoomSetAllAttendeesPermissionsPermissions.$81: 81,
-    RoomSetAllAttendeesPermissionsPermissions.$82: 82,
-    RoomSetAllAttendeesPermissionsPermissions.$83: 83,
-    RoomSetAllAttendeesPermissionsPermissions.$84: 84,
-    RoomSetAllAttendeesPermissionsPermissions.$85: 85,
-    RoomSetAllAttendeesPermissionsPermissions.$86: 86,
-    RoomSetAllAttendeesPermissionsPermissions.$87: 87,
-    RoomSetAllAttendeesPermissionsPermissions.$88: 88,
-    RoomSetAllAttendeesPermissionsPermissions.$89: 89,
-    RoomSetAllAttendeesPermissionsPermissions.$90: 90,
-    RoomSetAllAttendeesPermissionsPermissions.$91: 91,
-    RoomSetAllAttendeesPermissionsPermissions.$92: 92,
-    RoomSetAllAttendeesPermissionsPermissions.$93: 93,
-    RoomSetAllAttendeesPermissionsPermissions.$94: 94,
-    RoomSetAllAttendeesPermissionsPermissions.$95: 95,
-    RoomSetAllAttendeesPermissionsPermissions.$96: 96,
-    RoomSetAllAttendeesPermissionsPermissions.$97: 97,
-    RoomSetAllAttendeesPermissionsPermissions.$98: 98,
-    RoomSetAllAttendeesPermissionsPermissions.$99: 99,
-    RoomSetAllAttendeesPermissionsPermissions.$100: 100,
-    RoomSetAllAttendeesPermissionsPermissions.$101: 101,
-    RoomSetAllAttendeesPermissionsPermissions.$102: 102,
-    RoomSetAllAttendeesPermissionsPermissions.$103: 103,
-    RoomSetAllAttendeesPermissionsPermissions.$104: 104,
-    RoomSetAllAttendeesPermissionsPermissions.$105: 105,
-    RoomSetAllAttendeesPermissionsPermissions.$106: 106,
-    RoomSetAllAttendeesPermissionsPermissions.$107: 107,
-    RoomSetAllAttendeesPermissionsPermissions.$108: 108,
-    RoomSetAllAttendeesPermissionsPermissions.$109: 109,
-    RoomSetAllAttendeesPermissionsPermissions.$110: 110,
-    RoomSetAllAttendeesPermissionsPermissions.$111: 111,
-    RoomSetAllAttendeesPermissionsPermissions.$112: 112,
-    RoomSetAllAttendeesPermissionsPermissions.$113: 113,
-    RoomSetAllAttendeesPermissionsPermissions.$114: 114,
-    RoomSetAllAttendeesPermissionsPermissions.$115: 115,
-    RoomSetAllAttendeesPermissionsPermissions.$116: 116,
-    RoomSetAllAttendeesPermissionsPermissions.$117: 117,
-    RoomSetAllAttendeesPermissionsPermissions.$118: 118,
-    RoomSetAllAttendeesPermissionsPermissions.$119: 119,
-    RoomSetAllAttendeesPermissionsPermissions.$120: 120,
-    RoomSetAllAttendeesPermissionsPermissions.$121: 121,
-    RoomSetAllAttendeesPermissionsPermissions.$122: 122,
-    RoomSetAllAttendeesPermissionsPermissions.$123: 123,
-    RoomSetAllAttendeesPermissionsPermissions.$124: 124,
-    RoomSetAllAttendeesPermissionsPermissions.$125: 125,
-    RoomSetAllAttendeesPermissionsPermissions.$126: 126,
-    RoomSetAllAttendeesPermissionsPermissions.$127: 127,
-    RoomSetAllAttendeesPermissionsPermissions.$128: 128,
-    RoomSetAllAttendeesPermissionsPermissions.$129: 129,
-    RoomSetAllAttendeesPermissionsPermissions.$130: 130,
-    RoomSetAllAttendeesPermissionsPermissions.$131: 131,
-    RoomSetAllAttendeesPermissionsPermissions.$132: 132,
-    RoomSetAllAttendeesPermissionsPermissions.$133: 133,
-    RoomSetAllAttendeesPermissionsPermissions.$134: 134,
-    RoomSetAllAttendeesPermissionsPermissions.$135: 135,
-    RoomSetAllAttendeesPermissionsPermissions.$136: 136,
-    RoomSetAllAttendeesPermissionsPermissions.$137: 137,
-    RoomSetAllAttendeesPermissionsPermissions.$138: 138,
-    RoomSetAllAttendeesPermissionsPermissions.$139: 139,
-    RoomSetAllAttendeesPermissionsPermissions.$140: 140,
-    RoomSetAllAttendeesPermissionsPermissions.$141: 141,
-    RoomSetAllAttendeesPermissionsPermissions.$142: 142,
-    RoomSetAllAttendeesPermissionsPermissions.$143: 143,
-    RoomSetAllAttendeesPermissionsPermissions.$144: 144,
-    RoomSetAllAttendeesPermissionsPermissions.$145: 145,
-    RoomSetAllAttendeesPermissionsPermissions.$146: 146,
-    RoomSetAllAttendeesPermissionsPermissions.$147: 147,
-    RoomSetAllAttendeesPermissionsPermissions.$148: 148,
-    RoomSetAllAttendeesPermissionsPermissions.$149: 149,
-    RoomSetAllAttendeesPermissionsPermissions.$150: 150,
-    RoomSetAllAttendeesPermissionsPermissions.$151: 151,
-    RoomSetAllAttendeesPermissionsPermissions.$152: 152,
-    RoomSetAllAttendeesPermissionsPermissions.$153: 153,
-    RoomSetAllAttendeesPermissionsPermissions.$154: 154,
-    RoomSetAllAttendeesPermissionsPermissions.$155: 155,
-    RoomSetAllAttendeesPermissionsPermissions.$156: 156,
-    RoomSetAllAttendeesPermissionsPermissions.$157: 157,
-    RoomSetAllAttendeesPermissionsPermissions.$158: 158,
-    RoomSetAllAttendeesPermissionsPermissions.$159: 159,
-    RoomSetAllAttendeesPermissionsPermissions.$160: 160,
-    RoomSetAllAttendeesPermissionsPermissions.$161: 161,
-    RoomSetAllAttendeesPermissionsPermissions.$162: 162,
-    RoomSetAllAttendeesPermissionsPermissions.$163: 163,
-    RoomSetAllAttendeesPermissionsPermissions.$164: 164,
-    RoomSetAllAttendeesPermissionsPermissions.$165: 165,
-    RoomSetAllAttendeesPermissionsPermissions.$166: 166,
-    RoomSetAllAttendeesPermissionsPermissions.$167: 167,
-    RoomSetAllAttendeesPermissionsPermissions.$168: 168,
-    RoomSetAllAttendeesPermissionsPermissions.$169: 169,
-    RoomSetAllAttendeesPermissionsPermissions.$170: 170,
-    RoomSetAllAttendeesPermissionsPermissions.$171: 171,
-    RoomSetAllAttendeesPermissionsPermissions.$172: 172,
-    RoomSetAllAttendeesPermissionsPermissions.$173: 173,
-    RoomSetAllAttendeesPermissionsPermissions.$174: 174,
-    RoomSetAllAttendeesPermissionsPermissions.$175: 175,
-    RoomSetAllAttendeesPermissionsPermissions.$176: 176,
-    RoomSetAllAttendeesPermissionsPermissions.$177: 177,
-    RoomSetAllAttendeesPermissionsPermissions.$178: 178,
-    RoomSetAllAttendeesPermissionsPermissions.$179: 179,
-    RoomSetAllAttendeesPermissionsPermissions.$180: 180,
-    RoomSetAllAttendeesPermissionsPermissions.$181: 181,
-    RoomSetAllAttendeesPermissionsPermissions.$182: 182,
-    RoomSetAllAttendeesPermissionsPermissions.$183: 183,
-    RoomSetAllAttendeesPermissionsPermissions.$184: 184,
-    RoomSetAllAttendeesPermissionsPermissions.$185: 185,
-    RoomSetAllAttendeesPermissionsPermissions.$186: 186,
-    RoomSetAllAttendeesPermissionsPermissions.$187: 187,
-    RoomSetAllAttendeesPermissionsPermissions.$188: 188,
-    RoomSetAllAttendeesPermissionsPermissions.$189: 189,
-    RoomSetAllAttendeesPermissionsPermissions.$190: 190,
-    RoomSetAllAttendeesPermissionsPermissions.$191: 191,
-    RoomSetAllAttendeesPermissionsPermissions.$192: 192,
-    RoomSetAllAttendeesPermissionsPermissions.$193: 193,
-    RoomSetAllAttendeesPermissionsPermissions.$194: 194,
-    RoomSetAllAttendeesPermissionsPermissions.$195: 195,
-    RoomSetAllAttendeesPermissionsPermissions.$196: 196,
-    RoomSetAllAttendeesPermissionsPermissions.$197: 197,
-    RoomSetAllAttendeesPermissionsPermissions.$198: 198,
-    RoomSetAllAttendeesPermissionsPermissions.$199: 199,
-    RoomSetAllAttendeesPermissionsPermissions.$200: 200,
-    RoomSetAllAttendeesPermissionsPermissions.$201: 201,
-    RoomSetAllAttendeesPermissionsPermissions.$202: 202,
-    RoomSetAllAttendeesPermissionsPermissions.$203: 203,
-    RoomSetAllAttendeesPermissionsPermissions.$204: 204,
-    RoomSetAllAttendeesPermissionsPermissions.$205: 205,
-    RoomSetAllAttendeesPermissionsPermissions.$206: 206,
-    RoomSetAllAttendeesPermissionsPermissions.$207: 207,
-    RoomSetAllAttendeesPermissionsPermissions.$208: 208,
-    RoomSetAllAttendeesPermissionsPermissions.$209: 209,
-    RoomSetAllAttendeesPermissionsPermissions.$210: 210,
-    RoomSetAllAttendeesPermissionsPermissions.$211: 211,
-    RoomSetAllAttendeesPermissionsPermissions.$212: 212,
-    RoomSetAllAttendeesPermissionsPermissions.$213: 213,
-    RoomSetAllAttendeesPermissionsPermissions.$214: 214,
-    RoomSetAllAttendeesPermissionsPermissions.$215: 215,
-    RoomSetAllAttendeesPermissionsPermissions.$216: 216,
-    RoomSetAllAttendeesPermissionsPermissions.$217: 217,
-    RoomSetAllAttendeesPermissionsPermissions.$218: 218,
-    RoomSetAllAttendeesPermissionsPermissions.$219: 219,
-    RoomSetAllAttendeesPermissionsPermissions.$220: 220,
-    RoomSetAllAttendeesPermissionsPermissions.$221: 221,
-    RoomSetAllAttendeesPermissionsPermissions.$222: 222,
-    RoomSetAllAttendeesPermissionsPermissions.$223: 223,
-    RoomSetAllAttendeesPermissionsPermissions.$224: 224,
-    RoomSetAllAttendeesPermissionsPermissions.$225: 225,
-    RoomSetAllAttendeesPermissionsPermissions.$226: 226,
-    RoomSetAllAttendeesPermissionsPermissions.$227: 227,
-    RoomSetAllAttendeesPermissionsPermissions.$228: 228,
-    RoomSetAllAttendeesPermissionsPermissions.$229: 229,
-    RoomSetAllAttendeesPermissionsPermissions.$230: 230,
-    RoomSetAllAttendeesPermissionsPermissions.$231: 231,
-    RoomSetAllAttendeesPermissionsPermissions.$232: 232,
-    RoomSetAllAttendeesPermissionsPermissions.$233: 233,
-    RoomSetAllAttendeesPermissionsPermissions.$234: 234,
-    RoomSetAllAttendeesPermissionsPermissions.$235: 235,
-    RoomSetAllAttendeesPermissionsPermissions.$236: 236,
-    RoomSetAllAttendeesPermissionsPermissions.$237: 237,
-    RoomSetAllAttendeesPermissionsPermissions.$238: 238,
-    RoomSetAllAttendeesPermissionsPermissions.$239: 239,
-    RoomSetAllAttendeesPermissionsPermissions.$240: 240,
-    RoomSetAllAttendeesPermissionsPermissions.$241: 241,
-    RoomSetAllAttendeesPermissionsPermissions.$242: 242,
-    RoomSetAllAttendeesPermissionsPermissions.$243: 243,
-    RoomSetAllAttendeesPermissionsPermissions.$244: 244,
-    RoomSetAllAttendeesPermissionsPermissions.$245: 245,
-    RoomSetAllAttendeesPermissionsPermissions.$246: 246,
-    RoomSetAllAttendeesPermissionsPermissions.$247: 247,
-    RoomSetAllAttendeesPermissionsPermissions.$248: 248,
-    RoomSetAllAttendeesPermissionsPermissions.$249: 249,
-    RoomSetAllAttendeesPermissionsPermissions.$250: 250,
-    RoomSetAllAttendeesPermissionsPermissions.$251: 251,
-    RoomSetAllAttendeesPermissionsPermissions.$252: 252,
-    RoomSetAllAttendeesPermissionsPermissions.$253: 253,
-    RoomSetAllAttendeesPermissionsPermissions.$254: 254,
-    RoomSetAllAttendeesPermissionsPermissions.$255: 255,
-  };
-
-  static const Map<Object, RoomSetAllAttendeesPermissionsPermissions> _fromWire =
-      <Object, RoomSetAllAttendeesPermissionsPermissions>{
-    0: RoomSetAllAttendeesPermissionsPermissions.$0,
-    1: RoomSetAllAttendeesPermissionsPermissions.$1,
-    2: RoomSetAllAttendeesPermissionsPermissions.$2,
-    3: RoomSetAllAttendeesPermissionsPermissions.$3,
-    4: RoomSetAllAttendeesPermissionsPermissions.$4,
-    5: RoomSetAllAttendeesPermissionsPermissions.$5,
-    6: RoomSetAllAttendeesPermissionsPermissions.$6,
-    7: RoomSetAllAttendeesPermissionsPermissions.$7,
-    8: RoomSetAllAttendeesPermissionsPermissions.$8,
-    9: RoomSetAllAttendeesPermissionsPermissions.$9,
-    10: RoomSetAllAttendeesPermissionsPermissions.$10,
-    11: RoomSetAllAttendeesPermissionsPermissions.$11,
-    12: RoomSetAllAttendeesPermissionsPermissions.$12,
-    13: RoomSetAllAttendeesPermissionsPermissions.$13,
-    14: RoomSetAllAttendeesPermissionsPermissions.$14,
-    15: RoomSetAllAttendeesPermissionsPermissions.$15,
-    16: RoomSetAllAttendeesPermissionsPermissions.$16,
-    17: RoomSetAllAttendeesPermissionsPermissions.$17,
-    18: RoomSetAllAttendeesPermissionsPermissions.$18,
-    19: RoomSetAllAttendeesPermissionsPermissions.$19,
-    20: RoomSetAllAttendeesPermissionsPermissions.$20,
-    21: RoomSetAllAttendeesPermissionsPermissions.$21,
-    22: RoomSetAllAttendeesPermissionsPermissions.$22,
-    23: RoomSetAllAttendeesPermissionsPermissions.$23,
-    24: RoomSetAllAttendeesPermissionsPermissions.$24,
-    25: RoomSetAllAttendeesPermissionsPermissions.$25,
-    26: RoomSetAllAttendeesPermissionsPermissions.$26,
-    27: RoomSetAllAttendeesPermissionsPermissions.$27,
-    28: RoomSetAllAttendeesPermissionsPermissions.$28,
-    29: RoomSetAllAttendeesPermissionsPermissions.$29,
-    30: RoomSetAllAttendeesPermissionsPermissions.$30,
-    31: RoomSetAllAttendeesPermissionsPermissions.$31,
-    32: RoomSetAllAttendeesPermissionsPermissions.$32,
-    33: RoomSetAllAttendeesPermissionsPermissions.$33,
-    34: RoomSetAllAttendeesPermissionsPermissions.$34,
-    35: RoomSetAllAttendeesPermissionsPermissions.$35,
-    36: RoomSetAllAttendeesPermissionsPermissions.$36,
-    37: RoomSetAllAttendeesPermissionsPermissions.$37,
-    38: RoomSetAllAttendeesPermissionsPermissions.$38,
-    39: RoomSetAllAttendeesPermissionsPermissions.$39,
-    40: RoomSetAllAttendeesPermissionsPermissions.$40,
-    41: RoomSetAllAttendeesPermissionsPermissions.$41,
-    42: RoomSetAllAttendeesPermissionsPermissions.$42,
-    43: RoomSetAllAttendeesPermissionsPermissions.$43,
-    44: RoomSetAllAttendeesPermissionsPermissions.$44,
-    45: RoomSetAllAttendeesPermissionsPermissions.$45,
-    46: RoomSetAllAttendeesPermissionsPermissions.$46,
-    47: RoomSetAllAttendeesPermissionsPermissions.$47,
-    48: RoomSetAllAttendeesPermissionsPermissions.$48,
-    49: RoomSetAllAttendeesPermissionsPermissions.$49,
-    50: RoomSetAllAttendeesPermissionsPermissions.$50,
-    51: RoomSetAllAttendeesPermissionsPermissions.$51,
-    52: RoomSetAllAttendeesPermissionsPermissions.$52,
-    53: RoomSetAllAttendeesPermissionsPermissions.$53,
-    54: RoomSetAllAttendeesPermissionsPermissions.$54,
-    55: RoomSetAllAttendeesPermissionsPermissions.$55,
-    56: RoomSetAllAttendeesPermissionsPermissions.$56,
-    57: RoomSetAllAttendeesPermissionsPermissions.$57,
-    58: RoomSetAllAttendeesPermissionsPermissions.$58,
-    59: RoomSetAllAttendeesPermissionsPermissions.$59,
-    60: RoomSetAllAttendeesPermissionsPermissions.$60,
-    61: RoomSetAllAttendeesPermissionsPermissions.$61,
-    62: RoomSetAllAttendeesPermissionsPermissions.$62,
-    63: RoomSetAllAttendeesPermissionsPermissions.$63,
-    64: RoomSetAllAttendeesPermissionsPermissions.$64,
-    65: RoomSetAllAttendeesPermissionsPermissions.$65,
-    66: RoomSetAllAttendeesPermissionsPermissions.$66,
-    67: RoomSetAllAttendeesPermissionsPermissions.$67,
-    68: RoomSetAllAttendeesPermissionsPermissions.$68,
-    69: RoomSetAllAttendeesPermissionsPermissions.$69,
-    70: RoomSetAllAttendeesPermissionsPermissions.$70,
-    71: RoomSetAllAttendeesPermissionsPermissions.$71,
-    72: RoomSetAllAttendeesPermissionsPermissions.$72,
-    73: RoomSetAllAttendeesPermissionsPermissions.$73,
-    74: RoomSetAllAttendeesPermissionsPermissions.$74,
-    75: RoomSetAllAttendeesPermissionsPermissions.$75,
-    76: RoomSetAllAttendeesPermissionsPermissions.$76,
-    77: RoomSetAllAttendeesPermissionsPermissions.$77,
-    78: RoomSetAllAttendeesPermissionsPermissions.$78,
-    79: RoomSetAllAttendeesPermissionsPermissions.$79,
-    80: RoomSetAllAttendeesPermissionsPermissions.$80,
-    81: RoomSetAllAttendeesPermissionsPermissions.$81,
-    82: RoomSetAllAttendeesPermissionsPermissions.$82,
-    83: RoomSetAllAttendeesPermissionsPermissions.$83,
-    84: RoomSetAllAttendeesPermissionsPermissions.$84,
-    85: RoomSetAllAttendeesPermissionsPermissions.$85,
-    86: RoomSetAllAttendeesPermissionsPermissions.$86,
-    87: RoomSetAllAttendeesPermissionsPermissions.$87,
-    88: RoomSetAllAttendeesPermissionsPermissions.$88,
-    89: RoomSetAllAttendeesPermissionsPermissions.$89,
-    90: RoomSetAllAttendeesPermissionsPermissions.$90,
-    91: RoomSetAllAttendeesPermissionsPermissions.$91,
-    92: RoomSetAllAttendeesPermissionsPermissions.$92,
-    93: RoomSetAllAttendeesPermissionsPermissions.$93,
-    94: RoomSetAllAttendeesPermissionsPermissions.$94,
-    95: RoomSetAllAttendeesPermissionsPermissions.$95,
-    96: RoomSetAllAttendeesPermissionsPermissions.$96,
-    97: RoomSetAllAttendeesPermissionsPermissions.$97,
-    98: RoomSetAllAttendeesPermissionsPermissions.$98,
-    99: RoomSetAllAttendeesPermissionsPermissions.$99,
-    100: RoomSetAllAttendeesPermissionsPermissions.$100,
-    101: RoomSetAllAttendeesPermissionsPermissions.$101,
-    102: RoomSetAllAttendeesPermissionsPermissions.$102,
-    103: RoomSetAllAttendeesPermissionsPermissions.$103,
-    104: RoomSetAllAttendeesPermissionsPermissions.$104,
-    105: RoomSetAllAttendeesPermissionsPermissions.$105,
-    106: RoomSetAllAttendeesPermissionsPermissions.$106,
-    107: RoomSetAllAttendeesPermissionsPermissions.$107,
-    108: RoomSetAllAttendeesPermissionsPermissions.$108,
-    109: RoomSetAllAttendeesPermissionsPermissions.$109,
-    110: RoomSetAllAttendeesPermissionsPermissions.$110,
-    111: RoomSetAllAttendeesPermissionsPermissions.$111,
-    112: RoomSetAllAttendeesPermissionsPermissions.$112,
-    113: RoomSetAllAttendeesPermissionsPermissions.$113,
-    114: RoomSetAllAttendeesPermissionsPermissions.$114,
-    115: RoomSetAllAttendeesPermissionsPermissions.$115,
-    116: RoomSetAllAttendeesPermissionsPermissions.$116,
-    117: RoomSetAllAttendeesPermissionsPermissions.$117,
-    118: RoomSetAllAttendeesPermissionsPermissions.$118,
-    119: RoomSetAllAttendeesPermissionsPermissions.$119,
-    120: RoomSetAllAttendeesPermissionsPermissions.$120,
-    121: RoomSetAllAttendeesPermissionsPermissions.$121,
-    122: RoomSetAllAttendeesPermissionsPermissions.$122,
-    123: RoomSetAllAttendeesPermissionsPermissions.$123,
-    124: RoomSetAllAttendeesPermissionsPermissions.$124,
-    125: RoomSetAllAttendeesPermissionsPermissions.$125,
-    126: RoomSetAllAttendeesPermissionsPermissions.$126,
-    127: RoomSetAllAttendeesPermissionsPermissions.$127,
-    128: RoomSetAllAttendeesPermissionsPermissions.$128,
-    129: RoomSetAllAttendeesPermissionsPermissions.$129,
-    130: RoomSetAllAttendeesPermissionsPermissions.$130,
-    131: RoomSetAllAttendeesPermissionsPermissions.$131,
-    132: RoomSetAllAttendeesPermissionsPermissions.$132,
-    133: RoomSetAllAttendeesPermissionsPermissions.$133,
-    134: RoomSetAllAttendeesPermissionsPermissions.$134,
-    135: RoomSetAllAttendeesPermissionsPermissions.$135,
-    136: RoomSetAllAttendeesPermissionsPermissions.$136,
-    137: RoomSetAllAttendeesPermissionsPermissions.$137,
-    138: RoomSetAllAttendeesPermissionsPermissions.$138,
-    139: RoomSetAllAttendeesPermissionsPermissions.$139,
-    140: RoomSetAllAttendeesPermissionsPermissions.$140,
-    141: RoomSetAllAttendeesPermissionsPermissions.$141,
-    142: RoomSetAllAttendeesPermissionsPermissions.$142,
-    143: RoomSetAllAttendeesPermissionsPermissions.$143,
-    144: RoomSetAllAttendeesPermissionsPermissions.$144,
-    145: RoomSetAllAttendeesPermissionsPermissions.$145,
-    146: RoomSetAllAttendeesPermissionsPermissions.$146,
-    147: RoomSetAllAttendeesPermissionsPermissions.$147,
-    148: RoomSetAllAttendeesPermissionsPermissions.$148,
-    149: RoomSetAllAttendeesPermissionsPermissions.$149,
-    150: RoomSetAllAttendeesPermissionsPermissions.$150,
-    151: RoomSetAllAttendeesPermissionsPermissions.$151,
-    152: RoomSetAllAttendeesPermissionsPermissions.$152,
-    153: RoomSetAllAttendeesPermissionsPermissions.$153,
-    154: RoomSetAllAttendeesPermissionsPermissions.$154,
-    155: RoomSetAllAttendeesPermissionsPermissions.$155,
-    156: RoomSetAllAttendeesPermissionsPermissions.$156,
-    157: RoomSetAllAttendeesPermissionsPermissions.$157,
-    158: RoomSetAllAttendeesPermissionsPermissions.$158,
-    159: RoomSetAllAttendeesPermissionsPermissions.$159,
-    160: RoomSetAllAttendeesPermissionsPermissions.$160,
-    161: RoomSetAllAttendeesPermissionsPermissions.$161,
-    162: RoomSetAllAttendeesPermissionsPermissions.$162,
-    163: RoomSetAllAttendeesPermissionsPermissions.$163,
-    164: RoomSetAllAttendeesPermissionsPermissions.$164,
-    165: RoomSetAllAttendeesPermissionsPermissions.$165,
-    166: RoomSetAllAttendeesPermissionsPermissions.$166,
-    167: RoomSetAllAttendeesPermissionsPermissions.$167,
-    168: RoomSetAllAttendeesPermissionsPermissions.$168,
-    169: RoomSetAllAttendeesPermissionsPermissions.$169,
-    170: RoomSetAllAttendeesPermissionsPermissions.$170,
-    171: RoomSetAllAttendeesPermissionsPermissions.$171,
-    172: RoomSetAllAttendeesPermissionsPermissions.$172,
-    173: RoomSetAllAttendeesPermissionsPermissions.$173,
-    174: RoomSetAllAttendeesPermissionsPermissions.$174,
-    175: RoomSetAllAttendeesPermissionsPermissions.$175,
-    176: RoomSetAllAttendeesPermissionsPermissions.$176,
-    177: RoomSetAllAttendeesPermissionsPermissions.$177,
-    178: RoomSetAllAttendeesPermissionsPermissions.$178,
-    179: RoomSetAllAttendeesPermissionsPermissions.$179,
-    180: RoomSetAllAttendeesPermissionsPermissions.$180,
-    181: RoomSetAllAttendeesPermissionsPermissions.$181,
-    182: RoomSetAllAttendeesPermissionsPermissions.$182,
-    183: RoomSetAllAttendeesPermissionsPermissions.$183,
-    184: RoomSetAllAttendeesPermissionsPermissions.$184,
-    185: RoomSetAllAttendeesPermissionsPermissions.$185,
-    186: RoomSetAllAttendeesPermissionsPermissions.$186,
-    187: RoomSetAllAttendeesPermissionsPermissions.$187,
-    188: RoomSetAllAttendeesPermissionsPermissions.$188,
-    189: RoomSetAllAttendeesPermissionsPermissions.$189,
-    190: RoomSetAllAttendeesPermissionsPermissions.$190,
-    191: RoomSetAllAttendeesPermissionsPermissions.$191,
-    192: RoomSetAllAttendeesPermissionsPermissions.$192,
-    193: RoomSetAllAttendeesPermissionsPermissions.$193,
-    194: RoomSetAllAttendeesPermissionsPermissions.$194,
-    195: RoomSetAllAttendeesPermissionsPermissions.$195,
-    196: RoomSetAllAttendeesPermissionsPermissions.$196,
-    197: RoomSetAllAttendeesPermissionsPermissions.$197,
-    198: RoomSetAllAttendeesPermissionsPermissions.$198,
-    199: RoomSetAllAttendeesPermissionsPermissions.$199,
-    200: RoomSetAllAttendeesPermissionsPermissions.$200,
-    201: RoomSetAllAttendeesPermissionsPermissions.$201,
-    202: RoomSetAllAttendeesPermissionsPermissions.$202,
-    203: RoomSetAllAttendeesPermissionsPermissions.$203,
-    204: RoomSetAllAttendeesPermissionsPermissions.$204,
-    205: RoomSetAllAttendeesPermissionsPermissions.$205,
-    206: RoomSetAllAttendeesPermissionsPermissions.$206,
-    207: RoomSetAllAttendeesPermissionsPermissions.$207,
-    208: RoomSetAllAttendeesPermissionsPermissions.$208,
-    209: RoomSetAllAttendeesPermissionsPermissions.$209,
-    210: RoomSetAllAttendeesPermissionsPermissions.$210,
-    211: RoomSetAllAttendeesPermissionsPermissions.$211,
-    212: RoomSetAllAttendeesPermissionsPermissions.$212,
-    213: RoomSetAllAttendeesPermissionsPermissions.$213,
-    214: RoomSetAllAttendeesPermissionsPermissions.$214,
-    215: RoomSetAllAttendeesPermissionsPermissions.$215,
-    216: RoomSetAllAttendeesPermissionsPermissions.$216,
-    217: RoomSetAllAttendeesPermissionsPermissions.$217,
-    218: RoomSetAllAttendeesPermissionsPermissions.$218,
-    219: RoomSetAllAttendeesPermissionsPermissions.$219,
-    220: RoomSetAllAttendeesPermissionsPermissions.$220,
-    221: RoomSetAllAttendeesPermissionsPermissions.$221,
-    222: RoomSetAllAttendeesPermissionsPermissions.$222,
-    223: RoomSetAllAttendeesPermissionsPermissions.$223,
-    224: RoomSetAllAttendeesPermissionsPermissions.$224,
-    225: RoomSetAllAttendeesPermissionsPermissions.$225,
-    226: RoomSetAllAttendeesPermissionsPermissions.$226,
-    227: RoomSetAllAttendeesPermissionsPermissions.$227,
-    228: RoomSetAllAttendeesPermissionsPermissions.$228,
-    229: RoomSetAllAttendeesPermissionsPermissions.$229,
-    230: RoomSetAllAttendeesPermissionsPermissions.$230,
-    231: RoomSetAllAttendeesPermissionsPermissions.$231,
-    232: RoomSetAllAttendeesPermissionsPermissions.$232,
-    233: RoomSetAllAttendeesPermissionsPermissions.$233,
-    234: RoomSetAllAttendeesPermissionsPermissions.$234,
-    235: RoomSetAllAttendeesPermissionsPermissions.$235,
-    236: RoomSetAllAttendeesPermissionsPermissions.$236,
-    237: RoomSetAllAttendeesPermissionsPermissions.$237,
-    238: RoomSetAllAttendeesPermissionsPermissions.$238,
-    239: RoomSetAllAttendeesPermissionsPermissions.$239,
-    240: RoomSetAllAttendeesPermissionsPermissions.$240,
-    241: RoomSetAllAttendeesPermissionsPermissions.$241,
-    242: RoomSetAllAttendeesPermissionsPermissions.$242,
-    243: RoomSetAllAttendeesPermissionsPermissions.$243,
-    244: RoomSetAllAttendeesPermissionsPermissions.$244,
-    245: RoomSetAllAttendeesPermissionsPermissions.$245,
-    246: RoomSetAllAttendeesPermissionsPermissions.$246,
-    247: RoomSetAllAttendeesPermissionsPermissions.$247,
-    248: RoomSetAllAttendeesPermissionsPermissions.$248,
-    249: RoomSetAllAttendeesPermissionsPermissions.$249,
-    250: RoomSetAllAttendeesPermissionsPermissions.$250,
-    251: RoomSetAllAttendeesPermissionsPermissions.$251,
-    252: RoomSetAllAttendeesPermissionsPermissions.$252,
-    253: RoomSetAllAttendeesPermissionsPermissions.$253,
-    254: RoomSetAllAttendeesPermissionsPermissions.$254,
-    255: RoomSetAllAttendeesPermissionsPermissions.$255,
-  };
-
-  @override
-  Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsPermissions];
-
-  @override
-  String get wireName => 'RoomSetAllAttendeesPermissionsPermissions';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RoomSetAllAttendeesPermissionsPermissions object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RoomSetAllAttendeesPermissionsPermissions deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -38937,6 +35809,54 @@ abstract class RoomJoinRoomResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(RoomJoinRoomResponseApplicationJsonBuilder b) {
     $RoomJoinRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomJoinRoomHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-proxy-hash')
+  String? get xNextcloudTalkProxyHash;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRoomJoinRoomHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRoomJoinRoomHeadersInterfaceBuilder b) {}
+}
+
+abstract class RoomRoomJoinRoomHeaders
+    implements $RoomRoomJoinRoomHeadersInterface, Built<RoomRoomJoinRoomHeaders, RoomRoomJoinRoomHeadersBuilder> {
+  /// Creates a new RoomRoomJoinRoomHeaders object using the builder pattern.
+  factory RoomRoomJoinRoomHeaders([void Function(RoomRoomJoinRoomHeadersBuilder)? b]) = _$RoomRoomJoinRoomHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomJoinRoomHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomJoinRoomHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomJoinRoomHeaders.
+  static Serializer<RoomRoomJoinRoomHeaders> get serializer => _$roomRoomJoinRoomHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRoomJoinRoomHeadersBuilder b) {
+    $RoomRoomJoinRoomHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRoomJoinRoomHeadersBuilder b) {
+    $RoomRoomJoinRoomHeadersInterface._validate(b);
   }
 }
 
@@ -41178,6 +38098,1854 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   }
 }
 
+class RoomGetCapabilitiesApiVersion extends EnumClass {
+  const RoomGetCapabilitiesApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomGetCapabilitiesApiVersion v4 = _$roomGetCapabilitiesApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetCapabilitiesApiVersion> get values => _$roomGetCapabilitiesApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomGetCapabilitiesApiVersion valueOf(String name) => _$valueOfRoomGetCapabilitiesApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomGetCapabilitiesApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetCapabilitiesApiVersion> get serializer => const _$RoomGetCapabilitiesApiVersionSerializer();
+}
+
+class _$RoomGetCapabilitiesApiVersionSerializer implements PrimitiveSerializer<RoomGetCapabilitiesApiVersion> {
+  const _$RoomGetCapabilitiesApiVersionSerializer();
+
+  static const Map<RoomGetCapabilitiesApiVersion, Object> _toWire = <RoomGetCapabilitiesApiVersion, Object>{
+    RoomGetCapabilitiesApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetCapabilitiesApiVersion> _fromWire = <Object, RoomGetCapabilitiesApiVersion>{
+    'v4': RoomGetCapabilitiesApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetCapabilitiesApiVersion];
+
+  @override
+  String get wireName => 'RoomGetCapabilitiesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetCapabilitiesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetCapabilitiesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_AttachmentsInterface {
+  bool get allowed;
+  String? get folder;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_AttachmentsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_AttachmentsInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Attachments
+    implements
+        $Capabilities_Config_AttachmentsInterface,
+        Built<Capabilities_Config_Attachments, Capabilities_Config_AttachmentsBuilder> {
+  /// Creates a new Capabilities_Config_Attachments object using the builder pattern.
+  factory Capabilities_Config_Attachments([void Function(Capabilities_Config_AttachmentsBuilder)? b]) =
+      _$Capabilities_Config_Attachments;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Attachments._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Attachments.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Attachments.
+  static Serializer<Capabilities_Config_Attachments> get serializer => _$capabilitiesConfigAttachmentsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_AttachmentsBuilder b) {
+    $Capabilities_Config_AttachmentsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_AttachmentsBuilder b) {
+    $Capabilities_Config_AttachmentsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_CallInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'breakout-rooms')
+  bool get breakoutRooms;
+  bool get recording;
+  @BuiltValueField(wireName: 'recording-consent')
+  int? get recordingConsent;
+  @BuiltValueField(wireName: 'supported-reactions')
+  BuiltList<String> get supportedReactions;
+  @BuiltValueField(wireName: 'predefined-backgrounds')
+  BuiltList<String> get predefinedBackgrounds;
+  @BuiltValueField(wireName: 'can-upload-background')
+  bool get canUploadBackground;
+  @BuiltValueField(wireName: 'sip-enabled')
+  bool? get sipEnabled;
+  @BuiltValueField(wireName: 'sip-dialout-enabled')
+  bool? get sipDialoutEnabled;
+  @BuiltValueField(wireName: 'can-enable-sip')
+  bool? get canEnableSip;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_CallInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_CallInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Call
+    implements $Capabilities_Config_CallInterface, Built<Capabilities_Config_Call, Capabilities_Config_CallBuilder> {
+  /// Creates a new Capabilities_Config_Call object using the builder pattern.
+  factory Capabilities_Config_Call([void Function(Capabilities_Config_CallBuilder)? b]) = _$Capabilities_Config_Call;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Call._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Call.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Call.
+  static Serializer<Capabilities_Config_Call> get serializer => _$capabilitiesConfigCallSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_CallBuilder b) {
+    $Capabilities_Config_CallInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_CallBuilder b) {
+    $Capabilities_Config_CallInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_ChatInterface {
+  @BuiltValueField(wireName: 'max-length')
+  int get maxLength;
+  @BuiltValueField(wireName: 'read-privacy')
+  int get readPrivacy;
+  @BuiltValueField(wireName: 'has-translation-providers')
+  bool? get hasTranslationProviders;
+  @BuiltValueField(wireName: 'typing-privacy')
+  int get typingPrivacy;
+  BuiltList<String>? get translations;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_ChatInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_ChatInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Chat
+    implements $Capabilities_Config_ChatInterface, Built<Capabilities_Config_Chat, Capabilities_Config_ChatBuilder> {
+  /// Creates a new Capabilities_Config_Chat object using the builder pattern.
+  factory Capabilities_Config_Chat([void Function(Capabilities_Config_ChatBuilder)? b]) = _$Capabilities_Config_Chat;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Chat._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Chat.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Chat.
+  static Serializer<Capabilities_Config_Chat> get serializer => _$capabilitiesConfigChatSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_ChatBuilder b) {
+    $Capabilities_Config_ChatInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_ChatBuilder b) {
+    $Capabilities_Config_ChatInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_ConversationsInterface {
+  @BuiltValueField(wireName: 'can-create')
+  bool get canCreate;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_ConversationsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_ConversationsInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Conversations
+    implements
+        $Capabilities_Config_ConversationsInterface,
+        Built<Capabilities_Config_Conversations, Capabilities_Config_ConversationsBuilder> {
+  /// Creates a new Capabilities_Config_Conversations object using the builder pattern.
+  factory Capabilities_Config_Conversations([void Function(Capabilities_Config_ConversationsBuilder)? b]) =
+      _$Capabilities_Config_Conversations;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Conversations._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Conversations.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Conversations.
+  static Serializer<Capabilities_Config_Conversations> get serializer => _$capabilitiesConfigConversationsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_ConversationsBuilder b) {
+    $Capabilities_Config_ConversationsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_ConversationsBuilder b) {
+    $Capabilities_Config_ConversationsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_FederationInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'incoming-enabled')
+  bool get incomingEnabled;
+  @BuiltValueField(wireName: 'outgoing-enabled')
+  bool get outgoingEnabled;
+  @BuiltValueField(wireName: 'only-trusted-servers')
+  bool get onlyTrustedServers;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_FederationInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_FederationInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Federation
+    implements
+        $Capabilities_Config_FederationInterface,
+        Built<Capabilities_Config_Federation, Capabilities_Config_FederationBuilder> {
+  /// Creates a new Capabilities_Config_Federation object using the builder pattern.
+  factory Capabilities_Config_Federation([void Function(Capabilities_Config_FederationBuilder)? b]) =
+      _$Capabilities_Config_Federation;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Federation._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Federation.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Federation.
+  static Serializer<Capabilities_Config_Federation> get serializer => _$capabilitiesConfigFederationSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_FederationBuilder b) {
+    $Capabilities_Config_FederationInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_FederationBuilder b) {
+    $Capabilities_Config_FederationInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_PreviewsInterface {
+  @BuiltValueField(wireName: 'max-gif-size')
+  int get maxGifSize;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_PreviewsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_PreviewsInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Previews
+    implements
+        $Capabilities_Config_PreviewsInterface,
+        Built<Capabilities_Config_Previews, Capabilities_Config_PreviewsBuilder> {
+  /// Creates a new Capabilities_Config_Previews object using the builder pattern.
+  factory Capabilities_Config_Previews([void Function(Capabilities_Config_PreviewsBuilder)? b]) =
+      _$Capabilities_Config_Previews;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Previews._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Previews.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Previews.
+  static Serializer<Capabilities_Config_Previews> get serializer => _$capabilitiesConfigPreviewsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_PreviewsBuilder b) {
+    $Capabilities_Config_PreviewsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_PreviewsBuilder b) {
+    $Capabilities_Config_PreviewsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_Config_SignalingInterface {
+  @BuiltValueField(wireName: 'session-ping-limit')
+  int get sessionPingLimit;
+  @BuiltValueField(wireName: 'hello-v2-token-key')
+  String? get helloV2TokenKey;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_Config_SignalingInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_Config_SignalingInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config_Signaling
+    implements
+        $Capabilities_Config_SignalingInterface,
+        Built<Capabilities_Config_Signaling, Capabilities_Config_SignalingBuilder> {
+  /// Creates a new Capabilities_Config_Signaling object using the builder pattern.
+  factory Capabilities_Config_Signaling([void Function(Capabilities_Config_SignalingBuilder)? b]) =
+      _$Capabilities_Config_Signaling;
+
+  // coverage:ignore-start
+  const Capabilities_Config_Signaling._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config_Signaling.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config_Signaling.
+  static Serializer<Capabilities_Config_Signaling> get serializer => _$capabilitiesConfigSignalingSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_Config_SignalingBuilder b) {
+    $Capabilities_Config_SignalingInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_Config_SignalingBuilder b) {
+    $Capabilities_Config_SignalingInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $Capabilities_ConfigInterface {
+  Capabilities_Config_Attachments get attachments;
+  Capabilities_Config_Call get call;
+  Capabilities_Config_Chat get chat;
+  Capabilities_Config_Conversations get conversations;
+  Capabilities_Config_Federation? get federation;
+  Capabilities_Config_Previews get previews;
+  Capabilities_Config_Signaling get signaling;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($Capabilities_ConfigInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($Capabilities_ConfigInterfaceBuilder b) {}
+}
+
+abstract class Capabilities_Config
+    implements $Capabilities_ConfigInterface, Built<Capabilities_Config, Capabilities_ConfigBuilder> {
+  /// Creates a new Capabilities_Config object using the builder pattern.
+  factory Capabilities_Config([void Function(Capabilities_ConfigBuilder)? b]) = _$Capabilities_Config;
+
+  // coverage:ignore-start
+  const Capabilities_Config._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities_Config.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities_Config.
+  static Serializer<Capabilities_Config> get serializer => _$capabilitiesConfigSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(Capabilities_ConfigBuilder b) {
+    $Capabilities_ConfigInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(Capabilities_ConfigBuilder b) {
+    $Capabilities_ConfigInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CapabilitiesInterface {
+  BuiltList<String> get features;
+  Capabilities_Config get config;
+  String get version;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+
+  // coverage:ignore-start
+  const Capabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for Capabilities.
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CapabilitiesBuilder b) {
+    $CapabilitiesInterface._validate(b);
+  }
+}
+
+typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data = ({
+  BuiltList<Never>? builtListNever,
+  Capabilities? capabilities
+});
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomGetCapabilitiesResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  RoomGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomGetCapabilitiesResponseApplicationJson_OcsInterfaceBuilder b) {
+    b.data?.validateAnyOf();
+  }
+}
+
+abstract class RoomGetCapabilitiesResponseApplicationJson_Ocs
+    implements
+        $RoomGetCapabilitiesResponseApplicationJson_OcsInterface,
+        Built<RoomGetCapabilitiesResponseApplicationJson_Ocs, RoomGetCapabilitiesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomGetCapabilitiesResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomGetCapabilitiesResponseApplicationJson_Ocs([
+    void Function(RoomGetCapabilitiesResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomGetCapabilitiesResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomGetCapabilitiesResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomGetCapabilitiesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomGetCapabilitiesResponseApplicationJson_Ocs.
+  static Serializer<RoomGetCapabilitiesResponseApplicationJson_Ocs> get serializer =>
+      _$roomGetCapabilitiesResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomGetCapabilitiesResponseApplicationJson_OcsBuilder b) {
+    $RoomGetCapabilitiesResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomGetCapabilitiesResponseApplicationJson_OcsBuilder b) {
+    $RoomGetCapabilitiesResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomGetCapabilitiesResponseApplicationJsonInterface {
+  RoomGetCapabilitiesResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomGetCapabilitiesResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomGetCapabilitiesResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomGetCapabilitiesResponseApplicationJson
+    implements
+        $RoomGetCapabilitiesResponseApplicationJsonInterface,
+        Built<RoomGetCapabilitiesResponseApplicationJson, RoomGetCapabilitiesResponseApplicationJsonBuilder> {
+  /// Creates a new RoomGetCapabilitiesResponseApplicationJson object using the builder pattern.
+  factory RoomGetCapabilitiesResponseApplicationJson([
+    void Function(RoomGetCapabilitiesResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomGetCapabilitiesResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomGetCapabilitiesResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomGetCapabilitiesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomGetCapabilitiesResponseApplicationJson.
+  static Serializer<RoomGetCapabilitiesResponseApplicationJson> get serializer =>
+      _$roomGetCapabilitiesResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomGetCapabilitiesResponseApplicationJsonBuilder b) {
+    $RoomGetCapabilitiesResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomGetCapabilitiesResponseApplicationJsonBuilder b) {
+    $RoomGetCapabilitiesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomGetCapabilitiesHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
+  String? get xNextcloudTalkHash;
+  @BuiltValueField(wireName: 'x-nextcloud-talk-proxy-hash')
+  String? get xNextcloudTalkProxyHash;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRoomGetCapabilitiesHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRoomGetCapabilitiesHeadersInterfaceBuilder b) {}
+}
+
+abstract class RoomRoomGetCapabilitiesHeaders
+    implements
+        $RoomRoomGetCapabilitiesHeadersInterface,
+        Built<RoomRoomGetCapabilitiesHeaders, RoomRoomGetCapabilitiesHeadersBuilder> {
+  /// Creates a new RoomRoomGetCapabilitiesHeaders object using the builder pattern.
+  factory RoomRoomGetCapabilitiesHeaders([void Function(RoomRoomGetCapabilitiesHeadersBuilder)? b]) =
+      _$RoomRoomGetCapabilitiesHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomGetCapabilitiesHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomGetCapabilitiesHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomGetCapabilitiesHeaders.
+  static Serializer<RoomRoomGetCapabilitiesHeaders> get serializer => _$roomRoomGetCapabilitiesHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRoomGetCapabilitiesHeadersBuilder b) {
+    $RoomRoomGetCapabilitiesHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRoomGetCapabilitiesHeadersBuilder b) {
+    $RoomRoomGetCapabilitiesHeadersInterface._validate(b);
+  }
+}
+
+class RoomJoinFederatedRoomApiVersion extends EnumClass {
+  const RoomJoinFederatedRoomApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomJoinFederatedRoomApiVersion v4 = _$roomJoinFederatedRoomApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomJoinFederatedRoomApiVersion> get values => _$roomJoinFederatedRoomApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomJoinFederatedRoomApiVersion valueOf(String name) => _$valueOfRoomJoinFederatedRoomApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomJoinFederatedRoomApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomJoinFederatedRoomApiVersion> get serializer =>
+      const _$RoomJoinFederatedRoomApiVersionSerializer();
+}
+
+class _$RoomJoinFederatedRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoinFederatedRoomApiVersion> {
+  const _$RoomJoinFederatedRoomApiVersionSerializer();
+
+  static const Map<RoomJoinFederatedRoomApiVersion, Object> _toWire = <RoomJoinFederatedRoomApiVersion, Object>{
+    RoomJoinFederatedRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomJoinFederatedRoomApiVersion> _fromWire = <Object, RoomJoinFederatedRoomApiVersion>{
+    'v4': RoomJoinFederatedRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomJoinFederatedRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomJoinFederatedRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomJoinFederatedRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomJoinFederatedRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomJoinFederatedRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomJoinFederatedRoomResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomJoinFederatedRoomResponseApplicationJson_Ocs
+    implements
+        $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface,
+        Built<RoomJoinFederatedRoomResponseApplicationJson_Ocs,
+            RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomJoinFederatedRoomResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomJoinFederatedRoomResponseApplicationJson_Ocs([
+    void Function(RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomJoinFederatedRoomResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomJoinFederatedRoomResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomJoinFederatedRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomJoinFederatedRoomResponseApplicationJson_Ocs.
+  static Serializer<RoomJoinFederatedRoomResponseApplicationJson_Ocs> get serializer =>
+      _$roomJoinFederatedRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder b) {
+    $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomJoinFederatedRoomResponseApplicationJsonInterface {
+  RoomJoinFederatedRoomResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomJoinFederatedRoomResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomJoinFederatedRoomResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomJoinFederatedRoomResponseApplicationJson
+    implements
+        $RoomJoinFederatedRoomResponseApplicationJsonInterface,
+        Built<RoomJoinFederatedRoomResponseApplicationJson, RoomJoinFederatedRoomResponseApplicationJsonBuilder> {
+  /// Creates a new RoomJoinFederatedRoomResponseApplicationJson object using the builder pattern.
+  factory RoomJoinFederatedRoomResponseApplicationJson([
+    void Function(RoomJoinFederatedRoomResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomJoinFederatedRoomResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomJoinFederatedRoomResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomJoinFederatedRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomJoinFederatedRoomResponseApplicationJson.
+  static Serializer<RoomJoinFederatedRoomResponseApplicationJson> get serializer =>
+      _$roomJoinFederatedRoomResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomJoinFederatedRoomResponseApplicationJsonBuilder b) {
+    $RoomJoinFederatedRoomResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomJoinFederatedRoomResponseApplicationJsonBuilder b) {
+    $RoomJoinFederatedRoomResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRoomJoinFederatedRoomHeadersInterface {
+  @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
+  String? get xNextcloudTalkHash;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRoomJoinFederatedRoomHeadersInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRoomJoinFederatedRoomHeadersInterfaceBuilder b) {}
+}
+
+abstract class RoomRoomJoinFederatedRoomHeaders
+    implements
+        $RoomRoomJoinFederatedRoomHeadersInterface,
+        Built<RoomRoomJoinFederatedRoomHeaders, RoomRoomJoinFederatedRoomHeadersBuilder> {
+  /// Creates a new RoomRoomJoinFederatedRoomHeaders object using the builder pattern.
+  factory RoomRoomJoinFederatedRoomHeaders([void Function(RoomRoomJoinFederatedRoomHeadersBuilder)? b]) =
+      _$RoomRoomJoinFederatedRoomHeaders;
+
+  // coverage:ignore-start
+  const RoomRoomJoinFederatedRoomHeaders._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRoomJoinFederatedRoomHeaders.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRoomJoinFederatedRoomHeaders.
+  static Serializer<RoomRoomJoinFederatedRoomHeaders> get serializer => _$roomRoomJoinFederatedRoomHeadersSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRoomJoinFederatedRoomHeadersBuilder b) {
+    $RoomRoomJoinFederatedRoomHeadersInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRoomJoinFederatedRoomHeadersBuilder b) {
+    $RoomRoomJoinFederatedRoomHeadersInterface._validate(b);
+  }
+}
+
+class RoomVerifyDialInPinDeprecatedApiVersion extends EnumClass {
+  const RoomVerifyDialInPinDeprecatedApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomVerifyDialInPinDeprecatedApiVersion v4 = _$roomVerifyDialInPinDeprecatedApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomVerifyDialInPinDeprecatedApiVersion> get values =>
+      _$roomVerifyDialInPinDeprecatedApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomVerifyDialInPinDeprecatedApiVersion valueOf(String name) =>
+      _$valueOfRoomVerifyDialInPinDeprecatedApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomVerifyDialInPinDeprecatedApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomVerifyDialInPinDeprecatedApiVersion> get serializer =>
+      const _$RoomVerifyDialInPinDeprecatedApiVersionSerializer();
+}
+
+class _$RoomVerifyDialInPinDeprecatedApiVersionSerializer
+    implements PrimitiveSerializer<RoomVerifyDialInPinDeprecatedApiVersion> {
+  const _$RoomVerifyDialInPinDeprecatedApiVersionSerializer();
+
+  static const Map<RoomVerifyDialInPinDeprecatedApiVersion, Object> _toWire =
+      <RoomVerifyDialInPinDeprecatedApiVersion, Object>{
+    RoomVerifyDialInPinDeprecatedApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomVerifyDialInPinDeprecatedApiVersion> _fromWire =
+      <Object, RoomVerifyDialInPinDeprecatedApiVersion>{
+    'v4': RoomVerifyDialInPinDeprecatedApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomVerifyDialInPinDeprecatedApiVersion];
+
+  @override
+  String get wireName => 'RoomVerifyDialInPinDeprecatedApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomVerifyDialInPinDeprecatedApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomVerifyDialInPinDeprecatedApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs
+    implements
+        $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface,
+        Built<RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs,
+            RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs([
+    void Function(RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.
+  static Serializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs> get serializer =>
+      _$roomVerifyDialInPinDeprecatedResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface {
+  RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson
+    implements
+        $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface,
+        Built<RoomVerifyDialInPinDeprecatedResponseApplicationJson,
+            RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder> {
+  /// Creates a new RoomVerifyDialInPinDeprecatedResponseApplicationJson object using the builder pattern.
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson([
+    void Function(RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomVerifyDialInPinDeprecatedResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomVerifyDialInPinDeprecatedResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialInPinDeprecatedResponseApplicationJson.
+  static Serializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson> get serializer =>
+      _$roomVerifyDialInPinDeprecatedResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomVerifyDialInPinApiVersion extends EnumClass {
+  const RoomVerifyDialInPinApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomVerifyDialInPinApiVersion v4 = _$roomVerifyDialInPinApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomVerifyDialInPinApiVersion> get values => _$roomVerifyDialInPinApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomVerifyDialInPinApiVersion valueOf(String name) => _$valueOfRoomVerifyDialInPinApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomVerifyDialInPinApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomVerifyDialInPinApiVersion> get serializer => const _$RoomVerifyDialInPinApiVersionSerializer();
+}
+
+class _$RoomVerifyDialInPinApiVersionSerializer implements PrimitiveSerializer<RoomVerifyDialInPinApiVersion> {
+  const _$RoomVerifyDialInPinApiVersionSerializer();
+
+  static const Map<RoomVerifyDialInPinApiVersion, Object> _toWire = <RoomVerifyDialInPinApiVersion, Object>{
+    RoomVerifyDialInPinApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomVerifyDialInPinApiVersion> _fromWire = <Object, RoomVerifyDialInPinApiVersion>{
+    'v4': RoomVerifyDialInPinApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomVerifyDialInPinApiVersion];
+
+  @override
+  String get wireName => 'RoomVerifyDialInPinApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomVerifyDialInPinApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomVerifyDialInPinApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialInPinResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialInPinResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialInPinResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialInPinResponseApplicationJson_Ocs
+    implements
+        $RoomVerifyDialInPinResponseApplicationJson_OcsInterface,
+        Built<RoomVerifyDialInPinResponseApplicationJson_Ocs, RoomVerifyDialInPinResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomVerifyDialInPinResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomVerifyDialInPinResponseApplicationJson_Ocs([
+    void Function(RoomVerifyDialInPinResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomVerifyDialInPinResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomVerifyDialInPinResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialInPinResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialInPinResponseApplicationJson_Ocs.
+  static Serializer<RoomVerifyDialInPinResponseApplicationJson_Ocs> get serializer =>
+      _$roomVerifyDialInPinResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialInPinResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialInPinResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialInPinResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialInPinResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialInPinResponseApplicationJsonInterface {
+  RoomVerifyDialInPinResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialInPinResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialInPinResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialInPinResponseApplicationJson
+    implements
+        $RoomVerifyDialInPinResponseApplicationJsonInterface,
+        Built<RoomVerifyDialInPinResponseApplicationJson, RoomVerifyDialInPinResponseApplicationJsonBuilder> {
+  /// Creates a new RoomVerifyDialInPinResponseApplicationJson object using the builder pattern.
+  factory RoomVerifyDialInPinResponseApplicationJson([
+    void Function(RoomVerifyDialInPinResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomVerifyDialInPinResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomVerifyDialInPinResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialInPinResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialInPinResponseApplicationJson.
+  static Serializer<RoomVerifyDialInPinResponseApplicationJson> get serializer =>
+      _$roomVerifyDialInPinResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialInPinResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialInPinResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialInPinResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialInPinResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+/// Additional details to verify the validity of the request.
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialOutNumberOptionsInterface {
+  String? get actorId;
+  ActorType? get actorType;
+  int? get attendeeId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialOutNumberOptionsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialOutNumberOptionsInterfaceBuilder b) {}
+}
+
+/// Additional details to verify the validity of the request.
+abstract class RoomVerifyDialOutNumberOptions
+    implements
+        $RoomVerifyDialOutNumberOptionsInterface,
+        Built<RoomVerifyDialOutNumberOptions, RoomVerifyDialOutNumberOptionsBuilder> {
+  /// Creates a new RoomVerifyDialOutNumberOptions object using the builder pattern.
+  factory RoomVerifyDialOutNumberOptions([void Function(RoomVerifyDialOutNumberOptionsBuilder)? b]) =
+      _$RoomVerifyDialOutNumberOptions;
+
+  // coverage:ignore-start
+  const RoomVerifyDialOutNumberOptions._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialOutNumberOptions.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialOutNumberOptions.
+  static Serializer<RoomVerifyDialOutNumberOptions> get serializer => _$roomVerifyDialOutNumberOptionsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialOutNumberOptionsBuilder b) {
+    $RoomVerifyDialOutNumberOptionsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialOutNumberOptionsBuilder b) {
+    $RoomVerifyDialOutNumberOptionsInterface._validate(b);
+  }
+}
+
+class RoomVerifyDialOutNumberApiVersion extends EnumClass {
+  const RoomVerifyDialOutNumberApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomVerifyDialOutNumberApiVersion v4 = _$roomVerifyDialOutNumberApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomVerifyDialOutNumberApiVersion> get values => _$roomVerifyDialOutNumberApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomVerifyDialOutNumberApiVersion valueOf(String name) => _$valueOfRoomVerifyDialOutNumberApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomVerifyDialOutNumberApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomVerifyDialOutNumberApiVersion> get serializer =>
+      const _$RoomVerifyDialOutNumberApiVersionSerializer();
+}
+
+class _$RoomVerifyDialOutNumberApiVersionSerializer implements PrimitiveSerializer<RoomVerifyDialOutNumberApiVersion> {
+  const _$RoomVerifyDialOutNumberApiVersionSerializer();
+
+  static const Map<RoomVerifyDialOutNumberApiVersion, Object> _toWire = <RoomVerifyDialOutNumberApiVersion, Object>{
+    RoomVerifyDialOutNumberApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomVerifyDialOutNumberApiVersion> _fromWire = <Object, RoomVerifyDialOutNumberApiVersion>{
+    'v4': RoomVerifyDialOutNumberApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomVerifyDialOutNumberApiVersion];
+
+  @override
+  String get wireName => 'RoomVerifyDialOutNumberApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomVerifyDialOutNumberApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomVerifyDialOutNumberApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialOutNumberResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialOutNumberResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialOutNumberResponseApplicationJson_Ocs
+    implements
+        $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface,
+        Built<RoomVerifyDialOutNumberResponseApplicationJson_Ocs,
+            RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomVerifyDialOutNumberResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomVerifyDialOutNumberResponseApplicationJson_Ocs([
+    void Function(RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomVerifyDialOutNumberResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomVerifyDialOutNumberResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialOutNumberResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialOutNumberResponseApplicationJson_Ocs.
+  static Serializer<RoomVerifyDialOutNumberResponseApplicationJson_Ocs> get serializer =>
+      _$roomVerifyDialOutNumberResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder b) {
+    $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomVerifyDialOutNumberResponseApplicationJsonInterface {
+  RoomVerifyDialOutNumberResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomVerifyDialOutNumberResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomVerifyDialOutNumberResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomVerifyDialOutNumberResponseApplicationJson
+    implements
+        $RoomVerifyDialOutNumberResponseApplicationJsonInterface,
+        Built<RoomVerifyDialOutNumberResponseApplicationJson, RoomVerifyDialOutNumberResponseApplicationJsonBuilder> {
+  /// Creates a new RoomVerifyDialOutNumberResponseApplicationJson object using the builder pattern.
+  factory RoomVerifyDialOutNumberResponseApplicationJson([
+    void Function(RoomVerifyDialOutNumberResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomVerifyDialOutNumberResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomVerifyDialOutNumberResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomVerifyDialOutNumberResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomVerifyDialOutNumberResponseApplicationJson.
+  static Serializer<RoomVerifyDialOutNumberResponseApplicationJson> get serializer =>
+      _$roomVerifyDialOutNumberResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomVerifyDialOutNumberResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialOutNumberResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomVerifyDialOutNumberResponseApplicationJsonBuilder b) {
+    $RoomVerifyDialOutNumberResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RoomCreateGuestByDialInApiVersion extends EnumClass {
+  const RoomCreateGuestByDialInApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomCreateGuestByDialInApiVersion v4 = _$roomCreateGuestByDialInApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomCreateGuestByDialInApiVersion> get values => _$roomCreateGuestByDialInApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomCreateGuestByDialInApiVersion valueOf(String name) => _$valueOfRoomCreateGuestByDialInApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomCreateGuestByDialInApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomCreateGuestByDialInApiVersion> get serializer =>
+      const _$RoomCreateGuestByDialInApiVersionSerializer();
+}
+
+class _$RoomCreateGuestByDialInApiVersionSerializer implements PrimitiveSerializer<RoomCreateGuestByDialInApiVersion> {
+  const _$RoomCreateGuestByDialInApiVersionSerializer();
+
+  static const Map<RoomCreateGuestByDialInApiVersion, Object> _toWire = <RoomCreateGuestByDialInApiVersion, Object>{
+    RoomCreateGuestByDialInApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomCreateGuestByDialInApiVersion> _fromWire = <Object, RoomCreateGuestByDialInApiVersion>{
+    'v4': RoomCreateGuestByDialInApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomCreateGuestByDialInApiVersion];
+
+  @override
+  String get wireName => 'RoomCreateGuestByDialInApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomCreateGuestByDialInApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomCreateGuestByDialInApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  Room get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomCreateGuestByDialInResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomCreateGuestByDialInResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomCreateGuestByDialInResponseApplicationJson_Ocs
+    implements
+        $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface,
+        Built<RoomCreateGuestByDialInResponseApplicationJson_Ocs,
+            RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomCreateGuestByDialInResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomCreateGuestByDialInResponseApplicationJson_Ocs([
+    void Function(RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomCreateGuestByDialInResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomCreateGuestByDialInResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomCreateGuestByDialInResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomCreateGuestByDialInResponseApplicationJson_Ocs.
+  static Serializer<RoomCreateGuestByDialInResponseApplicationJson_Ocs> get serializer =>
+      _$roomCreateGuestByDialInResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder b) {
+    $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder b) {
+    $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomCreateGuestByDialInResponseApplicationJsonInterface {
+  RoomCreateGuestByDialInResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomCreateGuestByDialInResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomCreateGuestByDialInResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomCreateGuestByDialInResponseApplicationJson
+    implements
+        $RoomCreateGuestByDialInResponseApplicationJsonInterface,
+        Built<RoomCreateGuestByDialInResponseApplicationJson, RoomCreateGuestByDialInResponseApplicationJsonBuilder> {
+  /// Creates a new RoomCreateGuestByDialInResponseApplicationJson object using the builder pattern.
+  factory RoomCreateGuestByDialInResponseApplicationJson([
+    void Function(RoomCreateGuestByDialInResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomCreateGuestByDialInResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomCreateGuestByDialInResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomCreateGuestByDialInResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomCreateGuestByDialInResponseApplicationJson.
+  static Serializer<RoomCreateGuestByDialInResponseApplicationJson> get serializer =>
+      _$roomCreateGuestByDialInResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomCreateGuestByDialInResponseApplicationJsonBuilder b) {
+    $RoomCreateGuestByDialInResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomCreateGuestByDialInResponseApplicationJsonBuilder b) {
+    $RoomCreateGuestByDialInResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+/// Additional details to verify the validity of the request.
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRejectedDialOutRequestOptionsInterface {
+  String? get actorId;
+  ActorType? get actorType;
+  int? get attendeeId;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRejectedDialOutRequestOptionsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRejectedDialOutRequestOptionsInterfaceBuilder b) {}
+}
+
+/// Additional details to verify the validity of the request.
+abstract class RoomRejectedDialOutRequestOptions
+    implements
+        $RoomRejectedDialOutRequestOptionsInterface,
+        Built<RoomRejectedDialOutRequestOptions, RoomRejectedDialOutRequestOptionsBuilder> {
+  /// Creates a new RoomRejectedDialOutRequestOptions object using the builder pattern.
+  factory RoomRejectedDialOutRequestOptions([void Function(RoomRejectedDialOutRequestOptionsBuilder)? b]) =
+      _$RoomRejectedDialOutRequestOptions;
+
+  // coverage:ignore-start
+  const RoomRejectedDialOutRequestOptions._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRejectedDialOutRequestOptions.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRejectedDialOutRequestOptions.
+  static Serializer<RoomRejectedDialOutRequestOptions> get serializer => _$roomRejectedDialOutRequestOptionsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRejectedDialOutRequestOptionsBuilder b) {
+    $RoomRejectedDialOutRequestOptionsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRejectedDialOutRequestOptionsBuilder b) {
+    $RoomRejectedDialOutRequestOptionsInterface._validate(b);
+  }
+}
+
+class RoomRejectedDialOutRequestApiVersion extends EnumClass {
+  const RoomRejectedDialOutRequestApiVersion._(super.name);
+
+  /// `v4`
+  static const RoomRejectedDialOutRequestApiVersion v4 = _$roomRejectedDialOutRequestApiVersionV4;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomRejectedDialOutRequestApiVersion> get values => _$roomRejectedDialOutRequestApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RoomRejectedDialOutRequestApiVersion valueOf(String name) =>
+      _$valueOfRoomRejectedDialOutRequestApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RoomRejectedDialOutRequestApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRejectedDialOutRequestApiVersion> get serializer =>
+      const _$RoomRejectedDialOutRequestApiVersionSerializer();
+}
+
+class _$RoomRejectedDialOutRequestApiVersionSerializer
+    implements PrimitiveSerializer<RoomRejectedDialOutRequestApiVersion> {
+  const _$RoomRejectedDialOutRequestApiVersionSerializer();
+
+  static const Map<RoomRejectedDialOutRequestApiVersion, Object> _toWire =
+      <RoomRejectedDialOutRequestApiVersion, Object>{
+    RoomRejectedDialOutRequestApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRejectedDialOutRequestApiVersion> _fromWire =
+      <Object, RoomRejectedDialOutRequestApiVersion>{
+    'v4': RoomRejectedDialOutRequestApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRejectedDialOutRequestApiVersion];
+
+  @override
+  String get wireName => 'RoomRejectedDialOutRequestApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRejectedDialOutRequestApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRejectedDialOutRequestApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  JsonObject get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRejectedDialOutRequestResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRejectedDialOutRequestResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RoomRejectedDialOutRequestResponseApplicationJson_Ocs
+    implements
+        $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface,
+        Built<RoomRejectedDialOutRequestResponseApplicationJson_Ocs,
+            RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RoomRejectedDialOutRequestResponseApplicationJson_Ocs object using the builder pattern.
+  factory RoomRejectedDialOutRequestResponseApplicationJson_Ocs([
+    void Function(RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RoomRejectedDialOutRequestResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RoomRejectedDialOutRequestResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRejectedDialOutRequestResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRejectedDialOutRequestResponseApplicationJson_Ocs.
+  static Serializer<RoomRejectedDialOutRequestResponseApplicationJson_Ocs> get serializer =>
+      _$roomRejectedDialOutRequestResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder b) {
+    $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder b) {
+    $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RoomRejectedDialOutRequestResponseApplicationJsonInterface {
+  RoomRejectedDialOutRequestResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RoomRejectedDialOutRequestResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RoomRejectedDialOutRequestResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RoomRejectedDialOutRequestResponseApplicationJson
+    implements
+        $RoomRejectedDialOutRequestResponseApplicationJsonInterface,
+        Built<RoomRejectedDialOutRequestResponseApplicationJson,
+            RoomRejectedDialOutRequestResponseApplicationJsonBuilder> {
+  /// Creates a new RoomRejectedDialOutRequestResponseApplicationJson object using the builder pattern.
+  factory RoomRejectedDialOutRequestResponseApplicationJson([
+    void Function(RoomRejectedDialOutRequestResponseApplicationJsonBuilder)? b,
+  ]) = _$RoomRejectedDialOutRequestResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RoomRejectedDialOutRequestResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RoomRejectedDialOutRequestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RoomRejectedDialOutRequestResponseApplicationJson.
+  static Serializer<RoomRejectedDialOutRequestResponseApplicationJson> get serializer =>
+      _$roomRejectedDialOutRequestResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RoomRejectedDialOutRequestResponseApplicationJsonBuilder b) {
+    $RoomRejectedDialOutRequestResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RoomRejectedDialOutRequestResponseApplicationJsonBuilder b) {
+    $RoomRejectedDialOutRequestResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class SettingsSetUserSettingKey extends EnumClass {
   const SettingsSetUserSettingKey._(super.name);
 
@@ -41418,6 +40186,669 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   }
 }
 
+class BotAdminListBotsApiVersion extends EnumClass {
+  const BotAdminListBotsApiVersion._(super.name);
+
+  /// `v1`
+  static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for BotAdminListBotsApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
+}
+
+class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
+  const _$BotAdminListBotsApiVersionSerializer();
+
+  static const Map<BotAdminListBotsApiVersion, Object> _toWire = <BotAdminListBotsApiVersion, Object>{
+    BotAdminListBotsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotAdminListBotsApiVersion> _fromWire = <Object, BotAdminListBotsApiVersion>{
+    'v1': BotAdminListBotsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotAdminListBotsApiVersion];
+
+  @override
+  String get wireName => 'BotAdminListBotsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotAdminListBotsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotAdminListBotsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotWithDetailsInterface implements $BotInterface {
+  @BuiltValueField(wireName: 'error_count')
+  int get errorCount;
+  int get features;
+  @BuiltValueField(wireName: 'last_error_date')
+  int get lastErrorDate;
+  @BuiltValueField(wireName: 'last_error_message')
+  String get lastErrorMessage;
+  String get url;
+  @BuiltValueField(wireName: 'url_hash')
+  String get urlHash;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotWithDetailsInterfaceBuilder b) {
+    $BotInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotWithDetailsInterfaceBuilder b) {
+    $BotInterface._validate(b);
+  }
+}
+
+abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
+  /// Creates a new BotWithDetails object using the builder pattern.
+  factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
+
+  // coverage:ignore-start
+  const BotWithDetails._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotWithDetails.
+  static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotWithDetailsBuilder b) {
+    $BotWithDetailsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotWithDetailsBuilder b) {
+    $BotWithDetailsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  BuiltList<BotWithDetails> get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotAdminListBotsResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class BotAdminListBotsResponseApplicationJson_Ocs
+    implements
+        $BotAdminListBotsResponseApplicationJson_OcsInterface,
+        Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson_Ocs object using the builder pattern.
+  factory BotAdminListBotsResponseApplicationJson_Ocs([
+    void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const BotAdminListBotsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
+  static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
+      _$botAdminListBotsResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotAdminListBotsResponseApplicationJson_OcsBuilder b) {
+    $BotAdminListBotsResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotAdminListBotsResponseApplicationJson_OcsBuilder b) {
+    $BotAdminListBotsResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
+  BotAdminListBotsResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($BotAdminListBotsResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($BotAdminListBotsResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class BotAdminListBotsResponseApplicationJson
+    implements
+        $BotAdminListBotsResponseApplicationJsonInterface,
+        Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
+  /// Creates a new BotAdminListBotsResponseApplicationJson object using the builder pattern.
+  factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
+      _$BotAdminListBotsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const BotAdminListBotsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for BotAdminListBotsResponseApplicationJson.
+  static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
+      _$botAdminListBotsResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BotAdminListBotsResponseApplicationJsonBuilder b) {
+    $BotAdminListBotsResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(BotAdminListBotsResponseApplicationJsonBuilder b) {
+    $BotAdminListBotsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class CertificateGetCertificateExpirationApiVersion extends EnumClass {
+  const CertificateGetCertificateExpirationApiVersion._(super.name);
+
+  /// `v1`
+  static const CertificateGetCertificateExpirationApiVersion v1 = _$certificateGetCertificateExpirationApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CertificateGetCertificateExpirationApiVersion> get values =>
+      _$certificateGetCertificateExpirationApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
+      _$valueOfCertificateGetCertificateExpirationApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for CertificateGetCertificateExpirationApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CertificateGetCertificateExpirationApiVersion> get serializer =>
+      const _$CertificateGetCertificateExpirationApiVersionSerializer();
+}
+
+class _$CertificateGetCertificateExpirationApiVersionSerializer
+    implements PrimitiveSerializer<CertificateGetCertificateExpirationApiVersion> {
+  const _$CertificateGetCertificateExpirationApiVersionSerializer();
+
+  static const Map<CertificateGetCertificateExpirationApiVersion, Object> _toWire =
+      <CertificateGetCertificateExpirationApiVersion, Object>{
+    CertificateGetCertificateExpirationApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, CertificateGetCertificateExpirationApiVersion> _fromWire =
+      <Object, CertificateGetCertificateExpirationApiVersion>{
+    'v1': CertificateGetCertificateExpirationApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [CertificateGetCertificateExpirationApiVersion];
+
+  @override
+  String get wireName => 'CertificateGetCertificateExpirationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CertificateGetCertificateExpirationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CertificateGetCertificateExpirationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
+  @BuiltValueField(wireName: 'expiration_in_days')
+  int? get expirationInDays;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data
+    implements
+        $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
+        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
+            CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
+    void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.
+  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> get serializer =>
+      _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CertificateGetCertificateExpirationResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
+    implements
+        $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
+        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
+            CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs object using the builder pattern.
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
+    void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const CertificateGetCertificateExpirationResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs.
+  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> get serializer =>
+      _$certificateGetCertificateExpirationResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJsonInterface {
+  CertificateGetCertificateExpirationResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($CertificateGetCertificateExpirationResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($CertificateGetCertificateExpirationResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class CertificateGetCertificateExpirationResponseApplicationJson
+    implements
+        $CertificateGetCertificateExpirationResponseApplicationJsonInterface,
+        Built<CertificateGetCertificateExpirationResponseApplicationJson,
+            CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
+  /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson object using the builder pattern.
+  factory CertificateGetCertificateExpirationResponseApplicationJson([
+    void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
+  ]) = _$CertificateGetCertificateExpirationResponseApplicationJson;
+
+  // coverage:ignore-start
+  const CertificateGetCertificateExpirationResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson.
+  static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
+      _$certificateGetCertificateExpirationResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CertificateGetCertificateExpirationResponseApplicationJsonBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(CertificateGetCertificateExpirationResponseApplicationJsonBuilder b) {
+    $CertificateGetCertificateExpirationResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class RecordingGetWelcomeMessageApiVersion extends EnumClass {
+  const RecordingGetWelcomeMessageApiVersion._(super.name);
+
+  /// `v1`
+  static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
+      _$valueOfRecordingGetWelcomeMessageApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for RecordingGetWelcomeMessageApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
+      const _$RecordingGetWelcomeMessageApiVersionSerializer();
+}
+
+class _$RecordingGetWelcomeMessageApiVersionSerializer
+    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
+  const _$RecordingGetWelcomeMessageApiVersionSerializer();
+
+  static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
+      <RecordingGetWelcomeMessageApiVersion, Object>{
+    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
+      <Object, RecordingGetWelcomeMessageApiVersion>{
+    'v1': RecordingGetWelcomeMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingGetWelcomeMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingGetWelcomeMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
+  double get version;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RecordingGetWelcomeMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class RecordingGetWelcomeMessageResponseApplicationJson
+    implements
+        $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
+        Built<RecordingGetWelcomeMessageResponseApplicationJson,
+            RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
+  /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
+  factory RecordingGetWelcomeMessageResponseApplicationJson([
+    void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
+  ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
+
+  // coverage:ignore-start
+  const RecordingGetWelcomeMessageResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
+  static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
+      _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RecordingGetWelcomeMessageResponseApplicationJsonBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(RecordingGetWelcomeMessageResponseApplicationJsonBuilder b) {
+    $RecordingGetWelcomeMessageResponseApplicationJsonInterface._validate(b);
+  }
+}
+
 class SettingsSetsipSettingsApiVersion extends EnumClass {
   const SettingsSetsipSettingsApiVersion._(super.name);
 
@@ -41578,918 +41009,6 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(SettingsSetsipSettingsResponseApplicationJsonBuilder b) {
     $SettingsSetsipSettingsResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class SignalingGetSettingsApiVersion extends EnumClass {
-  const SignalingGetSettingsApiVersion._(super.name);
-
-  /// `v3`
-  static const SignalingGetSettingsApiVersion v3 = _$signalingGetSettingsApiVersionV3;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<SignalingGetSettingsApiVersion> get values => _$signalingGetSettingsApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for SignalingGetSettingsApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingGetSettingsApiVersion> get serializer =>
-      const _$SignalingGetSettingsApiVersionSerializer();
-}
-
-class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<SignalingGetSettingsApiVersion> {
-  const _$SignalingGetSettingsApiVersionSerializer();
-
-  static const Map<SignalingGetSettingsApiVersion, Object> _toWire = <SignalingGetSettingsApiVersion, Object>{
-    SignalingGetSettingsApiVersion.v3: 'v3',
-  };
-
-  static const Map<Object, SignalingGetSettingsApiVersion> _fromWire = <Object, SignalingGetSettingsApiVersion>{
-    'v3': SignalingGetSettingsApiVersion.v3,
-  };
-
-  @override
-  Iterable<Type> get types => const [SignalingGetSettingsApiVersion];
-
-  @override
-  String get wireName => 'SignalingGetSettingsApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    SignalingGetSettingsApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  SignalingGetSettingsApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_10Interface {
-  String? get userid;
-  String get ticket;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_HelloAuthParams_10InterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_HelloAuthParams_10InterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings_HelloAuthParams_10
-    implements
-        $SignalingSettings_HelloAuthParams_10Interface,
-        Built<SignalingSettings_HelloAuthParams_10, SignalingSettings_HelloAuthParams_10Builder> {
-  /// Creates a new SignalingSettings_HelloAuthParams_10 object using the builder pattern.
-  factory SignalingSettings_HelloAuthParams_10([void Function(SignalingSettings_HelloAuthParams_10Builder)? b]) =
-      _$SignalingSettings_HelloAuthParams_10;
-
-  // coverage:ignore-start
-  const SignalingSettings_HelloAuthParams_10._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_10.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings_HelloAuthParams_10.
-  static Serializer<SignalingSettings_HelloAuthParams_10> get serializer =>
-      _$signalingSettingsHelloAuthParams10Serializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_HelloAuthParams_10Builder b) {
-    $SignalingSettings_HelloAuthParams_10Interface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_HelloAuthParams_10Builder b) {
-    $SignalingSettings_HelloAuthParams_10Interface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_20Interface {
-  String get token;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_HelloAuthParams_20InterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_HelloAuthParams_20InterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings_HelloAuthParams_20
-    implements
-        $SignalingSettings_HelloAuthParams_20Interface,
-        Built<SignalingSettings_HelloAuthParams_20, SignalingSettings_HelloAuthParams_20Builder> {
-  /// Creates a new SignalingSettings_HelloAuthParams_20 object using the builder pattern.
-  factory SignalingSettings_HelloAuthParams_20([void Function(SignalingSettings_HelloAuthParams_20Builder)? b]) =
-      _$SignalingSettings_HelloAuthParams_20;
-
-  // coverage:ignore-start
-  const SignalingSettings_HelloAuthParams_20._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_20.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings_HelloAuthParams_20.
-  static Serializer<SignalingSettings_HelloAuthParams_20> get serializer =>
-      _$signalingSettingsHelloAuthParams20Serializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_HelloAuthParams_20Builder b) {
-    $SignalingSettings_HelloAuthParams_20Interface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_HelloAuthParams_20Builder b) {
-    $SignalingSettings_HelloAuthParams_20Interface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParamsInterface {
-  @BuiltValueField(wireName: '1.0')
-  SignalingSettings_HelloAuthParams_10 get $10;
-  @BuiltValueField(wireName: '2.0')
-  SignalingSettings_HelloAuthParams_20 get $20;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_HelloAuthParamsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_HelloAuthParamsInterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings_HelloAuthParams
-    implements
-        $SignalingSettings_HelloAuthParamsInterface,
-        Built<SignalingSettings_HelloAuthParams, SignalingSettings_HelloAuthParamsBuilder> {
-  /// Creates a new SignalingSettings_HelloAuthParams object using the builder pattern.
-  factory SignalingSettings_HelloAuthParams([void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
-      _$SignalingSettings_HelloAuthParams;
-
-  // coverage:ignore-start
-  const SignalingSettings_HelloAuthParams._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings_HelloAuthParams.
-  static Serializer<SignalingSettings_HelloAuthParams> get serializer => _$signalingSettingsHelloAuthParamsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_HelloAuthParamsBuilder b) {
-    $SignalingSettings_HelloAuthParamsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_HelloAuthParamsBuilder b) {
-    $SignalingSettings_HelloAuthParamsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_StunserversInterface {
-  BuiltList<String> get urls;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_StunserversInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_StunserversInterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings_Stunservers
-    implements
-        $SignalingSettings_StunserversInterface,
-        Built<SignalingSettings_Stunservers, SignalingSettings_StunserversBuilder> {
-  /// Creates a new SignalingSettings_Stunservers object using the builder pattern.
-  factory SignalingSettings_Stunservers([void Function(SignalingSettings_StunserversBuilder)? b]) =
-      _$SignalingSettings_Stunservers;
-
-  // coverage:ignore-start
-  const SignalingSettings_Stunservers._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings_Stunservers.
-  static Serializer<SignalingSettings_Stunservers> get serializer => _$signalingSettingsStunserversSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_StunserversBuilder b) {
-    $SignalingSettings_StunserversInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_StunserversBuilder b) {
-    $SignalingSettings_StunserversInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_TurnserversInterface {
-  BuiltList<String> get urls;
-  String get username;
-  JsonObject get credential;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettings_TurnserversInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettings_TurnserversInterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings_Turnservers
-    implements
-        $SignalingSettings_TurnserversInterface,
-        Built<SignalingSettings_Turnservers, SignalingSettings_TurnserversBuilder> {
-  /// Creates a new SignalingSettings_Turnservers object using the builder pattern.
-  factory SignalingSettings_Turnservers([void Function(SignalingSettings_TurnserversBuilder)? b]) =
-      _$SignalingSettings_Turnservers;
-
-  // coverage:ignore-start
-  const SignalingSettings_Turnservers._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings_Turnservers.
-  static Serializer<SignalingSettings_Turnservers> get serializer => _$signalingSettingsTurnserversSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettings_TurnserversBuilder b) {
-    $SignalingSettings_TurnserversInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettings_TurnserversBuilder b) {
-    $SignalingSettings_TurnserversInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSettingsInterface {
-  SignalingSettings_HelloAuthParams get helloAuthParams;
-  bool get hideWarning;
-  String get server;
-  String get signalingMode;
-  String get sipDialinInfo;
-  BuiltList<SignalingSettings_Stunservers> get stunservers;
-  String get ticket;
-  BuiltList<SignalingSettings_Turnservers> get turnservers;
-  String? get userId;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSettingsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSettingsInterfaceBuilder b) {}
-}
-
-abstract class SignalingSettings
-    implements $SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
-  /// Creates a new SignalingSettings object using the builder pattern.
-  factory SignalingSettings([void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
-
-  // coverage:ignore-start
-  const SignalingSettings._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSettings.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSettings.
-  static Serializer<SignalingSettings> get serializer => _$signalingSettingsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSettingsBuilder b) {
-    $SignalingSettingsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSettingsBuilder b) {
-    $SignalingSettingsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingGetSettingsResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  SignalingSettings get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingGetSettingsResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingGetSettingsResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class SignalingGetSettingsResponseApplicationJson_Ocs
-    implements
-        $SignalingGetSettingsResponseApplicationJson_OcsInterface,
-        Built<SignalingGetSettingsResponseApplicationJson_Ocs, SignalingGetSettingsResponseApplicationJson_OcsBuilder> {
-  /// Creates a new SignalingGetSettingsResponseApplicationJson_Ocs object using the builder pattern.
-  factory SignalingGetSettingsResponseApplicationJson_Ocs([
-    void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$SignalingGetSettingsResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const SignalingGetSettingsResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingGetSettingsResponseApplicationJson_Ocs.
-  static Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> get serializer =>
-      _$signalingGetSettingsResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingGetSettingsResponseApplicationJson_OcsBuilder b) {
-    $SignalingGetSettingsResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingGetSettingsResponseApplicationJson_OcsBuilder b) {
-    $SignalingGetSettingsResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingGetSettingsResponseApplicationJsonInterface {
-  SignalingGetSettingsResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingGetSettingsResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingGetSettingsResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class SignalingGetSettingsResponseApplicationJson
-    implements
-        $SignalingGetSettingsResponseApplicationJsonInterface,
-        Built<SignalingGetSettingsResponseApplicationJson, SignalingGetSettingsResponseApplicationJsonBuilder> {
-  /// Creates a new SignalingGetSettingsResponseApplicationJson object using the builder pattern.
-  factory SignalingGetSettingsResponseApplicationJson([
-    void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
-  ]) = _$SignalingGetSettingsResponseApplicationJson;
-
-  // coverage:ignore-start
-  const SignalingGetSettingsResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingGetSettingsResponseApplicationJson.
-  static Serializer<SignalingGetSettingsResponseApplicationJson> get serializer =>
-      _$signalingGetSettingsResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingGetSettingsResponseApplicationJsonBuilder b) {
-    $SignalingGetSettingsResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingGetSettingsResponseApplicationJsonBuilder b) {
-    $SignalingGetSettingsResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class SignalingPullMessagesApiVersion extends EnumClass {
-  const SignalingPullMessagesApiVersion._(super.name);
-
-  /// `v3`
-  static const SignalingPullMessagesApiVersion v3 = _$signalingPullMessagesApiVersionV3;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<SignalingPullMessagesApiVersion> get values => _$signalingPullMessagesApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for SignalingPullMessagesApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingPullMessagesApiVersion> get serializer =>
-      const _$SignalingPullMessagesApiVersionSerializer();
-}
-
-class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingPullMessagesApiVersion> {
-  const _$SignalingPullMessagesApiVersionSerializer();
-
-  static const Map<SignalingPullMessagesApiVersion, Object> _toWire = <SignalingPullMessagesApiVersion, Object>{
-    SignalingPullMessagesApiVersion.v3: 'v3',
-  };
-
-  static const Map<Object, SignalingPullMessagesApiVersion> _fromWire = <Object, SignalingPullMessagesApiVersion>{
-    'v3': SignalingPullMessagesApiVersion.v3,
-  };
-
-  @override
-  Iterable<Type> get types => const [SignalingPullMessagesApiVersion];
-
-  @override
-  String get wireName => 'SignalingPullMessagesApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    SignalingPullMessagesApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  SignalingPullMessagesApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSessionInterface {
-  int get inCall;
-  int get lastPing;
-  int get participantPermissions;
-  int get roomId;
-  String get sessionId;
-  String get userId;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSessionInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSessionInterfaceBuilder b) {}
-}
-
-abstract class SignalingSession
-    implements $SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
-  /// Creates a new SignalingSession object using the builder pattern.
-  factory SignalingSession([void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
-
-  // coverage:ignore-start
-  const SignalingSession._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSession.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSession.
-  static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSessionBuilder b) {
-    $SignalingSessionInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSessionBuilder b) {
-    $SignalingSessionInterface._validate(b);
-  }
-}
-
-typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
-  BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string
-});
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
-  String get type;
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {
-    b.data?.validateOneOf();
-  }
-}
-
-abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
-    implements
-        $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
-  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs_Data object using the builder pattern.
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
-    void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const SignalingPullMessagesResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
-    $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
-    $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingPullMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingPullMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class SignalingPullMessagesResponseApplicationJson_Ocs
-    implements
-        $SignalingPullMessagesResponseApplicationJson_OcsInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs,
-            SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
-  /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs object using the builder pattern.
-  factory SignalingPullMessagesResponseApplicationJson_Ocs([
-    void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const SignalingPullMessagesResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs.
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingPullMessagesResponseApplicationJson_OcsBuilder b) {
-    $SignalingPullMessagesResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingPullMessagesResponseApplicationJson_OcsBuilder b) {
-    $SignalingPullMessagesResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJsonInterface {
-  SignalingPullMessagesResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingPullMessagesResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingPullMessagesResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class SignalingPullMessagesResponseApplicationJson
-    implements
-        $SignalingPullMessagesResponseApplicationJsonInterface,
-        Built<SignalingPullMessagesResponseApplicationJson, SignalingPullMessagesResponseApplicationJsonBuilder> {
-  /// Creates a new SignalingPullMessagesResponseApplicationJson object using the builder pattern.
-  factory SignalingPullMessagesResponseApplicationJson([
-    void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
-  ]) = _$SignalingPullMessagesResponseApplicationJson;
-
-  // coverage:ignore-start
-  const SignalingPullMessagesResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingPullMessagesResponseApplicationJson.
-  static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingPullMessagesResponseApplicationJsonBuilder b) {
-    $SignalingPullMessagesResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingPullMessagesResponseApplicationJsonBuilder b) {
-    $SignalingPullMessagesResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-class SignalingSendMessagesApiVersion extends EnumClass {
-  const SignalingSendMessagesApiVersion._(super.name);
-
-  /// `v3`
-  static const SignalingSendMessagesApiVersion v3 = _$signalingSendMessagesApiVersionV3;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<SignalingSendMessagesApiVersion> get values => _$signalingSendMessagesApiVersionValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for SignalingSendMessagesApiVersion.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingSendMessagesApiVersion> get serializer =>
-      const _$SignalingSendMessagesApiVersionSerializer();
-}
-
-class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingSendMessagesApiVersion> {
-  const _$SignalingSendMessagesApiVersionSerializer();
-
-  static const Map<SignalingSendMessagesApiVersion, Object> _toWire = <SignalingSendMessagesApiVersion, Object>{
-    SignalingSendMessagesApiVersion.v3: 'v3',
-  };
-
-  static const Map<Object, SignalingSendMessagesApiVersion> _fromWire = <Object, SignalingSendMessagesApiVersion>{
-    'v3': SignalingSendMessagesApiVersion.v3,
-  };
-
-  @override
-  Iterable<Type> get types => const [SignalingSendMessagesApiVersion];
-
-  @override
-  String get wireName => 'SignalingSendMessagesApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    SignalingSendMessagesApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  SignalingSendMessagesApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSendMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSendMessagesResponseApplicationJson_OcsInterfaceBuilder b) {}
-}
-
-abstract class SignalingSendMessagesResponseApplicationJson_Ocs
-    implements
-        $SignalingSendMessagesResponseApplicationJson_OcsInterface,
-        Built<SignalingSendMessagesResponseApplicationJson_Ocs,
-            SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
-  /// Creates a new SignalingSendMessagesResponseApplicationJson_Ocs object using the builder pattern.
-  factory SignalingSendMessagesResponseApplicationJson_Ocs([
-    void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$SignalingSendMessagesResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const SignalingSendMessagesResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSendMessagesResponseApplicationJson_Ocs.
-  static Serializer<SignalingSendMessagesResponseApplicationJson_Ocs> get serializer =>
-      _$signalingSendMessagesResponseApplicationJsonOcsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSendMessagesResponseApplicationJson_OcsBuilder b) {
-    $SignalingSendMessagesResponseApplicationJson_OcsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSendMessagesResponseApplicationJson_OcsBuilder b) {
-    $SignalingSendMessagesResponseApplicationJson_OcsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $SignalingSendMessagesResponseApplicationJsonInterface {
-  SignalingSendMessagesResponseApplicationJson_Ocs get ocs;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingSendMessagesResponseApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingSendMessagesResponseApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class SignalingSendMessagesResponseApplicationJson
-    implements
-        $SignalingSendMessagesResponseApplicationJsonInterface,
-        Built<SignalingSendMessagesResponseApplicationJson, SignalingSendMessagesResponseApplicationJsonBuilder> {
-  /// Creates a new SignalingSendMessagesResponseApplicationJson object using the builder pattern.
-  factory SignalingSendMessagesResponseApplicationJson([
-    void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
-  ]) = _$SignalingSendMessagesResponseApplicationJson;
-
-  // coverage:ignore-start
-  const SignalingSendMessagesResponseApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingSendMessagesResponseApplicationJson.
-  static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
-      _$signalingSendMessagesResponseApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingSendMessagesResponseApplicationJsonBuilder b) {
-    $SignalingSendMessagesResponseApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingSendMessagesResponseApplicationJsonBuilder b) {
-    $SignalingSendMessagesResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -42658,6 +41177,388 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(SignalingGetWelcomeMessageResponseApplicationJsonBuilder b) {
     $SignalingGetWelcomeMessageResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+class SignalingBackendApiVersion extends EnumClass {
+  const SignalingBackendApiVersion._(super.name);
+
+  /// `v3`
+  static const SignalingBackendApiVersion v3 = _$signalingBackendApiVersionV3;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<SignalingBackendApiVersion> get values => _$signalingBackendApiVersionValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static SignalingBackendApiVersion valueOf(String name) => _$valueOfSignalingBackendApiVersion(name);
+
+  /// Returns the serialized value of this enum value.
+  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
+
+  /// Serializer for SignalingBackendApiVersion.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingBackendApiVersion> get serializer => const _$SignalingBackendApiVersionSerializer();
+}
+
+class _$SignalingBackendApiVersionSerializer implements PrimitiveSerializer<SignalingBackendApiVersion> {
+  const _$SignalingBackendApiVersionSerializer();
+
+  static const Map<SignalingBackendApiVersion, Object> _toWire = <SignalingBackendApiVersion, Object>{
+    SignalingBackendApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingBackendApiVersion> _fromWire = <Object, SignalingBackendApiVersion>{
+    'v3': SignalingBackendApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingBackendApiVersion];
+
+  @override
+  String get wireName => 'SignalingBackendApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingBackendApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingBackendApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface {
+  String get code;
+  String get message;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Error
+    implements
+        $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface,
+        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Error,
+            SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Error object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Error([
+    void Function(SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder)? b,
+  ]) = _$SignalingBackendResponseApplicationJson_Ocs_Data_Error;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson_Ocs_Data_Error._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Error.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Error.
+  static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Error> get serializer =>
+      _$signalingBackendResponseApplicationJsonOcsDataErrorSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface {
+  String get version;
+  String? get userid;
+  BuiltMap<String, JsonObject>? get user;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Auth
+    implements
+        $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface,
+        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Auth,
+            SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Auth object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Auth([
+    void Function(SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder)? b,
+  ]) = _$SignalingBackendResponseApplicationJson_Ocs_Data_Auth;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson_Ocs_Data_Auth._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Auth.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Auth.
+  static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Auth> get serializer =>
+      _$signalingBackendResponseApplicationJsonOcsDataAuthSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface {
+  String get version;
+  String? get roomid;
+  BuiltMap<String, JsonObject>? get properties;
+  BuiltList<String>? get permissions;
+  BuiltMap<String, JsonObject>? get session;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Room
+    implements
+        $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface,
+        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Room,
+            SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Room object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Room([
+    void Function(SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder)? b,
+  ]) = _$SignalingBackendResponseApplicationJson_Ocs_Data_Room;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson_Ocs_Data_Room._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Room.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Room.
+  static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Room> get serializer =>
+      _$signalingBackendResponseApplicationJsonOcsDataRoomSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJson_Ocs_DataInterface {
+  String get type;
+  SignalingBackendResponseApplicationJson_Ocs_Data_Error? get error;
+  SignalingBackendResponseApplicationJson_Ocs_Data_Auth? get auth;
+  SignalingBackendResponseApplicationJson_Ocs_Data_Room? get room;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson_Ocs_Data
+    implements
+        $SignalingBackendResponseApplicationJson_Ocs_DataInterface,
+        Built<SignalingBackendResponseApplicationJson_Ocs_Data,
+            SignalingBackendResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson_Ocs_Data([
+    void Function(SignalingBackendResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$SignalingBackendResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data.
+  static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data> get serializer =>
+      _$signalingBackendResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJson_Ocs_DataBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_DataInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJson_Ocs_DataBuilder b) {
+    $SignalingBackendResponseApplicationJson_Ocs_DataInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  SignalingBackendResponseApplicationJson_Ocs_Data get data;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJson_OcsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJson_OcsInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson_Ocs
+    implements
+        $SignalingBackendResponseApplicationJson_OcsInterface,
+        Built<SignalingBackendResponseApplicationJson_Ocs, SignalingBackendResponseApplicationJson_OcsBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson_Ocs object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson_Ocs([
+    void Function(SignalingBackendResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$SignalingBackendResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson_Ocs.
+  static Serializer<SignalingBackendResponseApplicationJson_Ocs> get serializer =>
+      _$signalingBackendResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJson_OcsBuilder b) {
+    $SignalingBackendResponseApplicationJson_OcsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJson_OcsBuilder b) {
+    $SignalingBackendResponseApplicationJson_OcsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $SignalingBackendResponseApplicationJsonInterface {
+  SignalingBackendResponseApplicationJson_Ocs get ocs;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SignalingBackendResponseApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SignalingBackendResponseApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class SignalingBackendResponseApplicationJson
+    implements
+        $SignalingBackendResponseApplicationJsonInterface,
+        Built<SignalingBackendResponseApplicationJson, SignalingBackendResponseApplicationJsonBuilder> {
+  /// Creates a new SignalingBackendResponseApplicationJson object using the builder pattern.
+  factory SignalingBackendResponseApplicationJson([void Function(SignalingBackendResponseApplicationJsonBuilder)? b]) =
+      _$SignalingBackendResponseApplicationJson;
+
+  // coverage:ignore-start
+  const SignalingBackendResponseApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SignalingBackendResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SignalingBackendResponseApplicationJson.
+  static Serializer<SignalingBackendResponseApplicationJson> get serializer =>
+      _$signalingBackendResponseApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SignalingBackendResponseApplicationJsonBuilder b) {
+    $SignalingBackendResponseApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SignalingBackendResponseApplicationJsonBuilder b) {
+    $SignalingBackendResponseApplicationJsonInterface._validate(b);
   }
 }
 
@@ -42925,514 +41826,8 @@ abstract class BotWithDetailsAndSecret
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationInviteInterface {
-  @BuiltValueField(wireName: 'access_token')
-  String get accessToken;
-  int get id;
-  @BuiltValueField(wireName: 'local_room_id')
-  int get localRoomId;
-  @BuiltValueField(wireName: 'remote_attendee_id')
-  String get remoteAttendeeId;
-  @BuiltValueField(wireName: 'remote_server_url')
-  String get remoteServerUrl;
-  @BuiltValueField(wireName: 'remote_token')
-  String get remoteToken;
-  @BuiltValueField(wireName: 'user_id')
-  String get userId;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($FederationInviteInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($FederationInviteInterfaceBuilder b) {}
-}
-
-abstract class FederationInvite
-    implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
-  /// Creates a new FederationInvite object using the builder pattern.
-  factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
-
-  // coverage:ignore-start
-  const FederationInvite._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory FederationInvite.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for FederationInvite.
-  static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(FederationInviteBuilder b) {
-    $FederationInviteInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(FederationInviteBuilder b) {
-    $FederationInviteInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_AttachmentsInterface {
-  bool get allowed;
-  String? get folder;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Attachments
-    implements
-        $PublicCapabilities0_Spreed_Config_AttachmentsInterface,
-        Built<PublicCapabilities0_Spreed_Config_Attachments, PublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Attachments object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Attachments([
-    void Function(PublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Attachments;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Attachments._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Attachments.
-  static Serializer<PublicCapabilities0_Spreed_Config_Attachments> get serializer =>
-      _$publicCapabilities0SpreedConfigAttachmentsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_AttachmentsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_AttachmentsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_AttachmentsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_AttachmentsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_CallInterface {
-  bool get enabled;
-  @BuiltValueField(wireName: 'breakout-rooms')
-  bool get breakoutRooms;
-  bool get recording;
-  @BuiltValueField(wireName: 'recording-consent')
-  int? get recordingConsent;
-  @BuiltValueField(wireName: 'supported-reactions')
-  BuiltList<String> get supportedReactions;
-  @BuiltValueField(wireName: 'predefined-backgrounds')
-  BuiltList<String> get predefinedBackgrounds;
-  @BuiltValueField(wireName: 'can-upload-background')
-  bool get canUploadBackground;
-  @BuiltValueField(wireName: 'sip-enabled')
-  bool? get sipEnabled;
-  @BuiltValueField(wireName: 'sip-dialout-enabled')
-  bool? get sipDialoutEnabled;
-  @BuiltValueField(wireName: 'can-enable-sip')
-  bool? get canEnableSip;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_CallInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_CallInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Call
-    implements
-        $PublicCapabilities0_Spreed_Config_CallInterface,
-        Built<PublicCapabilities0_Spreed_Config_Call, PublicCapabilities0_Spreed_Config_CallBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Call object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Call([void Function(PublicCapabilities0_Spreed_Config_CallBuilder)? b]) =
-      _$PublicCapabilities0_Spreed_Config_Call;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Call._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Call.
-  static Serializer<PublicCapabilities0_Spreed_Config_Call> get serializer =>
-      _$publicCapabilities0SpreedConfigCallSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_CallBuilder b) {
-    $PublicCapabilities0_Spreed_Config_CallInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_CallBuilder b) {
-    $PublicCapabilities0_Spreed_Config_CallInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_ChatInterface {
-  @BuiltValueField(wireName: 'max-length')
-  int get maxLength;
-  @BuiltValueField(wireName: 'read-privacy')
-  int get readPrivacy;
-  @BuiltValueField(wireName: 'has-translation-providers')
-  bool? get hasTranslationProviders;
-  @BuiltValueField(wireName: 'typing-privacy')
-  int get typingPrivacy;
-  BuiltList<String>? get translations;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_ChatInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_ChatInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Chat
-    implements
-        $PublicCapabilities0_Spreed_Config_ChatInterface,
-        Built<PublicCapabilities0_Spreed_Config_Chat, PublicCapabilities0_Spreed_Config_ChatBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Chat object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Chat([void Function(PublicCapabilities0_Spreed_Config_ChatBuilder)? b]) =
-      _$PublicCapabilities0_Spreed_Config_Chat;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Chat._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Chat.
-  static Serializer<PublicCapabilities0_Spreed_Config_Chat> get serializer =>
-      _$publicCapabilities0SpreedConfigChatSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_ChatBuilder b) {
-    $PublicCapabilities0_Spreed_Config_ChatInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_ChatBuilder b) {
-    $PublicCapabilities0_Spreed_Config_ChatInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_ConversationsInterface {
-  @BuiltValueField(wireName: 'can-create')
-  bool get canCreate;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Conversations
-    implements
-        $PublicCapabilities0_Spreed_Config_ConversationsInterface,
-        Built<PublicCapabilities0_Spreed_Config_Conversations, PublicCapabilities0_Spreed_Config_ConversationsBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Conversations object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Conversations([
-    void Function(PublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Conversations;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Conversations._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Conversations.
-  static Serializer<PublicCapabilities0_Spreed_Config_Conversations> get serializer =>
-      _$publicCapabilities0SpreedConfigConversationsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_ConversationsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_ConversationsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_ConversationsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_ConversationsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_PreviewsInterface {
-  @BuiltValueField(wireName: 'max-gif-size')
-  int get maxGifSize;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Previews
-    implements
-        $PublicCapabilities0_Spreed_Config_PreviewsInterface,
-        Built<PublicCapabilities0_Spreed_Config_Previews, PublicCapabilities0_Spreed_Config_PreviewsBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Previews object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Previews([
-    void Function(PublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Previews;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Previews._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Previews.
-  static Serializer<PublicCapabilities0_Spreed_Config_Previews> get serializer =>
-      _$publicCapabilities0SpreedConfigPreviewsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_PreviewsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_PreviewsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_PreviewsBuilder b) {
-    $PublicCapabilities0_Spreed_Config_PreviewsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_Config_SignalingInterface {
-  @BuiltValueField(wireName: 'session-ping-limit')
-  int get sessionPingLimit;
-  @BuiltValueField(wireName: 'hello-v2-token-key')
-  String? get helloV2TokenKey;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config_Signaling
-    implements
-        $PublicCapabilities0_Spreed_Config_SignalingInterface,
-        Built<PublicCapabilities0_Spreed_Config_Signaling, PublicCapabilities0_Spreed_Config_SignalingBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config_Signaling object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config_Signaling([
-    void Function(PublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Signaling;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config_Signaling._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config_Signaling.
-  static Serializer<PublicCapabilities0_Spreed_Config_Signaling> get serializer =>
-      _$publicCapabilities0SpreedConfigSignalingSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_Config_SignalingBuilder b) {
-    $PublicCapabilities0_Spreed_Config_SignalingInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_Config_SignalingBuilder b) {
-    $PublicCapabilities0_Spreed_Config_SignalingInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_Spreed_ConfigInterface {
-  PublicCapabilities0_Spreed_Config_Attachments get attachments;
-  PublicCapabilities0_Spreed_Config_Call get call;
-  PublicCapabilities0_Spreed_Config_Chat get chat;
-  PublicCapabilities0_Spreed_Config_Conversations get conversations;
-  PublicCapabilities0_Spreed_Config_Previews get previews;
-  PublicCapabilities0_Spreed_Config_Signaling get signaling;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_Spreed_ConfigInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_Spreed_ConfigInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed_Config
-    implements
-        $PublicCapabilities0_Spreed_ConfigInterface,
-        Built<PublicCapabilities0_Spreed_Config, PublicCapabilities0_Spreed_ConfigBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed_Config object using the builder pattern.
-  factory PublicCapabilities0_Spreed_Config([void Function(PublicCapabilities0_Spreed_ConfigBuilder)? b]) =
-      _$PublicCapabilities0_Spreed_Config;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed_Config._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed_Config.
-  static Serializer<PublicCapabilities0_Spreed_Config> get serializer => _$publicCapabilities0SpreedConfigSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_Spreed_ConfigBuilder b) {
-    $PublicCapabilities0_Spreed_ConfigInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_Spreed_ConfigBuilder b) {
-    $PublicCapabilities0_Spreed_ConfigInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0_SpreedInterface {
-  BuiltList<String> get features;
-  PublicCapabilities0_Spreed_Config get config;
-  String get version;
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PublicCapabilities0_SpreedInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PublicCapabilities0_SpreedInterfaceBuilder b) {}
-}
-
-abstract class PublicCapabilities0_Spreed
-    implements
-        $PublicCapabilities0_SpreedInterface,
-        Built<PublicCapabilities0_Spreed, PublicCapabilities0_SpreedBuilder> {
-  /// Creates a new PublicCapabilities0_Spreed object using the builder pattern.
-  factory PublicCapabilities0_Spreed([void Function(PublicCapabilities0_SpreedBuilder)? b]) =
-      _$PublicCapabilities0_Spreed;
-
-  // coverage:ignore-start
-  const PublicCapabilities0_Spreed._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for PublicCapabilities0_Spreed.
-  static Serializer<PublicCapabilities0_Spreed> get serializer => _$publicCapabilities0SpreedSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PublicCapabilities0_SpreedBuilder b) {
-    $PublicCapabilities0_SpreedInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PublicCapabilities0_SpreedBuilder b) {
-    $PublicCapabilities0_SpreedInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $PublicCapabilities0Interface {
-  PublicCapabilities0_Spreed get spreed;
+  Capabilities get spreed;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilities0InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -43479,45 +41874,66 @@ abstract class PublicCapabilities0
 
 typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
-/// Serialization extension for `Room_LastMessage`.
-extension $Room_LastMessageExtension on Room_LastMessage {
-  /// Serializer for Room_LastMessage.
+/// Serialization extension for `RichObjectParameter_Size`.
+extension $RichObjectParameter_SizeExtension on RichObjectParameter_Size {
+  /// Serializer for RichObjectParameter_Size.
   @BuiltValueSerializer(custom: true)
-  static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
+  static Serializer<RichObjectParameter_Size> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
+  static RichObjectParameter_Size fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data`.
-extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
-    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
-  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+/// Serialization extension for `RichObjectParameter_Width`.
+extension $RichObjectParameter_WidthExtension on RichObjectParameter_Width {
+  /// Serializer for RichObjectParameter_Width.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+  static Serializer<RichObjectParameter_Width> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
-      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
+  static RichObjectParameter_Width fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-/// Serialization extension for `SettingsSetUserSettingValue`.
-extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
-  /// Serializer for SettingsSetUserSettingValue.
+/// Serialization extension for `RichObjectParameter_Height`.
+extension $RichObjectParameter_HeightExtension on RichObjectParameter_Height {
+  /// Serializer for RichObjectParameter_Height.
   @BuiltValueSerializer(custom: true)
-  static Serializer<SettingsSetUserSettingValue> get serializer =>
+  static Serializer<RichObjectParameter_Height> get serializer =>
       $b2c4857c0136baea42828d89c87c757dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static SettingsSetUserSettingValue fromJson(Object? json) =>
+  static RichObjectParameter_Height fromJson(Object? json) =>
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
+/// Serialization extension for `RoomLastMessage`.
+extension $RoomLastMessageExtension on RoomLastMessage {
+  /// Serializer for RoomLastMessage.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomLastMessage> get serializer => $4b3c240037cf48d36f81308e641eef98Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static RoomLastMessage fromJson(Object? json) => $4b3c240037cf48d36f81308e641eef98Extension._fromJson(json);
+}
+
+/// Serialization extension for `Room_LastMessage`.
+extension $Room_LastMessageExtension on Room_LastMessage {
+  /// Serializer for Room_LastMessage.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Room_LastMessage> get serializer => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static Room_LastMessage fromJson(Object? json) => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._fromJson(json);
 }
 
 /// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
@@ -43535,6 +41951,50 @@ extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
       $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
 }
 
+/// Serialization extension for `RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data`.
+extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
+    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
+      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
+}
+
+/// Serialization extension for `RoomGetCapabilitiesResponseApplicationJson_Ocs_Data`.
+extension $RoomGetCapabilitiesResponseApplicationJson_Ocs_DataExtension
+    on RoomGetCapabilitiesResponseApplicationJson_Ocs_Data {
+  /// Serializer for RoomGetCapabilitiesResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
+      $973dc40faeda3fa3aa7e7b9895ee7a34Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static RoomGetCapabilitiesResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $973dc40faeda3fa3aa7e7b9895ee7a34Extension._fromJson(json);
+}
+
+/// Serialization extension for `SettingsSetUserSettingValue`.
+extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
+  /// Serializer for SettingsSetUserSettingValue.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetUserSettingValue> get serializer =>
+      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static SettingsSetUserSettingValue fromJson(Object? json) =>
+      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
 /// Serialization extension for `PublicCapabilities`.
 extension $PublicCapabilitiesExtension on PublicCapabilities {
   /// Serializer for PublicCapabilities.
@@ -43547,13 +42007,13 @@ extension $PublicCapabilitiesExtension on PublicCapabilities {
   static PublicCapabilities fromJson(Object? json) => $bc4aac45771b11649d372f39a92b1cf3Extension._fromJson(json);
 }
 
-typedef _$e620970959f428e934829e52f32b7089 = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e52f32b7089 {
-  List<dynamic> get _values => [builtListNever, chatMessage];
-  List<String> get _names => const ['builtListNever', 'chatMessage'];
+extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
+  List<dynamic> get _values => [$int, string];
+  List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i4.validateOneOf(
@@ -43566,9 +42026,9 @@ extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e
         _values,
         _names,
       );
-  static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
-      const _$e620970959f428e934829e52f32b7089Serializer();
-  static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
+  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
+      const _$b2c4857c0136baea42828d89c87c757dSerializer();
+  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -43577,22 +42037,194 @@ extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$e620970959f428e934829e52f32b7089Serializer implements PrimitiveSerializer<_$e620970959f428e934829e52f32b7089> {
-  const _$e620970959f428e934829e52f32b7089Serializer();
+class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
+  const _$b2c4857c0136baea42828d89c87c757dSerializer();
 
   @override
-  Iterable<Type> get types => const [_$e620970959f428e934829e52f32b7089];
+  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
 
   @override
-  String get wireName => r'_$e620970959f428e934829e52f32b7089';
+  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$e620970959f428e934829e52f32b7089 object, {
+    _$b2c4857c0136baea42828d89c87c757d object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
+    value = object.$int;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$b2c4857c0136baea42828d89c87c757d deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    int? $int;
+    try {
+      $int = serializers.deserialize(
+        data,
+        specifiedType: const FullType(int),
+      )! as int;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return ($int: $int, string: string);
+  }
+}
+
+typedef _$4b3c240037cf48d36f81308e641eef98 = ({BaseMessage? baseMessage, ChatMessage? chatMessage});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $4b3c240037cf48d36f81308e641eef98Extension on _$4b3c240037cf48d36f81308e641eef98 {
+  List<dynamic> get _values => [baseMessage, chatMessage];
+  List<String> get _names => const ['baseMessage', 'chatMessage'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i4.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i4.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$4b3c240037cf48d36f81308e641eef98> get _serializer =>
+      const _$4b3c240037cf48d36f81308e641eef98Serializer();
+  static _$4b3c240037cf48d36f81308e641eef98 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$4b3c240037cf48d36f81308e641eef98Serializer implements PrimitiveSerializer<_$4b3c240037cf48d36f81308e641eef98> {
+  const _$4b3c240037cf48d36f81308e641eef98Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$4b3c240037cf48d36f81308e641eef98];
+
+  @override
+  String get wireName => r'_$4b3c240037cf48d36f81308e641eef98';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$4b3c240037cf48d36f81308e641eef98 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.baseMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BaseMessage))!;
+    }
+    value = object.chatMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$4b3c240037cf48d36f81308e641eef98 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BaseMessage? baseMessage;
+    try {
+      baseMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseMessage),
+      )! as BaseMessage;
+    } catch (_) {}
+    ChatMessage? chatMessage;
+    try {
+      chatMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(ChatMessage),
+      )! as ChatMessage;
+    } catch (_) {}
+    return (baseMessage: baseMessage, chatMessage: chatMessage);
+  }
+}
+
+typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 = ({
+  BaseMessage? baseMessage,
+  BuiltList<Never>? builtListNever,
+  ChatMessage? chatMessage
+});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $bed8482b7c93ae2974fa4be6ae42b9b1Extension on _$bed8482b7c93ae2974fa4be6ae42b9b1 {
+  List<dynamic> get _values => [baseMessage, builtListNever, chatMessage];
+  List<String> get _names => const ['baseMessage', 'builtListNever', 'chatMessage'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i4.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i4.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$bed8482b7c93ae2974fa4be6ae42b9b1> get _serializer =>
+      const _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer();
+  static _$bed8482b7c93ae2974fa4be6ae42b9b1 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer implements PrimitiveSerializer<_$bed8482b7c93ae2974fa4be6ae42b9b1> {
+  const _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$bed8482b7c93ae2974fa4be6ae42b9b1];
+
+  @override
+  String get wireName => r'_$bed8482b7c93ae2974fa4be6ae42b9b1';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$bed8482b7c93ae2974fa4be6ae42b9b1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.baseMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BaseMessage))!;
+    }
     value = object.builtListNever;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
@@ -43606,11 +42238,18 @@ class _$e620970959f428e934829e52f32b7089Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$e620970959f428e934829e52f32b7089 deserialize(
+  _$bed8482b7c93ae2974fa4be6ae42b9b1 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
+    BaseMessage? baseMessage;
+    try {
+      baseMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BaseMessage),
+      )! as BaseMessage;
+    } catch (_) {}
     BuiltList<Never>? builtListNever;
     try {
       builtListNever = serializers.deserialize(
@@ -43625,7 +42264,89 @@ class _$e620970959f428e934829e52f32b7089Serializer implements PrimitiveSerialize
         specifiedType: const FullType(ChatMessage),
       )! as ChatMessage;
     } catch (_) {}
-    return (builtListNever: builtListNever, chatMessage: chatMessage);
+    return (baseMessage: baseMessage, builtListNever: builtListNever, chatMessage: chatMessage);
+  }
+}
+
+typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
+  List<dynamic> get _values => [builtListSignalingSession, string];
+  List<String> get _names => const ['builtListSignalingSession', 'string'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i4.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i4.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
+      const _$1df642f5035aea3b22543ab331c3fb01Serializer();
+  static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerializer<_$1df642f5035aea3b22543ab331c3fb01> {
+  const _$1df642f5035aea3b22543ab331c3fb01Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$1df642f5035aea3b22543ab331c3fb01];
+
+  @override
+  String get wireName => r'_$1df642f5035aea3b22543ab331c3fb01';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$1df642f5035aea3b22543ab331c3fb01 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListSignalingSession;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$1df642f5035aea3b22543ab331c3fb01 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<SignalingSession>? builtListSignalingSession;
+    try {
+      builtListSignalingSession = serializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
+      )! as BuiltList<SignalingSession>;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(
+        data,
+        specifiedType: const FullType(String),
+      )! as String;
+    } catch (_) {}
+    return (builtListSignalingSession: builtListSignalingSession, string: string);
   }
 }
 
@@ -43720,13 +42441,13 @@ class _$bd993fb3f40af33e8594d0d698208560Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
+typedef _$973dc40faeda3fa3aa7e7b9895ee7a34 = ({BuiltList<Never>? builtListNever, Capabilities? capabilities});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
-  List<dynamic> get _values => [$int, string];
-  List<String> get _names => const [r'$int', 'string'];
+extension $973dc40faeda3fa3aa7e7b9895ee7a34Extension on _$973dc40faeda3fa3aa7e7b9895ee7a34 {
+  List<dynamic> get _values => [builtListNever, capabilities];
+  List<String> get _names => const ['builtListNever', 'capabilities'];
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i4.validateOneOf(
@@ -43739,9 +42460,9 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
         _values,
         _names,
       );
-  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
-      const _$b2c4857c0136baea42828d89c87c757dSerializer();
-  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
+  static Serializer<_$973dc40faeda3fa3aa7e7b9895ee7a34> get _serializer =>
+      const _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer();
+  static _$973dc40faeda3fa3aa7e7b9895ee7a34 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -43750,137 +42471,55 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
-  const _$b2c4857c0136baea42828d89c87c757dSerializer();
+class _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer implements PrimitiveSerializer<_$973dc40faeda3fa3aa7e7b9895ee7a34> {
+  const _$973dc40faeda3fa3aa7e7b9895ee7a34Serializer();
 
   @override
-  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
+  Iterable<Type> get types => const [_$973dc40faeda3fa3aa7e7b9895ee7a34];
 
   @override
-  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
+  String get wireName => r'_$973dc40faeda3fa3aa7e7b9895ee7a34';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$b2c4857c0136baea42828d89c87c757d object, {
+    _$973dc40faeda3fa3aa7e7b9895ee7a34 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.$int;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
-    value = object.string;
+    value = object.capabilities;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(Capabilities))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  _$b2c4857c0136baea42828d89c87c757d deserialize(
+  _$973dc40faeda3fa3aa7e7b9895ee7a34 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    int? $int;
+    BuiltList<Never>? builtListNever;
     try {
-      $int = serializers.deserialize(
+      builtListNever = serializers.deserialize(
         data,
-        specifiedType: const FullType(int),
-      )! as int;
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>;
     } catch (_) {}
-    String? string;
+    Capabilities? capabilities;
     try {
-      string = serializers.deserialize(
+      capabilities = serializers.deserialize(
         data,
-        specifiedType: const FullType(String),
-      )! as String;
+        specifiedType: const FullType(Capabilities),
+      )! as Capabilities;
     } catch (_) {}
-    return ($int: $int, string: string);
-  }
-}
-
-typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
-
-/// @nodoc
-// ignore: library_private_types_in_public_api
-extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
-  List<dynamic> get _values => [builtListSignalingSession, string];
-  List<String> get _names => const ['builtListSignalingSession', 'string'];
-
-  /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i4.validateOneOf(
-        _values,
-        _names,
-      );
-
-  /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i4.validateAnyOf(
-        _values,
-        _names,
-      );
-  static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
-      const _$1df642f5035aea3b22543ab331c3fb01Serializer();
-  static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
-      _$jsonSerializers.deserializeWith(_serializer, json)!;
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
-}
-
-class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerializer<_$1df642f5035aea3b22543ab331c3fb01> {
-  const _$1df642f5035aea3b22543ab331c3fb01Serializer();
-
-  @override
-  Iterable<Type> get types => const [_$1df642f5035aea3b22543ab331c3fb01];
-
-  @override
-  String get wireName => r'_$1df642f5035aea3b22543ab331c3fb01';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    _$1df642f5035aea3b22543ab331c3fb01 object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.builtListSignalingSession;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
-    }
-    value = object.string;
-    if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(String))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  _$1df642f5035aea3b22543ab331c3fb01 deserialize(
-    Serializers serializers,
-    Object data, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    BuiltList<SignalingSession>? builtListSignalingSession;
-    try {
-      builtListSignalingSession = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
-      )! as BuiltList<SignalingSession>;
-    } catch (_) {}
-    String? string;
-    try {
-      string = serializers.deserialize(
-        data,
-        specifiedType: const FullType(String),
-      )! as String;
-    } catch (_) {}
-    return (builtListSignalingSession: builtListSignalingSession, string: string);
+    return (builtListNever: builtListNever, capabilities: capabilities);
   }
 }
 
@@ -43997,10 +42636,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ActorType.serializer)
       ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
-      ..add(ChatMessage_Deleted.serializer)
+      ..addBuilderFactory(const FullType(BaseMessage), BaseMessageBuilder.new)
+      ..add(BaseMessage.serializer)
       ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
       ..add(RichObjectParameter.serializer)
       ..add(RichObjectParameter_CallType.serializer)
+      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..add(RichObjectParameter_PreviewAvailable.serializer)
       ..add(RichObjectParameter_Visibility.serializer)
       ..add(RichObjectParameter_Assignable.serializer)
@@ -44009,9 +42650,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, RichObjectParameter>.new,
       )
       ..add(MessageType.serializer)
+      ..add(ChatMessage_Deleted.serializer)
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+      ..add($4b3c240037cf48d36f81308e641eef98Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($e620970959f428e934829e52f32b7089Extension._serializer)
+      ..add($bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer)
       ..add(AvatarDeleteAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarDeleteAvatarResponseApplicationJson),
@@ -44035,37 +42678,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AvatarEmojiAvatarResponseApplicationJson_Ocs.serializer)
       ..add(AvatarGetAvatarDarkApiVersion.serializer)
-      ..add(BotSendMessageSilent.serializer)
-      ..add(BotSendMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotSendMessageResponseApplicationJson),
-        BotSendMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotSendMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotSendMessageResponseApplicationJson_Ocs),
-        BotSendMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotSendMessageResponseApplicationJson_Ocs.serializer)
-      ..add(BotReactApiVersion.serializer)
-      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson), BotReactResponseApplicationJsonBuilder.new)
-      ..add(BotReactResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotReactResponseApplicationJson_Ocs),
-        BotReactResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotReactResponseApplicationJson_Ocs.serializer)
-      ..add(BotDeleteReactionApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDeleteReactionResponseApplicationJson),
-        BotDeleteReactionResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotDeleteReactionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
-        BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
+      ..add(AvatarGetUserProxyAvatarWithoutRoomSize.serializer)
+      ..add(AvatarGetUserProxyAvatarWithoutRoomDarkTheme.serializer)
+      ..add(AvatarGetUserProxyAvatarWithoutRoomApiVersion.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkWithoutRoomSize.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.serializer)
+      ..add(AvatarGetUserProxyAvatarSize.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkTheme.serializer)
+      ..add(AvatarGetUserProxyAvatarApiVersion.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkSize.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkApiVersion.serializer)
       ..add(BotListBotsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotListBotsResponseApplicationJson),
@@ -44102,20 +42724,37 @@ final Serializers _$serializers = (Serializers().toBuilder()
         BotDisableBotResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
-      ..add(BotAdminListBotsApiVersion.serializer)
+      ..add(BotSendMessageSilent.serializer)
+      ..add(BotSendMessageApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson),
-        BotAdminListBotsResponseApplicationJsonBuilder.new,
+        const FullType(BotSendMessageResponseApplicationJson),
+        BotSendMessageResponseApplicationJsonBuilder.new,
       )
-      ..add(BotAdminListBotsResponseApplicationJson.serializer)
+      ..add(BotSendMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
-        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
+        const FullType(BotSendMessageResponseApplicationJson_Ocs),
+        BotSendMessageResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
-      ..add(BotWithDetails.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
+      ..add(BotSendMessageResponseApplicationJson_Ocs.serializer)
+      ..add(BotReactApiVersion.serializer)
+      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson), BotReactResponseApplicationJsonBuilder.new)
+      ..add(BotReactResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(BotReactResponseApplicationJson_Ocs),
+        BotReactResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(BotReactResponseApplicationJson_Ocs.serializer)
+      ..add(BotDeleteReactionApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(BotDeleteReactionResponseApplicationJson),
+        BotDeleteReactionResponseApplicationJsonBuilder.new,
+      )
+      ..add(BotDeleteReactionResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
+        BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomConfigureBreakoutRoomsMode.serializer)
       ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
@@ -44242,8 +42881,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallUpdateCallFlagsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
-      ..add(CallJoinCallFlags.serializer)
-      ..add(CallJoinCallForcePermissions.serializer)
       ..add(CallJoinCallSilent.serializer)
       ..add(CallJoinCallRecordingConsent.serializer)
       ..add(CallJoinCallApiVersion.serializer)
@@ -44296,22 +42933,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallSipDialOutResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson_Ocs_Data.serializer)
-      ..add(CertificateGetCertificateExpirationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-        CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
-        CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
-        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
       ..add(ChatReceiveMessagesLookIntoFuture.serializer)
       ..add(ChatReceiveMessagesSetReadMarker.serializer)
       ..add(ChatReceiveMessagesIncludeLastKnown.serializer)
@@ -44363,6 +42984,19 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
       ..add(ChatChatClearHistoryHeaders.serializer)
+      ..add(ChatEditMessageApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatEditMessageResponseApplicationJson),
+        ChatEditMessageResponseApplicationJsonBuilder.new,
+      )
+      ..add(ChatEditMessageResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatEditMessageResponseApplicationJson_Ocs),
+        ChatEditMessageResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(ChatEditMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(ChatChatEditMessageHeaders), ChatChatEditMessageHeadersBuilder.new)
+      ..add(ChatChatEditMessageHeaders.serializer)
       ..add(ChatDeleteMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteMessageResponseApplicationJson),
@@ -44424,6 +43058,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ChatDeleteReminderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatDeleteReminderResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ChatDeleteReminderResponseApplicationJson_Ocs_Data),
+        ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(ChatDeleteReminderResponseApplicationJson_Ocs_Data.serializer)
       ..add(ChatSetReadMarkerApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReadMarkerResponseApplicationJson),
@@ -44516,6 +43155,83 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<ChatMessage>>.new,
       )
+      ..add(SignalingGetSettingsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingGetSettingsResponseApplicationJson),
+        SignalingGetSettingsResponseApplicationJsonBuilder.new,
+      )
+      ..add(SignalingGetSettingsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
+        SignalingGetSettingsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
+      ..add(SignalingSettings.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSettings_HelloAuthParams),
+        SignalingSettings_HelloAuthParamsBuilder.new,
+      )
+      ..add(SignalingSettings_HelloAuthParams.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSettings_HelloAuthParams_10),
+        SignalingSettings_HelloAuthParams_10Builder.new,
+      )
+      ..add(SignalingSettings_HelloAuthParams_10.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSettings_HelloAuthParams_20),
+        SignalingSettings_HelloAuthParams_20Builder.new,
+      )
+      ..add(SignalingSettings_HelloAuthParams_20.serializer)
+      ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
+      ..add(SignalingSettings_Stunservers.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
+        ListBuilder<SignalingSettings_Stunservers>.new,
+      )
+      ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_TurnserversBuilder.new)
+      ..add(SignalingSettings_Turnservers.serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
+        ListBuilder<SignalingSettings_Turnservers>.new,
+      )
+      ..add(FederationAcceptShareApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationAcceptShareResponseApplicationJson),
+        FederationAcceptShareResponseApplicationJsonBuilder.new,
+      )
+      ..add(FederationAcceptShareResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
+        FederationAcceptShareResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(FederationAcceptShareResponseApplicationJson_Ocs.serializer)
+      ..add(FederationRejectShareApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationRejectShareResponseApplicationJson),
+        FederationRejectShareResponseApplicationJsonBuilder.new,
+      )
+      ..add(FederationRejectShareResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationRejectShareResponseApplicationJson_Ocs),
+        FederationRejectShareResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(FederationRejectShareResponseApplicationJson_Ocs.serializer)
+      ..add(FederationGetSharesApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationGetSharesResponseApplicationJson),
+        FederationGetSharesResponseApplicationJsonBuilder.new,
+      )
+      ..add(FederationGetSharesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(FederationGetSharesResponseApplicationJson_Ocs),
+        FederationGetSharesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
+      ..add(FederationInvite.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(FederationInvite)]), ListBuilder<FederationInvite>.new)
       ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
@@ -44548,6 +43264,22 @@ final Serializers _$serializers = (Serializers().toBuilder()
         FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.serializer)
+      ..add(PublicShareAuthCreateRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+        PublicShareAuthCreateRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(PublicShareAuthCreateRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
+        PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
+        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.serializer)
       ..add(GuestSetDisplayNameApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(GuestSetDisplayNameResponseApplicationJson),
@@ -44575,16 +43307,41 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, JsonObject>.new,
       )
       ..add(HostedSignalingServerDeleteAccountApiVersion.serializer)
+      ..add(SignalingPullMessagesApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
-        HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder.new,
+        const FullType(SignalingPullMessagesResponseApplicationJson),
+        SignalingPullMessagesResponseApplicationJsonBuilder.new,
       )
-      ..add(HostedSignalingServerDeleteAccountResponseApplicationJson.serializer)
+      ..add(SignalingPullMessagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs),
-        HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder.new,
+        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
+        SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.serializer)
+      ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
+        SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
+      ..add(SignalingSession.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
+      ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
+        ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
+      )
+      ..add(SignalingSendMessagesApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSendMessagesResponseApplicationJson),
+        SignalingSendMessagesResponseApplicationJsonBuilder.new,
+      )
+      ..add(SignalingSendMessagesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
+        SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeGetBridgeOfRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
@@ -44678,7 +43435,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..add(PollCreatePollResultMode.serializer)
       ..add(PollCreatePollApiVersion.serializer)
       ..addBuilderFactory(
@@ -44730,22 +43486,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PollClosePollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollClosePollResponseApplicationJson_Ocs.serializer)
-      ..add(PublicShareAuthCreateRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-        PublicShareAuthCreateRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
-        PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
-        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.serializer)
       ..add(ReactionGetReactionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ReactionGetReactionsResponseApplicationJson),
@@ -44811,17 +43551,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RecordingStopResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingStopResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingStoreApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStoreResponseApplicationJson),
-        RecordingStoreResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStoreResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStoreResponseApplicationJson_Ocs),
-        RecordingStoreResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
       ..add(RecordingNotificationDismissApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingNotificationDismissResponseApplicationJson),
@@ -44844,22 +43573,28 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingGetWelcomeMessageApiVersion.serializer)
+      ..add(RecordingBackendApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+        const FullType(RecordingBackendResponseApplicationJson),
+        RecordingBackendResponseApplicationJsonBuilder.new,
       )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
+      ..add(RecordingBackendResponseApplicationJson.serializer)
       ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
-        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+        const FullType(RecordingBackendResponseApplicationJson_Ocs),
+        RecordingBackendResponseApplicationJson_OcsBuilder.new,
       )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+      ..add(RecordingBackendResponseApplicationJson_Ocs.serializer)
+      ..add(RecordingStoreApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
+        const FullType(RecordingStoreResponseApplicationJson),
+        RecordingStoreResponseApplicationJsonBuilder.new,
       )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
+      ..add(RecordingStoreResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingStoreResponseApplicationJson_Ocs),
+        RecordingStoreResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsIncludeStatus.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
@@ -44926,28 +43661,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
       ..add(RoomRoomGetSingleRoomHeaders.serializer)
-      ..add(RoomRenameRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRenameRoomResponseApplicationJson),
-        RoomRenameRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRenameRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
-        RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomDeleteRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDeleteRoomResponseApplicationJson),
-        RoomDeleteRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomDeleteRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
-        RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
@@ -45027,7 +43740,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetPasswordResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetPermissionsPermissions.serializer)
       ..add(RoomSetPermissionsMode.serializer)
       ..add(RoomSetPermissionsApiVersion.serializer)
       ..addBuilderFactory(
@@ -45117,7 +43829,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetAttendeePermissionsMethod.serializer)
-      ..add(RoomSetAttendeePermissionsPermissions.serializer)
       ..add(RoomSetAttendeePermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
@@ -45130,7 +43841,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetAllAttendeesPermissionsMethod.serializer)
-      ..add(RoomSetAllAttendeesPermissionsPermissions.serializer)
       ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
@@ -45154,6 +43864,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomJoinRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomJoinRoomResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(RoomRoomJoinRoomHeaders), RoomRoomJoinRoomHeadersBuilder.new)
+      ..add(RoomRoomJoinRoomHeaders.serializer)
       ..add(RoomLeaveRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomLeaveRoomResponseApplicationJson),
@@ -45299,8 +44011,125 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
+      ..add(RoomGetCapabilitiesApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomGetCapabilitiesResponseApplicationJson),
+        RoomGetCapabilitiesResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomGetCapabilitiesResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomGetCapabilitiesResponseApplicationJson_Ocs),
+        RoomGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomGetCapabilitiesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+      ..add(Capabilities.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config), Capabilities_ConfigBuilder.new)
+      ..add(Capabilities_Config.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Attachments), Capabilities_Config_AttachmentsBuilder.new)
+      ..add(Capabilities_Config_Attachments.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Call), Capabilities_Config_CallBuilder.new)
+      ..add(Capabilities_Config_Call.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Chat), Capabilities_Config_ChatBuilder.new)
+      ..add(Capabilities_Config_Chat.serializer)
+      ..addBuilderFactory(
+        const FullType(Capabilities_Config_Conversations),
+        Capabilities_Config_ConversationsBuilder.new,
+      )
+      ..add(Capabilities_Config_Conversations.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Federation), Capabilities_Config_FederationBuilder.new)
+      ..add(Capabilities_Config_Federation.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Previews), Capabilities_Config_PreviewsBuilder.new)
+      ..add(Capabilities_Config_Previews.serializer)
+      ..addBuilderFactory(const FullType(Capabilities_Config_Signaling), Capabilities_Config_SignalingBuilder.new)
+      ..add(Capabilities_Config_Signaling.serializer)
+      ..add($973dc40faeda3fa3aa7e7b9895ee7a34Extension._serializer)
+      ..addBuilderFactory(const FullType(RoomRoomGetCapabilitiesHeaders), RoomRoomGetCapabilitiesHeadersBuilder.new)
+      ..add(RoomRoomGetCapabilitiesHeaders.serializer)
+      ..add(RoomJoinFederatedRoomApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomJoinFederatedRoomResponseApplicationJson),
+        RoomJoinFederatedRoomResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomJoinFederatedRoomResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomJoinFederatedRoomResponseApplicationJson_Ocs),
+        RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomJoinFederatedRoomResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(RoomRoomJoinFederatedRoomHeaders), RoomRoomJoinFederatedRoomHeadersBuilder.new)
+      ..add(RoomRoomJoinFederatedRoomHeaders.serializer)
+      ..add(RoomVerifyDialInPinDeprecatedApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
+        RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs),
+        RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.serializer)
+      ..add(RoomVerifyDialInPinApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialInPinResponseApplicationJson),
+        RoomVerifyDialInPinResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomVerifyDialInPinResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialInPinResponseApplicationJson_Ocs),
+        RoomVerifyDialInPinResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomVerifyDialInPinResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(RoomVerifyDialOutNumberOptions), RoomVerifyDialOutNumberOptionsBuilder.new)
+      ..add(RoomVerifyDialOutNumberOptions.serializer)
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(RoomVerifyDialOutNumberOptions)]),
+        ContentStringBuilder<RoomVerifyDialOutNumberOptions>.new,
+      )
+      ..add(RoomVerifyDialOutNumberApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialOutNumberResponseApplicationJson),
+        RoomVerifyDialOutNumberResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomVerifyDialOutNumberResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomVerifyDialOutNumberResponseApplicationJson_Ocs),
+        RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomVerifyDialOutNumberResponseApplicationJson_Ocs.serializer)
+      ..add(RoomCreateGuestByDialInApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomCreateGuestByDialInResponseApplicationJson),
+        RoomCreateGuestByDialInResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomCreateGuestByDialInResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomCreateGuestByDialInResponseApplicationJson_Ocs),
+        RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomCreateGuestByDialInResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRejectedDialOutRequestOptions),
+        RoomRejectedDialOutRequestOptionsBuilder.new,
+      )
+      ..add(RoomRejectedDialOutRequestOptions.serializer)
+      ..addBuilderFactory(
+        const FullType(ContentString, [FullType(RoomRejectedDialOutRequestOptions)]),
+        ContentStringBuilder<RoomRejectedDialOutRequestOptions>.new,
+      )
+      ..add(RoomRejectedDialOutRequestApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
+        RoomRejectedDialOutRequestResponseApplicationJsonBuilder.new,
+      )
+      ..add(RoomRejectedDialOutRequestResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RoomRejectedDialOutRequestResponseApplicationJson_Ocs),
+        RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RoomRejectedDialOutRequestResponseApplicationJson_Ocs.serializer)
       ..add(SettingsSetUserSettingKey.serializer)
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..add(SettingsSetUserSettingApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetUserSettingResponseApplicationJson),
@@ -45312,6 +44141,52 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SettingsSetUserSettingResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetUserSettingResponseApplicationJson_Ocs.serializer)
+      ..add(BotAdminListBotsApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(BotAdminListBotsResponseApplicationJson),
+        BotAdminListBotsResponseApplicationJsonBuilder.new,
+      )
+      ..add(BotAdminListBotsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
+        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
+      ..add(BotWithDetails.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
+      ..add(CertificateGetCertificateExpirationApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+        CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,
+      )
+      ..add(CertificateGetCertificateExpirationResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
+        CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
+        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
+      ..add(RecordingGetWelcomeMessageApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
+        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
       ..add(SettingsSetsipSettingsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetsipSettingsResponseApplicationJson),
@@ -45323,81 +44198,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
-      ..add(SignalingGetSettingsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetSettingsResponseApplicationJson),
-        SignalingGetSettingsResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingGetSettingsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
-        SignalingGetSettingsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
-      ..add(SignalingSettings.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams),
-        SignalingSettings_HelloAuthParamsBuilder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_10),
-        SignalingSettings_HelloAuthParams_10Builder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams_10.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_20),
-        SignalingSettings_HelloAuthParams_20Builder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams_20.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
-      ..add(SignalingSettings_Stunservers.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
-        ListBuilder<SignalingSettings_Stunservers>.new,
-      )
-      ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_TurnserversBuilder.new)
-      ..add(SignalingSettings_Turnservers.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
-        ListBuilder<SignalingSettings_Turnservers>.new,
-      )
-      ..add(SignalingPullMessagesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson),
-        SignalingPullMessagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
-        SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
-      ..add(SignalingSession.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
-      ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
-        ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
-      )
-      ..add(SignalingSendMessagesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSendMessagesResponseApplicationJson),
-        SignalingSendMessagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingSendMessagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
-        SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
       ..add(SignalingGetWelcomeMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
@@ -45409,6 +44209,37 @@ final Serializers _$serializers = (Serializers().toBuilder()
         SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+      ..add(SignalingBackendApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson),
+        SignalingBackendResponseApplicationJsonBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson_Ocs),
+        SignalingBackendResponseApplicationJson_OcsBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data),
+        SignalingBackendResponseApplicationJson_Ocs_DataBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Error),
+        SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Error.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Auth),
+        SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Auth.serializer)
+      ..addBuilderFactory(
+        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Room),
+        SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder.new,
+      )
+      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Room.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarPostAvatarResponseApplicationJson),
         TempAvatarPostAvatarResponseApplicationJsonBuilder.new,
@@ -45431,47 +44262,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecretBuilder.new)
       ..add(BotWithDetailsAndSecret.serializer)
-      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
-      ..add(FederationInvite.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0Builder.new)
       ..add(PublicCapabilities0.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed), PublicCapabilities0_SpreedBuilder.new)
-      ..add(PublicCapabilities0_Spreed.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config),
-        PublicCapabilities0_Spreed_ConfigBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Attachments),
-        PublicCapabilities0_Spreed_Config_AttachmentsBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Attachments.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Call),
-        PublicCapabilities0_Spreed_Config_CallBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Call.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Chat),
-        PublicCapabilities0_Spreed_Config_ChatBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Chat.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Conversations),
-        PublicCapabilities0_Spreed_Config_ConversationsBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Conversations.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Previews),
-        PublicCapabilities0_Spreed_Config_PreviewsBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Previews.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities0_Spreed_Config_Signaling),
-        PublicCapabilities0_Spreed_Config_SignalingBuilder.new,
-      )
-      ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..add($bc4aac45771b11649d372f39a92b1cf3Extension._serializer))
     .build();
 
@@ -45486,10 +44278,12 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
       ..addPlugin(
         _i7.StandardJsonPlugin(
           typesToLeaveAsList: const {
-            _$e620970959f428e934829e52f32b7089,
-            _$bd993fb3f40af33e8594d0d698208560,
             _$b2c4857c0136baea42828d89c87c757d,
+            _$4b3c240037cf48d36f81308e641eef98,
+            _$bed8482b7c93ae2974fa4be6ae42b9b1,
             _$1df642f5035aea3b22543ab331c3fb01,
+            _$bd993fb3f40af33e8594d0d698208560,
+            _$973dc40faeda3fa3aa7e7b9895ee7a34,
             _$bc4aac45771b11649d372f39a92b1cf3,
           },
         ),

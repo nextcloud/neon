@@ -9,7 +9,7 @@
 
 /// files_trashbin Version: 0.0.1.
 ///
-/// This application enables users to restore files that were deleted from the system.
+/// This application enables people to restore files that were deleted from the system.
 ///
 /// Use of this source code is governed by a agpl license.
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.

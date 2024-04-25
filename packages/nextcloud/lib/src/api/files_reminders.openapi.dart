@@ -75,7 +75,7 @@ class $ApiClient {
   ///
   /// Status codes:
   ///   * 200: Reminder returned
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///
   /// See:
   ///  * [$get] for a method executing this request and parsing the response.
@@ -138,7 +138,7 @@ class $ApiClient {
   ///
   /// Status codes:
   ///   * 200: Reminder returned
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///
   /// See:
   ///  * [$$get_Request] for the request send by this method.
@@ -185,7 +185,7 @@ class $ApiClient {
   ///   * 200: Reminder updated
   ///   * 201: Reminder created successfully
   ///   * 400: Creating reminder is not possible
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///   * 404: File not found
   ///
   /// See:
@@ -257,7 +257,7 @@ class $ApiClient {
   ///   * 200: Reminder updated
   ///   * 201: Reminder created successfully
   ///   * 400: Creating reminder is not possible
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///   * 404: File not found
   ///
   /// See:
@@ -304,7 +304,7 @@ class $ApiClient {
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///   * 404: Reminder not found
   ///
   /// See:
@@ -368,7 +368,7 @@ class $ApiClient {
   ///
   /// Status codes:
   ///   * 200: Reminder deleted successfully
-  ///   * 401: User not found
+  ///   * 401: Account not found
   ///   * 404: Reminder not found
   ///
   /// See:

@@ -387,6 +387,8 @@ void main() {
             ..capabilities = (
               // We need to provide at least one capability because anyOf expects at least one schema to match
               commentsCapabilities: core.CommentsCapabilities((b) => b..files.update((b) => b..comments = true)),
+              coreCapabilities: null,
+              corePublicCapabilities: null,
               davCapabilities: null,
               dropAccountCapabilities: capabilities,
               filesCapabilities: null,
@@ -397,6 +399,7 @@ void main() {
               notificationsCapabilities: null,
               provisioningApiCapabilities: null,
               sharebymailCapabilities: null,
+              spreedCapabilities: null,
               spreedPublicCapabilities: null,
               systemtagsCapabilities: null,
               themingPublicCapabilities: null,

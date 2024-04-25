@@ -2608,6 +2608,7 @@ abstract interface class $TemplateFileCreatorInterface {
   @BuiltValueField(wireName: 'extension')
   String get $extension;
   String? get iconClass;
+  String? get iconSvgInline;
   BuiltList<String> get mimetypes;
   double? get ratio;
   String get actionLabel;
@@ -3512,6 +3513,8 @@ abstract interface class $Capabilities_FilesInterface {
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
+  @BuiltValueField(wireName: 'forbidden_filename_characters')
+  BuiltList<String> get forbiddenFilenameCharacters;
   Capabilities_Files_DirectEditing get directEditing;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesInterfaceBuilder b) {}

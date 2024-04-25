@@ -66,6 +66,12 @@ void main() {
           expect(() => response.headers, isA<void>());
 
           expect(response.body.ocs.data.capabilities.commentsCapabilities, isNotNull);
+          expect(response.body.ocs.data.capabilities.coreCapabilities, isNotNull);
+          expect(
+            response.body.ocs.data.capabilities.corePublicCapabilities,
+            isNotNull,
+            skip: preset.version < Version(27, 1, 0),
+          );
           expect(response.body.ocs.data.capabilities.davCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.dropAccountCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.filesCapabilities, isNotNull);

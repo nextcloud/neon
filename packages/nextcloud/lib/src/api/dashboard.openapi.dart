@@ -274,7 +274,7 @@ class $DashboardApiClient {
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [limit] Limit number of result items per widget, not more than 30 are allowed. Defaults to `7`.
   ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -346,7 +346,7 @@ class $DashboardApiClient {
   ///
   /// Parameters:
   ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
+  ///   * [limit] Limit number of result items per widget, not more than 30 are allowed. Defaults to `7`.
   ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///

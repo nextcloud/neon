@@ -1,0 +1,12 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/CoreCapabilities/properties/core/required",
+    "value": [
+      "pollinterval",
+      "webdav-root",
+      "reference-api",
+      "reference-regex"
+    ]
+  }
+]

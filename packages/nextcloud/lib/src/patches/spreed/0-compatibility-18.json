@@ -1,0 +1,14 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Capabilities/properties/config/required",
+    "value": [
+      "attachments",
+      "call",
+      "chat",
+      "conversations",
+      "previews",
+      "signaling"
+    ]
+  }
+]

@@ -53,6 +53,9 @@ function generate_spec() {
 
 for spec in /tmp/nextcloud-neon/*.openapi.json; do
   name="$(basename "$spec" | cut -d "." -f 1)"
+  if [[ "$name" == "core" ]]; then
+    continue;
+  fi
   dir="packages/nextcloud/lib/src/patches/$name"
   if [ -d "$dir" ]; then
     for patch in "$dir/"*; do
@@ -79,3 +82,7 @@ jq \
   /tmp/nextcloud-neon/core.openapi.json \
   /tmp/nextcloud-neon/merged.json \
   > packages/nextcloud/lib/src/api/core.openapi.json
+
+for patch in "packages/nextcloud/lib/src/patches/core/"*; do
+  jsonpatch --indent 4 --in-place packages/nextcloud/lib/src/api/core.openapi.json "$patch"
+done

@@ -8,7 +8,7 @@ import 'package:version/version.dart';
 final minVersion = Version(27, 0, 0);
 
 /// Maximum major of core/Server supported
-const maxMajor = 28;
+const maxMajor = 29;
 
 extension CoreVersionCheck on core.$Client {
   /// Check if the core/Server version is supported by this client

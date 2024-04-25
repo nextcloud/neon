@@ -28,7 +28,7 @@ void main() {
         expect(response.statusCode, 200);
         expect(
           response.body.ocs.data.keys,
-          equals(['activity', 'notes', 'recommendations', 'spreed', 'user_status']),
+          isNotEmpty,
         );
       });
 

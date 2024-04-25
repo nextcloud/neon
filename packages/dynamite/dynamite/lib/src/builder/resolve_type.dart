@@ -145,7 +145,7 @@ TypeResult _resolveType(
 
     case openapi.Schema(type: openapi.SchemaType.array):
       final TypeResult subResult;
-      if (schema.maxLength == 0) {
+      if (schema.maxItems == 0) {
         subResult = TypeResultBase('Never');
       } else if (schema.items != null) {
         subResult = resolveType(

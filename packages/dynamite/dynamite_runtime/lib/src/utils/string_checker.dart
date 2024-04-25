@@ -9,18 +9,22 @@ void checkPattern(String? input, RegExp pattern, String parameterName) {
 
 /// Checks the [input] length against [minLength].
 ///
-/// Throws an `Exception` containing the [parameterName] if the `input` is to short.
+/// Throws an `Exception` containing the [parameterName] if the `input` is too short.
 void checkMinLength(String? input, int minLength, String parameterName) {
   if (input != null && input.length < minLength) {
-    throw FormatException('Parameter "$input" has to be at least $minLength characters long');
+    throw FormatException(
+      'Parameter "$parameterName" has to be at least $minLength characters long but was ${input.length} long',
+    );
   }
 }
 
 /// Checks the [input] length against [maxLength].
 ///
-/// Throws an `Exception` containing the [parameterName] if the `input` is to long.
+/// Throws an `Exception` containing the [parameterName] if the `input` is too long.
 void checkMaxLength(String? input, int maxLength, String parameterName) {
   if (input != null && input.length > maxLength) {
-    throw FormatException('Parameter "$input" has to be at most $maxLength characters long');
+    throw FormatException(
+      'Parameter "$parameterName" has to be at most $maxLength characters long but was ${input.length} long',
+    );
   }
 }
