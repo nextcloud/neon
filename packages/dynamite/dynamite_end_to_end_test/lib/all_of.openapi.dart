@@ -249,20 +249,12 @@ abstract interface class $SuperObjectInterface {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($SuperObjectInterfaceBuilder b) {
-    _i1.checkPattern(
+    _i1.checkString(
       b.value,
-      RegExp(r'^[0-9]*$'),
       'value',
-    );
-    _i1.checkMinLength(
-      b.value,
-      3,
-      'value',
-    );
-    _i1.checkMaxLength(
-      b.value,
-      20,
-      'value',
+      pattern: RegExp(r'^[0-9]*$'),
+      minLength: 3,
+      maxLength: 20,
     );
   }
 }

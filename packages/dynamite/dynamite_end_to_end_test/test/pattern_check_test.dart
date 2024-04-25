@@ -1,3 +1,4 @@
+import 'package:built_value/json_object.dart';
 import 'package:dynamite_end_to_end_test/pattern_check.openapi.dart';
 import 'package:test/test.dart';
 
@@ -67,6 +68,20 @@ void main() {
       expect(() => object.rebuild((b) => b..arrayMultipleChecks.replace([0, 1])), throwsA(isA<FormatException>()));
       expect(
         () => object.rebuild((b) => b..arrayMultipleChecks.replace(List.generate(30, (i) => i))),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('JsonObject', () {
+      final object = TestObjectUnspecified();
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject(['value'])),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject('Text')),
         throwsA(isA<FormatException>()),
       );
     });

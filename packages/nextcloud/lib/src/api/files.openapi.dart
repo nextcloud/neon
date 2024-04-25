@@ -107,10 +107,10 @@ class $ApiClient {
     _parameters['y'] = $y;
 
     final $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $file as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $file,
       'file',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['file'] = $file;
 
