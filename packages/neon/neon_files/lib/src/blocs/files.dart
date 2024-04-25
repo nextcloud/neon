@@ -11,7 +11,6 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
@@ -239,14 +238,17 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   Future<Uint8List> downloadMemory(PathUri uri) async {
     final task = FilesDownloadTaskMemory(uri: uri);
+
     // We need to listen to the stream, otherwise it will get stuck.
-    final future = task.stream.bytes;
+    final buffer = BytesBuilder(copy: false);
+    final future = task.stream.forEach(buffer.add);
 
     tasks.add(tasks.value.rebuild((b) => b.add(task)));
     await downloadQueue.add(() => task.execute(account.client));
     tasks.add(tasks.value.rebuild((b) => b.remove(task)));
 
-    return future;
+    await future;
+    return buffer.toBytes();
   }
 
   @override

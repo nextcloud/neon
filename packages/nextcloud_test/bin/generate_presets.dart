@@ -1,7 +1,8 @@
+import 'package:dynamite_runtime/utils.dart';
+import 'package:http/http.dart' as http;
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/app.dart';
-import 'package:universal_io/io.dart';
+import 'package:universal_io/io.dart' show Directory, File, Link;
 import 'package:version/version.dart';
 
 Future<void> main() async {
@@ -13,7 +14,7 @@ Future<void> main() async {
     'drop_account',
   ];
 
-  final httpClient = HttpClient();
+  final httpClient = http.Client();
 
   final serverVersions = await _getServerVersions(httpClient);
   serverVersions.sort((a, b) => b.compareTo(a));
@@ -76,22 +77,23 @@ Future<void> main() async {
     latestPresetLink.createSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
   }
 
-  httpClient.close(force: true);
+  httpClient.close();
 }
 
-Future<List<Version>> _getServerVersions(HttpClient httpClient) async {
+Future<List<Version>> _getServerVersions(http.Client httpClient) async {
   final versions = <Version, Version>{};
   String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
   while (next != null) {
-    final request = await httpClient.openUrl('GET', Uri.parse(next));
+    final request = http.Request('GET', Uri.parse(next));
 
-    final response = await request.close();
+    final response = await httpClient.send(request);
     if (response.statusCode != 200) {
       throw Exception('Unable to get server versions, status code: ${response.statusCode}');
     }
 
-    final data = (await response.json)! as Map<String, dynamic>;
+    final encoding = encodingForHeaders(response.headers);
+    final data = (await response.stream.bytesToJson(encoding))! as Map<String, dynamic>;
     next = data['next'] as String?;
 
     final results = data['results'] as List;
@@ -118,17 +120,17 @@ Future<List<Version>> _getServerVersions(HttpClient httpClient) async {
   return versions.values.toList();
 }
 
-Future<List<App>> _getApps(List<String> appIDs, HttpClient httpClient) async {
+Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
   final apps = <App>[];
 
-  final request = await httpClient.openUrl('GET', Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'));
-
-  final response = await request.close();
+  final request = http.Request('GET', Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'));
+  final response = await httpClient.send(request);
   if (response.statusCode != 200) {
     throw Exception('Unable to get apps, status code: ${response.statusCode}');
   }
 
-  final appsItems = (await response.json)! as List;
+  final encoding = encodingForHeaders(response.headers);
+  final appsItems = (await response.stream.bytesToJson(encoding))! as List;
   for (final appItem in appsItems) {
     final app = appItem as Map<String, dynamic>;
     final id = app['id'] as String;
