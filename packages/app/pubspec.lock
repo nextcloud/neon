@@ -311,7 +311,7 @@ packages:
       path: "../dynamite/dynamite_runtime"
       relative: true
     source: path
-    version: "0.2.0"
+    version: "0.3.0"
   emoji_picker_flutter:
     dependency: transitive
     description:
@@ -825,7 +825,7 @@ packages:
       path: "../nextcloud"
       relative: true
     source: path
-    version: "5.0.2"
+    version: "6.0.0"
   open_filex:
     dependency: transitive
     description:

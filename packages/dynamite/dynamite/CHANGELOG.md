@@ -1,3 +1,42 @@
+## 0.3.0
+
+> Note: This release has breaking changes.
+
+ - **REFACTOR**(dynamite): externalize url path generation. ([c42e100c](https://github.com/nextcloud/neon/commit/c42e100cf307f8a456c98ff0df5dfc5d71c0db25))
+ - **REFACTOR**(dynamite): use logger to display warnings. ([4fb4ce3a](https://github.com/nextcloud/neon/commit/4fb4ce3a14d993ace352e8ca3374bb12d6b5475f))
+ - **REFACTOR**: Stop using spread list operator. ([bb8a2965](https://github.com/nextcloud/neon/commit/bb8a29651b371166131e8254afa36550802c8f8a))
+ - **REFACTOR**(dynamite): deduplicate object interface generation. ([13f783cf](https://github.com/nextcloud/neon/commit/13f783cf8a3f08e5e29f8f43cbf7f98784753440))
+ - **REFACTOR**(dynamite): unify allOf and object generation. ([fb84f5a6](https://github.com/nextcloud/neon/commit/fb84f5a6574678490b732115cd8d338c75233282))
+ - **REFACTOR**(dynamite): move defaults and validation methods to the interface. ([f2c6a174](https://github.com/nextcloud/neon/commit/f2c6a174f7b42ead486ad5f2c941bfe1e526f222))
+ - **REFACTOR**(dynamite): directly write to the code body StringBuffer. ([ea9e05cb](https://github.com/nextcloud/neon/commit/ea9e05cbc17716c3599c69570272ba7bb42706b0))
+ - **REFACTOR**(dynamite): prefer using allocator over an emitter. ([61fa838b](https://github.com/nextcloud/neon/commit/61fa838bfdfd1cf601b250a62d5d3e28b5bc303b))
+ - **REFACTOR**(dynamite): externalize response type resolving. ([a16cc4b1](https://github.com/nextcloud/neon/commit/a16cc4b176cbb4135113a2cddcc6ff2d389793f9))
+ - **REFACTOR**(dynamite): split mimetype resolving and parameter generation. ([db32d953](https://github.com/nextcloud/neon/commit/db32d953e987d619457e91555d1a61d3ed39599b))
+ - **REFACTOR**(dynamite): split parameter resolving and generation. ([c68be1d0](https://github.com/nextcloud/neon/commit/c68be1d071dbd71838a786d9b39cd00a82829419))
+ - **REFACTOR**(dynamite): prefer using TypeReference over emitter. ([afdb0841](https://github.com/nextcloud/neon/commit/afdb0841a3935e35d1d3eb2d8dcbe069d5e80856))
+ - **REFACTOR**(dynamite_runtime): rework DynamiteRawResponse. ([e7f2f351](https://github.com/nextcloud/neon/commit/e7f2f351057f90ab83d18af63684b7c50e617855))
+ - **PERF**(dynamite): use memoization for for better performance. ([b25c4089](https://github.com/nextcloud/neon/commit/b25c408935c537e9d590080b34f1194ed8ac319b))
+ - **FIX**(dynamite): json schema reference resolving. ([a3c55c16](https://github.com/nextcloud/neon/commit/a3c55c16a3f84793b39e53c24d6191ea6d092a4e))
+ - **FIX**(dynamite): append `_test` to test file names. ([3e661503](https://github.com/nextcloud/neon/commit/3e6615037c74fe9f6d18379c61addcea2cca46b4))
+ - **FIX**(dynamite): always require content for a request body. ([a5388620](https://github.com/nextcloud/neon/commit/a5388620eb55db4d62525e12cc8616af0cbeb896))
+ - **FIX**(dynamite): inherrit _defaults and _validate hooks in allOf. ([af959dbf](https://github.com/nextcloud/neon/commit/af959dbf7c6cd495124adbe5ca0fa3670ffea54a))
+ - **FIX**(dynamite): allow boolean values for Schema.additionalProperties. ([3266d742](https://github.com/nextcloud/neon/commit/3266d742c221d63e14db4e6abee06c278383161b))
+ - **FIX**(dynamite): recursively use  for generic in TypeResult.dartType. ([fb14a15d](https://github.com/nextcloud/neon/commit/fb14a15d8aa373f2117b881ff6382cee312028eb))
+ - **FIX**(dynamite): more resilient doc comment generation. ([e09495f8](https://github.com/nextcloud/neon/commit/e09495f82916a17ddf827441427f6c8b718799c3))
+ - **FIX**(dynamite): build config to allow built_value_generator running inside dynamite. ([83e66243](https://github.com/nextcloud/neon/commit/83e6624378c79d534e6e3440721e48e7a9e518f7))
+ - **FIX**(dynamite): only allow a single contenttype for parameters. ([e7b503dd](https://github.com/nextcloud/neon/commit/e7b503dd1c0a88c5b95a853d6f43a46e9fdc97e1))
+ - **FEAT**(dynamite_runtime): add dynamite serializer. ([187e0cee](https://github.com/nextcloud/neon/commit/187e0cee717cfdd917c302a5b536fb65a55073d8))
+ - **FEAT**(dynamite_runtime): use http.Request in generated code. ([c9d0b243](https://github.com/nextcloud/neon/commit/c9d0b243accd8d70601260797c5168f09ef61ee7))
+ - **FEAT**(dynamite): Remove need for double fix and format. ([3f159419](https://github.com/nextcloud/neon/commit/3f159419e43e547bdd47d2158604c441982977a6))
+ - **FEAT**(dynamite): allow escaping reserved method names. ([aa19a9a4](https://github.com/nextcloud/neon/commit/aa19a9a444aca6798075d3d2f70d573abc6babaa))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Always send cookies for all requests. ([e37b7753](https://github.com/nextcloud/neon/commit/e37b775314601e9281d7336939e4b1eb95b98b55))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Remove executeRequest and executeRawRequest methods. ([eb9e018c](https://github.com/nextcloud/neon/commit/eb9e018c8b12135537268b22566e1eb9518541ed))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): validate status code in the dynamite serializer. ([bc6f7d9f](https://github.com/nextcloud/neon/commit/bc6f7d9fb622ee803a2f8df203e43bdae890d5f7))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime,nextcloud): generated clients no longer implement http.Client. ([392e18fa](https://github.com/nextcloud/neon/commit/392e18faa6bb1ba72f22a56184ba0c43ef6b28d4))
+ - **BREAKING** **FIX**(dynamite): Use maxItems instead of maxLength to optimize arrays. ([57d8df40](https://github.com/nextcloud/neon/commit/57d8df4046b2661f850fa4a15dc5f89c313bbfb8))
+ - **BREAKING** **FIX**(dynamite,nextcloud): escape http methods as reserved method names. ([48233c58](https://github.com/nextcloud/neon/commit/48233c58638da047ca1a6216ecc44d7dd363f77e))
+ - **BREAKING** **FEAT**(dynamite): Show field names in oneOf/anyOf validation errors. ([9d236ebc](https://github.com/nextcloud/neon/commit/9d236ebce59da3b9c0e85f2765df36a0ab9f6445))
+
 ## 0.2.0
 
 > Note: This release has breaking changes.
