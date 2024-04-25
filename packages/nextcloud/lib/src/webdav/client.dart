@@ -4,7 +4,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:nextcloud/src/client.dart';
 import 'package:nextcloud/src/webdav/csrf_client.dart';
@@ -275,7 +274,13 @@ class WebDavClient {
   }
 
   /// Gets the content of the file at [path].
-  Future<Uint8List> get(PathUri path) async => getStream(path).bytes;
+  Future<Uint8List> get(PathUri path) async {
+    final buffer = BytesBuilder(copy: false);
+
+    await getStream(path).forEach(buffer.add);
+
+    return buffer.toBytes();
+  }
 
   /// Gets the content of the file at [path].
   Stream<List<int>> getStream(
