@@ -15,7 +15,7 @@ import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 
 /// Creates an adaptive bottom sheet to select an action to add a file.
 class FilesChooseCreateModal extends StatefulWidget {
