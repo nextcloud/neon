@@ -12,6 +12,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';

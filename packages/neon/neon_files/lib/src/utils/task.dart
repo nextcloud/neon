@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 

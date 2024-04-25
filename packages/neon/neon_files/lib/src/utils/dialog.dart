@@ -8,7 +8,7 @@ import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_files/src/widgets/dialog.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 
 /// Displays a [FilesCreateFolderDialog] for creating a new folder.
 ///

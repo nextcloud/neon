@@ -1,5 +1,5 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/src/presets.dart';
 // ignore: implementation_imports
 import 'package:test_api/src/backend/invoker.dart';
