@@ -117,10 +117,10 @@ packages:
     dependency: transitive
     description:
       name: camera_avfoundation
-      sha256: "9dbbb253aaf201a69c40cf95571f366ca936305d2de012684e21f6f1b1433d31"
+      sha256: "7d021e8cd30d9b71b8b92b4ad669e80af432d722d18d6aac338572754a786c15"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.15+4"
+    version: "0.9.16"
   camera_platform_interface:
     dependency: transitive
     description:
@@ -527,10 +527,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: "771c8feb40ad0ef639973d7ecf1b43d55ffcedb2207fd43fab030f5639e40446"
+      sha256: "28ef8a8320ab3bf5752424e6bca6961ce25108afc344f3127b5155caf7a792c8"
       url: "https://pub.dev"
     source: hosted
-    version: "13.2.4"
+    version: "14.0.0"
   hotreloader:
     dependency: transitive
     description:
@@ -671,10 +671,10 @@ packages:
     dependency: transitive
     description:
       name: json_annotation
-      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
       url: "https://pub.dev"
     source: hosted
-    version: "4.8.1"
+    version: "4.9.0"
   leak_tracker:
     dependency: transitive
     description:
