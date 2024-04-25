@@ -8,6 +8,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   cookie_jar: ^4.0.8
+  dynamite_runtime: ^0.2.0
   http: ^1.2.0
   meta: ^1.0.0
   nextcloud: ^5.0.2
