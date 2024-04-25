@@ -20,7 +20,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_material_design_icons: ^1.0.0
-  go_router: ^13.0.0
+  go_router: ^14.0.0
   image_picker: ^1.0.0
   intl: ^0.18.0
   logging: ^1.0.0
