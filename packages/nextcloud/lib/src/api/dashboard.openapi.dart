@@ -182,6 +182,12 @@ class $DashboardApiClient {
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
+    _i4.checkNumber(
+      $limit,
+      'limit',
+      maximum: 30,
+      minimum: 1,
+    );
     _parameters['limit'] = $limit;
 
     var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
@@ -302,6 +308,12 @@ class $DashboardApiClient {
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
+    _i4.checkNumber(
+      $limit,
+      'limit',
+      maximum: 30,
+      minimum: 1,
+    );
     _parameters['limit'] = $limit;
 
     var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));

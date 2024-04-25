@@ -56,6 +56,34 @@
                         "items": {
                             "type": "integer"
                         }
+                    },
+                    "multipleOf": {
+                        "type": "number",
+                        "multipleOf": 0
+                    },
+                    "maximum": {
+                        "type": "number",
+                        "maximum": 0
+                    },
+                    "exclusiveMaximum": {
+                        "type": "number",
+                        "exclusiveMaximum": 0
+                    },
+                    "minimum": {
+                        "type": "number",
+                        "minimum": 0
+                    },
+                    "exclusiveMinimum": {
+                        "type": "number",
+                        "exclusiveMinimum": 0
+                    },
+                    "number-multiple-checks": {
+                        "type": "number",
+                        "multipleOf": 1,
+                        "maximum": 0,
+                        "exclusiveMaximum": 0.1,
+                        "minimum": 0,
+                        "exclusiveMinimum": -0.1
                     }
                 }
             },
@@ -68,7 +96,12 @@
                         "pattern": "^[0-9]*$",
                         "minLength": 3,
                         "maxLength": 20,
-                        "unique": true
+                        "unique": true,
+                        "multipleOf": 1,
+                        "maximum": 0,
+                        "exclusiveMaximum": 0,
+                        "minimum": 0,
+                        "exclusiveMinimum": 0
                     }
                 }
             }

@@ -72,6 +72,26 @@ void main() {
       );
     });
 
+    test('multipleOf', () {
+      expect(() => object.rebuild((b) => b..multipleOf = 1.5), throwsA(isA<FormatException>()));
+    });
+
+    test('maximum', () {
+      expect(() => object.rebuild((b) => b..maximum = 0.1), throwsA(isA<FormatException>()));
+    });
+
+    test('exclusiveMaximum', () {
+      expect(() => object.rebuild((b) => b..exclusiveMaximum = 0.2), throwsA(isA<FormatException>()));
+    });
+
+    test('minimum', () {
+      expect(() => object.rebuild((b) => b..minimum = -0.1), throwsA(isA<FormatException>()));
+    });
+
+    test('exclusiveMinimum', () {
+      expect(() => object.rebuild((b) => b..exclusiveMinimum = -0.2), throwsA(isA<FormatException>()));
+    });
+
     test('JsonObject', () {
       final object = TestObjectUnspecified();
 
@@ -82,6 +102,11 @@ void main() {
 
       expect(
         () => object.rebuild((b) => b..value = JsonObject('Text')),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject(0)),
         throwsA(isA<FormatException>()),
       );
     });

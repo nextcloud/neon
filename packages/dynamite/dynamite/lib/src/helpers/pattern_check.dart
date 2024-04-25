@@ -43,4 +43,29 @@ Iterable<Expression> buildPatternCheck(
       });
     }
   }
+
+  if (schema is NumberValidator) {
+    final multipleOf = schema.multipleOf;
+    final maximum = schema.maximum;
+    final exclusiveMaximum = schema.exclusiveMaximum;
+    final minimum = schema.minimum;
+    final exclusiveMinimum = schema.exclusiveMinimum;
+
+    if (multipleOf != null ||
+        maximum != null ||
+        exclusiveMaximum != null ||
+        minimum != null ||
+        exclusiveMinimum != null) {
+      yield refer('checkNumber', 'package:dynamite_runtime/utils.dart').call([
+        valueReference,
+        valueName,
+      ], {
+        if (multipleOf != null) 'multipleOf': literalNum(multipleOf),
+        if (maximum != null) 'maximum': literalNum(maximum),
+        if (exclusiveMaximum != null) 'exclusiveMaximum': literalNum(exclusiveMaximum),
+        if (minimum != null) 'minimum': literalNum(minimum),
+        if (exclusiveMinimum != null) 'exclusiveMinimum': literalNum(exclusiveMinimum),
+      });
+    }
+  }
 }

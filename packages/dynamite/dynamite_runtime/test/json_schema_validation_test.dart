@@ -41,5 +41,40 @@ void main() {
         throwsA(isA<FormatException>()),
       );
     });
+
+    test('Number', () {
+      checkNumber(true, 'value', multipleOf: 1, maximum: 0, exclusiveMaximum: 0, minimum: 0, exclusiveMinimum: 0);
+      checkNumber(null, 'value', multipleOf: 1, maximum: 0, exclusiveMaximum: 0, minimum: 0, exclusiveMinimum: 0);
+      checkNumber(
+        JsonObject(0),
+        'value',
+        multipleOf: 1,
+        maximum: 0,
+        exclusiveMaximum: 1,
+        minimum: 0,
+        exclusiveMinimum: -1,
+      );
+
+      expect(
+        () => checkNumber(1.5, 'value', multipleOf: 1),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => checkNumber(0.1, 'value', maximum: 0),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => checkNumber(0, 'value', exclusiveMaximum: 0),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => checkNumber(-0.1, 'value', minimum: 0),
+        throwsA(isA<FormatException>()),
+      );
+      expect(
+        () => checkNumber(0, 'value', exclusiveMinimum: 0),
+        throwsA(isA<FormatException>()),
+      );
+    });
   });
 }

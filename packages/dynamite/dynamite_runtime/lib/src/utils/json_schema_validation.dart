@@ -94,3 +94,46 @@ void checkIterable(
     }
   }
 }
+
+/// Checks the [input] against the given Number validators.
+///
+/// Throws an `FormatException` when the input is not:
+///   * divisible by [multipleOf]
+///   * smaller than or equal to [maximum]
+///   * smaller than [exclusiveMaximum]
+///   * bigger than or equal to [minimum]
+///   * bigger than [exclusiveMinimum]
+void checkNumber(
+  dynamic input,
+  String parameterName, {
+  num? multipleOf,
+  num? maximum,
+  num? exclusiveMaximum,
+  num? minimum,
+  num? exclusiveMinimum,
+}) {
+  num value;
+  if (input is JsonObject && input.isNum) {
+    value = input.asNum;
+  } else if (input is num) {
+    value = input;
+  } else {
+    return;
+  }
+
+  if (multipleOf != null && value % multipleOf != 0) {
+    throw FormatException('Parameter "$parameterName" must be a multiple of $multipleOf');
+  }
+  if (maximum != null && value > maximum) {
+    throw FormatException('Parameter "$parameterName" must smaller than or equal to $maximum');
+  }
+  if (exclusiveMaximum != null && value >= exclusiveMaximum) {
+    throw FormatException('Parameter "$parameterName" must smaller than $parameterName');
+  }
+  if (minimum != null && value < minimum) {
+    throw FormatException('Parameter "$parameterName" must bigger than or equal to $minimum');
+  }
+  if (exclusiveMinimum != null && value <= exclusiveMinimum) {
+    throw FormatException('Parameter "$parameterName" must bigger than $exclusiveMinimum');
+  }
+}
