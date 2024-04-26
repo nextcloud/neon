@@ -60,13 +60,13 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
     if (value != null) {
       result
         ..add('array-unique')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(int)])));
     }
     value = object.arrayMultipleChecks;
     if (value != null) {
       result
         ..add('array-multiple-checks')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(int)])));
     }
     value = object.multipleOf;
     if (value != null) {
@@ -141,11 +141,11 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
           break;
         case 'array-unique':
           result.arrayUnique.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltSet, [FullType(int)]))! as BuiltSet<Object?>);
           break;
         case 'array-multiple-checks':
           result.arrayMultipleChecks.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltSet, [FullType(int)]))! as BuiltSet<Object?>);
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -234,11 +234,11 @@ abstract mixin class $TestObjectInterfaceBuilder {
   ListBuilder<int> get maxItems;
   set maxItems(ListBuilder<int>? maxItems);
 
-  ListBuilder<int> get arrayUnique;
-  set arrayUnique(ListBuilder<int>? arrayUnique);
+  SetBuilder<int> get arrayUnique;
+  set arrayUnique(SetBuilder<int>? arrayUnique);
 
-  ListBuilder<int> get arrayMultipleChecks;
-  set arrayMultipleChecks(ListBuilder<int>? arrayMultipleChecks);
+  SetBuilder<int> get arrayMultipleChecks;
+  set arrayMultipleChecks(SetBuilder<int>? arrayMultipleChecks);
 
   num? get multipleOf;
   set multipleOf(num? multipleOf);
@@ -273,9 +273,9 @@ class _$TestObject extends TestObject {
   @override
   final BuiltList<int>? maxItems;
   @override
-  final BuiltList<int>? arrayUnique;
+  final BuiltSet<int>? arrayUnique;
   @override
-  final BuiltList<int>? arrayMultipleChecks;
+  final BuiltSet<int>? arrayMultipleChecks;
   @override
   final num? multipleOf;
   @override
@@ -404,13 +404,13 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
   ListBuilder<int> get maxItems => _$this._maxItems ??= ListBuilder<int>();
   set maxItems(covariant ListBuilder<int>? maxItems) => _$this._maxItems = maxItems;
 
-  ListBuilder<int>? _arrayUnique;
-  ListBuilder<int> get arrayUnique => _$this._arrayUnique ??= ListBuilder<int>();
-  set arrayUnique(covariant ListBuilder<int>? arrayUnique) => _$this._arrayUnique = arrayUnique;
+  SetBuilder<int>? _arrayUnique;
+  SetBuilder<int> get arrayUnique => _$this._arrayUnique ??= SetBuilder<int>();
+  set arrayUnique(covariant SetBuilder<int>? arrayUnique) => _$this._arrayUnique = arrayUnique;
 
-  ListBuilder<int>? _arrayMultipleChecks;
-  ListBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= ListBuilder<int>();
-  set arrayMultipleChecks(covariant ListBuilder<int>? arrayMultipleChecks) =>
+  SetBuilder<int>? _arrayMultipleChecks;
+  SetBuilder<int> get arrayMultipleChecks => _$this._arrayMultipleChecks ??= SetBuilder<int>();
+  set arrayMultipleChecks(covariant SetBuilder<int>? arrayMultipleChecks) =>
       _$this._arrayMultipleChecks = arrayMultipleChecks;
 
   num? _multipleOf;

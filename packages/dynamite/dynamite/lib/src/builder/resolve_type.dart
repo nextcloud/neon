@@ -160,8 +160,9 @@ TypeResult _resolveType(
       }
 
       return TypeResultList(
-        'BuiltList',
+        schema.uniqueItems ? 'BuiltSet' : 'BuiltList',
         subResult,
+        builderName: schema.uniqueItems ? 'SetBuilder' : 'ListBuilder',
         nullable: nullable,
       );
 
