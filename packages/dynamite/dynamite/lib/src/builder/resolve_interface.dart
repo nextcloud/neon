@@ -227,15 +227,24 @@ void _generateProperty(
     ),
   );
 
-  // TODO: memoize the default value for improved performance
-  var $default = schema.$default;
+  final $default = schema.$default;
   if ($default != null) {
-    $default = result.deserialize($default);
+    b.fields.add(
+      Field((b) {
+        b
+          ..name = '_\$$name'
+          ..modifier = FieldModifier.final$
+          ..static = true
+          ..assignment = Code(
+            result.deserialize($default),
+          );
+      }),
+    );
 
     if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
-      defaults.writeln('b.$dartName = ${$default};');
+      defaults.writeln('b.$dartName = _\$$name;');
     } else {
-      defaults.writeln('b.$dartName.replace(${$default});');
+      defaults.writeln('b.$dartName.replace(_\$$name);');
     }
   }
 

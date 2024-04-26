@@ -94,6 +94,76 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
 @BuiltValue(instantiable: false)
 abstract interface class $DefaultsInterface {
+  static final _$$bool = _$jsonSerializers.deserialize(
+    true,
+    specifiedType: const FullType(bool),
+  )! as bool;
+
+  static final _$integer = _$jsonSerializers.deserialize(
+    1,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$$double = _$jsonSerializers.deserialize(
+    1.0,
+    specifiedType: const FullType(double),
+  )! as double;
+
+  static final _$$num = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(num),
+  )! as num;
+
+  static final _$string = _$jsonSerializers.deserialize(
+    'default',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$contentString = _$jsonSerializers.deserialize(
+    '1',
+    specifiedType: const FullType(ContentString, [FullType(int)]),
+  )! as ContentString<int>;
+
+  static final _$stringBinary = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(Uint8List),
+  )! as Uint8List;
+
+  static final _$list = _$jsonSerializers.deserialize(
+    const ['default-item', true, 1.0],
+    specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+  )! as BuiltList<JsonObject>;
+
+  static final _$listNever = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(Never)]),
+  )! as BuiltList<Never>;
+
+  static final _$listString = _$jsonSerializers.deserialize(
+    const ['default-item', 'item'],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  static final _$objectMap = _$jsonSerializers.deserialize(
+    const {
+      'list': ['list'],
+      'string': 'default-item',
+      'bool': true,
+      'num': 1.0,
+    },
+    specifiedType: const FullType(JsonObject),
+  )! as JsonObject;
+
+  static final _$objectArray = _$jsonSerializers.deserialize(
+    const ['default-item', true, 1.0],
+    specifiedType: const FullType(JsonObject),
+  )! as JsonObject;
+
+  static final _$objectBool = _$jsonSerializers.deserialize(
+    true,
+    specifiedType: const FullType(JsonObject),
+  )! as JsonObject;
+
   @BuiltValueField(wireName: 'bool')
   bool get $bool;
   int get integer;
@@ -119,71 +189,19 @@ abstract interface class $DefaultsInterface {
   JsonObject get objectBool;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DefaultsInterfaceBuilder b) {
-    b.$bool = _$jsonSerializers.deserialize(
-      true,
-      specifiedType: const FullType(bool),
-    )! as bool;
-    b.integer = _$jsonSerializers.deserialize(
-      1,
-      specifiedType: const FullType(int),
-    )! as int;
-    b.$double = _$jsonSerializers.deserialize(
-      1.0,
-      specifiedType: const FullType(double),
-    )! as double;
-    b.$num = _$jsonSerializers.deserialize(
-      0,
-      specifiedType: const FullType(num),
-    )! as num;
-    b.string = _$jsonSerializers.deserialize(
-      'default',
-      specifiedType: const FullType(String),
-    )! as String;
-    b.contentString.replace(
-      _$jsonSerializers.deserialize(
-        '1',
-        specifiedType: const FullType(ContentString, [FullType(int)]),
-      )! as ContentString<int>,
-    );
-    b.stringBinary = _$jsonSerializers.deserialize(
-      '',
-      specifiedType: const FullType(Uint8List),
-    )! as Uint8List;
-    b.list.replace(
-      _$jsonSerializers.deserialize(
-        const ['default-item', true, 1.0],
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>,
-    );
-    b.listNever.replace(
-      _$jsonSerializers.deserialize(
-        const [],
-        specifiedType: const FullType(BuiltList, [FullType(Never)]),
-      )! as BuiltList<Never>,
-    );
-    b.listString.replace(
-      _$jsonSerializers.deserialize(
-        const ['default-item', 'item'],
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      )! as BuiltList<String>,
-    );
-    b.objectMap = _$jsonSerializers.deserialize(
-      const {
-        'list': ['list'],
-        'string': 'default-item',
-        'bool': true,
-        'num': 1.0,
-      },
-      specifiedType: const FullType(JsonObject),
-    )! as JsonObject;
-    b.objectArray = _$jsonSerializers.deserialize(
-      const ['default-item', true, 1.0],
-      specifiedType: const FullType(JsonObject),
-    )! as JsonObject;
-    b.objectBool = _$jsonSerializers.deserialize(
-      true,
-      specifiedType: const FullType(JsonObject),
-    )! as JsonObject;
+    b.$bool = _$$bool;
+    b.integer = _$integer;
+    b.$double = _$$double;
+    b.$num = _$$num;
+    b.string = _$string;
+    b.contentString.replace(_$contentString);
+    b.stringBinary = _$stringBinary;
+    b.list.replace(_$list);
+    b.listNever.replace(_$listNever);
+    b.listString.replace(_$listString);
+    b.objectMap = _$objectMap;
+    b.objectArray = _$objectArray;
+    b.objectBool = _$objectBool;
   }
 
   @BuiltValueHook(finalizeBuilder: true)

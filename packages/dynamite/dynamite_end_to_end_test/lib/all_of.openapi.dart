@@ -236,13 +236,15 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
 @BuiltValue(instantiable: false)
 abstract interface class $SuperObjectInterface {
+  static final _$value = _$jsonSerializers.deserialize(
+    '123',
+    specifiedType: const FullType(String),
+  )! as String;
+
   String get value;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SuperObjectInterfaceBuilder b) {
-    b.value = _$jsonSerializers.deserialize(
-      '123',
-      specifiedType: const FullType(String),
-    )! as String;
+    b.value = _$value;
   }
 
   @BuiltValueHook(finalizeBuilder: true)
