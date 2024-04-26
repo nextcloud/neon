@@ -192,8 +192,6 @@ const _reservedNames = [
 
 bool _isNonAlphaNumericString(String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
 
-String toFieldName(String dartName, String type) => dartName == type ? '\$$dartName' : dartName;
-
 String toCamelCase(String name) {
   var result = '';
   var upperCase = false;

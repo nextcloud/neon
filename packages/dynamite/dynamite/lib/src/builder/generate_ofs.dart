@@ -77,8 +77,7 @@ Iterable<Spec> generateSomeOf(
   final fields = <TypeResult, String>{};
   for (final result in results) {
     final dartType = result.nullableName;
-    final dartName = toDartName(dartType);
-    fields[result] = toFieldName(dartName, result.className);
+    fields[result] = toDartName(dartType);
   }
 
   final values = Method((b) {
