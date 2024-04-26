@@ -884,7 +884,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -948,7 +948,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1095,7 +1095,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1159,7 +1159,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1308,7 +1308,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [groupId] ID of the group.
@@ -1383,7 +1383,7 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [groupId] ID of the group.
@@ -2194,7 +2194,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -2258,7 +2258,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -2307,13 +2307,13 @@ class $UsersClient {
   ///
   /// Parameters:
   ///   * [userid] ID of the user.
-  ///   * [password] Password of the user. Defaults to `''`.
-  ///   * [displayName] Display name of the user. Defaults to `''`.
-  ///   * [email] Email of the user. Defaults to `''`.
+  ///   * [password] Password of the user. Defaults to `""`.
+  ///   * [displayName] Display name of the user. Defaults to `""`.
+  ///   * [email] Email of the user. Defaults to `""`.
   ///   * [groups] Groups of the user. Defaults to `[]`.
   ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
-  ///   * [quota] Quota of the user. Defaults to `''`.
-  ///   * [language] Language of the user. Defaults to `''`.
+  ///   * [quota] Quota of the user. Defaults to `""`.
+  ///   * [language] Language of the user. Defaults to `""`.
   ///   * [manager] Manager of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2354,11 +2354,11 @@ class $UsersClient {
     _parameters['email'] = $email;
 
     var $groups = _$jsonSerializers.serialize(groups, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $groups ??= [];
+    $groups ??= const [];
     _parameters['groups%5B%5D'] = $groups;
 
     var $subadmin = _$jsonSerializers.serialize(subadmin, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $subadmin ??= [];
+    $subadmin ??= const [];
     _parameters['subadmin%5B%5D'] = $subadmin;
 
     var $quota = _$jsonSerializers.serialize(quota, specifiedType: const FullType(String));
@@ -2411,13 +2411,13 @@ class $UsersClient {
   ///
   /// Parameters:
   ///   * [userid] ID of the user.
-  ///   * [password] Password of the user. Defaults to `''`.
-  ///   * [displayName] Display name of the user. Defaults to `''`.
-  ///   * [email] Email of the user. Defaults to `''`.
+  ///   * [password] Password of the user. Defaults to `""`.
+  ///   * [displayName] Display name of the user. Defaults to `""`.
+  ///   * [email] Email of the user. Defaults to `""`.
   ///   * [groups] Groups of the user. Defaults to `[]`.
   ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
-  ///   * [quota] Quota of the user. Defaults to `''`.
-  ///   * [language] Language of the user. Defaults to `''`.
+  ///   * [quota] Quota of the user. Defaults to `""`.
+  ///   * [language] Language of the user. Defaults to `""`.
   ///   * [manager] Manager of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2476,7 +2476,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -2540,7 +2540,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [limit] Limit the amount of groups returned.
   ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3874,7 +3874,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group. Defaults to `''`.
+  ///   * [groupid] ID of the group. Defaults to `""`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3934,7 +3934,7 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group. Defaults to `''`.
+  ///   * [groupid] ID of the group. Defaults to `""`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///

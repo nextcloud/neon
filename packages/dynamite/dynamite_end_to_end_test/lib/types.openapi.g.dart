@@ -7,6 +7,7 @@ part of 'types.openapi.dart';
 // **************************************************************************
 
 Serializer<Base> _$baseSerializer = _$BaseSerializer();
+Serializer<Defaults> _$defaultsSerializer = _$DefaultsSerializer();
 Serializer<AdditionalProperties> _$additionalPropertiesSerializer = _$AdditionalPropertiesSerializer();
 
 class _$BaseSerializer implements StructuredSerializer<Base> {
@@ -126,6 +127,112 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
         case 'list-string':
           result.listString.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$DefaultsSerializer implements StructuredSerializer<Defaults> {
+  @override
+  final Iterable<Type> types = const [Defaults, _$Defaults];
+  @override
+  final String wireName = 'Defaults';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Defaults object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'bool',
+      serializers.serialize(object.$bool, specifiedType: const FullType(bool)),
+      'integer',
+      serializers.serialize(object.integer, specifiedType: const FullType(int)),
+      'double',
+      serializers.serialize(object.$double, specifiedType: const FullType(double)),
+      'num',
+      serializers.serialize(object.$num, specifiedType: const FullType(num)),
+      'string',
+      serializers.serialize(object.string, specifiedType: const FullType(String)),
+      'string-binary',
+      serializers.serialize(object.stringBinary, specifiedType: const FullType(Uint8List)),
+      'list',
+      serializers.serialize(object.list, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+      'list-never',
+      serializers.serialize(object.listNever, specifiedType: const FullType(BuiltList, [FullType(Never)])),
+      'list-string',
+      serializers.serialize(object.listString, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'object-map',
+      serializers.serialize(object.objectMap, specifiedType: const FullType(JsonObject)),
+      'object-array',
+      serializers.serialize(object.objectArray, specifiedType: const FullType(JsonObject)),
+      'object-bool',
+      serializers.serialize(object.objectBool, specifiedType: const FullType(JsonObject)),
+    ];
+    Object? value;
+    value = object.contentString;
+    if (value != null) {
+      result
+        ..add('content-string')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+    }
+    return result;
+  }
+
+  @override
+  Defaults deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DefaultsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'bool':
+          result.$bool = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'integer':
+          result.integer = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'double':
+          result.$double = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
+          break;
+        case 'num':
+          result.$num = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          break;
+        case 'string':
+          result.string = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'content-string':
+          result.contentString.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
+          break;
+        case 'string-binary':
+          result.stringBinary = serializers.deserialize(value, specifiedType: const FullType(Uint8List))! as Uint8List;
+          break;
+        case 'list':
+          result.list.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+        case 'list-never':
+          result.listNever.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Never)]))! as BuiltList<Object?>);
+          break;
+        case 'list-string':
+          result.listString.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'object-map':
+          result.objectMap = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+        case 'object-array':
+          result.objectArray = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+        case 'object-bool':
+          result.objectBool = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
           break;
       }
     }
@@ -584,6 +691,308 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
         _listString?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Base', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $DefaultsInterfaceBuilder {
+  void replace($DefaultsInterface other);
+  void update(void Function($DefaultsInterfaceBuilder) updates);
+  bool? get $bool;
+  set $bool(bool? $bool);
+
+  int? get integer;
+  set integer(int? integer);
+
+  double? get $double;
+  set $double(double? $double);
+
+  num? get $num;
+  set $num(num? $num);
+
+  String? get string;
+  set string(String? string);
+
+  ContentStringBuilder<int> get contentString;
+  set contentString(ContentStringBuilder<int>? contentString);
+
+  Uint8List? get stringBinary;
+  set stringBinary(Uint8List? stringBinary);
+
+  ListBuilder<JsonObject> get list;
+  set list(ListBuilder<JsonObject>? list);
+
+  ListBuilder<Never> get listNever;
+  set listNever(ListBuilder<Never>? listNever);
+
+  ListBuilder<String> get listString;
+  set listString(ListBuilder<String>? listString);
+
+  JsonObject? get objectMap;
+  set objectMap(JsonObject? objectMap);
+
+  JsonObject? get objectArray;
+  set objectArray(JsonObject? objectArray);
+
+  JsonObject? get objectBool;
+  set objectBool(JsonObject? objectBool);
+}
+
+class _$Defaults extends Defaults {
+  @override
+  final bool $bool;
+  @override
+  final int integer;
+  @override
+  final double $double;
+  @override
+  final num $num;
+  @override
+  final String string;
+  @override
+  final ContentString<int>? contentString;
+  @override
+  final Uint8List stringBinary;
+  @override
+  final BuiltList<JsonObject> list;
+  @override
+  final BuiltList<Never> listNever;
+  @override
+  final BuiltList<String> listString;
+  @override
+  final JsonObject objectMap;
+  @override
+  final JsonObject objectArray;
+  @override
+  final JsonObject objectBool;
+
+  factory _$Defaults([void Function(DefaultsBuilder)? updates]) => (DefaultsBuilder()..update(updates))._build();
+
+  _$Defaults._(
+      {required this.$bool,
+      required this.integer,
+      required this.$double,
+      required this.$num,
+      required this.string,
+      this.contentString,
+      required this.stringBinary,
+      required this.list,
+      required this.listNever,
+      required this.listString,
+      required this.objectMap,
+      required this.objectArray,
+      required this.objectBool})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool');
+    BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer');
+    BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double');
+    BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num');
+    BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string');
+    BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary');
+    BuiltValueNullFieldError.checkNotNull(list, r'Defaults', 'list');
+    BuiltValueNullFieldError.checkNotNull(listNever, r'Defaults', 'listNever');
+    BuiltValueNullFieldError.checkNotNull(listString, r'Defaults', 'listString');
+    BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap');
+    BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray');
+    BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool');
+  }
+
+  @override
+  Defaults rebuild(void Function(DefaultsBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  DefaultsBuilder toBuilder() => DefaultsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Defaults &&
+        $bool == other.$bool &&
+        integer == other.integer &&
+        $double == other.$double &&
+        $num == other.$num &&
+        string == other.string &&
+        contentString == other.contentString &&
+        stringBinary == other.stringBinary &&
+        list == other.list &&
+        listNever == other.listNever &&
+        listString == other.listString &&
+        objectMap == other.objectMap &&
+        objectArray == other.objectArray &&
+        objectBool == other.objectBool;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, $bool.hashCode);
+    _$hash = $jc(_$hash, integer.hashCode);
+    _$hash = $jc(_$hash, $double.hashCode);
+    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, string.hashCode);
+    _$hash = $jc(_$hash, contentString.hashCode);
+    _$hash = $jc(_$hash, stringBinary.hashCode);
+    _$hash = $jc(_$hash, list.hashCode);
+    _$hash = $jc(_$hash, listNever.hashCode);
+    _$hash = $jc(_$hash, listString.hashCode);
+    _$hash = $jc(_$hash, objectMap.hashCode);
+    _$hash = $jc(_$hash, objectArray.hashCode);
+    _$hash = $jc(_$hash, objectBool.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Defaults')
+          ..add('\$bool', $bool)
+          ..add('integer', integer)
+          ..add('\$double', $double)
+          ..add('\$num', $num)
+          ..add('string', string)
+          ..add('contentString', contentString)
+          ..add('stringBinary', stringBinary)
+          ..add('list', list)
+          ..add('listNever', listNever)
+          ..add('listString', listString)
+          ..add('objectMap', objectMap)
+          ..add('objectArray', objectArray)
+          ..add('objectBool', objectBool))
+        .toString();
+  }
+}
+
+class DefaultsBuilder implements Builder<Defaults, DefaultsBuilder>, $DefaultsInterfaceBuilder {
+  _$Defaults? _$v;
+
+  bool? _$bool;
+  bool? get $bool => _$this._$bool;
+  set $bool(covariant bool? $bool) => _$this._$bool = $bool;
+
+  int? _integer;
+  int? get integer => _$this._integer;
+  set integer(covariant int? integer) => _$this._integer = integer;
+
+  double? _$double;
+  double? get $double => _$this._$double;
+  set $double(covariant double? $double) => _$this._$double = $double;
+
+  num? _$num;
+  num? get $num => _$this._$num;
+  set $num(covariant num? $num) => _$this._$num = $num;
+
+  String? _string;
+  String? get string => _$this._string;
+  set string(covariant String? string) => _$this._string = string;
+
+  ContentStringBuilder<int>? _contentString;
+  ContentStringBuilder<int> get contentString => _$this._contentString ??= ContentStringBuilder<int>();
+  set contentString(covariant ContentStringBuilder<int>? contentString) => _$this._contentString = contentString;
+
+  Uint8List? _stringBinary;
+  Uint8List? get stringBinary => _$this._stringBinary;
+  set stringBinary(covariant Uint8List? stringBinary) => _$this._stringBinary = stringBinary;
+
+  ListBuilder<JsonObject>? _list;
+  ListBuilder<JsonObject> get list => _$this._list ??= ListBuilder<JsonObject>();
+  set list(covariant ListBuilder<JsonObject>? list) => _$this._list = list;
+
+  ListBuilder<Never>? _listNever;
+  ListBuilder<Never> get listNever => _$this._listNever ??= ListBuilder<Never>();
+  set listNever(covariant ListBuilder<Never>? listNever) => _$this._listNever = listNever;
+
+  ListBuilder<String>? _listString;
+  ListBuilder<String> get listString => _$this._listString ??= ListBuilder<String>();
+  set listString(covariant ListBuilder<String>? listString) => _$this._listString = listString;
+
+  JsonObject? _objectMap;
+  JsonObject? get objectMap => _$this._objectMap;
+  set objectMap(covariant JsonObject? objectMap) => _$this._objectMap = objectMap;
+
+  JsonObject? _objectArray;
+  JsonObject? get objectArray => _$this._objectArray;
+  set objectArray(covariant JsonObject? objectArray) => _$this._objectArray = objectArray;
+
+  JsonObject? _objectBool;
+  JsonObject? get objectBool => _$this._objectBool;
+  set objectBool(covariant JsonObject? objectBool) => _$this._objectBool = objectBool;
+
+  DefaultsBuilder() {
+    Defaults._defaults(this);
+  }
+
+  DefaultsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _$bool = $v.$bool;
+      _integer = $v.integer;
+      _$double = $v.$double;
+      _$num = $v.$num;
+      _string = $v.string;
+      _contentString = $v.contentString?.toBuilder();
+      _stringBinary = $v.stringBinary;
+      _list = $v.list.toBuilder();
+      _listNever = $v.listNever.toBuilder();
+      _listString = $v.listString.toBuilder();
+      _objectMap = $v.objectMap;
+      _objectArray = $v.objectArray;
+      _objectBool = $v.objectBool;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant Defaults other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Defaults;
+  }
+
+  @override
+  void update(void Function(DefaultsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Defaults build() => _build();
+
+  _$Defaults _build() {
+    Defaults._validate(this);
+    _$Defaults _$result;
+    try {
+      _$result = _$v ??
+          _$Defaults._(
+              $bool: BuiltValueNullFieldError.checkNotNull($bool, r'Defaults', '\$bool'),
+              integer: BuiltValueNullFieldError.checkNotNull(integer, r'Defaults', 'integer'),
+              $double: BuiltValueNullFieldError.checkNotNull($double, r'Defaults', '\$double'),
+              $num: BuiltValueNullFieldError.checkNotNull($num, r'Defaults', '\$num'),
+              string: BuiltValueNullFieldError.checkNotNull(string, r'Defaults', 'string'),
+              contentString: _contentString?.build(),
+              stringBinary: BuiltValueNullFieldError.checkNotNull(stringBinary, r'Defaults', 'stringBinary'),
+              list: list.build(),
+              listNever: listNever.build(),
+              listString: listString.build(),
+              objectMap: BuiltValueNullFieldError.checkNotNull(objectMap, r'Defaults', 'objectMap'),
+              objectArray: BuiltValueNullFieldError.checkNotNull(objectArray, r'Defaults', 'objectArray'),
+              objectBool: BuiltValueNullFieldError.checkNotNull(objectBool, r'Defaults', 'objectBool'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'contentString';
+        _contentString?.build();
+
+        _$failedField = 'list';
+        list.build();
+        _$failedField = 'listNever';
+        listNever.build();
+        _$failedField = 'listString';
+        listString.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'Defaults', _$failedField, e.toString());
       }
       rethrow;
     }

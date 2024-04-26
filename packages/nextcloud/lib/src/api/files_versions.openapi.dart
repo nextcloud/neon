@@ -70,10 +70,10 @@ class $PreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [file] Path of the file. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `44`.
   ///   * [y] Height of the preview. Defaults to `44`.
-  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
+  ///   * [version] Version of the file to get the preview for. Defaults to `""`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -137,10 +137,10 @@ class $PreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [file] Path of the file. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `44`.
   ///   * [y] Height of the preview. Defaults to `44`.
-  ///   * [version] Version of the file to get the preview for. Defaults to `''`.
+  ///   * [version] Version of the file to get the preview for. Defaults to `""`.
   ///
   /// Status codes:
   ///   * 200: Preview returned

@@ -565,7 +565,7 @@ class $AutoCompleteClient {
 
     var $shareTypes =
         _$jsonSerializers.serialize(shareTypes, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    $shareTypes ??= [];
+    $shareTypes ??= const [];
     _parameters['shareTypes%5B%5D'] = $shareTypes;
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -2538,12 +2538,12 @@ class $PreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [file] Path of the file. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
@@ -2627,12 +2627,12 @@ class $PreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] Path of the file. Defaults to `''`.
+  ///   * [file] Path of the file. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
@@ -2690,7 +2690,7 @@ class $PreviewClient {
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
@@ -2780,7 +2780,7 @@ class $PreviewClient {
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [forceIcon] Force returning an icon. Defaults to `1`.
-  ///   * [mode] How to crop the image. Defaults to `fill`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
   ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
@@ -3836,7 +3836,7 @@ class $TextProcessingApiClient {
   ///   * [input] Input text.
   ///   * [type] Type of the task.
   ///   * [appId] ID of the app that will execute the task.
-  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3906,7 +3906,7 @@ class $TextProcessingApiClient {
   ///   * [input] Input text.
   ///   * [type] Type of the task.
   ///   * [appId] ID of the app that will execute the task.
-  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4344,7 +4344,7 @@ class $TextToImageApiClient {
   /// Parameters:
   ///   * [input] Input text.
   ///   * [appId] ID of the app that will execute the task.
-  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `""`.
   ///   * [numberOfImages] The number of images to generate. Defaults to `8`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4414,7 +4414,7 @@ class $TextToImageApiClient {
   /// Parameters:
   ///   * [input] Input text.
   ///   * [appId] ID of the app that will execute the task.
-  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `""`.
   ///   * [numberOfImages] The number of images to generate. Defaults to `8`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5069,7 +5069,7 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [from] the url the user is currently at. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5122,7 +5122,7 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [from] the url the user is currently at. Defaults to `''`.
+  ///   * [from] the url the user is currently at. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5166,11 +5166,11 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [term] Term to search. Defaults to `""`.
   ///   * [sortOrder] Order of entries.
   ///   * [limit] Maximum amount of entries.
   ///   * [cursor] Offset for searching.
-  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [from] The current user URL. Defaults to `""`.
   ///   * [providerId] ID of the provider.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5250,11 +5250,11 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [term] Term to search. Defaults to `''`.
+  ///   * [term] Term to search. Defaults to `""`.
   ///   * [sortOrder] Order of entries.
   ///   * [limit] Maximum amount of entries.
   ///   * [cursor] Offset for searching.
-  ///   * [from] The current user URL. Defaults to `''`.
+  ///   * [from] The current user URL. Defaults to `""`.
   ///   * [providerId] ID of the provider.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///

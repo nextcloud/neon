@@ -7,7 +7,6 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
-import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -228,10 +227,16 @@ void _generateProperty(
     ),
   );
 
-  final $default = schema.$default;
+  // TODO: memoize the default value for improved performance
+  var $default = schema.$default;
   if ($default != null) {
-    final value = $default.toString();
-    defaults.writeln('b.$dartName = ${valueToEscapedValue(result, value)};');
+    $default = result.deserialize($default);
+
+    if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
+      defaults.writeln('b.$dartName = ${$default};');
+    } else {
+      defaults.writeln('b.$dartName.replace(${$default});');
+    }
   }
 
   if (result is TypeResultOneOf && !result.isSingleValue) {

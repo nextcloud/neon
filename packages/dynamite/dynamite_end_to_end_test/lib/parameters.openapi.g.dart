@@ -25,6 +25,26 @@ final BuiltSet<GetEnumPattern> _$getEnumPatternValues = BuiltSet<GetEnumPattern>
   _$getEnumPattern$0,
 ]);
 
+const GetDefaultsEnumPattern _$getDefaultsEnumPatternA = GetDefaultsEnumPattern._('a');
+const GetDefaultsEnumPattern _$getDefaultsEnumPattern$0 = GetDefaultsEnumPattern._('\$0');
+
+GetDefaultsEnumPattern _$valueOfGetDefaultsEnumPattern(String name) {
+  switch (name) {
+    case 'a':
+      return _$getDefaultsEnumPatternA;
+    case '\$0':
+      return _$getDefaultsEnumPattern$0;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<GetDefaultsEnumPattern> _$getDefaultsEnumPatternValues =
+    BuiltSet<GetDefaultsEnumPattern>(const <GetDefaultsEnumPattern>[
+  _$getDefaultsEnumPatternA,
+  _$getDefaultsEnumPattern$0,
+]);
+
 const GetHeadersEnumPattern _$getHeadersEnumPatternA = GetHeadersEnumPattern._('a');
 const GetHeadersEnumPattern _$getHeadersEnumPattern$0 = GetHeadersEnumPattern._('\$0');
 

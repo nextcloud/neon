@@ -186,7 +186,7 @@ class $DashboardApiClient {
     _parameters['limit'] = $limit;
 
     var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= [];
+    $widgets ??= const [];
     _parameters['widgets%5B%5D'] = $widgets;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
@@ -306,7 +306,7 @@ class $DashboardApiClient {
     _parameters['limit'] = $limit;
 
     var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= [];
+    $widgets ??= const [];
     _parameters['widgets%5B%5D'] = $widgets;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')

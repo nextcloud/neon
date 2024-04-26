@@ -79,7 +79,7 @@ class $IconClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Favicon returned
@@ -124,7 +124,7 @@ class $IconClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Favicon returned
@@ -160,7 +160,7 @@ class $IconClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Touch icon returned
@@ -205,7 +205,7 @@ class $IconClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Touch icon returned
@@ -545,7 +545,7 @@ class $ThemingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Manifest returned
@@ -589,7 +589,7 @@ class $ThemingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app. Defaults to `core`.
+  ///   * [app] ID of the app. Defaults to `"core"`.
   ///
   /// Status codes:
   ///   * 200: Manifest returned

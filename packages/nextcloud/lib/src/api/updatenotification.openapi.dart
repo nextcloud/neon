@@ -72,7 +72,7 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [newVersion] Server version to check updates for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -134,7 +134,7 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [newVersion] Server version to check updates for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -182,7 +182,7 @@ class $ApiClient {
   ///
   /// Parameters:
   ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [appId] App to search changelog entry for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -250,7 +250,7 @@ class $ApiClient {
   ///
   /// Parameters:
   ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [appId] App to search changelog entry for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///

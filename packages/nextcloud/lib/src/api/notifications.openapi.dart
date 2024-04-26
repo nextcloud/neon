@@ -81,8 +81,8 @@ class $ApiClient {
   ///
   /// Parameters:
   ///   * [shortMessage] Subject of the notification.
-  ///   * [longMessage] Message of the notification. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [longMessage] Message of the notification. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -158,8 +158,8 @@ class $ApiClient {
   ///
   /// Parameters:
   ///   * [shortMessage] Subject of the notification.
-  ///   * [longMessage] Message of the notification. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [longMessage] Message of the notification. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -217,7 +217,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -272,7 +272,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -318,7 +318,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -375,7 +375,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -418,7 +418,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [id] ID of the notification.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -479,7 +479,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [id] ID of the notification.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -524,7 +524,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [id] ID of the notification.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -586,7 +586,7 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [id] ID of the notification.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -634,7 +634,7 @@ class $EndpointClient {
   ///
   /// Parameters:
   ///   * [ids] IDs of the notifications to check.
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -695,7 +695,7 @@ class $EndpointClient {
   ///
   /// Parameters:
   ///   * [ids] IDs of the notifications to check.
-  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -750,7 +750,7 @@ class $PushClient {
   ///   * [pushTokenHash] Hash of the push token.
   ///   * [devicePublicKey] Public key of the device.
   ///   * [proxyServer] Proxy server to be used.
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -824,7 +824,7 @@ class $PushClient {
   ///   * [pushTokenHash] Hash of the push token.
   ///   * [devicePublicKey] Public key of the device.
   ///   * [proxyServer] Proxy server to be used.
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -874,7 +874,7 @@ class $PushClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -931,7 +931,7 @@ class $PushClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -985,7 +985,7 @@ class $SettingsClient {
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1056,7 +1056,7 @@ class $SettingsClient {
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1107,7 +1107,7 @@ class $SettingsClient {
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1179,7 +1179,7 @@ class $SettingsClient {
   ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
   ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
   ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
-  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:

@@ -906,8 +906,8 @@ class $TemplateClient {
   ///
   /// Parameters:
   ///   * [filePath] Path of the file.
-  ///   * [templatePath] Name of the template. Defaults to `''`.
-  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [templatePath] Name of the template. Defaults to `""`.
+  ///   * [templateType] Type of the template. Defaults to `"user"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -973,8 +973,8 @@ class $TemplateClient {
   ///
   /// Parameters:
   ///   * [filePath] Path of the file.
-  ///   * [templatePath] Name of the template. Defaults to `''`.
-  ///   * [templateType] Type of the template. Defaults to `user`.
+  ///   * [templatePath] Name of the template. Defaults to `""`.
+  ///   * [templateType] Type of the template. Defaults to `"user"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1019,7 +1019,7 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [templatePath] Path of the template directory. Defaults to `""`.
   ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1083,7 +1083,7 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `''`.
+  ///   * [templatePath] Path of the template directory. Defaults to `""`.
   ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///

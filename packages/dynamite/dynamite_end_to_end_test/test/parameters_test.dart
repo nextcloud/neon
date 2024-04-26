@@ -328,4 +328,22 @@ void main() {
       headers: r'headers$',
     );
   });
+
+  test('default values', () async {
+    final client = $Client(
+      uri,
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes.length, 0);
+        expect(request.headers, equals({'Accept': 'application/json'}));
+        expect(request.method, equalsIgnoringCase('get'));
+        const uri =
+            'example.com/defaults?content_string=%22%7B%7D%22&array=default-item&array=true&array=1.0&array_string=default-item&array_string=item&bool=true&string=default&string_binary=&int=1&double=1.0&num=0&list=%5Blist%5D&string=default-item&bool=true&num=1.0&oneOf=false&anyOf=default-value&enum_pattern=a';
+        expect(request.url, equals(Uri.parse(uri)));
+
+        return Response('{}', 200);
+      }),
+    );
+
+    await client.getDefaults();
+  });
 }

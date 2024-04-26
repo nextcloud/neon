@@ -243,4 +243,30 @@ void main() {
     final revived = AdditionalProperties.fromJson(json);
     expect(revived, equalsBuilt(object));
   });
+
+  test(Defaults, () {
+    final object = Defaults();
+    const json = {
+      'bool': true,
+      'integer': 1,
+      'double': 1.0,
+      'num': 0,
+      'string': 'default',
+      'string-binary': '',
+      'list': ['default-item', true, 1.0],
+      'list-never': [],
+      'list-string': ['default-item', 'item'],
+      'object-map': {
+        'list': ['list'],
+        'string': 'default-item',
+        'bool': true,
+        'num': 1.0,
+      },
+      'object-array': ['default-item', true, 1.0],
+      'object-bool': true,
+      'content-string': '1',
+    };
+
+    expect(object.toJson(), equals(json));
+  });
 }

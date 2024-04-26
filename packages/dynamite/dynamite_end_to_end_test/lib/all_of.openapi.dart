@@ -239,7 +239,10 @@ abstract interface class $SuperObjectInterface {
   String get value;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SuperObjectInterfaceBuilder b) {
-    b.value = '123';
+    b.value = _$jsonSerializers.deserialize(
+      '123',
+      specifiedType: const FullType(String),
+    )! as String;
   }
 
   @BuiltValueHook(finalizeBuilder: true)

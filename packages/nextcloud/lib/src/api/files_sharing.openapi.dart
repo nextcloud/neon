@@ -347,7 +347,7 @@ class $PublicPreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [file] File in the share. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
@@ -419,7 +419,7 @@ class $PublicPreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share. Defaults to `''`.
+  ///   * [file] File in the share. Defaults to `""`.
   ///   * [x] Width of the preview. Defaults to `32`.
   ///   * [y] Height of the preview. Defaults to `32`.
   ///   * [a] Whether to not crop the preview. Defaults to `0`.
@@ -1146,11 +1146,11 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
-  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
-  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
-  ///   * [path] Get shares for a specific path. Defaults to `''`.
-  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `"false"`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `"false"`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `"false"`.
+  ///   * [path] Get shares for a specific path. Defaults to `""`.
+  ///   * [includeTags] Include tags in the share. Defaults to `"false"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1226,11 +1226,11 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `false`.
-  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `false`.
-  ///   * [subfiles] Only get all shares in a folder. Defaults to `false`.
-  ///   * [path] Get shares for a specific path. Defaults to `''`.
-  ///   * [includeTags] Include tags in the share. Defaults to `false`.
+  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `"false"`.
+  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `"false"`.
+  ///   * [subfiles] Only get all shares in a folder. Defaults to `"false"`.
+  ///   * [path] Get shares for a specific path. Defaults to `""`.
+  ///   * [includeTags] Include tags in the share. Defaults to `"false"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1284,12 +1284,12 @@ class $ShareapiClient {
   ///   * [permissions] Permissions for the share.
   ///   * [shareType] Type of the share. Defaults to `-1`.
   ///   * [shareWith] The entity this should be shared with.
-  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
-  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `"false"`.
+  ///   * [password] Password for the share. Defaults to `""`.
   ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
-  ///   * [note] Note for the share. Defaults to `''`.
-  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `""`.
+  ///   * [note] Note for the share. Defaults to `""`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `""`.
   ///   * [attributes] Additional attributes for the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1397,12 +1397,12 @@ class $ShareapiClient {
   ///   * [permissions] Permissions for the share.
   ///   * [shareType] Type of the share. Defaults to `-1`.
   ///   * [shareWith] The entity this should be shared with.
-  ///   * [publicUpload] If public uploading is allowed. Defaults to `false`.
-  ///   * [password] Password for the share. Defaults to `''`.
+  ///   * [publicUpload] If public uploading is allowed. Defaults to `"false"`.
+  ///   * [password] Password for the share. Defaults to `""`.
   ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `''`.
-  ///   * [note] Note for the share. Defaults to `''`.
-  ///   * [label] Label for the share (only used in link and email). Defaults to `''`.
+  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `""`.
+  ///   * [note] Note for the share. Defaults to `""`.
+  ///   * [label] Label for the share (only used in link and email). Defaults to `""`.
   ///   * [attributes] Additional attributes for the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2127,7 +2127,7 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [itemType] Limit to specific item types.
   ///   * [page] Page offset for searching. Defaults to `1`.
   ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
@@ -2211,7 +2211,7 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [search] Text to search for. Defaults to `""`.
   ///   * [itemType] Limit to specific item types.
   ///   * [page] Page offset for searching. Defaults to `1`.
   ///   * [perPage] Limit amount of search results per page. Defaults to `200`.

@@ -93,6 +93,140 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $DefaultsInterface {
+  @BuiltValueField(wireName: 'bool')
+  bool get $bool;
+  int get integer;
+  @BuiltValueField(wireName: 'double')
+  double get $double;
+  @BuiltValueField(wireName: 'num')
+  num get $num;
+  String get string;
+  @BuiltValueField(wireName: 'content-string')
+  ContentString<int>? get contentString;
+  @BuiltValueField(wireName: 'string-binary')
+  Uint8List get stringBinary;
+  BuiltList<JsonObject> get list;
+  @BuiltValueField(wireName: 'list-never')
+  BuiltList<Never> get listNever;
+  @BuiltValueField(wireName: 'list-string')
+  BuiltList<String> get listString;
+  @BuiltValueField(wireName: 'object-map')
+  JsonObject get objectMap;
+  @BuiltValueField(wireName: 'object-array')
+  JsonObject get objectArray;
+  @BuiltValueField(wireName: 'object-bool')
+  JsonObject get objectBool;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DefaultsInterfaceBuilder b) {
+    b.$bool = _$jsonSerializers.deserialize(
+      true,
+      specifiedType: const FullType(bool),
+    )! as bool;
+    b.integer = _$jsonSerializers.deserialize(
+      1,
+      specifiedType: const FullType(int),
+    )! as int;
+    b.$double = _$jsonSerializers.deserialize(
+      1.0,
+      specifiedType: const FullType(double),
+    )! as double;
+    b.$num = _$jsonSerializers.deserialize(
+      0,
+      specifiedType: const FullType(num),
+    )! as num;
+    b.string = _$jsonSerializers.deserialize(
+      'default',
+      specifiedType: const FullType(String),
+    )! as String;
+    b.contentString.replace(
+      _$jsonSerializers.deserialize(
+        '1',
+        specifiedType: const FullType(ContentString, [FullType(int)]),
+      )! as ContentString<int>,
+    );
+    b.stringBinary = _$jsonSerializers.deserialize(
+      '',
+      specifiedType: const FullType(Uint8List),
+    )! as Uint8List;
+    b.list.replace(
+      _$jsonSerializers.deserialize(
+        const ['default-item', true, 1.0],
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>,
+    );
+    b.listNever.replace(
+      _$jsonSerializers.deserialize(
+        const [],
+        specifiedType: const FullType(BuiltList, [FullType(Never)]),
+      )! as BuiltList<Never>,
+    );
+    b.listString.replace(
+      _$jsonSerializers.deserialize(
+        const ['default-item', 'item'],
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      )! as BuiltList<String>,
+    );
+    b.objectMap = _$jsonSerializers.deserialize(
+      const {
+        'list': ['list'],
+        'string': 'default-item',
+        'bool': true,
+        'num': 1.0,
+      },
+      specifiedType: const FullType(JsonObject),
+    )! as JsonObject;
+    b.objectArray = _$jsonSerializers.deserialize(
+      const ['default-item', true, 1.0],
+      specifiedType: const FullType(JsonObject),
+    )! as JsonObject;
+    b.objectBool = _$jsonSerializers.deserialize(
+      true,
+      specifiedType: const FullType(JsonObject),
+    )! as JsonObject;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DefaultsInterfaceBuilder b) {
+    _i1.checkMaxItems(
+      b.listNever.length,
+      0,
+      'listNever',
+    );
+  }
+}
+
+abstract class Defaults implements $DefaultsInterface, Built<Defaults, DefaultsBuilder> {
+  /// Creates a new Defaults object using the builder pattern.
+  factory Defaults([void Function(DefaultsBuilder)? b]) = _$Defaults;
+
+  const Defaults._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory Defaults.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for Defaults.
+  static Serializer<Defaults> get serializer => _$defaultsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DefaultsBuilder b) {
+    $DefaultsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DefaultsBuilder b) {
+    $DefaultsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $AdditionalPropertiesInterface {
   @BuiltValueField(wireName: 'empty_schema_bool')
   BuiltMap<String, JsonObject>? get emptySchemaBool;
@@ -171,6 +305,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(Defaults), DefaultsBuilder.new)
+      ..add(Defaults.serializer)
       ..addBuilderFactory(const FullType(AdditionalProperties), AdditionalPropertiesBuilder.new)
       ..add(AdditionalProperties.serializer)
       ..addBuilderFactory(

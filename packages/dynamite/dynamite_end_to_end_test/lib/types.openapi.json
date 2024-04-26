@@ -52,6 +52,92 @@
                     }
                 }
             },
+            "Defaults": {
+                "type": "object",
+                "properties": {
+                    "bool": {
+                        "type": "boolean",
+                        "default": true
+                    },
+                    "integer": {
+                        "type": "integer",
+                        "default": 1
+                    },
+                    "double": {
+                        "type": "number",
+                        "format": "float",
+                        "default": 1.0
+                    },
+                    "num": {
+                        "type": "number",
+                        "default": 0
+                    },
+                    "string": {
+                        "type": "string",
+                        "default": "default"
+                    },
+                    "content-string": {
+                        "type": "string",
+                        "nullable": true,
+                        "contentMediaType": "application/json",
+                        "contentSchema": {
+                            "type": "integer"
+                        },
+                        "default": "1"
+                    },
+                    "string-binary": {
+                        "type": "string",
+                        "format": "binary",
+                        "default": ""
+                    },
+                    "list": {
+                        "type": "array",
+                        "default": [
+                            "default-item",
+                            true,
+                            1.0
+                        ]
+                    },
+                    "list-never": {
+                        "type": "array",
+                        "maxItems": 0,
+                        "default": []
+                    },
+                    "list-string": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": [
+                            "default-item",
+                            "item"
+                        ]
+                    },
+                    "object-map": {
+                        "type": "object",
+                        "default": {
+                            "list": [
+                                "list"
+                            ],
+                            "string": "default-item",
+                            "bool": true,
+                            "num": 1.0
+                        }
+                    },
+                    "object-array": {
+                        "type": "object",
+                        "default": [
+                            "default-item",
+                            true,
+                            1.0
+                        ]
+                    },
+                    "object-bool": {
+                        "type": "object",
+                        "default": true
+                    }
+                }
+            },
             "Object": {
                 "type": "object"
             },

@@ -170,7 +170,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       throw OpenAPISpecError('Path parameters must be required but ${b.name} is not.');
     }
 
-    if (b.required! && b._$schema != null && b.$schema.$default != null) {
+    if (b.required! && b._$schema != null && b.$schema.rawDefault != null) {
       dynamiteLog.requiredParameters();
     }
 
@@ -191,12 +191,9 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         ..write(description);
     }
 
-    var $default = schema?.$default?.toString();
+    // ignore: invalid_use_of_protected_member
+    final $default = schema?.defaultDescription;
     if ($default != null) {
-      if ($default.isEmpty) {
-        $default = "''";
-      }
-
       buffer.write(' Defaults to `${$default}`.');
     }
 

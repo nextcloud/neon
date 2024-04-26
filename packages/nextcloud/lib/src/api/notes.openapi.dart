@@ -64,7 +64,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude] Defaults to `''`.
+  ///   * [exclude] Defaults to `""`.
   ///   * [pruneBefore] Defaults to `0`.
   ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
@@ -140,7 +140,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// Parameters:
   ///   * [category]
-  ///   * [exclude] Defaults to `''`.
+  ///   * [exclude] Defaults to `""`.
   ///   * [pruneBefore] Defaults to `0`.
   ///   * [chunkSize] Defaults to `0`.
   ///   * [chunkCursor]
@@ -188,9 +188,9 @@ class $Client extends _i1.DynamiteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category] Defaults to `''`.
-  ///   * [title] Defaults to `''`.
-  ///   * [content] Defaults to `''`.
+  ///   * [category] Defaults to `""`.
+  ///   * [title] Defaults to `""`.
+  ///   * [content] Defaults to `""`.
   ///   * [modified] Defaults to `0`.
   ///   * [favorite] Defaults to `0`.
   ///
@@ -258,9 +258,9 @@ class $Client extends _i1.DynamiteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [category] Defaults to `''`.
-  ///   * [title] Defaults to `''`.
-  ///   * [content] Defaults to `''`.
+  ///   * [category] Defaults to `""`.
+  ///   * [title] Defaults to `""`.
+  ///   * [content] Defaults to `""`.
   ///   * [modified] Defaults to `0`.
   ///   * [favorite] Defaults to `0`.
   ///
@@ -304,7 +304,7 @@ class $Client extends _i1.DynamiteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude] Defaults to `''`.
+  ///   * [exclude] Defaults to `""`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:
@@ -360,7 +360,7 @@ class $Client extends _i1.DynamiteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [exclude] Defaults to `''`.
+  ///   * [exclude] Defaults to `""`.
   ///   * [ifNoneMatch]
   ///
   /// Status codes:

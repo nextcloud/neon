@@ -111,7 +111,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -179,7 +179,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -224,7 +224,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -287,7 +287,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -332,7 +332,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -394,7 +394,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -440,7 +440,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [emoji] Emoji.
   ///   * [color] Color of the emoji.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -514,7 +514,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [emoji] Emoji.
   ///   * [color] Color of the emoji.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -562,7 +562,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -625,7 +625,7 @@ class $AvatarClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -669,7 +669,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -747,7 +747,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -794,7 +794,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -863,7 +863,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -909,7 +909,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -990,7 +990,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [darkTheme] Theme used for background. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1040,7 +1040,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1114,7 +1114,7 @@ class $AvatarClient {
   ///
   /// Parameters:
   ///   * [cloudId] Federation CloudID to get the avatar for.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1168,7 +1168,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1231,7 +1231,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1274,7 +1274,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [botId] ID of the bot.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1344,7 +1344,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [botId] ID of the bot.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1392,7 +1392,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [botId] ID of the bot.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1461,7 +1461,7 @@ class $BotClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [botId] ID of the bot.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1512,10 +1512,10 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [message] The message to send.
-  ///   * [referenceId] For the message to be able to later identify it again. Defaults to `''`.
+  ///   * [referenceId] For the message to be able to later identify it again. Defaults to `""`.
   ///   * [replyTo] Parent id which this message is a reply to. Defaults to `0`.
   ///   * [silent] If sent silent the chat message will not create any notifications. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1603,10 +1603,10 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [message] The message to send.
-  ///   * [referenceId] For the message to be able to later identify it again. Defaults to `''`.
+  ///   * [referenceId] For the message to be able to later identify it again. Defaults to `""`.
   ///   * [replyTo] Parent id which this message is a reply to. Defaults to `0`.
   ///   * [silent] If sent silent the chat message will not create any notifications. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1661,7 +1661,7 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [reaction] Reaction to add.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1738,7 +1738,7 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [reaction] Reaction to add.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1792,7 +1792,7 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [reaction] Reaction to delete.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1869,7 +1869,7 @@ class $BotClient {
   ///
   /// Parameters:
   ///   * [reaction] Reaction to delete.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1930,8 +1930,8 @@ class $BreakoutRoomClient {
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
   ///   * [amount] Number of breakout rooms - Constants {@see BreakoutRoom::MINIMUM_ROOM_AMOUNT} and {@see BreakoutRoom::MAXIMUM_ROOM_AMOUNT}.
-  ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `[]`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `"[]"`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2016,8 +2016,8 @@ class $BreakoutRoomClient {
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
   ///   * [amount] Number of breakout rooms - Constants {@see BreakoutRoom::MINIMUM_ROOM_AMOUNT} and {@see BreakoutRoom::MAXIMUM_ROOM_AMOUNT}.
-  ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `[]`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `"[]"`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2069,7 +2069,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2136,7 +2136,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2182,7 +2182,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [message] Message to broadcast.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2257,7 +2257,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [message] Message to broadcast.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2307,7 +2307,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [attendeeMap] JSON encoded mapping of the attendees to breakout rooms `array<int, int>`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2379,7 +2379,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [attendeeMap] JSON encoded mapping of the attendees to breakout rooms `array<int, int>`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2427,7 +2427,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2493,7 +2493,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2539,7 +2539,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2607,7 +2607,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2654,7 +2654,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2722,7 +2722,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2768,7 +2768,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2834,7 +2834,7 @@ class $BreakoutRoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2881,7 +2881,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [target] Target breakout room.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2954,7 +2954,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [target] Target breakout room.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3009,7 +3009,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3071,7 +3071,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3116,7 +3116,7 @@ class $CallClient {
   ///
   /// Parameters:
   ///   * [flags] New flags.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3185,7 +3185,7 @@ class $CallClient {
   ///
   /// Parameters:
   ///   * [flags] New flags.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3236,7 +3236,7 @@ class $CallClient {
   ///   * [forcePermissions] In-call permissions.
   ///   * [silent] Join the call silently. Defaults to `0`.
   ///   * [recordingConsent] When the user ticked a checkbox and agreed with being recorded (Only needed when the `config => call => recording-consent` capability is set to {@see RecordingService::CONSENT_REQUIRED_YES} or the capability is {@see RecordingService::CONSENT_REQUIRED_OPTIONAL} and the conversation `recordingConsent` value is {@see RecordingService::CONSENT_REQUIRED_YES} ). Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3324,7 +3324,7 @@ class $CallClient {
   ///   * [forcePermissions] In-call permissions.
   ///   * [silent] Join the call silently. Defaults to `0`.
   ///   * [recordingConsent] When the user ticked a checkbox and agreed with being recorded (Only needed when the `config => call => recording-consent` capability is set to {@see RecordingService::CONSENT_REQUIRED_YES} or the capability is {@see RecordingService::CONSENT_REQUIRED_OPTIONAL} and the conversation `recordingConsent` value is {@see RecordingService::CONSENT_REQUIRED_YES} ). Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3378,7 +3378,7 @@ class $CallClient {
   ///
   /// Parameters:
   ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3446,7 +3446,7 @@ class $CallClient {
   ///
   /// Parameters:
   ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3493,7 +3493,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [attendeeId] ID of the attendee to ring.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3563,7 +3563,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [attendeeId] ID of the attendee to ring.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3612,7 +3612,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [attendeeId] ID of the attendee to call.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3682,7 +3682,7 @@ class $CallClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [attendeeId] ID of the attendee to call.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3752,7 +3752,7 @@ class $ChatClient {
   ///   * [includeLastKnown] Include the $lastKnownMessageId in the messages when 1 (default 0). Defaults to `0`.
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [markNotificationsAsRead] Set to 0 when notifications should not be marked as read (default 1). Defaults to `1`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3883,7 +3883,7 @@ class $ChatClient {
   ///   * [includeLastKnown] Include the $lastKnownMessageId in the messages when 1 (default 0). Defaults to `0`.
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [markNotificationsAsRead] Set to 0 when notifications should not be marked as read (default 1). Defaults to `1`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3952,11 +3952,11 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [message] the message to send.
-  ///   * [actorDisplayName] for guests. Defaults to `''`.
-  ///   * [referenceId] for the message to be able to later identify it again. Defaults to `''`.
+  ///   * [actorDisplayName] for guests. Defaults to `""`.
+  ///   * [referenceId] for the message to be able to later identify it again. Defaults to `""`.
   ///   * [replyTo] Parent id which this message is a reply to. Defaults to `0`.
   ///   * [silent] If sent silent the chat message will not create any notifications. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4050,11 +4050,11 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [message] the message to send.
-  ///   * [actorDisplayName] for guests. Defaults to `''`.
-  ///   * [referenceId] for the message to be able to later identify it again. Defaults to `''`.
+  ///   * [actorDisplayName] for guests. Defaults to `""`.
+  ///   * [referenceId] for the message to be able to later identify it again. Defaults to `""`.
   ///   * [replyTo] Parent id which this message is a reply to. Defaults to `0`.
   ///   * [silent] If sent silent the chat message will not create any notifications. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4113,7 +4113,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4179,7 +4179,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4227,7 +4227,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [message] the message to send.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4305,7 +4305,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [message] the message to send.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4361,7 +4361,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4434,7 +4434,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4488,7 +4488,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] The focused message which should be in the "middle" of the returned context.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4563,7 +4563,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] The focused message which should be in the "middle" of the returned context.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4616,7 +4616,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4686,7 +4686,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4735,7 +4735,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the reminder.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4811,7 +4811,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the reminder.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4861,7 +4861,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4932,7 +4932,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -4981,7 +4981,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [lastReadMessage] ID if the last read message (Optional only with `chat-read-last` capability).
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5049,7 +5049,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [lastReadMessage] ID if the last read message (Optional only with `chat-read-last` capability).
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5096,7 +5096,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5157,7 +5157,7 @@ class $ChatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5204,7 +5204,7 @@ class $ChatClient {
   ///   * [search] Text to search for.
   ///   * [limit] Maximum number of results. Defaults to `20`.
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5285,7 +5285,7 @@ class $ChatClient {
   ///   * [search] Text to search for.
   ///   * [limit] Maximum number of results. Defaults to `20`.
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5338,7 +5338,7 @@ class $ChatClient {
   ///   * [objectType] Type of the objects.
   ///   * [lastKnownMessageId] ID of the last known message. Defaults to `0`.
   ///   * [limit] Maximum number of objects. Defaults to `100`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5419,7 +5419,7 @@ class $ChatClient {
   ///   * [objectType] Type of the objects.
   ///   * [lastKnownMessageId] ID of the last known message. Defaults to `0`.
   ///   * [limit] Maximum number of objects. Defaults to `100`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5475,10 +5475,10 @@ class $ChatClient {
   /// Parameters:
   ///   * [objectType] Type of the object.
   ///   * [objectId] ID of the object.
-  ///   * [metaData] Additional metadata. Defaults to `''`.
-  ///   * [actorDisplayName] Guest name. Defaults to `''`.
-  ///   * [referenceId] Reference ID. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [metaData] Additional metadata. Defaults to `""`.
+  ///   * [actorDisplayName] Guest name. Defaults to `""`.
+  ///   * [referenceId] Reference ID. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5572,10 +5572,10 @@ class $ChatClient {
   /// Parameters:
   ///   * [objectType] Type of the object.
   ///   * [objectId] ID of the object.
-  ///   * [metaData] Additional metadata. Defaults to `''`.
-  ///   * [actorDisplayName] Guest name. Defaults to `''`.
-  ///   * [referenceId] Reference ID. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [metaData] Additional metadata. Defaults to `""`.
+  ///   * [actorDisplayName] Guest name. Defaults to `""`.
+  ///   * [referenceId] Reference ID. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5636,7 +5636,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [limit] Maximum number of objects. Defaults to `7`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5707,7 +5707,7 @@ class $ChatClient {
   ///
   /// Parameters:
   ///   * [limit] Maximum number of objects. Defaults to `7`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5762,8 +5762,8 @@ class $ExternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5823,8 +5823,8 @@ class $ExternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5878,7 +5878,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5943,7 +5943,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -5992,7 +5992,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6056,7 +6056,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6104,7 +6104,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6160,7 +6160,7 @@ class $FederationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6212,7 +6212,7 @@ class $FilesIntegrationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6284,7 +6284,7 @@ class $FilesIntegrationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6336,7 +6336,7 @@ class $FilesIntegrationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [shareToken] Token of the file share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6408,7 +6408,7 @@ class $FilesIntegrationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [shareToken] Token of the file share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6459,7 +6459,7 @@ class $FilesIntegrationClient {
   ///
   /// Parameters:
   ///   * [shareToken] Token of the file share.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6521,7 +6521,7 @@ class $FilesIntegrationClient {
   ///
   /// Parameters:
   ///   * [shareToken] Token of the file share.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6574,7 +6574,7 @@ class $GuestClient {
   ///
   /// Parameters:
   ///   * [displayName] New display name.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6644,7 +6644,7 @@ class $GuestClient {
   ///
   /// Parameters:
   ///   * [displayName] New display name.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -6706,7 +6706,7 @@ class $HostedSignalingServerClient {
   ///   * [email] Email of the user.
   ///   * [language] Language of the user.
   ///   * [country] Country of the user.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6793,7 +6793,7 @@ class $HostedSignalingServerClient {
   ///   * [email] Email of the user.
   ///   * [language] Language of the user.
   ///   * [country] Country of the user.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6848,7 +6848,7 @@ class $HostedSignalingServerClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6908,7 +6908,7 @@ class $HostedSignalingServerClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6957,8 +6957,8 @@ class $InternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7018,8 +7018,8 @@ class $InternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [token] Token of the room. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [token] Token of the room. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7064,7 +7064,7 @@ class $InternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7129,7 +7129,7 @@ class $InternalSignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7177,7 +7177,7 @@ class $InternalSignalingClient {
   ///
   /// Parameters:
   ///   * [messages] JSON encoded messages.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7246,7 +7246,7 @@ class $InternalSignalingClient {
   ///
   /// Parameters:
   ///   * [messages] JSON encoded messages.
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7300,7 +7300,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7364,7 +7364,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7411,7 +7411,7 @@ class $MatterbridgeClient {
   /// Parameters:
   ///   * [enabled] If the bridge should be enabled.
   ///   * [parts] New parts.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7495,7 +7495,7 @@ class $MatterbridgeClient {
   /// Parameters:
   ///   * [enabled] If the bridge should be enabled.
   ///   * [parts] New parts.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7545,7 +7545,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7612,7 +7612,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7658,7 +7658,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7725,7 +7725,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -7772,7 +7772,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7831,7 +7831,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7877,7 +7877,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7936,7 +7936,7 @@ class $MatterbridgeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -7992,7 +7992,7 @@ class $PollClient {
   ///   * [options] Options of the poll.
   ///   * [resultMode] Mode how the results will be shown.
   ///   * [maxVotes] Number of maximum votes per voter.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -8077,7 +8077,7 @@ class $PollClient {
   ///   * [options] Options of the poll.
   ///   * [resultMode] Mode how the results will be shown.
   ///   * [maxVotes] Number of maximum votes per voter.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -8129,7 +8129,7 @@ class $PollClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8196,7 +8196,7 @@ class $PollClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8244,7 +8244,7 @@ class $PollClient {
   ///
   /// Parameters:
   ///   * [optionIds] IDs of the selected options. Defaults to `[]`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8278,7 +8278,7 @@ class $PollClient {
     _parameters['pollId'] = $pollId;
 
     var $optionIds = _$jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    $optionIds ??= [];
+    $optionIds ??= const [];
     _parameters['optionIds%5B%5D'] = $optionIds;
 
     var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
@@ -8319,7 +8319,7 @@ class $PollClient {
   ///
   /// Parameters:
   ///   * [optionIds] IDs of the selected options. Defaults to `[]`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8369,7 +8369,7 @@ class $PollClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8439,7 +8439,7 @@ class $PollClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [pollId] ID of the poll.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8498,7 +8498,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to filter.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8572,7 +8572,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to filter.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8622,7 +8622,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to add.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8697,7 +8697,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to add.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8749,7 +8749,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to remove.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8823,7 +8823,7 @@ class $ReactionClient {
   ///
   /// Parameters:
   ///   * [reaction] Emoji to remove.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -8881,7 +8881,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [status] Type of the recording.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -8951,7 +8951,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [status] Type of the recording.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -8997,7 +8997,7 @@ class $RecordingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9061,7 +9061,7 @@ class $RecordingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9107,7 +9107,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the notification to be dismissed.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9179,7 +9179,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [timestamp] Timestamp of the notification to be dismissed.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9229,7 +9229,7 @@ class $RecordingClient {
   /// Parameters:
   ///   * [fileId] ID of the file.
   ///   * [timestamp] Timestamp of the notification to be dismissed.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9306,7 +9306,7 @@ class $RecordingClient {
   /// Parameters:
   ///   * [fileId] ID of the file.
   ///   * [timestamp] Timestamp of the notification to be dismissed.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9354,7 +9354,7 @@ class $RecordingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9409,7 +9409,7 @@ class $RecordingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9453,7 +9453,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [owner] User that will own the recording file.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9522,7 +9522,7 @@ class $RecordingClient {
   ///
   /// Parameters:
   ///   * [owner] User that will own the recording file.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -9580,7 +9580,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9655,7 +9655,7 @@ class $RoomClient {
   ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
   ///   * [includeStatus] Include the user status. Defaults to `0`.
   ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9704,12 +9704,12 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [roomType] Type of the room.
-  ///   * [invite] User, group, … ID to invite. Defaults to `''`.
-  ///   * [roomName] Name of the room. Defaults to `''`.
-  ///   * [source] Source of the invite ID ('circles' to create a room with a circle, etc.). Defaults to `''`.
-  ///   * [objectType] Type of the object. Defaults to `''`.
-  ///   * [objectId] ID of the object. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [invite] User, group, … ID to invite. Defaults to `""`.
+  ///   * [roomName] Name of the room. Defaults to `""`.
+  ///   * [source] Source of the invite ID ('circles' to create a room with a circle, etc.). Defaults to `""`.
+  ///   * [objectType] Type of the object. Defaults to `""`.
+  ///   * [objectId] ID of the object. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9798,12 +9798,12 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [roomType] Type of the room.
-  ///   * [invite] User, group, … ID to invite. Defaults to `''`.
-  ///   * [roomName] Name of the room. Defaults to `''`.
-  ///   * [source] Source of the invite ID ('circles' to create a room with a circle, etc.). Defaults to `''`.
-  ///   * [objectType] Type of the object. Defaults to `''`.
-  ///   * [objectId] ID of the object. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [invite] User, group, … ID to invite. Defaults to `""`.
+  ///   * [roomName] Name of the room. Defaults to `""`.
+  ///   * [source] Source of the invite ID ('circles' to create a room with a circle, etc.). Defaults to `""`.
+  ///   * [objectType] Type of the object. Defaults to `""`.
+  ///   * [objectId] ID of the object. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9860,8 +9860,8 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [searchTerm] search term. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [searchTerm] search term. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9921,8 +9921,8 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [searchTerm] search term. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [searchTerm] search term. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9967,7 +9967,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10023,7 +10023,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10067,7 +10067,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10131,7 +10131,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10180,7 +10180,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10248,7 +10248,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10293,7 +10293,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10357,7 +10357,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10402,7 +10402,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10466,7 +10466,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10512,7 +10512,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [description] New description.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10581,7 +10581,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [description] New description.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10629,7 +10629,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] New read-only state.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10699,7 +10699,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] New read-only state.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10747,7 +10747,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [scope] Scope where the room is listable.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10817,7 +10817,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [scope] Scope where the room is listable.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10865,7 +10865,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [password] New password.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10934,7 +10934,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [password] New password.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -10983,7 +10983,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [mode] Level of the permissions ('call', 'default').
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -11063,7 +11063,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [mode] Level of the permissions ('call', 'default').
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -11114,7 +11114,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11185,7 +11185,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11236,8 +11236,8 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [newParticipant] New participant.
-  ///   * [source] Source of the participant. Defaults to `users`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [source] Source of the participant. Defaults to `"users"`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11316,8 +11316,8 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [newParticipant] New participant.
-  ///   * [source] Source of the participant. Defaults to `users`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [source] Source of the participant. Defaults to `"users"`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11370,7 +11370,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11447,7 +11447,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [includeStatus] Include the user statuses. Defaults to `0`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11498,7 +11498,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11565,7 +11565,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11612,7 +11612,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11683,7 +11683,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11736,7 +11736,7 @@ class $RoomClient {
   ///   * [attendeeId] ID of the attendee.
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11819,7 +11819,7 @@ class $RoomClient {
   ///   * [attendeeId] ID of the attendee.
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11875,7 +11875,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -11953,7 +11953,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [method] Method of updating permissions ('set', 'remove', 'add').
   ///   * [permissions] New permissions.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12003,9 +12003,9 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [password] Password of the room. Defaults to `''`.
+  ///   * [password] Password of the room. Defaults to `""`.
   ///   * [force] Create a new session if necessary. Defaults to `1`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12081,9 +12081,9 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [password] Password of the room. Defaults to `''`.
+  ///   * [password] Password of the room. Defaults to `""`.
   ///   * [force] Create a new session if necessary. Defaults to `1`.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12134,7 +12134,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12196,7 +12196,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12241,7 +12241,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12313,7 +12313,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12361,7 +12361,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] of the room.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12431,7 +12431,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] of the room.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12480,7 +12480,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12551,7 +12551,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12601,7 +12601,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12672,7 +12672,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [attendeeId] ID of the attendee.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12721,7 +12721,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12785,7 +12785,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12829,7 +12829,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12893,7 +12893,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -12938,7 +12938,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [level] New level.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13009,7 +13009,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [level] New level.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13057,7 +13057,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [level] New level.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13128,7 +13128,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [level] New level.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13176,7 +13176,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [state] New state.
   ///   * [timer] Timer when the lobby will be removed.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13251,7 +13251,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [state] New state.
   ///   * [timer] Timer when the lobby will be removed.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13301,7 +13301,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] New state.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13375,7 +13375,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [state] New state.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13426,7 +13426,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [recordingConsent] New consent setting for the conversation (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13499,7 +13499,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [recordingConsent] New consent setting for the conversation (Only {@see RecordingService::CONSENT_REQUIRED_NO} and {@see RecordingService::CONSENT_REQUIRED_YES} are allowed here.).
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13548,7 +13548,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [seconds] New time.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13617,7 +13617,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [seconds] New time.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13666,7 +13666,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13731,7 +13731,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13778,7 +13778,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13842,7 +13842,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token] Token of the room.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -13890,7 +13890,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [pin] PIN the participant used to dial-in.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -13966,7 +13966,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [pin] PIN the participant used to dial-in.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -14018,7 +14018,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [pin] PIN the participant used to dial-in.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14089,7 +14089,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [pin] PIN the participant used to dial-in.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14140,7 +14140,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [number] E164 formatted phone number.
   ///   * [options] Additional details to verify the validity of the request.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14221,7 +14221,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [number] E164 formatted phone number.
   ///   * [options] Additional details to verify the validity of the request.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14273,7 +14273,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14338,7 +14338,7 @@ class $RoomClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14386,7 +14386,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
   ///   * [options] Additional details to verify the validity of the request.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14467,7 +14467,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
   ///   * [options] Additional details to verify the validity of the request.
-  ///   * [apiVersion] Defaults to `v4`.
+  ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14529,7 +14529,7 @@ class $SettingsClient {
   /// Parameters:
   ///   * [key] Key to update.
   ///   * [value] New value for the key.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14595,7 +14595,7 @@ class $SettingsClient {
   /// Parameters:
   ///   * [key] Key to update.
   ///   * [value] New value for the key.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14643,7 +14643,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14699,7 +14699,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14743,7 +14743,7 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [host] Host to check.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14808,7 +14808,7 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [host] Host to check.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14856,7 +14856,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [serverId] ID of the server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14920,7 +14920,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [serverId] ID of the server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -14970,9 +14970,9 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [sipGroups] New SIP groups. Defaults to `[]`.
-  ///   * [dialInInfo] New dial info. Defaults to `''`.
-  ///   * [sharedSecret] New shared secret. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [dialInInfo] New dial info. Defaults to `""`.
+  ///   * [sharedSecret] New shared secret. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14992,7 +14992,7 @@ class $SettingsClient {
     final _parameters = <String, Object?>{};
     var $sipGroups =
         _$jsonSerializers.serialize(sipGroups, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $sipGroups ??= [];
+    $sipGroups ??= const [];
     _parameters['sipGroups%5B%5D'] = $sipGroups;
 
     var $dialInInfo = _$jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
@@ -15047,9 +15047,9 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [sipGroups] New SIP groups. Defaults to `[]`.
-  ///   * [dialInInfo] New dial info. Defaults to `''`.
-  ///   * [sharedSecret] New shared secret. Defaults to `''`.
-  ///   * [apiVersion] Defaults to `v1`.
+  ///   * [dialInInfo] New dial info. Defaults to `""`.
+  ///   * [sharedSecret] New shared secret. Defaults to `""`.
+  ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -15099,7 +15099,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [serverId] ID of the signaling server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -15164,7 +15164,7 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [serverId] ID of the signaling server.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -15219,7 +15219,7 @@ class $SignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -15273,7 +15273,7 @@ class $SignalingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Defaults to `v3`.
+  ///   * [apiVersion] Defaults to `"v3"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
