@@ -35,9 +35,9 @@ abstract interface class $TestObjectInterface {
   @BuiltValueField(wireName: 'max-items')
   BuiltList<int>? get maxItems;
   @BuiltValueField(wireName: 'array-unique')
-  BuiltList<int>? get arrayUnique;
+  BuiltSet<int>? get arrayUnique;
   @BuiltValueField(wireName: 'array-multiple-checks')
-  BuiltList<int>? get arrayMultipleChecks;
+  BuiltSet<int>? get arrayMultipleChecks;
   num? get multipleOf;
   num? get maximum;
   num? get exclusiveMaximum;
@@ -235,6 +235,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
       ..add(TestObject.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(const FullType(BuiltSet, [FullType(int)]), SetBuilder<int>.new)
       ..addBuilderFactory(const FullType(TestObjectUnspecified), TestObjectUnspecifiedBuilder.new)
       ..add(TestObjectUnspecified.serializer))
     .build();
