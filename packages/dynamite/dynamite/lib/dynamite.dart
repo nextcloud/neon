@@ -8,4 +8,10 @@
 /// details, and `build.yaml` for how these builders are configured by default.
 library dynamite;
 
-export 'src/openapi_builder.dart';
+import 'package:build/build.dart' show Builder, BuilderOptions;
+import 'package:dynamite/src/json_schema_builder.dart' show JsonSchemaBuilder;
+import 'package:dynamite/src/openapi_builder.dart' show OpenAPIBuilder;
+
+Builder openAPIBuilder(BuilderOptions options) => OpenAPIBuilder(options);
+
+Builder jsonSchemaBuilder(BuilderOptions options) => JsonSchemaBuilder(options);

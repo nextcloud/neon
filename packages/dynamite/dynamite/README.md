@@ -1,6 +1,7 @@
 Provides a [Dart Build System](https://github.com/dart-lang/build) builder for generating clients from [OpenAPI specifications](https://swagger.io/specification/).
+Version `0.3.0` adds experimental support for [JsonSchema](https://json-schema.org) models. 
 
-The builder generates code if it find files with an `.openapi.json` or `.openapi.yaml` extension in the lib directory.
+The builder generates code if it find files with an `.openapi.json`, `.openapi.yaml` or `.json_schema.json` extension in the lib directory.
 
 # Setup
 
@@ -11,9 +12,9 @@ dependencies:
   built_value: ^8.9.0
   collection: ^1.0.0
   dynamite_runtime: ^0.1.0
-  http: ^1.2.0
+  http: ^1.2.0 # only needed for openapi libraries
   meta: ^1.0.0
-  uri: ^1.0.0
+  uri: ^1.0.0 # only needed for openapi libraries
 dev_dependencies:
   build_runner: ^2.4.8
   built_value_generator: ^8.9.0
@@ -25,7 +26,7 @@ To generate code you need to invoke the `build_runner` with the following comman
 ```sh
 dart run build_runner build
 ``` 
-The builder will look for any files ending with either `.openapi.json` or `.openapi.yaml` and place the generated code next to the specifications in a file ending with `.openapi.dart`.
+The builder will look for any files ending with either `.openapi.json`, `.openapi.yaml` or `.json_schema.json` and place the generated code next to the specifications in a file ending with `.openapi.dart` or `.json_schema.dart`.
 For a full example checkout the [example package](https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite/example) using the OpenAPI petstore specification.
 
 
@@ -37,7 +38,7 @@ You can configure code generation by setting values in the `build.yaml`.
 targets:
   $default:
     builders:
-      dynamite:
+      dynamite|dynamite_openapi:
         options:
           # Options configure how source code is generated.
           #
@@ -48,6 +49,7 @@ targets:
             - discarded_futures
             - public_member_api_docs
             - unreachable_switch_case
+          # Add coverage ignore comments to fromJson and toJson methods.
           coverage_ignores:
             - 'const .*\._\(\);'
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => jsonSerializers\.deserializeWith\(serializer, json\)!;'
@@ -65,7 +67,7 @@ targets:
 
 # Versioning
 
-Dynamite does not yet support the full OpenAPI specification. It currently supports the most common subset of the functionality of the versions 3.0 and 3.1.
+Dynamite does not yet support the full OpenAPI or JsonSchema specification. It currently supports the most common subset of the functionality of the OpenAPI versions 3.0 and 3.1 and JsonSchema 2020-12.
 Feel free to open an issue if you rely on any functionality not yet supported.
 The version number of this package will be updated in regards to the generated code. For example if there is a breaking change in the generated code the major version of this package will be updated.
 

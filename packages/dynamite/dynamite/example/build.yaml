@@ -3,7 +3,7 @@ targets:
     builders:
       built_value_generator|built_value:
         enabled: true
-      dynamite:
+      dynamite|openapi:
         options:
           pageWidth: 120
           analyzer_ignores:

@@ -1,8 +1,15 @@
 builders:
-  dynamite:
-    import: 'package:dynamite/builder.dart'
+  openapi:
+    import: 'package:dynamite/dynamite.dart'
     builder_factories: ['openAPIBuilder']
     build_extensions: { '.openapi.json': ['openapi.dart'] }
+    auto_apply: dependents
+    build_to: source
+    runs_before: ['built_value_generator|built_value']
+  json_schema:
+    import: 'package:dynamite/dynamite.dart'
+    builder_factories: ['jsonSchemaBuilder']
+    build_extensions: { '.json_schema.json': ['json_schema.dart'] }
     auto_apply: dependents
     build_to: source
     runs_before: ['built_value_generator|built_value']

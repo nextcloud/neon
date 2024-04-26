@@ -3,7 +3,7 @@ targets:
     builders:
       built_value_generator|built_value:
         enabled: true
-      dynamite:
+      dynamite|openapi:
         options:
           pageWidth: 120
           analyzer_ignores:
@@ -36,3 +36,15 @@ targets:
                 - no_leading_underscores_for_local_identifiers
                 - non_constant_identifier_names
                 - deprecated_member_use_from_same_package
+      dynamite|json_schema:
+        options:
+          pageWidth: 120
+          analyzer_ignores:
+            - camel_case_types
+            - camel_case_extensions
+            - discarded_futures
+            - public_member_api_docs
+            - unreachable_switch_case
+            - unused_element
+            - no_leading_underscores_for_local_identifiers
+            - non_constant_identifier_names
