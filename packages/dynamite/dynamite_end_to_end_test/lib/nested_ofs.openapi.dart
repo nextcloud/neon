@@ -159,6 +159,8 @@ abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterfac
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($BaseNestedAllOfInterfaceBuilder b) {
     $BaseAllOfInterface._validate(b);
+    b.baseOneOf?.validateOneOf();
+    b.baseAnyOf?.validateAnyOf();
   }
 }
 
