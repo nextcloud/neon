@@ -1,3 +1,4 @@
+addressbook
 apirequest
 apppassword
 bigfilechunking

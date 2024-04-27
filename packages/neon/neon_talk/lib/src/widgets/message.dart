@@ -163,40 +163,35 @@ InlineSpan buildRichObjectParameter({
   required TextStyle? textStyle,
   required bool isPreview,
 }) {
-  Widget child;
-
-  if (isPreview) {
-    child = Text(
-      parameter.name,
-      style: textStyle,
-    );
-  } else {
-    switch (parameter.type) {
-      case 'user' || 'call' || 'guest' || 'user-group' || 'group':
-        child = TalkRichObjectMention(
-          parameter: parameter,
-          textStyle: textStyle,
-        );
-      case 'file':
-        child = TalkRichObjectFile(
-          parameter: parameter,
-          textStyle: textStyle,
-        );
-      case 'deck-card':
-        child = TalkRichObjectDeckCard(
-          parameter: parameter,
-        );
-      default:
-        child = TalkRichObjectFallback(
-          parameter: parameter,
-          textStyle: textStyle,
-        );
-    }
-  }
-
   return WidgetSpan(
     alignment: PlaceholderAlignment.middle,
-    child: child,
+    child: isPreview
+        ? Text(
+            parameter.name,
+            style: textStyle,
+          )
+        : switch (parameter.type) {
+            spreed.RichObjectParameter_Type.user ||
+            spreed.RichObjectParameter_Type.call ||
+            spreed.RichObjectParameter_Type.guest ||
+            spreed.RichObjectParameter_Type.userGroup ||
+            spreed.RichObjectParameter_Type.group =>
+              TalkRichObjectMention(
+                parameter: parameter,
+                textStyle: textStyle,
+              ),
+            spreed.RichObjectParameter_Type.file => TalkRichObjectFile(
+                parameter: parameter,
+                textStyle: textStyle,
+              ),
+            spreed.RichObjectParameter_Type.deckCard => TalkRichObjectDeckCard(
+                parameter: parameter,
+              ),
+            _ => TalkRichObjectFallback(
+                parameter: parameter,
+                textStyle: textStyle,
+              ),
+          },
   );
 }
 

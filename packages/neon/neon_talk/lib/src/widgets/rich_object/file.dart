@@ -24,7 +24,7 @@ class TalkRichObjectFile extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child;
 
-    if (parameter.previewAvailable == spreed.RichObjectParameter_PreviewAvailable.yes) {
+    if (parameter.previewAvailable == 'yes') {
       child = TalkRichObjectFilePreview(
         parameter: parameter,
       );

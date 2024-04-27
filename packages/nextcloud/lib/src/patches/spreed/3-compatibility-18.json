@@ -23,5 +23,47 @@
       "statusIcon",
       "statusMessage"
     ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/RichObjectParameter/properties/width",
+    "value": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/RichObjectParameter/properties/height",
+    "value": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/RichObjectParameter/properties/size",
+    "value": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        }
+      ]
+    }
   }
 ]
