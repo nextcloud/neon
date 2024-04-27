@@ -5,8 +5,8 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
+import 'package:dynamite/src/models/json_schema.dart';
 import 'package:dynamite/src/models/openapi/media_type.dart';
-import 'package:dynamite/src/models/openapi/schema.dart';
 import 'package:meta/meta.dart';
 
 part 'parameter.g.dart';
@@ -30,7 +30,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   @protected
   @BuiltValueField(wireName: 'schema')
-  Schema? get $schema;
+  JsonSchema? get $schema;
 
   BuiltMap<String, MediaType>? get content;
 
@@ -41,7 +41,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   ParameterStyle get style;
 
   @memoized
-  Schema? get schema {
+  JsonSchema? get schema {
     if ($schema != null) {
       return $schema;
     }
@@ -49,11 +49,11 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
     if (content != null) {
       final mediaType = content!.entries.single;
 
-      return Schema(
+      return StringSchema(
         (b) => b
-          ..type = SchemaType.string
+          ..type = JsonSchemaType.string
           ..contentMediaType = mediaType.key
-          ..contentSchema.replace(mediaType.value.schema!),
+          ..contentSchema = mediaType.value.schema,
       );
     }
 
@@ -142,7 +142,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.spaceDelimited:
-        if (b._$schema?.type != SchemaType.array && b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.spaceDelimited can only be used with array or object  schemas.');
         }
         if (b._$in != ParameterType.query) {
@@ -150,7 +150,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.pipeDelimited:
-        if (b._$schema?.type != SchemaType.array && b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.array && b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.pipeDelimited can only be used with array or object schemas.');
         }
         if (b._$in != ParameterType.query) {
@@ -158,7 +158,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
         }
 
       case ParameterStyle.deepObject:
-        if (b._$schema?.type != SchemaType.object) {
+        if (b._$schema?.type != JsonSchemaType.object) {
           throw OpenAPISpecError('ParameterStyle.deepObject can only be used with object schemas.');
         }
         if (b._$in != ParameterType.query) {
@@ -170,7 +170,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       throw OpenAPISpecError('Path parameters must be required but ${b.name} is not.');
     }
 
-    if (b.required! && b._$schema != null && b.$schema.rawDefault != null) {
+    if (b.required! && b._$schema != null && b.$schema?.$default != null) {
       dynamiteLog.requiredParameters();
     }
 

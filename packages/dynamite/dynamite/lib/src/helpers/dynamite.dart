@@ -1,19 +1,20 @@
 // ignore_for_file: avoid_positional_boolean_parameters
 
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 
 String clientName(String tag) => '\$${toDartName(tag, className: true)}Client';
 
 bool isDartParameterNullable(
   bool required,
-  openapi.Schema? schema,
+  json_schema.JsonSchema? schema,
 ) =>
     (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(
   bool required,
-  openapi.Schema? schema,
+  json_schema.JsonSchema? schema,
 ) =>
     required && schema?.$default == null;
 

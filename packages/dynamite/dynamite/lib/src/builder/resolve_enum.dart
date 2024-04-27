@@ -5,6 +5,7 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
@@ -13,7 +14,7 @@ TypeResult resolveEnum(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  openapi.Schema schema,
+  json_schema.JsonSchema schema,
   TypeResult subResult, {
   bool nullable = false,
 }) {

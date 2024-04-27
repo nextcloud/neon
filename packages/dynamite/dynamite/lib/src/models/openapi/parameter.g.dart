@@ -110,7 +110,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
     if (value != null) {
       result
         ..add('schema')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonSchema)));
     }
     value = object.content;
     if (value != null) {
@@ -146,7 +146,7 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.$schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.$schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
         case 'content':
           result.content.replace(serializers.deserialize(value,
@@ -211,7 +211,7 @@ class _$Parameter extends Parameter {
   @override
   final bool required;
   @override
-  final Schema? $schema;
+  final JsonSchema? $schema;
   @override
   final BuiltMap<String, MediaType>? content;
   @override
@@ -220,7 +220,7 @@ class _$Parameter extends Parameter {
   final bool allowReserved;
   @override
   final ParameterStyle style;
-  Schema? __schema;
+  JsonSchema? __schema;
   bool ___schema = false;
   String? __formattedDescription;
 
@@ -246,7 +246,7 @@ class _$Parameter extends Parameter {
   }
 
   @override
-  Schema? get schema {
+  JsonSchema? get schema {
     if (!___schema) {
       __schema = super.schema;
       ___schema = true;
@@ -327,9 +327,9 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   bool? get required => _$this._required;
   set required(bool? required) => _$this._required = required;
 
-  SchemaBuilder? _$schema;
-  SchemaBuilder get $schema => _$this._$schema ??= SchemaBuilder();
-  set $schema(SchemaBuilder? $schema) => _$this._$schema = $schema;
+  JsonSchema? _$schema;
+  JsonSchema? get $schema => _$this._$schema;
+  set $schema(JsonSchema? $schema) => _$this._$schema = $schema;
 
   MapBuilder<String, MediaType>? _content;
   MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
@@ -356,7 +356,7 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
       _$in = $v.$in;
       _description = $v.description;
       _required = $v.required;
-      _$schema = $v.$schema?.toBuilder();
+      _$schema = $v.$schema;
       _content = $v.content?.toBuilder();
       _explode = $v.explode;
       _allowReserved = $v.allowReserved;
@@ -390,7 +390,7 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
               $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
               description: description,
               required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
-              $schema: _$schema?.build(),
+              $schema: $schema,
               content: _content?.build(),
               explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
               allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
@@ -398,8 +398,6 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = '\$schema';
-        _$schema?.build();
         _$failedField = 'content';
         _content?.build();
       } catch (e) {

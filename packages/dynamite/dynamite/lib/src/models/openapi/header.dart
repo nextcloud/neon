@@ -1,6 +1,6 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/models/openapi/schema.dart';
+import 'package:dynamite/src/models/json_schema.dart';
 
 part 'header.g.dart';
 
@@ -16,7 +16,7 @@ abstract class Header implements Built<Header, HeaderBuilder> {
 
   bool get required;
 
-  Schema? get schema;
+  JsonSchema? get schema;
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(HeaderBuilder b) {

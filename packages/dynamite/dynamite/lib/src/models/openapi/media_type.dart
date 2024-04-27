@@ -1,6 +1,6 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:dynamite/src/models/openapi/schema.dart';
+import 'package:dynamite/src/models/json_schema.dart';
 
 part 'media_type.g.dart';
 
@@ -11,5 +11,5 @@ abstract class MediaType implements Built<MediaType, MediaTypeBuilder> {
 
   static Serializer<MediaType> get serializer => _$mediaTypeSerializer;
 
-  Schema? get schema;
+  JsonSchema? get schema;
 }

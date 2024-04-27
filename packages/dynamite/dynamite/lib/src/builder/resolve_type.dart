@@ -4,6 +4,7 @@ import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_ofs.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -14,7 +15,7 @@ TypeResult resolveType(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  openapi.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
   final result = _resolveType(
@@ -33,11 +34,11 @@ TypeResult _resolveType(
   openapi.OpenAPI spec,
   State state,
   String identifier,
-  openapi.Schema schema, {
+  json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
   switch (schema) {
-    case openapi.Schema($enum: != null):
+    case json_schema.JsonSchema($enum: != null):
       final subResult = resolveType(
         spec,
         state,
@@ -57,7 +58,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case openapi.Schema(allOf: != null):
+    case json_schema.JsonSchema(allOf: != null):
       return resolveObject(
         spec,
         state,
@@ -66,13 +67,13 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case openapi.Schema(ref: null, ofs: null, type: null):
+    case json_schema.GenericSchema(ref: null, allOf: null, anyOf: null, oneOf: null):
       return TypeResultBase(
         'JsonObject',
         nullable: nullable,
       );
 
-    case openapi.Schema(ref: != null):
+    case json_schema.JsonSchema(ref: != null):
       final name = schema.ref!.fragment.split('/').last;
       final subResult = resolveType(
         spec,
@@ -84,7 +85,7 @@ TypeResult _resolveType(
 
       return subResult.asTypeDef;
 
-    case openapi.Schema(anyOf: != null) || openapi.Schema(oneOf: != null):
+    case json_schema.JsonSchema(anyOf: != null) || json_schema.JsonSchema(oneOf: != null):
       return resolveSomeOf(
         spec,
         state,
@@ -93,7 +94,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case openapi.Schema(isContentString: true):
+    case json_schema.StringSchema(isContentString: true):
       final subResult = resolveType(
         spec,
         state,
@@ -107,43 +108,43 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.boolean):
+    case json_schema.BooleanSchema():
       return TypeResultBase(
         'bool',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.integer):
+    case json_schema.IntegerSchema():
       return TypeResultBase(
         'int',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.number, format: 'float' || 'double'):
+    case json_schema.NumberSchema(format: 'float' || 'double'):
       return TypeResultBase(
         'double',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.number):
+    case json_schema.NumberSchema():
       return TypeResultBase(
         'num',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.string, format: 'binary'):
+    case json_schema.StringSchema(format: 'binary'):
       return TypeResultBase(
         'Uint8List',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.string):
+    case json_schema.StringSchema():
       return TypeResultBase(
         'String',
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.array):
+    case json_schema.ArraySchema():
       final TypeResult subResult;
       if (schema.maxItems == 0) {
         subResult = TypeResultBase('Never');
@@ -164,7 +165,7 @@ TypeResult _resolveType(
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.object, properties: null):
+    case json_schema.ObjectSchema(properties: null):
       if (schema.additionalProperties == null) {
         return TypeResultBase(
           'JsonObject',
@@ -184,15 +185,14 @@ TypeResult _resolveType(
         );
       }
 
-    case openapi.Schema(type: openapi.SchemaType.object, :final properties)
-        when properties != null && properties.isEmpty:
+    case json_schema.ObjectSchema(:final properties) when properties != null && properties.isEmpty:
       return TypeResultMap(
         'BuiltMap',
         TypeResultBase('JsonObject'),
         nullable: nullable,
       );
 
-    case openapi.Schema(type: openapi.SchemaType.object):
+    case json_schema.ObjectSchema():
       return resolveObject(
         spec,
         state,

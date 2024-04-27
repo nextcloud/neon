@@ -1,50 +1,51 @@
 import 'package:code_builder/code_builder.dart';
-import 'package:dynamite/src/models/openapi.dart' as openapi;
-import 'package:dynamite/src/models/openapi/schema.dart';
+import 'package:dynamite/src/models/json_schema.dart';
 
 Iterable<Expression> buildPatternCheck(
-  openapi.Schema schema,
+  Validator schema,
   String value,
   String name,
 ) sync* {
-  switch (schema.type) {
-    case SchemaType.string:
-      if (schema.pattern != null) {
+  switch (schema) {
+    case StringValidator():
+      if (schema case StringValidator(:final pattern) when pattern != null) {
         yield refer('checkPattern', 'package:dynamite_runtime/utils.dart').call([
           refer(value).asA(refer('String?')),
-          refer('RegExp').call([literalString(schema.pattern!, raw: true)]),
+          refer('RegExp').call([literalString(pattern.pattern, raw: true)]),
           literalString(name),
         ]);
       }
-      if (schema.minLength != null) {
+      if (schema case StringValidator(:final minLength) when minLength != null) {
         yield refer('checkMinLength', 'package:dynamite_runtime/utils.dart').call([
           refer(value).asA(refer('String?')),
-          literalNum(schema.minLength!),
+          literalNum(minLength),
           literalString(name),
         ]);
       }
-      if (schema.maxLength != null) {
+      if (schema case StringValidator(:final maxLength) when maxLength != null) {
         yield refer('checkMaxLength', 'package:dynamite_runtime/utils.dart').call([
           refer(value).asA(refer('String?')),
-          literalNum(schema.maxLength!),
+          literalNum(maxLength),
           literalString(name),
         ]);
       }
-    case SchemaType.array:
-      if (schema.minItems != null) {
+
+    case ArrayValidator():
+      if (schema case ArrayValidator(:final minItems) when minItems != null) {
         yield refer('checkMinItems', 'package:dynamite_runtime/utils.dart').call([
           refer(value).nullSafeProperty('length'),
-          literalNum(schema.minItems!),
+          literalNum(minItems),
           literalString(name),
         ]);
       }
-      if (schema.maxItems != null) {
+      if (schema case ArrayValidator(:final maxItems) when maxItems != null) {
         yield refer('checkMaxItems', 'package:dynamite_runtime/utils.dart').call([
           refer(value).nullSafeProperty('length'),
-          literalNum(schema.maxItems!),
+          literalNum(maxItems),
           literalString(name),
         ]);
       }
+
     default:
       break;
   }
