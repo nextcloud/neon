@@ -2,10 +2,12 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
+import 'package:dynamite/src/helpers/default_value.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
 import 'package:dynamite/src/models/openapi.dart';
+import 'package:meta/meta.dart';
 import 'package:rfc_6901/rfc_6901.dart';
 
 part 'schema.g.dart';
@@ -67,7 +69,14 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   String? get format;
 
   @BuiltValueField(wireName: 'default')
-  JsonObject? get $default;
+  @protected
+  JsonObject? get rawDefault;
+
+  @memoized
+  String? get $default => encodeDefault(rawDefault);
+
+  @memoized
+  String? get defaultDescription => encodeDefault(rawDefault, constant: false);
 
   @BuiltValueField(wireName: 'enum')
   BuiltList<JsonObject>? get $enum;

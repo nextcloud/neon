@@ -7,7 +7,6 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
-import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
@@ -61,13 +60,14 @@ Spec buildInterface(
 
             b.implements.add(refer(interfaceName));
           } else {
-            final property = _generateProperty(
-              object,
+            _generateProperty(
+              b,
               object.className,
-              schema.formattedDescription,
+              object,
+              schema,
+              defaults,
+              validators,
             );
-
-            b.methods.add(property);
           }
         }
       }
@@ -153,7 +153,6 @@ void _generateProperties(
   for (final property in properties) {
     final propertyName = property.key;
     final propertySchema = property.value;
-    final dartName = toDartName(propertyName);
 
     var result = resolveType(
       spec,
@@ -178,60 +177,84 @@ void _generateProperties(
       state.resolvedTypes.add(result);
     }
 
-    final method = _generateProperty(
-      result,
+    _generateProperty(
+      b,
       propertyName,
-      propertySchema.formattedDescription,
+      result,
+      propertySchema,
+      defaults,
+      validators,
     );
-    b.methods.add(method);
-
-    final $default = propertySchema.$default;
-    if ($default != null) {
-      final value = $default.toString();
-      defaults.writeln('b.$dartName = ${valueToEscapedValue(result, value)};');
-    }
-
-    if (result is TypeResultOneOf && !result.isSingleValue) {
-      final expression = refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]);
-      validators.addExpression(expression);
-    } else if (result is TypeResultAnyOf && !result.isSingleValue) {
-      final expression = refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]);
-      validators.addExpression(expression);
-    }
-
-    buildPatternCheck(propertySchema, 'b.$dartName', dartName).forEach(validators.addExpression);
   }
 }
 
-Method _generateProperty(
-  TypeResult type,
+void _generateProperty(
+  ClassBuilder b,
   String propertyName,
-  String? description,
+  TypeResult result,
+  openapi.Schema schema,
+  StringSink defaults,
+  BlockBuilder validators,
 ) {
-  return Method(
-    (b) {
-      final name = toFieldName(toDartName(propertyName), type.name);
-      b
-        ..name = name
-        ..type = MethodType.getter
-        ..docs.addAll(escapeDescription(description));
+  final dartName = toDartName(propertyName);
+  final name = toFieldName(dartName, result.name);
 
-      if (type is TypeResultSomeOf && type.isSingleValue) {
-        b.returns = refer(type.dartType.name);
-      } else {
-        b.returns = refer(type.nullableName);
-      }
+  b.methods.add(
+    Method(
+      (b) {
+        b
+          ..name = name
+          ..type = MethodType.getter
+          ..docs.addAll(escapeDescription(schema.formattedDescription));
 
-      final builtValueFieldAnnotations = <String, Expression>{};
-      if (name != propertyName) {
-        builtValueFieldAnnotations['wireName'] = literalString(propertyName);
-      }
+        if (result is TypeResultSomeOf && result.isSingleValue) {
+          b.returns = refer(result.dartType.name);
+        } else {
+          b.returns = refer(result.nullableName);
+        }
 
-      if (builtValueFieldAnnotations.isNotEmpty) {
-        b.annotations.add(
-          refer('BuiltValueField').call([], builtValueFieldAnnotations),
-        );
-      }
-    },
+        final builtValueFieldAnnotations = <String, Expression>{};
+        if (name != propertyName) {
+          builtValueFieldAnnotations['wireName'] = literalString(propertyName);
+        }
+
+        if (builtValueFieldAnnotations.isNotEmpty) {
+          b.annotations.add(
+            refer('BuiltValueField').call([], builtValueFieldAnnotations),
+          );
+        }
+      },
+    ),
   );
+
+  final $default = schema.$default;
+  if ($default != null) {
+    b.fields.add(
+      Field((b) {
+        b
+          ..name = '_\$$name'
+          ..modifier = FieldModifier.final$
+          ..static = true
+          ..assignment = Code(
+            result.deserialize($default),
+          );
+      }),
+    );
+
+    if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
+      defaults.writeln('b.$dartName = _\$$name;');
+    } else {
+      defaults.writeln('b.$dartName.replace(_\$$name);');
+    }
+  }
+
+  if (result is TypeResultOneOf && !result.isSingleValue) {
+    final expression = refer('b').property(dartName).nullSafeProperty('validateOneOf').call([]);
+    validators.addExpression(expression);
+  } else if (result is TypeResultAnyOf && !result.isSingleValue) {
+    final expression = refer('b').property(dartName).nullSafeProperty('validateAnyOf').call([]);
+    validators.addExpression(expression);
+  }
+
+  buildPatternCheck(schema, 'b.$dartName', dartName).forEach(validators.addExpression);
 }

@@ -109,7 +109,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         ..add('format')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.$default;
+    value = object.rawDefault;
     if (value != null) {
       result
         ..add('default')
@@ -233,7 +233,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           result.format = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'default':
-          result.$default = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          result.rawDefault = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
@@ -325,7 +325,7 @@ class _$Schema extends Schema {
   @override
   final String? format;
   @override
-  final JsonObject? $default;
+  final JsonObject? rawDefault;
   @override
   final BuiltList<JsonObject>? $enum;
   @override
@@ -354,6 +354,10 @@ class _$Schema extends Schema {
   final int? maxItems;
   @override
   final bool nullable;
+  String? __$default;
+  bool ___$default = false;
+  String? __defaultDescription;
+  bool ___defaultDescription = false;
   bool? __isContentString;
   String? __formattedDescription;
   bool ___formattedDescription = false;
@@ -370,7 +374,7 @@ class _$Schema extends Schema {
       required this.deprecated,
       this.type,
       this.format,
-      this.$default,
+      this.rawDefault,
       this.$enum,
       this.properties,
       required this.required,
@@ -389,6 +393,24 @@ class _$Schema extends Schema {
     BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(required, r'Schema', 'required');
     BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable');
+  }
+
+  @override
+  String? get $default {
+    if (!___$default) {
+      __$default = super.$default;
+      ___$default = true;
+    }
+    return __$default;
+  }
+
+  @override
+  String? get defaultDescription {
+    if (!___defaultDescription) {
+      __defaultDescription = super.defaultDescription;
+      ___defaultDescription = true;
+    }
+    return __defaultDescription;
   }
 
   @override
@@ -421,7 +443,7 @@ class _$Schema extends Schema {
         deprecated == other.deprecated &&
         type == other.type &&
         format == other.format &&
-        $default == other.$default &&
+        rawDefault == other.rawDefault &&
         $enum == other.$enum &&
         properties == other.properties &&
         required == other.required &&
@@ -449,7 +471,7 @@ class _$Schema extends Schema {
     _$hash = $jc(_$hash, deprecated.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
-    _$hash = $jc(_$hash, $default.hashCode);
+    _$hash = $jc(_$hash, rawDefault.hashCode);
     _$hash = $jc(_$hash, $enum.hashCode);
     _$hash = $jc(_$hash, properties.hashCode);
     _$hash = $jc(_$hash, required.hashCode);
@@ -480,7 +502,7 @@ class _$Schema extends Schema {
           ..add('deprecated', deprecated)
           ..add('type', type)
           ..add('format', format)
-          ..add('\$default', $default)
+          ..add('rawDefault', rawDefault)
           ..add('\$enum', $enum)
           ..add('properties', properties)
           ..add('required', required)
@@ -538,9 +560,9 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   String? get format => _$this._format;
   set format(String? format) => _$this._format = format;
 
-  JsonObject? _$default;
-  JsonObject? get $default => _$this._$default;
-  set $default(JsonObject? $default) => _$this._$default = $default;
+  JsonObject? _rawDefault;
+  JsonObject? get rawDefault => _$this._rawDefault;
+  set rawDefault(JsonObject? rawDefault) => _$this._rawDefault = rawDefault;
 
   ListBuilder<JsonObject>? _$enum;
   ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
@@ -612,7 +634,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
       _deprecated = $v.deprecated;
       _type = $v.type;
       _format = $v.format;
-      _$default = $v.$default;
+      _rawDefault = $v.rawDefault;
       _$enum = $v.$enum?.toBuilder();
       _properties = $v.properties?.toBuilder();
       _required = $v.required.toBuilder();
@@ -661,7 +683,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated'),
               type: type,
               format: format,
-              $default: $default,
+              rawDefault: rawDefault,
               $enum: _$enum?.build(),
               properties: _properties?.build(),
               required: required.build(),

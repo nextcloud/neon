@@ -12,7 +12,6 @@ import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
-import 'package:source_helper/source_helper.dart';
 import 'package:uri/uri.dart';
 
 Iterable<Class> generateClients(
@@ -563,19 +562,15 @@ String buildParameterSerialization(
   State state,
   String Function(Reference) allocate,
 ) {
-  final $default = parameter.schema?.$default;
-  var defaultValueCode = $default?.value;
-  if ($default != null && $default.isString) {
-    defaultValueCode = escapeDartString($default.asString);
-  }
   final dartName = toDartName(parameter.name);
   final serializedName = '\$$dartName';
   final buffer = StringBuffer();
 
+  final $default = parameter.schema?.$default;
   if ($default != null) {
     buffer
       ..write('var $serializedName = ${result.serialize(dartName)};')
-      ..writeln('$serializedName ??= $defaultValueCode;');
+      ..write('$serializedName ??= ${$default};');
   } else {
     buffer.write('final $serializedName = ${result.serialize(dartName)};');
   }

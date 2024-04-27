@@ -153,6 +153,182 @@
                 }
             }
         },
+        "/defaults": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "content_string",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "contentMediaType": "application/json",
+                            "contentSchema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            },
+                            "default": "\"{}\""
+                        }
+                    },
+                    {
+                        "name": "content_parameter",
+                        "in": "query",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {},
+                                    "default": "{}"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "array",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "default": [
+                                "default-item",
+                                true,
+                                1.0
+                            ]
+                        }
+                    },
+                    {
+                        "name": "array_string",
+                        "in": "query",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            },
+                            "default": [
+                                "default-item",
+                                "item"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "bool",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean",
+                            "default": true
+                        }
+                    },
+                    {
+                        "name": "string",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "default": "default"
+                        }
+                    },
+                    {
+                        "name": "string_binary",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "binary",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "int",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "double",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "format": "float",
+                            "default": 1.0
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "default": 0
+                        }
+                    },
+                    {
+                        "name": "object",
+                        "in": "query",
+                        "schema": {
+                            "type": "object",
+                            "default": {
+                                "list": [
+                                    "list"
+                                ],
+                                "string": "default-item",
+                                "bool": true,
+                                "num": 1.0
+                            }
+                        }
+                    },
+                    {
+                        "name": "oneOf",
+                        "in": "query",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ],
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "anyOf",
+                        "in": "query",
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ],
+                            "default": "default-value"
+                        }
+                    },
+                    {
+                        "name": "enum_pattern",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[a-z]",
+                            "enum": [
+                                "a",
+                                "0"
+                            ],
+                            "default": "a"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/headers": {
             "get": {
                 "parameters": [
