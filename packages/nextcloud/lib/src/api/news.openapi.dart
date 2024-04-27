@@ -1613,6 +1613,7 @@ abstract interface class $FolderInterface {
   bool get opened;
 
   /// This seems to be broken. In testing it is always empty.
+  @Deprecated('')
   BuiltList<Feed> get feeds;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FolderInterfaceBuilder b) {}

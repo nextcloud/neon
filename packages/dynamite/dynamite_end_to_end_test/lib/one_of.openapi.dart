@@ -20,9 +20,16 @@ import 'package:meta/meta.dart' as _i2;
 
 part 'one_of.openapi.g.dart';
 
+/// One of with one object value.
 typedef OneObjectOneOf = OneObjectOneOf0;
+
+/// One of with one primitive value.
 typedef OneValueOneOf = String;
+
+/// One of with an integer and double.
 typedef OneOfIntDouble = num;
+
+/// One of with an integer, double and number.
 typedef OneOfIntDoubleNum = num;
 
 @BuiltValue(instantiable: false)

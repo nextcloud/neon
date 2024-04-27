@@ -34,7 +34,7 @@ TypeResultObject resolveObject(
 
     final $class = buildBuiltClass(
       identifier,
-      documentation: schema.formattedDescription,
+      schema,
     );
 
     state.output.addAll([

@@ -23,7 +23,7 @@ Spec buildInterface(
     final className = '\$$identifier$interfaceSuffix';
 
     b
-      ..docs.addAll(escapeDescription(schema.formattedDescription))
+      ..docs.addAll(escapeDescription(schema.formattedDescription()))
       ..abstract = true
       ..modifier = ClassModifier.interface
       ..name = className
@@ -206,7 +206,13 @@ void _generateProperty(
         b
           ..name = name
           ..type = MethodType.getter
-          ..docs.addAll(escapeDescription(schema.formattedDescription));
+          ..docs.addAll(
+            escapeDescription(schema.formattedDescription()),
+          );
+
+        if (schema.deprecated) {
+          b.annotations.add(refer('Deprecated').call([refer("''")]));
+        }
 
         if (result is TypeResultSomeOf && result.isSingleValue) {
           b.returns = refer(result.dartType.name);
