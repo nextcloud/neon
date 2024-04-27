@@ -31,11 +31,14 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@f0ead981b4d9a35b37f30d36160575d60931ec30 # v1
       - name: Setup
-        run: |
-          ./tool/setup.sh
-          # Remove any changes from the automatic formatting
-          git checkout .
+        run: ./tool/setup.sh
 
+      - name: Check up-to-date pubspec.lock
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git --no-pager diff
+            exit 1
+          fi
       - name: Check formatting
         run: melos run format:check
       - name: Lint code
