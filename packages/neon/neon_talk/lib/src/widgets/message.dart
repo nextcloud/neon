@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
-import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -454,6 +456,9 @@ class TalkCommentMessage extends StatelessWidget {
       );
     }
 
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    final account = accountsBloc.activeAccount.value!;
+
     return Container(
       margin: EdgeInsets.only(
         top: topMargin,
@@ -499,7 +504,7 @@ class TalkCommentMessage extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 5, left: 10),
                     child: time,
                   ),
-                if (!isParent && lastCommonRead != null)
+                if (!isParent && lastCommonRead != null && account.username == chatMessage.actorId)
                   Padding(
                     padding: const EdgeInsets.only(top: 2.5, left: 10),
                     child: TalkReadIndicator(
