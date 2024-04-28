@@ -19,10 +19,6 @@ TypeResultObject resolveObject(
   );
 
   if (state.resolvedTypes.add(result)) {
-    if (schema.allOf == null) {
-      state.resolvedInterfaces.add(result);
-    }
-
     final $interface = buildInterface(
       spec,
       state,
