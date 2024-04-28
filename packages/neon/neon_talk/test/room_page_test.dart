@@ -40,7 +40,7 @@ void main() {
     when(() => bloc.errors).thenAnswer((_) => StreamController<Object>().stream);
     when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
     when(() => bloc.messages)
-        .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>([]))));
+        .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>())));
     when(() => bloc.lastCommonRead).thenAnswer((_) => BehaviorSubject.seeded(0));
   });
 
@@ -92,6 +92,7 @@ void main() {
 
   testWidgets('Messages', (tester) async {
     final chatMessage1 = MockChatMessageWithParent();
+    when(() => chatMessage1.id).thenReturn(0);
     when(() => chatMessage1.timestamp).thenReturn(0);
     when(() => chatMessage1.actorId).thenReturn('test');
     when(() => chatMessage1.actorType).thenReturn(spreed.ActorType.users);
@@ -103,6 +104,7 @@ void main() {
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
 
     final chatMessage2 = MockChatMessageWithParent();
+    when(() => chatMessage2.id).thenReturn(1);
     when(() => chatMessage2.timestamp).thenReturn(0);
     when(() => chatMessage2.actorId).thenReturn('test');
     when(() => chatMessage2.actorType).thenReturn(spreed.ActorType.users);
@@ -117,8 +119,8 @@ void main() {
       (_) => BehaviorSubject.seeded(
         Result.success(
           BuiltList<spreed.ChatMessageWithParent>([
-            chatMessage1,
             chatMessage2,
+            chatMessage1,
           ]),
         ),
       ),
