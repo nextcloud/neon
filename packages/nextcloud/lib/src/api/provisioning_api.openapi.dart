@@ -799,10 +799,10 @@ class $GroupsClient {
   }) {
     final _parameters = <String, Object?>{};
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $groupId,
       'groupId',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['groupId'] = $groupId;
 
@@ -1012,10 +1012,10 @@ class $GroupsClient {
   }) {
     final _parameters = <String, Object?>{};
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $groupId,
       'groupId',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['groupId'] = $groupId;
 
@@ -1224,10 +1224,10 @@ class $GroupsClient {
   }) {
     final _parameters = <String, Object?>{};
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $groupId,
       'groupId',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['groupId'] = $groupId;
 
@@ -1330,10 +1330,10 @@ class $GroupsClient {
   }) {
     final _parameters = <String, Object?>{};
     final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $groupId as String?,
-      RegExp(r'^.+$'),
+    _i4.checkString(
+      $groupId,
       'groupId',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['groupId'] = $groupId;
 
@@ -3394,10 +3394,10 @@ class $UsersClient {
     _parameters['userId'] = $userId;
 
     final $collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
-    _i4.checkPattern(
-      $collectionName as String?,
-      RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
+    _i4.checkString(
+      $collectionName,
       'collectionName',
+      pattern: RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
     );
     _parameters['collectionName'] = $collectionName;
 

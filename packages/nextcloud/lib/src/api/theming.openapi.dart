@@ -262,10 +262,10 @@ class $IconClient {
     _parameters['app'] = $app;
 
     final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
-    _i5.checkPattern(
-      $image as String?,
-      RegExp(r'^.+$'),
+    _i5.checkString(
+      $image,
       'image',
+      pattern: RegExp(r'^.+$'),
     );
     _parameters['image'] = $image;
 
@@ -1084,10 +1084,10 @@ abstract interface class $ThemingGetManifestResponseApplicationJson_IconsInterfa
   static void _defaults($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {
-    _i5.checkMinLength(
+    _i5.checkString(
       b.src,
-      1,
       'src',
+      minLength: 1,
     );
   }
 }

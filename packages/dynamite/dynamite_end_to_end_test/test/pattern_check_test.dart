@@ -1,3 +1,4 @@
+import 'package:built_value/json_object.dart';
 import 'package:dynamite_end_to_end_test/pattern_check.openapi.dart';
 import 'package:test/test.dart';
 
@@ -67,6 +68,45 @@ void main() {
       expect(() => object.rebuild((b) => b..arrayMultipleChecks.replace([0, 1])), throwsA(isA<FormatException>()));
       expect(
         () => object.rebuild((b) => b..arrayMultipleChecks.replace(List.generate(30, (i) => i))),
+        throwsA(isA<FormatException>()),
+      );
+    });
+
+    test('multipleOf', () {
+      expect(() => object.rebuild((b) => b..multipleOf = 1.5), throwsA(isA<FormatException>()));
+    });
+
+    test('maximum', () {
+      expect(() => object.rebuild((b) => b..maximum = 0.1), throwsA(isA<FormatException>()));
+    });
+
+    test('exclusiveMaximum', () {
+      expect(() => object.rebuild((b) => b..exclusiveMaximum = 0.2), throwsA(isA<FormatException>()));
+    });
+
+    test('minimum', () {
+      expect(() => object.rebuild((b) => b..minimum = -0.1), throwsA(isA<FormatException>()));
+    });
+
+    test('exclusiveMinimum', () {
+      expect(() => object.rebuild((b) => b..exclusiveMinimum = -0.2), throwsA(isA<FormatException>()));
+    });
+
+    test('JsonObject', () {
+      final object = TestObjectUnspecified();
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject(['value'])),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject('Text')),
+        throwsA(isA<FormatException>()),
+      );
+
+      expect(
+        () => object.rebuild((b) => b..value = JsonObject(0)),
         throwsA(isA<FormatException>()),
       );
     });
