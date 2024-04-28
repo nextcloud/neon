@@ -2,7 +2,7 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 
 import 'testing.dart';
 

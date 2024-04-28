@@ -11,11 +11,11 @@ import 'package:neon_talk/l10n/localizations_en.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
-import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -323,6 +323,7 @@ void main() {
     testWidgets('Default', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('');
+      when(() => account.username).thenReturn('test');
       when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final accountsBloc = MockAccountsBloc();
@@ -364,7 +365,56 @@ void main() {
       expect(find.byType(TalkReadIndicator), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage),
-        matchesGoldenFile('goldens/message_comment_message.png'),
+        matchesGoldenFile('goldens/message_comment_message_self.png'),
+      );
+    });
+
+    testWidgets('Default', (tester) async {
+      final account = MockAccount();
+      when(() => account.id).thenReturn('');
+      when(() => account.username).thenReturn('other');
+      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+      final accountsBloc = MockAccountsBloc();
+      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
+
+      final previousChatMessage = MockChatMessage();
+      when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => previousChatMessage.timestamp).thenReturn(0);
+      when(() => previousChatMessage.actorId).thenReturn('test');
+
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.timestamp).thenReturn(0);
+      when(() => chatMessage.actorId).thenReturn('test');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+      when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.message).thenReturn('abc');
+      when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+      when(() => chatMessage.id).thenReturn(0);
+
+      await tester.pumpWidget(
+        wrapWidget(
+          NeonProvider<AccountsBloc>.value(
+            value: accountsBloc,
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: 0,
+              previousChatMessage: previousChatMessage,
+            ),
+          ),
+        ),
+      );
+      expect(find.byType(TalkActorAvatar), findsNothing);
+      expect(find.text('12:00 AM'), findsNothing);
+      expect(find.text('test'), findsNothing);
+      expect(find.text('abc', findRichText: true), findsOne);
+      expect(find.byType(TalkReactions), findsOne);
+      expect(find.byType(TalkReadIndicator), findsNothing);
+      await expectLater(
+        find.byType(TalkCommentMessage),
+        matchesGoldenFile('goldens/message_comment_message_other.png'),
       );
     });
 

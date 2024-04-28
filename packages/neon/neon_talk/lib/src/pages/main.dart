@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/room.dart';
@@ -9,7 +10,7 @@ import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:neon_talk/src/pages/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
-import 'package:neon_talk/src/widgets/rich_object/read_indicator.dart';
+import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -24,12 +25,16 @@ class TalkMainPage extends StatefulWidget {
 }
 
 class _TalkMainPageState extends State<TalkMainPage> {
+  late Account account;
   late TalkBloc bloc;
   late StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
     super.initState();
+
+    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+    account = accountsBloc.activeAccount.value!;
 
     bloc = NeonProvider.of<TalkBloc>(context);
     errorsSubscription = bloc.errors.listen((error) {
@@ -95,7 +100,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
       trailing = TalkUnreadIndicator(
         room: room,
       );
-    } else if (lastChatMessage != null) {
+    } else if (lastChatMessage != null && account.username == lastChatMessage.actorId) {
       trailing = Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: TalkReadIndicator(
@@ -116,14 +121,10 @@ class _TalkMainPageState extends State<TalkMainPage> {
         await Navigator.of(context).push(
           MaterialPageRoute<void>(
             builder: (context) => NeonProvider(
-              create: (_) {
-                final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
-
-                return TalkRoomBloc(
-                  account: account,
-                  room: room,
-                );
-              },
+              create: (_) => TalkRoomBloc(
+                account: account,
+                room: room,
+              ),
               child: const TalkRoomPage(),
             ),
           ),
