@@ -294,25 +294,23 @@ class WebDavClient {
 
     unawaited(
       response.then(
-        (response) async {
+        (response) {
           final contentLength = response.contentLength;
-          if (contentLength == null || contentLength <= 0) {
-            onProgress?.call(1);
-          } else {
-            final completer = Completer<void>();
-            var downloaded = 0;
+          var downloaded = 0;
 
-            response.stream.listen((chunk) async {
+          response.stream.listen(
+            (chunk) async {
               controller.add(chunk);
               downloaded += chunk.length;
-              onProgress?.call(downloaded / contentLength);
-              if (downloaded >= contentLength) {
-                completer.complete();
+              if (contentLength != null) {
+                onProgress?.call(downloaded / contentLength);
               }
-            });
-            await completer.future;
-          }
-          await controller.close();
+            },
+            onDone: () {
+              onProgress?.call(1);
+              controller.close();
+            },
+          );
         },
         // ignore: avoid_types_on_closure_parameters
         onError: (Object error) {

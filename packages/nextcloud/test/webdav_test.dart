@@ -144,6 +144,55 @@ void main() {
     });
   });
 
+  test('Chunked responses', () async {
+    await HttpServer.bind('127.0.0.1', 0).then((server) async {
+      server.listen((request) {
+        request.listen(
+          (_) {},
+          onDone: () async {
+            if (request.uri.path == '/index.php') {
+              final response = request.response..write('data-requesttoken="token"');
+              await response.close();
+
+              return;
+            }
+
+            final response = request.response
+              ..headers.chunkedTransferEncoding = true
+              ..write('1')
+              ..write('2')
+              ..write('3');
+
+            await response.close();
+
+            await server.close();
+          },
+        );
+      });
+
+      final client = NextcloudClient(
+        Uri(
+          scheme: 'http',
+          host: server.address.host,
+          port: server.port,
+        ),
+      );
+
+      final progress = <double>[];
+
+      final buffer = BytesBuilder(copy: false);
+      await client.webdav
+          .getStream(
+            PathUri.cwd(),
+            onProgress: progress.add,
+          )
+          .forEach(buffer.add);
+
+      expect(buffer.toBytes(), Uint8List.fromList(utf8.encode('123')));
+      expect(progress, [1]);
+    });
+  });
+
   presets(
     'server',
     'webdav',
