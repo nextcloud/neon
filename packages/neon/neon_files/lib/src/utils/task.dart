@@ -128,7 +128,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   }
 
   @override
-  final int? size;
+  final int size;
 
   @override
   final tz.TZDateTime? lastModified;
@@ -136,6 +136,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   Future<void> execute(NextcloudClient client) async {
     await client.webdav.putStream(
       _stream.stream,
+      size,
       uri,
       lastModified: lastModified,
       onProgress: progressController.add,

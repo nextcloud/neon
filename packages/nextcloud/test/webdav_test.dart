@@ -518,8 +518,8 @@ void main() {
 
         await client.webdav.putStream(
           source.openRead(),
+          source.lengthSync(),
           PathUri.parse('upload_stream.png'),
-          contentLength: source.lengthSync(),
           onProgress: progressValues.add,
         );
         final stream = client.webdav.getStream(

@@ -109,9 +109,9 @@ class WebDavClient {
 
     _addUploadHeaders(
       request,
+      localData.length,
       lastModified: lastModified,
       created: created,
-      contentLength: localData.length,
     );
     _addBaseHeaders(request);
     return request;
@@ -146,10 +146,10 @@ class WebDavClient {
   ///   * [putStream] for a complete operation executing this request.
   http.BaseRequest putStream_Request(
     Stream<List<int>> localData,
+    int contentLength,
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
     void Function(double progress)? onProgress,
   }) {
     final request = http.StreamedRequest('PUT', _constructUri(path));
@@ -157,12 +157,12 @@ class WebDavClient {
     _addBaseHeaders(request);
     _addUploadHeaders(
       request,
+      contentLength,
       lastModified: lastModified,
       created: created,
-      contentLength: contentLength,
     );
 
-    if (contentLength != null && onProgress != null) {
+    if (onProgress != null) {
       var uploaded = 0;
 
       unawaited(
@@ -192,18 +192,18 @@ class WebDavClient {
   ///   * [putStream_Request] for the request sent by this method.
   Future<http.StreamedResponse> putStream(
     Stream<List<int>> localData,
+    int contentLength,
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
     void Function(double progress)? onProgress,
   }) {
     final request = putStream_Request(
       localData,
+      contentLength,
       path,
       lastModified: lastModified,
       created: created,
-      contentLength: contentLength,
       onProgress: onProgress,
     );
 
@@ -226,10 +226,10 @@ class WebDavClient {
     // No need to set them here.
     return putStream_Request(
       file.openRead(),
+      fileStat.size,
       path,
       lastModified: lastModified,
       created: created,
-      contentLength: fileStat.size,
       onProgress: onProgress,
     );
   }
@@ -570,10 +570,10 @@ class WebDavClient {
   }
 
   static void _addUploadHeaders(
-    http.BaseRequest request, {
+    http.BaseRequest request,
+    int contentLength, {
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
   }) {
     if (lastModified != null) {
       request.headers['X-OC-Mtime'] = lastModified.secondsSinceEpoch.toString();
@@ -581,9 +581,7 @@ class WebDavClient {
     if (created != null) {
       request.headers['X-OC-CTime'] = created.secondsSinceEpoch.toString();
     }
-    if (contentLength != null) {
-      request.headers['content-length'] = contentLength.toString();
-    }
+    request.headers['content-length'] = contentLength.toString();
   }
 
   void _addCopyHeaders(http.BaseRequest request, {required PathUri destinationPath, required bool overwrite}) {
