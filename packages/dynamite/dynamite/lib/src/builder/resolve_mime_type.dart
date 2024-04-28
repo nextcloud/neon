@@ -48,27 +48,21 @@ void resolveMimeTypeEncode(
   output.writeln("_request.headers['Content-Type'] = '$mimeType';");
   final parameterName = toDartName(result.name);
 
+  if (result.nullable) {
+    output.writeln('if ($parameterName != null) {');
+  }
+
   switch (mimeType) {
     case 'application/json':
     case 'application/x-www-form-urlencoded':
-      if (result.nullable) {
-        output.writeln('if ($parameterName != null) {');
-      }
       output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
-      if (result.nullable) {
-        output.writeln('}');
-      }
-      return;
     case 'application/octet-stream':
-      if (result.nullable) {
-        output.writeln('if ($parameterName != null) {');
-      }
       output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
-      if (result.nullable) {
-        output.writeln('}');
-      }
-      return;
     case _:
       throw Exception('Can not parse any mime type of the Operation.');
+  }
+
+  if (result.nullable) {
+    output.writeln('}');
   }
 }
