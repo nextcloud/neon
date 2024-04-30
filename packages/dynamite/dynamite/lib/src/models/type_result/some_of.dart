@@ -39,9 +39,8 @@ abstract class TypeResultSomeOf extends TypeResult {
     final record = optimizedSubTypes.map((type) {
       final dartType = type.nullableName;
       final dartName = toDartName(dartType);
-      final fieldName = toFieldName(dartName, type.className);
 
-      return '$dartType $fieldName';
+      return '$dartType $dartName';
     });
 
     return TypeResultBase(

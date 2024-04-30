@@ -198,13 +198,12 @@ void _generateProperty(
   BlockBuilder validators,
 ) {
   final dartName = toDartName(propertyName);
-  final name = toFieldName(dartName, result.name);
 
   b.methods.add(
     Method(
       (b) {
         b
-          ..name = name
+          ..name = dartName
           ..type = MethodType.getter
           ..docs.addAll(
             escapeDescription(schema.formattedDescription()),
@@ -221,7 +220,7 @@ void _generateProperty(
         }
 
         final builtValueFieldAnnotations = <String, Expression>{};
-        if (name != propertyName) {
+        if (dartName != propertyName) {
           builtValueFieldAnnotations['wireName'] = literalString(propertyName);
         }
 
@@ -239,7 +238,7 @@ void _generateProperty(
     b.fields.add(
       Field((b) {
         b
-          ..name = '_\$$name'
+          ..name = '_\$$dartName'
           ..modifier = FieldModifier.final$
           ..static = true
           ..assignment = Code(
@@ -249,9 +248,9 @@ void _generateProperty(
     );
 
     if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
-      defaults.writeln('b.$dartName = _\$$name;');
+      defaults.writeln('b.$dartName = _\$$dartName;');
     } else {
-      defaults.writeln('b.$dartName.replace(_\$$name);');
+      defaults.writeln('b.$dartName.replace(_\$$dartName);');
     }
   }
 
