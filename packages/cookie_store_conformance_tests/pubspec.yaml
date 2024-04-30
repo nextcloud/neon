@@ -1,0 +1,23 @@
+name: cookie_store_conformance_tests
+description: >-
+  A library that tests whether implementations of package:cookie_store's `CookieStore`
+  class behave as expected.
+publish_to: none
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  cookie_store:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store
+  meta: ^1.0.0
+  test: ^1.21.2
+  timezone: ^0.9.2
+  universal_io: ^2.0.0
+
+dev_dependencies:
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
