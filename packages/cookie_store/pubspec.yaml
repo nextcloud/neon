@@ -1,0 +1,19 @@
+name: cookie_store
+description: A RFC compliant cookie_jar alternative
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  meta: ^1.0.0
+  timezone: ^0.9.0
+  universal_io: ^2.0.0
+
+dev_dependencies:
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
+  test: ^1.25.5

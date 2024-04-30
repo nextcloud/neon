@@ -9,6 +9,7 @@ rules:
     - always
     - - app
       - ci
+      - cookie_store
       - deps
       - docs
       - dynamite
