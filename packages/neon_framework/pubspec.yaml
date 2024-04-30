@@ -11,6 +11,10 @@ dependencies:
   built_value: ^8.9.0
   collection: ^1.0.0
   cookie_jar: ^4.0.0
+  cookie_store:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store
   crypto: ^3.0.0
   crypton: ^2.0.0
   cupertino_icons: ^1.0.0 # Do not remove this, is it needed on iOS/macOS. It will not include icons on other platforms because Apple forbids it.
@@ -65,6 +69,10 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.9
+  cookie_store_conformance_tests:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store_conformance_tests
   custom_lint: ^0.6.4
   flutter_test:
     sdk: flutter

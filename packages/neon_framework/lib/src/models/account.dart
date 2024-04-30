@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:cookie_jar/cookie_jar.dart';
+import 'package:cookie_store/cookie_store.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/utils/findable.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'account.g.dart';
@@ -36,16 +37,22 @@ class Account implements Credentials, Findable {
     this.userAgent,
     @visibleForTesting Client? httpClient,
   })  : humanReadableID = _buildHumanReadableID(username, serverURL),
-        id = sha1.convert(utf8.encode('$username@$serverURL')).toString(),
-        client = NextcloudClient(
-          serverURL,
-          loginName: username,
-          password: password,
-          appPassword: password,
-          userAgent: userAgent,
-          cookieJar: CookieJar(),
-          httpClient: httpClient,
-        );
+        id = sha1.convert(utf8.encode('$username@$serverURL')).toString() {
+    final cookieStore = NeonStorage().cookieStore(
+      accountID: id,
+      serverURL: serverURL,
+    );
+
+    client = NextcloudClient(
+      serverURL,
+      loginName: username,
+      password: password,
+      appPassword: password,
+      userAgent: userAgent,
+      cookieJar: cookieStore != null ? CookieJarAdapter(cookieStore) : null,
+      httpClient: httpClient,
+    );
+  }
 
   /// Creates a new account object from the given [json] data.
   factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
@@ -75,7 +82,7 @@ class Account implements Credentials, Findable {
   int get hashCode => serverURL.hashCode + username.hashCode;
 
   /// An authenticated API client.
-  final NextcloudClient client;
+  late final NextcloudClient client;
 
   /// The unique ID of the account.
   ///

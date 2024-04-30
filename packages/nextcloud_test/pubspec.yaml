@@ -8,6 +8,10 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   cookie_jar: ^4.0.8
+  cookie_store:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store
   dynamite_runtime: ^0.4.0
   http: ^1.2.0
   meta: ^1.0.0
