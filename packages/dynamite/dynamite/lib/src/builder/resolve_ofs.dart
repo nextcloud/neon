@@ -5,11 +5,9 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveSomeOf(
-  openapi.OpenAPI spec,
   State state,
   String identifier,
   json_schema.JsonSchema schema, {
@@ -18,7 +16,6 @@ TypeResult resolveSomeOf(
   BuiltSet<TypeResult> resolveSubTypes(BuiltList<json_schema.JsonSchema> ofs) {
     return ofs.mapIndexed((index, schema) {
       return resolveType(
-        spec,
         state,
         '$identifier$index',
         schema,

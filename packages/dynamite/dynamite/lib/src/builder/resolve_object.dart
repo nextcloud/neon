@@ -2,11 +2,9 @@ import 'package:dynamite/src/builder/resolve_interface.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
-import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
 TypeResultObject resolveObject(
-  openapi.OpenAPI spec,
   State state,
   String identifier,
   json_schema.JsonSchema schema, {
@@ -20,7 +18,6 @@ TypeResultObject resolveObject(
 
   if (state.resolvedTypes.add(result)) {
     final $interface = buildInterface(
-      spec,
       state,
       identifier,
       schema,

@@ -7,7 +7,6 @@ import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult? resolveMimeTypeDecode(
   openapi.Response response,
-  openapi.OpenAPI spec,
   State state,
   String identifier,
 ) {
@@ -21,7 +20,6 @@ TypeResult? resolveMimeTypeDecode(
       final mediaType = content.value;
 
       final result = resolveType(
-        spec,
         state,
         toDartName('$identifier-$mimeType', className: true),
         mediaType.schema!,
