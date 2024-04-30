@@ -142,6 +142,9 @@ class WebDavClient {
 
   /// Request to put a new file at [path] with [localData] as content.
   ///
+  /// Setting [contentLength] is important because some web servers will consider the file to be empty otherwise.
+  /// It will be required in the next major release.
+  ///
   /// See:
   ///   * [putStream] for a complete operation executing this request.
   http.BaseRequest putStream_Request(
@@ -187,6 +190,9 @@ class WebDavClient {
   /// [created] sets the date when the file was created on the server.
   /// [contentLength] sets the length of the [localData] that is uploaded.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
+  /// Setting [contentLength] is important because some web servers will consider the file to be empty otherwise.
+  /// It will be required in the next major release.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [putStream_Request] for the request sent by this method.
