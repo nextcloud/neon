@@ -62,10 +62,12 @@ class DashboardWidgetItem extends StatelessWidget {
       title: Text(
         item.title,
         overflow: TextOverflow.ellipsis,
+        maxLines: 1,
       ),
       subtitle: Text(
         item.subtitle,
         overflow: TextOverflow.ellipsis,
+        maxLines: 1,
       ),
       leading: leading,
       onTap: item.link.isNotEmpty ? () => context.go(item.link) : null,
