@@ -1,3 +1,14 @@
+## 6.1.0
+
+ - **FIX**(nextcloud): Make WebDAV get operations work with chunked responses. ([6af8ddb3](https://github.com/nextcloud/neon/commit/6af8ddb3334a1840930cd84d839bf9e4f8bce51c))
+ - **FIX**(dynamite): support all default value types. ([4098e783](https://github.com/nextcloud/neon/commit/4098e7834366b274e849e5f416aed0a684bbc9f9))
+ - **FIX**(deps): Require json_annotation ^4.9.0. ([f0b5f8a1](https://github.com/nextcloud/neon/commit/f0b5f8a1f9195a2634a8ff61fb1a20a8eace563c))
+ - **FEAT**(dynamite): support jsonschema meta-data annotations. ([0b64d23f](https://github.com/nextcloud/neon/commit/0b64d23f708fd130c0d7edf2759d84f47859058b))
+ - **FEAT**(dynamite_runtime): add support for number validators. ([90f5924c](https://github.com/nextcloud/neon/commit/90f5924c3ba0787e7a155f0d07fea0a16bb2ff4e))
+ - **FEAT**(dynamite_runtime): add validators that accept dynamic also working on JsonObject. ([6e8ec22f](https://github.com/nextcloud/neon/commit/6e8ec22f4dd894ab949a130214d293c246c13083))
+ - **FEAT**(dynamite): support jsonschema meta-data annotations. ([9658bf4b](https://github.com/nextcloud/neon/commit/9658bf4b6e91df3630326bf79681b5352198c592))
+ - **DOCS**(nextcloud): Clarify why setting Content-Length for WebDAV PUT requests is important. ([6017f6d7](https://github.com/nextcloud/neon/commit/6017f6d7d26dbd63ad258ea8404305176f1aa199))
+
 ## 6.0.0
 
 > Note: This release has breaking changes.

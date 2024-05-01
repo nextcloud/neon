@@ -1,3 +1,11 @@
+## 0.4.0
+
+> Note: This release has breaking changes.
+
+ - **FEAT**(dynamite_runtime): add support for number validators. ([90f5924c](https://github.com/nextcloud/neon/commit/90f5924c3ba0787e7a155f0d07fea0a16bb2ff4e))
+ - **FEAT**(dynamite_runtime): add validators that accept dynamic also working on JsonObject. ([6e8ec22f](https://github.com/nextcloud/neon/commit/6e8ec22f4dd894ab949a130214d293c246c13083))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): remove deprecated methods. ([ad608fec](https://github.com/nextcloud/neon/commit/ad608fec0e232616db77d924b2ad90ea26458fae))
+
 ## 0.3.0
 
 > Note: This release has breaking changes.
