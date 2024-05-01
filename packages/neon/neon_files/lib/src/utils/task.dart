@@ -128,7 +128,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   }
 
   @override
-  final int? size;
+  final int size;
 
   @override
   final tz.TZDateTime? lastModified;
@@ -138,6 +138,7 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
       _stream.stream,
       uri,
       lastModified: lastModified,
+      contentLength: size,
       onProgress: progressController.add,
     );
     await progressController.close();
