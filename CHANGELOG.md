@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-05-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`dynamite` - `v0.4.0`](#dynamite---v040)
+ - [`dynamite_runtime` - `v0.4.0`](#dynamite_runtime---v040)
+
+Packages with other changes:
+
+ - [`nextcloud` - `v6.1.0`](#nextcloud---v610)
+
+---
+
+#### `dynamite` - `v0.4.0`
+
+ - **REFACTOR**(dynamite): remove toFieldName as toDartName already escapes reserved class names. ([fa5fa4e2](https://github.com/nextcloud/neon/commit/fa5fa4e2f57af3f491ae083afec27d2c99d0f386))
+ - **REFACTOR**(dynamite): simplify mimetype resolving. ([917bac4f](https://github.com/nextcloud/neon/commit/917bac4ff611f74f30c3864b16145ca9ce3eea4c))
+ - **REFACTOR**(dynamite): remove unused resolvedInterfaces. ([688bba79](https://github.com/nextcloud/neon/commit/688bba797b595f42268cda4f86ab288306bd3b4d))
+ - **REFACTOR**(dynamite): split JsonSchema into per type classes. ([ffa5b328](https://github.com/nextcloud/neon/commit/ffa5b3280f7588f7c2e7bae73428538d23f97169))
+ - **REFACTOR**(dynamite): remove Schema.ofs getter and utilize null promotion in ofs generation. ([79aa8872](https://github.com/nextcloud/neon/commit/79aa887282e3b09fa4ade9b548e4a091ebed7892))
+ - **REFACTOR**(dynamite): rename Schema to JsonSchema. ([ad4d6add](https://github.com/nextcloud/neon/commit/ad4d6add7d0cf5338dabe38cacb28d693e6c6028))
+ - **REFACTOR**(dynamite): move Schema into a separate library. ([8d2e44db](https://github.com/nextcloud/neon/commit/8d2e44db7cc7cd94e79d5c8535d1b99cfc24b291))
+ - **FIX**(dynamite): support all default value types. ([4098e783](https://github.com/nextcloud/neon/commit/4098e7834366b274e849e5f416aed0a684bbc9f9))
+ - **FIX**(dynamite): allow default values and validators in atomic allOf types. ([39459c9a](https://github.com/nextcloud/neon/commit/39459c9a28253ec687a37f236d0547d24404800b))
+ - **FEAT**(dynamite): do not rely on the openapi spec for type resolving. ([59252c76](https://github.com/nextcloud/neon/commit/59252c76265f8d6afd784ff41974436979bdd538))
+ - **FEAT**(dynamite_runtime): add support for number validators. ([90f5924c](https://github.com/nextcloud/neon/commit/90f5924c3ba0787e7a155f0d07fea0a16bb2ff4e))
+ - **FEAT**(dynamite_runtime): add validators that accept dynamic also working on JsonObject. ([6e8ec22f](https://github.com/nextcloud/neon/commit/6e8ec22f4dd894ab949a130214d293c246c13083))
+ - **FEAT**(dynamite): support jsonschema meta-data annotations. ([9658bf4b](https://github.com/nextcloud/neon/commit/9658bf4b6e91df3630326bf79681b5352198c592))
+ - **FEAT**(dynamite): cache deserialized default values. ([b3124a5c](https://github.com/nextcloud/neon/commit/b3124a5cb01a3f0a8c5ff06e772d914cef3ecc0f))
+ - **BREAKING** **FEAT**(dynamite): type unique arrays as BuiltSet. ([21be1f71](https://github.com/nextcloud/neon/commit/21be1f71b0f2afa91d9d14d2d10f354dcec13665))
+
+#### `dynamite_runtime` - `v0.4.0`
+
+ - **FEAT**(dynamite_runtime): add support for number validators. ([90f5924c](https://github.com/nextcloud/neon/commit/90f5924c3ba0787e7a155f0d07fea0a16bb2ff4e))
+ - **FEAT**(dynamite_runtime): add validators that accept dynamic also working on JsonObject. ([6e8ec22f](https://github.com/nextcloud/neon/commit/6e8ec22f4dd894ab949a130214d293c246c13083))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): remove deprecated methods. ([ad608fec](https://github.com/nextcloud/neon/commit/ad608fec0e232616db77d924b2ad90ea26458fae))
+
+#### `nextcloud` - `v6.1.0`
+
+ - **FIX**(nextcloud): Make WebDAV get operations work with chunked responses. ([6af8ddb3](https://github.com/nextcloud/neon/commit/6af8ddb3334a1840930cd84d839bf9e4f8bce51c))
+ - **FIX**(dynamite): support all default value types. ([4098e783](https://github.com/nextcloud/neon/commit/4098e7834366b274e849e5f416aed0a684bbc9f9))
+ - **FIX**(deps): Require json_annotation ^4.9.0. ([f0b5f8a1](https://github.com/nextcloud/neon/commit/f0b5f8a1f9195a2634a8ff61fb1a20a8eace563c))
+ - **FEAT**(dynamite): support jsonschema meta-data annotations. ([0b64d23f](https://github.com/nextcloud/neon/commit/0b64d23f708fd130c0d7edf2759d84f47859058b))
+ - **FEAT**(dynamite_runtime): add support for number validators. ([90f5924c](https://github.com/nextcloud/neon/commit/90f5924c3ba0787e7a155f0d07fea0a16bb2ff4e))
+ - **FEAT**(dynamite_runtime): add validators that accept dynamic also working on JsonObject. ([6e8ec22f](https://github.com/nextcloud/neon/commit/6e8ec22f4dd894ab949a130214d293c246c13083))
+ - **FEAT**(dynamite): support jsonschema meta-data annotations. ([9658bf4b](https://github.com/nextcloud/neon/commit/9658bf4b6e91df3630326bf79681b5352198c592))
+ - **DOCS**(nextcloud): Clarify why setting Content-Length for WebDAV PUT requests is important. ([6017f6d7](https://github.com/nextcloud/neon/commit/6017f6d7d26dbd63ad258ea8404305176f1aa199))
+
+
 ## 2024-04-25
 
 ### Changes
