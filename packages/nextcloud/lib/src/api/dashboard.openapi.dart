@@ -394,6 +394,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -441,6 +450,15 @@ sealed class $Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Widget_ButtonsInterfaceBuilder].
+  $Widget_ButtonsInterface rebuild(void Function($Widget_ButtonsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Widget_ButtonsInterfaceBuilder].
+  $Widget_ButtonsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Widget_ButtonsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -501,6 +519,15 @@ sealed class $WidgetInterface {
   @BuiltValueField(wireName: 'reload_interval')
   int get reloadInterval;
   BuiltList<Widget_Buttons>? get buttons;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WidgetInterfaceBuilder].
+  $WidgetInterface rebuild(void Function($WidgetInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$WidgetInterfaceBuilder].
+  $WidgetInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WidgetInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -547,6 +574,17 @@ abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> 
 sealed class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, Widget> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -600,6 +638,17 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
   DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -657,6 +706,15 @@ sealed class $WidgetItemInterface {
   String get iconUrl;
   String get overlayIconUrl;
   String get sinceId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WidgetItemInterfaceBuilder].
+  $WidgetItemInterface rebuild(void Function($WidgetItemInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$WidgetItemInterfaceBuilder].
+  $WidgetItemInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WidgetItemInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -703,6 +761,17 @@ abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, Wid
 sealed class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<WidgetItem>> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -756,6 +825,17 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -811,6 +891,15 @@ sealed class $WidgetItemsInterface {
   BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WidgetItemsInterfaceBuilder].
+  $WidgetItemsInterface rebuild(void Function($WidgetItemsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$WidgetItemsInterfaceBuilder].
+  $WidgetItemsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WidgetItemsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -857,6 +946,17 @@ abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, 
 sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, WidgetItems> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -910,6 +1010,17 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

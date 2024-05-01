@@ -29,6 +29,17 @@ part 'sharebymail.openapi.g.dart';
 @BuiltValue(instantiable: false)
 sealed class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface rebuild(
+    void Function($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -83,6 +94,17 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 sealed class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_PasswordInterface rebuild(
+    void Function($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -136,6 +158,17 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
 sealed class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface rebuild(
+    void Function($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder].
+  $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -196,6 +229,17 @@ sealed class $Capabilities0_FilesSharing_SharebymailInterface {
   Capabilities0_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharing_SharebymailInterfaceBuilder].
+  $Capabilities0_FilesSharing_SharebymailInterface rebuild(
+    void Function($Capabilities0_FilesSharing_SharebymailInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities0_FilesSharing_SharebymailInterfaceBuilder].
+  $Capabilities0_FilesSharing_SharebymailInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharing_SharebymailInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -247,6 +291,15 @@ abstract class Capabilities0_FilesSharing_Sharebymail
 @BuiltValue(instantiable: false)
 sealed class $Capabilities0_FilesSharingInterface {
   Capabilities0_FilesSharing_Sharebymail get sharebymail;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0_FilesSharingInterfaceBuilder].
+  $Capabilities0_FilesSharingInterface rebuild(void Function($Capabilities0_FilesSharingInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities0_FilesSharingInterfaceBuilder].
+  $Capabilities0_FilesSharingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -298,6 +351,15 @@ abstract class Capabilities0_FilesSharing
 sealed class $Capabilities0Interface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities0_FilesSharing get filesSharing;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities0InterfaceBuilder].
+  $Capabilities0Interface rebuild(void Function($Capabilities0InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities0InterfaceBuilder].
+  $Capabilities0InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

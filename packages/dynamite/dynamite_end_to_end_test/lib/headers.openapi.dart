@@ -176,6 +176,15 @@ class $Client extends _i1.DynamiteClient {
 sealed class $GetHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GetHeadersInterfaceBuilder].
+  $GetHeadersInterface rebuild(void Function($GetHeadersInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$GetHeadersInterfaceBuilder].
+  $GetHeadersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GetHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -216,6 +225,17 @@ abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, Get
 sealed class $WithContentOperationIdHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WithContentOperationIdHeadersInterfaceBuilder].
+  $WithContentOperationIdHeadersInterface rebuild(
+    void Function($WithContentOperationIdHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WithContentOperationIdHeadersInterfaceBuilder].
+  $WithContentOperationIdHeadersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WithContentOperationIdHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -261,6 +281,15 @@ abstract class WithContentOperationIdHeaders
 sealed class $GetWithContentHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GetWithContentHeadersInterfaceBuilder].
+  $GetWithContentHeadersInterface rebuild(void Function($GetWithContentHeadersInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$GetWithContentHeadersInterfaceBuilder].
+  $GetWithContentHeadersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GetWithContentHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

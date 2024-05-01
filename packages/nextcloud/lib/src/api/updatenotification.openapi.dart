@@ -345,6 +345,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -391,6 +400,15 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 sealed class $AppInterface {
   String get appId;
   String get appName;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$AppInterfaceBuilder].
+  $AppInterface rebuild(void Function($AppInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$AppInterfaceBuilder].
+  $AppInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -437,6 +455,17 @@ abstract class App implements $AppInterface, Built<App, AppBuilder> {
 sealed class $ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
   BuiltList<App> get missing;
   BuiltList<App> get available;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppListResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -490,6 +519,17 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
 sealed class $ApiGetAppListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppListResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppListResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -542,6 +582,17 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ApiGetAppListResponseApplicationJsonInterface {
   ApiGetAppListResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppListResponseApplicationJsonInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJsonInterface rebuild(
+    void Function($ApiGetAppListResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppListResponseApplicationJsonInterfaceBuilder].
+  $ApiGetAppListResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppListResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -652,6 +703,17 @@ sealed class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
   String get appName;
   String get content;
   String get version;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -706,6 +768,17 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
 sealed class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface rebuild(
+    void Function($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppChangelogEntryResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -759,6 +832,17 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ApiGetAppChangelogEntryResponseApplicationJsonInterface {
   ApiGetAppChangelogEntryResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJsonInterface rebuild(
+    void Function($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder].
+  $ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

@@ -20,6 +20,15 @@ part 'interfaces.openapi.g.dart';
 @BuiltValue(instantiable: false)
 sealed class $BaseInterface {
   String? get attribute;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseInterfaceBuilder].
+  $BaseInterface rebuild(void Function($BaseInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseInterfaceBuilder].
+  $BaseInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -59,6 +68,15 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 @BuiltValue(instantiable: false)
 sealed class $BaseInterfaceInterface {
   String? get attribute;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseInterfaceInterfaceBuilder].
+  $BaseInterfaceInterface rebuild(void Function($BaseInterfaceInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseInterfaceInterfaceBuilder].
+  $BaseInterfaceInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

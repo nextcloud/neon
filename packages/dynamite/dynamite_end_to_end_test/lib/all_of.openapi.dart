@@ -25,6 +25,15 @@ sealed class $ObjectAllOfInterface {
   String get attribute1AllOf;
   @BuiltValueField(wireName: 'attribute2-allOf')
   String get attribute2AllOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ObjectAllOfInterfaceBuilder].
+  $ObjectAllOfInterface rebuild(void Function($ObjectAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ObjectAllOfInterfaceBuilder].
+  $ObjectAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ObjectAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -67,6 +76,15 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 sealed class $OneObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OneObjectAllOfInterfaceBuilder].
+  $OneObjectAllOfInterface rebuild(void Function($OneObjectAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OneObjectAllOfInterfaceBuilder].
+  $OneObjectAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OneObjectAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -111,6 +129,15 @@ sealed class $PrimitiveAllOfInterface {
   int get $int;
   @BuiltValueField(wireName: 'String')
   String get string;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PrimitiveAllOfInterfaceBuilder].
+  $PrimitiveAllOfInterface rebuild(void Function($PrimitiveAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PrimitiveAllOfInterfaceBuilder].
+  $PrimitiveAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PrimitiveAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -155,6 +182,15 @@ sealed class $MixedAllOfInterface {
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$MixedAllOfInterfaceBuilder].
+  $MixedAllOfInterface rebuild(void Function($MixedAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$MixedAllOfInterfaceBuilder].
+  $MixedAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MixedAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -197,6 +233,15 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
 sealed class $OneValueAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OneValueAllOfInterfaceBuilder].
+  $OneValueAllOfInterface rebuild(void Function($OneValueAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OneValueAllOfInterfaceBuilder].
+  $OneValueAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OneValueAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -242,6 +287,15 @@ sealed class $SuperObjectInterface {
   )! as String;
 
   String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SuperObjectInterfaceBuilder].
+  $SuperObjectInterface rebuild(void Function($SuperObjectInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$SuperObjectInterfaceBuilder].
+  $SuperObjectInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SuperObjectInterfaceBuilder b) {
     b.value = _$value;
@@ -291,6 +345,16 @@ abstract class SuperObject implements $SuperObjectInterface, Built<SuperObject, 
 
 @BuiltValue(instantiable: false)
 sealed class $SubObjectInterface implements $SuperObjectInterface {
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SubObjectInterfaceBuilder].
+  @override
+  $SubObjectInterface rebuild(void Function($SubObjectInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$SubObjectInterfaceBuilder].
+  @override
+  $SubObjectInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SubObjectInterfaceBuilder b) {
     $SuperObjectInterface._defaults(b);

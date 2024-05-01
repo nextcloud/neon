@@ -694,6 +694,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -739,6 +748,15 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 @BuiltValue(instantiable: false)
 sealed class $SuccessInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SuccessInterfaceBuilder].
+  $SuccessInterface rebuild(void Function($SuccessInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$SuccessInterfaceBuilder].
+  $SuccessInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SuccessInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -785,6 +803,17 @@ abstract class Success implements $SuccessInterface, Built<Success, SuccessBuild
 sealed class $WeatherStatusSetModeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Success get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetModeResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -837,6 +866,17 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusSetModeResponseApplicationJsonInterface {
   WeatherStatusSetModeResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetModeResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -891,6 +931,15 @@ sealed class $LocationInterface {
   String? get lat;
   String? get lon;
   String? get address;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$LocationInterfaceBuilder].
+  $LocationInterface rebuild(void Function($LocationInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$LocationInterfaceBuilder].
+  $LocationInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LocationInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -935,6 +984,14 @@ abstract class Location implements $LocationInterface, Built<Location, LocationB
 
 @BuiltValue(instantiable: false)
 sealed class $LocationWithSuccessInterface implements $LocationInterface, $SuccessInterface {
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$LocationWithSuccessInterfaceBuilder].
+  $LocationWithSuccessInterface rebuild(void Function($LocationWithSuccessInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$LocationWithSuccessInterfaceBuilder].
+  $LocationWithSuccessInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LocationWithSuccessInterfaceBuilder b) {
     $LocationInterface._defaults(b);
@@ -990,6 +1047,17 @@ abstract class LocationWithSuccess
 sealed class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithSuccess get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1043,6 +1111,17 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1096,6 +1175,15 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $ModeInterface {
   int get mode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ModeInterfaceBuilder].
+  $ModeInterface rebuild(void Function($ModeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ModeInterfaceBuilder].
+  $ModeInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ModeInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1140,6 +1228,14 @@ abstract class Mode implements $ModeInterface, Built<Mode, ModeBuilder> {
 
 @BuiltValue(instantiable: false)
 sealed class $LocationWithModeInterface implements $LocationInterface, $ModeInterface {
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$LocationWithModeInterfaceBuilder].
+  $LocationWithModeInterface rebuild(void Function($LocationWithModeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$LocationWithModeInterfaceBuilder].
+  $LocationWithModeInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LocationWithModeInterfaceBuilder b) {
     $LocationInterface._defaults(b);
@@ -1194,6 +1290,17 @@ abstract class LocationWithMode
 sealed class $WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithMode get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetLocationResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1247,6 +1354,17 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusGetLocationResponseApplicationJsonInterface {
   WeatherStatusGetLocationResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetLocationResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1300,6 +1418,17 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
 sealed class $WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   LocationWithSuccess get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetLocationResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1353,6 +1482,17 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusSetLocationResponseApplicationJsonInterface {
   WeatherStatusSetLocationResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetLocationResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1416,6 +1556,17 @@ sealed class $Forecast_Data_Instant_DetailsInterface {
   num get windFromDirection;
   @BuiltValueField(wireName: 'wind_speed')
   num get windSpeed;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Instant_DetailsInterfaceBuilder].
+  $Forecast_Data_Instant_DetailsInterface rebuild(
+    void Function($Forecast_Data_Instant_DetailsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Instant_DetailsInterfaceBuilder].
+  $Forecast_Data_Instant_DetailsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Instant_DetailsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1466,6 +1617,15 @@ abstract class Forecast_Data_Instant_Details
 @BuiltValue(instantiable: false)
 sealed class $Forecast_Data_InstantInterface {
   Forecast_Data_Instant_Details get details;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_InstantInterfaceBuilder].
+  $Forecast_Data_InstantInterface rebuild(void Function($Forecast_Data_InstantInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Forecast_Data_InstantInterfaceBuilder].
+  $Forecast_Data_InstantInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_InstantInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1514,6 +1674,17 @@ abstract class Forecast_Data_Instant
 sealed class $Forecast_Data_Next12Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next12Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next12Hours_SummaryInterface rebuild(
+    void Function($Forecast_Data_Next12Hours_SummaryInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next12Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next12Hours_SummaryInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next12Hours_SummaryInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1565,6 +1736,17 @@ abstract class Forecast_Data_Next12Hours_Summary
 sealed class $Forecast_Data_Next12Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next12Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next12Hours_DetailsInterface rebuild(
+    void Function($Forecast_Data_Next12Hours_DetailsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next12Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next12Hours_DetailsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next12Hours_DetailsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1616,6 +1798,15 @@ abstract class Forecast_Data_Next12Hours_Details
 sealed class $Forecast_Data_Next12HoursInterface {
   Forecast_Data_Next12Hours_Summary get summary;
   Forecast_Data_Next12Hours_Details get details;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next12HoursInterfaceBuilder].
+  $Forecast_Data_Next12HoursInterface rebuild(void Function($Forecast_Data_Next12HoursInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Forecast_Data_Next12HoursInterfaceBuilder].
+  $Forecast_Data_Next12HoursInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next12HoursInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1664,6 +1855,17 @@ abstract class Forecast_Data_Next12Hours
 sealed class $Forecast_Data_Next1Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next1Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next1Hours_SummaryInterface rebuild(
+    void Function($Forecast_Data_Next1Hours_SummaryInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next1Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next1Hours_SummaryInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next1Hours_SummaryInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1715,6 +1917,17 @@ abstract class Forecast_Data_Next1Hours_Summary
 sealed class $Forecast_Data_Next1Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next1Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next1Hours_DetailsInterface rebuild(
+    void Function($Forecast_Data_Next1Hours_DetailsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next1Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next1Hours_DetailsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next1Hours_DetailsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1766,6 +1979,15 @@ abstract class Forecast_Data_Next1Hours_Details
 sealed class $Forecast_Data_Next1HoursInterface {
   Forecast_Data_Next1Hours_Summary get summary;
   Forecast_Data_Next1Hours_Details get details;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next1HoursInterfaceBuilder].
+  $Forecast_Data_Next1HoursInterface rebuild(void Function($Forecast_Data_Next1HoursInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Forecast_Data_Next1HoursInterfaceBuilder].
+  $Forecast_Data_Next1HoursInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next1HoursInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1814,6 +2036,17 @@ abstract class Forecast_Data_Next1Hours
 sealed class $Forecast_Data_Next6Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next6Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next6Hours_SummaryInterface rebuild(
+    void Function($Forecast_Data_Next6Hours_SummaryInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next6Hours_SummaryInterfaceBuilder].
+  $Forecast_Data_Next6Hours_SummaryInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next6Hours_SummaryInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1865,6 +2098,17 @@ abstract class Forecast_Data_Next6Hours_Summary
 sealed class $Forecast_Data_Next6Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   num? get precipitationAmount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next6Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next6Hours_DetailsInterface rebuild(
+    void Function($Forecast_Data_Next6Hours_DetailsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Forecast_Data_Next6Hours_DetailsInterfaceBuilder].
+  $Forecast_Data_Next6Hours_DetailsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next6Hours_DetailsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1916,6 +2160,15 @@ abstract class Forecast_Data_Next6Hours_Details
 sealed class $Forecast_Data_Next6HoursInterface {
   Forecast_Data_Next6Hours_Summary get summary;
   Forecast_Data_Next6Hours_Details get details;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_Data_Next6HoursInterfaceBuilder].
+  $Forecast_Data_Next6HoursInterface rebuild(void Function($Forecast_Data_Next6HoursInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Forecast_Data_Next6HoursInterfaceBuilder].
+  $Forecast_Data_Next6HoursInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_Data_Next6HoursInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1969,6 +2222,15 @@ sealed class $Forecast_DataInterface {
   Forecast_Data_Next1Hours get next1Hours;
   @BuiltValueField(wireName: 'next_6_hours')
   Forecast_Data_Next6Hours get next6Hours;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Forecast_DataInterfaceBuilder].
+  $Forecast_DataInterface rebuild(void Function($Forecast_DataInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Forecast_DataInterfaceBuilder].
+  $Forecast_DataInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Forecast_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2015,6 +2277,15 @@ abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_
 sealed class $ForecastInterface {
   String get time;
   Forecast_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ForecastInterfaceBuilder].
+  $ForecastInterface rebuild(void Function($ForecastInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ForecastInterfaceBuilder].
+  $ForecastInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ForecastInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2060,6 +2331,17 @@ abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastB
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface {
   String get error;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface rebuild(
+    void Function($WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2119,6 +2401,17 @@ typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
 sealed class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusGetForecastResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2174,6 +2467,17 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusGetForecastResponseApplicationJsonInterface {
   WeatherStatusGetForecastResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2227,6 +2531,17 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
 sealed class $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2280,6 +2595,17 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusGetFavoritesResponseApplicationJsonInterface {
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetFavoritesResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2334,6 +2660,17 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
 sealed class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Success get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface rebuild(
+    void Function($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder].
+  $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2387,6 +2724,17 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusSetFavoritesResponseApplicationJsonInterface {
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetFavoritesResponseApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2440,6 +2788,15 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_WeatherStatusInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_WeatherStatusInterfaceBuilder].
+  $Capabilities_WeatherStatusInterface rebuild(void Function($Capabilities_WeatherStatusInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities_WeatherStatusInterfaceBuilder].
+  $Capabilities_WeatherStatusInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_WeatherStatusInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2491,6 +2848,15 @@ abstract class Capabilities_WeatherStatus
 sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   Capabilities_WeatherStatus get weatherStatus;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

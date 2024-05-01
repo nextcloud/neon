@@ -28,6 +28,17 @@ part 'drop_account.openapi.g.dart';
 sealed class $Capabilities_DropAccount_DelayInterface {
   bool get enabled;
   int get hours;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_DropAccount_DelayInterfaceBuilder].
+  $Capabilities_DropAccount_DelayInterface rebuild(
+    void Function($Capabilities_DropAccount_DelayInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_DropAccount_DelayInterfaceBuilder].
+  $Capabilities_DropAccount_DelayInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_DropAccount_DelayInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -82,6 +93,15 @@ sealed class $Capabilities_DropAccountInterface {
   String get apiVersion;
   Capabilities_DropAccount_Delay get delay;
   String? get details;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_DropAccountInterfaceBuilder].
+  $Capabilities_DropAccountInterface rebuild(void Function($Capabilities_DropAccountInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities_DropAccountInterfaceBuilder].
+  $Capabilities_DropAccountInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_DropAccountInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -130,6 +150,15 @@ abstract class Capabilities_DropAccount
 sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'drop-account')
   Capabilities_DropAccount get dropAccount;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

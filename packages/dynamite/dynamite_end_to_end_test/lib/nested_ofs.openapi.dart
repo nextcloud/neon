@@ -24,6 +24,15 @@ sealed class $BaseAllOfInterface {
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseAllOfInterfaceBuilder].
+  $BaseAllOfInterface rebuild(void Function($BaseAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseAllOfInterfaceBuilder].
+  $BaseAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseAllOfInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -64,6 +73,15 @@ abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAl
 sealed class $BaseOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseOneOf1InterfaceBuilder].
+  $BaseOneOf1Interface rebuild(void Function($BaseOneOf1InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseOneOf1InterfaceBuilder].
+  $BaseOneOf1InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseOneOf1InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -106,6 +124,15 @@ typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
 sealed class $BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseAnyOf1InterfaceBuilder].
+  $BaseAnyOf1Interface rebuild(void Function($BaseAnyOf1InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseAnyOf1InterfaceBuilder].
+  $BaseAnyOf1InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseAnyOf1InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -152,6 +179,17 @@ sealed class $BaseNestedAllOfInterface implements $BaseAllOfInterface {
   BaseAnyOf get baseAnyOf;
   @BuiltValueField(wireName: 'attribute-nested-allOf')
   String get attributeNestedAllOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseNestedAllOfInterfaceBuilder].
+  @override
+  $BaseNestedAllOfInterface rebuild(void Function($BaseNestedAllOfInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseNestedAllOfInterfaceBuilder].
+  @override
+  $BaseNestedAllOfInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseNestedAllOfInterfaceBuilder b) {
     $BaseAllOfInterface._defaults(b);
@@ -199,6 +237,15 @@ abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseN
 sealed class $BaseNestedOneOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-oneOf')
   String get attributeNestedOneOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseNestedOneOf3InterfaceBuilder].
+  $BaseNestedOneOf3Interface rebuild(void Function($BaseNestedOneOf3InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseNestedOneOf3InterfaceBuilder].
+  $BaseNestedOneOf3InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseNestedOneOf3InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -248,6 +295,15 @@ typedef BaseNestedOneOf = ({
 sealed class $BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
   String get attributeNestedAnyOf;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$BaseNestedAnyOf3InterfaceBuilder].
+  $BaseNestedAnyOf3Interface rebuild(void Function($BaseNestedAnyOf3InterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$BaseNestedAnyOf3InterfaceBuilder].
+  $BaseNestedAnyOf3InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseNestedAnyOf3InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

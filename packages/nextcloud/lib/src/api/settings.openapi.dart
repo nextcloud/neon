@@ -357,6 +357,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -403,6 +412,17 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 sealed class $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject? get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder].
+  $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface rebuild(
+    void Function($DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder].
+  $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsSetValueResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -456,6 +476,17 @@ abstract class DeclarativeSettingsSetValueResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DeclarativeSettingsSetValueResponseApplicationJsonInterface {
   DeclarativeSettingsSetValueResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsSetValueResponseApplicationJsonInterface rebuild(
+    void Function($DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -741,6 +772,17 @@ class _$DeclarativeFormField_TypeSerializer implements PrimitiveSerializer<Decla
 sealed class $DeclarativeFormField_Options1Interface {
   String get name;
   JsonObject get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeFormField_Options1InterfaceBuilder].
+  $DeclarativeFormField_Options1Interface rebuild(
+    void Function($DeclarativeFormField_Options1InterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeFormField_Options1InterfaceBuilder].
+  $DeclarativeFormField_Options1InterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeFormField_Options1InterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -803,6 +845,15 @@ sealed class $DeclarativeFormFieldInterface {
   JsonObject get $default;
   BuiltList<DeclarativeFormField_Options>? get options;
   DeclarativeFormField_Value get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeFormFieldInterfaceBuilder].
+  $DeclarativeFormFieldInterface rebuild(void Function($DeclarativeFormFieldInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$DeclarativeFormFieldInterfaceBuilder].
+  $DeclarativeFormFieldInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeFormFieldInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -865,6 +916,15 @@ sealed class $DeclarativeFormInterface {
   String? get docUrl;
   String get app;
   BuiltList<DeclarativeFormField> get fields;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeFormInterfaceBuilder].
+  $DeclarativeFormInterface rebuild(void Function($DeclarativeFormInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$DeclarativeFormInterfaceBuilder].
+  $DeclarativeFormInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeFormInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -911,6 +971,17 @@ abstract class DeclarativeForm implements $DeclarativeFormInterface, Built<Decla
 sealed class $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeclarativeForm> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder].
+  $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface rebuild(
+    void Function($DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder].
+  $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -964,6 +1035,17 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DeclarativeSettingsGetFormsResponseApplicationJsonInterface {
   DeclarativeSettingsGetFormsResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsGetFormsResponseApplicationJsonInterface rebuild(
+    void Function($DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1018,6 +1100,17 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson
 sealed class $LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$LogSettingsLogSettingsDownloadHeadersInterfaceBuilder].
+  $LogSettingsLogSettingsDownloadHeadersInterface rebuild(
+    void Function($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$LogSettingsLogSettingsDownloadHeadersInterfaceBuilder].
+  $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
