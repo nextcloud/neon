@@ -68,7 +68,7 @@ dev_dependencies:
   custom_lint: ^0.6.4
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.6.0
+  go_router_builder: ^2.6.1
   json_serializable: ^6.8.0
   mocktail: ^1.0.3
   neon_lints:
