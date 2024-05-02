@@ -1,23 +1,43 @@
-import 'package:build/build.dart' show AssetId;
+import 'dart:convert' show jsonDecode;
+
+import 'package:build/build.dart' show AssetId, BuildStep;
+import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/models/dynamite_config/config.dart';
+import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:path/path.dart' as p;
 
 class State {
   State(
     DynamiteConfig rootConfig,
-    this.rootJson,
-    this.inputId,
-  ) : buildConfig = rootConfig.configFor(inputId.path);
+    this.buildStep,
+  ) : buildConfig = rootConfig.configFor(buildStep.inputId.path);
 
   final DynamiteConfig buildConfig;
 
-  final Map<String, dynamic> rootJson;
+  late final Map<String, dynamic> rootJson;
 
-  final AssetId inputId;
-  late final AssetId outputId = inputId.changeExtension('.dart');
+  final BuildStep buildStep;
+  late final AssetId inputId = buildStep.inputId;
+  late final AssetId outputId = buildStep.inputId.changeExtension('.dart');
   late final String partId = p.basename(outputId.changeExtension('.g.dart').path);
+
+  late final openapi.OpenAPI spec = openapi.serializers.deserializeWith(
+    openapi.OpenAPI.serializer,
+    rootJson,
+  )!;
+
+  Future<void> init() async {
+    rootJson = switch (inputId.extension) {
+      '.json' => jsonDecode(await buildStep.readAsString(inputId)) as Map<String, dynamic>,
+      '.yaml' => checkedYamlDecode<Map<String, dynamic>>(
+          await buildStep.readAsString(inputId),
+          (m) => m!.cast(),
+        ),
+      _ => throw StateError('Openapi specs can only be yaml or json.'),
+    };
+  }
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
