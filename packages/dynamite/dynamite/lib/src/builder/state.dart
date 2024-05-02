@@ -41,7 +41,8 @@ class State {
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
-  final emitter = DartEmitter.scoped(
+  late final emitter = DartEmitter(
+    allocator: _Allocator(partId: partId),
     orderDirectives: true,
     useNullSafetySyntax: true,
   );
@@ -56,11 +57,55 @@ class State {
 
     return uniqueTypes.values;
   }
+}
 
-  /// Wether the state contains resolved types that need the built_value generator.
-  bool get hasResolvedBuiltTypes => resolvedTypes
-      .where(
-        (type) => type is TypeResultEnum || type is TypeResultObject && type.className != 'ContentString',
-      )
-      .isNotEmpty;
+/// Similar to [Allocator.simplePrefixing].
+///
+/// Generates a part directive if the reference url is a built_value one.
+class _Allocator implements Allocator {
+  _Allocator({required this.partId});
+
+  final String partId;
+
+  static const _doNotPrefix = {
+    'package:built_value/built_value.dart',
+    'package:built_value/json_object.dart',
+    'package:built_value/serializer.dart',
+  };
+
+  final _imports = <String, int>{};
+  var _keys = 1;
+
+  @override
+  String allocate(Reference reference) {
+    final symbol = reference.symbol;
+    final url = reference.url;
+
+    if (url == null || url == 'dart:core') {
+      return symbol!;
+    } else if (_doNotPrefix.contains(url)) {
+      _imports[url] ??= 0;
+
+      return symbol!;
+    }
+
+    return '_i${_imports.putIfAbsent(url, _nextKey)}.$symbol';
+  }
+
+  int _nextKey() => _keys++;
+
+  @override
+  Iterable<Directive> get imports sync* {
+    yield* _imports.entries.map((entry) {
+      if (entry.value == 0) {
+        return Directive.import(entry.key);
+      }
+
+      return Directive.import(entry.key, as: '_i${entry.value}');
+    });
+
+    if (_imports.containsKey('package:built_value/built_value.dart')) {
+      yield Directive.part(partId);
+    }
+  }
 }

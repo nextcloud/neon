@@ -37,7 +37,10 @@ TypeResult resolveEnum(
       b
         ..docs.addAll(escapeDescription(schema.formattedDescription()))
         ..name = identifier
-        ..extend = refer('EnumClass')
+        ..extend = refer(
+          'EnumClass',
+          'package:built_value/built_value.dart',
+        )
         ..constructors.add(
           Constructor((b) {
             if (schema.deprecated) {

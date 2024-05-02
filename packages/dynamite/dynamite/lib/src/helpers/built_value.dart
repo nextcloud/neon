@@ -1,4 +1,5 @@
 import 'package:code_builder/code_builder.dart';
+import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
@@ -9,6 +10,7 @@ const interfaceSuffix = 'Interface';
 ///
 /// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
+  State state,
   String className,
   json_schema.JsonSchemaAnnotations schema,
 ) {
@@ -24,6 +26,7 @@ Spec buildBuiltClass(
           refer(interfaceClass),
           refer(
             'Built<$className, ${className}Builder>',
+            'package:built_value/built_value.dart',
           ),
         ])
         ..constructors.addAll([

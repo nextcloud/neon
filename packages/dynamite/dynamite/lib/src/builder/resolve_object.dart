@@ -26,6 +26,7 @@ TypeResultObject resolveObject(
     );
 
     final $class = buildBuiltClass(
+      state,
       identifier,
       schema,
     );

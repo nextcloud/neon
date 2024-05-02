@@ -77,7 +77,6 @@ class OpenAPIBuilder implements Builder {
             Directive.import('dart:convert'),
             Directive.import('dart:typed_data'),
             Directive.import('package:built_collection/built_collection.dart'),
-            Directive.import('package:built_value/built_value.dart'),
             Directive.import('package:built_value/json_object.dart'),
             Directive.import('package:built_value/serializer.dart'),
             Directive.import('package:collection/collection.dart'),
@@ -87,11 +86,6 @@ class OpenAPIBuilder implements Builder {
           ..body.addAll(generateSchemas(state.spec, state))
           ..body.addAll(buildOfsExtensions(state))
           ..body.addAll(buildSerializer(state));
-
-        // Part directive need to be generated after everything else so we know if we need it.
-        if (state.hasResolvedBuiltTypes) {
-          b.directives.add(Directive.part(state.partId));
-        }
 
         if (state.buildConfig.experimental) {
           b.annotations.add(
