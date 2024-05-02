@@ -6,20 +6,18 @@ import 'package:dynamite/src/models/type_result.dart';
 
 TypeResultObject resolveObject(
   State state,
-  String identifier,
   json_schema.JsonSchema schema, {
   bool nullable = false,
   bool isHeader = false,
 }) {
   final result = TypeResultObject(
-    identifier,
+    schema.identifier!,
     nullable: nullable,
   );
 
   if (state.resolvedTypes.add(result)) {
     final $interface = buildInterface(
       state,
-      identifier,
       schema,
       nullable: nullable,
       isHeader: isHeader,
@@ -27,7 +25,6 @@ TypeResultObject resolveObject(
 
     final $class = buildBuiltClass(
       state,
-      identifier,
       schema,
     );
 

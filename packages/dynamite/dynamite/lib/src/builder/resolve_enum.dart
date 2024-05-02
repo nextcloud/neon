@@ -11,11 +11,12 @@ import 'package:source_helper/source_helper.dart';
 
 TypeResult resolveEnum(
   State state,
-  String identifier,
   json_schema.JsonSchema schema,
   TypeResult subResult, {
   bool nullable = false,
 }) {
+  final identifier = schema.identifier!;
+
   if (state.resolvedTypes.add(TypeResultEnum(identifier, subResult))) {
     final values = <({String dartName, Object? value, String name})>[];
     for (final enumValue in schema.$enum!) {

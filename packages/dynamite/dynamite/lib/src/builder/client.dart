@@ -202,11 +202,12 @@ Iterable<Method> buildTags(
 
         final result = resolveType(
           state,
-          toDartName(
-            '$operationName-${parameter.name}',
-            className: true,
-          ),
-          parameter.schema!,
+          parameter.schema!.rebuild((b) {
+            b.identifier = toDartName(
+              '$operationName-${parameter.name}',
+              className: true,
+            );
+          }),
           nullable: !parameterRequired,
         );
 
@@ -252,8 +253,9 @@ Iterable<Method> buildTags(
 
           final result = resolveType(
             state,
-            toDartName('$operationName-request-$mimeType', className: true),
-            mediaType.schema!,
+            mediaType.schema!.rebuild((b) {
+              b.identifier = toDartName('$operationName-request-$mimeType', className: true);
+            }),
             nullable: dartParameterNullable,
           );
 
@@ -473,9 +475,9 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
       ..write('Headers');
     headersType = resolveObject(
       state,
-      identifierBuilder.toString(),
-      json_schema.ObjectSchema(
-        (b) => b
+      json_schema.ObjectSchema((b) {
+        b
+          ..identifier = identifierBuilder.toString()
           ..properties.replace(
             response.headers!.map(
               (headerName, value) => MapEntry(
@@ -483,8 +485,8 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
                 value.schema!,
               ),
             ),
-          ),
-      ),
+          );
+      }),
       isHeader: true,
     );
   }

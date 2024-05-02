@@ -7,13 +7,9 @@ import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 const interfaceSuffix = 'Interface';
 
 /// Builds a [Class] representing a built_value object.
-///
-/// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
-Spec buildBuiltClass(
-  State state,
-  String className,
-  json_schema.JsonSchemaAnnotations schema,
-) {
+Spec buildBuiltClass(State state, json_schema.JsonSchema schema) {
+  final className = schema.identifier!;
+
   return Class(
     (b) {
       final interfaceClass = '\$$className$interfaceSuffix';

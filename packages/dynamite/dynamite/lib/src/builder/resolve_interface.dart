@@ -12,11 +12,12 @@ import 'package:dynamite/src/models/type_result.dart';
 
 Spec buildInterface(
   State state,
-  String identifier,
   json_schema.JsonSchema schema, {
   bool isHeader = false,
   bool nullable = false,
 }) {
+  final identifier = schema.identifier!;
+
   return Class((b) {
     final className = '\$$identifier$interfaceSuffix';
 
@@ -45,7 +46,6 @@ Spec buildInterface(
         } else {
           final object = resolveType(
             state,
-            identifier,
             schema,
             nullable: nullable,
           );
@@ -151,11 +151,12 @@ void _generateProperties(
 
     var result = resolveType(
       state,
-      toDartName(
-        propertyName,
-        identifier: identifier,
-      ),
-      propertySchema,
+      propertySchema.rebuild((b) {
+        b.identifier = toDartName(
+          propertyName,
+          identifier: identifier,
+        );
+      }),
       nullable: isDartParameterNullable(
         schema.required.contains(propertyName),
         propertySchema,

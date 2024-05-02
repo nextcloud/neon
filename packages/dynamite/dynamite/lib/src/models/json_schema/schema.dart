@@ -2,9 +2,11 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/exceptions.dart';
 import 'package:dynamite/src/models/json_schema/annotations.dart';
+import 'package:dynamite/src/models/json_schema/type_result.dart';
 import 'package:dynamite/src/models/json_schema/validators.dart';
 import 'package:dynamite/src/models/openapi.dart';
 import 'package:rfc_6901/rfc_6901.dart';
@@ -12,7 +14,7 @@ import 'package:rfc_6901/rfc_6901.dart';
 part 'schema.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class JsonSchema with Validator, JsonSchemaAnnotations {
+abstract interface class JsonSchema with Validator, JsonSchemaAnnotations, TypeResultMixin {
   @BuiltValueField(wireName: r'$id')
   Uri? get id;
 
@@ -74,7 +76,9 @@ extension SchemaExtension on JsonSchema {
     var schema = serializers.deserializeWith(JsonSchema.serializer, value)!;
     if (schema.id == null) {
       schema = schema.rebuild((b) {
-        b.id = uri;
+        b
+          ..id = uri
+          ..identifier = toDartName(ref!.fragment.split('/').last, className: true);
       });
     }
 
@@ -83,7 +87,14 @@ extension SchemaExtension on JsonSchema {
 }
 
 abstract class GenericSchema
-    with Validator, NumberValidator, StringValidator, ArrayValidator, ObjectValidator, JsonSchemaAnnotations
+    with
+        Validator,
+        NumberValidator,
+        StringValidator,
+        ArrayValidator,
+        ObjectValidator,
+        JsonSchemaAnnotations,
+        TypeResultMixin
     implements JsonSchema, Built<GenericSchema, GenericSchemaBuilder> {
   factory GenericSchema([void Function(GenericSchemaBuilder) updates]) = _$GenericSchema;
   const GenericSchema._();
@@ -103,7 +114,7 @@ abstract class GenericSchema
 }
 
 abstract class BooleanSchema
-    with JsonSchemaAnnotations
+    with JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<BooleanSchema, BooleanSchemaBuilder> {
   factory BooleanSchema([void Function(BooleanSchemaBuilder) updates]) = _$BooleanSchema;
   const BooleanSchema._();
@@ -126,7 +137,7 @@ abstract class BooleanSchema
 }
 
 abstract class IntegerSchema
-    with NumberValidator, JsonSchemaAnnotations
+    with NumberValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<IntegerSchema, IntegerSchemaBuilder> {
   factory IntegerSchema([void Function(IntegerSchemaBuilder) updates]) = _$IntegerSchema;
   IntegerSchema._();
@@ -156,7 +167,7 @@ abstract class IntegerSchema
 }
 
 abstract class NumberSchema
-    with NumberValidator, JsonSchemaAnnotations
+    with NumberValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<NumberSchema, NumberSchemaBuilder> {
   factory NumberSchema([void Function(NumberSchemaBuilder) updates]) = _$NumberSchema;
   const NumberSchema._();
@@ -184,7 +195,7 @@ abstract class NumberSchema
 }
 
 abstract class StringSchema
-    with StringValidator, JsonSchemaAnnotations
+    with StringValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<StringSchema, StringSchemaBuilder> {
   factory StringSchema([void Function(StringSchemaBuilder) updates]) = _$StringSchema;
   const StringSchema._();
@@ -214,7 +225,7 @@ abstract class StringSchema
 }
 
 abstract class ArraySchema
-    with ArrayValidator, JsonSchemaAnnotations
+    with ArrayValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<ArraySchema, ArraySchemaBuilder> {
   factory ArraySchema([void Function(ArraySchemaBuilder) updates]) = _$ArraySchema;
   const ArraySchema._();
@@ -241,7 +252,7 @@ abstract class ArraySchema
 }
 
 abstract class ObjectSchema
-    with ObjectValidator, JsonSchemaAnnotations
+    with ObjectValidator, JsonSchemaAnnotations, TypeResultMixin
     implements JsonSchema, Built<ObjectSchema, ObjectSchemaBuilder> {
   factory ObjectSchema([void Function(ObjectSchemaBuilder) updates]) = _$ObjectSchema;
   const ObjectSchema._();
@@ -267,7 +278,9 @@ abstract class ObjectSchema
   }
 }
 
-abstract class NullSchema with JsonSchemaAnnotations implements JsonSchema, Built<NullSchema, NullSchemaBuilder> {
+abstract class NullSchema
+    with JsonSchemaAnnotations, TypeResultMixin
+    implements JsonSchema, Built<NullSchema, NullSchemaBuilder> {
   factory NullSchema([void Function(NullSchemaBuilder) updates]) = _$NullSchema;
   const NullSchema._();
 

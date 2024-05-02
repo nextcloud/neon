@@ -9,16 +9,18 @@ import 'package:dynamite/src/models/type_result.dart';
 
 TypeResult resolveSomeOf(
   State state,
-  String identifier,
   json_schema.JsonSchema schema, {
   bool nullable = false,
 }) {
+  final identifier = schema.identifier!;
+
   BuiltSet<TypeResult> resolveSubTypes(BuiltList<json_schema.JsonSchema> ofs) {
     return ofs.mapIndexed((index, schema) {
       return resolveType(
         state,
-        '$identifier$index',
-        schema,
+        schema.rebuild((b) {
+          b.identifier = '$identifier$index';
+        }),
         nullable: true,
       );
     }).toBuiltSet();
