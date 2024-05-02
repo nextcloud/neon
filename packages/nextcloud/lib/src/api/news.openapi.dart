@@ -21,13 +21,13 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
-import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i5;
 
 part 'news.openapi.g.dart';
 
@@ -72,7 +72,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -134,7 +134,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -198,12 +198,12 @@ class $Client extends _i1.DynamiteClient {
     final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -278,11 +278,11 @@ class $Client extends _i1.DynamiteClient {
     final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
     _parameters['name'] = $name;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -352,11 +352,11 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -429,11 +429,11 @@ class $Client extends _i1.DynamiteClient {
     _parameters['newestItemId'] = $newestItemId;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -504,7 +504,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -575,12 +575,12 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -651,11 +651,11 @@ class $Client extends _i1.DynamiteClient {
     final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     _parameters['feedId'] = $feedId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -727,11 +727,11 @@ class $Client extends _i1.DynamiteClient {
     final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     _parameters['folderId'] = $folderId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -811,11 +811,11 @@ class $Client extends _i1.DynamiteClient {
     _parameters['feedTitle'] = $feedTitle;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -895,11 +895,11 @@ class $Client extends _i1.DynamiteClient {
     _parameters['newestItemId'] = $newestItemId;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1006,13 +1006,13 @@ class $Client extends _i1.DynamiteClient {
     _parameters['oldestFirst'] = $oldestFirst;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
             .expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1114,12 +1114,12 @@ class $Client extends _i1.DynamiteClient {
     _parameters['lastModified'] = $lastModified;
 
     final _path =
-        _i4.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1193,11 +1193,11 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1260,11 +1260,11 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1327,11 +1327,11 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1394,11 +1394,11 @@ class $Client extends _i1.DynamiteClient {
     final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     _parameters['itemId'] = $itemId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1976,9 +1976,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin())
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -19,13 +19,13 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i6;
-import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i5;
 
 part 'uppush.openapi.g.dart';
 
@@ -72,7 +72,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -144,12 +144,12 @@ class $Client extends _i1.DynamiteClient {
     final $keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
     _parameters['keepalive'] = $keepalive;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -226,12 +226,12 @@ class $Client extends _i1.DynamiteClient {
     final $deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
     _parameters['deviceName'] = $deviceName;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -306,12 +306,12 @@ class $Client extends _i1.DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -382,12 +382,12 @@ class $Client extends _i1.DynamiteClient {
     final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     _parameters['deviceId'] = $deviceId;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -467,12 +467,12 @@ class $Client extends _i1.DynamiteClient {
     final $appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
     _parameters['appName'] = $appName;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -548,12 +548,12 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -622,12 +622,12 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -697,12 +697,12 @@ class $Client extends _i1.DynamiteClient {
     final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = $token;
 
-    final _path = _i4.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
+    final _path = _i5.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -771,7 +771,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -839,7 +839,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1617,9 +1617,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin())
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
