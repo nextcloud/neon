@@ -105,16 +105,13 @@ abstract class Capabilities_Systemtags
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Systemtags.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Systemtags.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Systemtags.
   static Serializer<Capabilities_Systemtags> get serializer => _$capabilitiesSystemtagsSerializer;
@@ -151,15 +148,13 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;

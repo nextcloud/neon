@@ -1109,16 +1109,14 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(Map<String, dynamic> json) =>
+  factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ThemingGetManifestResponseApplicationJson_Icons.
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
@@ -1172,16 +1170,14 @@ abstract class ThemingGetManifestResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ThemingGetManifestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ThemingGetManifestResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ThemingGetManifestResponseApplicationJson.
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
@@ -1223,15 +1219,13 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -1274,16 +1268,14 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UserThemeEnableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
@@ -1326,16 +1318,14 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UserThemeEnableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory UserThemeEnableThemeResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UserThemeEnableThemeResponseApplicationJson.
   static Serializer<UserThemeEnableThemeResponseApplicationJson> get serializer =>
@@ -1380,16 +1370,14 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UserThemeDisableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
@@ -1432,16 +1420,14 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UserThemeDisableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory UserThemeDisableThemeResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UserThemeDisableThemeResponseApplicationJson.
   static Serializer<UserThemeDisableThemeResponseApplicationJson> get serializer =>
@@ -1502,16 +1488,13 @@ abstract class PublicCapabilities_Theming
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicCapabilities_Theming.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities_Theming.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicCapabilities_Theming.
   static Serializer<PublicCapabilities_Theming> get serializer => _$publicCapabilitiesThemingSerializer;
@@ -1549,16 +1532,13 @@ abstract class PublicCapabilities
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicCapabilities.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicCapabilities.
   static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;

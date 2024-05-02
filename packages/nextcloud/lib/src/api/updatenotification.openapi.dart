@@ -363,15 +363,13 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -409,15 +407,13 @@ abstract class App implements $AppInterface, Built<App, AppBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory App.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory App.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for App.
   static Serializer<App> get serializer => _$appSerializer;
@@ -460,16 +456,14 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppListResponseApplicationJson_Ocs_Data.
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
@@ -513,16 +507,14 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppListResponseApplicationJson_Ocs.
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs> get serializer =>
@@ -564,16 +556,14 @@ abstract class ApiGetAppListResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppListResponseApplicationJson.
   static Serializer<ApiGetAppListResponseApplicationJson> get serializer =>
@@ -676,16 +666,14 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.
   static Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data> get serializer =>
@@ -730,16 +718,14 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson_Ocs.
   static Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs> get serializer =>
@@ -782,16 +768,14 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ApiGetAppChangelogEntryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ApiGetAppChangelogEntryResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ApiGetAppChangelogEntryResponseApplicationJson.
   static Serializer<ApiGetAppChangelogEntryResponseApplicationJson> get serializer =>

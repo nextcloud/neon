@@ -39,12 +39,12 @@ abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAl
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAllOf.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseAllOf.
   static Serializer<BaseAllOf> get serializer => _$baseAllOfSerializer;
@@ -79,12 +79,12 @@ abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, Bas
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseOneOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseOneOf1.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseOneOf1.
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
@@ -121,12 +121,12 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseAnyOf1.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAnyOf1.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseAnyOf1.
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
@@ -174,12 +174,12 @@ abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseN
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseNestedAllOf.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedAllOf.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseNestedAllOf.
   static Serializer<BaseNestedAllOf> get serializer => _$baseNestedAllOfSerializer;
@@ -215,12 +215,12 @@ abstract class BaseNestedOneOf3
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseNestedOneOf3.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedOneOf3.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseNestedOneOf3.
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
@@ -264,12 +264,12 @@ abstract class BaseNestedAnyOf3
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory BaseNestedAnyOf3.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedAnyOf3.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseNestedAnyOf3.
   static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;

@@ -375,15 +375,13 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -427,16 +425,14 @@ abstract class DeclarativeSettingsSetValueResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeSettingsSetValueResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory DeclarativeSettingsSetValueResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeSettingsSetValueResponseApplicationJson_Ocs.
   static Serializer<DeclarativeSettingsSetValueResponseApplicationJson_Ocs> get serializer =>
@@ -480,16 +476,14 @@ abstract class DeclarativeSettingsSetValueResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeSettingsSetValueResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory DeclarativeSettingsSetValueResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeSettingsSetValueResponseApplicationJson.
   static Serializer<DeclarativeSettingsSetValueResponseApplicationJson> get serializer =>
@@ -763,16 +757,13 @@ abstract class DeclarativeFormField_Options1
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeFormField_Options1.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeclarativeFormField_Options1.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeFormField_Options1.
   static Serializer<DeclarativeFormField_Options1> get serializer => _$declarativeFormFieldOptions1Serializer;
@@ -824,16 +815,13 @@ abstract class DeclarativeFormField
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeFormField.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeclarativeFormField.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeFormField.
   static Serializer<DeclarativeFormField> get serializer => _$declarativeFormFieldSerializer;
@@ -883,15 +871,13 @@ abstract class DeclarativeForm implements $DeclarativeFormInterface, Built<Decla
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeForm.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeclarativeForm.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeForm.
   static Serializer<DeclarativeForm> get serializer => _$declarativeFormSerializer;
@@ -935,16 +921,14 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.
   static Serializer<DeclarativeSettingsGetFormsResponseApplicationJson_Ocs> get serializer =>
@@ -988,16 +972,14 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeclarativeSettingsGetFormsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory DeclarativeSettingsGetFormsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeclarativeSettingsGetFormsResponseApplicationJson.
   static Serializer<DeclarativeSettingsGetFormsResponseApplicationJson> get serializer =>
@@ -1040,16 +1022,14 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory LogSettingsLogSettingsDownloadHeaders.fromJson(Map<String, dynamic> json) =>
+  factory LogSettingsLogSettingsDownloadHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for LogSettingsLogSettingsDownloadHeaders.
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>

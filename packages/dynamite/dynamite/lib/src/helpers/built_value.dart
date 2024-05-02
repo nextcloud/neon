@@ -99,9 +99,9 @@ Method get toJsonMethod => Method(
           '/// Use the fromJson factory to revive it again.',
         ])
         ..name = 'toJson'
-        ..returns = refer('Map<String, dynamic>')
+        ..returns = refer('Object')
         ..lambda = true
-        ..body = const Code(r'_$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
+        ..body = const Code(r'_$jsonSerializers.serializeWith(serializer, this)!'),
     );
 
 /// Builds the serializer getter for a built class.
@@ -179,7 +179,7 @@ Constructor fromJsonConstructor({
         Parameter(
           (b) => b
             ..name = 'json'
-            ..type = refer('Map<String, dynamic>'),
+            ..type = refer('Object'),
         ),
       )
       ..body = const Code(r'_$jsonSerializers.deserializeWith(serializer, json)!');

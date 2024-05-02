@@ -905,16 +905,13 @@ abstract class CheckResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CheckResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory CheckResponseApplicationJson.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CheckResponseApplicationJson.
   static Serializer<CheckResponseApplicationJson> get serializer => _$checkResponseApplicationJsonSerializer;
@@ -955,16 +952,14 @@ abstract class SetKeepaliveResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SetKeepaliveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SetKeepaliveResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SetKeepaliveResponseApplicationJson.
   static Serializer<SetKeepaliveResponseApplicationJson> get serializer =>
@@ -1007,16 +1002,14 @@ abstract class CreateDeviceResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CreateDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CreateDeviceResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CreateDeviceResponseApplicationJson.
   static Serializer<CreateDeviceResponseApplicationJson> get serializer =>
@@ -1058,16 +1051,14 @@ abstract class SyncDeviceResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SyncDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SyncDeviceResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SyncDeviceResponseApplicationJson.
   static Serializer<SyncDeviceResponseApplicationJson> get serializer => _$syncDeviceResponseApplicationJsonSerializer;
@@ -1108,16 +1099,14 @@ abstract class DeleteDeviceResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeleteDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory DeleteDeviceResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeleteDeviceResponseApplicationJson.
   static Serializer<DeleteDeviceResponseApplicationJson> get serializer =>
@@ -1160,16 +1149,14 @@ abstract class CreateAppResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CreateAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CreateAppResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CreateAppResponseApplicationJson.
   static Serializer<CreateAppResponseApplicationJson> get serializer => _$createAppResponseApplicationJsonSerializer;
@@ -1210,16 +1197,14 @@ abstract class DeleteAppResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory DeleteAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory DeleteAppResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for DeleteAppResponseApplicationJson.
   static Serializer<DeleteAppResponseApplicationJson> get serializer => _$deleteAppResponseApplicationJsonSerializer;
@@ -1262,16 +1247,14 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
+  factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
@@ -1314,16 +1297,14 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory UnifiedpushDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory UnifiedpushDiscoveryResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for UnifiedpushDiscoveryResponseApplicationJson.
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson> get serializer =>
@@ -1365,16 +1346,13 @@ abstract class PushResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PushResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PushResponseApplicationJson.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PushResponseApplicationJson.
   static Serializer<PushResponseApplicationJson> get serializer => _$pushResponseApplicationJsonSerializer;
@@ -1417,16 +1395,14 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
+  factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
@@ -1469,16 +1445,14 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GatewayMatrixDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory GatewayMatrixDiscoveryResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for GatewayMatrixDiscoveryResponseApplicationJson.
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson> get serializer =>
@@ -1520,16 +1494,14 @@ abstract class GatewayMatrixResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GatewayMatrixResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory GatewayMatrixResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for GatewayMatrixResponseApplicationJson.
   static Serializer<GatewayMatrixResponseApplicationJson> get serializer =>

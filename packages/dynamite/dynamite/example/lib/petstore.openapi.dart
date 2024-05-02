@@ -335,12 +335,14 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory NewPet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory NewPet.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for NewPet.
   static Serializer<NewPet> get serializer => _$newPetSerializer;
@@ -381,12 +383,14 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Pet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory Pet.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Pet.
   static Serializer<Pet> get serializer => _$petSerializer;
@@ -423,12 +427,14 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory Error.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-start
+  factory Error.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Error.
   static Serializer<Error> get serializer => _$errorSerializer;

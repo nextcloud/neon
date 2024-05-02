@@ -15907,15 +15907,13 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory OCSMeta.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -16348,16 +16346,13 @@ abstract class RichObjectParameter
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RichObjectParameter.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RichObjectParameter.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RichObjectParameter.
   static Serializer<RichObjectParameter> get serializer => _$richObjectParameterSerializer;
@@ -16508,15 +16503,13 @@ abstract class BaseMessage implements $BaseMessageInterface, Built<BaseMessage, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BaseMessage.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseMessage.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BaseMessage.
   static Serializer<BaseMessage> get serializer => _$baseMessageSerializer;
@@ -16627,15 +16620,13 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMessage.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatMessage.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMessage.
   static Serializer<ChatMessage> get serializer => _$chatMessageSerializer;
@@ -16730,15 +16721,13 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Room.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Room.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Room.
   static Serializer<Room> get serializer => _$roomSerializer;
@@ -16781,16 +16770,14 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarUploadAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarUploadAvatarResponseApplicationJson_Ocs> get serializer =>
@@ -16833,16 +16820,14 @@ abstract class AvatarUploadAvatarResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarUploadAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory AvatarUploadAvatarResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarUploadAvatarResponseApplicationJson.
   static Serializer<AvatarUploadAvatarResponseApplicationJson> get serializer =>
@@ -16942,16 +16927,14 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarDeleteAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
@@ -16994,16 +16977,14 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory AvatarDeleteAvatarResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarDeleteAvatarResponseApplicationJson.
   static Serializer<AvatarDeleteAvatarResponseApplicationJson> get serializer =>
@@ -17103,16 +17084,14 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarEmojiAvatarResponseApplicationJson_Ocs.
   static Serializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> get serializer =>
@@ -17155,16 +17134,14 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory AvatarEmojiAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory AvatarEmojiAvatarResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for AvatarEmojiAvatarResponseApplicationJson.
   static Serializer<AvatarEmojiAvatarResponseApplicationJson> get serializer =>
@@ -17959,15 +17936,13 @@ abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Bot.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Bot.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Bot.
   static Serializer<Bot> get serializer => _$botSerializer;
@@ -18009,16 +17984,14 @@ abstract class BotListBotsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotListBotsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotListBotsResponseApplicationJson_Ocs.
   static Serializer<BotListBotsResponseApplicationJson_Ocs> get serializer =>
@@ -18060,16 +18033,14 @@ abstract class BotListBotsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotListBotsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotListBotsResponseApplicationJson.
   static Serializer<BotListBotsResponseApplicationJson> get serializer =>
@@ -18168,16 +18139,14 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotEnableBotResponseApplicationJson_Ocs.
   static Serializer<BotEnableBotResponseApplicationJson_Ocs> get serializer =>
@@ -18219,16 +18188,14 @@ abstract class BotEnableBotResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotEnableBotResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotEnableBotResponseApplicationJson.
   static Serializer<BotEnableBotResponseApplicationJson> get serializer =>
@@ -18328,16 +18295,14 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotDisableBotResponseApplicationJson_Ocs.
   static Serializer<BotDisableBotResponseApplicationJson_Ocs> get serializer =>
@@ -18379,16 +18344,14 @@ abstract class BotDisableBotResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotDisableBotResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotDisableBotResponseApplicationJson.
   static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
@@ -18551,16 +18514,14 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotSendMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotSendMessageResponseApplicationJson_Ocs.
   static Serializer<BotSendMessageResponseApplicationJson_Ocs> get serializer =>
@@ -18602,16 +18563,14 @@ abstract class BotSendMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotSendMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotSendMessageResponseApplicationJson.
   static Serializer<BotSendMessageResponseApplicationJson> get serializer =>
@@ -18710,16 +18669,14 @@ abstract class BotReactResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotReactResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotReactResponseApplicationJson_Ocs.
   static Serializer<BotReactResponseApplicationJson_Ocs> get serializer =>
@@ -18761,16 +18718,13 @@ abstract class BotReactResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BotReactResponseApplicationJson.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotReactResponseApplicationJson.
   static Serializer<BotReactResponseApplicationJson> get serializer => _$botReactResponseApplicationJsonSerializer;
@@ -18869,16 +18823,14 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotDeleteReactionResponseApplicationJson_Ocs.
   static Serializer<BotDeleteReactionResponseApplicationJson_Ocs> get serializer =>
@@ -18921,16 +18873,14 @@ abstract class BotDeleteReactionResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotDeleteReactionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotDeleteReactionResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotDeleteReactionResponseApplicationJson.
   static Serializer<BotDeleteReactionResponseApplicationJson> get serializer =>
@@ -19117,16 +19067,14 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -19170,16 +19118,14 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson> get serializer =>
@@ -19286,16 +19232,14 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -19339,16 +19283,14 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson> get serializer =>
@@ -19455,16 +19397,14 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs> get serializer =>
@@ -19508,16 +19448,14 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomBroadcastChatMessageResponseApplicationJson.
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson> get serializer =>
@@ -19623,16 +19561,14 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs> get serializer =>
@@ -19676,16 +19612,14 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomApplyAttendeeMapResponseApplicationJson.
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson> get serializer =>
@@ -19792,16 +19726,14 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs> get serializer =>
@@ -19845,16 +19777,14 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomRequestAssistanceResponseApplicationJson.
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson> get serializer =>
@@ -19961,16 +19891,14 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs> get serializer =>
@@ -20014,16 +19942,14 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceResponseApplicationJson.
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson> get serializer =>
@@ -20130,16 +20056,14 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -20183,16 +20107,14 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson> get serializer =>
@@ -20299,16 +20221,14 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -20352,16 +20272,14 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsResponseApplicationJson.
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson> get serializer =>
@@ -20468,16 +20386,14 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs> get serializer =>
@@ -20521,16 +20437,14 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson> get serializer =>
@@ -20629,15 +20543,13 @@ abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallPeer.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory CallPeer.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallPeer.
   static Serializer<CallPeer> get serializer => _$callPeerSerializer;
@@ -20680,16 +20592,14 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallGetPeersForCallResponseApplicationJson_Ocs.
   static Serializer<CallGetPeersForCallResponseApplicationJson_Ocs> get serializer =>
@@ -20732,16 +20642,14 @@ abstract class CallGetPeersForCallResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallGetPeersForCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallGetPeersForCallResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallGetPeersForCallResponseApplicationJson.
   static Serializer<CallGetPeersForCallResponseApplicationJson> get serializer =>
@@ -20841,16 +20749,14 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallUpdateCallFlagsResponseApplicationJson_Ocs.
   static Serializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> get serializer =>
@@ -20893,16 +20799,14 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallUpdateCallFlagsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallUpdateCallFlagsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallUpdateCallFlagsResponseApplicationJson.
   static Serializer<CallUpdateCallFlagsResponseApplicationJson> get serializer =>
@@ -21127,16 +21031,14 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallJoinCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallJoinCallResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallJoinCallResponseApplicationJson_Ocs.
   static Serializer<CallJoinCallResponseApplicationJson_Ocs> get serializer =>
@@ -21178,16 +21080,14 @@ abstract class CallJoinCallResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallJoinCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallJoinCallResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallJoinCallResponseApplicationJson.
   static Serializer<CallJoinCallResponseApplicationJson> get serializer =>
@@ -21350,16 +21250,14 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallLeaveCallResponseApplicationJson_Ocs.
   static Serializer<CallLeaveCallResponseApplicationJson_Ocs> get serializer =>
@@ -21401,16 +21299,14 @@ abstract class CallLeaveCallResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallLeaveCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallLeaveCallResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallLeaveCallResponseApplicationJson.
   static Serializer<CallLeaveCallResponseApplicationJson> get serializer =>
@@ -21510,16 +21406,14 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallRingAttendeeResponseApplicationJson_Ocs.
   static Serializer<CallRingAttendeeResponseApplicationJson_Ocs> get serializer =>
@@ -21561,16 +21455,14 @@ abstract class CallRingAttendeeResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallRingAttendeeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallRingAttendeeResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallRingAttendeeResponseApplicationJson.
   static Serializer<CallRingAttendeeResponseApplicationJson> get serializer =>
@@ -21670,16 +21562,14 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallSipDialOutResponseApplicationJson_Ocs_Data.
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs_Data> get serializer =>
@@ -21723,16 +21613,14 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallSipDialOutResponseApplicationJson_Ocs.
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs> get serializer =>
@@ -21774,16 +21662,14 @@ abstract class CallSipDialOutResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CallSipDialOutResponseApplicationJson.
   static Serializer<CallSipDialOutResponseApplicationJson> get serializer =>
@@ -22210,16 +22096,13 @@ abstract class ChatMessageWithParent
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMessageWithParent.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatMessageWithParent.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMessageWithParent.
   static Serializer<ChatMessageWithParent> get serializer => _$chatMessageWithParentSerializer;
@@ -22262,16 +22145,14 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatReceiveMessagesResponseApplicationJson_Ocs.
   static Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> get serializer =>
@@ -22314,16 +22195,14 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatReceiveMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatReceiveMessagesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatReceiveMessagesResponseApplicationJson.
   static Serializer<ChatReceiveMessagesResponseApplicationJson> get serializer =>
@@ -22368,16 +22247,13 @@ abstract class ChatChatReceiveMessagesHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatReceiveMessagesHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatReceiveMessagesHeaders.
   static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$chatChatReceiveMessagesHeadersSerializer;
@@ -22539,16 +22415,14 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSendMessageResponseApplicationJson_Ocs.
   static Serializer<ChatSendMessageResponseApplicationJson_Ocs> get serializer =>
@@ -22590,16 +22464,14 @@ abstract class ChatSendMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatSendMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSendMessageResponseApplicationJson.
   static Serializer<ChatSendMessageResponseApplicationJson> get serializer =>
@@ -22642,16 +22514,13 @@ abstract class ChatChatSendMessageHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatSendMessageHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatSendMessageHeaders.
   static Serializer<ChatChatSendMessageHeaders> get serializer => _$chatChatSendMessageHeadersSerializer;
@@ -22750,16 +22619,14 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatClearHistoryResponseApplicationJson_Ocs.
   static Serializer<ChatClearHistoryResponseApplicationJson_Ocs> get serializer =>
@@ -22801,16 +22668,14 @@ abstract class ChatClearHistoryResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatClearHistoryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatClearHistoryResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatClearHistoryResponseApplicationJson.
   static Serializer<ChatClearHistoryResponseApplicationJson> get serializer =>
@@ -22853,16 +22718,13 @@ abstract class ChatChatClearHistoryHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatClearHistoryHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatClearHistoryHeaders.
   static Serializer<ChatChatClearHistoryHeaders> get serializer => _$chatChatClearHistoryHeadersSerializer;
@@ -22961,16 +22823,14 @@ abstract class ChatEditMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatEditMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatEditMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatEditMessageResponseApplicationJson_Ocs.
   static Serializer<ChatEditMessageResponseApplicationJson_Ocs> get serializer =>
@@ -23012,16 +22872,14 @@ abstract class ChatEditMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatEditMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatEditMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatEditMessageResponseApplicationJson.
   static Serializer<ChatEditMessageResponseApplicationJson> get serializer =>
@@ -23064,16 +22922,13 @@ abstract class ChatChatEditMessageHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatEditMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatEditMessageHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatEditMessageHeaders.
   static Serializer<ChatChatEditMessageHeaders> get serializer => _$chatChatEditMessageHeadersSerializer;
@@ -23172,16 +23027,14 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatDeleteMessageResponseApplicationJson_Ocs.
   static Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> get serializer =>
@@ -23224,16 +23077,14 @@ abstract class ChatDeleteMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatDeleteMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatDeleteMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatDeleteMessageResponseApplicationJson.
   static Serializer<ChatDeleteMessageResponseApplicationJson> get serializer =>
@@ -23276,16 +23127,13 @@ abstract class ChatChatDeleteMessageHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatDeleteMessageHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatDeleteMessageHeaders.
   static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$chatChatDeleteMessageHeadersSerializer;
@@ -23386,16 +23234,14 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetMessageContextResponseApplicationJson_Ocs.
   static Serializer<ChatGetMessageContextResponseApplicationJson_Ocs> get serializer =>
@@ -23438,16 +23284,14 @@ abstract class ChatGetMessageContextResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetMessageContextResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetMessageContextResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetMessageContextResponseApplicationJson.
   static Serializer<ChatGetMessageContextResponseApplicationJson> get serializer =>
@@ -23492,16 +23336,14 @@ abstract class ChatChatGetMessageContextHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
+  factory ChatChatGetMessageContextHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatGetMessageContextHeaders.
   static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$chatChatGetMessageContextHeadersSerializer;
@@ -23597,15 +23439,13 @@ abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminde
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatReminder.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatReminder.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatReminder.
   static Serializer<ChatReminder> get serializer => _$chatReminderSerializer;
@@ -23648,16 +23488,14 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetReminderResponseApplicationJson_Ocs.
   static Serializer<ChatGetReminderResponseApplicationJson_Ocs> get serializer =>
@@ -23699,16 +23537,14 @@ abstract class ChatGetReminderResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetReminderResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetReminderResponseApplicationJson.
   static Serializer<ChatGetReminderResponseApplicationJson> get serializer =>
@@ -23808,16 +23644,14 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSetReminderResponseApplicationJson_Ocs.
   static Serializer<ChatSetReminderResponseApplicationJson_Ocs> get serializer =>
@@ -23859,16 +23693,14 @@ abstract class ChatSetReminderResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatSetReminderResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSetReminderResponseApplicationJson.
   static Serializer<ChatSetReminderResponseApplicationJson> get serializer =>
@@ -23968,16 +23800,14 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatDeleteReminderResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory ChatDeleteReminderResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatDeleteReminderResponseApplicationJson_Ocs_Data.
   static Serializer<ChatDeleteReminderResponseApplicationJson_Ocs_Data> get serializer =>
@@ -24021,16 +23851,14 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatDeleteReminderResponseApplicationJson_Ocs.
   static Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> get serializer =>
@@ -24073,16 +23901,14 @@ abstract class ChatDeleteReminderResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatDeleteReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatDeleteReminderResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatDeleteReminderResponseApplicationJson.
   static Serializer<ChatDeleteReminderResponseApplicationJson> get serializer =>
@@ -24182,16 +24008,14 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSetReadMarkerResponseApplicationJson_Ocs.
   static Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> get serializer =>
@@ -24234,16 +24058,14 @@ abstract class ChatSetReadMarkerResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatSetReadMarkerResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatSetReadMarkerResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatSetReadMarkerResponseApplicationJson.
   static Serializer<ChatSetReadMarkerResponseApplicationJson> get serializer =>
@@ -24286,16 +24108,13 @@ abstract class ChatChatSetReadMarkerHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatSetReadMarkerHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatSetReadMarkerHeaders.
   static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$chatChatSetReadMarkerHeadersSerializer;
@@ -24394,16 +24213,14 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMarkUnreadResponseApplicationJson_Ocs.
   static Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> get serializer =>
@@ -24445,16 +24262,14 @@ abstract class ChatMarkUnreadResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMarkUnreadResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatMarkUnreadResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMarkUnreadResponseApplicationJson.
   static Serializer<ChatMarkUnreadResponseApplicationJson> get serializer =>
@@ -24494,16 +24309,13 @@ abstract class ChatChatMarkUnreadHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatChatMarkUnreadHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatMarkUnreadHeaders.
   static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$chatChatMarkUnreadHeadersSerializer;
@@ -24667,16 +24479,13 @@ abstract class ChatMentionSuggestion
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMentionSuggestion.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatMentionSuggestion.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMentionSuggestion.
   static Serializer<ChatMentionSuggestion> get serializer => _$chatMentionSuggestionSerializer;
@@ -24718,16 +24527,14 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMentionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatMentionsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMentionsResponseApplicationJson_Ocs.
   static Serializer<ChatMentionsResponseApplicationJson_Ocs> get serializer =>
@@ -24769,16 +24576,14 @@ abstract class ChatMentionsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatMentionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatMentionsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatMentionsResponseApplicationJson.
   static Serializer<ChatMentionsResponseApplicationJson> get serializer =>
@@ -24884,16 +24689,14 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> get serializer =>
@@ -24937,16 +24740,14 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetObjectsSharedInRoomResponseApplicationJson.
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson> get serializer =>
@@ -24989,16 +24790,14 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
+  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatGetObjectsSharedInRoomHeaders.
   static Serializer<ChatChatGetObjectsSharedInRoomHeaders> get serializer =>
@@ -25100,16 +24899,14 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatShareObjectToChatResponseApplicationJson_Ocs.
   static Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs> get serializer =>
@@ -25152,16 +24949,14 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatShareObjectToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatShareObjectToChatResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatShareObjectToChatResponseApplicationJson.
   static Serializer<ChatShareObjectToChatResponseApplicationJson> get serializer =>
@@ -25204,16 +24999,14 @@ abstract class ChatChatShareObjectToChatHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
+  factory ChatChatShareObjectToChatHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatChatShareObjectToChatHeaders.
   static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$chatChatShareObjectToChatHeadersSerializer;
@@ -25319,16 +25112,14 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> get serializer =>
@@ -25372,16 +25163,14 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson> get serializer =>
@@ -25481,16 +25270,14 @@ abstract class SignalingSettings_HelloAuthParams_10
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_10.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_10.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings_HelloAuthParams_10.
   static Serializer<SignalingSettings_HelloAuthParams_10> get serializer =>
@@ -25532,16 +25319,14 @@ abstract class SignalingSettings_HelloAuthParams_20
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_20.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_20.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings_HelloAuthParams_20.
   static Serializer<SignalingSettings_HelloAuthParams_20> get serializer =>
@@ -25586,16 +25371,14 @@ abstract class SignalingSettings_HelloAuthParams
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings_HelloAuthParams.
   static Serializer<SignalingSettings_HelloAuthParams> get serializer => _$signalingSettingsHelloAuthParamsSerializer;
@@ -25636,16 +25419,13 @@ abstract class SignalingSettings_Stunservers
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSettings_Stunservers.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings_Stunservers.
   static Serializer<SignalingSettings_Stunservers> get serializer => _$signalingSettingsStunserversSerializer;
@@ -25688,16 +25468,13 @@ abstract class SignalingSettings_Turnservers
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSettings_Turnservers.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings_Turnservers.
   static Serializer<SignalingSettings_Turnservers> get serializer => _$signalingSettingsTurnserversSerializer;
@@ -25743,15 +25520,13 @@ abstract class SignalingSettings
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSettings.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSettings.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSettings.
   static Serializer<SignalingSettings> get serializer => _$signalingSettingsSerializer;
@@ -25794,16 +25569,14 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingGetSettingsResponseApplicationJson_Ocs.
   static Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> get serializer =>
@@ -25846,16 +25619,14 @@ abstract class SignalingGetSettingsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingGetSettingsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingGetSettingsResponseApplicationJson.
   static Serializer<SignalingGetSettingsResponseApplicationJson> get serializer =>
@@ -25957,16 +25728,14 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationAcceptShareResponseApplicationJson_Ocs.
   static Serializer<FederationAcceptShareResponseApplicationJson_Ocs> get serializer =>
@@ -26009,16 +25778,14 @@ abstract class FederationAcceptShareResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory FederationAcceptShareResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationAcceptShareResponseApplicationJson.
   static Serializer<FederationAcceptShareResponseApplicationJson> get serializer =>
@@ -26120,16 +25887,14 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationRejectShareResponseApplicationJson_Ocs.
   static Serializer<FederationRejectShareResponseApplicationJson_Ocs> get serializer =>
@@ -26172,16 +25937,14 @@ abstract class FederationRejectShareResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory FederationRejectShareResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationRejectShareResponseApplicationJson.
   static Serializer<FederationRejectShareResponseApplicationJson> get serializer =>
@@ -26286,15 +26049,13 @@ abstract class FederationInvite
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationInvite.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory FederationInvite.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationInvite.
   static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
@@ -26337,16 +26098,14 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationGetSharesResponseApplicationJson_Ocs.
   static Serializer<FederationGetSharesResponseApplicationJson_Ocs> get serializer =>
@@ -26389,16 +26148,14 @@ abstract class FederationGetSharesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory FederationGetSharesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FederationGetSharesResponseApplicationJson.
   static Serializer<FederationGetSharesResponseApplicationJson> get serializer =>
@@ -26504,16 +26261,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data> get serializer =>
@@ -26558,16 +26313,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs> get serializer =>
@@ -26611,16 +26364,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByFileIdResponseApplicationJson.
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson> get serializer =>
@@ -26728,16 +26479,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data> get serializer =>
@@ -26782,16 +26531,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs> get serializer =>
@@ -26835,16 +26582,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenResponseApplicationJson.
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson> get serializer =>
@@ -26949,16 +26694,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> get serializer =>
@@ -27003,16 +26746,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson_Ocs.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> get serializer =>
@@ -27056,16 +26797,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicShareAuthCreateRoomResponseApplicationJson.
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson> get serializer =>
@@ -27165,16 +26904,14 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for GuestSetDisplayNameResponseApplicationJson_Ocs.
   static Serializer<GuestSetDisplayNameResponseApplicationJson_Ocs> get serializer =>
@@ -27217,16 +26954,14 @@ abstract class GuestSetDisplayNameResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory GuestSetDisplayNameResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory GuestSetDisplayNameResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for GuestSetDisplayNameResponseApplicationJson.
   static Serializer<GuestSetDisplayNameResponseApplicationJson> get serializer =>
@@ -27333,16 +27068,14 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs> get serializer =>
@@ -27386,16 +27119,14 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for HostedSignalingServerRequestTrialResponseApplicationJson.
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson> get serializer =>
@@ -27558,15 +27289,13 @@ abstract class SignalingSession
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSession.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSession.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSession.
   static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
@@ -27617,16 +27346,14 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data.
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
@@ -27671,16 +27398,14 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs.
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs> get serializer =>
@@ -27723,16 +27448,14 @@ abstract class SignalingPullMessagesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingPullMessagesResponseApplicationJson.
   static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
@@ -27834,16 +27557,14 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSendMessagesResponseApplicationJson_Ocs.
   static Serializer<SignalingSendMessagesResponseApplicationJson_Ocs> get serializer =>
@@ -27886,16 +27607,14 @@ abstract class SignalingSendMessagesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingSendMessagesResponseApplicationJson.
   static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
@@ -27996,15 +27715,13 @@ abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridg
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Matterbridge.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Matterbridge.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Matterbridge.
   static Serializer<Matterbridge> get serializer => _$matterbridgeSerializer;
@@ -28043,16 +27760,13 @@ abstract class MatterbridgeProcessState
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeProcessState.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory MatterbridgeProcessState.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeProcessState.
   static Serializer<MatterbridgeProcessState> get serializer => _$matterbridgeProcessStateSerializer;
@@ -28100,16 +27814,13 @@ abstract class MatterbridgeWithProcessState
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeWithProcessState.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory MatterbridgeWithProcessState.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeWithProcessState.
   static Serializer<MatterbridgeWithProcessState> get serializer => _$matterbridgeWithProcessStateSerializer;
@@ -28153,16 +27864,14 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
@@ -28206,16 +27915,14 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeGetBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson> get serializer =>
@@ -28387,16 +28094,14 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
@@ -28440,16 +28145,14 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeEditBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson> get serializer =>
@@ -28556,16 +28259,14 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
@@ -28609,16 +28310,14 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson> get serializer =>
@@ -28725,16 +28424,14 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs> get serializer =>
@@ -28778,16 +28475,14 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeGetBridgeProcessStateResponseApplicationJson.
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson> get serializer =>
@@ -28894,16 +28589,14 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs> get serializer =>
@@ -28947,16 +28640,14 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesResponseApplicationJson.
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson> get serializer =>
@@ -29067,18 +28758,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(
-    Map<String, dynamic> json,
-  ) =>
+  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data> get serializer =>
@@ -29123,16 +28810,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs> get serializer =>
@@ -29176,16 +28861,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson> get serializer =>
@@ -29345,15 +29028,13 @@ abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollVote.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PollVote.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollVote.
   static Serializer<PollVote> get serializer => _$pollVoteSerializer;
@@ -29402,15 +29083,13 @@ abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Poll.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Poll.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Poll.
   static Serializer<Poll> get serializer => _$pollSerializer;
@@ -29453,16 +29132,14 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollCreatePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory PollCreatePollResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollCreatePollResponseApplicationJson_Ocs.
   static Serializer<PollCreatePollResponseApplicationJson_Ocs> get serializer =>
@@ -29504,16 +29181,14 @@ abstract class PollCreatePollResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollCreatePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory PollCreatePollResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollCreatePollResponseApplicationJson.
   static Serializer<PollCreatePollResponseApplicationJson> get serializer =>
@@ -29612,16 +29287,14 @@ abstract class PollShowPollResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollShowPollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory PollShowPollResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollShowPollResponseApplicationJson_Ocs.
   static Serializer<PollShowPollResponseApplicationJson_Ocs> get serializer =>
@@ -29663,16 +29336,14 @@ abstract class PollShowPollResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollShowPollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory PollShowPollResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollShowPollResponseApplicationJson.
   static Serializer<PollShowPollResponseApplicationJson> get serializer =>
@@ -29771,16 +29442,14 @@ abstract class PollVotePollResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollVotePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory PollVotePollResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollVotePollResponseApplicationJson_Ocs.
   static Serializer<PollVotePollResponseApplicationJson_Ocs> get serializer =>
@@ -29822,16 +29491,14 @@ abstract class PollVotePollResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollVotePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory PollVotePollResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollVotePollResponseApplicationJson.
   static Serializer<PollVotePollResponseApplicationJson> get serializer =>
@@ -29931,16 +29598,14 @@ abstract class PollClosePollResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollClosePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory PollClosePollResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollClosePollResponseApplicationJson_Ocs.
   static Serializer<PollClosePollResponseApplicationJson_Ocs> get serializer =>
@@ -29982,16 +29647,14 @@ abstract class PollClosePollResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PollClosePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory PollClosePollResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PollClosePollResponseApplicationJson.
   static Serializer<PollClosePollResponseApplicationJson> get serializer =>
@@ -30089,15 +29752,13 @@ abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionB
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Reaction.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Reaction.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Reaction.
   static Serializer<Reaction> get serializer => _$reactionSerializer;
@@ -30140,16 +29801,14 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionGetReactionsResponseApplicationJson_Ocs.
   static Serializer<ReactionGetReactionsResponseApplicationJson_Ocs> get serializer =>
@@ -30192,16 +29851,14 @@ abstract class ReactionGetReactionsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionGetReactionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ReactionGetReactionsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionGetReactionsResponseApplicationJson.
   static Serializer<ReactionGetReactionsResponseApplicationJson> get serializer =>
@@ -30301,16 +29958,14 @@ abstract class ReactionReactResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ReactionReactResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionReactResponseApplicationJson_Ocs.
   static Serializer<ReactionReactResponseApplicationJson_Ocs> get serializer =>
@@ -30352,16 +30007,14 @@ abstract class ReactionReactResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ReactionReactResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionReactResponseApplicationJson.
   static Serializer<ReactionReactResponseApplicationJson> get serializer =>
@@ -30461,16 +30114,14 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionDeleteResponseApplicationJson_Ocs.
   static Serializer<ReactionDeleteResponseApplicationJson_Ocs> get serializer =>
@@ -30512,16 +30163,14 @@ abstract class ReactionDeleteResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory ReactionDeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory ReactionDeleteResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for ReactionDeleteResponseApplicationJson.
   static Serializer<ReactionDeleteResponseApplicationJson> get serializer =>
@@ -30621,16 +30270,14 @@ abstract class RecordingStartResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStartResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStartResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStartResponseApplicationJson_Ocs.
   static Serializer<RecordingStartResponseApplicationJson_Ocs> get serializer =>
@@ -30672,16 +30319,14 @@ abstract class RecordingStartResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStartResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStartResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStartResponseApplicationJson.
   static Serializer<RecordingStartResponseApplicationJson> get serializer =>
@@ -30781,16 +30426,14 @@ abstract class RecordingStopResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStopResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStopResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStopResponseApplicationJson_Ocs.
   static Serializer<RecordingStopResponseApplicationJson_Ocs> get serializer =>
@@ -30832,16 +30475,14 @@ abstract class RecordingStopResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStopResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStopResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStopResponseApplicationJson.
   static Serializer<RecordingStopResponseApplicationJson> get serializer =>
@@ -30947,16 +30588,14 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingNotificationDismissResponseApplicationJson_Ocs.
   static Serializer<RecordingNotificationDismissResponseApplicationJson_Ocs> get serializer =>
@@ -31000,16 +30639,14 @@ abstract class RecordingNotificationDismissResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingNotificationDismissResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingNotificationDismissResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingNotificationDismissResponseApplicationJson.
   static Serializer<RecordingNotificationDismissResponseApplicationJson> get serializer =>
@@ -31110,16 +30747,14 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingShareToChatResponseApplicationJson_Ocs.
   static Serializer<RecordingShareToChatResponseApplicationJson_Ocs> get serializer =>
@@ -31162,16 +30797,14 @@ abstract class RecordingShareToChatResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingShareToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingShareToChatResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingShareToChatResponseApplicationJson.
   static Serializer<RecordingShareToChatResponseApplicationJson> get serializer =>
@@ -31271,16 +30904,14 @@ abstract class RecordingBackendResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingBackendResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingBackendResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingBackendResponseApplicationJson_Ocs.
   static Serializer<RecordingBackendResponseApplicationJson_Ocs> get serializer =>
@@ -31322,16 +30953,14 @@ abstract class RecordingBackendResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingBackendResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingBackendResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingBackendResponseApplicationJson.
   static Serializer<RecordingBackendResponseApplicationJson> get serializer =>
@@ -31431,16 +31060,14 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStoreResponseApplicationJson_Ocs.
   static Serializer<RecordingStoreResponseApplicationJson_Ocs> get serializer =>
@@ -31482,16 +31109,14 @@ abstract class RecordingStoreResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingStoreResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingStoreResponseApplicationJson.
   static Serializer<RecordingStoreResponseApplicationJson> get serializer =>
@@ -31716,16 +31341,14 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -31767,16 +31390,14 @@ abstract class RoomGetRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetRoomsResponseApplicationJson.
   static Serializer<RoomGetRoomsResponseApplicationJson> get serializer =>
@@ -31820,16 +31441,13 @@ abstract class RoomRoomGetRoomsHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomRoomGetRoomsHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetRoomsHeaders.
   static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$roomRoomGetRoomsHeadersSerializer;
@@ -31928,16 +31546,14 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomCreateRoomResponseApplicationJson_Ocs.
   static Serializer<RoomCreateRoomResponseApplicationJson_Ocs> get serializer =>
@@ -31979,16 +31595,14 @@ abstract class RoomCreateRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomCreateRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomCreateRoomResponseApplicationJson.
   static Serializer<RoomCreateRoomResponseApplicationJson> get serializer =>
@@ -32088,16 +31702,14 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetListedRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -32140,16 +31752,14 @@ abstract class RoomGetListedRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetListedRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetListedRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetListedRoomsResponseApplicationJson.
   static Serializer<RoomGetListedRoomsResponseApplicationJson> get serializer =>
@@ -32256,16 +31866,14 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> get serializer =>
@@ -32309,16 +31917,14 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetNoteToSelfConversationResponseApplicationJson.
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson> get serializer =>
@@ -32362,16 +31968,14 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
+  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetNoteToSelfConversationHeaders.
   static Serializer<RoomRoomGetNoteToSelfConversationHeaders> get serializer =>
@@ -32471,16 +32075,14 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetSingleRoomResponseApplicationJson_Ocs.
   static Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> get serializer =>
@@ -32523,16 +32125,14 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetSingleRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetSingleRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetSingleRoomResponseApplicationJson.
   static Serializer<RoomGetSingleRoomResponseApplicationJson> get serializer =>
@@ -32575,16 +32175,13 @@ abstract class RoomRoomGetSingleRoomHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomRoomGetSingleRoomHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetSingleRoomHeaders.
   static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$roomRoomGetSingleRoomHeadersSerializer;
@@ -32684,16 +32281,14 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson_Ocs.
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
@@ -32736,16 +32331,14 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetBreakoutRoomsResponseApplicationJson.
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson> get serializer =>
@@ -32845,16 +32438,14 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomMakePublicResponseApplicationJson_Ocs.
   static Serializer<RoomMakePublicResponseApplicationJson_Ocs> get serializer =>
@@ -32896,16 +32487,14 @@ abstract class RoomMakePublicResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomMakePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomMakePublicResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomMakePublicResponseApplicationJson.
   static Serializer<RoomMakePublicResponseApplicationJson> get serializer =>
@@ -33005,16 +32594,14 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomMakePrivateResponseApplicationJson_Ocs.
   static Serializer<RoomMakePrivateResponseApplicationJson_Ocs> get serializer =>
@@ -33056,16 +32643,14 @@ abstract class RoomMakePrivateResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomMakePrivateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomMakePrivateResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomMakePrivateResponseApplicationJson.
   static Serializer<RoomMakePrivateResponseApplicationJson> get serializer =>
@@ -33165,16 +32750,14 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetDescriptionResponseApplicationJson_Ocs.
   static Serializer<RoomSetDescriptionResponseApplicationJson_Ocs> get serializer =>
@@ -33217,16 +32800,14 @@ abstract class RoomSetDescriptionResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetDescriptionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetDescriptionResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetDescriptionResponseApplicationJson.
   static Serializer<RoomSetDescriptionResponseApplicationJson> get serializer =>
@@ -33389,16 +32970,14 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetReadOnlyResponseApplicationJson_Ocs.
   static Serializer<RoomSetReadOnlyResponseApplicationJson_Ocs> get serializer =>
@@ -33440,16 +33019,14 @@ abstract class RoomSetReadOnlyResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetReadOnlyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetReadOnlyResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetReadOnlyResponseApplicationJson.
   static Serializer<RoomSetReadOnlyResponseApplicationJson> get serializer =>
@@ -33618,16 +33195,14 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetListableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetListableResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetListableResponseApplicationJson_Ocs.
   static Serializer<RoomSetListableResponseApplicationJson_Ocs> get serializer =>
@@ -33669,16 +33244,14 @@ abstract class RoomSetListableResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetListableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetListableResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetListableResponseApplicationJson.
   static Serializer<RoomSetListableResponseApplicationJson> get serializer =>
@@ -33778,16 +33351,14 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetPasswordResponseApplicationJson_Ocs.
   static Serializer<RoomSetPasswordResponseApplicationJson_Ocs> get serializer =>
@@ -33829,16 +33400,14 @@ abstract class RoomSetPasswordResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetPasswordResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetPasswordResponseApplicationJson.
   static Serializer<RoomSetPasswordResponseApplicationJson> get serializer =>
@@ -34000,16 +33569,14 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetPermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> get serializer =>
@@ -34052,16 +33619,14 @@ abstract class RoomSetPermissionsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetPermissionsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetPermissionsResponseApplicationJson.
   static Serializer<RoomSetPermissionsResponseApplicationJson> get serializer =>
@@ -34236,15 +33801,13 @@ abstract class Participant implements $ParticipantInterface, Built<Participant, 
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Participant.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Participant.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Participant.
   static Serializer<Participant> get serializer => _$participantSerializer;
@@ -34287,16 +33850,14 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetParticipantsResponseApplicationJson_Ocs.
   static Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> get serializer =>
@@ -34339,16 +33900,14 @@ abstract class RoomGetParticipantsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetParticipantsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetParticipantsResponseApplicationJson.
   static Serializer<RoomGetParticipantsResponseApplicationJson> get serializer =>
@@ -34391,16 +33950,13 @@ abstract class RoomRoomGetParticipantsHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomRoomGetParticipantsHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetParticipantsHeaders.
   static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$roomRoomGetParticipantsHeadersSerializer;
@@ -34584,16 +34140,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> get serializer =>
@@ -34645,16 +34199,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs> get serializer =>
@@ -34697,16 +34249,14 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomAddParticipantToRoomResponseApplicationJson.
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson> get serializer =>
@@ -34882,16 +34432,14 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> get serializer =>
@@ -34935,16 +34483,14 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetBreakoutRoomParticipantsResponseApplicationJson.
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson> get serializer =>
@@ -34988,16 +34534,14 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
+  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetBreakoutRoomParticipantsHeaders.
   static Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> get serializer =>
@@ -35099,16 +34643,14 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs> get serializer =>
@@ -35151,16 +34693,14 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveSelfFromRoomResponseApplicationJson.
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson> get serializer =>
@@ -35266,16 +34806,14 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs> get serializer =>
@@ -35319,16 +34857,14 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveAttendeeFromRoomResponseApplicationJson.
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson> get serializer =>
@@ -35502,16 +35038,14 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs> get serializer =>
@@ -35555,16 +35089,14 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetAttendeePermissionsResponseApplicationJson.
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson> get serializer =>
@@ -35743,16 +35275,14 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs> get serializer =>
@@ -35796,16 +35326,14 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetAllAttendeesPermissionsResponseApplicationJson.
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson> get serializer =>
@@ -35967,16 +35495,14 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomJoinRoomResponseApplicationJson_Ocs.
   static Serializer<RoomJoinRoomResponseApplicationJson_Ocs> get serializer =>
@@ -36018,16 +35544,14 @@ abstract class RoomJoinRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomJoinRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomJoinRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomJoinRoomResponseApplicationJson.
   static Serializer<RoomJoinRoomResponseApplicationJson> get serializer =>
@@ -36067,16 +35591,13 @@ abstract class RoomRoomJoinRoomHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomJoinRoomHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomRoomJoinRoomHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomJoinRoomHeaders.
   static Serializer<RoomRoomJoinRoomHeaders> get serializer => _$roomRoomJoinRoomHeadersSerializer;
@@ -36175,16 +35696,14 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomLeaveRoomResponseApplicationJson_Ocs.
   static Serializer<RoomLeaveRoomResponseApplicationJson_Ocs> get serializer =>
@@ -36226,16 +35745,14 @@ abstract class RoomLeaveRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomLeaveRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomLeaveRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomLeaveRoomResponseApplicationJson.
   static Serializer<RoomLeaveRoomResponseApplicationJson> get serializer =>
@@ -36337,16 +35854,14 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomResendInvitationsResponseApplicationJson_Ocs.
   static Serializer<RoomResendInvitationsResponseApplicationJson_Ocs> get serializer =>
@@ -36389,16 +35904,14 @@ abstract class RoomResendInvitationsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomResendInvitationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomResendInvitationsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomResendInvitationsResponseApplicationJson.
   static Serializer<RoomResendInvitationsResponseApplicationJson> get serializer =>
@@ -36561,16 +36074,14 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetSessionStateResponseApplicationJson_Ocs.
   static Serializer<RoomSetSessionStateResponseApplicationJson_Ocs> get serializer =>
@@ -36613,16 +36124,14 @@ abstract class RoomSetSessionStateResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetSessionStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetSessionStateResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetSessionStateResponseApplicationJson.
   static Serializer<RoomSetSessionStateResponseApplicationJson> get serializer =>
@@ -36723,16 +36232,14 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomPromoteModeratorResponseApplicationJson_Ocs.
   static Serializer<RoomPromoteModeratorResponseApplicationJson_Ocs> get serializer =>
@@ -36775,16 +36282,14 @@ abstract class RoomPromoteModeratorResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomPromoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomPromoteModeratorResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomPromoteModeratorResponseApplicationJson.
   static Serializer<RoomPromoteModeratorResponseApplicationJson> get serializer =>
@@ -36884,16 +36389,14 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomDemoteModeratorResponseApplicationJson_Ocs.
   static Serializer<RoomDemoteModeratorResponseApplicationJson_Ocs> get serializer =>
@@ -36936,16 +36439,14 @@ abstract class RoomDemoteModeratorResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomDemoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomDemoteModeratorResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomDemoteModeratorResponseApplicationJson.
   static Serializer<RoomDemoteModeratorResponseApplicationJson> get serializer =>
@@ -37045,16 +36546,14 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomAddToFavoritesResponseApplicationJson_Ocs.
   static Serializer<RoomAddToFavoritesResponseApplicationJson_Ocs> get serializer =>
@@ -37097,16 +36596,14 @@ abstract class RoomAddToFavoritesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomAddToFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomAddToFavoritesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomAddToFavoritesResponseApplicationJson.
   static Serializer<RoomAddToFavoritesResponseApplicationJson> get serializer =>
@@ -37208,16 +36705,14 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson_Ocs.
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs> get serializer =>
@@ -37260,16 +36755,14 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRemoveFromFavoritesResponseApplicationJson.
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson> get serializer =>
@@ -37372,16 +36865,14 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetNotificationLevelResponseApplicationJson_Ocs.
   static Serializer<RoomSetNotificationLevelResponseApplicationJson_Ocs> get serializer =>
@@ -37424,16 +36915,14 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetNotificationLevelResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetNotificationLevelResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetNotificationLevelResponseApplicationJson.
   static Serializer<RoomSetNotificationLevelResponseApplicationJson> get serializer =>
@@ -37536,16 +37025,14 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetNotificationCallsResponseApplicationJson_Ocs.
   static Serializer<RoomSetNotificationCallsResponseApplicationJson_Ocs> get serializer =>
@@ -37588,16 +37075,14 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetNotificationCallsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetNotificationCallsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetNotificationCallsResponseApplicationJson.
   static Serializer<RoomSetNotificationCallsResponseApplicationJson> get serializer =>
@@ -37696,16 +37181,14 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetLobbyResponseApplicationJson_Ocs.
   static Serializer<RoomSetLobbyResponseApplicationJson_Ocs> get serializer =>
@@ -37747,16 +37230,14 @@ abstract class RoomSetLobbyResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetLobbyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetLobbyResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetLobbyResponseApplicationJson.
   static Serializer<RoomSetLobbyResponseApplicationJson> get serializer =>
@@ -37925,16 +37406,14 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetsipEnabledResponseApplicationJson_Ocs.
   static Serializer<RoomSetsipEnabledResponseApplicationJson_Ocs> get serializer =>
@@ -37977,16 +37456,14 @@ abstract class RoomSetsipEnabledResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetsipEnabledResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetsipEnabledResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetsipEnabledResponseApplicationJson.
   static Serializer<RoomSetsipEnabledResponseApplicationJson> get serializer =>
@@ -38088,16 +37565,14 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetRecordingConsentResponseApplicationJson_Ocs.
   static Serializer<RoomSetRecordingConsentResponseApplicationJson_Ocs> get serializer =>
@@ -38140,16 +37615,14 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetRecordingConsentResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetRecordingConsentResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetRecordingConsentResponseApplicationJson.
   static Serializer<RoomSetRecordingConsentResponseApplicationJson> get serializer =>
@@ -38252,16 +37725,14 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetMessageExpirationResponseApplicationJson_Ocs.
   static Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs> get serializer =>
@@ -38304,16 +37775,14 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomSetMessageExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomSetMessageExpirationResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomSetMessageExpirationResponseApplicationJson.
   static Serializer<RoomSetMessageExpirationResponseApplicationJson> get serializer =>
@@ -38412,16 +37881,13 @@ abstract class Capabilities_Config_Attachments
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Attachments.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Attachments.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Attachments.
   static Serializer<Capabilities_Config_Attachments> get serializer => _$capabilitiesConfigAttachmentsSerializer;
@@ -38476,16 +37942,13 @@ abstract class Capabilities_Config_Call
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Call.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Call.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Call.
   static Serializer<Capabilities_Config_Call> get serializer => _$capabilitiesConfigCallSerializer;
@@ -38531,16 +37994,13 @@ abstract class Capabilities_Config_Chat
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Chat.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Chat.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Chat.
   static Serializer<Capabilities_Config_Chat> get serializer => _$capabilitiesConfigChatSerializer;
@@ -38582,16 +38042,14 @@ abstract class Capabilities_Config_Conversations
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Conversations.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities_Config_Conversations.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Conversations.
   static Serializer<Capabilities_Config_Conversations> get serializer => _$capabilitiesConfigConversationsSerializer;
@@ -38638,16 +38096,13 @@ abstract class Capabilities_Config_Federation
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Federation.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Federation.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Federation.
   static Serializer<Capabilities_Config_Federation> get serializer => _$capabilitiesConfigFederationSerializer;
@@ -38689,16 +38144,13 @@ abstract class Capabilities_Config_Previews
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Previews.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Previews.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Previews.
   static Serializer<Capabilities_Config_Previews> get serializer => _$capabilitiesConfigPreviewsSerializer;
@@ -38742,16 +38194,13 @@ abstract class Capabilities_Config_Signaling
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config_Signaling.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config_Signaling.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config_Signaling.
   static Serializer<Capabilities_Config_Signaling> get serializer => _$capabilitiesConfigSignalingSerializer;
@@ -38795,16 +38244,13 @@ abstract class Capabilities_Config
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities_Config.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Config.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities_Config.
   static Serializer<Capabilities_Config> get serializer => _$capabilitiesConfigSerializer;
@@ -38843,15 +38289,13 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
@@ -38901,16 +38345,14 @@ abstract class RoomGetCapabilitiesResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetCapabilitiesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetCapabilitiesResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetCapabilitiesResponseApplicationJson_Ocs.
   static Serializer<RoomGetCapabilitiesResponseApplicationJson_Ocs> get serializer =>
@@ -38953,16 +38395,14 @@ abstract class RoomGetCapabilitiesResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomGetCapabilitiesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomGetCapabilitiesResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomGetCapabilitiesResponseApplicationJson.
   static Serializer<RoomGetCapabilitiesResponseApplicationJson> get serializer =>
@@ -39007,16 +38447,13 @@ abstract class RoomRoomGetCapabilitiesHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomGetCapabilitiesHeaders.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomRoomGetCapabilitiesHeaders.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomGetCapabilitiesHeaders.
   static Serializer<RoomRoomGetCapabilitiesHeaders> get serializer => _$roomRoomGetCapabilitiesHeadersSerializer;
@@ -39117,16 +38554,14 @@ abstract class RoomJoinFederatedRoomResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomJoinFederatedRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomJoinFederatedRoomResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomJoinFederatedRoomResponseApplicationJson_Ocs.
   static Serializer<RoomJoinFederatedRoomResponseApplicationJson_Ocs> get serializer =>
@@ -39169,16 +38604,14 @@ abstract class RoomJoinFederatedRoomResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomJoinFederatedRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomJoinFederatedRoomResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomJoinFederatedRoomResponseApplicationJson.
   static Serializer<RoomJoinFederatedRoomResponseApplicationJson> get serializer =>
@@ -39221,16 +38654,14 @@ abstract class RoomRoomJoinFederatedRoomHeaders
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRoomJoinFederatedRoomHeaders.fromJson(Map<String, dynamic> json) =>
+  factory RoomRoomJoinFederatedRoomHeaders.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRoomJoinFederatedRoomHeaders.
   static Serializer<RoomRoomJoinFederatedRoomHeaders> get serializer => _$roomRoomJoinFederatedRoomHeadersSerializer;
@@ -39336,16 +38767,14 @@ abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.
   static Serializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs> get serializer =>
@@ -39389,16 +38818,14 @@ abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialInPinDeprecatedResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialInPinDeprecatedResponseApplicationJson.
   static Serializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson> get serializer =>
@@ -39498,16 +38925,14 @@ abstract class RoomVerifyDialInPinResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialInPinResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialInPinResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialInPinResponseApplicationJson_Ocs.
   static Serializer<RoomVerifyDialInPinResponseApplicationJson_Ocs> get serializer =>
@@ -39550,16 +38975,14 @@ abstract class RoomVerifyDialInPinResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialInPinResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialInPinResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialInPinResponseApplicationJson.
   static Serializer<RoomVerifyDialInPinResponseApplicationJson> get serializer =>
@@ -39605,16 +39028,13 @@ abstract class RoomVerifyDialOutNumberOptions
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialOutNumberOptions.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory RoomVerifyDialOutNumberOptions.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialOutNumberOptions.
   static Serializer<RoomVerifyDialOutNumberOptions> get serializer => _$roomVerifyDialOutNumberOptionsSerializer;
@@ -39715,16 +39135,14 @@ abstract class RoomVerifyDialOutNumberResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialOutNumberResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialOutNumberResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialOutNumberResponseApplicationJson_Ocs.
   static Serializer<RoomVerifyDialOutNumberResponseApplicationJson_Ocs> get serializer =>
@@ -39767,16 +39185,14 @@ abstract class RoomVerifyDialOutNumberResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomVerifyDialOutNumberResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomVerifyDialOutNumberResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomVerifyDialOutNumberResponseApplicationJson.
   static Serializer<RoomVerifyDialOutNumberResponseApplicationJson> get serializer =>
@@ -39878,16 +39294,14 @@ abstract class RoomCreateGuestByDialInResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomCreateGuestByDialInResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomCreateGuestByDialInResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomCreateGuestByDialInResponseApplicationJson_Ocs.
   static Serializer<RoomCreateGuestByDialInResponseApplicationJson_Ocs> get serializer =>
@@ -39930,16 +39344,14 @@ abstract class RoomCreateGuestByDialInResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomCreateGuestByDialInResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomCreateGuestByDialInResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomCreateGuestByDialInResponseApplicationJson.
   static Serializer<RoomCreateGuestByDialInResponseApplicationJson> get serializer =>
@@ -39985,16 +39397,14 @@ abstract class RoomRejectedDialOutRequestOptions
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRejectedDialOutRequestOptions.fromJson(Map<String, dynamic> json) =>
+  factory RoomRejectedDialOutRequestOptions.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRejectedDialOutRequestOptions.
   static Serializer<RoomRejectedDialOutRequestOptions> get serializer => _$roomRejectedDialOutRequestOptionsSerializer;
@@ -40099,16 +39509,14 @@ abstract class RoomRejectedDialOutRequestResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRejectedDialOutRequestResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RoomRejectedDialOutRequestResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRejectedDialOutRequestResponseApplicationJson_Ocs.
   static Serializer<RoomRejectedDialOutRequestResponseApplicationJson_Ocs> get serializer =>
@@ -40152,16 +39560,14 @@ abstract class RoomRejectedDialOutRequestResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RoomRejectedDialOutRequestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RoomRejectedDialOutRequestResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RoomRejectedDialOutRequestResponseApplicationJson.
   static Serializer<RoomRejectedDialOutRequestResponseApplicationJson> get serializer =>
@@ -40340,16 +39746,14 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SettingsSetUserSettingResponseApplicationJson_Ocs.
   static Serializer<SettingsSetUserSettingResponseApplicationJson_Ocs> get serializer =>
@@ -40392,16 +39796,14 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SettingsSetUserSettingResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SettingsSetUserSettingResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SettingsSetUserSettingResponseApplicationJson.
   static Serializer<SettingsSetUserSettingResponseApplicationJson> get serializer =>
@@ -40509,15 +39911,13 @@ abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWith
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotWithDetails.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BotWithDetails.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotWithDetails.
   static Serializer<BotWithDetails> get serializer => _$botWithDetailsSerializer;
@@ -40560,16 +39960,14 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotAdminListBotsResponseApplicationJson_Ocs.
   static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
@@ -40611,16 +40009,14 @@ abstract class BotAdminListBotsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory BotAdminListBotsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotAdminListBotsResponseApplicationJson.
   static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
@@ -40727,16 +40123,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> get serializer =>
@@ -40781,16 +40175,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson_Ocs.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> get serializer =>
@@ -40834,16 +40226,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for CertificateGetCertificateExpirationResponseApplicationJson.
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
@@ -40948,16 +40338,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
@@ -41002,16 +40390,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson_Ocs.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
@@ -41055,16 +40441,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for RecordingGetWelcomeMessageResponseApplicationJson.
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
@@ -41166,16 +40550,14 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SettingsSetsipSettingsResponseApplicationJson_Ocs.
   static Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> get serializer =>
@@ -41218,16 +40600,14 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SettingsSetsipSettingsResponseApplicationJson.
   static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
@@ -41333,16 +40713,14 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson_Ocs.
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
@@ -41386,16 +40764,14 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingGetWelcomeMessageResponseApplicationJson.
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson> get serializer =>
@@ -41496,16 +40872,14 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Error
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson_Ocs_Data_Error.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Error.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Error.
   static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Error> get serializer =>
@@ -41551,16 +40925,14 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Auth
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson_Ocs_Data_Auth.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Auth.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Auth.
   static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Auth> get serializer =>
@@ -41608,16 +40980,14 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Room
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson_Ocs_Data_Room.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson_Ocs_Data_Room.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data_Room.
   static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data_Room> get serializer =>
@@ -41664,16 +41034,14 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson_Ocs_Data.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson_Ocs_Data.
   static Serializer<SignalingBackendResponseApplicationJson_Ocs_Data> get serializer =>
@@ -41717,16 +41085,14 @@ abstract class SignalingBackendResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson_Ocs.
   static Serializer<SignalingBackendResponseApplicationJson_Ocs> get serializer =>
@@ -41768,16 +41134,14 @@ abstract class SignalingBackendResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory SignalingBackendResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory SignalingBackendResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for SignalingBackendResponseApplicationJson.
   static Serializer<SignalingBackendResponseApplicationJson> get serializer =>
@@ -41821,16 +41185,14 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for TempAvatarPostAvatarResponseApplicationJson_Ocs.
   static Serializer<TempAvatarPostAvatarResponseApplicationJson_Ocs> get serializer =>
@@ -41873,16 +41235,14 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory TempAvatarPostAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory TempAvatarPostAvatarResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for TempAvatarPostAvatarResponseApplicationJson.
   static Serializer<TempAvatarPostAvatarResponseApplicationJson> get serializer =>
@@ -41927,16 +41287,14 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
+  factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson_Ocs.
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
@@ -41979,16 +41337,14 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
+  factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for TempAvatarDeleteAvatarResponseApplicationJson.
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson> get serializer =>
@@ -42032,16 +41388,13 @@ abstract class BotWithDetailsAndSecret
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory BotWithDetailsAndSecret.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory BotWithDetailsAndSecret.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for BotWithDetailsAndSecret.
   static Serializer<BotWithDetailsAndSecret> get serializer => _$botWithDetailsAndSecretSerializer;
@@ -42079,16 +41432,13 @@ abstract class PublicCapabilities0
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory PublicCapabilities0.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities0.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for PublicCapabilities0.
   static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;

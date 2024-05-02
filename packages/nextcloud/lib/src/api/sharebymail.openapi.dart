@@ -53,16 +53,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
@@ -106,16 +104,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_Password.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
@@ -160,16 +156,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0_FilesSharing_Sharebymail_ExpireDate.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
@@ -218,16 +212,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail.fromJson(Object json) =>
       _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0_FilesSharing_Sharebymail.
   static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
@@ -269,16 +261,13 @@ abstract class Capabilities0_FilesSharing
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities0_FilesSharing.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0_FilesSharing.
   static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
@@ -316,15 +305,13 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
   ///
   /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
-  factory Capabilities0.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities0.fromJson(Object json) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  Object toJson() => _$jsonSerializers.serializeWith(serializer, this)!;
 
   /// Serializer for Capabilities0.
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
