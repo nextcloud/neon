@@ -113,7 +113,10 @@ Method buildSerializer(String className, [String? serializerName]) => Method((b)
       b
         ..docs.add('/// Serializer for $className.')
         ..name = 'serializer'
-        ..returns = refer('Serializer<$className>')
+        ..returns = refer(
+          'Serializer<$className>',
+          'package:built_value/serializer.dart',
+        )
         ..lambda = true
         ..static = true
         ..body = Code(

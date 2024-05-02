@@ -198,7 +198,7 @@ TypeResult resolveEnum(
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers'),
+                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
                 ),
                 Parameter(
                   (b) => b
@@ -227,7 +227,7 @@ TypeResult resolveEnum(
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers'),
+                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
                 ),
                 Parameter(
                   (b) => b

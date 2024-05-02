@@ -123,7 +123,7 @@ Iterable<Spec> generateSomeOf(
   final serializerMethod = Method(
     (b) => b
       ..static = true
-      ..returns = refer('Serializer<$identifier>')
+      ..returns = refer('Serializer<$identifier>', 'package:built_value/serializer.dart')
       ..type = MethodType.getter
       ..name = '_serializer'
       ..lambda = true
@@ -211,7 +211,7 @@ Iterable<Spec> generateSomeOf(
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer('Serializers'),
+                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
               ),
               Parameter(
                 (b) => b
@@ -260,7 +260,7 @@ Iterable<Spec> generateSomeOf(
               Parameter(
                 (b) => b
                   ..name = 'serializers'
-                  ..type = refer('Serializers'),
+                  ..type = refer('Serializers', 'package:built_value/serializer.dart'),
               ),
               Parameter(
                 (b) => b

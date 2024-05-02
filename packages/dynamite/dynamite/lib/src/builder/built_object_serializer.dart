@@ -49,7 +49,7 @@ Spec buildBuiltClassSerializer(
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers'),
+                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
                 ),
                 Parameter(
                   (b) => b
@@ -95,7 +95,7 @@ Spec buildBuiltClassSerializer(
                 Parameter(
                   (b) => b
                     ..name = 'serializers'
-                    ..type = refer('Serializers'),
+                    ..type = refer('Serializers', 'package:built_value/serializer.dart'),
                 ),
                 Parameter(
                   (b) => b

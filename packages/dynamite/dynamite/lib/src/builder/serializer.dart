@@ -12,14 +12,14 @@ List<Spec> buildSerializer(State state) => [
 /// See: [$jsonSerializers] for serializing into json.''')
           ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
-          ..type = refer('Serializers')
+          ..type = refer('Serializers', 'package:built_value/serializer.dart')
           ..name = r'$serializers'
           ..assignment = const Code(r'_$serializers');
       }),
       Field((b) {
         b
           ..modifier = FieldModifier.final$
-          ..type = refer('Serializers')
+          ..type = refer('Serializers', 'package:built_value/serializer.dart')
           ..name = r'_$serializers';
 
         final serializers = state.resolvedTypes.map((type) => type.serializers).expand((element) => element).toSet();
@@ -44,14 +44,14 @@ List<Spec> buildSerializer(State state) => [
 /// See: [$serializers] for serializing into the `built_value` wire format.''')
           ..annotations.add(refer('visibleForTesting', 'package:meta/meta.dart'))
           ..modifier = FieldModifier.final$
-          ..type = refer('Serializers')
+          ..type = refer('Serializers', 'package:built_value/serializer.dart')
           ..name = r'$jsonSerializers'
           ..assignment = const Code(r'_$jsonSerializers');
       }),
       Field((b) {
         b
           ..modifier = FieldModifier.final$
-          ..type = refer('Serializers')
+          ..type = refer('Serializers', 'package:built_value/serializer.dart')
           ..name = r'_$jsonSerializers'
           ..assignment = refer(r'_$serializers')
               .property('toBuilder')
