@@ -78,7 +78,8 @@ extension SchemaExtension on JsonSchema {
       schema = schema.rebuild((b) {
         b
           ..id = uri
-          ..identifier = toDartName(ref!.fragment.split('/').last, className: true);
+          ..identifier = toDartName(ref!.fragment.split('/').last, className: true)
+          ..nullable = this.nullable;
       });
     }
 

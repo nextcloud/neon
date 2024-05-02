@@ -203,12 +203,13 @@ Iterable<Method> buildTags(
         final result = resolveType(
           state,
           parameter.schema!.rebuild((b) {
-            b.identifier = toDartName(
-              '$operationName-${parameter.name}',
-              className: true,
-            );
+            b
+              ..identifier = toDartName(
+                '$operationName-${parameter.name}',
+                className: true,
+              )
+              ..nullable = !parameterRequired;
           }),
-          nullable: !parameterRequired,
         );
 
         if (parameter.$in == openapi.ParameterType.header) {
@@ -254,9 +255,10 @@ Iterable<Method> buildTags(
           final result = resolveType(
             state,
             mediaType.schema!.rebuild((b) {
-              b.identifier = toDartName('$operationName-request-$mimeType', className: true);
+              b
+                ..identifier = toDartName('$operationName-request-$mimeType', className: true)
+                ..nullable = dartParameterNullable;
             }),
-            nullable: dartParameterNullable,
           );
 
           bodyParameter = (mimeType: mimeType, result: result);

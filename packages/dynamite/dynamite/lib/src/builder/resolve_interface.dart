@@ -14,7 +14,6 @@ Spec buildInterface(
   State state,
   json_schema.JsonSchema schema, {
   bool isHeader = false,
-  bool nullable = false,
 }) {
   final identifier = schema.identifier!;
 
@@ -47,7 +46,6 @@ Spec buildInterface(
           final object = resolveType(
             state,
             schema,
-            nullable: nullable,
           );
 
           if (object is TypeResultObject) {
@@ -152,15 +150,16 @@ void _generateProperties(
     var result = resolveType(
       state,
       propertySchema.rebuild((b) {
-        b.identifier = toDartName(
-          propertyName,
-          identifier: identifier,
-        );
+        b
+          ..identifier = toDartName(
+            propertyName,
+            identifier: identifier,
+          )
+          ..nullable = isDartParameterNullable(
+            schema.required.contains(propertyName),
+            propertySchema,
+          );
       }),
-      nullable: isDartParameterNullable(
-        schema.required.contains(propertyName),
-        propertySchema,
-      ),
     );
 
     if (isHeader && result.className != 'String') {
