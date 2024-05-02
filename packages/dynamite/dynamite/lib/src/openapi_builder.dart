@@ -15,7 +15,6 @@ import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/helpers/version_checker.dart';
 import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
-import 'package:path/path.dart' as p;
 import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
@@ -52,7 +51,6 @@ class OpenAPIBuilder implements Builder {
     }
 
     final inputId = buildStep.inputId;
-    final outputId = inputId.changeExtension('.dart');
 
     try {
       final json = switch (inputId.extension) {
@@ -64,6 +62,8 @@ class OpenAPIBuilder implements Builder {
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };
 
+      final state = State(buildConfig, json, inputId);
+
       final spec = openapi.serializers.deserializeWith(
         openapi.OpenAPI.serializer,
         json,
@@ -73,9 +73,6 @@ class OpenAPIBuilder implements Builder {
       if (version < minSupportedVersion || version > maxSupportedVersion) {
         throw Exception('Only OpenAPI between $minSupportedVersion and $maxSupportedVersion are supported.');
       }
-
-      final config = buildConfig.configFor(inputId.path);
-      final state = State(config, json);
 
       final output = Library((b) {
         final analyzerIgnores = state.buildConfig.analyzerIgnores;
@@ -110,9 +107,7 @@ class OpenAPIBuilder implements Builder {
 
         // Part directive need to be generated after everything else so we know if we need it.
         if (state.hasResolvedBuiltTypes) {
-          b.directives.add(
-            Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
-          );
+          b.directives.add(Directive.part(state.partId));
         }
 
         if (state.buildConfig.experimental) {
@@ -139,7 +134,7 @@ class OpenAPIBuilder implements Builder {
       final formatter = DartFormatter(pageWidth: buildConfig.pageWidth);
       unawaited(
         buildStep.writeAsString(
-          outputId,
+          state.outputId,
           formatter.format(outputString),
         ),
       );

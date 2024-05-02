@@ -1,13 +1,23 @@
+import 'package:build/build.dart' show AssetId;
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/models/dynamite_config/config.dart';
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:path/path.dart' as p;
 
 class State {
-  State(this.buildConfig, this.rootJson);
+  State(
+    DynamiteConfig rootConfig,
+    this.rootJson,
+    this.inputId,
+  ) : buildConfig = rootConfig.configFor(inputId.path);
 
   final DynamiteConfig buildConfig;
 
   final Map<String, dynamic> rootJson;
+
+  final AssetId inputId;
+  late final AssetId outputId = inputId.changeExtension('.dart');
+  late final String partId = p.basename(outputId.changeExtension('.g.dart').path);
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
