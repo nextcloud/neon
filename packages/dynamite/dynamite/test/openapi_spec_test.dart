@@ -67,7 +67,9 @@ void main() {
         subSchema.resolveRef(json),
         equalsBuilt(
           superSchema.rebuild((b) {
-            b.id = Uri.parse('#/components/schemas/SuperClass');
+            b
+              ..id = Uri.parse('#/components/schemas/SuperClass')
+              ..identifier = 'SuperClass';
           }),
         ),
       );

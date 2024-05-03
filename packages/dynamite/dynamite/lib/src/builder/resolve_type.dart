@@ -3,76 +3,54 @@ import 'package:dynamite/src/builder/resolve_enum.dart';
 import 'package:dynamite/src/builder/resolve_object.dart';
 import 'package:dynamite/src/builder/resolve_ofs.dart';
 import 'package:dynamite/src/builder/state.dart';
-import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
 
 /// Resolves the [schema] into a `TypeResult`.
 ///
 /// Resolved types are always added to the [state].
-TypeResult resolveType(
-  State state,
-  String identifier,
-  json_schema.JsonSchema schema, {
-  bool nullable = false,
-}) {
+TypeResult resolveType(State state, json_schema.JsonSchema schema) {
   final result = _resolveType(
     state,
-    identifier,
     schema,
-    nullable: nullable,
   );
 
   state.resolvedTypes.add(result);
   return result;
 }
 
-TypeResult _resolveType(
-  State state,
-  String identifier,
-  json_schema.JsonSchema schema, {
-  bool nullable = false,
-}) {
+TypeResult _resolveType(State state, json_schema.JsonSchema schema) {
   switch (schema) {
     case json_schema.JsonSchema($enum: != null):
       final subResult = resolveType(
         state,
-        identifier,
         schema.rebuild((b) {
           b.$enum = null;
         }),
-        nullable: nullable,
       );
 
       return resolveEnum(
         state,
-        identifier,
         schema,
         subResult,
-        nullable: nullable,
       );
 
     case json_schema.JsonSchema(allOf: != null):
       return resolveObject(
         state,
-        identifier,
         schema,
-        nullable: nullable,
       );
 
     case json_schema.GenericSchema(ref: null, allOf: null, anyOf: null, oneOf: null):
       return TypeResultBase(
         'JsonObject',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.JsonSchema(ref: != null):
-      final name = schema.ref!.fragment.split('/').last;
       final subResult = resolveType(
         state,
-        toDartName(name, className: true),
         schema.resolveRef(state.rootJson),
-        nullable: nullable,
       );
 
       return subResult.asTypeDef;
@@ -80,58 +58,57 @@ TypeResult _resolveType(
     case json_schema.JsonSchema(anyOf: != null) || json_schema.JsonSchema(oneOf: != null):
       return resolveSomeOf(
         state,
-        identifier,
         schema,
-        nullable: nullable,
       );
 
     case json_schema.StringSchema(isContentString: true):
       final subResult = resolveType(
         state,
-        identifier,
-        schema.contentSchema!,
+        schema.contentSchema!.rebuild((b) {
+          b.identifier = schema.identifier;
+        }),
       );
 
       return TypeResultObject(
         'ContentString',
         generics: BuiltList([subResult]),
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.BooleanSchema():
       return TypeResultBase(
         'bool',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.IntegerSchema():
       return TypeResultBase(
         'int',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.NumberSchema(format: 'float' || 'double'):
       return TypeResultBase(
         'double',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.NumberSchema():
       return TypeResultBase(
         'num',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.StringSchema(format: 'binary'):
       return TypeResultBase(
         'Uint8List',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.StringSchema():
       return TypeResultBase(
         'String',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.ArraySchema():
@@ -141,8 +118,9 @@ TypeResult _resolveType(
       } else if (schema.items != null) {
         subResult = resolveType(
           state,
-          identifier,
-          schema.items!,
+          schema.items!.rebuild((b) {
+            b.identifier = schema.identifier;
+          }),
         );
       } else {
         subResult = TypeResultBase('JsonObject');
@@ -152,25 +130,26 @@ TypeResult _resolveType(
         schema.uniqueItems ? 'BuiltSet' : 'BuiltList',
         subResult,
         builderName: schema.uniqueItems ? 'SetBuilder' : 'ListBuilder',
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.ObjectSchema(properties: null):
       if (schema.additionalProperties == null) {
         return TypeResultBase(
           'JsonObject',
-          nullable: nullable,
+          nullable: schema.nullable,
         );
       } else {
         final subResult = resolveType(
           state,
-          identifier,
-          schema.additionalProperties!,
+          schema.additionalProperties!.rebuild((b) {
+            b.identifier = schema.identifier;
+          }),
         );
         return TypeResultMap(
           'BuiltMap',
           subResult,
-          nullable: nullable,
+          nullable: schema.nullable,
         );
       }
 
@@ -178,15 +157,13 @@ TypeResult _resolveType(
       return TypeResultMap(
         'BuiltMap',
         TypeResultBase('JsonObject'),
-        nullable: nullable,
+        nullable: schema.nullable,
       );
 
     case json_schema.ObjectSchema():
       return resolveObject(
         state,
-        identifier,
         schema,
-        nullable: nullable,
       );
 
     default:

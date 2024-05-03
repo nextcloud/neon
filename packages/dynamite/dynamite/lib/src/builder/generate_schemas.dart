@@ -15,8 +15,9 @@ Iterable<Spec> generateSchemas(
       final identifier = toDartName(schema.key, className: true);
       final result = resolveType(
         state,
-        identifier,
-        schema.value,
+        schema.value.rebuild((b) {
+          b.identifier = identifier;
+        }),
       );
 
       // TypeDefs should only be generated for top level schemas.

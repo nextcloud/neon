@@ -7,19 +7,18 @@ import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
 
-TypeResult resolveSomeOf(
-  State state,
-  String identifier,
-  json_schema.JsonSchema schema, {
-  bool nullable = false,
-}) {
+TypeResult resolveSomeOf(State state, json_schema.JsonSchema schema) {
+  final identifier = schema.identifier!;
+
   BuiltSet<TypeResult> resolveSubTypes(BuiltList<json_schema.JsonSchema> ofs) {
     return ofs.mapIndexed((index, schema) {
       return resolveType(
         state,
-        '$identifier$index',
-        schema,
-        nullable: true,
+        schema.rebuild((b) {
+          b
+            ..identifier = '$identifier$index'
+            ..nullable = true;
+        }),
       );
     }).toBuiltSet();
   }
@@ -31,7 +30,7 @@ TypeResult resolveSomeOf(
 
       result = TypeResultOneOf(
         identifier,
-        nullable: nullable,
+        nullable: schema.nullable,
         subTypes: subResults,
       );
     case json_schema.JsonSchema(:final anyOf) when anyOf != null:
@@ -39,7 +38,7 @@ TypeResult resolveSomeOf(
 
       result = TypeResultAnyOf(
         identifier,
-        nullable: nullable,
+        nullable: schema.nullable,
         subTypes: subResults,
       );
     default:

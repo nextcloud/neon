@@ -21,12 +21,16 @@ TypeResult? resolveMimeTypeDecode(
 
       final result = resolveType(
         state,
-        toDartName('$identifier-$mimeType', className: true),
-        mediaType.schema!,
+        mediaType.schema!.rebuild((b) {
+          b.identifier = toDartName(
+            '$identifier-$mimeType',
+            className: true,
+          );
+        }),
       );
 
       if (mimeType == '*/*' || mimeType == 'application/octet-stream' || mimeType.startsWith('image/')) {
-        return TypeResultObject('Uint8List');
+        return TypeResultBase('Uint8List');
       } else if (mimeType.startsWith('text/') || mimeType == 'application/javascript') {
         return TypeResultBase('String');
       } else if (mimeType == 'application/json') {

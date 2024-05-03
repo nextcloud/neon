@@ -9,13 +9,9 @@ import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
-TypeResult resolveEnum(
-  State state,
-  String identifier,
-  json_schema.JsonSchema schema,
-  TypeResult subResult, {
-  bool nullable = false,
-}) {
+TypeResult resolveEnum(State state, json_schema.JsonSchema schema, TypeResult subResult) {
+  final identifier = schema.identifier!;
+
   if (state.resolvedTypes.add(TypeResultEnum(identifier, subResult))) {
     final values = <({String dartName, Object? value, String name})>[];
     for (final enumValue in schema.$enum!) {
@@ -257,6 +253,6 @@ TypeResult resolveEnum(
   return TypeResultEnum(
     identifier,
     subResult,
-    nullable: nullable,
+    nullable: schema.nullable,
   );
 }

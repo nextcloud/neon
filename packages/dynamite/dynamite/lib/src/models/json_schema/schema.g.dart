@@ -1949,6 +1949,9 @@ abstract mixin class JsonSchemaBuilder {
 
   ListBuilder<JsonObject> get examples;
   set examples(ListBuilder<JsonObject>? examples);
+
+  String? get identifier;
+  set identifier(String? identifier);
 }
 
 class _$GenericSchema extends GenericSchema {
@@ -1986,6 +1989,8 @@ class _$GenericSchema extends GenericSchema {
   final bool writeOnly;
   @override
   final BuiltList<JsonObject>? examples;
+  @override
+  final String? identifier;
   @override
   final num? multipleOf;
   @override
@@ -2042,6 +2047,7 @@ class _$GenericSchema extends GenericSchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
@@ -2175,6 +2181,7 @@ class _$GenericSchema extends GenericSchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -2267,6 +2274,10 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
   set multipleOf(covariant num? multipleOf) => _$this._multipleOf = multipleOf;
@@ -2358,6 +2369,7 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -2417,6 +2429,7 @@ class GenericSchemaBuilder implements Builder<GenericSchema, GenericSchemaBuilde
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'GenericSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'GenericSchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -2499,6 +2512,8 @@ class _$BooleanSchema extends BooleanSchema {
   final bool writeOnly;
   @override
   final BuiltList<JsonObject>? examples;
+  @override
+  final String? identifier;
 
   factory _$BooleanSchema([void Function(BooleanSchemaBuilder)? updates]) =>
       (BooleanSchemaBuilder()..update(updates))._build();
@@ -2520,7 +2535,8 @@ class _$BooleanSchema extends BooleanSchema {
       required this.deprecated,
       required this.readOnly,
       required this.writeOnly,
-      this.examples})
+      this.examples,
+      this.identifier})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(nullable, r'BooleanSchema', 'nullable');
     BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated');
@@ -2600,7 +2616,8 @@ class _$BooleanSchema extends BooleanSchema {
           ..add('deprecated', deprecated)
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
-          ..add('examples', examples))
+          ..add('examples', examples)
+          ..add('identifier', identifier))
         .toString();
   }
 }
@@ -2676,6 +2693,10 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   BooleanSchemaBuilder() {
     BooleanSchema._initialize(this);
   }
@@ -2700,6 +2721,7 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _$v = null;
     }
     return this;
@@ -2741,7 +2763,8 @@ class BooleanSchemaBuilder implements Builder<BooleanSchema, BooleanSchemaBuilde
               deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'BooleanSchema', 'deprecated'),
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'BooleanSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'BooleanSchema', 'writeOnly'),
-              examples: _examples?.build());
+              examples: _examples?.build(),
+              identifier: identifier);
     } catch (_) {
       late String _$failedField;
       try {
@@ -2805,6 +2828,8 @@ class _$IntegerSchema extends IntegerSchema {
   @override
   final BuiltList<JsonObject>? examples;
   @override
+  final String? identifier;
+  @override
   final num? multipleOf;
   @override
   final num? maximum;
@@ -2836,6 +2861,7 @@ class _$IntegerSchema extends IntegerSchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
@@ -2931,6 +2957,7 @@ class _$IntegerSchema extends IntegerSchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -3011,6 +3038,10 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
   set multipleOf(covariant num? multipleOf) => _$this._multipleOf = multipleOf;
@@ -3055,6 +3086,7 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -3102,6 +3134,7 @@ class IntegerSchemaBuilder implements Builder<IntegerSchema, IntegerSchemaBuilde
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'IntegerSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'IntegerSchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -3170,6 +3203,8 @@ class _$NumberSchema extends NumberSchema {
   @override
   final BuiltList<JsonObject>? examples;
   @override
+  final String? identifier;
+  @override
   final num? multipleOf;
   @override
   final num? maximum;
@@ -3201,6 +3236,7 @@ class _$NumberSchema extends NumberSchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.multipleOf,
       this.maximum,
       this.exclusiveMaximum,
@@ -3296,6 +3332,7 @@ class _$NumberSchema extends NumberSchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('multipleOf', multipleOf)
           ..add('maximum', maximum)
           ..add('exclusiveMaximum', exclusiveMaximum)
@@ -3376,6 +3413,10 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   num? _multipleOf;
   num? get multipleOf => _$this._multipleOf;
   set multipleOf(covariant num? multipleOf) => _$this._multipleOf = multipleOf;
@@ -3420,6 +3461,7 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _multipleOf = $v.multipleOf;
       _maximum = $v.maximum;
       _exclusiveMaximum = $v.exclusiveMaximum;
@@ -3467,6 +3509,7 @@ class NumberSchemaBuilder implements Builder<NumberSchema, NumberSchemaBuilder>,
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NumberSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NumberSchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               multipleOf: multipleOf,
               maximum: maximum,
               exclusiveMaximum: exclusiveMaximum,
@@ -3539,6 +3582,8 @@ class _$StringSchema extends StringSchema {
   @override
   final BuiltList<JsonObject>? examples;
   @override
+  final String? identifier;
+  @override
   final int? maxLength;
   @override
   final int? minLength;
@@ -3569,6 +3614,7 @@ class _$StringSchema extends StringSchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.maxLength,
       this.minLength,
       this.pattern})
@@ -3667,6 +3713,7 @@ class _$StringSchema extends StringSchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('maxLength', maxLength)
           ..add('minLength', minLength)
           ..add('pattern', pattern))
@@ -3753,6 +3800,10 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   int? _maxLength;
   int? get maxLength => _$this._maxLength;
   set maxLength(covariant int? maxLength) => _$this._maxLength = maxLength;
@@ -3791,6 +3842,7 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _maxLength = $v.maxLength;
       _minLength = $v.minLength;
       _pattern = $v.pattern;
@@ -3838,6 +3890,7 @@ class StringSchemaBuilder implements Builder<StringSchema, StringSchemaBuilder>,
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'StringSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'StringSchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               maxLength: maxLength,
               minLength: minLength,
               pattern: pattern);
@@ -3906,6 +3959,8 @@ class _$ArraySchema extends ArraySchema {
   @override
   final BuiltList<JsonObject>? examples;
   @override
+  final String? identifier;
+  @override
   final int? maxItems;
   @override
   final int? minItems;
@@ -3938,6 +3993,7 @@ class _$ArraySchema extends ArraySchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.maxItems,
       this.minItems,
       required this.uniqueItems,
@@ -4037,6 +4093,7 @@ class _$ArraySchema extends ArraySchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('maxItems', maxItems)
           ..add('minItems', minItems)
           ..add('uniqueItems', uniqueItems)
@@ -4121,6 +4178,10 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   int? _maxItems;
   int? get maxItems => _$this._maxItems;
   set maxItems(covariant int? maxItems) => _$this._maxItems = maxItems;
@@ -4166,6 +4227,7 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _maxItems = $v.maxItems;
       _minItems = $v.minItems;
       _uniqueItems = $v.uniqueItems;
@@ -4214,6 +4276,7 @@ class ArraySchemaBuilder implements Builder<ArraySchema, ArraySchemaBuilder>, Js
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ArraySchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ArraySchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               maxItems: maxItems,
               minItems: minItems,
               uniqueItems: BuiltValueNullFieldError.checkNotNull(uniqueItems, r'ArraySchema', 'uniqueItems'),
@@ -4286,6 +4349,8 @@ class _$ObjectSchema extends ObjectSchema {
   @override
   final BuiltList<JsonObject>? examples;
   @override
+  final String? identifier;
+  @override
   final int? maxProperties;
   @override
   final int? minProperties;
@@ -4317,6 +4382,7 @@ class _$ObjectSchema extends ObjectSchema {
       required this.readOnly,
       required this.writeOnly,
       this.examples,
+      this.identifier,
       this.maxProperties,
       this.minProperties,
       required this.required,
@@ -4416,6 +4482,7 @@ class _$ObjectSchema extends ObjectSchema {
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
           ..add('examples', examples)
+          ..add('identifier', identifier)
           ..add('maxProperties', maxProperties)
           ..add('minProperties', minProperties)
           ..add('required', required)
@@ -4504,6 +4571,10 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   int? _maxProperties;
   int? get maxProperties => _$this._maxProperties;
   set maxProperties(covariant int? maxProperties) => _$this._maxProperties = maxProperties;
@@ -4547,6 +4618,7 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _maxProperties = $v.maxProperties;
       _minProperties = $v.minProperties;
       _required = $v.required.toBuilder();
@@ -4595,6 +4667,7 @@ class ObjectSchemaBuilder implements Builder<ObjectSchema, ObjectSchemaBuilder>,
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'ObjectSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'ObjectSchema', 'writeOnly'),
               examples: _examples?.build(),
+              identifier: identifier,
               maxProperties: maxProperties,
               minProperties: minProperties,
               required: required.build(),
@@ -4667,6 +4740,8 @@ class _$NullSchema extends NullSchema {
   final bool writeOnly;
   @override
   final BuiltList<JsonObject>? examples;
+  @override
+  final String? identifier;
 
   factory _$NullSchema([void Function(NullSchemaBuilder)? updates]) => (NullSchemaBuilder()..update(updates))._build();
 
@@ -4687,7 +4762,8 @@ class _$NullSchema extends NullSchema {
       required this.deprecated,
       required this.readOnly,
       required this.writeOnly,
-      this.examples})
+      this.examples,
+      this.identifier})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(nullable, r'NullSchema', 'nullable');
     BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated');
@@ -4767,7 +4843,8 @@ class _$NullSchema extends NullSchema {
           ..add('deprecated', deprecated)
           ..add('readOnly', readOnly)
           ..add('writeOnly', writeOnly)
-          ..add('examples', examples))
+          ..add('examples', examples)
+          ..add('identifier', identifier))
         .toString();
   }
 }
@@ -4843,6 +4920,10 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
   ListBuilder<JsonObject> get examples => _$this._examples ??= ListBuilder<JsonObject>();
   set examples(covariant ListBuilder<JsonObject>? examples) => _$this._examples = examples;
 
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
   NullSchemaBuilder() {
     NullSchema._initialize(this);
   }
@@ -4867,6 +4948,7 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
       _readOnly = $v.readOnly;
       _writeOnly = $v.writeOnly;
       _examples = $v.examples?.toBuilder();
+      _identifier = $v.identifier;
       _$v = null;
     }
     return this;
@@ -4908,7 +4990,8 @@ class NullSchemaBuilder implements Builder<NullSchema, NullSchemaBuilder>, JsonS
               deprecated: BuiltValueNullFieldError.checkNotNull(deprecated, r'NullSchema', 'deprecated'),
               readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'NullSchema', 'readOnly'),
               writeOnly: BuiltValueNullFieldError.checkNotNull(writeOnly, r'NullSchema', 'writeOnly'),
-              examples: _examples?.build());
+              examples: _examples?.build(),
+              identifier: identifier);
     } catch (_) {
       late String _$failedField;
       try {

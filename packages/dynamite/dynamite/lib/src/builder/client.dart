@@ -202,12 +202,14 @@ Iterable<Method> buildTags(
 
         final result = resolveType(
           state,
-          toDartName(
-            '$operationName-${parameter.name}',
-            className: true,
-          ),
-          parameter.schema!,
-          nullable: !parameterRequired,
+          parameter.schema!.rebuild((b) {
+            b
+              ..identifier = toDartName(
+                '$operationName-${parameter.name}',
+                className: true,
+              )
+              ..nullable = !parameterRequired;
+          }),
         );
 
         if (parameter.$in == openapi.ParameterType.header) {
@@ -252,9 +254,11 @@ Iterable<Method> buildTags(
 
           final result = resolveType(
             state,
-            toDartName('$operationName-request-$mimeType', className: true),
-            mediaType.schema!,
-            nullable: dartParameterNullable,
+            mediaType.schema!.rebuild((b) {
+              b
+                ..identifier = toDartName('$operationName-request-$mimeType', className: true)
+                ..nullable = dartParameterNullable;
+            }),
           );
 
           bodyParameter = (mimeType: mimeType, result: result);
@@ -473,9 +477,9 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
       ..write('Headers');
     headersType = resolveObject(
       state,
-      identifierBuilder.toString(),
-      json_schema.ObjectSchema(
-        (b) => b
+      json_schema.ObjectSchema((b) {
+        b
+          ..identifier = identifierBuilder.toString()
           ..properties.replace(
             response.headers!.map(
               (headerName, value) => MapEntry(
@@ -483,8 +487,8 @@ return ${allocate(responseType)}.fromRawResponse(_rawResponse);
                 value.schema!,
               ),
             ),
-          ),
-      ),
+          );
+      }),
       isHeader: true,
     );
   }
