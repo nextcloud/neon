@@ -370,13 +370,7 @@ ${allocate(returnType)}(
               code.writeln("_request.headers['Accept'] = '$acceptHeader';");
             }
 
-            buildAuthCheck(
-              state,
-              operation,
-              spec,
-              client,
-              code,
-            );
+            buildAuthCheck(state, operation, spec, client, code, allocate);
 
             for (final parameter in headerParameters.entries) {
               code.writeln(buildParameterSerialization(parameter.value, parameter.key, state, allocate));
@@ -603,6 +597,7 @@ void buildAuthCheck(
   openapi.OpenAPI spec,
   String client,
   StringSink output,
+  String Function(Reference) allocate,
 ) {
   final security = operation.security ?? spec.security ?? BuiltList();
   final securityRequirements = security.where((requirement) => requirement.isNotEmpty);
@@ -612,11 +607,16 @@ void buildAuthCheck(
     return;
   }
 
+  final collectionRef = refer(
+    'IterableExtension($client.authentications)',
+    'package:collection/collection.dart',
+  );
+
   output
     ..writeln(
       '''
 // coverage:ignore-start
-final authentication = $client.authentications?.firstWhereOrNull(
+final authentication = ${allocate(collectionRef)}?.firstWhereOrNull(
     (auth) => switch (auth) {
 ''',
     )

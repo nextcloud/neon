@@ -20,15 +20,15 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i7;
-import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i8;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i5;
+import 'package:uri/uri.dart' as _i6;
 
 part 'user_ldap.openapi.g.dart';
 
@@ -89,7 +89,7 @@ class $ConfigapiClient {
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -107,7 +107,7 @@ class $ConfigapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -185,12 +185,12 @@ class $ConfigapiClient {
     _parameters['showPassword'] = $showPassword;
 
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}').expand(_parameters);
+        _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -208,7 +208,7 @@ class $ConfigapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -299,12 +299,12 @@ class $ConfigapiClient {
     _parameters['configID'] = $configID;
 
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?configData*}').expand(_parameters);
+        _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?configData*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -322,7 +322,7 @@ class $ConfigapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -401,12 +401,12 @@ class $ConfigapiClient {
     final $configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
     _parameters['configID'] = $configID;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -424,7 +424,7 @@ class $ConfigapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -1120,9 +1120,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
+      ..add(_i7.DynamiteDoubleSerializer())
+      ..addPlugin(_i8.StandardJsonPlugin())
+      ..addPlugin(const _i7.HeaderPlugin())
+      ..addPlugin(const _i7.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -19,15 +19,15 @@ library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i7;
-import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i8;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i4;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i5;
+import 'package:uri/uri.dart' as _i6;
 
 part 'dashboard.openapi.g.dart';
 
@@ -87,7 +87,7 @@ class $DashboardApiClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -105,7 +105,7 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -183,7 +183,7 @@ class $DashboardApiClient {
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
-    _i4.checkNumber(
+    _i5.checkNumber(
       $limit,
       'limit',
       maximum: 30,
@@ -195,13 +195,13 @@ class $DashboardApiClient {
     $widgets ??= const [];
     _parameters['widgets%5B%5D'] = $widgets;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -219,7 +219,7 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -309,7 +309,7 @@ class $DashboardApiClient {
 
     var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
-    _i4.checkNumber(
+    _i5.checkNumber(
       $limit,
       'limit',
       maximum: 30,
@@ -321,13 +321,13 @@ class $DashboardApiClient {
     $widgets ??= const [];
     _parameters['widgets%5B%5D'] = $widgets;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _rootClient.authentications?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -345,7 +345,7 @@ class $DashboardApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
 
     return _request;
   }
@@ -1051,9 +1051,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
+      ..add(_i7.DynamiteDoubleSerializer())
+      ..addPlugin(_i8.StandardJsonPlugin())
+      ..addPlugin(const _i7.HeaderPlugin())
+      ..addPlugin(const _i7.ContentStringPlugin()))
     .build();
 // coverage:ignore-end
