@@ -41,8 +41,15 @@ GoRouter buildAppRouter({
         if (accountsBloc.hasAccounts) {
           final activeAccount = accountsBloc.activeAccount.value!;
 
+          var uri = state.uri;
+          final capabilities = accountsBloc.activeCapabilitiesBloc.capabilities.valueOrNull?.data;
+          final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
+          if (!modRewriteWorking) {
+            uri = state.uri.replace(path: '/index.php${state.uri}');
+          }
+
           await launchUrl(
-            activeAccount.completeUri(state.uri),
+            activeAccount.completeUri(uri),
             mode: LaunchMode.externalApplication,
           );
 
@@ -56,6 +63,10 @@ GoRouter buildAppRouter({
         await router.push(RouteNotFoundRoute(uri: state.uri).location);
       },
       redirect: (context, state) {
+        if (state.uri.path.startsWith('/index.php/')) {
+          return state.uri.path.substring(10);
+        }
+
         final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
         if (loginQRcode != null) {
           return LoginCheckServerStatusRoute.withCredentials(
