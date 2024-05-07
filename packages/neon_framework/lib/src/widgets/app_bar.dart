@@ -92,7 +92,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                     return ResultBuilder.behaviorSubject(
                       subject: appsBloc.appImplementations,
                       builder: (context, appImplementations) {
-                        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 2;
+                        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 1;
                         return SearchBar(
                           hintText: hintText,
                           padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
