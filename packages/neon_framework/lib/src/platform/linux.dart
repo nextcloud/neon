@@ -4,7 +4,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:timezone/data/latest.dart' as tz;
 import 'package:universal_io/io.dart';
 
 /// Linux specific platform information.
@@ -47,8 +46,6 @@ class LinuxNeonPlatform implements NeonPlatform {
   void init() {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
-
-    tz.initializeTimeZones();
   }
 
   @override
