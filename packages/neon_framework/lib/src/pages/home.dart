@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           );
         }
 
-        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 2;
+        final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 1;
 
         final body = ValueListenableBuilder(
           valueListenable: _globalOptions.navigationMode,
