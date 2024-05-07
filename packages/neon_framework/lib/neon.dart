@@ -19,7 +19,7 @@ import 'package:neon_framework/src/utils/user_agent.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest.dart' as tz;
 
 /// Runs Neon with the given [appImplementations].
 ///
@@ -38,7 +38,7 @@ Future<void> runNeon({
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
   await NeonPlatform.instance.init();
-  assert(tz.timeZoneDatabase.isInitialized, 'Timezone database not initialized by NeonPlatform');
+  tz.initializeTimeZones();
 
   await NeonStorage().init();
 
