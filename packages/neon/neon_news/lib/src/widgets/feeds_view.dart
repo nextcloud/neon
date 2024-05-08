@@ -8,9 +8,9 @@ import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/pages/feed.dart';
 import 'package:neon_news/src/sort/feeds.dart';
+import 'package:neon_news/src/utils/dialog.dart';
 import 'package:neon_news/src/widgets/dialog.dart';
 import 'package:neon_news/src/widgets/feed_icon.dart';
-import 'package:neon_news/utils/dialog.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFeedsView extends StatelessWidget {

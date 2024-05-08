@@ -7,7 +7,7 @@ import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/pages/folder.dart';
 import 'package:neon_news/src/sort/folders.dart';
-import 'package:neon_news/utils/dialog.dart';
+import 'package:neon_news/src/utils/dialog.dart';
 
 class NewsFoldersView extends StatelessWidget {
   const NewsFoldersView({
