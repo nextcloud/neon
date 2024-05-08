@@ -37,22 +37,22 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ResultBuilder.behaviorSubject(
-      subject: bloc.notifications,
-      builder: (context, notifications) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        floatingActionButton: StreamBuilder(
-          stream: bloc.unreadCounter,
-          builder: (context, snapshot) {
-            final unreadCount = snapshot.data ?? 0;
-            return FloatingActionButton(
-              onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
-              tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
-              child: const Icon(MdiIcons.checkAll),
-            );
-          },
-        ),
-        body: NeonListView(
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      floatingActionButton: StreamBuilder(
+        stream: bloc.unreadCounter,
+        builder: (context, snapshot) {
+          final unreadCount = snapshot.data ?? 0;
+          return FloatingActionButton(
+            onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
+            tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
+            child: const Icon(MdiIcons.checkAll),
+          );
+        },
+      ),
+      body: ResultBuilder.behaviorSubject(
+        subject: bloc.notifications,
+        builder: (context, notifications) => NeonListView(
           scrollKey: 'notifications-notifications',
           isLoading: notifications.isLoading,
           error: notifications.error,
