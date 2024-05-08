@@ -100,7 +100,7 @@ void main() {
 
     account = mockUnifiedSearchAccount();
     bloc = UnifiedSearchBloc(
-      appsBloc: appsBloc,
+      activeAppSubject: appsBloc.activeApp,
       account: account,
     );
   });

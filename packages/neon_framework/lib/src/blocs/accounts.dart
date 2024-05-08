@@ -337,9 +337,9 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   AppsBloc getAppsBlocFor(Account account) => appsBlocs[account] ??= AppsBloc(
-        capabilitiesBloc: getCapabilitiesBlocFor(account),
-        accountsBloc: this,
+        capabilitiesSubject: getCapabilitiesBlocFor(account).capabilities,
         account: account,
+        accountOptions: getOptionsFor(account),
         allAppImplementations: allAppImplementations,
       );
 
@@ -372,7 +372,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
-        appsBloc: getAppsBlocFor(account),
+        activeAppSubject: getAppsBlocFor(account).activeApp,
         account: account,
       );
 

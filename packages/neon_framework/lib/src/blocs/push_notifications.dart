@@ -5,7 +5,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/storage/keys.dart';
@@ -14,20 +13,21 @@ import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:rxdart/rxdart.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 
 /// Bloc for managing push notifications and registration.
 sealed class PushNotificationsBloc {
   @internal
   factory PushNotificationsBloc({
-    required AccountsBloc accountsBloc,
+    required BehaviorSubject<BuiltList<Account>> accountsSubject,
     required GlobalOptions globalOptions,
   }) = _PushNotificationsBloc;
 }
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   _PushNotificationsBloc({
-    required this.accountsBloc,
+    required this.accountsSubject,
     required this.globalOptions,
   }) {
     if (NeonPlatform.instance.canUsePushNotifications) {
@@ -42,7 +42,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   @override
   final log = Logger('PushNotificationsBloc');
 
-  final AccountsBloc accountsBloc;
+  final BehaviorSubject<BuiltList<Account>> accountsSubject;
   late final storage = NeonStorage().settingsStore(StorageKeys.lastEndpoint);
   final GlobalOptions globalOptions;
 
@@ -59,7 +59,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
       await setupUnifiedPush();
 
       globalOptions.pushNotificationsDistributor.addListener(distributorListener);
-      accountsListener = accountsBloc.accounts.listen(registerUnifiedPushInstances);
+      accountsListener = accountsSubject.listen(registerUnifiedPushInstances);
     } else {
       globalOptions.pushNotificationsDistributor.removeListener(distributorListener);
       unawaited(accountsListener?.cancel());
@@ -72,7 +72,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
 
     await UnifiedPush.initialize(
       onNewEndpoint: (endpoint, instance) async {
-        final account = accountsBloc.accounts.value.tryFind(instance);
+        final account = accountsSubject.value.tryFind(instance);
         if (account == null) {
           log.fine('Account for $instance not found, can not process endpoint');
           return;
@@ -105,7 +105,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     final distributor = globalOptions.pushNotificationsDistributor.value;
     final disabled = distributor == null;
     final sameDistributor = distributor == await UnifiedPush.getDistributor();
-    final accounts = accountsBloc.accounts.value;
+    final accounts = accountsSubject.value;
     if (disabled || !sameDistributor) {
       await unregisterUnifiedPushInstances(accounts);
     }

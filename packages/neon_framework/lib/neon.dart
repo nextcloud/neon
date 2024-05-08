@@ -59,14 +59,14 @@ Future<void> runNeon({
       ..setActiveAccount(account);
   }
   PushNotificationsBloc(
-    accountsBloc: accountsBloc,
+    accountsSubject: accountsBloc.accounts,
     globalOptions: globalOptions,
   );
   final firstLaunchBloc = FirstLaunchBloc(
     disabled: firstLaunchDisabled,
   );
   final nextPushBloc = NextPushBloc(
-    accountsBloc: accountsBloc,
+    accountsSubject: accountsBloc.accounts,
     globalOptions: globalOptions,
     disabled: nextPushDisabled,
   );

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:nextcloud/core.dart';
 
 /// A Bloc checking if the server is in maintenance mode.

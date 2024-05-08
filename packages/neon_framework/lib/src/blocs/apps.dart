@@ -6,11 +6,10 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
+import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/utils/server_version.dart';
@@ -25,9 +24,9 @@ abstract class AppsBloc implements InteractiveBloc {
   /// Create a new apps bloc.
   @internal
   factory AppsBloc({
-    required CapabilitiesBloc capabilitiesBloc,
-    required AccountsBloc accountsBloc,
+    required BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilitiesSubject,
     required Account account,
+    required AccountOptions accountOptions,
     required BuiltSet<AppImplementation> allAppImplementations,
   }) = _AppsBloc;
 
@@ -67,9 +66,9 @@ abstract class AppsBloc implements InteractiveBloc {
 class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// Creates a new apps bloc.
   _AppsBloc({
-    required this.capabilitiesBloc,
-    required this.accountsBloc,
+    required this.capabilitiesSubject,
     required this.account,
+    required this.accountOptions,
     required this.allAppImplementations,
   }) {
     apps.listen((result) {
@@ -80,7 +79,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       }
     });
 
-    capabilitiesBloc.capabilities.listen((result) {
+    capabilitiesSubject.listen((result) {
       notificationsAppImplementation.add(
         result.transform(
           (data) => data.capabilities.notificationsCapabilities?.notifications != null
@@ -145,8 +144,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       return null;
     }
 
-    final options = accountsBloc.getOptionsFor(account);
-    for (final fallback in {options.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
+    for (final fallback in {accountOptions.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
       if (supportedApps.tryFind(fallback) != null) {
         return fallback;
       }
@@ -161,7 +159,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   Future<void> checkCompatibility() async {
     final apps = appImplementations.valueOrNull;
-    final capabilities = capabilitiesBloc.capabilities.valueOrNull;
+    final capabilities = capabilitiesSubject.valueOrNull;
 
     // ignore cached data
     if (capabilities == null || apps == null || !capabilities.hasSuccessfulData || !apps.hasSuccessfulData) {
@@ -216,9 +214,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
         ),
       );
 
-  final CapabilitiesBloc capabilitiesBloc;
-  final AccountsBloc accountsBloc;
+  final BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilitiesSubject;
   final Account account;
+  final AccountOptions accountOptions;
   final BuiltSet<AppImplementation> allAppImplementations;
   final apps = BehaviorSubject<Result<BuiltList<core.NavigationEntry>>>();
 
