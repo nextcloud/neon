@@ -1,10 +1,10 @@
 import 'dart:async';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
@@ -15,7 +15,7 @@ import 'package:rxdart/rxdart.dart';
 sealed class NextPushBloc implements Disposable {
   @internal
   factory NextPushBloc({
-    required AccountsBloc accountsBloc,
+    required BehaviorSubject<BuiltList<Account>> accountsSubject,
     required GlobalOptions globalOptions,
     bool disabled,
   }) = _NextPushBloc;
@@ -26,7 +26,7 @@ sealed class NextPushBloc implements Disposable {
 
 class _NextPushBloc extends Bloc implements NextPushBloc {
   _NextPushBloc({
-    required this.accountsBloc,
+    required this.accountsSubject,
     required this.globalOptions,
     bool disabled = false,
   }) {
@@ -36,7 +36,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
     Rx.merge([
       globalOptions.pushNotificationsEnabled.stream,
       globalOptions.pushNotificationsDistributor.stream,
-      accountsBloc.accounts,
+      accountsSubject,
     ]).debounceTime(const Duration(milliseconds: 100)).listen((_) async {
       if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
         return;
@@ -50,7 +50,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
       }
 
       var isSupported = false;
-      for (final account in accountsBloc.accounts.value) {
+      for (final account in accountsSubject.value) {
         if (!supported.containsKey(account)) {
           try {
             final response = await account.client.uppush.check();
@@ -85,7 +85,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
   @override
   final log = Logger('NextPushBloc');
 
-  final AccountsBloc accountsBloc;
+  final BehaviorSubject<BuiltList<Account>> accountsSubject;
   final GlobalOptions globalOptions;
   final supported = <Account, bool>{};
 
