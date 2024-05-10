@@ -46,13 +46,13 @@ void main() {
 
       test('Set location', () async {
         var response = await client.weatherStatus.weatherStatus.setLocation(
-          address: 'Berlin',
+          address: 'Hamburg',
         );
         expect(response.statusCode, 200);
         expect(response.body.ocs.data.success, true);
-        expect(response.body.ocs.data.address, 'Berlin, Deutschland');
-        expect(response.body.ocs.data.lat, '52.5170365');
-        expect(response.body.ocs.data.lon, '13.3888599');
+        expect(response.body.ocs.data.address, 'Hamburg, Deutschland');
+        expect(response.body.ocs.data.lat, '53.550341');
+        expect(response.body.ocs.data.lon, '10.000654');
 
         response = await client.weatherStatus.weatherStatus.setLocation(
           lat: 52.5170365,
