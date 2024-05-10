@@ -93,6 +93,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       }
     });
 
+    appImplementations.listen((result) {
+      if (result.hasData) {
+        accountOptions.updateAppImplementations(result.requireData);
+      }
+    });
+
     unawaited(refresh());
   }
 
