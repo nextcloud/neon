@@ -10,6 +10,11 @@ final minVersion = Version(27, 0, 0);
 /// Maximum major of core/Server supported
 const maxMajor = 29;
 
+/// Checks whether the server [version] is a dev, beta or RC version.
+bool _isDevelopmentServerVersion(String version) {
+  return version.contains('dev') || version.contains('beta') || version.contains('RC');
+}
+
 extension CoreVersionCheck on core.$Client {
   /// Check if the core/Server version is supported by this client
   ///
@@ -24,6 +29,7 @@ extension CoreVersionCheck on core.$Client {
       versions: [version],
       minimumVersion: minVersion,
       maximumMajor: maxMajor,
+      isSupportedOverride: _isDevelopmentServerVersion(capabilities.version.string) ? true : null,
     );
   }
 }
@@ -34,6 +40,7 @@ extension CoreStatusVersionCheck on core.Status {
         versions: [Version.parse(version)],
         minimumVersion: minVersion,
         maximumMajor: maxMajor,
+        isSupportedOverride: _isDevelopmentServerVersion(versionstring) ? true : null,
       );
 }
 
