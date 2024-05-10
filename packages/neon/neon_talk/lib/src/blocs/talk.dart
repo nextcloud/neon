@@ -48,12 +48,15 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
     });
 
     unawaited(refresh());
+
+    timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
   @override
   final log = Logger('TalkBloc');
 
   final Account account;
+  late final NeonTimer timer;
 
   @override
   final rooms = BehaviorSubject();
@@ -63,6 +66,7 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
 
   @override
   void dispose() {
+    timer.cancel();
     unawaited(rooms.close());
     unawaited(unreadCounter.close());
     super.dispose();
