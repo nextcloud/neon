@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
     _appsBloc = _accountsBloc.getAppsBlocFor(widget.account);
     final maintenanceModeBloc = _accountsBloc.getMaintenanceModeBlocFor(widget.account);
 
-    _versionCheckSubscription = _appsBloc.appVersionChecks.listen((values) {
+    _versionCheckSubscription = _appsBloc.unsupportedApps.listen((unsupportedChecks) {
       if (!mounted) {
         return;
       }
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       final l10n = NeonLocalizations.of(context);
       final buffer = StringBuffer()..writeln();
 
-      for (final entry in values.entries) {
+      for (final entry in unsupportedChecks.entries) {
         final versionCheck = entry.value;
         final appName = l10n.appImplementationName(entry.key);
 

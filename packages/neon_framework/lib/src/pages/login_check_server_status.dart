@@ -5,10 +5,10 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/login_check_server_status.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
-import 'package:neon_framework/src/utils/server_version.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/validation_tile.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/core.dart';
 
 @internal
 class LoginCheckServerStatusPage extends StatefulWidget {
@@ -65,7 +65,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                 subject: bloc.state,
                 builder: (context, state) {
                   final success =
-                      state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
+                      state.hasData && state.requireData.versionCheck.isSupported && !state.requireData.maintenance;
 
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -111,9 +111,6 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     }
   }
 
-  bool _isServerVersionAllowed(core.Status status) =>
-      status.versionCheck.isSupported || isDevelopmentServerVersion(status.versionstring);
-
   Widget _buildServerVersionTile(Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
@@ -129,7 +126,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
       );
     }
 
-    if (_isServerVersionAllowed(result.requireData)) {
+    if (result.requireData.versionCheck.isSupported) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
         state: ValidationState.success,
