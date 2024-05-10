@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -16,6 +17,7 @@ import 'package:rxdart/subjects.dart';
 abstract class TalkRoomBloc implements InteractiveBloc {
   /// Creates a new Talk room bloc.
   factory TalkRoomBloc({
+    required TalkBloc talkBloc,
     required Account account,
     required spreed.Room room,
   }) = _TalkRoomBloc;
@@ -37,10 +39,52 @@ abstract class TalkRoomBloc implements InteractiveBloc {
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   _TalkRoomBloc({
+    required this.talkBloc,
     required this.account,
     required spreed.Room room,
   })  : room = BehaviorSubject.seeded(Result.success(room)),
         token = room.token {
+    messages.listen((result) {
+      if (!result.hasSuccessfulData) {
+        return;
+      }
+
+      // TODO: More room fields might be changed based on the received messages (e.g. room was renamed).
+
+      final lastMessage = result.requireData.firstOrNull;
+      if (lastMessage == null) {
+        return;
+      }
+
+      final value = this.room.value;
+      this.room.add(
+            value.copyWith(
+              data: value.requireData.rebuild(
+                (b) => b
+                  ..lastActivity = lastMessage.timestamp
+                  ..lastMessage = (
+                    baseMessage: null,
+                    builtListNever: null,
+                    // TODO: This manual conversion is only necessary because the interface isn't used everywhere: https://github.com/nextcloud/neon/issues/1995
+                    chatMessage: spreed.ChatMessage.fromJson(lastMessage.toJson()),
+                  )
+                  ..lastCommonReadMessage = lastCommonRead.valueOrNull
+                  // The following fields can be set because we know that any updates to the messages (sending/polling) updates the last read message.
+                  ..lastReadMessage = lastMessage.id
+                  ..unreadMention = false
+                  ..unreadMentionDirect = false
+                  ..unreadMessages = 0,
+              ),
+            ),
+          );
+    });
+
+    this.room.listen((result) {
+      if (result.hasSuccessfulData) {
+        talkBloc.updateRoom(result.requireData);
+      }
+    });
+
     unawaited(() async {
       while (pollLoop) {
         final lastKnownMessageId =
@@ -86,6 +130,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   @override
   final log = Logger('TalkRoomBloc');
 
+  final TalkBloc talkBloc;
   final Account account;
   final String token;
   bool pollLoop = true;

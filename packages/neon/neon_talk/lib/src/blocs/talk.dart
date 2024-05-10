@@ -21,6 +21,9 @@ abstract class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk room.
   void createRoom(spreed.RoomType type, String? roomName, core.AutocompleteResult? invite);
 
+  /// Updates a single room with new data.
+  void updateRoom(spreed.Room room);
+
   /// The list of rooms.
   BehaviorSubject<Result<BuiltList<spreed.Room>>> get rooms;
 
@@ -93,5 +96,19 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
         source: invite?.source,
       );
     });
+  }
+
+  @override
+  void updateRoom(spreed.Room room) {
+    final value = rooms.valueOrNull;
+    if (value == null || !value.hasData) {
+      return;
+    }
+
+    rooms.add(
+      value.copyWith(
+        data: value.requireData.map((r) => r.id == room.id ? room : r).toBuiltList(),
+      ),
+    );
   }
 }

@@ -36,7 +36,7 @@ Map<String, dynamic> getRoom({
       'canStartCall': false,
       'defaultPermissions': 0,
       'description': '',
-      'displayName': '',
+      'displayName': (id ?? 0).toString(),
       'hasCall': false,
       'hasPassword': false,
       'id': id ?? 0,

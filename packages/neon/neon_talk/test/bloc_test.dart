@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
@@ -133,5 +134,26 @@ void main() {
           ..shareWithDisplayNameUnique = '',
       ),
     );
+  });
+
+  test('updateRoom', () async {
+    expect(
+      bloc.rooms.transformResult((e) => BuiltList<String>(e.map((r) => r.displayName))),
+      emitsInOrder([
+        Result<BuiltList<String>>.loading(),
+        Result.success(BuiltList<String>(['0', '1', '2'])),
+        Result.success(BuiltList<String>(['update', '1', '2'])),
+      ]),
+    );
+
+    // The delay is necessary to avoid a race condition with loading twice at the same time
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    final room = MockRoom();
+    when(() => room.id).thenReturn(0);
+    when(() => room.displayName).thenReturn('update');
+    when(() => room.unreadMessages).thenReturn(0);
+
+    bloc.updateRoom(room);
   });
 }

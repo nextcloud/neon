@@ -122,6 +122,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
           MaterialPageRoute<void>(
             builder: (context) => NeonProvider(
               create: (_) => TalkRoomBloc(
+                talkBloc: bloc,
                 account: account,
                 room: room,
               ),
