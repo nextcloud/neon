@@ -7,6 +7,28 @@ color="#f37736"
 rm -rf /tmp/nextcloud-neon
 mkdir -p /tmp/nextcloud-neon
 
+function parse_icons_css() {
+    icons_css_url="https://raw.githubusercontent.com/nextcloud/server/master/dist/icons.css"
+    icons_css_file="/tmp/icons.css"
+    wget "$icons_css_url" -O "$icons_css_file"
+    
+    icon_mapping=$(awk -F'[()]' '/background-image/ {print $2,$4}' "$icons_css_file")
+    
+    echo "$icon_mapping" > "/tmp/icon_mapping.txt"
+}
+function get_svg_url() {
+    icon_name="$1"
+    icon_svg_url=$(grep "$icon_name" /tmp/icon_mapping.txt | awk '{print $2}')
+    echo "$icon_svg_url"
+}
+
+function download_icon_svg() {
+    icon_name="$1"
+    icon_svg_url=$(get_svg_url "$icon_name")
+    wget "$icon_svg_url" -O "/tmp/$icon_name.svg"
+}
+
+
 function copy_app_svg() {
   id="$1"
   path="$2"
@@ -52,6 +74,7 @@ function precompile_assets() {
   fvm dart run vector_graphics_compiler --input-dir assets/
   find assets/ -name "*.svg" -exec rm {} \;
 }
+parse_icons_css
 
 wget https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/cable-data.svg -O assets/logo.svg
 sed -i "s/<path /<path fill=\"$color\" /g" assets/logo.svg
