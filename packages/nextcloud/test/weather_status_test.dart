@@ -1,9 +1,12 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud/weather_status.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets(
@@ -46,13 +49,13 @@ void main() {
 
       test('Set location', () async {
         var response = await client.weatherStatus.weatherStatus.setLocation(
-          address: 'Berlin',
+          address: 'Hamburg',
         );
         expect(response.statusCode, 200);
         expect(response.body.ocs.data.success, true);
-        expect(response.body.ocs.data.address, 'Berlin, Deutschland');
-        expect(response.body.ocs.data.lat, '52.5170365');
-        expect(response.body.ocs.data.lon, '13.3888599');
+        expect(response.body.ocs.data.address, 'Hamburg, Deutschland');
+        expect(response.body.ocs.data.lat, '53.550341');
+        expect(response.body.ocs.data.lon, '10.000654');
 
         response = await client.weatherStatus.weatherStatus.setLocation(
           lat: 52.5170365,
@@ -64,6 +67,33 @@ void main() {
         expect(response.body.ocs.data.lat, null);
         expect(response.body.ocs.data.lon, null);
       });
+
+      test(
+        'Use personal address',
+        () async {
+          await client.weatherStatus.weatherStatus.setLocation(
+            address: 'Hamburg',
+          );
+
+          await client.core.appPassword.confirmUserPassword(
+            password: 'user1',
+          );
+
+          await client.provisioningApi.users.editUser(
+            key: 'address',
+            value: 'Berlin',
+            userId: 'user1',
+          );
+
+          final response = await client.weatherStatus.weatherStatus.usePersonalAddress();
+          expect(response.statusCode, 200);
+          expect(response.body.ocs.data.success, true);
+          expect(response.body.ocs.data.address, 'Berlin, Deutschland');
+          expect(response.body.ocs.data.lat, '52.5170365');
+          expect(response.body.ocs.data.lon, '13.3888599');
+        },
+        skip: preset.version < Version(29, 0, 0),
+      );
 
       test('Get forecast', () async {
         await client.weatherStatus.weatherStatus.setLocation(
