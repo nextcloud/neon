@@ -1,6 +1,7 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/storage.dart';
@@ -10,22 +11,13 @@ import 'package:neon_framework/storage.dart';
 @immutable
 class AccountOptions extends OptionsCollection {
   /// Creates a new account options collection.
-  AccountOptions(
-    super.storage,
-    this._appsBloc,
-  ) {
-    _appsBloc.appImplementations.listen((result) {
-      if (!result.hasData) {
-        return;
-      }
+  AccountOptions(super.storage);
 
-      initialApp.values = {
-        null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
-      }..addEntries(result.requireData.map((app) => MapEntry(app.id, app.name)));
-    });
+  void updateAppImplementations(BuiltSet<AppImplementation> appImplementations) {
+    initialApp.values = {
+      null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
+    }..addEntries(appImplementations.map((app) => MapEntry(app.id, app.name)));
   }
-
-  final AppsBloc _appsBloc;
 
   @override
   late final List<Option<dynamic>> options = [
