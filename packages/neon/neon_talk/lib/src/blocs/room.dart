@@ -39,14 +39,12 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   _TalkRoomBloc({
     required this.account,
     required spreed.Room room,
-  }) {
-    token = room.token;
-    this.room.add(Result.success(room));
-
+  })  : room = BehaviorSubject.seeded(Result.success(room)),
+        token = room.token {
     unawaited(() async {
       while (pollLoop) {
         final lastKnownMessageId =
-            messages.valueOrNull?.data?.firstOrNull?.id ?? this.room.valueOrNull?.data?.lastMessage.chatMessage?.id;
+            messages.valueOrNull?.data?.firstOrNull?.id ?? this.room.value.data?.lastMessage.chatMessage?.id;
         if (lastKnownMessageId == null) {
           log.fine('Last message ID not known');
           await Future<void>.delayed(const Duration(seconds: 1));
@@ -89,11 +87,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final log = Logger('TalkRoomBloc');
 
   final Account account;
-  late final String token;
+  final String token;
   bool pollLoop = true;
 
   @override
-  final room = BehaviorSubject();
+  final BehaviorSubject<Result<spreed.Room>> room;
 
   @override
   final messages = BehaviorSubject();
