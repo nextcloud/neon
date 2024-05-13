@@ -12,7 +12,6 @@ import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
-import 'package:neon_framework/src/utils/server_version.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
@@ -50,8 +49,11 @@ abstract class AppsBloc implements InteractiveBloc {
   /// A subject emitting an event when the notifications page should be opened.
   BehaviorSubject<void> get openNotifications;
 
-  /// A collection of unsupported apps and their minimum required version.
+  /// A collection of apps and their version checks.
   BehaviorSubject<BuiltMap<String, VersionCheck>> get appVersionChecks;
+
+  /// A collection of unsupported apps and their minimum required version.
+  BehaviorSubject<BuiltMap<String, VersionCheck>> get unsupportedApps;
 
   /// Returns the active [Bloc] for the given [appImplementation].
   ///
@@ -97,6 +99,14 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       if (result.hasData) {
         accountOptions.updateAppImplementations(result.requireData);
       }
+    });
+
+    appVersionChecks.listen((checks) {
+      unsupportedApps.add(
+        checks.rebuild((b) {
+          b.removeWhere((app, check) => check.isSupported);
+        }),
+      );
     });
 
     unawaited(refresh());
@@ -172,12 +182,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       return;
     }
 
-    final notSupported = MapBuilder<String, VersionCheck>();
+    final checks = MapBuilder<String, VersionCheck>();
 
-    final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
-    if (!coreCheck.isSupported && !isDevelopmentServerVersion(capabilities.requireData.version.string)) {
-      notSupported['core'] = coreCheck;
-    }
+    checks['core'] = account.client.core.getVersionCheck(capabilities.requireData);
 
     for (final app in apps.requireData) {
       try {
@@ -187,9 +194,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
           continue;
         }
 
-        if (!check.isSupported) {
-          notSupported[app.id] = check;
-        }
+        checks[app.id] = check;
       } on Exception catch (error, stackTrace) {
         log.warning(
           'An Exception occurred while checking the installed version of $app.',
@@ -199,9 +204,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       }
     }
 
-    if (notSupported.isNotEmpty) {
-      appVersionChecks.add(notSupported.build());
-    }
+    appVersionChecks.add(checks.build());
   }
 
   T? findAppImplementation<T extends AppImplementation>(String id) {
@@ -234,6 +237,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     unawaited(activeApp.close());
     unawaited(openNotifications.close());
     unawaited(appVersionChecks.close());
+    unawaited(unsupportedApps.close());
 
     super.dispose();
   }
@@ -252,6 +256,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   final appVersionChecks = BehaviorSubject();
+
+  @override
+  final unsupportedApps = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
