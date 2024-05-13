@@ -40,7 +40,7 @@ class TalkRichObjectFile extends StatelessWidget {
         // Convert to logical pixels
         size /= devicePixelRatio;
 
-        // Constrain size to max height but keep aspect ration
+        // Constrain size to max height but keep aspect ratio
         if (size.height > maxHeight) {
           size = size * (maxHeight / size.height);
         }
@@ -51,6 +51,9 @@ class TalkRichObjectFile extends StatelessWidget {
         width = size.width.toInt();
         height = size.height.toInt();
       }
+
+      height ??= -1;
+      width ??= -1;
 
       child = ConstrainedBox(
         constraints: BoxConstraints(
