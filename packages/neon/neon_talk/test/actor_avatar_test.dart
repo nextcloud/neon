@@ -29,12 +29,12 @@ void main() {
 
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkActorAvatar(
-              actorId: '',
-              actorType: type,
-            ),
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkActorAvatar(
+            actorId: '',
+            actorType: type,
           ),
         ),
       );

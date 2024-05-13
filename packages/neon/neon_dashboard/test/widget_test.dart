@@ -18,10 +18,10 @@ import 'package:rxdart/rxdart.dart';
 Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
-      child: NeonProvider<AccountsBloc>.value(
-        value: accountsBloc,
-        child: child,
-      ),
+      providers: [
+        NeonProvider<AccountsBloc>.value(value: accountsBloc),
+      ],
+      child: child,
     );
 
 void main() {

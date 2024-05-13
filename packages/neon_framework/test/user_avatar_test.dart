@@ -47,11 +47,11 @@ void main() {
 
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: NeonUserAvatar(
-              showStatus: withStatus,
-            ),
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: NeonUserAvatar(
+            showStatus: withStatus,
           ),
         ),
       );

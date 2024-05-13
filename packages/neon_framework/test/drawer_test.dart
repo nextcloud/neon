@@ -54,10 +54,10 @@ void main() {
 
     await tester.pumpWidget(
       TestApp(
-        child: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: const NeonDrawer(),
-        ),
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+        ],
+        child: const NeonDrawer(),
       ),
     );
     await tester.pumpAndSettle();

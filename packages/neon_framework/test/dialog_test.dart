@@ -273,12 +273,12 @@ void main() {
       await tester.pumpWidget(
         TestApp(
           wrapMaterial: false,
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: NeonUserStatusDialog(
-              account: account,
-              now: now,
-            ),
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: NeonUserStatusDialog(
+            account: account,
+            now: now,
           ),
         ),
       );

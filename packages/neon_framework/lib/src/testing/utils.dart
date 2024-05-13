@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 /// An application used in testing that wraps it's children in a configured
 /// `MaterialApp`.
@@ -14,6 +16,7 @@ class TestApp extends StatelessWidget {
     this.appThemes,
     this.locale = const Locale('en'),
     this.wrapMaterial = true,
+    this.providers = const [],
     super.key,
   });
 
@@ -51,6 +54,9 @@ class TestApp extends StatelessWidget {
   /// {@macro flutter.widgets.widgetsApp.locale}
   final Locale locale;
 
+  /// Additional [Provider]s.
+  final List<SingleChildWidget> providers;
+
   @override
   Widget build(BuildContext context) {
     final theme = AppTheme.test(
@@ -63,7 +69,7 @@ class TestApp extends StatelessWidget {
       child = Material(child: child);
     }
 
-    return MaterialApp(
+    final app = MaterialApp(
       theme: theme.lightTheme,
       localizationsDelegates: [
         ...NeonLocalizations.localizationsDelegates,
@@ -76,5 +82,14 @@ class TestApp extends StatelessWidget {
       locale: locale,
       home: child,
     );
+
+    if (providers.isNotEmpty) {
+      return MultiProvider(
+        providers: providers,
+        child: app,
+      );
+    }
+
+    return app;
   }
 }

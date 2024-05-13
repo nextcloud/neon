@@ -69,17 +69,17 @@ void main() {
     testWidgets('user', (tester) async {
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = 'user'
-                  ..id = 'username'
-                  ..name = 'name',
-              ),
-              textStyle: null,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectMention(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = 'user'
+                ..id = 'username'
+                ..name = 'name',
             ),
+            textStyle: null,
           ),
         ),
       );
@@ -92,17 +92,17 @@ void main() {
 
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = 'user'
-                  ..id = 'other'
-                  ..name = 'name',
-              ),
-              textStyle: null,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectMention(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = 'user'
+                ..id = 'other'
+                ..name = 'name',
             ),
+            textStyle: null,
           ),
         ),
       );
@@ -117,18 +117,18 @@ void main() {
     testWidgets('call', (tester) async {
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkRichObjectMention(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = 'call'
-                  ..id = ''
-                  ..name = 'name'
-                  ..iconUrl = '',
-              ),
-              textStyle: null,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectMention(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = 'call'
+                ..id = ''
+                ..name = 'name'
+                ..iconUrl = '',
             ),
+            textStyle: null,
           ),
         ),
       );
@@ -174,17 +174,17 @@ void main() {
 
         await tester.pumpWidget(
           TestApp(
-            child: NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: TalkRichObjectMention(
-                parameter: spreed.RichObjectParameter(
-                  (b) => b
-                    ..type = type
-                    ..id = 'group'
-                    ..name = 'name',
-                ),
-                textStyle: null,
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            ],
+            child: TalkRichObjectMention(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = type
+                  ..id = 'group'
+                  ..name = 'name',
               ),
+              textStyle: null,
             ),
           ),
         );
@@ -197,17 +197,17 @@ void main() {
 
         await tester.pumpWidget(
           TestApp(
-            child: NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: TalkRichObjectMention(
-                parameter: spreed.RichObjectParameter(
-                  (b) => b
-                    ..type = type
-                    ..id = 'other'
-                    ..name = 'name',
-                ),
-                textStyle: null,
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            ],
+            child: TalkRichObjectMention(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = type
+                  ..id = 'other'
+                  ..name = 'name',
               ),
+              textStyle: null,
             ),
           ),
         );
@@ -225,19 +225,19 @@ void main() {
     testWidgets('With preview', (tester) async {
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkRichObjectFile(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = ''
-                  ..id = '0'
-                  ..name = 'name'
-                  ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
-                  ..path = '',
-              ),
-              textStyle: null,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..path = '',
             ),
+            textStyle: null,
           ),
         ),
       );
@@ -300,18 +300,18 @@ void main() {
     testWidgets('With icon', (tester) async {
       await tester.pumpWidget(
         TestApp(
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkRichObjectFallback(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = ''
-                  ..id = ''
-                  ..name = 'name'
-                  ..iconUrl = '',
-              ),
-              textStyle: null,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectFallback(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = ''
+                ..name = 'name'
+                ..iconUrl = '',
             ),
+            textStyle: null,
           ),
         ),
       );
