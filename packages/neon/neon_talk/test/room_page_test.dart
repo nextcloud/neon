@@ -54,10 +54,10 @@ void main() {
         appThemes: const [
           TalkTheme(),
         ],
-        child: NeonProvider<TalkRoomBloc>.value(
-          value: bloc,
-          child: const TalkRoomPage(),
-        ),
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 
@@ -75,10 +75,10 @@ void main() {
         appThemes: const [
           TalkTheme(),
         ],
-        child: NeonProvider<TalkRoomBloc>.value(
-          value: bloc,
-          child: const TalkRoomPage(),
-        ),
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 
@@ -139,13 +139,11 @@ void main() {
         appThemes: const [
           TalkTheme(),
         ],
-        child: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: NeonProvider<TalkRoomBloc>.value(
-            value: bloc,
-            child: const TalkRoomPage(),
-          ),
-        ),
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 
@@ -160,10 +158,10 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        child: NeonProvider<TalkRoomBloc>.value(
-          value: bloc,
-          child: const TalkRoomPage(),
-        ),
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 
@@ -181,10 +179,10 @@ void main() {
           TalkTheme(),
         ],
         platform: TargetPlatform.iOS,
-        child: NeonProvider<TalkRoomBloc>.value(
-          value: bloc,
-          child: const TalkRoomPage(),
-        ),
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 
@@ -203,10 +201,10 @@ void main() {
         appThemes: const [
           TalkTheme(),
         ],
-        child: NeonProvider<TalkRoomBloc>.value(
-          value: bloc,
-          child: const TalkRoomPage(),
-        ),
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
       ),
     );
 

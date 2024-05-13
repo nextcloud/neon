@@ -15,10 +15,10 @@ import 'package:rxdart/subjects.dart';
 import 'testing.dart';
 
 Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
-      child: NeonProvider<AccountsBloc>.value(
-        value: accountsBloc,
-        child: child,
-      ),
+      providers: [
+        NeonProvider<AccountsBloc>.value(value: accountsBloc),
+      ],
+      child: child,
     );
 
 void main() {

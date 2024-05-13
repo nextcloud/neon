@@ -64,13 +64,11 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        child: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: NeonProvider<TalkBloc>.value(
-            value: bloc,
-            child: const TalkMainPage(),
-          ),
-        ),
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          NeonProvider<TalkBloc>.value(value: bloc),
+        ],
+        child: const TalkMainPage(),
       ),
     );
 
@@ -88,13 +86,11 @@ void main() {
 
     await tester.pumpWidget(
       TestApp(
-        child: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: NeonProvider<TalkBloc>.value(
-            value: bloc,
-            child: const TalkMainPage(),
-          ),
-        ),
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          NeonProvider<TalkBloc>.value(value: bloc),
+        ],
+        child: const TalkMainPage(),
       ),
     );
 
@@ -117,13 +113,11 @@ void main() {
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
-          child: NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: NeonProvider<TalkBloc>.value(
-              value: bloc,
-              child: const TalkMainPage(),
-            ),
-          ),
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<TalkBloc>.value(value: bloc),
+          ],
+          child: const TalkMainPage(),
         ),
       );
 
@@ -153,13 +147,11 @@ void main() {
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
-            child: NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: NeonProvider<TalkBloc>.value(
-                value: bloc,
-                child: const TalkMainPage(),
-              ),
-            ),
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+              NeonProvider<TalkBloc>.value(value: bloc),
+            ],
+            child: const TalkMainPage(),
           ),
         );
 
@@ -188,13 +180,11 @@ void main() {
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
-            child: NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: NeonProvider<TalkBloc>.value(
-                value: bloc,
-                child: const TalkMainPage(),
-              ),
-            ),
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+              NeonProvider<TalkBloc>.value(value: bloc),
+            ],
+            child: const TalkMainPage(),
           ),
         );
 
@@ -217,13 +207,11 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        child: NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: NeonProvider<TalkBloc>.value(
-            value: bloc,
-            child: const TalkMainPage(),
-          ),
-        ),
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          NeonProvider<TalkBloc>.value(value: bloc),
+        ],
+        child: const TalkMainPage(),
       ),
     );
 

@@ -717,20 +717,20 @@ void main() {
 
               await tester.pumpWidget(
                 TestApp(
-                  child: NeonProvider<AccountsBloc>.value(
-                    value: accountsBloc,
-                    child: RichText(
-                      text: buildRichObjectParameter(
-                        parameter: spreed.RichObjectParameter(
-                          (b) => b
-                            ..type = type
-                            ..id = ''
-                            ..name = 'name'
-                            ..iconUrl = '',
-                        ),
-                        textStyle: null,
-                        isPreview: isPreview,
+                  providers: [
+                    NeonProvider<AccountsBloc>.value(value: accountsBloc),
+                  ],
+                  child: RichText(
+                    text: buildRichObjectParameter(
+                      parameter: spreed.RichObjectParameter(
+                        (b) => b
+                          ..type = type
+                          ..id = ''
+                          ..name = 'name'
+                          ..iconUrl = '',
                       ),
+                      textStyle: null,
+                      isPreview: isPreview,
                     ),
                   ),
                 ),
