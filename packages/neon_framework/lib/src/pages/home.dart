@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
               return Row(
                 children: [
                   ColoredBox(
-                    color: Theme.of(context).colorScheme.background,
+                    color: Theme.of(context).colorScheme.surface,
                     child: const NeonDrawer(),
                   ),
                   Expanded(

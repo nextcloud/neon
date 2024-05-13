@@ -28,11 +28,13 @@ Neon clients should not have any public api other than the 'AppImplementation'.
   ) {
     context.registry.addAnnotation((node) {
       if (node.name case Identifier(name: _internal)) {
+        // ignore: deprecated_member_use
         reporter.reportErrorForToken(code, node.beginToken);
       }
     });
 
     context.registry.addExportDirective((node) {
+      // ignore: deprecated_member_use
       reporter.reportErrorForToken(code, node.beginToken);
     });
   }

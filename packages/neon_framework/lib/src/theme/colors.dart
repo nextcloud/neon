@@ -23,7 +23,7 @@ abstract final class NcColors {
   /// The warning color as specified by the [design guidelines](https://docs.nextcloud.com/server/latest/developer_manual/design/foundations.html#status-and-indicators).
   static const Color warning = Colors.orange;
 
-  /// The [ColorScheme.background] color used on OLED devices.
+  /// The [ColorScheme.surface] color used on OLED devices.
   ///
   /// This color is only used at the users discretion.
   static const Color oledBackground = Colors.black;

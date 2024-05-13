@@ -36,7 +36,7 @@ class NeonCustomBackground extends StatelessWidget {
 
         if (theme == null) {
           return ColoredBox(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
             child: child,
           );
         }

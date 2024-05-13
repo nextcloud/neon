@@ -20,6 +20,7 @@ final class AvoidDartIO extends DartLintRule {
   ) {
     context.registry.addImportDirective((node) {
       if (node.uri.stringValue == 'dart:io') {
+        // ignore: deprecated_member_use
         reporter.reportErrorForToken(code, node.beginToken);
       }
     });

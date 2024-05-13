@@ -95,7 +95,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                         final showDrawer = appImplementations.hasData && appImplementations.requireData.length > 1;
                         return SearchBar(
                           hintText: hintText,
-                          padding: const MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
+                          padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
                           textInputAction: TextInputAction.search,
                           leading: showDrawer && !drawerAlwaysVisible ? const DrawerButton() : null,
                           trailing: const [

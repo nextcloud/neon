@@ -191,7 +191,7 @@ class TalkMessagePreview extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       text: TextSpan(
         style: TextStyle(
-          color: Theme.of(context).colorScheme.onBackground,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
         children: [
           if (actorName != null)
