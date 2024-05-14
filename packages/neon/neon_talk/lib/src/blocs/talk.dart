@@ -21,6 +21,9 @@ abstract class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk room.
   void createRoom(spreed.RoomType type, String? roomName, core.AutocompleteResult? invite);
 
+  /// Updates a single room with new data.
+  void updateRoom(spreed.Room room);
+
   /// The list of rooms.
   BehaviorSubject<Result<BuiltList<spreed.Room>>> get rooms;
 
@@ -45,12 +48,15 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
     });
 
     unawaited(refresh());
+
+    timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
   @override
   final log = Logger('TalkBloc');
 
   final Account account;
+  late final NeonTimer timer;
 
   @override
   final rooms = BehaviorSubject();
@@ -60,6 +66,7 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
 
   @override
   void dispose() {
+    timer.cancel();
     unawaited(rooms.close());
     unawaited(unreadCounter.close());
     super.dispose();
@@ -93,5 +100,19 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
         source: invite?.source,
       );
     });
+  }
+
+  @override
+  void updateRoom(spreed.Room room) {
+    final value = rooms.valueOrNull;
+    if (value == null || !value.hasData) {
+      return;
+    }
+
+    rooms.add(
+      value.copyWith(
+        data: value.requireData.map((r) => r.id == room.id ? room : r).toBuiltList(),
+      ),
+    );
   }
 }

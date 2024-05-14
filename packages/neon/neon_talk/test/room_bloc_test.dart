@@ -8,6 +8,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/blocs/room.dart';
+import 'package:neon_talk/src/blocs/talk.dart';
 
 import 'testing.dart';
 
@@ -88,7 +89,12 @@ Account mockTalkAccount() {
 
 void main() {
   late Account account;
-  late TalkRoomBloc bloc;
+  late TalkBloc talkBloc;
+  late TalkRoomBloc roomBloc;
+
+  setUpAll(() {
+    registerFallbackValue(MockRoom());
+  });
 
   setUp(() {
     FakeNeonStorage.setup();
@@ -100,7 +106,9 @@ void main() {
     when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
 
     account = mockTalkAccount();
-    bloc = TalkRoomBloc(
+    talkBloc = MockTalkBloc();
+    roomBloc = TalkRoomBloc(
+      talkBloc: talkBloc,
       account: account,
       room: room,
     );
@@ -109,22 +117,24 @@ void main() {
   tearDown(() async {
     // Wait for all events to be processed
     await Future<void>.delayed(const Duration(milliseconds: 1));
-    bloc.dispose();
+    roomBloc.dispose();
   });
 
   test('refresh', () async {
     expect(
-      bloc.room.transformResult((e) => e.token),
+      roomBloc.room.transformResult((e) => e.token),
       emitsInOrder([
         Result.success('abcd').asLoading(),
         Result.success('abcd'),
+        Result.success('abcd'),
         Result.success('abcd').asLoading(),
+        Result.success('abcd'),
         Result.success('abcd'),
       ]),
     );
 
     expect(
-      bloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+      roomBloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
       emitsInOrder([
         Result<BuiltList<int>>.loading(),
         Result.success(BuiltList<int>([2, 1, 0])),
@@ -134,48 +144,72 @@ void main() {
     );
 
     expect(
-      bloc.lastCommonRead,
+      roomBloc.lastCommonRead,
       emitsInOrder([0, 0]),
     );
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
-    await bloc.refresh();
+    await roomBloc.refresh();
+
+    verify(() => talkBloc.updateRoom(any())).called(4);
   });
 
   test('sendMessage', () async {
     expect(
-      bloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+      roomBloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
       emitsInOrder([
         Result<BuiltList<int>>.loading(),
         Result.success(BuiltList<int>([2, 1, 0])),
         Result.success(BuiltList<int>([3, 2, 1, 0])),
       ]),
     );
+    expect(
+      roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
+      emitsInOrder([
+        Result<int>.loading(),
+        Result.success(null),
+        Result.success(2),
+        Result.success(3),
+      ]),
+    );
 
     expect(
-      bloc.lastCommonRead,
+      roomBloc.lastCommonRead,
       emitsInOrder([0, 1]),
     );
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
-    bloc.sendMessage('');
+    roomBloc.sendMessage('');
+
+    verify(() => talkBloc.updateRoom(any())).called(3);
   });
 
   test('polling', () async {
     expect(
-      bloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+      roomBloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
       emitsInOrder([
         Result<BuiltList<int>>.loading(),
         Result.success(BuiltList<int>([2, 1, 0])),
         Result.success(BuiltList<int>([4, 3, 2, 1, 0])),
       ]),
     );
+    expect(
+      roomBloc.room.transformResult((e) => e.lastMessage.chatMessage?.id),
+      emitsInOrder([
+        Result<int>.loading(),
+        Result.success(null),
+        Result.success(2),
+        Result.success(4),
+      ]),
+    );
 
     expect(
-      bloc.lastCommonRead,
+      roomBloc.lastCommonRead,
       emitsInOrder([0, 0]),
     );
+
+    verify(() => talkBloc.updateRoom(any())).called(1);
   });
 }
