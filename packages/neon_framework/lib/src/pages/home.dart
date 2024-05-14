@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
     final maintenanceModeBloc = _accountsBloc.getMaintenanceModeBlocFor(widget.account);
 
     _versionCheckSubscription = _appsBloc.unsupportedApps.listen((unsupportedChecks) {
-      if (!mounted) {
+      if (!mounted || unsupportedChecks.isEmpty) {
         return;
       }
 
