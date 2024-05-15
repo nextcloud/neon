@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:cookie_jar/cookie_jar.dart';
+import 'package:cookie_store/cookie_store.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/utils/findable.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'account.g.dart';
@@ -35,15 +36,23 @@ class Account implements Credentials, Findable {
     this.password,
     this.userAgent,
     @visibleForTesting Client? httpClient,
-  }) : client = NextcloudClient(
-          serverURL,
-          loginName: username,
-          password: password,
-          appPassword: password,
-          userAgent: userAgent,
-          cookieJar: CookieJar(),
-          httpClient: httpClient,
-        );
+  })  : humanReadableID = _buildHumanReadableID(username, serverURL),
+        id = sha1.convert(utf8.encode('$username@$serverURL')).toString() {
+    final cookieStore = NeonStorage().cookieStore(
+      accountID: id,
+      serverURL: serverURL,
+    );
+
+    client = NextcloudClient(
+      serverURL,
+      loginName: username,
+      password: password,
+      appPassword: password,
+      userAgent: userAgent,
+      cookieJar: cookieStore != null ? CookieJarAdapter(cookieStore) : null,
+      httpClient: httpClient,
+    );
+  }
 
   /// Creates a new account object from the given [json] data.
   factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
@@ -73,21 +82,19 @@ class Account implements Credentials, Findable {
   int get hashCode => serverURL.hashCode + username.hashCode;
 
   /// An authenticated API client.
-  final NextcloudClient client;
+  late final NextcloudClient client;
 
   /// The unique ID of the account.
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].
-  /// IDs are globally cached in [_idCache].
   @override
-  String get id {
-    final key = '$username@$serverURL';
-
-    return _idCache[key] ??= sha1.convert(utf8.encode(key)).toString();
-  }
+  final String id;
 
   /// A human readable representation of [username] and [serverURL].
-  String get humanReadableID {
+  final String humanReadableID;
+
+  /// Builds a human readable id for a user and server pair.
+  static String _buildHumanReadableID(String username, Uri serverURL) {
     // Maybe also show path if it is not '/' ?
     final buffer = StringBuffer()
       ..write(username)
@@ -134,9 +141,6 @@ class Account implements Credentials, Findable {
   /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
   Uri stripUri(Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
-
-/// Global [Account.id] cache.
-Map<String, String> _idCache = {};
 
 /// QRcode Login credentials.
 ///

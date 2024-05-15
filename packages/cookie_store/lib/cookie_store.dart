@@ -6,8 +6,12 @@
 /// This package has an implementation independent api and provides utilities
 /// that make it easy to extend and implemented into existing storage backends
 /// like SQLite databases.
+///
+/// Users of the [cookie_jar](https://pub.dev/packages/cookie_jar) package
+/// can use the provided `CookieJarAdapter`.
 library;
 
+export 'src/cookie_jar_adapter.dart';
 export 'src/cookie_persistence.dart';
 export 'src/cookie_store.dart';
 export 'src/storable_cookie.dart';

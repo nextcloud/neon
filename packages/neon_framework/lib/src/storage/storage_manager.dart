@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:cookie_store/cookie_store.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/settings_store.dart';
 import 'package:neon_framework/src/storage/single_value_store.dart';
+import 'package:neon_framework/src/storage/sqlite_cookie_persistence.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
 
 /// Neon storage that manages the storage backend.
@@ -47,6 +49,8 @@ class NeonStorage {
       final requestCache = DefaultRequestCache();
       await requestCache.init();
       _requestCache = requestCache;
+
+      await SQLiteCookiePersistence.init();
     }
 
     await SQLiteCachedPersistence.init();
@@ -91,6 +95,22 @@ class NeonStorage {
 
     final storage = SQLiteCachedPersistence();
     return DefaultSingleValueStore(storage, key);
+  }
+
+  /// Creates a new `CookieStore` scoped to the given [accountID] and [serverURL].
+  ///
+  /// Cookies will only be sent to cookies matching the [serverURL].
+  CookieStore? cookieStore({required String accountID, required Uri serverURL}) {
+    if (kIsWeb) {
+      return null;
+    }
+
+    final persistence = SQLiteCookiePersistence(
+      accountID: accountID,
+      allowedBaseUri: serverURL,
+    );
+
+    return DefaultCookieStore(persistence);
   }
 
   void _assertInitialized() {

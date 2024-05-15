@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:cookie_jar/cookie_jar.dart';
+import 'package:cookie_store/cookie_store.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/docker_container.dart';
 import 'package:nextcloud_test/src/fixtures.dart';
@@ -54,7 +54,9 @@ extension TestNextcloudClient on NextcloudClient {
       loginName: username,
       password: username,
       appPassword: appPassword,
-      cookieJar: CookieJar(),
+      cookieJar: CookieJarAdapter(
+        CookieStore(),
+      ),
       httpClient: getProxyHttpClient(
         onRequest: appendFixture,
       ),

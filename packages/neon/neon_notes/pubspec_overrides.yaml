@@ -1,5 +1,7 @@
-# melos_managed_dependency_overrides: dynamite_runtime,neon_framework,neon_lints,nextcloud,sort_box
+# melos_managed_dependency_overrides: cookie_store,dynamite_runtime,neon_framework,neon_lints,nextcloud,sort_box
 dependency_overrides:
+  cookie_store:
+    path: ../../cookie_store
   dynamite_runtime:
     path: ../../dynamite/dynamite_runtime
   neon_framework:
