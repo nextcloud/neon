@@ -91,8 +91,19 @@ void main() {
   });
 
   testWidgets('Messages', (tester) async {
+    final parentChatMessage = MockChatMessage();
+    when(() => parentChatMessage.id).thenReturn(0);
+    when(() => parentChatMessage.timestamp).thenReturn(0);
+    when(() => parentChatMessage.actorId).thenReturn('test');
+    when(() => parentChatMessage.actorType).thenReturn(spreed.ActorType.users);
+    when(() => parentChatMessage.actorDisplayName).thenReturn('test');
+    when(() => parentChatMessage.messageType).thenReturn(spreed.MessageType.comment);
+    when(() => parentChatMessage.message).thenReturn('abc');
+    when(() => parentChatMessage.reactions).thenReturn(BuiltMap());
+    when(() => parentChatMessage.messageParameters).thenReturn(BuiltMap());
+
     final chatMessage1 = MockChatMessageWithParent();
-    when(() => chatMessage1.id).thenReturn(0);
+    when(() => chatMessage1.id).thenReturn(1);
     when(() => chatMessage1.timestamp).thenReturn(0);
     when(() => chatMessage1.actorId).thenReturn('test');
     when(() => chatMessage1.actorType).thenReturn(spreed.ActorType.users);
@@ -100,11 +111,11 @@ void main() {
     when(() => chatMessage1.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage1.message).thenReturn('abc');
     when(() => chatMessage1.reactions).thenReturn(BuiltMap());
-    when(() => chatMessage1.parent).thenReturn(null);
+    when(() => chatMessage1.parent).thenReturn(parentChatMessage);
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
 
     final chatMessage2 = MockChatMessageWithParent();
-    when(() => chatMessage2.id).thenReturn(1);
+    when(() => chatMessage2.id).thenReturn(2);
     when(() => chatMessage2.timestamp).thenReturn(0);
     when(() => chatMessage2.actorId).thenReturn('test');
     when(() => chatMessage2.actorType).thenReturn(spreed.ActorType.users);
@@ -112,7 +123,7 @@ void main() {
     when(() => chatMessage2.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage2.message).thenReturn('abc');
     when(() => chatMessage2.reactions).thenReturn(BuiltMap());
-    when(() => chatMessage2.parent).thenReturn(null);
+    when(() => chatMessage2.parent).thenReturn(parentChatMessage);
     when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
 
     when(() => bloc.messages).thenAnswer(
@@ -147,7 +158,8 @@ void main() {
       ),
     );
 
-    expect(find.byType(TalkMessage), findsExactly(2));
+    expect(find.byType(TalkMessage), findsExactly(4));
+    expect(find.byType(TalkParentMessage), findsExactly(2));
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_messages.png'));
   });
 
