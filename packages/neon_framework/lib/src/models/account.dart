@@ -82,15 +82,18 @@ class Account implements Credentials, Findable {
   int get hashCode => serverURL.hashCode + username.hashCode;
 
   /// An authenticated API client.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   late final NextcloudClient client;
 
   /// The unique ID of the account.
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].
   @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final String id;
 
   /// A human readable representation of [username] and [serverURL].
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final String humanReadableID;
 
   /// Builds a human readable id for a user and server pair.
