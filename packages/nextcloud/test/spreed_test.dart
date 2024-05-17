@@ -447,6 +447,63 @@ void main() {
           expect(messages[1].data.builtListSignalingSession![1].userId, 'user2');
         });
       });
+
+      group('Reaction', () {
+        test('Add and remove', () async {
+          final room = await createTestRoom();
+
+          final sendMessageResponse = await client1.spreed.chat.sendMessage(
+            token: room.token,
+            message: 'bla',
+          );
+          expect(sendMessageResponse.body.ocs.data!.reactions, isEmpty);
+          expect(sendMessageResponse.body.ocs.data!.reactionsSelf, isNull);
+
+          var receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
+            token: room.token,
+            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+          );
+          var message = receiveMessagesResponse.body.ocs.data[0];
+          expect(message.message, 'bla');
+          expect(message.reactions, isEmpty);
+          expect(message.reactionsSelf, isNull);
+
+          final addResponse = await client1.spreed.reaction.react(
+            reaction: '😀',
+            token: room.token,
+            messageId: message.id,
+          );
+          expect(addResponse.body.ocs.data, hasLength(1));
+          expect(addResponse.body.ocs.data['😀'], isNotNull);
+
+          receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
+            token: room.token,
+            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+          );
+          message = receiveMessagesResponse.body.ocs.data[1];
+          expect(message.message, 'bla');
+          expect(message.reactions, hasLength(1));
+          expect(message.reactions['😀'], isNotNull);
+          expect(message.reactionsSelf, hasLength(1));
+          expect(message.reactionsSelf, contains('😀'));
+
+          final removeResponse = await client1.spreed.reaction.delete(
+            reaction: '😀',
+            token: room.token,
+            messageId: message.id,
+          );
+          expect(removeResponse.body.ocs.data, isEmpty);
+
+          receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
+            token: room.token,
+            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+          );
+          message = receiveMessagesResponse.body.ocs.data[2];
+          expect(message.message, 'bla');
+          expect(message.reactions, isEmpty);
+          expect(message.reactionsSelf, isNull);
+        });
+      });
     },
     retry: retryCount,
     timeout: timeout,
