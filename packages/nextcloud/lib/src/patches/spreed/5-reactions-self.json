@@ -1,0 +1,12 @@
+[
+  {
+    "op": "add",
+    "path": "/components/schemas/ChatMessage/allOf/1/properties/reactionsSelf",
+    "value": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+]

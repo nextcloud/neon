@@ -4207,6 +4207,12 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
         ..add('silent')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.reactionsSelf;
+    if (value != null) {
+      result
+        ..add('reactionsSelf')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
     return result;
   }
 
@@ -4263,6 +4269,10 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           break;
         case 'silent':
           result.silent = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'reactionsSelf':
+          result.reactionsSelf.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'actorDisplayName':
           result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -7088,6 +7098,12 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
         ..add('silent')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.reactionsSelf;
+    if (value != null) {
+      result
+        ..add('reactionsSelf')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
     return result;
   }
 
@@ -7148,6 +7164,10 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           break;
         case 'silent':
           result.silent = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'reactionsSelf':
+          result.reactionsSelf.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'actorDisplayName':
           result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -20317,6 +20337,9 @@ abstract mixin class $ChatMessageInterfaceBuilder implements $BaseMessageInterfa
   bool? get silent;
   set silent(covariant bool? silent);
 
+  ListBuilder<String> get reactionsSelf;
+  set reactionsSelf(covariant ListBuilder<String>? reactionsSelf);
+
   String? get actorDisplayName;
   set actorDisplayName(covariant String? actorDisplayName);
 
@@ -20370,6 +20393,8 @@ class _$ChatMessage extends ChatMessage {
   @override
   final bool? silent;
   @override
+  final BuiltList<String>? reactionsSelf;
+  @override
   final String actorDisplayName;
   @override
   final String actorId;
@@ -20403,6 +20428,7 @@ class _$ChatMessage extends ChatMessage {
       this.lastEditActorType,
       this.lastEditTimestamp,
       this.silent,
+      this.reactionsSelf,
       required this.actorDisplayName,
       required this.actorId,
       required this.actorType,
@@ -20451,6 +20477,7 @@ class _$ChatMessage extends ChatMessage {
         lastEditActorType == other.lastEditActorType &&
         lastEditTimestamp == other.lastEditTimestamp &&
         silent == other.silent &&
+        reactionsSelf == other.reactionsSelf &&
         actorDisplayName == other.actorDisplayName &&
         actorId == other.actorId &&
         actorType == other.actorType &&
@@ -20477,6 +20504,7 @@ class _$ChatMessage extends ChatMessage {
     _$hash = $jc(_$hash, lastEditActorType.hashCode);
     _$hash = $jc(_$hash, lastEditTimestamp.hashCode);
     _$hash = $jc(_$hash, silent.hashCode);
+    _$hash = $jc(_$hash, reactionsSelf.hashCode);
     _$hash = $jc(_$hash, actorDisplayName.hashCode);
     _$hash = $jc(_$hash, actorId.hashCode);
     _$hash = $jc(_$hash, actorType.hashCode);
@@ -20505,6 +20533,7 @@ class _$ChatMessage extends ChatMessage {
           ..add('lastEditActorType', lastEditActorType)
           ..add('lastEditTimestamp', lastEditTimestamp)
           ..add('silent', silent)
+          ..add('reactionsSelf', reactionsSelf)
           ..add('actorDisplayName', actorDisplayName)
           ..add('actorId', actorId)
           ..add('actorType', actorType)
@@ -20573,6 +20602,10 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   bool? get silent => _$this._silent;
   set silent(covariant bool? silent) => _$this._silent = silent;
 
+  ListBuilder<String>? _reactionsSelf;
+  ListBuilder<String> get reactionsSelf => _$this._reactionsSelf ??= ListBuilder<String>();
+  set reactionsSelf(covariant ListBuilder<String>? reactionsSelf) => _$this._reactionsSelf = reactionsSelf;
+
   String? _actorDisplayName;
   String? get actorDisplayName => _$this._actorDisplayName;
   set actorDisplayName(covariant String? actorDisplayName) => _$this._actorDisplayName = actorDisplayName;
@@ -20627,6 +20660,7 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
       _lastEditActorType = $v.lastEditActorType;
       _lastEditTimestamp = $v.lastEditTimestamp;
       _silent = $v.silent;
+      _reactionsSelf = $v.reactionsSelf?.toBuilder();
       _actorDisplayName = $v.actorDisplayName;
       _actorId = $v.actorId;
       _actorType = $v.actorType;
@@ -20673,6 +20707,7 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
               lastEditActorType: lastEditActorType,
               lastEditTimestamp: lastEditTimestamp,
               silent: silent,
+              reactionsSelf: _reactionsSelf?.build(),
               actorDisplayName:
                   BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'ChatMessage', 'actorDisplayName'),
               actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'ChatMessage', 'actorId'),
@@ -20688,6 +20723,9 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
       try {
         _$failedField = 'reactions';
         reactions.build();
+
+        _$failedField = 'reactionsSelf';
+        _reactionsSelf?.build();
 
         _$failedField = 'messageParameters';
         messageParameters.build();
@@ -27660,6 +27698,9 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
   bool? get silent;
   set silent(covariant bool? silent);
 
+  ListBuilder<String> get reactionsSelf;
+  set reactionsSelf(covariant ListBuilder<String>? reactionsSelf);
+
   String? get actorDisplayName;
   set actorDisplayName(covariant String? actorDisplayName);
 
@@ -27715,6 +27756,8 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final bool? silent;
   @override
+  final BuiltList<String>? reactionsSelf;
+  @override
   final String actorDisplayName;
   @override
   final String actorId;
@@ -27749,6 +27792,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
       this.lastEditActorType,
       this.lastEditTimestamp,
       this.silent,
+      this.reactionsSelf,
       required this.actorDisplayName,
       required this.actorId,
       required this.actorType,
@@ -27799,6 +27843,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
         lastEditActorType == other.lastEditActorType &&
         lastEditTimestamp == other.lastEditTimestamp &&
         silent == other.silent &&
+        reactionsSelf == other.reactionsSelf &&
         actorDisplayName == other.actorDisplayName &&
         actorId == other.actorId &&
         actorType == other.actorType &&
@@ -27826,6 +27871,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
     _$hash = $jc(_$hash, lastEditActorType.hashCode);
     _$hash = $jc(_$hash, lastEditTimestamp.hashCode);
     _$hash = $jc(_$hash, silent.hashCode);
+    _$hash = $jc(_$hash, reactionsSelf.hashCode);
     _$hash = $jc(_$hash, actorDisplayName.hashCode);
     _$hash = $jc(_$hash, actorId.hashCode);
     _$hash = $jc(_$hash, actorType.hashCode);
@@ -27855,6 +27901,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
           ..add('lastEditActorType', lastEditActorType)
           ..add('lastEditTimestamp', lastEditTimestamp)
           ..add('silent', silent)
+          ..add('reactionsSelf', reactionsSelf)
           ..add('actorDisplayName', actorDisplayName)
           ..add('actorId', actorId)
           ..add('actorType', actorType)
@@ -27928,6 +27975,10 @@ class ChatMessageWithParentBuilder
   bool? get silent => _$this._silent;
   set silent(covariant bool? silent) => _$this._silent = silent;
 
+  ListBuilder<String>? _reactionsSelf;
+  ListBuilder<String> get reactionsSelf => _$this._reactionsSelf ??= ListBuilder<String>();
+  set reactionsSelf(covariant ListBuilder<String>? reactionsSelf) => _$this._reactionsSelf = reactionsSelf;
+
   String? _actorDisplayName;
   String? get actorDisplayName => _$this._actorDisplayName;
   set actorDisplayName(covariant String? actorDisplayName) => _$this._actorDisplayName = actorDisplayName;
@@ -27983,6 +28034,7 @@ class ChatMessageWithParentBuilder
       _lastEditActorType = $v.lastEditActorType;
       _lastEditTimestamp = $v.lastEditTimestamp;
       _silent = $v.silent;
+      _reactionsSelf = $v.reactionsSelf?.toBuilder();
       _actorDisplayName = $v.actorDisplayName;
       _actorId = $v.actorId;
       _actorType = $v.actorType;
@@ -28030,6 +28082,7 @@ class ChatMessageWithParentBuilder
               lastEditActorType: lastEditActorType,
               lastEditTimestamp: lastEditTimestamp,
               silent: silent,
+              reactionsSelf: _reactionsSelf?.build(),
               actorDisplayName:
                   BuiltValueNullFieldError.checkNotNull(actorDisplayName, r'ChatMessageWithParent', 'actorDisplayName'),
               actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'ChatMessageWithParent', 'actorId'),
@@ -28049,6 +28102,9 @@ class ChatMessageWithParentBuilder
 
         _$failedField = 'reactions';
         reactions.build();
+
+        _$failedField = 'reactionsSelf';
+        _reactionsSelf?.build();
 
         _$failedField = 'messageParameters';
         messageParameters.build();

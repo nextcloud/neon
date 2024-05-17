@@ -16604,6 +16604,7 @@ abstract interface class $ChatMessageInterface implements $BaseMessageInterface 
   ActorType? get lastEditActorType;
   int? get lastEditTimestamp;
   bool? get silent;
+  BuiltList<String>? get reactionsSelf;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatMessageInterfaceBuilder b) {
     $BaseMessageInterface._defaults(b);
@@ -42884,6 +42885,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(MessageType.serializer)
       ..add(ChatMessage_Deleted.serializer)
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..add($4b3c240037cf48d36f81308e641eef98Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer)
@@ -43417,7 +43419,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(SignalingSettings_HelloAuthParams_20.serializer)
       ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
       ..add(SignalingSettings_Stunservers.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
         ListBuilder<SignalingSettings_Stunservers>.new,
