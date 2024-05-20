@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/relative_time.dart';
@@ -470,6 +472,8 @@ class NeonAccountSelectionDialog extends StatelessWidget {
         .map<Widget>(
           (account) => NeonAccountTile(
             account: account,
+            userDetailsBloc: accountsBloc.getUserDetailsBlocFor(account),
+            userStatusBloc: accountsBloc.getUserStatusBlocFor(account),
             trailing:
                 highlightActiveAccount && account.id == activeAccount.id ? Icon(AdaptiveIcons.check_circle) : null,
             onTap: () {
@@ -488,9 +492,7 @@ class NeonAccountSelectionDialog extends StatelessWidget {
           onPressed: () async {
             await showDialog<void>(
               context: context,
-              builder: (context) => NeonUserStatusDialog(
-                account: activeAccount,
-              ),
+              builder: (context) => const NeonUserStatusDialog(),
             );
             if (context.mounted) {
               Navigator.of(context).pop();
@@ -545,10 +547,13 @@ enum AccountDeletion {
 class NeonAccountDeletionDialog extends StatefulWidget {
   const NeonAccountDeletionDialog({
     required this.account,
+    required this.capabilitiesBloc,
     super.key,
   });
 
   final Account account;
+
+  final CapabilitiesBloc capabilitiesBloc;
 
   @override
   State<NeonAccountDeletionDialog> createState() => _NeonAccountDeletionDialogState();
@@ -568,7 +573,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
   void initState() {
     super.initState();
 
-    NeonProvider.of<AccountsBloc>(context).getCapabilitiesBlocFor(widget.account).capabilities.listen((result) {
+    widget.capabilitiesBloc.capabilities.listen((result) {
       setState(() {
         dropAccountCapabilities = result.data?.capabilities.dropAccountCapabilities?.dropAccount;
         if (!(dropAccountCapabilities?.enabled ?? false)) {
@@ -752,13 +757,9 @@ class NeonEmojiPickerDialog extends StatelessWidget {
 class NeonUserStatusDialog extends StatefulWidget {
   /// Creates a new user status dialog.
   const NeonUserStatusDialog({
-    required this.account,
     @visibleForTesting this.now,
     super.key,
   });
-
-  /// Account to set the status for.
-  final Account account;
 
   /// The current time, only used for testing.
   final tz.TZDateTime? now;
@@ -834,7 +835,7 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   void initState() {
     super.initState();
 
-    bloc = NeonProvider.of<AccountsBloc>(context).getUserStatusBlocFor(widget.account);
+    bloc = NeonProvider.of<UserStatusBloc>(context);
 
     statusSubscription = bloc.status.listen((result) {
       if (result.hasData) {

@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
@@ -28,8 +28,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final bloc = accountsBloc.activeUnifiedSearchBloc;
+    final bloc = NeonProvider.of<UnifiedSearchBloc>(context);
     return StreamBuilder(
       stream: bloc.isExtendedSearch,
       builder: (context, isExtendedSearchSnapshot) => ResultBuilder.behaviorSubject(
@@ -81,8 +80,8 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     required core.UnifiedSearchProvider provider,
     required Result<core.UnifiedSearchResult> result,
   }) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final bloc = accountsBloc.activeUnifiedSearchBloc;
+    final account = NeonProvider.of<Account>(context);
+    final bloc = NeonProvider.of<UnifiedSearchBloc>(context);
 
     final showCupertino = isCupertino(context);
     final title = Text(provider.name);
@@ -105,7 +104,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
           AdaptiveListTile(
             leading: NeonImageWrapper(
               size: const Size.square(largeIconSize),
-              child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),
+              child: _buildThumbnail(context, account, entry),
             ),
             title: Text(entry.title),
             subtitle: Text(entry.subline),
@@ -143,9 +142,13 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
+  Widget _buildThumbnail(
+    BuildContext context,
+    Account account,
+    core.UnifiedSearchResultEntry entry,
+  ) {
     if (entry.thumbnailUrl.isNotEmpty) {
-      return NeonUriImage.withAccount(
+      return NeonUriImage(
         size: const Size.square(largeIconSize),
         uri: Uri.parse(entry.thumbnailUrl),
         account: account,
@@ -163,7 +166,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     core.UnifiedSearchResultEntry entry,
   ) {
     if (entry.icon.startsWith('/')) {
-      return NeonUriImage.withAccount(
+      return NeonUriImage(
         size: Size.square(IconTheme.of(context).size!),
         uri: Uri.parse(entry.icon),
         account: account,

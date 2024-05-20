@@ -365,6 +365,8 @@ class _SettingsPageState extends State<SettingsPage> {
     final accountTiles = accounts.map(
       (account) => AccountSettingsTile(
         account: account,
+        userDetailsBloc: accountsBloc.getUserDetailsBlocFor(account),
+        userStatusBloc: accountsBloc.getUserStatusBlocFor(account),
         onTap: () => AccountSettingsRoute(accountID: account.id).go(context),
       ),
     );

@@ -7,7 +7,6 @@ import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/core.dart' as core;

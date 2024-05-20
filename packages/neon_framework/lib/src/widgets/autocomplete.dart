@@ -1,14 +1,12 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
 
 /// Widget for completing search queries using the Nextcloud core Autocomplete API.
 class NeonAutocomplete extends StatefulWidget {
-  // coverage:ignore-start
   /// Creates a new autocomplete for the active account.
   const NeonAutocomplete({
     required this.itemType,
@@ -21,28 +19,7 @@ class NeonAutocomplete extends StatefulWidget {
     this.decoration,
     this.onFieldSubmitted,
     super.key,
-  }) : account = null;
-  // coverage:ignore-end
-
-  /// Creates a new autocomplete for the [account].
-  const NeonAutocomplete.withAccount({
-    required Account this.account,
-    required this.itemType,
-    required this.itemId,
-    required this.shareTypes,
-    required this.resultBuilder,
-    required this.onSelected,
-    this.limit,
-    this.validator,
-    this.decoration,
-    this.onFieldSubmitted,
-    super.key,
   });
-
-  /// The account used for searching.
-  ///
-  /// Defaults to the active account.
-  final Account? account;
 
   /// The type of the item.
   ///
@@ -88,21 +65,15 @@ class NeonAutocomplete extends StatefulWidget {
 }
 
 class _NeonAutocompleteState extends State<NeonAutocomplete> {
-  late Account account;
-  final textFieldKey = GlobalKey();
-
-  @override
-  void initState() {
-    super.initState();
-
-    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
-  }
+  final _textFieldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
+    final account = NeonProvider.of<Account>(context);
+
     return Autocomplete<core.AutocompleteResult>(
       fieldViewBuilder: (context, controller, focusNode, onFieldSubmitted) => TextFormField(
-        key: textFieldKey,
+        key: _textFieldKey,
         controller: controller,
         focusNode: focusNode,
         validator: widget.validator,
@@ -131,7 +102,7 @@ class _NeonAutocompleteState extends State<NeonAutocomplete> {
         // The autocomplete widget is a bit broken, so we need to get the width of the text field manually
         // and apply it to the result list to avoid it from going off screen.
         // See https://github.com/flutter/flutter/issues/78746#issuecomment-1055988296
-        final width = (textFieldKey.currentContext!.findRenderObject()! as RenderBox).size.width;
+        final width = (_textFieldKey.currentContext!.findRenderObject()! as RenderBox).size.width;
 
         final body = ListView.builder(
           padding: EdgeInsets.zero,

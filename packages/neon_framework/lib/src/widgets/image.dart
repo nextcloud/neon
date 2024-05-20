@@ -7,10 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
-import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
@@ -143,30 +141,12 @@ class NeonImage extends StatelessWidget {
 ///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonApiImage extends StatefulWidget {
   /// Creates a new Neon API image fetching the image with the currently active account.
-  ///
-  /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
   const NeonApiImage({
     required this.getRequest,
     required this.cacheKey,
     required this.etag,
     required this.expires,
-    this.isSvgHint = false,
-    this.size,
-    this.fit,
-    this.svgColorFilter,
-    this.errorBuilder,
-    super.key,
-  }) : account = null;
-
-  /// Creates a new Neon API image fetching the image with the given [account].
-  ///
-  /// See [NeonApiImage] to fetch the image using the currently active account.
-  const NeonApiImage.withAccount({
-    required this.getRequest,
-    required this.cacheKey,
-    required this.etag,
-    required this.expires,
-    required Account this.account,
+    required this.account,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -176,9 +156,7 @@ class NeonApiImage extends StatefulWidget {
   });
 
   /// The account to use for the request.
-  ///
-  /// Defaults to the currently active account in [AccountsBloc.activeAccount].
-  final Account? account;
+  final Account account;
 
   /// Callback for creating the HTTP request downloading the image data.
   ///
@@ -215,14 +193,11 @@ class NeonApiImage extends StatefulWidget {
 }
 
 class _NeonApiImageState extends State<NeonApiImage> {
-  late Account account;
   final image = BehaviorSubject<Result<Uint8List>>();
 
   @override
   void initState() {
     super.initState();
-
-    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     unawaited(load());
   }
@@ -236,13 +211,13 @@ class _NeonApiImageState extends State<NeonApiImage> {
 
   Future<void> load() async {
     await RequestManager.instance.wrapBinary(
-      account: account,
+      account: widget.account,
       cacheKey: widget.cacheKey,
       getCacheParameters: () async => CacheParameters(
         etag: widget.etag,
         expires: widget.expires,
       ),
-      getRequest: () => widget.getRequest(account.client),
+      getRequest: () => widget.getRequest(widget.account.client),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
@@ -278,24 +253,9 @@ class _NeonApiImageState extends State<NeonApiImage> {
 ///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonUriImage extends StatefulWidget {
   /// Creates a new Neon URL image with the active account.
-  ///
-  /// See [NeonUriImage.withAccount] for using a specific account.
   const NeonUriImage({
     required this.uri,
-    this.isSvgHint = false,
-    this.size,
-    this.fit,
-    this.svgColorFilter,
-    this.errorBuilder,
-    super.key,
-  }) : account = null;
-
-  /// Creates a new Neon URL image with the given [account].
-  ///
-  /// See [NeonUriImage] for using the active account.
-  const NeonUriImage.withAccount({
-    required this.uri,
-    required Account this.account,
+    required this.account,
     this.isSvgHint = false,
     this.size,
     this.fit,
@@ -305,9 +265,7 @@ class NeonUriImage extends StatefulWidget {
   });
 
   /// The account to use for the request.
-  ///
-  /// Defaults to the currently active account in [AccountsBloc.activeAccount].
-  final Account? account;
+  final Account account;
 
   /// Image URI.
   ///
@@ -334,14 +292,11 @@ class NeonUriImage extends StatefulWidget {
 }
 
 class _NeonUriImageState extends State<NeonUriImage> {
-  late Account account;
   final image = BehaviorSubject<Result<Uint8List>>();
 
   @override
   void initState() {
     super.initState();
-
-    account = widget.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
     unawaited(load());
   }
@@ -363,10 +318,10 @@ class _NeonUriImageState extends State<NeonUriImage> {
       return;
     }
 
-    final completedUri = account.completeUri(widget.uri);
+    final completedUri = widget.account.completeUri(widget.uri);
 
     await RequestManager.instance.wrapUri(
-      account: account,
+      account: widget.account,
       uri: completedUri,
       unwrap: (data) {
         try {

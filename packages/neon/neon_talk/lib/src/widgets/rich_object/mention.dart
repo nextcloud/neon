@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -28,13 +29,13 @@ class TalkRichObjectMention extends StatelessWidget {
 
     switch (parameter.type) {
       case 'user':
-        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-        final account = accountsBloc.activeAccount.value!;
+        final account = NeonProvider.of<Account>(context);
 
         highlight = account.username == parameter.id;
         child = NeonUserAvatar(
           username: parameter.id,
-          showStatus: false,
+          account: NeonProvider.of<Account>(context),
+          userStatusBloc: null,
         );
       case 'call':
         highlight = true;
@@ -42,6 +43,7 @@ class TalkRichObjectMention extends StatelessWidget {
           child: ClipOval(
             child: NeonUriImage(
               uri: Uri.parse(parameter.iconUrl!),
+              account: NeonProvider.of<Account>(context),
             ),
           ),
         );
@@ -52,8 +54,7 @@ class TalkRichObjectMention extends StatelessWidget {
           child: Icon(AdaptiveIcons.person),
         );
       case 'user-group' || 'group':
-        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-        final userDetailsBloc = accountsBloc.activeUserDetailsBloc;
+        final userDetailsBloc = NeonProvider.of<UserDetailsBloc>(context);
         final groups = userDetailsBloc.userDetails.valueOrNull?.data?.groups ?? BuiltList();
 
         highlight = groups.contains(parameter.id);

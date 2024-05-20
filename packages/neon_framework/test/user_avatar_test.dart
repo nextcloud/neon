@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
@@ -41,17 +40,11 @@ void main() {
         ),
       );
 
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
-
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
-          ],
           child: NeonUserAvatar(
-            showStatus: withStatus,
+            account: account,
+            userStatusBloc: withStatus ? userStatusBloc : null,
           ),
         ),
       );

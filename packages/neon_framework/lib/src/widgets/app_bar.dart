@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/utils/global_options.dart' as global_options;
 import 'package:neon_framework/src/utils/provider.dart';
@@ -39,8 +38,8 @@ class _NeonAppBarState extends State<NeonAppBar> {
     super.initState();
 
     globalOptions = NeonProvider.of<global_options.GlobalOptions>(context);
-    unifiedSearchBloc = NeonProvider.of<AccountsBloc>(context).activeUnifiedSearchBloc;
-    appsBloc = NeonProvider.of<AccountsBloc>(context).activeAppsBloc;
+    unifiedSearchBloc = NeonProvider.of<UnifiedSearchBloc>(context);
+    appsBloc = NeonProvider.of<AppsBloc>(context);
 
     searchTermSubscription =
         searchTermController.stream.debounceTime(const Duration(milliseconds: 250)).listen(unifiedSearchBloc.search);

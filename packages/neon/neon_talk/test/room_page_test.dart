@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
@@ -15,6 +16,7 @@ import 'package:neon_talk/src/theme.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -146,9 +148,6 @@ void main() {
     final account = MockAccount();
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
-    final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
@@ -157,7 +156,7 @@ void main() {
           TalkTheme(),
         ],
         providers: [
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         child: const TalkRoomPage(),

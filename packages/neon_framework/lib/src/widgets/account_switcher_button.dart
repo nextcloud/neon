@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -47,7 +48,10 @@ class AccountSwitcherButton extends StatelessWidget {
       onPressed: () async => _onPressed(context),
       tooltip: NeonLocalizations.of(context).settingsAccount,
       padding: const EdgeInsets.all(8),
-      icon: const NeonUserAvatar(),
+      icon: NeonUserAvatar(
+        account: NeonProvider.of<Account>(context),
+        userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
+      ),
     );
   }
 }

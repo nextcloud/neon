@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/pages/account_settings.dart';
@@ -30,7 +31,6 @@ part 'router.g.dart';
 @internal
 GoRouter buildAppRouter({
   required GlobalKey<NavigatorState> navigatorKey,
-  required AccountsBloc accountsBloc,
 }) =>
     GoRouter(
       debugLogDiagnostics: kDebugMode,
@@ -39,17 +39,17 @@ GoRouter buildAppRouter({
       onException: (context, state, router) async {
         final accountsBloc = NeonProvider.of<AccountsBloc>(context);
         if (accountsBloc.hasAccounts) {
-          final activeAccount = accountsBloc.activeAccount.value!;
-
           var uri = state.uri;
-          final capabilities = accountsBloc.activeCapabilitiesBloc.capabilities.valueOrNull?.data;
+          final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
+          final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data;
           final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
           if (!modRewriteWorking) {
             uri = state.uri.replace(path: '/index.php${state.uri}');
           }
 
+          final account = NeonProvider.of<Account>(context);
           await launchUrl(
-            activeAccount.completeUri(uri),
+            account.completeUri(uri),
             mode: LaunchMode.externalApplication,
           );
 
@@ -76,8 +76,10 @@ GoRouter buildAppRouter({
           ).location;
         }
 
+        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
         if (accountsBloc.hasAccounts && state.uri.hasScheme) {
-          final strippedUri = accountsBloc.activeAccount.value!.stripUri(state.uri);
+          final account = NeonProvider.of<Account>(context);
+          final strippedUri = account.stripUri(state.uri);
           if (strippedUri != state.uri) {
             return strippedUri.toString();
           }
@@ -115,7 +117,6 @@ class AccountSettingsRoute extends GoRouteData {
     final account = bloc.accounts.value.find(accountID);
 
     return AccountSettingsPage(
-      bloc: bloc,
       account: account,
     );
   }
@@ -201,7 +202,6 @@ class HomeRoute extends GoRouteData {
 
         final account = snapshot.requireData!;
         return HomePage(
-          account: account,
           key: Key(account.id),
         );
       },

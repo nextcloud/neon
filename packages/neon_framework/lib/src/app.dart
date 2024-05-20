@@ -7,9 +7,12 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
-import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/src/blocs/capabilities.dart';
+import 'package:neon_framework/src/blocs/maintenance_mode.dart';
+import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
@@ -19,6 +22,7 @@ import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/theme/server.dart';
 import 'package:neon_framework/src/theme/theme.dart';
+import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
@@ -26,6 +30,7 @@ import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/src/widgets/options_collection_builder.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
 import 'package:window_manager/window_manager.dart';
@@ -59,7 +64,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   late final AccountsBloc _accountsBloc;
   late final _routerDelegate = buildAppRouter(
     navigatorKey: _navigatorKey,
-    accountsBloc: _accountsBloc,
   );
 
   @override
@@ -220,7 +224,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                   neonTheme: widget.neonTheme,
                 );
 
-                return MaterialApp.router(
+                final app = MaterialApp.router(
                   debugShowCheckedModeBanner: false,
                   localizationsDelegates: [
                     ..._appImplementations.map((app) => app.localizationsDelegate),
@@ -235,6 +239,45 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                   darkTheme: appTheme.darkTheme,
                   routerConfig: _routerDelegate,
                 );
+
+                if (activeAccountSnapshot.hasData) {
+                  final account = activeAccountSnapshot.requireData!;
+
+                  return MultiProvider(
+                    providers: [
+                      Provider<Account>.value(
+                        value: account,
+                      ),
+                      NeonProvider<AccountOptions>.value(
+                        value: _accountsBloc.getOptionsFor(account),
+                      ),
+                      NeonProvider<AppsBloc>.value(
+                        value: _accountsBloc.getAppsBlocFor(account),
+                      ),
+                      NeonProvider<CapabilitiesBloc>.value(
+                        value: _accountsBloc.getCapabilitiesBlocFor(account),
+                      ),
+                      NeonProvider<UserDetailsBloc>.value(
+                        value: _accountsBloc.getUserDetailsBlocFor(account),
+                      ),
+                      NeonProvider<UserStatusBloc>.value(
+                        value: _accountsBloc.getUserStatusBlocFor(account),
+                      ),
+                      NeonProvider<UnifiedSearchBloc>.value(
+                        value: _accountsBloc.getUnifiedSearchBlocFor(account),
+                      ),
+                      NeonProvider<WeatherStatusBloc>.value(
+                        value: _accountsBloc.getWeatherStatusBlocFor(account),
+                      ),
+                      NeonProvider<MaintenanceModeBloc>.value(
+                        value: _accountsBloc.getMaintenanceModeBlocFor(account),
+                      ),
+                    ],
+                    child: app,
+                  );
+                }
+
+                return app;
               },
             );
           },

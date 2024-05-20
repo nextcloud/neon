@@ -266,18 +266,13 @@ void main() {
       when(() => userStatusBloc.status).thenAnswer((_) => status);
       when(() => userStatusBloc.predefinedStatuses).thenAnswer((_) => predefinedStatuses);
 
-      final account = MockAccount();
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
-
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           wrapMaterial: false,
           providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
           ],
           child: NeonUserStatusDialog(
-            account: account,
             now: now,
           ),
         ),
@@ -417,19 +412,14 @@ void main() {
         (_) => BehaviorSubject.seeded(Result.success(buildCapabilities(null))),
       );
 
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
-
       await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
       final future = showDialog<AccountDeletion>(
         context: context,
-        builder: (context) => NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: NeonAccountDeletionDialog(
-            account: account,
-          ),
+        builder: (context) => NeonAccountDeletionDialog(
+          account: account,
+          capabilitiesBloc: capabilitiesBloc,
         ),
       );
       await tester.pumpAndSettle();
@@ -468,19 +458,14 @@ void main() {
           ),
         );
 
-        final accountsBloc = MockAccountsBloc();
-        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
-
         await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: NeonAccountDeletionDialog(
-              account: account,
-            ),
+          builder: (context) => NeonAccountDeletionDialog(
+            account: account,
+            capabilitiesBloc: capabilitiesBloc,
           ),
         );
         await tester.pumpAndSettle();
@@ -521,19 +506,14 @@ void main() {
           ),
         );
 
-        final accountsBloc = MockAccountsBloc();
-        when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
-
         await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: NeonAccountDeletionDialog(
-              account: account,
-            ),
+          builder: (context) => NeonAccountDeletionDialog(
+            account: account,
+            capabilitiesBloc: capabilitiesBloc,
           ),
         );
         await tester.pumpAndSettle();

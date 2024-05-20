@@ -34,8 +34,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
   void initState() {
     super.initState();
 
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    account = accountsBloc.activeAccount.value!;
+    account = NeonProvider.of<Account>(context);
 
     bloc = NeonProvider.of<TalkBloc>(context);
     errorsSubscription = bloc.errors.listen((error) {

@@ -2,7 +2,6 @@ import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
@@ -12,9 +11,9 @@ import 'package:neon_framework/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon_framework/src/settings/widgets/settings_category.dart';
 import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
-import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Account settings page.
@@ -24,19 +23,16 @@ import 'package:url_launcher/url_launcher.dart';
 class AccountSettingsPage extends StatelessWidget {
   /// Creates a new account settings page for the given [account].
   const AccountSettingsPage({
-    required this.bloc,
     required this.account,
     super.key,
   });
-
-  /// The bloc managing the accounts and their settings.
-  final AccountsBloc bloc;
 
   /// The account to display the settings for.
   final Account account;
 
   @override
   Widget build(BuildContext context) {
+    final bloc = NeonProvider.of<AccountsBloc>(context);
     final options = bloc.getOptionsFor(account);
     final userDetailsBloc = bloc.getUserDetailsBlocFor(account);
     final name = account.humanReadableID;
@@ -50,6 +46,7 @@ class AccountSettingsPage extends StatelessWidget {
               context: context,
               builder: (context) => NeonAccountDeletionDialog(
                 account: account,
+                capabilitiesBloc: bloc.getCapabilitiesBlocFor(account),
               ),
             );
 

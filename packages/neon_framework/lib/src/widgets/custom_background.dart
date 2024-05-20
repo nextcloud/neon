@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/theme/server.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/hex_color.dart';
@@ -54,6 +55,7 @@ class NeonCustomBackground extends StatelessWidget {
               child: NeonUriImage(
                 uri: Uri.parse(theme.background),
                 fit: BoxFit.cover,
+                account: NeonProvider.of<Account>(context),
               ),
             ),
             Positioned.fill(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -32,6 +34,7 @@ class TalkRichObjectFallback extends StatelessWidget {
           child: ClipOval(
             child: NeonUriImage(
               uri: Uri.parse(iconUrl),
+              account: NeonProvider.of<Account>(context),
             ),
           ),
         ),

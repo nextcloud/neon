@@ -1,7 +1,7 @@
 export 'package:neon_framework/src/bloc/bloc.dart';
 export 'package:neon_framework/src/bloc/result.dart';
-// TODO: Remove access to the AccountsBloc. Apps should not need to access this
-export 'package:neon_framework/src/blocs/accounts.dart' show AccountsBloc;
+export 'package:neon_framework/src/blocs/apps.dart';
 export 'package:neon_framework/src/blocs/timer.dart';
+export 'package:neon_framework/src/blocs/user_details.dart';
 export 'package:neon_framework/src/blocs/user_status.dart';
 export 'package:neon_framework/src/blocs/weather_status.dart';

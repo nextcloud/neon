@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -32,6 +35,7 @@ class TalkRoomAvatar extends StatelessWidget {
             cacheKey: 'talk-room-${room.token}-avatar-$brightness',
             etag: room.avatarVersion,
             expires: null,
+            account: NeonProvider.of<Account>(context),
           ),
         ),
       );
@@ -40,6 +44,8 @@ class TalkRoomAvatar extends StatelessWidget {
     return switch (spreed.RoomType.fromValue(room.type)) {
       spreed.RoomType.oneToOne => NeonUserAvatar(
           username: room.name,
+          account: NeonProvider.of<Account>(context),
+          userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
         ),
       spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
       // coverage:ignore-start

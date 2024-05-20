@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 
@@ -29,6 +31,7 @@ class DashboardWidgetItem extends StatelessWidget {
             ? NeonUriImage(
                 uri: Uri.parse(item.iconUrl),
                 size: const Size.square(largeIconSize),
+                account: NeonProvider.of<Account>(context),
               )
             : Icon(
                 AdaptiveIcons.question_mark,
@@ -51,6 +54,7 @@ class DashboardWidgetItem extends StatelessWidget {
                 child: NeonUriImage(
                   uri: Uri.parse(overlayIconUrl),
                   size: const Size.square(smallIconSize),
+                  account: NeonProvider.of<Account>(context),
                 ),
               ),
             ),

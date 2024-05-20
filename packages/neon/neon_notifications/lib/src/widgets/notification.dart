@@ -31,6 +31,7 @@ class NotificationsNotification extends StatelessWidget {
         SizedBox.fromSize(
           size: const Size.square(largeIconSize),
           child: NeonUriImage(
+            account: NeonProvider.of<Account>(context),
             uri: Uri.parse(notification.icon!),
             size: const Size.square(largeIconSize),
             svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
@@ -75,8 +76,7 @@ class NotificationsNotification extends StatelessWidget {
         }
         if (app != null) {
           // TODO: use go_router once implemented
-          final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-          accountsBloc.activeAppsBloc.setActiveApp(app.id);
+          NeonProvider.of<AppsBloc>(context).setActiveApp(app.id);
         } else {
           await showUnimplementedDialog(
             context: context,
