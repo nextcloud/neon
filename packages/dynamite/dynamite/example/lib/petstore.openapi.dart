@@ -335,12 +335,16 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
   factory NewPet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
   /// Serializer for NewPet.
   static Serializer<NewPet> get serializer => _$newPetSerializer;
@@ -381,12 +385,16 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
   factory Pet.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
   /// Serializer for Pet.
   static Serializer<Pet> get serializer => _$petSerializer;
@@ -423,12 +431,16 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
   factory Error.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
   /// Serializer for Error.
   static Serializer<Error> get serializer => _$errorSerializer;

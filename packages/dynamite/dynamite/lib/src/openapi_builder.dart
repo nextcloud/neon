@@ -99,10 +99,16 @@ class OpenAPIBuilder implements Builder {
         for (final ignore in coverageIgnores) {
           final pattern = RegExp(ignore);
 
-          outputString = outputString.replaceAllMapped(
+          final before = outputString;
+          outputString = before.replaceAllMapped(
             pattern,
             (match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
           );
+          if (outputString == before) {
+            log.warning(
+              'Coverage ignore pattern $ignore did not match anything',
+            );
+          }
         }
       }
 
