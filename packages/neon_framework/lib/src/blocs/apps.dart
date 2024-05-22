@@ -74,7 +74,24 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     required this.allAppImplementations,
   }) {
     apps.listen((result) {
-      appImplementations.add(result.transform((data) => filteredAppImplementations(data.map((a) => a.id))));
+      appImplementations.add(
+        result.transform(
+          (data) {
+            final apps = SetBuilder<AppImplementation>();
+
+            for (final entry in data) {
+              for (final app in allAppImplementations) {
+                if (app.id == entry.id || (app.additionalMatchingIDs?.contains(entry.id) ?? false)) {
+                  apps.add(app);
+                  break;
+                }
+              }
+            }
+
+            return apps.build();
+          },
+        ),
+      );
 
       if (result.hasData) {
         unawaited(updateApps());
@@ -85,7 +102,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       notificationsAppImplementation.add(
         result.transform(
           (data) => data.capabilities.notificationsCapabilities?.notifications != null
-              ? findAppImplementation(AppIDs.notifications)
+              ? allAppImplementations.firstWhereOrNull(
+                  (a) => a.id == AppIDs.notifications,
+                ) as NotificationsAppInterface?
               : null,
         ),
       );
@@ -207,22 +226,6 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     appVersionChecks.add(checks.build());
   }
 
-  T? findAppImplementation<T extends AppImplementation>(String id) {
-    final matches = filteredAppImplementations([id]);
-    if (matches.isNotEmpty) {
-      return matches.single as T;
-    }
-
-    return null;
-  }
-
-  BuiltSet<AppImplementation> filteredAppImplementations(Iterable<String> appIds) => BuiltSet(
-        allAppImplementations.where(
-          (a) =>
-              appIds.contains(a.id) || a.additionalMatchingIDs?.firstWhereOrNull((id) => appIds.contains(id)) != null,
-        ),
-      );
-
   final BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilitiesSubject;
   final Account account;
   final AccountOptions accountOptions;
@@ -268,7 +271,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       subject: apps,
       getRequest: account.client.core.navigation.$getAppsNavigation_Request,
       serializer: account.client.core.navigation.$getAppsNavigation_Serializer(),
-      unwrap: (response) => response.body.ocs.data,
+      unwrap: (response) => response.body.ocs.data.rebuild(
+        (b) => b..sort((a, b) => (a.getOrder()).compareTo(b.getOrder())),
+      ),
     );
   }
 
@@ -300,4 +305,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   List<Provider<Bloc>> get appBlocProviders =>
       allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
+}
+
+extension _NavigationEntryOrder on core.NavigationEntry {
+  int getOrder() => order.$int ?? int.parse(order.string!);
 }
