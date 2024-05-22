@@ -459,63 +459,70 @@ class TalkCommentMessage extends StatelessWidget {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
 
+    Widget? readIndicator;
+    if (lastCommonRead != null && account.username == chatMessage.actorId) {
+      readIndicator = TalkReadIndicator(
+        chatMessage: chatMessage,
+        lastCommonRead: lastCommonRead!,
+      );
+    }
+
+    Widget message = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (displayName != null) displayName,
+            if (time != null) time,
+          ],
+        ),
+        if (parent != null) parent,
+        text,
+        if (!isParent && chatMessage.reactions.isNotEmpty)
+          TalkReactions(
+            reactions: chatMessage.reactions,
+          ),
+      ]
+          .intersperse(
+            const SizedBox(
+              height: 5,
+            ),
+          )
+          .toList(),
+    );
+
+    if (!isParent) {
+      message = Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: SizedBox(
+              width: 40,
+              child: avatar,
+            ),
+          ),
+          Expanded(
+            child: message,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: SizedBox(
+              width: 14,
+              child: readIndicator,
+            ),
+          ),
+        ],
+      );
+    }
+
     return Container(
       margin: EdgeInsets.only(
         top: topMargin,
         bottom: 5,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (!isParent)
-            Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: SizedBox(
-                width: 40,
-                child: avatar,
-              ),
-            ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (displayName != null) displayName,
-                if (parent != null) parent,
-                text,
-                if (!isParent && chatMessage.reactions.isNotEmpty)
-                  TalkReactions(
-                    reactions: chatMessage.reactions,
-                  ),
-              ]
-                  .intersperse(
-                    const SizedBox(
-                      height: 5,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-          if (time != null || !isParent)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                if (time != null)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 5, left: 10),
-                    child: time,
-                  ),
-                if (!isParent && lastCommonRead != null && account.username == chatMessage.actorId)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 2.5, left: 10),
-                    child: TalkReadIndicator(
-                      chatMessage: chatMessage,
-                      lastCommonRead: lastCommonRead!,
-                    ),
-                  ),
-              ],
-            ),
-        ],
-      ),
+      child: message,
     );
   }
 }
