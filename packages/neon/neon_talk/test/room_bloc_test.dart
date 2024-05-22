@@ -84,6 +84,70 @@ Account mockTalkAccount() {
             },
           ),
     },
+    RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/reaction/abcd/[0-9]+'): {
+      'post': (match, queryParameters) {
+        final reaction = queryParameters['reaction']!.single;
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': {
+                reaction: [
+                  {
+                    'actorDisplayName': '',
+                    'actorId': 'test',
+                    'actorType': 'users',
+                    'timestamp': 0,
+                  },
+                  {
+                    'actorDisplayName': '',
+                    'actorId': 'other',
+                    'actorType': 'users',
+                    'timestamp': 0,
+                  },
+                ],
+              },
+            },
+          }),
+          200,
+          headers: {
+            'content-type': 'application/json; charset=utf-8',
+          },
+        );
+      },
+      'delete': (match, queryParameters) {
+        final reaction = queryParameters['reaction']!.single;
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': {
+                reaction: [
+                  {
+                    'actorDisplayName': '',
+                    'actorId': 'test',
+                    'actorType': 'users',
+                    'timestamp': 0,
+                  },
+                  {
+                    'actorDisplayName': '',
+                    'actorId': 'other',
+                    'actorType': 'users',
+                    'timestamp': 0,
+                  },
+                ],
+              },
+            },
+          }),
+          200,
+          headers: {
+            'content-type': 'application/json; charset=utf-8',
+          },
+        );
+      },
+    },
   });
 }
 
@@ -184,6 +248,102 @@ void main() {
     roomBloc.sendMessage('');
 
     verify(() => talkBloc.updateRoom(any())).called(3);
+  });
+
+  test('addReaction', () async {
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltMap<String, int>>(e.map((m) => m.reactions))),
+      emitsInOrder([
+        Result<BuiltList<BuiltMap<String, int>>>.loading(),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>({'😀': 2}),
+          ]),
+        ),
+      ]),
+    );
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
+      emitsInOrder([
+        Result<BuiltList<BuiltList<String>?>>.loading(),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            null,
+            null,
+            null,
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            null,
+            null,
+            BuiltList<String>(['😀']),
+          ]),
+        ),
+      ]),
+    );
+
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(0);
+
+    roomBloc.addReaction(message, '😀');
+  });
+
+  test('removeReaction', () async {
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltMap<String, int>>(e.map((m) => m.reactions))),
+      emitsInOrder([
+        Result<BuiltList<BuiltMap<String, int>>>.loading(),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>({'😀': 2}),
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+          ]),
+        ),
+      ]),
+    );
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
+      emitsInOrder([
+        Result<BuiltList<BuiltList<String>?>>.loading(),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            null,
+            null,
+            null,
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            BuiltList<String>(['😀']),
+            null,
+            null,
+          ]),
+        ),
+      ]),
+    );
+
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(2);
+
+    roomBloc.removeReaction(message, '😀');
   });
 
   test('polling', () async {

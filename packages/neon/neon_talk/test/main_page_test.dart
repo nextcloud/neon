@@ -217,24 +217,22 @@ void main() {
 
     await tester.runAsync(() async {
       await tester.tap(find.byType(FloatingActionButton));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TalkCreateRoomDialog), findsOne);
+
+      await tester.tap(find.text(TalkLocalizationsEn().roomType(spreed.RoomType.public.name)));
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextFormField), 'test');
+      await tester.pumpAndSettle();
+
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TalkCreateRoomDialog), findsNothing);
+
+      verify(() => bloc.createRoom(spreed.RoomType.public, 'test', null)).called(1);
     });
-    await tester.pumpAndSettle();
-
-    expect(find.byType(TalkCreateRoomDialog), findsOne);
-
-    await tester.tap(find.text(TalkLocalizationsEn().roomType(spreed.RoomType.public.name)));
-    await tester.pumpAndSettle();
-
-    await tester.enterText(find.byType(TextFormField), 'test');
-    await tester.pumpAndSettle();
-
-    await tester.testTextInput.receiveAction(TextInputAction.done);
-    await tester.pumpAndSettle();
-
-    expect(find.byType(TalkCreateRoomDialog), findsNothing);
-
-    await tester.runAsync(() async {});
-
-    verify(() => bloc.createRoom(spreed.RoomType.public, 'test', null)).called(1);
   });
 }

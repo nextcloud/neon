@@ -455,6 +455,7 @@ void main() {
       );
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byIcon(AdaptiveIcons.cancel), findsOne);
+      expect(find.byType(TalkReactions), findsNothing);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message_deleted.png'),
@@ -545,6 +546,7 @@ void main() {
         ),
       );
       expect(find.byType(TalkParentMessage), findsOne);
+      expect(find.byType(TalkReactions), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage).first,
         matchesGoldenFile('goldens/message_comment_message_with_parent.png'),
