@@ -50,8 +50,8 @@ targets:
             - unreachable_switch_case
           coverage_ignores:
             - 'const .*\._\(\);'
-            - 'factory .*\.fromJson\(Map<String, dynamic> json\) => jsonSerializers\.deserializeWith\(serializer, json\)!;'
-            - 'Map<String, dynamic> toJson\(\) => jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;'
+            - 'factory .*\.fromJson\(Map<String, dynamic> json\) => _\$jsonSerializers\.deserializeWith\(serializer, json\)!;'
+            - 'Map<String, dynamic> toJson\(\) => _\$jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;'
             - 'static BuiltSet<.*> get values => _\$.*Values;'
           overrides:
             # Tighten linting rules for specific specs
