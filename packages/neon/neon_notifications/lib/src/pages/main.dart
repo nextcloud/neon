@@ -1,6 +1,8 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
@@ -75,19 +77,25 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (notification.message.isNotEmpty) ...[
+          if (notification.message.isNotEmpty)
             Text(
               notification.message,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(
-              height: 5,
-            ),
-          ],
           RelativeTime(
             date: tz.TZDateTime.parse(tz.UTC, notification.datetime),
           ),
-        ],
+          if (notification.actions.isNotEmpty)
+            Row(
+              children: notification.actions.map(_buildAction).toList(),
+            ),
+        ]
+            .intersperse(
+              const SizedBox(
+                height: 5,
+              ),
+            )
+            .toList(),
       ),
       leading: app != null
           ? app.buildIcon(
@@ -119,6 +127,19 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       onLongPress: () {
         bloc.deleteNotification(notification.notificationId);
       },
+    );
+  }
+
+  Widget _buildAction(notifications.NotificationAction action) {
+    return ElevatedButton(
+      onPressed: () {
+        context.go(action.link);
+      },
+      style: ElevatedButton.styleFrom(
+        foregroundColor: action.primary ? Theme.of(context).colorScheme.onPrimary : null,
+        backgroundColor: action.primary ? Theme.of(context).colorScheme.primary : null,
+      ),
+      child: Text(action.label),
     );
   }
 }
