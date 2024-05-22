@@ -479,9 +479,9 @@ class TalkCommentMessage extends StatelessWidget {
         ),
         if (parent != null) parent,
         text,
-        if (!isParent && chatMessage.reactions.isNotEmpty)
+        if (!isParent && chatMessage.messageType != spreed.MessageType.commentDeleted)
           TalkReactions(
-            reactions: chatMessage.reactions,
+            chatMessage: chatMessage,
           ),
       ]
           .intersperse(

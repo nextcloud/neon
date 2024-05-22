@@ -25,6 +25,12 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// Sends a new text message to the room.
   void sendMessage(String message);
 
+  /// Adds an emoji [reaction] to the [message].
+  void addReaction(spreed.$ChatMessageInterface message, String reaction);
+
+  /// Removes an emoji [reaction] to the [message].
+  void removeReaction(spreed.$ChatMessageInterface message, String reaction);
+
   /// The current room data.
   BehaviorSubject<Result<spreed.Room>> get room;
 
@@ -208,6 +214,44 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     );
   }
 
+  @override
+  Future<void> addReaction(spreed.$ChatMessageInterface message, String reaction) async {
+    await wrapAction(
+      () async {
+        final response = await account.client.spreed.reaction.react(
+          reaction: reaction,
+          token: token,
+          messageId: message.id,
+        );
+
+        updateReactions(
+          message.id,
+          response.body.ocs.data,
+        );
+      },
+      refresh: () async {},
+    );
+  }
+
+  @override
+  Future<void> removeReaction(spreed.$ChatMessageInterface message, String reaction) async {
+    await wrapAction(
+      () async {
+        final response = await account.client.spreed.reaction.delete(
+          reaction: reaction,
+          token: token,
+          messageId: message.id,
+        );
+
+        updateReactions(
+          message.id,
+          response.body.ocs.data,
+        );
+      },
+      refresh: () async {},
+    );
+  }
+
   void updateLastCommonRead(String? header) {
     if (header != null) {
       lastCommonRead.add(int.parse(header));
@@ -237,5 +281,56 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     } else {
       messages.add(Result.success(BuiltList(newMessages)));
     }
+  }
+
+  void updateReactions(int messageId, BuiltMap<String, BuiltList<spreed.Reaction>> reactions) {
+    updateMessage(
+      messageId,
+      (b) => b
+        ..reactions.update((b) {
+          b.clear();
+
+          for (final entry in reactions.entries) {
+            b[entry.key] = entry.value.length;
+          }
+        })
+        ..reactionsSelf.update((b) {
+          b.clear();
+
+          for (final entry in reactions.entries) {
+            if (entry.value.where((r) => r.actorId == account.username).isNotEmpty) {
+              b.add(entry.key);
+            }
+          }
+        }),
+    );
+  }
+
+  void updateMessage(
+    int messageId,
+    spreed.ChatMessageWithParentBuilder Function(spreed.ChatMessageWithParentBuilder b) updates,
+  ) {
+    final result = messages.valueOrNull;
+    if (result == null) {
+      return;
+    }
+    final data = result.data;
+    if (data == null) {
+      return;
+    }
+
+    messages.add(
+      result.copyWith(
+        data: data.rebuild((b) {
+          b.map((m) {
+            if (m.id == messageId) {
+              m = m.rebuild(updates);
+            }
+
+            return m;
+          });
+        }),
+      ),
+    );
   }
 }
