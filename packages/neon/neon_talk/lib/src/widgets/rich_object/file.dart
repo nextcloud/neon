@@ -4,11 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/core.dart';
+import 'package:neon_talk/src/widgets/rich_object/file_preview.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
-/// Displays a file preview from a rich object.
+/// Displays a file from a rich object.
 class TalkRichObjectFile extends StatelessWidget {
   /// Creates a new Talk rich object file.
   const TalkRichObjectFile({
@@ -28,50 +27,8 @@ class TalkRichObjectFile extends StatelessWidget {
     Widget child;
 
     if (parameter.previewAvailable == spreed.RichObjectParameter_PreviewAvailable.yes) {
-      final maxHeight = MediaQuery.sizeOf(context).height / 2;
-
-      var width = _parseDimension(parameter.width);
-      var height = _parseDimension(parameter.height);
-      if (width != null && height != null) {
-        final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
-
-        var size = Size(width.toDouble(), height.toDouble());
-
-        // Convert to logical pixels
-        size /= devicePixelRatio;
-
-        // Constrain size to max height but keep aspect ratio
-        if (size.height > maxHeight) {
-          size = size * (maxHeight / size.height);
-        }
-
-        // Convert back to device pixels
-        size *= devicePixelRatio;
-
-        width = size.width.toInt();
-        height = size.height.toInt();
-      }
-
-      height ??= -1;
-      width ??= -1;
-
-      child = ConstrainedBox(
-        constraints: BoxConstraints(
-          maxHeight: maxHeight,
-        ),
-        child: Tooltip(
-          message: parameter.name,
-          child: NeonApiImage(
-            cacheKey: 'preview-${parameter.path!}-$width-$height',
-            etag: parameter.etag,
-            expires: null,
-            getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
-              fileId: int.parse(parameter.id),
-              x: width,
-              y: height,
-            ),
-          ),
-        ),
+      child = TalkRichObjectFilePreview(
+        parameter: parameter,
       );
     } else {
       child = Row(
@@ -97,23 +54,5 @@ class TalkRichObjectFile extends StatelessWidget {
       },
       child: child,
     );
-  }
-
-  int? _parseDimension(({int? $int, String? string})? dimension) {
-    if (dimension == null) {
-      return null;
-    }
-
-    final $int = dimension.$int;
-    if ($int != null) {
-      return $int;
-    }
-
-    final string = dimension.string;
-    if (string != null) {
-      return int.parse(string);
-    }
-
-    throw ArgumentError(r'One of $int or string has to be not-null');
   }
 }
