@@ -149,7 +149,6 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
       onFieldSubmitted: (_) {
         submit();
       },
-      // ignore: avoid_types_on_closure_parameters
       resultBuilder: buildResult,
       onSelected: (result) {
         setState(() {

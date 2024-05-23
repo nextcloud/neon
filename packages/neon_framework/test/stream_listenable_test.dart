@@ -58,7 +58,6 @@ void main() {
 
       expect(controller.hasListener, true);
 
-      // ignore: cascade_invocations
       listenable.dispose();
 
       expect(controller.isClosed, false);

@@ -1,5 +1,3 @@
-// ignore_for_file: cascade_invocations
-
 import 'dart:async';
 import 'dart:convert';
 
@@ -159,8 +157,9 @@ WHERE prefix = ?
         fromSystem[key] = _decode(value) as Object;
       }
 
-      cache.clear();
-      cache.addAll(fromSystem);
+      cache
+        ..clear()
+        ..addAll(fromSystem);
     } on DatabaseException catch (error) {
       _log.warning(
         'Error reloading the SQLite persistence.',

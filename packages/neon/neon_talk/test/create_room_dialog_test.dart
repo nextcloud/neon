@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_asserts_with_message
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';

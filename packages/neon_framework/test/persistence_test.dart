@@ -1,5 +1,4 @@
-// ignore_for_file: unnecessary_lambdas, inference_failure_on_instance_creation, strict_raw_type
-// ignore_for_file: inference_failure_on_collection_literal
+// ignore_for_file: inference_failure_on_instance_creation, strict_raw_type, inference_failure_on_collection_literal
 
 import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
