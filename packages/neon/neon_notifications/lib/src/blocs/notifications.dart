@@ -2,13 +2,15 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/notifications.dart' as $notifications;
 import 'package:rxdart/rxdart.dart';
 
-sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
+@sealed
+abstract class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
   factory NotificationsBloc({
     required Account account,
   }) = _NotificationsBloc;
