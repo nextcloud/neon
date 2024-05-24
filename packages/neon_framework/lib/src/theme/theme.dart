@@ -93,7 +93,7 @@ class AppTheme {
 
     if (oledAsDark && brightness == Brightness.dark) {
       colorScheme = colorScheme.copyWith(
-        background: NcColors.oledBackground,
+        surface: NcColors.oledBackground,
       );
     }
 
@@ -107,17 +107,17 @@ class AppTheme {
       useMaterial3: true,
       platform: platform,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: colorScheme.background,
-      cardColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
+      cardColor: colorScheme.surface,
       // For LicensePage
       snackBarTheme: _snackBarTheme,
       dividerTheme: _dividerTheme,
       scrollbarTheme: _scrollbarTheme,
       inputDecorationTheme: _inputDecorationTheme,
       searchBarTheme: SearchBarThemeData(
-        elevation: const MaterialStatePropertyAll(0),
-        backgroundColor: MaterialStatePropertyAll(colorScheme.secondaryContainer),
-        textStyle: MaterialStatePropertyAll(TextStyle(color: colorScheme.onSecondaryContainer)),
+        elevation: const WidgetStatePropertyAll(0),
+        backgroundColor: WidgetStatePropertyAll(colorScheme.secondaryContainer),
+        textStyle: WidgetStatePropertyAll(TextStyle(color: colorScheme.onSecondaryContainer)),
       ),
       cupertinoOverrideTheme: CupertinoThemeData(
         brightness: brightness,

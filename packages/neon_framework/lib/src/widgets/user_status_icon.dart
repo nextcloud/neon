@@ -46,7 +46,7 @@ class NeonUserStatusIcon extends StatelessWidget {
       user_status.$Type.invisible => Icon(
           size: size,
           Icons.circle_outlined,
-          color: Theme.of(context).colorScheme.onBackground,
+          color: Theme.of(context).colorScheme.onSurface,
         ),
       user_status.$Type.offline || user_status.$Type.busy => const SizedBox.shrink(),
       _ => throw UnimplementedError(type.value),

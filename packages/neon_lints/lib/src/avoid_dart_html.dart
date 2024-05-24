@@ -20,6 +20,7 @@ final class AvoidDartHTML extends DartLintRule {
   ) {
     context.registry.addImportDirective((node) {
       if (node.uri.stringValue == 'dart:html') {
+        // ignore: deprecated_member_use
         reporter.reportErrorForToken(code, node.beginToken);
       }
     });

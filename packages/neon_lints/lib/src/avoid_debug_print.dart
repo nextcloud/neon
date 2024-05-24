@@ -41,6 +41,7 @@ if unsure about the logging level to use.
     context.registry.addInvocationExpression((node) {
       final element = node.function;
       if (element case Identifier(:final name) when name.startsWith(_debugPrint)) {
+        // ignore: deprecated_member_use
         reporter.reportErrorForToken(code, node.beginToken);
       }
     });

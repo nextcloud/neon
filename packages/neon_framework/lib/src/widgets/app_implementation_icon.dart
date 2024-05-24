@@ -59,7 +59,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
     final unreadCount = this.unreadCount ?? 0;
 
     final color = this.color ??
-        (unreadCount > 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onBackground);
+        (unreadCount > 0 ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface);
 
     final icon = Container(
       margin: const EdgeInsets.all(5),

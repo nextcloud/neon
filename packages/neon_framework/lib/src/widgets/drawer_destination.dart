@@ -35,7 +35,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
       builder: (context, snapshot) {
         final colorScheme = Theme.of(context).colorScheme;
 
-        final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onBackground;
+        final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onSurface;
 
         final icon = Container(
           margin: const EdgeInsets.all(5),

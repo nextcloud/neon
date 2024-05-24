@@ -19,8 +19,8 @@ class TalkUnreadIndicator extends StatelessWidget {
     final colorScheme = Theme.of(context).colorScheme;
 
     final highlight = room.unreadMention || spreed.RoomType.fromValue(room.type).isSingleUser;
-    final backgroundColor = highlight ? colorScheme.primaryContainer : colorScheme.background;
-    final textColor = highlight ? colorScheme.onPrimaryContainer : colorScheme.onBackground;
+    final backgroundColor = highlight ? colorScheme.primaryContainer : colorScheme.surface;
+    final textColor = highlight ? colorScheme.onPrimaryContainer : colorScheme.onSurface;
 
     Widget? avatar;
     if (room.unreadMentionDirect) {
