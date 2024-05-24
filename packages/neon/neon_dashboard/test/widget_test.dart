@@ -403,6 +403,37 @@ void main() {
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
     });
 
+    testWidgets('With emptyContentMessage and halfEmptyContentMessage', (tester) async {
+      await tester.pumpWidget(
+        wrapWidget(
+          accountsBloc,
+          Builder(
+            builder: (context) => DashboardWidget(
+              widget: widget,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widget,
+                items: items.rebuild(
+                  (b) => b
+                    ..halfEmptyContentMessage = 'Half empty'
+                    ..emptyContentMessage = 'Empty',
+                ),
+              ).toList(),
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('Empty'), findsOneWidget);
+      expect(find.text('Half empty'), findsNothing);
+      expect(find.byIcon(AdaptiveIcons.check), findsOneWidget);
+
+      await expectLater(
+        find.byType(DashboardWidget),
+        matchesGoldenFile('goldens/widget_with_empty_and_half_empty.png'),
+      );
+    });
+
     testWidgets('Without items', (tester) async {
       await tester.pumpWidget(
         wrapWidget(

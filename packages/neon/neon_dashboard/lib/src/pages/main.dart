@@ -296,15 +296,13 @@ class DashboardMainPage extends StatelessWidget {
       height: 20,
     );
 
-    final halfEmptyContentMessage = _buildMessage(items?.halfEmptyContentMessage);
     final emptyContentMessage = _buildMessage(items?.emptyContentMessage);
-    if (halfEmptyContentMessage != null) {
-      yield halfEmptyContentMessage;
-    }
+    final halfEmptyContentMessage = _buildMessage(items?.halfEmptyContentMessage);
     if (emptyContentMessage != null) {
       yield emptyContentMessage;
-    }
-    if (halfEmptyContentMessage == null && emptyContentMessage == null && (items?.items.isEmpty ?? true)) {
+    } else if (halfEmptyContentMessage != null) {
+      yield halfEmptyContentMessage;
+    } else if (items?.items.isEmpty ?? true) {
       yield _buildMessage(DashboardLocalizations.of(context).noEntries)!;
     }
 
