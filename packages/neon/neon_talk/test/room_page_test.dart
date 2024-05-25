@@ -138,6 +138,8 @@ void main() {
       ),
     );
 
+    when(() => bloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
     final account = MockAccount();
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 

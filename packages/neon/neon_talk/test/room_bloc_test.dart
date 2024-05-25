@@ -147,6 +147,33 @@ Account mockTalkAccount() {
           },
         );
       },
+      'get': (match, queryParameters) => Response(
+            json.encode({
+              'ocs': {
+                'meta': {'status': '', 'statuscode': 0},
+                'data': {
+                  '😀': [
+                    {
+                      'actorDisplayName': '',
+                      'actorId': 'test',
+                      'actorType': 'users',
+                      'timestamp': 0,
+                    },
+                    {
+                      'actorDisplayName': '',
+                      'actorId': 'other',
+                      'actorType': 'users',
+                      'timestamp': 0,
+                    },
+                  ],
+                },
+              },
+            }),
+            200,
+            headers: {
+              'content-type': 'application/json; charset=utf-8',
+            },
+          ),
     },
   });
 }
@@ -291,6 +318,17 @@ void main() {
         ),
       ]),
     );
+    expect(
+      roomBloc.reactions.map((a) => a.map((k, v) => MapEntry(k, v.map((k, v) => MapEntry(k, v.length))))),
+      emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
+        BuiltMap(),
+        BuiltMap({
+          0: BuiltMap<String, int>({
+            '😀': 2,
+          }),
+        }),
+      ]),
+    );
 
     final message = MockChatMessage();
     when(() => message.id).thenReturn(0);
@@ -339,11 +377,81 @@ void main() {
         ),
       ]),
     );
+    expect(
+      roomBloc.reactions.map((a) => a.map((k, v) => MapEntry(k, v.map((k, v) => MapEntry(k, v.length))))),
+      emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
+        BuiltMap(),
+        BuiltMap({
+          2: BuiltMap<String, int>({
+            '😀': 2,
+          }),
+        }),
+      ]),
+    );
 
     final message = MockChatMessage();
     when(() => message.id).thenReturn(2);
 
     roomBloc.removeReaction(message, '😀');
+  });
+
+  test('loadReactions', () async {
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltMap<String, int>>(e.map((m) => m.reactions))),
+      emitsInOrder([
+        Result<BuiltList<BuiltMap<String, int>>>.loading(),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>(),
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltMap<String, int>>([
+            BuiltMap<String, int>(),
+            BuiltMap<String, int>({'😀': 2}),
+            BuiltMap<String, int>(),
+          ]),
+        ),
+      ]),
+    );
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
+      emitsInOrder([
+        Result<BuiltList<BuiltList<String>?>>.loading(),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            null,
+            null,
+            null,
+          ]),
+        ),
+        Result.success(
+          BuiltList<BuiltList<String>?>([
+            null,
+            BuiltList<String>(['😀']),
+            null,
+          ]),
+        ),
+      ]),
+    );
+    expect(
+      roomBloc.reactions.map((a) => a.map((k, v) => MapEntry(k, v.map((k, v) => MapEntry(k, v.length))))),
+      emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
+        BuiltMap(),
+        BuiltMap({
+          1: BuiltMap<String, int>({
+            '😀': 2,
+          }),
+        }),
+      ]),
+    );
+
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(1);
+
+    roomBloc.loadReactions(message);
   });
 
   test('polling', () async {

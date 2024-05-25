@@ -8,6 +8,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/l10n/localizations_en.dart';
+import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
@@ -21,12 +22,6 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
 import 'testing.dart';
-
-Widget wrapWidget(Widget child) => TestApp(
-      localizationsDelegates: TalkLocalizations.localizationsDelegates,
-      supportedLocales: TalkLocalizations.supportedLocales,
-      child: child,
-    );
 
 void main() {
   setUpAll(() {
@@ -63,8 +58,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'test',
             roomType: spreed.RoomType.group,
             chatMessage: chatMessage,
@@ -83,8 +80,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.group,
             chatMessage: chatMessage,
@@ -102,8 +101,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'test',
             roomType: spreed.RoomType.oneToOne,
             chatMessage: chatMessage,
@@ -121,8 +122,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.oneToOne,
             chatMessage: chatMessage,
@@ -140,8 +143,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.group,
             chatMessage: chatMessage,
@@ -159,8 +164,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessagePreview(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessagePreview(
             actorId: 'abc',
             roomType: spreed.RoomType.oneToOne,
             chatMessage: chatMessage,
@@ -180,8 +187,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkMessage(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkMessage(
             chatMessage: chatMessage,
             lastCommonRead: null,
           ),
@@ -208,14 +217,20 @@ void main() {
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: null,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+          ],
+          child: TalkMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: null,
           ),
         ),
       );
@@ -229,8 +244,10 @@ void main() {
       when(() => chatMessage.systemMessage).thenReturn('reaction');
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkSystemMessage(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkSystemMessage(
             chatMessage: chatMessage,
             previousChatMessage: null,
           ),
@@ -248,8 +265,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkSystemMessage(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkSystemMessage(
             chatMessage: chatMessage,
             previousChatMessage: null,
           ),
@@ -270,8 +289,10 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          TalkSystemMessage(
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: TalkSystemMessage(
             chatMessage: chatMessage,
             previousChatMessage: previousChatMessage,
           ),
@@ -305,13 +326,15 @@ void main() {
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
     await tester.pumpWidget(
-      wrapWidget(
-        NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: TalkParentMessage(
-            parentChatMessage: chatMessage,
-            lastCommonRead: null,
-          ),
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+        ],
+        child: TalkParentMessage(
+          parentChatMessage: chatMessage,
+          lastCommonRead: null,
         ),
       ),
     );
@@ -345,15 +368,21 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
 
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: 0,
-              previousChatMessage: previousChatMessage,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+          ],
+          child: TalkCommentMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: 0,
+            previousChatMessage: previousChatMessage,
           ),
         ),
       );
@@ -394,15 +423,21 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.id).thenReturn(0);
 
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: 0,
-              previousChatMessage: previousChatMessage,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+          ],
+          child: TalkCommentMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: 0,
+            previousChatMessage: previousChatMessage,
           ),
         ),
       );
@@ -442,14 +477,16 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: null,
-              previousChatMessage: previousChatMessage,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkCommentMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: null,
+            previousChatMessage: previousChatMessage,
           ),
         ),
       );
@@ -479,14 +516,16 @@ void main() {
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: null,
-              isParent: true,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkCommentMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: null,
+            isParent: true,
           ),
         ),
       );
@@ -533,15 +572,21 @@ void main() {
       when(() => chatMessage.parent).thenReturn(parentChatMessage);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
       await tester.pumpWidget(
-        wrapWidget(
-          NeonProvider<AccountsBloc>.value(
-            value: accountsBloc,
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: null,
-              previousChatMessage: previousChatMessage,
-            ),
+        TestApp(
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+          ],
+          child: TalkCommentMessage(
+            chatMessage: chatMessage,
+            lastCommonRead: null,
+            previousChatMessage: previousChatMessage,
           ),
         ),
       );
@@ -577,15 +622,21 @@ void main() {
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
+        final roomBloc = MockRoomBloc();
+        when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
         await tester.pumpWidget(
-          wrapWidget(
-            NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: TalkCommentMessage(
-                chatMessage: chatMessage,
-                lastCommonRead: null,
-                previousChatMessage: previousChatMessage,
-              ),
+          TestApp(
+            localizationsDelegates: TalkLocalizations.localizationsDelegates,
+            supportedLocales: TalkLocalizations.supportedLocales,
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            ],
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: null,
+              previousChatMessage: previousChatMessage,
             ),
           ),
         );
@@ -623,15 +674,21 @@ void main() {
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
+        final roomBloc = MockRoomBloc();
+        when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
         await tester.pumpWidget(
-          wrapWidget(
-            NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: TalkCommentMessage(
-                chatMessage: chatMessage,
-                lastCommonRead: null,
-                previousChatMessage: previousChatMessage,
-              ),
+          TestApp(
+            localizationsDelegates: TalkLocalizations.localizationsDelegates,
+            supportedLocales: TalkLocalizations.supportedLocales,
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            ],
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: null,
+              previousChatMessage: previousChatMessage,
             ),
           ),
         );
@@ -669,15 +726,21 @@ void main() {
         when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
+        final roomBloc = MockRoomBloc();
+        when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
         await tester.pumpWidget(
-          wrapWidget(
-            NeonProvider<AccountsBloc>.value(
-              value: accountsBloc,
-              child: TalkCommentMessage(
-                chatMessage: chatMessage,
-                lastCommonRead: null,
-                previousChatMessage: previousChatMessage,
-              ),
+          TestApp(
+            localizationsDelegates: TalkLocalizations.localizationsDelegates,
+            supportedLocales: TalkLocalizations.supportedLocales,
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            ],
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: null,
+              previousChatMessage: previousChatMessage,
             ),
           ),
         );

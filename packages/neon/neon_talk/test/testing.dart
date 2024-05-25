@@ -9,6 +9,8 @@ class MockChatMessage extends Mock implements spreed.ChatMessage {}
 
 class MockChatMessageWithParent extends Mock implements spreed.ChatMessageWithParent {}
 
+class MockReaction extends Mock implements spreed.Reaction {}
+
 class MockRoomBloc extends Mock implements TalkRoomBloc {}
 
 class MockTalkBloc extends Mock implements TalkBloc {}
