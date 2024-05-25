@@ -85,6 +85,7 @@ void main() {
     controller.add(Exception());
     await tester.pumpAndSettle();
 
+    expect(find.byType(SnackBar), findsOne);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_error.png'));
 
     await controller.close();
