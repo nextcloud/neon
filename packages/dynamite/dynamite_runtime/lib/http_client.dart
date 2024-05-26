@@ -1,7 +1,7 @@
 /// The dynamite client to handle http connections.
 ///
 /// Generated clients MAY re export this library.
-library http_client;
+library;
 
 export 'src/client/authentication.dart';
 export 'src/client/client.dart';

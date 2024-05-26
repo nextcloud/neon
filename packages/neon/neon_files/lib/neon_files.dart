@@ -1,7 +1,7 @@
 /// The Neon client for the Files app.
 ///
 /// Add `FilesApp()` to your runNeon command to execute this app.
-library neon_files;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

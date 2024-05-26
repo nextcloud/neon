@@ -6,7 +6,7 @@
 /// client.
 ///
 /// {@canonicalFor label_builder.LabelBuilder}
-library models;
+library;
 
 export 'package:neon_framework/src/models/account.dart' hide Credentials, LoginQRcode;
 export 'package:neon_framework/src/models/app_implementation.dart';

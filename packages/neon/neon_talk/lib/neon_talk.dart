@@ -1,7 +1,7 @@
 /// The Neon client for the Talk app.
 ///
 /// Add `TalkApp()` to your runNeon command to execute this app.
-library neon_talk;
+library;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';

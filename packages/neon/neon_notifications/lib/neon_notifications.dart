@@ -1,7 +1,7 @@
 /// The Neon client for the Notifications app.
 ///
 /// Add `NotificationsApp()` to your runNeon command to execute this app.
-library neon_notifications;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

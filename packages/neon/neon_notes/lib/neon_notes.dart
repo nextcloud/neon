@@ -1,7 +1,7 @@
 /// The Neon client for the Notes app.
 ///
 /// Add `NotesApp()` to your runNeon command to execute this app.
-library neon_notes;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

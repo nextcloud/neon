@@ -1,7 +1,7 @@
 /// The Neon client for the Dashboard app.
 ///
 /// Add `DashboardApp()` to your runNeon command to execute this app.
-library neon_dashboard;
+library;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
