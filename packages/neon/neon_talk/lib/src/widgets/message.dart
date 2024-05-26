@@ -5,6 +5,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
+import 'package:neon_talk/src/utils/constants.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
@@ -273,19 +274,9 @@ class TalkSystemMessage extends StatelessWidget {
   /// {@macro TalkMessage.previousChatMessage}
   final spreed.$ChatMessageInterface? previousChatMessage;
 
-  // Keep this in sync with https://github.com/nextcloud/spreed/blob/ada70487a306751accb280a475b1f123a56d4e74/src/store/conversationsStore.js#L689
-  static const _ignoredMessages = {
-    'reaction',
-    'reaction_revoked',
-    'reaction_deleted',
-    'message_deleted',
-    'message_edited',
-    'poll_voted',
-  };
-
   @override
   Widget build(BuildContext context) {
-    if (_ignoredMessages.contains(chatMessage.systemMessage)) {
+    if (hiddenMessages.contains(chatMessage.systemMessage)) {
       return const SizedBox.shrink();
     }
 
