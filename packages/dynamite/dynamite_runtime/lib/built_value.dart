@@ -2,7 +2,7 @@
 ///
 /// Generated clients SHOULD NOT re export this library. It is only needed by
 /// the generated code itself.
-library built_value;
+library;
 
 export 'src/built_value/content_string_serializer.dart';
 export 'src/built_value/double_serializer.dart';
