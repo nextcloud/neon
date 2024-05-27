@@ -503,6 +503,30 @@ void main() {
           expect(message.reactions, isEmpty);
           expect(message.reactionsSelf, isNull);
         });
+
+        test('Get', () async {
+          final room = await createTestRoom();
+
+          final sendMessageResponse = await client1.spreed.chat.sendMessage(
+            token: room.token,
+            message: 'bla',
+          );
+
+          final addResponse = await client1.spreed.reaction.react(
+            reaction: '😀',
+            token: room.token,
+            messageId: sendMessageResponse.body.ocs.data!.id,
+          );
+          expect(addResponse.body.ocs.data, hasLength(1));
+          expect(addResponse.body.ocs.data['😀'], isNotNull);
+
+          final getResponse = await client1.spreed.reaction.getReactions(
+            token: room.token,
+            messageId: sendMessageResponse.body.ocs.data!.id,
+          );
+          expect(getResponse.body.ocs.data, hasLength(1));
+          expect(getResponse.body.ocs.data['😀'], isNotNull);
+        });
       });
     },
     retry: retryCount,

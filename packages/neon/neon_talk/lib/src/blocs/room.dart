@@ -28,8 +28,11 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// Adds an emoji [reaction] to the [message].
   void addReaction(spreed.$ChatMessageInterface message, String reaction);
 
-  /// Removes an emoji [reaction] to the [message].
+  /// Removes an emoji [reaction] from the [message].
   void removeReaction(spreed.$ChatMessageInterface message, String reaction);
+
+  /// Loads the emoji reactions for the [message].
+  void loadReactions(spreed.$ChatMessageInterface message);
 
   /// The current room data.
   BehaviorSubject<Result<spreed.Room>> get room;
@@ -41,6 +44,9 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// The last message ID that was read by everyone with read-privacy set to public.
   /// {@endtemplate}
   BehaviorSubject<int> get lastCommonRead;
+
+  /// Map of emoji reactions for the [messages].
+  BehaviorSubject<BuiltMap<int, BuiltMap<String, BuiltList<spreed.Reaction>>>> get reactions;
 }
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
@@ -151,6 +157,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final lastCommonRead = BehaviorSubject();
 
   @override
+  final reactions = BehaviorSubject.seeded(BuiltMap());
+
+  @override
   void dispose() {
     pollLoop = false;
     unawaited(account.client.spreed.room.leaveRoom(token: token));
@@ -158,6 +167,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     unawaited(room.close());
     unawaited(messages.close());
     unawaited(lastCommonRead.close());
+    unawaited(reactions.close());
     super.dispose();
   }
 
@@ -252,6 +262,28 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     );
   }
 
+  @override
+  Future<void> loadReactions(spreed.$ChatMessageInterface message) async {
+    if (reactions.value.containsKey(message.id)) {
+      return;
+    }
+
+    await wrapAction(
+      () async {
+        final response = await account.client.spreed.reaction.getReactions(
+          token: token,
+          messageId: message.id,
+        );
+
+        updateReactions(
+          message.id,
+          response.body.ocs.data,
+        );
+      },
+      refresh: () async {},
+    );
+  }
+
   void updateLastCommonRead(String? header) {
     if (header != null) {
       lastCommonRead.add(int.parse(header));
@@ -284,6 +316,12 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   }
 
   void updateReactions(int messageId, BuiltMap<String, BuiltList<spreed.Reaction>> reactions) {
+    this.reactions.add(
+          this.reactions.value.rebuild((b) {
+            b[messageId] = reactions;
+          }),
+        );
+
     updateMessage(
       messageId,
       (b) => b
