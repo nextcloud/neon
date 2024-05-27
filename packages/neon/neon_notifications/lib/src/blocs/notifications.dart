@@ -2,16 +2,16 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:neon_notifications/src/options.dart';
 import 'package:nextcloud/notifications.dart' as $notifications;
 import 'package:rxdart/rxdart.dart';
 
-sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
+@sealed
+abstract class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
   factory NotificationsBloc({
-    required NotificationsOptions options,
     required Account account,
   }) = _NotificationsBloc;
 
@@ -27,7 +27,6 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
 
 class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInterface, NotificationsBloc {
   _NotificationsBloc({
-    required this.options,
     required this.account,
   }) {
     notifications.listen((result) {
@@ -43,7 +42,6 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   @override
   final log = Logger('NotificationsBloc');
 
-  final NotificationsOptions options;
   final Account account;
   late final NeonTimer timer;
 
