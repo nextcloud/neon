@@ -7,6 +7,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:neon_talk/src/utils/constants.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -60,8 +61,6 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       if (!result.hasSuccessfulData) {
         return;
       }
-
-      // TODO: More room fields might be changed based on the received messages (e.g. room was renamed).
 
       final lastMessage = result.requireData.firstOrNull;
       if (lastMessage == null) {
@@ -303,6 +302,26 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         } else {
           builder.addAll(result.requireData.where((message) => message.id < lastMessageID));
         }
+      }
+
+      // Skip messages without parents as we can't know which message should be updated
+      final newHiddenMessages = newMessages
+          .where((newMessage) => hiddenMessages.contains(newMessage.systemMessage) && newMessage.parent != null)
+          .toBuiltList();
+
+      if (newHiddenMessages.isNotEmpty) {
+        builder.map((message) {
+          // If there are multiple messages updating the same parent message only the newest is applied because it already contains all values
+          for (final newHiddenMessage in newHiddenMessages) {
+            final parent = newHiddenMessage.parent!;
+            if (message.id == parent.id) {
+              // Conversion from ChatMessage to ChatMessageWithParent is necessary because parent messages can't have parents of their own
+              return spreed.ChatMessageWithParent.fromJson(parent.toJson());
+            }
+          }
+
+          return message;
+        });
       }
 
       messages.add(

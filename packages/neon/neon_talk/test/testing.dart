@@ -73,6 +73,10 @@ Map<String, dynamic> getRoom({
 
 Map<String, dynamic> getChatMessage({
   int? id,
+  String? message,
+  Map<String, dynamic>? reactions,
+  String? systemMessage,
+  Map<String, dynamic>? parent,
 }) =>
     {
       'actorDisplayName': '',
@@ -81,12 +85,13 @@ Map<String, dynamic> getChatMessage({
       'expirationTimestamp': 0,
       'id': id ?? 0,
       'isReplyable': false,
-      'message': '',
+      'message': message ?? '',
       'messageParameters': <dynamic, dynamic>{},
       'messageType': spreed.MessageType.comment.name,
-      'reactions': <dynamic, dynamic>{},
+      'reactions': reactions ?? <dynamic, dynamic>{},
       'referenceId': '',
-      'systemMessage': '',
+      'systemMessage': systemMessage ?? '',
       'timestamp': 0,
       'token': '',
+      if (parent != null) 'parent': parent,
     };

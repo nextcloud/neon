@@ -48,11 +48,34 @@ Account mockTalkAccount() {
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
-                'data': List.generate(2, (i) => getChatMessage(id: messageCount++)),
+                'data': [
+                  getChatMessage(
+                    id: messageCount++,
+                    systemMessage: 'reaction',
+                    parent: getChatMessage(
+                      id: 2,
+                      reactions: {
+                        '😊': 1,
+                      },
+                    ),
+                  ),
+                  getChatMessage(
+                    id: messageCount++,
+                    systemMessage: 'message_edited',
+                    parent: getChatMessage(
+                      id: 2,
+                      reactions: {
+                        '😊': 1,
+                      },
+                      message: 'edit',
+                    ),
+                  ),
+                ],
               },
             }),
             200,
             headers: {
+              'content-type': 'application/json; charset=utf-8',
               'x-chat-last-common-read': '0',
             },
           );
@@ -456,11 +479,27 @@ void main() {
 
   test('polling', () async {
     expect(
-      roomBloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+      roomBloc.messages.transformResult(
+        (e) => BuiltList<(int, String, BuiltMap<String, int>)>(e.map((m) => (m.id, m.message, m.reactions))),
+      ),
       emitsInOrder([
-        Result<BuiltList<int>>.loading(),
-        Result.success(BuiltList<int>([2, 1, 0])),
-        Result.success(BuiltList<int>([4, 3, 2, 1, 0])),
+        Result<BuiltList<(int, String, BuiltMap<String, int>)>>.loading(),
+        Result.success(
+          BuiltList<(int, String, BuiltMap<String, int>)>([
+            (2, '', BuiltMap<String, int>()),
+            (1, '', BuiltMap<String, int>()),
+            (0, '', BuiltMap<String, int>()),
+          ]),
+        ),
+        Result.success(
+          BuiltList<(int, String, BuiltMap<String, int>)>([
+            (4, '', BuiltMap<String, int>()),
+            (3, '', BuiltMap<String, int>()),
+            (2, 'edit', BuiltMap<String, int>({'😊': 1})),
+            (1, '', BuiltMap<String, int>()),
+            (0, '', BuiltMap<String, int>()),
+          ]),
+        ),
       ]),
     );
     expect(
