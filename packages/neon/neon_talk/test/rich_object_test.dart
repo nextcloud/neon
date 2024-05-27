@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:file_icons/file_icons.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -11,6 +12,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
+import 'package:neon_talk/src/widgets/rich_object/file_preview.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -241,12 +243,7 @@ void main() {
           ),
         ),
       );
-      expect(find.byType(NeonApiImage), findsOne);
-      expect(find.byTooltip('name'), findsOne);
-      await expectLater(
-        find.byType(TalkRichObjectFile),
-        matchesGoldenFile('goldens/rich_object_file_with_preview.png'),
-      );
+      expect(find.byType(TalkRichObjectFilePreview), findsOne);
     });
 
     testWidgets('Without preview', (tester) async {
@@ -271,6 +268,115 @@ void main() {
         find.byType(TalkRichObjectFile),
         matchesGoldenFile('goldens/rich_object_file_without_preview.png'),
       );
+    });
+  });
+
+  group('File preview', () {
+    testWidgets('Without dimensions', (tester) async {
+      await tester.pumpWidget(
+        TestApp(
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..path = 'path',
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      final expectedConstraints = BoxConstraints.loose(const Size(double.infinity, 300));
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
+      );
+      const expectedCacheKey = 'preview-path--1--1';
+      expect(
+        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
+        findsOne,
+      );
+      expect(find.byTooltip('name'), findsOne);
+    });
+
+    testWidgets('With dimensions', (tester) async {
+      // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
+
+      await tester.pumpWidget(
+        TestApp(
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..path = 'path'
+                ..width = ($int: 900, string: null)
+                ..height = ($int: 300, string: null),
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      final expectedConstraints = BoxConstraints.tight(const Size(300, 100));
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
+      );
+      const expectedCacheKey = 'preview-path-900-300';
+      expect(
+        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
+        findsOne,
+      );
+      expect(find.byTooltip('name'), findsOne);
+    });
+
+    testWidgets('With dimensions too big', (tester) async {
+      // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
+
+      await tester.pumpWidget(
+        TestApp(
+          providers: [
+            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..path = 'path'
+                ..width = ($int: 6000, string: null)
+                ..height = ($int: 2000, string: null),
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      final expectedConstraints = BoxConstraints.tight(const Size(900, 300));
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
+      );
+      const expectedCacheKey = 'preview-path-2700-900';
+      expect(
+        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
+        findsOne,
+      );
+      expect(find.byTooltip('name'), findsOne);
     });
   });
 
