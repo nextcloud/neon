@@ -102,6 +102,7 @@ void main() {
     when(() => parentChatMessage.message).thenReturn('abc');
     when(() => parentChatMessage.reactions).thenReturn(BuiltMap());
     when(() => parentChatMessage.messageParameters).thenReturn(BuiltMap());
+    when(() => parentChatMessage.systemMessage).thenReturn('');
 
     final chatMessage1 = MockChatMessageWithParent();
     when(() => chatMessage1.id).thenReturn(1);
@@ -114,9 +115,10 @@ void main() {
     when(() => chatMessage1.reactions).thenReturn(BuiltMap());
     when(() => chatMessage1.parent).thenReturn(parentChatMessage);
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage1.systemMessage).thenReturn('');
 
     final chatMessage2 = MockChatMessageWithParent();
-    when(() => chatMessage2.id).thenReturn(2);
+    when(() => chatMessage2.id).thenReturn(3);
     when(() => chatMessage2.timestamp).thenReturn(0);
     when(() => chatMessage2.actorId).thenReturn('test');
     when(() => chatMessage2.actorType).thenReturn(spreed.ActorType.users);
@@ -126,6 +128,7 @@ void main() {
     when(() => chatMessage2.reactions).thenReturn(BuiltMap());
     when(() => chatMessage2.parent).thenReturn(parentChatMessage);
     when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage2.systemMessage).thenReturn('');
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
@@ -163,6 +166,13 @@ void main() {
 
     expect(find.byType(TalkMessage), findsExactly(4));
     expect(find.byType(TalkParentMessage), findsExactly(2));
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is TalkMessage && widget.chatMessage == chatMessage2 && widget.previousChatMessage == chatMessage1,
+      ),
+      findsOne,
+    );
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_messages.png'));
   });
 

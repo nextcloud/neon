@@ -30,6 +30,7 @@ void main() {
     when(() => chatMessage.id).thenReturn(0);
     when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 2}));
     when(() => chatMessage.reactionsSelf).thenReturn(BuiltList(['😊']));
+    when(() => chatMessage.systemMessage).thenReturn('');
 
     bloc = MockRoomBloc();
     when(() => bloc.reactions).thenAnswer(

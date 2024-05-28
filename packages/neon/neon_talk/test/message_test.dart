@@ -239,26 +239,7 @@ void main() {
   });
 
   group('TalkSystemMessage', () {
-    testWidgets('Hide', (tester) async {
-      final chatMessage = MockChatMessage();
-      when(() => chatMessage.systemMessage).thenReturn('reaction');
-
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          localizationsDelegates: TalkLocalizations.localizationsDelegates,
-          supportedLocales: TalkLocalizations.supportedLocales,
-          child: TalkSystemMessage(
-            chatMessage: chatMessage,
-            previousChatMessage: null,
-          ),
-        ),
-      );
-      expect(find.byType(SizedBox), findsOne);
-      expect(find.byType(RichText), findsNothing);
-      await expectLater(find.byType(TalkSystemMessage), matchesGoldenFile('goldens/message_system_message_hide.png'));
-    });
-
-    testWidgets('Show', (tester) async {
+    testWidgets('Normal', (tester) async {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.systemMessage).thenReturn('');
       when(() => chatMessage.message).thenReturn('test');
