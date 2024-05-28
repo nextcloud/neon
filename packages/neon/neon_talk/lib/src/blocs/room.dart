@@ -7,7 +7,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
-import 'package:neon_talk/src/utils/constants.dart';
+import 'package:neon_talk/src/utils/helpers.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -305,9 +305,8 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       }
 
       // Skip messages without parents as we can't know which message should be updated
-      final newHiddenMessages = newMessages
-          .where((newMessage) => hiddenMessages.contains(newMessage.systemMessage) && newMessage.parent != null)
-          .toBuiltList();
+      final newHiddenMessages =
+          newMessages.where((newMessage) => newMessage.isHidden && newMessage.parent != null).toBuiltList();
 
       if (newHiddenMessages.isNotEmpty) {
         builder.map((message) {
