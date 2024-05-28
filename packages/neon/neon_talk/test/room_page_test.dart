@@ -94,18 +94,6 @@ void main() {
   });
 
   testWidgets('Messages', (tester) async {
-    final parentChatMessage = MockChatMessage();
-    when(() => parentChatMessage.id).thenReturn(0);
-    when(() => parentChatMessage.timestamp).thenReturn(0);
-    when(() => parentChatMessage.actorId).thenReturn('test');
-    when(() => parentChatMessage.actorType).thenReturn(spreed.ActorType.users);
-    when(() => parentChatMessage.actorDisplayName).thenReturn('test');
-    when(() => parentChatMessage.messageType).thenReturn(spreed.MessageType.comment);
-    when(() => parentChatMessage.message).thenReturn('abc');
-    when(() => parentChatMessage.reactions).thenReturn(BuiltMap());
-    when(() => parentChatMessage.messageParameters).thenReturn(BuiltMap());
-    when(() => parentChatMessage.systemMessage).thenReturn('');
-
     final chatMessage1 = MockChatMessageWithParent();
     when(() => chatMessage1.id).thenReturn(1);
     when(() => chatMessage1.timestamp).thenReturn(0);
@@ -115,27 +103,38 @@ void main() {
     when(() => chatMessage1.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage1.message).thenReturn('abc');
     when(() => chatMessage1.reactions).thenReturn(BuiltMap());
-    when(() => chatMessage1.parent).thenReturn(parentChatMessage);
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage1.systemMessage).thenReturn('');
 
     final chatMessage2 = MockChatMessageWithParent();
-    when(() => chatMessage2.id).thenReturn(3);
-    when(() => chatMessage2.timestamp).thenReturn(0);
+    when(() => chatMessage2.id).thenReturn(2);
+    when(() => chatMessage2.timestamp).thenReturn(24 * 60 * 60);
     when(() => chatMessage2.actorId).thenReturn('test');
     when(() => chatMessage2.actorType).thenReturn(spreed.ActorType.users);
     when(() => chatMessage2.actorDisplayName).thenReturn('test');
     when(() => chatMessage2.messageType).thenReturn(spreed.MessageType.comment);
     when(() => chatMessage2.message).thenReturn('abc');
     when(() => chatMessage2.reactions).thenReturn(BuiltMap());
-    when(() => chatMessage2.parent).thenReturn(parentChatMessage);
     when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage2.systemMessage).thenReturn('');
+
+    final chatMessage3 = MockChatMessageWithParent();
+    when(() => chatMessage3.id).thenReturn(3);
+    when(() => chatMessage3.timestamp).thenReturn(24 * 60 * 60 * 2 - 1);
+    when(() => chatMessage3.actorId).thenReturn('test');
+    when(() => chatMessage3.actorType).thenReturn(spreed.ActorType.users);
+    when(() => chatMessage3.actorDisplayName).thenReturn('test');
+    when(() => chatMessage3.messageType).thenReturn(spreed.MessageType.comment);
+    when(() => chatMessage3.message).thenReturn('abc');
+    when(() => chatMessage3.reactions).thenReturn(BuiltMap());
+    when(() => chatMessage3.messageParameters).thenReturn(BuiltMap());
+    when(() => chatMessage3.systemMessage).thenReturn('');
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
         Result.success(
           BuiltList<spreed.ChatMessageWithParent>([
+            chatMessage3,
             chatMessage2,
             chatMessage1,
           ]),
@@ -163,8 +162,7 @@ void main() {
       ),
     );
 
-    expect(find.byType(TalkMessage), findsExactly(4));
-    expect(find.byType(TalkParentMessage), findsExactly(2));
+    expect(find.byType(TalkMessage), findsExactly(3));
     expect(
       find.byWidgetPredicate(
         (widget) =>
@@ -172,6 +170,16 @@ void main() {
       ),
       findsOne,
     );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is TalkMessage && widget.chatMessage == chatMessage3 && widget.previousChatMessage == chatMessage2,
+      ),
+      findsOne,
+    );
+    expect(find.byType(Divider), findsExactly(2));
+    expect(find.text('1/1/1970'), findsOne);
+    expect(find.text('1/2/1970'), findsOne);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_messages.png'));
   });
 

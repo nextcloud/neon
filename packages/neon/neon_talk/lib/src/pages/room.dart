@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
+import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -11,6 +12,10 @@ import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/theme.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
+import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
+
+const _secondsPerDay = 24 * 60 * 60;
 
 /// Displays the room with a chat message list.
 class TalkRoomPage extends StatefulWidget {
@@ -121,14 +126,43 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                   final previousMessage =
                       messagesResult.requireData.length > index + 1 ? messagesResult.requireData[index + 1] : null;
 
+                  Widget child = TalkMessage(
+                    chatMessage: message,
+                    lastCommonRead: lastCommonReadSnapshot.data,
+                    previousChatMessage: previousMessage,
+                  );
+
+                  if (previousMessage == null ||
+                      (previousMessage.timestamp ~/ _secondsPerDay) != (message.timestamp ~/ _secondsPerDay)) {
+                    final date = DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, message.timestamp);
+
+                    child = Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, bottom: 5),
+                          child: Stack(
+                            children: [
+                              const Divider(),
+                              Center(
+                                child: Chip(
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                                  ),
+                                  label: Text(DateFormat.yMd().format(date)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        child,
+                      ],
+                    );
+                  }
+
                   return Center(
                     child: ConstrainedBox(
                       constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
-                      child: TalkMessage(
-                        chatMessage: message,
-                        lastCommonRead: lastCommonReadSnapshot.data,
-                        previousChatMessage: previousMessage,
-                      ),
+                      child: child,
                     ),
                   );
                 },
