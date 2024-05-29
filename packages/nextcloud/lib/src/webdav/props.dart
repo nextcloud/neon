@@ -45,7 +45,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -106,7 +105,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     bool ncLockTime = false,
     bool ncLockTimeout = false,
     bool ncLockToken = false,
-    bool ncMetadataEtag = false,
     bool ncMountType = false,
     bool ncNote = false,
     bool ncReminderDueDate = false,
@@ -164,7 +162,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
         ncLockTime = ncLockTime ? const [null] : null,
         ncLockTimeout = ncLockTimeout ? const [null] : null,
         ncLockToken = ncLockToken ? const [null] : null,
-        ncMetadataEtag = ncMetadataEtag ? const [null] : null,
         ncMountType = ncMountType ? const [null] : null,
         ncNote = ncNote ? const [null] : null,
         ncReminderDueDate = ncReminderDueDate ? const [null] : null,
@@ -444,14 +441,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncLockToken;
 
   @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: true,
-    isSelfClosing: true,
-  )
-  final List<String?>? ncMetadataEtag;
-
-  @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
     includeIfNull: true,
@@ -696,7 +685,6 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -950,13 +938,6 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncLockToken;
 
   @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: false,
-  )
-  final String? ncMetadataEtag;
-
-  @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -1177,7 +1158,6 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -1429,13 +1409,6 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     includeIfNull: false,
   )
   final String? ncLockToken;
-
-  @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: false,
-  )
-  final String? ncMetadataEtag;
 
   @annotation.XmlElement(
     name: 'mount-type',

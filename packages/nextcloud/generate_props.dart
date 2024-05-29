@@ -39,7 +39,6 @@ void main() {
       'lock-time': 'unixEpoch',
       'lock-timeout': 'seconds',
       'lock-token': 'String',
-      'metadata_etag': 'String',
       'mount-type': 'String',
       'note': 'String',
       'reminder-due-date': 'iso8601',

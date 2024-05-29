@@ -349,17 +349,6 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    for (final value in ncMetadataEtagSerialized) {
-      builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
-        if (value != null) {
-          builder.text(value);
-        }
-      });
-    }
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -756,10 +745,6 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       .getElements('lock-token', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncMetadataEtag = element
-      .getElements('metadata_etag', namespace: 'http://nextcloud.org/ns')
-      ?.map((e) => e.getText())
-      .whereType<String>();
   final ncMountType = element
       .getElements('mount-type', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
@@ -880,7 +865,6 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       ncLockTime: ncLockTime?.toList(),
       ncLockTimeout: ncLockTimeout?.toList(),
       ncLockToken: ncLockToken?.toList(),
-      ncMetadataEtag: ncMetadataEtag?.toList(),
       ncMountType: ncMountType?.toList(),
       ncNote: ncNote?.toList(),
       ncReminderDueDate: ncReminderDueDate?.toList(),
@@ -1140,13 +1124,6 @@ List<XmlNode> _$WebDavPropWithoutValuesToXmlChildren(WebDavPropWithoutValues ins
       XmlName('lock-token', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncLockTokenConstructed != null) {
     children.addAll(ncLockTokenConstructed);
-  }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized?.map((e) => XmlElement(
-      XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncMetadataEtagConstructed != null) {
-    children.addAll(ncMetadataEtagConstructed);
   }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
@@ -1611,13 +1588,6 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
       builder.text(ncLockTokenSerialized);
     });
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncMetadataEtagSerialized);
-    });
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -1847,7 +1817,6 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
@@ -1952,7 +1921,6 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
-      ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
       ncReminderDueDate:
@@ -2305,15 +2273,6 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
       : null;
   if (ncLockTokenConstructed != null) {
     children.add(ncLockTokenConstructed);
-  }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
-      ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
-      : null;
-  if (ncMetadataEtagConstructed != null) {
-    children.add(ncMetadataEtagConstructed);
   }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
@@ -2830,13 +2789,6 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
       builder.text(ncLockTokenSerialized);
     });
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncMetadataEtagSerialized);
-    });
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -3067,7 +3019,6 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
@@ -3172,7 +3123,6 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
-      ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
       ncReminderDueDate:
@@ -3527,15 +3477,6 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
       : null;
   if (ncLockTokenConstructed != null) {
     children.add(ncLockTokenConstructed);
-  }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
-      ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
-      : null;
-  if (ncMetadataEtagConstructed != null) {
-    children.add(ncMetadataEtagConstructed);
   }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;

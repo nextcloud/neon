@@ -275,7 +275,6 @@ void main() {
             ncLockTime: true,
             ncLockTimeout: true,
             ncLockToken: true,
-            ncMetadataEtag: true,
             ncMountType: true,
             ncNote: true,
             ncReminderDueDate: true,
@@ -354,7 +353,6 @@ void main() {
         expect(response.props.ncLockTime, isNull);
         expect(response.props.ncLockTimeout, isNull);
         expect(response.props.ncLockToken, isNull);
-        expect(response.props.ncMetadataEtag, isNull);
         expect(response.props.ncMountType, isNull);
         expect(response.props.ncNote, isNull);
         expect(response.props.ncReminderDueDate, isNull);
