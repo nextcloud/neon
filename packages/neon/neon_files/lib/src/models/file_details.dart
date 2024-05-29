@@ -13,6 +13,7 @@ class FileDetails {
     required this.lastModified,
     required this.hasPreview,
     required this.isFavorite,
+    required this.blurHash,
   }) : task = null;
 
   FileDetails.fromWebDav({
@@ -24,6 +25,7 @@ class FileDetails {
         lastModified = file.lastModified,
         hasPreview = file.hasPreview,
         isFavorite = file.favorite,
+        blurHash = file.blurHash,
         task = null;
 
   FileDetails.fromUploadTask({
@@ -34,7 +36,8 @@ class FileDetails {
         etag = null,
         mimeType = null,
         hasPreview = null,
-        isFavorite = null;
+        isFavorite = null,
+        blurHash = null;
 
   FileDetails.fromDownloadTask({
     required FilesDownloadTask this.task,
@@ -45,7 +48,8 @@ class FileDetails {
         mimeType = file.mimeType,
         lastModified = file.lastModified,
         hasPreview = file.hasPreview,
-        isFavorite = file.favorite;
+        isFavorite = file.favorite,
+        blurHash = file.blurHash;
 
   factory FileDetails.fromTask({
     required FilesTask task,
@@ -79,6 +83,8 @@ class FileDetails {
   final bool? hasPreview;
 
   final bool? isFavorite;
+
+  final String? blurHash;
 
   final FilesTask? task;
 
