@@ -55,6 +55,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -115,6 +116,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     bool ncUploadTime = false,
     bool ncVersionAuthor = false,
     bool ncVersionLabel = false,
+    bool ncMetadataBlurhash = false,
     bool ocChecksums = false,
     bool ocCommentsCount = false,
     bool ocCommentsHref = false,
@@ -172,6 +174,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
         ncUploadTime = ncUploadTime ? const [null] : null,
         ncVersionAuthor = ncVersionAuthor ? const [null] : null,
         ncVersionLabel = ncVersionLabel ? const [null] : null,
+        ncMetadataBlurhash = ncMetadataBlurhash ? const [null] : null,
         ocChecksums = ocChecksums ? const [null] : null,
         ocCommentsCount = ocCommentsCount ? const [null] : null,
         ocCommentsHref = ocCommentsHref ? const [null] : null,
@@ -521,6 +524,14 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncVersionLabel;
 
   @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncMetadataBlurhash;
+
+  @annotation.XmlElement(
     name: 'checksums',
     namespace: namespaceOwncloud,
     includeIfNull: true,
@@ -695,6 +706,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -1010,6 +1022,13 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncVersionLabel;
 
   @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncMetadataBlurhash;
+
+  @annotation.XmlElement(
     name: 'checksums',
     namespace: namespaceOwncloud,
     includeIfNull: false,
@@ -1168,6 +1187,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -1481,6 +1501,13 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     includeIfNull: false,
   )
   final String? ncVersionLabel;
+
+  @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncMetadataBlurhash;
 
   @annotation.XmlElement(
     name: 'checksums',

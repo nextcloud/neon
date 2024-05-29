@@ -49,6 +49,7 @@ void main() {
       'upload_time': 'unixEpoch',
       'version-author': 'String',
       'version-label': 'String',
+      'metadata-blurhash': 'String',
     },
     'oc': {
       'checksums': 'WebDavOcChecksums',

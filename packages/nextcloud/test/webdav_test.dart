@@ -285,6 +285,7 @@ void main() {
             ncUploadTime: true,
             ncVersionAuthor: true,
             ncVersionLabel: true,
+            ncMetadataBlurhash: true,
             ocChecksums: true,
             ocCommentsCount: true,
             ocCommentsHref: true,
@@ -363,6 +364,7 @@ void main() {
         expect(response.props.ncUploadTime, DateTime.utc(1970));
         expect(response.props.ncVersionAuthor, isNull);
         expect(response.props.ncVersionLabel, isNull);
+        expect(response.props.ncMetadataBlurhash, isNull);
         expect(response.props.ocChecksums, isNull);
         expect(response.props.ocCommentsCount, 0);
         expect(response.props.ocCommentsHref, isNotEmpty);
