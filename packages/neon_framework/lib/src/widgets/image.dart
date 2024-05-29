@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -36,6 +37,7 @@ class NeonImage extends StatelessWidget {
     this.fit,
     this.svgColorFilter,
     this.errorBuilder,
+    this.blurHash,
     super.key,
   });
 
@@ -76,6 +78,13 @@ class NeonImage extends StatelessWidget {
   /// {@endtemplate}
   final ErrorWidgetBuilder? errorBuilder;
 
+  /// {@template NeonImage.blurHash}
+  /// The compact representation of an image preview.
+  ///
+  /// See: https://blurha.sh
+  /// {@endtemplate}
+  final String? blurHash;
+
   @override
   Widget build(BuildContext context) {
     return ResultBuilder.behaviorSubject(
@@ -105,6 +114,15 @@ class NeonImage extends StatelessWidget {
             fit: fit,
             gaplessPlayback: true,
             errorBuilder: (context, error, stacktrace) => _buildError(context, error),
+          );
+        }
+
+        if (blurHash != null) {
+          return BlurHash(
+            hash: blurHash!,
+            imageFit: fit ?? BoxFit.cover,
+            decodingHeight: size?.height.toInt() ?? 32,
+            decodingWidth: size?.width.toInt() ?? 32,
           );
         }
 
@@ -152,6 +170,7 @@ class NeonApiImage extends StatefulWidget {
     this.fit,
     this.svgColorFilter,
     this.errorBuilder,
+    this.blurHash,
     super.key,
   });
 
@@ -187,6 +206,9 @@ class NeonApiImage extends StatefulWidget {
 
   /// {@macro NeonImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
+
+  /// {@macro NeonImage.blurHash}
+  final String? blurHash;
 
   @override
   State<NeonApiImage> createState() => _NeonApiImageState();
@@ -238,6 +260,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
       fit: widget.fit,
       svgColorFilter: widget.svgColorFilter,
       errorBuilder: widget.errorBuilder,
+      blurHash: widget.blurHash,
     );
   }
 }
@@ -261,6 +284,7 @@ class NeonUriImage extends StatefulWidget {
     this.fit,
     this.svgColorFilter,
     this.errorBuilder,
+    this.blurHash,
     super.key,
   });
 
@@ -286,6 +310,9 @@ class NeonUriImage extends StatefulWidget {
 
   /// {@macro NeonImage.errorBuilder}
   final ErrorWidgetBuilder? errorBuilder;
+
+  /// {@macro NeonImage.blurHash}
+  final String? blurHash;
 
   @override
   State<NeonUriImage> createState() => _NeonUriImageState();
@@ -343,6 +370,7 @@ class _NeonUriImageState extends State<NeonUriImage> {
       fit: widget.fit,
       svgColorFilter: widget.svgColorFilter,
       errorBuilder: widget.errorBuilder,
+      blurHash: widget.blurHash,
     );
   }
 }
