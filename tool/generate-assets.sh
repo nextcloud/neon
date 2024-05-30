@@ -87,6 +87,9 @@ copy_app_svg talk external/nextcloud-spreed
 
   cp ../../assets/logo.svg assets/logo.svg
 
+  cp ../../assets/logo.svg img/app.svg
+  sed -i "s/<path fill=\"$color\" /<path fill=\"white\" /g" img/app.svg
+
   # Splash screens
   inkscape assets/logo.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
   convert -size 1152x1152 xc:none img/splash_icon.png -gravity center -composite img/splash_icon_android_12.png # 1152px at xxxhdpi is 288dp

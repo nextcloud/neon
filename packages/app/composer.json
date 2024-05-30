@@ -1,0 +1,11 @@
+{
+  "name": "nextcloud/neon",
+  "license": "AGPL-3.0-or-later",
+  "require-dev": {
+    "nextcloud/ocp": "dev-stable29"
+  },
+  "require": {
+    "php": "^8.0",
+    "ext-fileinfo": "*"
+  }
+}

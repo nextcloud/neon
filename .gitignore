@@ -12,6 +12,7 @@ packages/**/build
 packages/**/build-dir
 packages/**/.flatpak-builder
 packages/**/doc/api
+packages/**/vendor
 
 !packages/app/pubspec.lock
 

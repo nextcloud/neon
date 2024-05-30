@@ -14,6 +14,21 @@ Due to CORS issues the app must be run with web security disabled.
 fvm flutter run -d chrome --web-browser-flag "--disable-web-security"
 ```
 
+### Run inside Nextcloud itself
+
+Neon can also be installed as a normal Nextcloud app.
+
+```bash
+composer i
+fvm flutter build web --no-web-resources-cdn
+
+cd path/to/server/apps
+ln -sf ../../path/to/neon/packages/app neon
+
+cd ..
+./occ app:enable neon
+```
+
 ## Build and run the Flatpak
 
 ```bash

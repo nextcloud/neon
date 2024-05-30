@@ -20,6 +20,7 @@ enduml
 euxo
 exiftool
 extglob
+fileinfo
 flatpak
 freedesktop
 fullpath
