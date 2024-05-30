@@ -53,6 +53,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
                       icon: Icon(AdaptiveIcons.search),
                     ),
                   ),
+                if (results != null && results.isEmpty) _buildNoResultsTile(context),
               ],
               itemCount: providers.data?.length ?? 0,
               itemBuilder: (context, index) {
@@ -98,14 +99,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
           onRetry: bloc.refresh,
         ),
       if (result.isLoading) const NeonLinearProgressIndicator(),
-      if (result.hasData && result.requireData.entries.isEmpty)
-        AdaptiveListTile(
-          leading: Icon(
-            AdaptiveIcons.close,
-            size: largeIconSize,
-          ),
-          title: Text(NeonLocalizations.of(context).searchNoResults),
-        ),
+      if (result.hasData && result.requireData.entries.isEmpty) _buildNoResultsTile(context),
       if (result.hasData)
         for (final entry in result.requireData.entries)
           AdaptiveListTile(
@@ -137,6 +131,16 @@ class NeonUnifiedSearchResults extends StatelessWidget {
         ),
       );
     }
+  }
+
+  Widget _buildNoResultsTile(BuildContext context) {
+    return AdaptiveListTile(
+      leading: Icon(
+        AdaptiveIcons.close,
+        size: largeIconSize,
+      ),
+      title: Text(NeonLocalizations.of(context).searchNoResults),
+    );
   }
 
   Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
