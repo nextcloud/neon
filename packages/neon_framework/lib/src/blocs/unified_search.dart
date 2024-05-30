@@ -188,7 +188,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   }
 
   bool providerMatchesApp(String providerID, AppImplementation app) =>
-      providerID == app.id || providerID.startsWith('${app.id}_');
+      providerID == app.id || providerID.startsWith('${app.id}_') || providerID.startsWith('${app.id}-');
 
   bool hasEntries(Result<core.UnifiedSearchResult> result) => !result.hasData || result.requireData.entries.isNotEmpty;
 
