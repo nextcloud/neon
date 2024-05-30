@@ -723,7 +723,7 @@ void main() {
                 ),
               );
 
-              expect(find.byType(TalkRichObjectMention), findsOne);
+              expect(find.byType(TalkRichObjectMention), isPreview ? findsNothing : findsOne);
               expect(find.text('name'), findsOne);
             });
           }
