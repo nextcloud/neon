@@ -8664,10 +8664,14 @@ class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMent
       serializers.serialize(object.label, specifiedType: const FullType(String)),
       'source',
       serializers.serialize(object.source, specifiedType: const FullType(String)),
-      'mentionId',
-      serializers.serialize(object.mentionId, specifiedType: const FullType(String)),
     ];
     Object? value;
+    value = object.mentionId;
+    if (value != null) {
+      result
+        ..add('mentionId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     value = object.status;
     if (value != null) {
       result
@@ -8716,7 +8720,7 @@ class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMent
           result.source = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mentionId':
-          result.mentionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.mentionId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'status':
           result.status = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -31641,7 +31645,7 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
   @override
   final String source;
   @override
-  final String mentionId;
+  final String? mentionId;
   @override
   final String? status;
   @override
@@ -31658,7 +31662,7 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
       {required this.id,
       required this.label,
       required this.source,
-      required this.mentionId,
+      this.mentionId,
       this.status,
       this.statusClearAt,
       this.statusIcon,
@@ -31667,7 +31671,6 @@ class _$ChatMentionSuggestion extends ChatMentionSuggestion {
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMentionSuggestion', 'id');
     BuiltValueNullFieldError.checkNotNull(label, r'ChatMentionSuggestion', 'label');
     BuiltValueNullFieldError.checkNotNull(source, r'ChatMentionSuggestion', 'source');
-    BuiltValueNullFieldError.checkNotNull(mentionId, r'ChatMentionSuggestion', 'mentionId');
   }
 
   @override
@@ -31798,7 +31801,7 @@ class ChatMentionSuggestionBuilder
             id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMentionSuggestion', 'id'),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ChatMentionSuggestion', 'label'),
             source: BuiltValueNullFieldError.checkNotNull(source, r'ChatMentionSuggestion', 'source'),
-            mentionId: BuiltValueNullFieldError.checkNotNull(mentionId, r'ChatMentionSuggestion', 'mentionId'),
+            mentionId: mentionId,
             status: status,
             statusClearAt: statusClearAt,
             statusIcon: statusIcon,
