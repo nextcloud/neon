@@ -73,7 +73,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('😀'));
+    await tester.tap(find.text('😀'), warnIfMissed: false);
 
     verify(() => bloc.addReaction(chatMessage, '😀')).called(1);
   });
@@ -90,7 +90,7 @@ void main() {
       ),
     );
 
-    await tester.tap(find.text('😊'));
+    await tester.tap(find.text('😊'), warnIfMissed: false);
 
     verify(() => bloc.removeReaction(chatMessage, '😊')).called(1);
   });
@@ -110,7 +110,7 @@ void main() {
     );
 
     await tester.runAsync(() async {
-      await tester.tap(find.byIcon(Icons.add_reaction_outlined));
+      await tester.tap(find.byIcon(Icons.add_reaction_outlined), warnIfMissed: false);
       await tester.pumpAndSettle();
       await tester.tap(find.byIcon(Icons.tag_faces));
       await tester.pumpAndSettle();
