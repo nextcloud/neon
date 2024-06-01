@@ -38,7 +38,6 @@ void main() {
         password: '',
       ),
     );
-    when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
 
     accountsBloc = MockAccountsBloc();
     when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));

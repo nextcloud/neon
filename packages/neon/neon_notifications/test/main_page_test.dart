@@ -36,7 +36,6 @@ void main() {
     when(() => bloc.notifications).thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList())));
 
     final account = MockAccount();
-    when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     accountsBloc = MockAccountsBloc();

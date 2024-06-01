@@ -773,8 +773,6 @@ void main() {
               final account = MockAccount();
               when(() => account.username).thenReturn('username');
               when(() => account.client).thenReturn(NextcloudClient(Uri()));
-              when(() => account.completeUri(any()))
-                  .thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
 
               final accountsBloc = MockAccountsBloc();
               when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));

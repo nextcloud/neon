@@ -120,6 +120,7 @@ class Account implements Credentials, Findable {
   ///
   /// The paths of the [serverURL] and the [uri] need to be join to get the full path, unless the [uri] path is already an absolute path.
   /// In that case an instance hosted at a sub folder will already contain the sub folder part in the [uri].
+  @internal
   Uri completeUri(Uri uri) {
     final result = serverURL.resolveUri(uri);
     if (!uri.hasAbsolutePath) {

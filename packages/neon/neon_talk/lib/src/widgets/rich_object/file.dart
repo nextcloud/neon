@@ -1,9 +1,7 @@
 import 'package:file_icons/file_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
-import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/src/widgets/rich_object/file_preview.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -48,9 +46,7 @@ class TalkRichObjectFile extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        final link = Uri.parse(parameter.link!);
-        final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
-        context.go(account.completeUri(link).toString());
+        context.go(parameter.link!);
       },
       child: child,
     );
