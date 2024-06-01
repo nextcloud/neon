@@ -143,6 +143,21 @@ void main() {
 
       expect(find.byType(NeonUriImage), findsOneWidget);
     });
+
+    testWidgets('Without iconUrl', (tester) async {
+      await tester.pumpWidget(
+        wrapWidget(
+          accountsBloc,
+          DashboardWidgetItem(
+            item: item.rebuild((b) => b..iconUrl = ''),
+            roundIcon: true,
+          ),
+        ),
+      );
+
+      expect(find.byType(NeonUriImage), findsOneWidget);
+      expect(find.byIcon(AdaptiveIcons.question_mark), findsOneWidget);
+    });
   });
 
   group('Widget button', () {
