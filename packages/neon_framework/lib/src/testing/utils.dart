@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:neon_framework/src/theme/theme.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -17,6 +19,7 @@ class TestApp extends StatelessWidget {
     this.locale = const Locale('en'),
     this.wrapMaterial = true,
     this.providers = const [],
+    this.router,
     super.key,
   });
 
@@ -57,6 +60,9 @@ class TestApp extends StatelessWidget {
   /// Additional [Provider]s.
   final List<SingleChildWidget> providers;
 
+  /// Wraps the [child] using a GoRouter for mocking.
+  final MockGoRouter? router;
+
   @override
   Widget build(BuildContext context) {
     final theme = AppTheme.test(
@@ -67,6 +73,13 @@ class TestApp extends StatelessWidget {
     var child = this.child;
     if (wrapMaterial && platform != TargetPlatform.iOS && platform != TargetPlatform.macOS) {
       child = Material(child: child);
+    }
+
+    if (router != null && child != null) {
+      child = InheritedGoRouter(
+        goRouter: router!,
+        child: child,
+      );
     }
 
     final app = MaterialApp(
