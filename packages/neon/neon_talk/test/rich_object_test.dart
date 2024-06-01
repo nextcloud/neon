@@ -44,8 +44,11 @@ void main() {
   });
 
   testWidgets('Deck card', (tester) async {
+    final router = MockGoRouter();
+
     await tester.pumpWidget(
       TestApp(
+        router: router,
         child: TalkRichObjectDeckCard(
           parameter: spreed.RichObjectParameter(
             (b) => b
@@ -53,7 +56,8 @@ void main() {
               ..id = ''
               ..name = 'name'
               ..boardname = 'boardname'
-              ..stackname = 'stackname',
+              ..stackname = 'stackname'
+              ..link = '/link',
           ),
         ),
       ),
@@ -64,6 +68,9 @@ void main() {
       find.byType(TalkRichObjectDeckCard),
       matchesGoldenFile('goldens/rich_object_deck_card.png'),
     );
+
+    await tester.tap(find.byType(TalkRichObjectDeckCard));
+    verify(() => router.go('/link')).called(1);
   });
 
   group('Mention', () {
@@ -223,6 +230,31 @@ void main() {
   });
 
   group('File', () {
+    testWidgets('Opens link', (tester) async {
+      final router = MockGoRouter();
+
+      await tester.pumpWidget(
+        TestApp(
+          router: router,
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.no
+                ..path = ''
+                ..link = '/link',
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      await tester.tap(find.byType(TalkRichObjectFile));
+      verify(() => router.go('/link')).called(1);
+    });
+
     testWidgets('With preview', (tester) async {
       await tester.pumpWidget(
         TestApp(
@@ -380,6 +412,29 @@ void main() {
   });
 
   group('Fallback', () {
+    testWidgets('Opens link', (tester) async {
+      final router = MockGoRouter();
+
+      await tester.pumpWidget(
+        TestApp(
+          router: router,
+          child: TalkRichObjectFallback(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = ''
+                ..name = 'name'
+                ..link = '/link',
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      await tester.tap(find.byType(TalkRichObjectFallback));
+      verify(() => router.go('/link')).called(1);
+    });
+
     testWidgets('Without icon', (tester) async {
       await tester.pumpWidget(
         TestApp(

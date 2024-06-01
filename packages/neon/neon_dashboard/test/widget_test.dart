@@ -15,12 +15,18 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
-Widget wrapWidget(AccountsBloc accountsBloc, Widget child) => TestApp(
+Widget wrapWidget(
+  AccountsBloc accountsBloc,
+  Widget child, {
+  MockGoRouter? router,
+}) =>
+    TestApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
       providers: [
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
       ],
+      router: router,
       child: child,
     );
 
@@ -51,6 +57,8 @@ void main() {
     );
 
     testWidgets('Everything filled', (tester) async {
+      final router = MockGoRouter();
+
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
@@ -58,6 +66,7 @@ void main() {
             item: item,
             roundIcon: true,
           ),
+          router: router,
         ),
       );
 
@@ -84,6 +93,9 @@ void main() {
       expect(find.byType(NeonUriImage), findsNWidgets(2));
 
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
+
+      await tester.tap(find.byType(DashboardWidgetItem));
+      verify(() => router.go('https://example.com/link')).called(1);
     });
 
     testWidgets('Not round', (tester) async {
@@ -167,6 +179,23 @@ void main() {
         ..text = 'Button'
         ..link = 'https://example.com/link',
     );
+
+    testWidgets('Opens link', (tester) async {
+      final router = MockGoRouter();
+
+      await tester.pumpWidget(
+        wrapWidget(
+          accountsBloc,
+          DashboardWidgetButton(
+            button: button,
+          ),
+          router: router,
+        ),
+      );
+
+      await tester.tap(find.byType(DashboardWidgetButton));
+      verify(() => router.go('https://example.com/link')).called(1);
+    });
 
     testWidgets('New', (tester) async {
       await tester.pumpWidget(
