@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/src/api/core.openapi.dart' as core;
 import 'package:nextcloud/src/helpers/common.dart';
 import 'package:version/version.dart';
@@ -26,7 +27,7 @@ extension CoreVersionCheck on core.$Client {
       capabilities.version.micro,
     );
     return VersionCheck(
-      versions: [version],
+      versions: BuiltList([version]),
       minimumVersion: minVersion,
       maximumMajor: maxMajor,
       isSupportedOverride: _isDevelopmentServerVersion(capabilities.version.string) ? true : null,
@@ -37,7 +38,7 @@ extension CoreVersionCheck on core.$Client {
 extension CoreStatusVersionCheck on core.Status {
   /// Check if the core/Server version is supported
   VersionCheck get versionCheck => VersionCheck(
-        versions: [Version.parse(version)],
+        versions: BuiltList([Version.parse(version)]),
         minimumVersion: minVersion,
         maximumMajor: maxMajor,
         isSupportedOverride: _isDevelopmentServerVersion(versionstring) ? true : null,

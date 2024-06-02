@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/src/api/news.openapi.dart' as news;
 import 'package:nextcloud/src/helpers/common.dart';
 import 'package:version/version.dart';
@@ -15,7 +16,7 @@ extension NewsVersionCheck on news.$Client {
     final response = await getSupportedApiVersions();
     final versions = response.body.apiLevels;
     return VersionCheck(
-      versions: versions?.map((version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toList(),
+      versions: versions?.map((version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toBuiltList(),
       minimumVersion: minVersion,
       maximumMajor: null,
     );

@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/src/api/core.openapi.dart' as core;
 import 'package:nextcloud/src/api/notes.openapi.dart' as notes;
 import 'package:nextcloud/src/helpers/common.dart';
@@ -14,7 +15,7 @@ extension NotesVersionCheck on notes.$Client {
   VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
     final versions = capabilities.capabilities.notesCapabilities?.notes.apiVersion;
     return VersionCheck(
-      versions: versions?.map(Version.parse).toList(),
+      versions: versions?.map(Version.parse).toBuiltList(),
       minimumVersion: minVersion,
       maximumMajor: null,
     );
