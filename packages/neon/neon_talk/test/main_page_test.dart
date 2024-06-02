@@ -60,7 +60,7 @@ void main() {
     final controller = StreamController<Object>();
     when(() => bloc.errors).thenAnswer((_) => controller.stream);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -84,7 +84,7 @@ void main() {
     when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
     when(() => room.unreadMessages).thenReturn(0);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -111,7 +111,7 @@ void main() {
       when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: chatMessage));
       when(() => room.unreadMessages).thenReturn(1);
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -145,7 +145,7 @@ void main() {
         when(() => room.unreadMessages).thenReturn(0);
         when(() => room.lastCommonReadMessage).thenReturn(0);
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
@@ -178,7 +178,7 @@ void main() {
         when(() => room.unreadMessages).thenReturn(0);
         when(() => room.lastCommonReadMessage).thenReturn(0);
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
@@ -205,7 +205,7 @@ void main() {
     when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
     when(() => room.unreadMessages).thenReturn(0);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,

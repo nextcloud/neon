@@ -17,10 +17,10 @@ import 'package:timezone/timezone.dart' as tz;
 void main() {
   group('dialog', () {
     group('NeonConfirmationDialog', () {
-      testWidgets('NeonConfirmationDialog widget', (widgetTester) async {
+      testWidgets('NeonConfirmationDialog widget', (tester) async {
         const title = 'My Title';
         var dialog = const NeonConfirmationDialog(title: title);
-        await widgetTester.pumpWidget(TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
         expect(find.text(title), findsOneWidget);
         expect(find.byType(NeonDialogAction), findsExactly(2));
@@ -34,7 +34,7 @@ void main() {
           isDestructive: false,
         );
 
-        await widgetTester.pumpWidget(TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
         expect(find.byType(NeonDialogAction), findsExactly(2));
         expect(find.byType(OutlinedButton), findsExactly(2));
@@ -50,7 +50,7 @@ void main() {
           confirmAction: confirmAction,
           declineAction: declineAction,
         );
-        await widgetTester.pumpWidget(TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
         expect(find.byIcon(Icons.error), findsOneWidget);
         expect(find.byKey(const Key('content')), findsOneWidget);
@@ -58,82 +58,82 @@ void main() {
         expect(find.byKey(const Key('declineAction')), findsOneWidget);
       });
 
-      testWidgets('NeonConfirmationDialog actions', (widgetTester) async {
+      testWidgets('NeonConfirmationDialog actions', (tester) async {
         const title = 'My Title';
-        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
-        final context = widgetTester.element(find.byType(Placeholder));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
+        final context = tester.element(find.byType(Placeholder));
 
         // confirm
         var result = showConfirmationDialog(context: context, title: title);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.tap(find.text(NeonLocalizationsEn().actionContinue));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text(NeonLocalizationsEn().actionContinue));
         expect(await result, isTrue);
 
         // decline
         result = showConfirmationDialog(context: context, title: title);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.tap(find.text(NeonLocalizationsEn().actionCancel));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text(NeonLocalizationsEn().actionCancel));
         expect(await result, isFalse);
 
         // cancel by tapping outside
         result = showConfirmationDialog(context: context, title: title);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.tapAt(Offset.zero);
+        await tester.pumpAndSettle();
+        await tester.tapAt(Offset.zero);
         expect(await result, isFalse);
       });
     });
 
     group('NeonRenameDialog', () {
-      testWidgets('NeonRenameDialog widget', (widgetTester) async {
+      testWidgets('NeonRenameDialog widget', (tester) async {
         const title = 'My Title';
         const value = 'My value';
         const dialog = NeonRenameDialog(title: title, value: value);
-        await widgetTester.pumpWidget(const TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: dialog));
 
         expect(find.text(title), findsExactly(2), reason: 'The title is also used for the confirmation button');
         expect(find.text(value), findsOneWidget);
         expect(find.byType(TextFormField), findsOneWidget);
       });
 
-      testWidgets('NeonRenameDialog actions', (widgetTester) async {
+      testWidgets('NeonRenameDialog actions', (tester) async {
         const title = 'My Title';
         const value = 'My value';
-        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
-        final context = widgetTester.element(find.byType(Placeholder));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
+        final context = tester.element(find.byType(Placeholder));
 
         // Equal value should not submit
         var result = showRenameDialog(context: context, title: title, initialValue: value);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.enterText(find.byType(TextFormField), value);
-        await widgetTester.tap(find.byType(NeonDialogAction));
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextFormField), value);
+        await tester.tap(find.byType(NeonDialogAction));
         expect(await result, isNull);
 
         // Empty value should not submit
         result = showRenameDialog(context: context, title: title, initialValue: value);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.enterText(find.byType(TextFormField), '');
-        await widgetTester.tap(find.byType(NeonDialogAction));
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextFormField), '');
+        await tester.tap(find.byType(NeonDialogAction));
 
         // Different value should submit
-        await widgetTester.enterText(find.byType(TextFormField), 'My new value');
-        await widgetTester.tap(find.byType(NeonDialogAction));
+        await tester.enterText(find.byType(TextFormField), 'My new value');
+        await tester.tap(find.byType(NeonDialogAction));
         expect(await result, equals('My new value'));
 
         // Submit via keyboard
         result = showRenameDialog(context: context, title: title, initialValue: value);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.enterText(find.byType(TextFormField), 'My new value');
-        await widgetTester.testTextInput.receiveAction(TextInputAction.done);
+        await tester.pumpAndSettle();
+        await tester.enterText(find.byType(TextFormField), 'My new value');
+        await tester.testTextInput.receiveAction(TextInputAction.done);
         expect(await result, equals('My new value'));
       });
     });
 
     group('NeonErrorDialog', () {
-      testWidgets('NeonErrorDialog widget', (widgetTester) async {
+      testWidgets('NeonErrorDialog widget', (tester) async {
         const title = 'My Title';
         const content = 'My content';
         var dialog = const NeonErrorDialog(content: content, title: title);
-        await widgetTester.pumpWidget(TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
         expect(find.byIcon(Icons.error), findsOneWidget);
         expect(find.text(title), findsOneWidget);
@@ -141,39 +141,39 @@ void main() {
         expect(find.byType(NeonDialogAction), findsOneWidget);
 
         dialog = const NeonErrorDialog(content: content);
-        await widgetTester.pumpWidget(TestApp(child: dialog));
+        await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
         expect(find.text(NeonLocalizationsEn().errorDialog), findsOneWidget);
       });
 
-      testWidgets('NeonErrorDialog actions', (widgetTester) async {
+      testWidgets('NeonErrorDialog actions', (tester) async {
         const content = 'My content';
-        await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
-        final context = widgetTester.element(find.byType(Placeholder));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
+        final context = tester.element(find.byType(Placeholder));
 
         final result = showErrorDialog(context: context, message: content);
-        await widgetTester.pumpAndSettle();
-        await widgetTester.tap(find.text(NeonLocalizationsEn().actionClose));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text(NeonLocalizationsEn().actionClose));
         await result;
       });
     });
 
-    testWidgets('UnimplementedDialog', (widgetTester) async {
+    testWidgets('UnimplementedDialog', (tester) async {
       const title = 'My Title';
-      await widgetTester.pumpWidget(const TestApp(child: Placeholder()));
-      final context = widgetTester.element(find.byType(Placeholder));
+      await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
+      final context = tester.element(find.byType(Placeholder));
 
       final result = showUnimplementedDialog(context: context, title: title);
-      await widgetTester.pumpAndSettle();
-      await widgetTester.tap(find.text(NeonLocalizationsEn().actionClose));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(NeonLocalizationsEn().actionClose));
       await result;
     });
 
-    testWidgets('NeonDialog', (widgetTester) async {
+    testWidgets('NeonDialog', (tester) async {
       var dialog = const NeonDialog(
         actions: [],
       );
-      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
+      await tester.pumpWidgetWithAccessibility(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(
         find.byType(NeonDialogAction),
         findsOneWidget,
@@ -184,14 +184,14 @@ void main() {
         automaticallyShowCancel: false,
         actions: [],
       );
-      await widgetTester.pumpWidget(TestApp(platform: TargetPlatform.macOS, child: dialog));
+      await tester.pumpWidgetWithAccessibility(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(find.byType(NeonDialogAction), findsNothing);
     });
 
     testWidgets('NeonEmojiPickerDialog', (tester) async {
       SharedPreferences.setMockInitialValues({});
 
-      await tester.pumpWidget(const TestApp(child: Placeholder()));
+      await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
       final future = showDialog<String>(
@@ -270,7 +270,7 @@ void main() {
       final accountsBloc = MockAccountsBloc();
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           wrapMaterial: false,
           providers: [
@@ -420,7 +420,7 @@ void main() {
       final accountsBloc = MockAccountsBloc();
       when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
 
-      await tester.pumpWidget(const TestApp(child: Placeholder()));
+      await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
       final future = showDialog<AccountDeletion>(
@@ -471,7 +471,7 @@ void main() {
         final accountsBloc = MockAccountsBloc();
         when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
 
-        await tester.pumpWidget(const TestApp(child: Placeholder()));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
 
         final future = showDialog<AccountDeletion>(
@@ -524,7 +524,7 @@ void main() {
         final accountsBloc = MockAccountsBloc();
         when(() => accountsBloc.getCapabilitiesBlocFor(account)).thenReturn(capabilitiesBloc);
 
-        await tester.pumpWidget(const TestApp(child: Placeholder()));
+        await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
         final BuildContext context = tester.element(find.byType(Placeholder));
 
         final future = showDialog<AccountDeletion>(

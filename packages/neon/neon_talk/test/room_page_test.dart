@@ -47,7 +47,7 @@ void main() {
   testWidgets('Status message', (tester) async {
     when(() => room.statusMessage).thenReturn('status');
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -68,7 +68,7 @@ void main() {
     final controller = StreamController<Object>();
     when(() => bloc.errors).thenAnswer((_) => controller.stream);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -146,7 +146,7 @@ void main() {
     final accountsBloc = MockAccountsBloc();
     when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -169,7 +169,7 @@ void main() {
   testWidgets('Read-only', (tester) async {
     when(() => room.readOnly).thenReturn(1);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -186,7 +186,7 @@ void main() {
   });
 
   testWidgets('Cupertino no emoji button', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -209,7 +209,7 @@ void main() {
   testWidgets('Emoji button', (tester) async {
     SharedPreferences.setMockInitialValues({});
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,

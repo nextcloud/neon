@@ -14,7 +14,7 @@ void main() {
     when(() => room.unreadMentionDirect).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkUnreadIndicator(
           room: room,
@@ -34,7 +34,7 @@ void main() {
     when(() => room.unreadMentionDirect).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.oneToOne.value);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkUnreadIndicator(
           room: room,
@@ -54,7 +54,7 @@ void main() {
     when(() => room.unreadMentionDirect).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkUnreadIndicator(
           room: room,
@@ -73,7 +73,7 @@ void main() {
     when(() => room.unreadMention).thenReturn(true);
     when(() => room.unreadMentionDirect).thenReturn(true);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkUnreadIndicator(
           room: room,

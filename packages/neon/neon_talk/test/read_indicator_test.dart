@@ -11,7 +11,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.id).thenReturn(1);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkReadIndicator(
           chatMessage: chatMessage,
@@ -26,7 +26,7 @@ void main() {
     final chatMessage = MockChatMessage();
     when(() => chatMessage.id).thenReturn(1);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: TalkReadIndicator(
           chatMessage: chatMessage,

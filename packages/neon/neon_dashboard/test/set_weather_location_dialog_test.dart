@@ -6,7 +6,7 @@ import 'package:neon_framework/testing.dart';
 
 void main() {
   testWidgets('Set weather location dialog', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       const TestApp(
         localizationsDelegates: DashboardLocalizations.localizationsDelegates,
         supportedLocales: DashboardLocalizations.supportedLocales,

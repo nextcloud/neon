@@ -46,7 +46,7 @@ void main() {
   testWidgets('Deck card', (tester) async {
     final router = MockGoRouter();
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         router: router,
         child: TalkRichObjectDeckCard(
@@ -76,7 +76,7 @@ void main() {
   group('Mention', () {
     group('user', () {
       testWidgets('Self', (tester) async {
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             providers: [
               NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -101,7 +101,7 @@ void main() {
       });
 
       testWidgets('Other', (tester) async {
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             providers: [
               NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -127,7 +127,7 @@ void main() {
     });
 
     testWidgets('call', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -153,7 +153,7 @@ void main() {
     });
 
     testWidgets('guest', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           child: TalkRichObjectMention(
             parameter: spreed.RichObjectParameter(
@@ -184,7 +184,7 @@ void main() {
 
         when(() => accountsBloc.activeUserDetailsBloc).thenReturn(userDetailsBloc);
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             providers: [
               NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -207,7 +207,7 @@ void main() {
           matchesGoldenFile('goldens/rich_object_mention_${type}_highlight.png'),
         );
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             providers: [
               NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -237,7 +237,7 @@ void main() {
     testWidgets('Opens link', (tester) async {
       final router = MockGoRouter();
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           router: router,
           child: TalkRichObjectFile(
@@ -260,7 +260,7 @@ void main() {
     });
 
     testWidgets('With preview', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -282,7 +282,7 @@ void main() {
     });
 
     testWidgets('Without preview', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
@@ -308,7 +308,7 @@ void main() {
 
   group('File preview', () {
     testWidgets('Without dimensions', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -343,7 +343,7 @@ void main() {
     testWidgets('With dimensions', (tester) async {
       // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -380,7 +380,7 @@ void main() {
     testWidgets('With dimensions too big', (tester) async {
       // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -419,7 +419,7 @@ void main() {
     testWidgets('Opens link', (tester) async {
       final router = MockGoRouter();
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           router: router,
           child: TalkRichObjectFallback(
@@ -440,7 +440,7 @@ void main() {
     });
 
     testWidgets('Without icon', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           child: TalkRichObjectFallback(
             parameter: spreed.RichObjectParameter(
@@ -462,7 +462,7 @@ void main() {
     });
 
     testWidgets('With icon', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),

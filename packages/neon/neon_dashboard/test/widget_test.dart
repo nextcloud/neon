@@ -59,7 +59,7 @@ void main() {
     testWidgets('Everything filled', (tester) async {
       final router = MockGoRouter();
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
@@ -99,7 +99,7 @@ void main() {
     });
 
     testWidgets('Not round', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
@@ -122,7 +122,7 @@ void main() {
     });
 
     testWidgets('Without link', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
@@ -143,7 +143,7 @@ void main() {
     });
 
     testWidgets('Without overlayIconUrl', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
@@ -157,7 +157,7 @@ void main() {
     });
 
     testWidgets('Without iconUrl', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetItem(
@@ -183,7 +183,7 @@ void main() {
     testWidgets('Opens link', (tester) async {
       final router = MockGoRouter();
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
@@ -198,7 +198,7 @@ void main() {
     });
 
     testWidgets('New', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
@@ -214,7 +214,7 @@ void main() {
     });
 
     testWidgets('More', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
@@ -230,7 +230,7 @@ void main() {
     });
 
     testWidgets('Setup', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
@@ -246,7 +246,7 @@ void main() {
     });
 
     testWidgets('Invalid', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           DashboardWidgetButton(
@@ -299,7 +299,7 @@ void main() {
     );
 
     testWidgets('Everything filled', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -345,7 +345,7 @@ void main() {
 
     testWidgets('Without widgetUrl', (tester) async {
       final widgetEmptyURL = widget.rebuild((b) => b.widgetUrl = '');
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -373,7 +373,7 @@ void main() {
 
     testWidgets('Not round', (tester) async {
       final widgetNotRound = widget.rebuild((b) => b.itemIconsRound = false);
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -402,7 +402,7 @@ void main() {
     });
 
     testWidgets('With halfEmptyContentMessage', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -425,7 +425,7 @@ void main() {
     });
 
     testWidgets('With emptyContentMessage', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -448,7 +448,7 @@ void main() {
     });
 
     testWidgets('With emptyContentMessage and halfEmptyContentMessage', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -479,7 +479,7 @@ void main() {
     });
 
     testWidgets('Without items', (tester) async {
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -503,7 +503,7 @@ void main() {
 
     testWidgets('Without buttons', (tester) async {
       final widgetWithoutButtons = widget.rebuild((b) => b.buttons.clear());
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(
@@ -528,7 +528,7 @@ void main() {
       final widgetWithMultipleButtons = widget.rebuild(
         (b) => b.buttons.replace([button, button]),
       );
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           accountsBloc,
           Builder(

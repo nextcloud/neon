@@ -11,7 +11,7 @@ void main() {
     when(() => action.label).thenReturn('label');
     when(() => action.primary).thenReturn(true);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: NotificationsAction(
           action: action,
@@ -27,7 +27,7 @@ void main() {
     when(() => action.label).thenReturn('label');
     when(() => action.primary).thenReturn(false);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: NotificationsAction(
           action: action,
@@ -46,7 +46,7 @@ void main() {
     when(() => action.primary).thenReturn(true);
     when(() => action.link).thenReturn('/link');
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         router: router,
         child: NotificationsAction(

@@ -5,17 +5,17 @@ import 'package:neon_framework/testing.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 void main() {
-  testWidgets('NeonServerIcon', (widgetTester) async {
+  testWidgets('NeonServerIcon', (tester) async {
     var widget = const NeonServerIcon(icon: 'icon-logo-dark');
 
-    await widgetTester.pumpWidget(TestApp(wrapMaterial: false, child: widget));
+    await tester.pumpWidgetWithAccessibility(TestApp(wrapMaterial: false, child: widget));
     expect(find.byType(VectorGraphic), findsOneWidget);
 
     widget = const NeonServerIcon(
       icon: 'icon-logo-dark',
       colorFilter: ColorFilter.mode(Colors.orange, BlendMode.srcIn),
     );
-    await widgetTester.pumpWidget(TestApp(wrapMaterial: false, child: widget));
+    await tester.pumpWidgetWithAccessibility(TestApp(wrapMaterial: false, child: widget));
 
     await expectLater(find.byType(VectorGraphic), matchesGoldenFile('goldens/neon_server_icon_nextcloud_logo.png'));
   });

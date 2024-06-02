@@ -57,7 +57,7 @@ void main() {
   });
 
   testWidgets('Without matching app', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
         supportedLocales: NotificationsLocalizations.supportedLocales,
@@ -100,7 +100,7 @@ void main() {
     when(() => app.id).thenReturn('app');
     when(() => app.buildIcon(size: any(named: 'size'))).thenReturn(const SizedBox());
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
         supportedLocales: NotificationsLocalizations.supportedLocales,
