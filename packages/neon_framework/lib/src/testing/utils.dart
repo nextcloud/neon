@@ -115,6 +115,7 @@ extension TesterPumpWidgetWithAccessibility on WidgetTester {
   Future<void> pumpWidgetWithAccessibility(Widget widget) async {
     final handle = ensureSemantics();
 
+    // ignore: prefer_pump_widget_with_accessibility
     await pumpWidget(widget);
 
     await expectLater(this, meetsGuideline(androidTapTargetGuideline));

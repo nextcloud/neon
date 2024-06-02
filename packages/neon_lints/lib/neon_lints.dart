@@ -3,6 +3,7 @@ import 'package:neon_lints/src/avoid_dart_html.dart';
 import 'package:neon_lints/src/avoid_dart_io.dart';
 import 'package:neon_lints/src/avoid_debug_print.dart';
 import 'package:neon_lints/src/avoid_exports.dart';
+import 'package:neon_lints/src/prefer_pump_widget_with_accessibility.dart';
 
 /// Registers the neon lints plugin.
 ///
@@ -18,5 +19,6 @@ class _NeonLintsPlugin extends PluginBase {
         AvoidDartHTML(),
         AvoidDartIO(),
         AvoidExports(),
+        PreferPumpWidgetWithAccessibility(),
       ];
 }
