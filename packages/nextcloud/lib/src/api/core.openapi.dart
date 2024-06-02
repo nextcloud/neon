@@ -6543,7 +6543,7 @@ abstract class AutoCompleteGetResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  Header<int>? get xNcIscustomavatar;
+  Header<int?>? get xNcIscustomavatar;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6594,7 +6594,7 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  Header<int>? get xNcIscustomavatar;
+  Header<int?>? get xNcIscustomavatar;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AvatarAvatarGetAvatarHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -8642,7 +8642,7 @@ class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
 @BuiltValue(instantiable: false)
 abstract interface class $OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
-  Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? get xNextcloudOcmProviders;
+  Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? get xNextcloudOcmProviders;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OcmOcmDiscoveryHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -12908,7 +12908,7 @@ abstract class Reference implements $ReferenceInterface, Built<Reference, Refere
 
 @BuiltValue(instantiable: false)
 abstract interface class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, Reference> get references;
+  BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -13066,7 +13066,7 @@ abstract class ReferenceApiExtractResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, Reference> get references;
+  BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -13225,7 +13225,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
-  BuiltMap<String, Reference> get references;
+  BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -18212,7 +18212,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType(int)]), HeaderBuilder<int>.new)
+      ..addBuilderFactory(const FullType(Header, [FullType.nullable(int)]), HeaderBuilder<int?>.new)
       ..add(Header.serializer)
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarHeaders.serializer)
@@ -18378,8 +18378,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(OcmOcmDiscoveryHeaders.serializer)
       ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
       ..addBuilderFactory(
-        const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
-        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>.new,
+        const FullType(Header, [FullType.nullable(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
+        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>.new,
       )
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson),
@@ -18670,8 +18670,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
       ..add(Reference.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Reference)]),
-        MapBuilder<String, Reference>.new,
+        const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]),
+        MapBuilder<String, Reference?>.new,
       )
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson),

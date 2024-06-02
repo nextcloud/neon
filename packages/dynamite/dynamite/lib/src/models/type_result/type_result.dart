@@ -37,7 +37,7 @@ sealed class TypeResult {
   String get name {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('$className<')
-        ..writeAll(generics.map((c) => c.name), ', ')
+        ..writeAll(generics.map((c) => c.nullableName), ', ')
         ..write('>');
       return buffer.toString();
     }
@@ -47,29 +47,35 @@ sealed class TypeResult {
 
   @nonVirtual
   String get builder {
+    final buffer = StringBuffer(builderName);
     if (generics.isNotEmpty) {
-      final buffer = StringBuffer('$builderName<')
-        ..writeAll(generics.map((c) => c.name), ', ')
+      buffer
+        ..write('<')
+        ..writeAll(generics.map((c) => c.nullableName), ', ')
         ..write('>');
-      return buffer.toString();
     }
 
-    return builderName;
+    return buffer.toString();
   }
 
   @nonVirtual
-  String get fullType => 'const $_fullType';
+  String get fullType => 'const ${_fullType(false)}';
 
-  String get _fullType {
-    if (generics.isNotEmpty) {
-      final buffer = StringBuffer('FullType($className, [')
-        ..writeAll(generics.map((c) => c._fullType), ', ')
-        ..write('])');
-
-      return buffer.toString();
+  String _fullType(bool asNullable) {
+    final buffer = StringBuffer('FullType');
+    if (nullable && asNullable) {
+      buffer.write('.nullable');
     }
+    buffer.write('($className');
+    if (generics.isNotEmpty) {
+      buffer
+        ..write(', [')
+        ..writeAll(generics.map((c) => c._fullType(true)), ', ')
+        ..write(']');
+    }
+    buffer.write(')');
 
-    return 'FullType($className)';
+    return buffer.toString();
   }
 
   Iterable<String> get serializers sync* {
@@ -91,7 +97,7 @@ sealed class TypeResult {
 
   String? get _serializer => '..add($className.serializer)';
 
-  String? get _builderFactory => '..addBuilderFactory($fullType, $builder.new)';
+  String? get _builderFactory => '..addBuilderFactory(const ${_fullType(false)}, $builder.new)';
 
   /// Serializes the variable named [object].
   ///

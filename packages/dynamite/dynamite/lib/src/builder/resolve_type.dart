@@ -15,6 +15,7 @@ TypeResult resolveType(State state, json_schema.JsonSchema schema) {
     schema,
   );
 
+  state.resolvedSerializers.addAll(result.serializers);
   state.resolvedTypes.add(result);
   return result;
 }

@@ -41,6 +41,7 @@ class State {
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
+  final resolvedSerializers = <String>{};
   late final emitter = DartEmitter(
     allocator: _Allocator(partId: partId),
     orderDirectives: true,

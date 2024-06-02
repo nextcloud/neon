@@ -168,6 +168,7 @@ void _generateProperties(
         generics: BuiltList([result]),
         nullable: result.nullable,
       );
+      state.resolvedSerializers.addAll(result.serializers);
       state.resolvedTypes.add(result);
     }
 

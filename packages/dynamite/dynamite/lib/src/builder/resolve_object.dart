@@ -14,6 +14,7 @@ TypeResultObject resolveObject(
     nullable: schema.nullable,
   );
 
+  state.resolvedSerializers.addAll(result.serializers);
   if (state.resolvedTypes.add(result)) {
     final $interface = buildInterface(
       state,

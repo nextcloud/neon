@@ -45,19 +45,22 @@ TypeResult resolveSomeOf(State state, json_schema.JsonSchema schema) {
       throw StateError('allOf should be handled with inheritance');
   }
 
-  if (state.resolvedTypes.add(result) && !result.isSingleValue) {
-    final $typedef = TypeDef((b) {
-      b
-        ..docs.addAll(escapeDescription(schema.formattedDescription()))
-        ..name = result.className
-        ..definition = refer(result.dartType.name);
+  if (!result.isSingleValue) {
+    state.resolvedSerializers.addAll(result.serializers);
+    if (state.resolvedTypes.add(result)) {
+      final $typedef = TypeDef((b) {
+        b
+          ..docs.addAll(escapeDescription(schema.formattedDescription()))
+          ..name = result.className
+          ..definition = refer(result.dartType.name);
 
-      if (schema.deprecated) {
-        b.annotations.add(refer('Deprecated').call([refer("''")]));
-      }
-    });
+        if (schema.deprecated) {
+          b.annotations.add(refer('Deprecated').call([refer("''")]));
+        }
+      });
 
-    state.output.add($typedef);
+      state.output.add($typedef);
+    }
   }
 
   return result;

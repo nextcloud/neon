@@ -34369,7 +34369,7 @@ abstract class RoomGetParticipantsResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  Header<bool>? get xNextcloudHasUserStatuses;
+  Header<bool?>? get xNextcloudHasUserStatuses;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRoomGetParticipantsHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -34965,7 +34965,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  Header<bool>? get xNextcloudHasUserStatuses;
+  Header<bool?>? get xNextcloudHasUserStatuses;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -44002,7 +44002,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
       ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
       ..add(RoomRoomGetParticipantsHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
+      ..addBuilderFactory(const FullType(Header, [FullType.nullable(bool)]), HeaderBuilder<bool?>.new)
       ..add(Header.serializer)
       ..add(RoomAddParticipantToRoomSource.serializer)
       ..add(RoomAddParticipantToRoomApiVersion.serializer)
