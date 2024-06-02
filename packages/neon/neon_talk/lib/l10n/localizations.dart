@@ -136,6 +136,36 @@ abstract class TalkLocalizations {
   /// In en, this message translates to:
   /// **'Send a message...'**
   String get roomSendMessage;
+
+  /// No description provided for @roomMessageAddEmoji.
+  ///
+  /// In en, this message translates to:
+  /// **'Add emoji to message'**
+  String get roomMessageAddEmoji;
+
+  /// No description provided for @roomMessageSend.
+  ///
+  /// In en, this message translates to:
+  /// **'Send message'**
+  String get roomMessageSend;
+
+  /// No description provided for @reactionsAddNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new reaction'**
+  String get reactionsAddNew;
+
+  /// No description provided for @reactionsLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading reactions'**
+  String get reactionsLoading;
+
+  /// No description provided for @roomsCreateNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Create new room'**
+  String get roomsCreateNew;
 }
 
 class _TalkLocalizationsDelegate extends LocalizationsDelegate<TalkLocalizations> {

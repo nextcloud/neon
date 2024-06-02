@@ -86,6 +86,8 @@ void main() {
 
     await tester.pumpWidget(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<AccountsBloc>.value(value: accountsBloc),
           NeonProvider<TalkBloc>.value(value: bloc),

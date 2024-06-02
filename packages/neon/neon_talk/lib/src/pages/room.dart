@@ -160,6 +160,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
           // On cupertino the keyboard always has an option to insert emojis, so we don't need to add it
           if (!isCupertino(context)) {
             emojiButton = IconButton(
+              tooltip: TalkLocalizations.of(context).roomMessageAddEmoji,
               onPressed: () async {
                 final emoji = await showDialog<String>(
                   context: context,
@@ -202,6 +203,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                         decoration: InputDecoration(
                           prefixIcon: emojiButton,
                           suffixIcon: IconButton(
+                            tooltip: TalkLocalizations.of(context).roomMessageSend,
                             icon: Icon(AdaptiveIcons.send),
                             onPressed: sendMessage,
                           ),

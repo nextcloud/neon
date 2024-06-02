@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -49,7 +50,8 @@ class TalkReactions extends StatelessWidget {
                     fontFamily: 'monospace',
                   ),
                 ),
-                tooltip: reactions?[reaction.key]?.map((r) => r.actorDisplayName).join(', '),
+                tooltip: reactions?[reaction.key]?.map((r) => r.actorDisplayName).join(', ') ??
+                    TalkLocalizations.of(context).reactionsLoading,
                 padding: EdgeInsets.zero,
                 labelPadding: const EdgeInsets.only(
                   top: -2.5,
@@ -78,6 +80,7 @@ class TalkReactions extends StatelessWidget {
               label: const SizedBox(),
               padding: EdgeInsets.zero,
               labelPadding: const EdgeInsets.symmetric(vertical: -2.5),
+              tooltip: TalkLocalizations.of(context).reactionsAddNew,
               onPressed: () async {
                 final reaction = await showDialog<String>(
                   context: context,

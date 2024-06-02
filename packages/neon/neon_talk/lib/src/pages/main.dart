@@ -5,6 +5,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/dialogs/create_room.dart';
@@ -63,7 +64,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
+        tooltip: TalkLocalizations.of(context).roomsCreateNew,
         onPressed: () async {
           final result = await showDialog<TalkCreateRoomDetails>(
             context: context,
@@ -79,6 +80,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
             result.invite,
           );
         },
+        child: const Icon(Icons.add),
       ),
     );
   }

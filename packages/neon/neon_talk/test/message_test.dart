@@ -343,7 +343,7 @@ void main() {
   });
 
   group('TalkCommentMessage', () {
-    testWidgets('Default', (tester) async {
+    testWidgets('Self', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('');
       when(() => account.username).thenReturn('test');
@@ -398,7 +398,7 @@ void main() {
       );
     });
 
-    testWidgets('Default', (tester) async {
+    testWidgets('Other', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('');
       when(() => account.username).thenReturn('other');
