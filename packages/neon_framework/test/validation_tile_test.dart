@@ -40,7 +40,15 @@ void main() {
     testWidgets('NeonValidationTile cupertino', (widgetTester) async {
       const widget = NeonValidationTile(title: 'title', state: ValidationState.canceled);
 
-      await widgetTester.pumpWidget(const TestApp(platform: TargetPlatform.macOS, child: widget));
+      await widgetTester.pumpWidget(
+        const TestApp(
+          platform: TargetPlatform.macOS,
+          child: ColoredBox(
+            color: Colors.white,
+            child: widget,
+          ),
+        ),
+      );
       expect(find.byType(CupertinoListTile), findsOneWidget);
     });
   });
