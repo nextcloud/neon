@@ -41,7 +41,7 @@ class NeonValidationTile extends StatelessWidget {
         ),
       ValidationState.canceled => Icon(
           AdaptiveIcons.cancel_outlined,
-          color: Theme.of(context).disabledColor,
+          color: Theme.of(context).colorScheme.primary,
           size: size,
         ),
       ValidationState.success => Icon(
@@ -52,10 +52,7 @@ class NeonValidationTile extends StatelessWidget {
     };
     return AdaptiveListTile(
       leading: leading,
-      title: Text(
-        title,
-        style: state == ValidationState.canceled ? TextStyle(color: Theme.of(context).disabledColor) : null,
-      ),
+      title: Text(title),
     );
   }
 }

@@ -27,9 +27,7 @@ void main() {
       iconFinder = find.byIcon(AdaptiveIcons.cancel_outlined);
       expect(iconFinder, findsOneWidget);
       icon = widgetTester.firstWidget(iconFinder) as Icon;
-      expect(icon.color, theme.disabledColor);
-      final text = widgetTester.firstWidget(find.text('title')) as Text;
-      expect(text.style?.color, theme.disabledColor);
+      expect(icon.color, theme.colorScheme.primary);
 
       widget = const NeonValidationTile(title: 'title', state: ValidationState.success);
       await widgetTester.pumpWidget(TestApp(child: widget));
