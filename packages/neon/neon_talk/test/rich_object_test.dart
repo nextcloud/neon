@@ -74,52 +74,56 @@ void main() {
   });
 
   group('Mention', () {
-    testWidgets('user', (tester) async {
-      await tester.pumpWidget(
-        TestApp(
-          providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
-          ],
-          child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = 'user'
-                ..id = 'username'
-                ..name = 'name',
+    group('user', () {
+      testWidgets('Self', (tester) async {
+        await tester.pumpWidget(
+          TestApp(
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            ],
+            child: TalkRichObjectMention(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = 'user'
+                  ..id = 'username'
+                  ..name = 'name',
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
-      expect(find.byType(NeonUserAvatar), findsOne);
-      expect(find.text('name'), findsOne);
-      await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_user_highlight.png'),
-      );
+        );
+        expect(find.byType(NeonUserAvatar), findsOne);
+        expect(find.text('name'), findsOne);
+        await expectLater(
+          find.byType(TalkRichObjectMention),
+          matchesGoldenFile('goldens/rich_object_mention_user_highlight.png'),
+        );
+      });
 
-      await tester.pumpWidget(
-        TestApp(
-          providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
-          ],
-          child: TalkRichObjectMention(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = 'user'
-                ..id = 'other'
-                ..name = 'name',
+      testWidgets('Other', (tester) async {
+        await tester.pumpWidget(
+          TestApp(
+            providers: [
+              NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            ],
+            child: TalkRichObjectMention(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = 'user'
+                  ..id = 'other'
+                  ..name = 'name',
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
-      expect(find.byType(NeonUserAvatar), findsOne);
-      expect(find.text('name'), findsOne);
-      await expectLater(
-        find.byType(TalkRichObjectMention),
-        matchesGoldenFile('goldens/rich_object_mention_user_other.png'),
-      );
+        );
+        expect(find.byType(NeonUserAvatar), findsOne);
+        expect(find.text('name'), findsOne);
+        await expectLater(
+          find.byType(TalkRichObjectMention),
+          matchesGoldenFile('goldens/rich_object_mention_user_other.png'),
+        );
+      });
     });
 
     testWidgets('call', (tester) async {
