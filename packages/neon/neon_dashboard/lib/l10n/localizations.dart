@@ -118,6 +118,12 @@ abstract class DashboardLocalizations {
   /// In en, this message translates to:
   /// **'Address'**
   String get address;
+
+  /// No description provided for @openWidget.
+  ///
+  /// In en, this message translates to:
+  /// **'Open widget'**
+  String get openWidget;
 }
 
 class _DashboardLocalizationsDelegate extends LocalizationsDelegate<DashboardLocalizations> {

@@ -39,4 +39,7 @@ class DashboardLocalizationsEn extends DashboardLocalizations {
 
   @override
   String get address => 'Address';
+
+  @override
+  String get openWidget => 'Open widget';
 }
