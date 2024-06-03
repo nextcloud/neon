@@ -41,7 +41,7 @@ void main() {
 
     await tester.enterText(find.byType(TextField), 'Berlin');
 
-    await tester.tap(find.byType(ElevatedButton));
+    await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle();
 
     expect(await future, 'Berlin');
