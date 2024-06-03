@@ -207,7 +207,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                             icon: Icon(AdaptiveIcons.send),
                             onPressed: sendMessage,
                           ),
-                          hintText: TalkLocalizations.of(context).roomSendMessage,
+                          hintText: TalkLocalizations.of(context).roomWriteMessage,
                         ),
                         validator: (input) => validateNotEmpty(context, input),
                         onFieldSubmitted: (_) => sendMessage(),
