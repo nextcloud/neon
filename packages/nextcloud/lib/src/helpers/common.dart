@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:version/version.dart';
 
@@ -7,22 +8,24 @@ class VersionCheck {
   /// Creates a new [VersionCheck].
   ///
   /// If the [maximumMajor] is `null` the compatibility of the major of the [minimumVersion] is checked.
-  VersionCheck({
+  const VersionCheck({
     required this.versions,
     required this.minimumVersion,
     required int? maximumMajor,
     bool? isSupportedOverride,
-  })  : maximumMajor = maximumMajor ?? minimumVersion.major,
+  })  : _maximumMajor = maximumMajor,
         _isSupportedOverride = isSupportedOverride;
 
   /// Current version of the app.
-  final List<Version>? versions;
+  final BuiltList<Version>? versions;
 
   /// Minimum version of the app.
   final Version minimumVersion;
 
+  final int? _maximumMajor;
+
   /// Maximum major version of the app.
-  late final int maximumMajor;
+  int get maximumMajor => _maximumMajor ?? minimumVersion.major;
 
   /// Overrides the check if the current version is supported.
   final bool? _isSupportedOverride;
@@ -48,4 +51,20 @@ class VersionCheck {
 
     return false;
   }
+
+  @override
+  bool operator ==(Object other) =>
+      other is VersionCheck &&
+      other.versions == versions &&
+      other.minimumVersion == minimumVersion &&
+      other.maximumMajor == maximumMajor &&
+      other._isSupportedOverride == _isSupportedOverride;
+
+  @override
+  int get hashCode => Object.hashAll([
+        versions,
+        minimumVersion,
+        maximumMajor,
+        _isSupportedOverride,
+      ]);
 }

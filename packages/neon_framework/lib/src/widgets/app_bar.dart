@@ -1,22 +1,16 @@
 import 'dart:async';
 
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
-import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
-import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/utils/global_options.dart' as global_options;
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/account_switcher_button.dart';
-import 'package:neon_framework/src/widgets/app_implementation_icon.dart';
 import 'package:neon_framework/src/widgets/unified_search_results.dart';
-import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Global app bar for the Neon app.
@@ -99,7 +93,6 @@ class _NeonAppBarState extends State<NeonAppBar> {
                           textInputAction: TextInputAction.search,
                           leading: showDrawer && !drawerAlwaysVisible ? const DrawerButton() : null,
                           trailing: const [
-                            NotificationIconButton(),
                             AccountSwitcherButton(),
                           ],
                           onTap: () {
@@ -129,114 +122,6 @@ class _NeonAppBarState extends State<NeonAppBar> {
           },
         ),
       ),
-    );
-  }
-}
-
-/// Button opening the notifications page.
-@internal
-class NotificationIconButton extends StatefulWidget {
-  /// Creates a new notifications button.
-  const NotificationIconButton({
-    super.key,
-  });
-
-  @override
-  State<NotificationIconButton> createState() => _NotificationIconButtonState();
-}
-
-class _NotificationIconButtonState extends State<NotificationIconButton> {
-  late AccountsBloc _accountsBloc;
-  late AppsBloc _appsBloc;
-  late BuiltList<Account> _accounts;
-  late Account _account;
-  late StreamSubscription<void> notificationSubscription;
-
-  @override
-  void initState() {
-    super.initState();
-    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    _appsBloc = _accountsBloc.activeAppsBloc;
-    _accounts = _accountsBloc.accounts.value;
-    _account = _accountsBloc.activeAccount.value!;
-
-    notificationSubscription = _appsBloc.openNotifications.listen((_) async {
-      final notificationsAppImplementation = _appsBloc.notificationsAppImplementation.valueOrNull;
-      if (notificationsAppImplementation != null && notificationsAppImplementation.hasData) {
-        await _openNotifications(notificationsAppImplementation.data!);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    unawaited(notificationSubscription.cancel());
-
-    super.dispose();
-  }
-
-  // TODO: migrate to go_router with a separate page
-  Future<void> _openNotifications(
-    NotificationsAppInterface app,
-  ) async {
-    final page = Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(app.name(context)),
-            if (_accounts.length > 1)
-              Text(
-                _account.humanReadableID,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-          ],
-        ),
-      ),
-      body: SafeArea(
-        child: app.page,
-      ),
-    );
-
-    await Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (context) => Provider<NotificationsBlocInterface>(
-          create: (context) => app.getBloc(_account),
-          child: page,
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ResultBuilder.behaviorSubject(
-      subject: _appsBloc.notificationsAppImplementation,
-      builder: (context, notificationsAppImplementation) {
-        if (!notificationsAppImplementation.hasData) {
-          return const SizedBox.shrink();
-        }
-
-        final notificationsImplementationData = notificationsAppImplementation.data!;
-        final notificationBloc = notificationsImplementationData.getBloc(_account);
-
-        return IconButton(
-          key: Key('app-${notificationsImplementationData.id}'),
-          onPressed: () async {
-            await _openNotifications(notificationsImplementationData);
-          },
-          tooltip: NeonLocalizations.of(context).appImplementationName(notificationsImplementationData.id),
-          padding: const EdgeInsets.all(4),
-          icon: StreamBuilder<int>(
-            stream: notificationsImplementationData.getUnreadCounter(notificationBloc),
-            builder: (context, unreadCounterSnapshot) => NeonAppImplementationIcon(
-              appImplementation: notificationsImplementationData,
-              unreadCount: unreadCounterSnapshot.data,
-            ),
-          ),
-        );
-      },
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/api/core.openapi.dart' as core;
 import 'package:nextcloud/src/api/spreed.openapi.dart' as spreed;
@@ -17,7 +18,7 @@ extension SpreedVersionCheck on spreed.$Client {
   VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
     final version = capabilities.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed.version;
     return VersionCheck(
-      versions: version != null ? [Version.parse(version)] : null,
+      versions: version != null ? BuiltList([Version.parse(version)]) : null,
       minimumVersion: minVersion,
       maximumMajor: maxMajor,
     );

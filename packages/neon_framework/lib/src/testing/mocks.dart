@@ -9,6 +9,7 @@ import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/user_details.dart';
+import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/storage/persistence.dart';
@@ -19,7 +20,10 @@ import 'package:shared_preferences_platform_interface/shared_preferences_platfor
 
 class MockAccount extends Mock implements Account {}
 
-class MockAppImplementation extends Mock implements AppImplementation {}
+class MockAccountCache<T extends Disposable> extends Mock implements AccountCache<T> {}
+
+class MockAppImplementation<T extends Bloc, R extends AppImplementationOptions> extends Mock
+    implements AppImplementation<T, R> {}
 
 class MockAccountsBloc extends Mock implements AccountsBloc {}
 
@@ -81,3 +85,5 @@ class MockCallbackFunction<T> extends Mock {
 class MockUserDetailsBloc extends Mock implements UserDetailsBloc {}
 
 class MockUserDetails extends Mock implements provisioning_api.UserDetails {}
+
+class MockSelectOption<T> extends Mock implements SelectOption<T> {}

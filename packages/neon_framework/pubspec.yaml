@@ -85,6 +85,7 @@ dev_dependencies:
       path: packages/neon_lints
   shared_preferences: ^2.2.3
   vector_graphics_compiler: ^1.1.11+1
+  version: ^3.0.2
 
 flutter:
   uses-material-design: true
