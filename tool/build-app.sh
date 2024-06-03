@@ -5,13 +5,13 @@ source tool/common.sh
 
 function get_mount_paths_dir() {
   dir="$1"
-  mapfile -t packages < <(melos list --parsable --relative --dir-exists="$dir")
+  mapfile -t packages < <(melos list --parsable --relative --dir-exists="$dir" | grep "^packages/")
   echo "${packages[@]/%//$dir}"
 }
 
 function get_mount_paths_file() {
   file="$1"
-  mapfile -t packages < <(melos list --parsable --relative --file-exists="$file")
+  mapfile -t packages < <(melos list --parsable --relative --file-exists="$file" | grep "^packages/")
   echo "${packages[@]/%//$file}"
 }
 
