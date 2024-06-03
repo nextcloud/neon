@@ -6971,7 +6971,7 @@ abstract class OpenGraphObject implements $OpenGraphObjectInterface, Built<OpenG
 @BuiltValue(instantiable: false)
 sealed class $ResourceInterface {
   String get richObjectType;
-  BuiltMap<String, JsonObject> get richObject;
+  BuiltMap<String, JsonObject?> get richObject;
   OpenGraphObject get openGraphObject;
   bool get accessible;
 
@@ -14328,7 +14328,7 @@ abstract class ReferenceApiExtractRequestApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $ReferenceInterface {
   String get richObjectType;
-  BuiltMap<String, JsonObject> get richObject;
+  BuiltMap<String, JsonObject?> get richObject;
   OpenGraphObject get openGraphObject;
   bool get accessible;
 
@@ -21525,8 +21525,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Resource), ResourceBuilder.new)
       ..add(Resource.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
+        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        MapBuilder<String, JsonObject?>.new,
       )
       ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObjectBuilder.new)
       ..add(OpenGraphObject.serializer)

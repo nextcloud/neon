@@ -1969,7 +1969,7 @@ class _$ResourceSerializer implements StructuredSerializer<Resource> {
       serializers.serialize(object.richObjectType, specifiedType: const FullType(String)),
       'richObject',
       serializers.serialize(object.richObject,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])),
       'openGraphObject',
       serializers.serialize(object.openGraphObject, specifiedType: const FullType(OpenGraphObject)),
       'accessible',
@@ -1995,7 +1995,7 @@ class _$ResourceSerializer implements StructuredSerializer<Resource> {
           break;
         case 'richObject':
           result.richObject.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]))!);
           break;
         case 'openGraphObject':
           result.openGraphObject.replace(
@@ -7583,7 +7583,7 @@ class _$ReferenceSerializer implements StructuredSerializer<Reference> {
       serializers.serialize(object.richObjectType, specifiedType: const FullType(String)),
       'richObject',
       serializers.serialize(object.richObject,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])),
       'openGraphObject',
       serializers.serialize(object.openGraphObject, specifiedType: const FullType(OpenGraphObject)),
       'accessible',
@@ -7609,7 +7609,7 @@ class _$ReferenceSerializer implements StructuredSerializer<Reference> {
           break;
         case 'richObject':
           result.richObject.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]))!);
           break;
         case 'openGraphObject':
           result.openGraphObject.replace(
@@ -15512,8 +15512,8 @@ abstract mixin class $ResourceInterfaceBuilder {
   String? get richObjectType;
   set richObjectType(String? richObjectType);
 
-  MapBuilder<String, JsonObject> get richObject;
-  set richObject(MapBuilder<String, JsonObject>? richObject);
+  MapBuilder<String, JsonObject?> get richObject;
+  set richObject(MapBuilder<String, JsonObject?>? richObject);
 
   OpenGraphObjectBuilder get openGraphObject;
   set openGraphObject(OpenGraphObjectBuilder? openGraphObject);
@@ -15526,7 +15526,7 @@ class _$Resource extends Resource {
   @override
   final String richObjectType;
   @override
-  final BuiltMap<String, JsonObject> richObject;
+  final BuiltMap<String, JsonObject?> richObject;
   @override
   final OpenGraphObject openGraphObject;
   @override
@@ -15588,9 +15588,9 @@ class ResourceBuilder implements Builder<Resource, ResourceBuilder>, $ResourceIn
   String? get richObjectType => _$this._richObjectType;
   set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
 
-  MapBuilder<String, JsonObject>? _richObject;
-  MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
-  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
+  MapBuilder<String, JsonObject?>? _richObject;
+  MapBuilder<String, JsonObject?> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject?>();
+  set richObject(covariant MapBuilder<String, JsonObject?>? richObject) => _$this._richObject = richObject;
 
   OpenGraphObjectBuilder? _openGraphObject;
   OpenGraphObjectBuilder get openGraphObject => _$this._openGraphObject ??= OpenGraphObjectBuilder();
@@ -29677,8 +29677,8 @@ abstract mixin class $ReferenceInterfaceBuilder {
   String? get richObjectType;
   set richObjectType(String? richObjectType);
 
-  MapBuilder<String, JsonObject> get richObject;
-  set richObject(MapBuilder<String, JsonObject>? richObject);
+  MapBuilder<String, JsonObject?> get richObject;
+  set richObject(MapBuilder<String, JsonObject?>? richObject);
 
   OpenGraphObjectBuilder get openGraphObject;
   set openGraphObject(OpenGraphObjectBuilder? openGraphObject);
@@ -29691,7 +29691,7 @@ class _$Reference extends Reference {
   @override
   final String richObjectType;
   @override
-  final BuiltMap<String, JsonObject> richObject;
+  final BuiltMap<String, JsonObject?> richObject;
   @override
   final OpenGraphObject openGraphObject;
   @override
@@ -29753,9 +29753,9 @@ class ReferenceBuilder implements Builder<Reference, ReferenceBuilder>, $Referen
   String? get richObjectType => _$this._richObjectType;
   set richObjectType(covariant String? richObjectType) => _$this._richObjectType = richObjectType;
 
-  MapBuilder<String, JsonObject>? _richObject;
-  MapBuilder<String, JsonObject> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject>();
-  set richObject(covariant MapBuilder<String, JsonObject>? richObject) => _$this._richObject = richObject;
+  MapBuilder<String, JsonObject?>? _richObject;
+  MapBuilder<String, JsonObject?> get richObject => _$this._richObject ??= MapBuilder<String, JsonObject?>();
+  set richObject(covariant MapBuilder<String, JsonObject?>? richObject) => _$this._richObject = richObject;
 
   OpenGraphObjectBuilder? _openGraphObject;
   OpenGraphObjectBuilder get openGraphObject => _$this._openGraphObject ??= OpenGraphObjectBuilder();
