@@ -134,7 +134,6 @@ void main() {
 
     final mockAccount = MockAccount();
     when(() => mockAccount.client).thenReturn(mockNextcloudClient);
-    when(() => mockAccount.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments.single as Uri);
 
     final uri = Uri.parse('https://example.com');
     await tester.pumpWidget(

@@ -50,7 +50,6 @@ void main() {
     callback = MockCallbackFunction<void>().call;
 
     final account = MockAccount();
-    when(() => account.completeUri(any())).thenAnswer((invocation) => invocation.positionalArguments[0]! as Uri);
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     accountsBloc = MockAccountsBloc();

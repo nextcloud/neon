@@ -37,4 +37,26 @@ void main() {
 
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/action_secondary.png'));
   });
+
+  testWidgets('Opens link', (tester) async {
+    final router = MockGoRouter();
+
+    final action = MockAction();
+    when(() => action.label).thenReturn('label');
+    when(() => action.primary).thenReturn(true);
+    when(() => action.link).thenReturn('/link');
+
+    await tester.pumpWidget(
+      TestApp(
+        router: router,
+        child: NotificationsAction(
+          action: action,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byType(NotificationsAction));
+
+    verify(() => router.go('/link')).called(1);
+  });
 }

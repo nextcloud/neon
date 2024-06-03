@@ -1,5 +1,7 @@
 // ignore_for_file: avoid_implementing_value_types, public_member_api_docs, missing_override_of_must_be_overridden
 
+import 'package:go_router/go_router.dart';
+import 'package:meta/meta.dart';
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -18,7 +20,11 @@ import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
-class MockAccount extends Mock implements Account {}
+class MockAccount extends Mock implements Account {
+  @internal
+  @override
+  Uri completeUri(Uri uri) => uri;
+}
 
 class MockAccountCache<T extends Disposable> extends Mock implements AccountCache<T> {}
 
@@ -87,3 +93,5 @@ class MockUserDetailsBloc extends Mock implements UserDetailsBloc {}
 class MockUserDetails extends Mock implements provisioning_api.UserDetails {}
 
 class MockSelectOption<T> extends Mock implements SelectOption<T> {}
+
+class MockGoRouter extends Mock implements GoRouter {}
