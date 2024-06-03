@@ -103,7 +103,7 @@ void main() {
     await tester.enterText(find.byType(TextFormField), 't');
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('test'));
+    await tester.tap(find.text('test'), warnIfMissed: false);
     await tester.pumpAndSettle();
 
     await tester.testTextInput.receiveAction(TextInputAction.done);
