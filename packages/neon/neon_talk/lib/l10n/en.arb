@@ -12,7 +12,7 @@
       "type": {}
     }
   },
-  "roomSendMessage": "Send a message...",
+  "roomWriteMessage": "Write a message...",
   "roomMessageAddEmoji": "Add emoji to message",
   "roomMessageSend": "Send message",
   "reactionsAddNew": "Add a new reaction",

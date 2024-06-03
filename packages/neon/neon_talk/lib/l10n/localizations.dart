@@ -131,11 +131,11 @@ abstract class TalkLocalizations {
   /// **'{type, select, oneToOne{Private} group{Group} public{Public} other{}}'**
   String roomType(String type);
 
-  /// No description provided for @roomSendMessage.
+  /// No description provided for @roomWriteMessage.
   ///
   /// In en, this message translates to:
-  /// **'Send a message...'**
-  String get roomSendMessage;
+  /// **'Write a message...'**
+  String get roomWriteMessage;
 
   /// No description provided for @roomMessageAddEmoji.
   ///

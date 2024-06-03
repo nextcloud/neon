@@ -39,7 +39,7 @@ class TalkLocalizationsEn extends TalkLocalizations {
   }
 
   @override
-  String get roomSendMessage => 'Send a message...';
+  String get roomWriteMessage => 'Write a message...';
 
   @override
   String get roomMessageAddEmoji => 'Add emoji to message';
