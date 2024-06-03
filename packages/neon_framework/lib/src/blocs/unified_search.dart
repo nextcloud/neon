@@ -175,11 +175,13 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     BuiltMap<String, Result<core.UnifiedSearchResult>> results,
   ) sync* {
     final activeApp = activeAppSubject.value;
+    final extended = isExtendedSearch.value ?? false;
 
     // Unlike non-matching providers (below) we don't filter the empty results,
     // as the active app is more relevant and we want to know if there are no results for the active app.
     yield* results.entries
         .where((entry) => providerMatchesApp(entry.key, activeApp))
+        .where((entry) => !extended || hasEntries(entry.value))
         .sorted((a, b) => sortEntriesCount(a.value, b.value));
     yield* results.entries
         .whereNot((entry) => providerMatchesApp(entry.key, activeApp))
@@ -188,7 +190,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   }
 
   bool providerMatchesApp(String providerID, AppImplementation app) =>
-      providerID == app.id || providerID.startsWith('${app.id}_');
+      providerID == app.id || providerID.startsWith('${app.id}_') || providerID.startsWith('${app.id}-');
 
   bool hasEntries(Result<core.UnifiedSearchResult> result) => !result.hasData || result.requireData.entries.isNotEmpty;
 
