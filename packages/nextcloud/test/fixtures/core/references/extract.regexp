@@ -1,0 +1,6 @@
+POST http://localhost/ocs/v2\.php/references/extract
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"text":"abc https://example\.com def\\nhttps://example\.org\\nghi\\n","resolve":true,"limit":2\}

@@ -1,0 +1,6 @@
+POST http://localhost/ocs/v2\.php/references/resolve
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"references":\["https://example\.com","https://example\.org"\],"limit":2\}

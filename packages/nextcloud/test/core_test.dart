@@ -221,6 +221,93 @@ void main() {
           );
         });
       });
+
+      group('References', () {
+        test('resolveOne', () async {
+          final response = await client.core.referenceApi.resolveOne(
+            $body: core.ReferenceApiResolveOneRequestApplicationJson(
+              (b) => b..reference = 'https://example.com',
+            ),
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          expect(response.body.ocs.data.references, hasLength(1));
+          final reference = response.body.ocs.data.references['https://example.com']!;
+          expect(reference.richObjectType, 'open-graph');
+          expect(reference.richObject['id']!.asString, 'https://example.com');
+          expect(reference.richObject['name']!.asString, 'Example Domain');
+          expect(reference.richObject['description'], null);
+          expect(reference.richObject['thumb'], null);
+          expect(reference.richObject['link']!.asString, 'https://example.com');
+          expect(reference.openGraphObject.id, 'https://example.com');
+          expect(reference.openGraphObject.name, 'Example Domain');
+          expect(reference.openGraphObject.link, 'https://example.com');
+          expect(reference.accessible, true);
+        });
+
+        test('resolve', () async {
+          final response = await client.core.referenceApi.resolve(
+            $body: core.ReferenceApiResolveRequestApplicationJson(
+              (b) => b
+                ..references.replace([
+                  'https://example.com',
+                  'https://example.org',
+                ])
+                ..limit = 2,
+            ),
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          expect(response.body.ocs.data.references, hasLength(2));
+          for (final domain in ['https://example.com', 'https://example.org']) {
+            final reference = response.body.ocs.data.references[domain]!;
+            expect(reference.richObjectType, 'open-graph');
+            expect(reference.richObject['id']!.asString, domain);
+            expect(reference.richObject['name']!.asString, 'Example Domain');
+            expect(reference.richObject['description'], null);
+            expect(reference.richObject['thumb'], null);
+            expect(reference.richObject['link']!.asString, domain);
+            expect(reference.openGraphObject.id, domain);
+            expect(reference.openGraphObject.name, 'Example Domain');
+            expect(reference.openGraphObject.link, domain);
+            expect(reference.accessible, true);
+          }
+        });
+
+        test('extract', () async {
+          final response = await client.core.referenceApi.extract(
+            $body: core.ReferenceApiExtractRequestApplicationJson(
+              (b) => b
+                ..text = '''
+abc https://example.com def
+https://example.org
+ghi
+'''
+                ..resolve = true
+                ..limit = 2,
+            ),
+          );
+          expect(response.statusCode, 200);
+          expect(() => response.headers, isA<void>());
+
+          expect(response.body.ocs.data.references, hasLength(2));
+          for (final domain in ['https://example.com', 'https://example.org']) {
+            final reference = response.body.ocs.data.references[domain]!;
+            expect(reference.richObjectType, 'open-graph');
+            expect(reference.richObject['id']!.asString, domain);
+            expect(reference.richObject['name']!.asString, 'Example Domain');
+            expect(reference.richObject['description'], null);
+            expect(reference.richObject['thumb'], null);
+            expect(reference.richObject['link']!.asString, domain);
+            expect(reference.openGraphObject.id, domain);
+            expect(reference.openGraphObject.name, 'Example Domain');
+            expect(reference.openGraphObject.link, domain);
+            expect(reference.accessible, true);
+          }
+        });
+      });
     },
     retry: retryCount,
     timeout: timeout,
