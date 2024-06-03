@@ -52,7 +52,7 @@ void main() {
     when(() => accountsBloc.activeAppsBloc).thenReturn(appsBloc);
     when(() => accountsBloc.activeCapabilitiesBloc).thenReturn(capabilitiesBloc);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         providers: [
           NeonProvider<AccountsBloc>.value(value: accountsBloc),

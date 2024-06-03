@@ -39,7 +39,7 @@ void main() {
     when(() => room.token).thenReturn('abc123');
     when(() => room.avatarVersion).thenReturn('');
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       wrapWidget(
         accountsBloc,
         TalkRoomAvatar(
@@ -67,7 +67,7 @@ void main() {
     when(() => room.type).thenReturn(spreed.RoomType.oneToOne.value);
     when(() => room.name).thenReturn('');
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       wrapWidget(
         accountsBloc,
         TalkRoomAvatar(
@@ -88,7 +88,7 @@ void main() {
     when(() => room.isCustomAvatar).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       wrapWidget(
         accountsBloc,
         TalkRoomAvatar(

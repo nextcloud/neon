@@ -45,7 +45,7 @@ void main() {
       when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -71,7 +71,7 @@ void main() {
       (user_status.$Type.dnd, null, findsNothing, findsOne),
     ]) {
       testWidgets('${status.value} ${icon != null ? 'with' : 'without'} emoji', (tester) async {
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             child: NeonUserStatusIndicator(
               result: Result<user_status.$PublicInterface>(

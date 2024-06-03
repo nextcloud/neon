@@ -5,10 +5,10 @@ import 'package:neon_framework/testing.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 void main() {
-  testWidgets('NextcloudLogo', (widgetTester) async {
+  testWidgets('NextcloudLogo', (tester) async {
     const widget = NextcloudLogo();
 
-    await widgetTester.pumpWidget(const TestApp(wrapMaterial: false, child: widget));
+    await tester.pumpWidgetWithAccessibility(const TestApp(wrapMaterial: false, child: widget));
     expect(find.byType(VectorGraphic), findsOneWidget);
     expect(find.bySemanticsLabel(NeonLocalizationsEn().nextcloudLogo), findsOneWidget);
 

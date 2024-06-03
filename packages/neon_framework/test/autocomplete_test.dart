@@ -69,7 +69,7 @@ void main() {
   testWidgets('Autocomplete', (tester) async {
     final callback = MockOnSelectedCallbackFunction();
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         child: Builder(
           builder: (context) => NeonAutocomplete.withAccount(

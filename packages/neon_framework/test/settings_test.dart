@@ -35,7 +35,7 @@ void main() {
   });
 
   group('OptionSettingsTile', () {
-    testWidgets('ToggleOption', (widgetTester) async {
+    testWidgets('ToggleOption', (tester) async {
       final option = ToggleOption(
         storage: storage,
         key: key,
@@ -44,12 +44,12 @@ void main() {
       );
 
       final widget = TestApp(child: OptionSettingsTile(option: option));
-      await widgetTester.pumpWidget(widget);
+      await tester.pumpWidgetWithAccessibility(widget);
 
       expect(find.text('label'), findsOneWidget);
 
-      await widgetTester.tap(find.byType(SwitchListTile));
-      await widgetTester.pumpAndSettle();
+      await tester.tap(find.byType(SwitchListTile));
+      await tester.pumpAndSettle();
 
       expect(option.value, isFalse);
     });
@@ -74,50 +74,50 @@ void main() {
         );
       });
 
-      testWidgets('ToggleOption material', (widgetTester) async {
+      testWidgets('ToggleOption material', (tester) async {
         final widget = TestApp(child: OptionSettingsTile(option: option));
-        await widgetTester.pumpWidget(widget);
+        await tester.pumpWidgetWithAccessibility(widget);
 
         expect(find.text('label'), findsOneWidget);
         expect(find.text('first'), findsOneWidget);
 
-        await widgetTester.tap(find.byType(SelectSettingsTile));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.byType(SelectSettingsTile));
+        await tester.pumpAndSettle();
         expect(find.byType(SelectSettingsTileDialog), findsOneWidget);
 
         // cancel selection
-        await widgetTester.tapAt(Offset.zero);
-        await widgetTester.pumpAndSettle();
+        await tester.tapAt(Offset.zero);
+        await tester.pumpAndSettle();
         expect(option.value, SelectValues.first);
 
-        await widgetTester.tap(find.byType(SelectSettingsTile));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.byType(SelectSettingsTile));
+        await tester.pumpAndSettle();
 
         // Select null value
-        await widgetTester.tap(find.text('null'));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.text('null'));
+        await tester.pumpAndSettle();
         expect(option.value, isNull);
       });
 
-      testWidgets('ToggleOption cupertino', (widgetTester) async {
+      testWidgets('ToggleOption cupertino', (tester) async {
         final widget = TestApp(platform: TargetPlatform.macOS, child: OptionSettingsTile(option: option));
-        await widgetTester.pumpWidget(widget);
+        await tester.pumpWidgetWithAccessibility(widget);
 
         expect(find.text('label'), findsOneWidget);
         expect(find.text('first'), findsOneWidget);
 
-        await widgetTester.tap(find.byType(SelectSettingsTile));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.byType(SelectSettingsTile));
+        await tester.pumpAndSettle();
         expect(find.byType(SelectSettingsTileScreen), findsOneWidget);
 
         // Select null value
-        await widgetTester.tap(find.text('null'));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.text('null'));
+        await tester.pumpAndSettle();
         expect(option.value, isNull);
 
         // Select second value
-        await widgetTester.tap(find.text('second'));
-        await widgetTester.pumpAndSettle();
+        await tester.tap(find.text('second'));
+        await tester.pumpAndSettle();
         expect(option.value, SelectValues.second);
       });
     });

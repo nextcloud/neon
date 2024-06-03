@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
+import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/testing.dart';
@@ -104,5 +106,23 @@ class TestApp extends StatelessWidget {
     }
 
     return app;
+  }
+}
+
+/// Extension for pumping widgets with automatic accessibility guideline checks.
+extension TesterPumpWidgetWithAccessibility on WidgetTester {
+  /// Pumps the [widget] like [pumpWidget], but performs automatic accessibility guideline checks.
+  Future<void> pumpWidgetWithAccessibility(Widget widget) async {
+    final handle = ensureSemantics();
+
+    // ignore: prefer_pump_widget_with_accessibility
+    await pumpWidget(widget);
+
+    await expectLater(this, meetsGuideline(androidTapTargetGuideline));
+    await expectLater(this, meetsGuideline(iOSTapTargetGuideline));
+    await expectLater(this, meetsGuideline(labeledTapTargetGuideline));
+    await expectLater(this, meetsGuideline(textContrastGuideline));
+
+    handle.dispose();
   }
 }

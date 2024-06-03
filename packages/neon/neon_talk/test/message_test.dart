@@ -57,7 +57,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -79,7 +79,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -100,7 +100,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -121,7 +121,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -142,7 +142,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.system);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -163,7 +163,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -186,7 +186,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -220,7 +220,7 @@ void main() {
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -243,7 +243,7 @@ void main() {
       final chatMessage = MockChatMessage();
       when(() => chatMessage.systemMessage).thenReturn('reaction');
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -264,7 +264,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('test');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -288,7 +288,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('test');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -325,7 +325,7 @@ void main() {
     when(() => chatMessage.reactions).thenReturn(BuiltMap());
     when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
@@ -343,7 +343,7 @@ void main() {
   });
 
   group('TalkCommentMessage', () {
-    testWidgets('Default', (tester) async {
+    testWidgets('Self', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('');
       when(() => account.username).thenReturn('test');
@@ -371,7 +371,7 @@ void main() {
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -398,7 +398,7 @@ void main() {
       );
     });
 
-    testWidgets('Default', (tester) async {
+    testWidgets('Other', (tester) async {
       final account = MockAccount();
       when(() => account.id).thenReturn('');
       when(() => account.username).thenReturn('other');
@@ -426,7 +426,7 @@ void main() {
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -476,7 +476,7 @@ void main() {
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -515,7 +515,7 @@ void main() {
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -575,7 +575,7 @@ void main() {
       final roomBloc = MockRoomBloc();
       when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
@@ -625,7 +625,7 @@ void main() {
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
@@ -677,7 +677,7 @@ void main() {
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
@@ -729,7 +729,7 @@ void main() {
         final roomBloc = MockRoomBloc();
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
-        await tester.pumpWidget(
+        await tester.pumpWidgetWithAccessibility(
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
@@ -778,7 +778,7 @@ void main() {
               when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
               when(() => accountsBloc.activeUserDetailsBloc).thenReturn(userDetailsBloc);
 
-              await tester.pumpWidget(
+              await tester.pumpWidgetWithAccessibility(
                 TestApp(
                   providers: [
                     NeonProvider<AccountsBloc>.value(value: accountsBloc),
@@ -806,7 +806,7 @@ void main() {
         });
 
         testWidgets('File', (tester) async {
-          await tester.pumpWidget(
+          await tester.pumpWidgetWithAccessibility(
             TestApp(
               child: RichText(
                 text: buildRichObjectParameter(
@@ -828,7 +828,7 @@ void main() {
         });
 
         testWidgets('Deck card', (tester) async {
-          await tester.pumpWidget(
+          await tester.pumpWidgetWithAccessibility(
             TestApp(
               child: RichText(
                 text: buildRichObjectParameter(
@@ -852,7 +852,7 @@ void main() {
         });
 
         testWidgets('Fallback', (tester) async {
-          await tester.pumpWidget(
+          await tester.pumpWidgetWithAccessibility(
             TestApp(
               child: RichText(
                 text: buildRichObjectParameter(

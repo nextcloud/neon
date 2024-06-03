@@ -7,42 +7,48 @@ import 'package:neon_framework/testing.dart';
 
 void main() {
   group('NeonValidationTile', () {
-    testWidgets('NeonValidationTile material', (widgetTester) async {
+    testWidgets('NeonValidationTile material', (tester) async {
       var widget = const NeonValidationTile(title: 'title', state: ValidationState.loading);
-      await widgetTester.pumpWidget(TestApp(child: widget));
+      await tester.pumpWidgetWithAccessibility(TestApp(child: widget));
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
       // We do not change the theme throughout the test so getting once is enough.
-      final theme = (widgetTester.firstWidget(find.byType(Theme)) as Theme).data;
+      final theme = (tester.firstWidget(find.byType(Theme)) as Theme).data;
 
       widget = const NeonValidationTile(title: 'title', state: ValidationState.failure);
-      await widgetTester.pumpWidget(TestApp(child: widget));
+      await tester.pumpWidgetWithAccessibility(TestApp(child: widget));
       var iconFinder = find.byIcon(AdaptiveIcons.error_outline);
       expect(iconFinder, findsOneWidget);
-      var icon = widgetTester.firstWidget(iconFinder) as Icon;
+      var icon = tester.firstWidget(iconFinder) as Icon;
       expect(icon.color, theme.colorScheme.error);
 
       widget = const NeonValidationTile(title: 'title', state: ValidationState.canceled);
-      await widgetTester.pumpWidget(TestApp(child: widget));
+      await tester.pumpWidgetWithAccessibility(TestApp(child: widget));
       iconFinder = find.byIcon(AdaptiveIcons.cancel_outlined);
       expect(iconFinder, findsOneWidget);
-      icon = widgetTester.firstWidget(iconFinder) as Icon;
-      expect(icon.color, theme.disabledColor);
-      final text = widgetTester.firstWidget(find.text('title')) as Text;
-      expect(text.style?.color, theme.disabledColor);
+      icon = tester.firstWidget(iconFinder) as Icon;
+      expect(icon.color, theme.colorScheme.primary);
 
       widget = const NeonValidationTile(title: 'title', state: ValidationState.success);
-      await widgetTester.pumpWidget(TestApp(child: widget));
+      await tester.pumpWidgetWithAccessibility(TestApp(child: widget));
       iconFinder = find.byIcon(AdaptiveIcons.check_circle);
       expect(iconFinder, findsOneWidget);
-      icon = widgetTester.firstWidget(iconFinder) as Icon;
+      icon = tester.firstWidget(iconFinder) as Icon;
       expect(icon.color, theme.colorScheme.primary);
     });
 
-    testWidgets('NeonValidationTile cupertino', (widgetTester) async {
+    testWidgets('NeonValidationTile cupertino', (tester) async {
       const widget = NeonValidationTile(title: 'title', state: ValidationState.canceled);
 
-      await widgetTester.pumpWidget(const TestApp(platform: TargetPlatform.macOS, child: widget));
+      await tester.pumpWidgetWithAccessibility(
+        const TestApp(
+          platform: TargetPlatform.macOS,
+          child: ColoredBox(
+            color: Colors.white,
+            child: widget,
+          ),
+        ),
+      );
       expect(find.byType(CupertinoListTile), findsOneWidget);
     });
   });

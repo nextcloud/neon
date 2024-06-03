@@ -9,5 +9,6 @@
     }
   },
   "locationSet": "Set location for weather",
-  "address": "Address"
+  "address": "Address",
+  "openWidget": "Open widget"
 }

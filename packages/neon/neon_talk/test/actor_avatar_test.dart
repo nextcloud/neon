@@ -27,7 +27,7 @@ void main() {
       final accountsBloc = MockAccountsBloc();
       when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
             NeonProvider<AccountsBloc>.value(value: accountsBloc),

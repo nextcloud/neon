@@ -202,6 +202,9 @@ class NeonDialog extends StatelessWidget {
             child: Text(
               NeonLocalizations.of(context).actionCancel,
               textAlign: TextAlign.end,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface,
+              ),
             ),
           ),
         ...?actions,

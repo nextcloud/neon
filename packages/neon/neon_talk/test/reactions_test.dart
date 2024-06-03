@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -44,8 +45,10 @@ void main() {
   });
 
   testWidgets('Reactions', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
@@ -62,8 +65,10 @@ void main() {
   });
 
   testWidgets('Add reaction', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
@@ -79,8 +84,10 @@ void main() {
   });
 
   testWidgets('Remove reaction', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
@@ -98,8 +105,10 @@ void main() {
   testWidgets('Add new reaction', (tester) async {
     SharedPreferences.setMockInitialValues({});
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
@@ -122,8 +131,10 @@ void main() {
   });
 
   testWidgets('Load reactions on hover', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],

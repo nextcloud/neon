@@ -46,7 +46,7 @@ void main() {
     final controller = StreamController<Object>();
     when(() => bloc.errors).thenAnswer((_) => controller.stream);
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
         supportedLocales: NotificationsLocalizations.supportedLocales,
@@ -69,7 +69,7 @@ void main() {
   });
 
   testWidgets('Without notifications', (tester) async {
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
         supportedLocales: NotificationsLocalizations.supportedLocales,
@@ -113,7 +113,7 @@ void main() {
       ),
     );
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: NotificationsLocalizations.localizationsDelegates,
         supportedLocales: NotificationsLocalizations.supportedLocales,

@@ -105,7 +105,7 @@ void main() {
       when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
       when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
 
-      await tester.pumpWidget(
+      await tester.pumpWidgetWithAccessibility(
         NeonProvider<AccountsBloc>.value(
           value: accountsBloc,
           child: const TestApp(
@@ -160,7 +160,7 @@ void main() {
     final accountsBloc = MockAccountsBloc();
     when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
 
-    await tester.pumpWidget(
+    await tester.pumpWidgetWithAccessibility(
       NeonProvider<AccountsBloc>.value(
         value: accountsBloc,
         child: const TestApp(
