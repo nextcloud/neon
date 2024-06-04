@@ -6,23 +6,6 @@
     },
     "paths": {
         "/": {
-            "get": {
-                "requestBody": {
-                    "content": {
-                        "application/octet-stream": {
-                            "schema": {
-                                "type": "string",
-                                "format": "binary"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "default": {
-                        "description": ""
-                    }
-                }
-            },
             "post": {
                 "requestBody": {
                     "content": {
@@ -42,6 +25,150 @@
                         }
                     }
                 ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/object": {
+            "get": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "test": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "test": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "test": {
+                                        "type": "string",
+                                        "default": "123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "default": {"test": "123"},
+                                "properties": {
+                                    "test": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/binary": {
+            "get": {
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "string",
+                                "format": "binary",
+                                "default": [116, 101, 115, 116]
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "default": {
                         "description": ""

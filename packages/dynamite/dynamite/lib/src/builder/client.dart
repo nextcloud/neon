@@ -231,7 +231,7 @@ Iterable<Method> buildTags(
         );
       }
 
-      ({String mimeType, TypeResult result})? bodyParameter;
+      ({String mimeType, TypeResult result, bool dartParameterNullable, String? $default})? bodyParameter;
       final requestBody = operation.requestBody;
       if (requestBody != null) {
         for (final content in requestBody.content.entries) {
@@ -261,7 +261,12 @@ Iterable<Method> buildTags(
             }),
           );
 
-          bodyParameter = (mimeType: mimeType, result: result);
+          bodyParameter = (
+            mimeType: mimeType,
+            result: result,
+            dartParameterNullable: dartParameterNullable,
+            $default: mediaType.schema?.$default,
+          );
 
           operationParameters.add(
             Parameter(
@@ -380,7 +385,13 @@ ${allocate(returnType)}(
             }
 
             if (bodyParameter != null) {
-              resolveMimeTypeEncode(bodyParameter.mimeType, bodyParameter.result, code);
+              resolveMimeTypeEncode(
+                bodyParameter.mimeType,
+                bodyParameter.result,
+                bodyParameter.dartParameterNullable,
+                bodyParameter.$default,
+                code,
+              );
             }
 
             code.writeln('return _request;');

@@ -10,6 +10,12 @@ bool isDartParameterNullable(
   bool required,
   json_schema.JsonSchema? schema,
 ) =>
+    !required || (schema?.nullable ?? false);
+
+bool isDartGetterNullable(
+  bool required,
+  json_schema.JsonSchema? schema,
+) =>
     (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
 bool isRequired(

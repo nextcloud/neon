@@ -185,7 +185,7 @@ void _generateProperties(
             propertyName,
             identifier: identifier,
           )
-          ..nullable = isDartParameterNullable(
+          ..nullable = isDartGetterNullable(
             schema.required.contains(propertyName),
             propertySchema,
           );

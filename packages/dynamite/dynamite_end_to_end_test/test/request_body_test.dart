@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:dynamite_end_to_end_test/request_body.openapi.dart';
 import 'package:http/http.dart';
@@ -6,30 +7,7 @@ import 'package:http/testing.dart';
 import 'package:test/test.dart';
 
 void main() async {
-  test('Request Uint8List body', () async {
-    // No body
-    var client = $Client(
-      Uri.parse('example.com'),
-      httpClient: MockClient((request) async {
-        expect(request.bodyBytes.length, 0);
-        return Response('{}', 200);
-      }),
-    );
-    await client.$get();
-
-    // with body
-    final data = utf8.encode('value');
-    client = $Client(
-      Uri.parse('example.com'),
-      httpClient: MockClient((request) async {
-        expect(request.bodyBytes, equals(data));
-        return Response('{}', 200);
-      }),
-    );
-    await client.$get($body: data);
-  });
-
-  test('Request String body', () async {
+  test('Request body parameter name conflict', () async {
     // No body
     var client = $Client(
       Uri.parse('example.com'),
@@ -49,5 +27,85 @@ void main() async {
       }),
     );
     await client.post($body: 'value');
+  });
+
+  test('Request Object body', () async {
+    // No body
+    var client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.body, json.encode({}));
+        return Response('{}', 200);
+      }),
+    );
+    await client.getObject();
+
+    // with required body and field default
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.body, json.encode({'test': '123'}));
+        return Response('{}', 200);
+      }),
+    );
+    await client.postObject(
+      $body: PostObjectRequestApplicationJson(
+        (b) => b..test = '123',
+      ),
+    );
+
+    // with nullable body
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.body, json.encode({'test': '123'}));
+        return Response('{}', 200);
+      }),
+    );
+    await client.putObject();
+
+    // with body with default
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.body, json.encode({'test': '123'}));
+        return Response('{}', 200);
+      }),
+    );
+    await client.deleteObject();
+  });
+
+  test('Request Binary body', () async {
+    // No body
+    var client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes, <int>[]);
+        return Response('{}', 200);
+      }),
+    );
+    await client.getBinary();
+
+    // with required body and field default
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes, utf8.encode('test'));
+        return Response('{}', 200);
+      }),
+    );
+    await client.postBinary(
+      $body: Uint8List.fromList([116, 101, 115, 116]),
+    );
+
+    // with body with default
+    client = $Client(
+      Uri.parse('example.com'),
+      httpClient: MockClient((request) async {
+        expect(request.bodyBytes, utf8.encode('test'));
+        return Response('{}', 200);
+      }),
+    );
+    await client.putBinary();
   });
 }
