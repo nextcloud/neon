@@ -3561,12 +3561,6 @@
                                                                     "$ref": "#/components/schemas/CommentsCapabilities"
                                                                 },
                                                                 {
-                                                                    "$ref": "#/components/schemas/CoreCapabilities"
-                                                                },
-                                                                {
-                                                                    "$ref": "#/components/schemas/CorePublicCapabilities"
-                                                                },
-                                                                {
                                                                     "$ref": "#/components/schemas/DavCapabilities"
                                                                 },
                                                                 {
