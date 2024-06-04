@@ -135,7 +135,9 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
 
         try {
           final response = await account.client.userStatus.heartbeat.heartbeat(
-            status: isAway ? 'away' : 'online',
+            $body: user_status.HeartbeatHeartbeatRequestApplicationJson(
+              (b) => b..status = isAway ? 'away' : 'online',
+            ),
           );
           data = response.body.ocs.data;
         } on DynamiteStatusCodeException catch (e) {
@@ -201,7 +203,11 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   Future<void> setStatusType(String statusType) async {
     await wrapAction(
       () async {
-        final response = await account.client.userStatus.userStatus.setStatus(statusType: statusType);
+        final response = await account.client.userStatus.userStatus.setStatus(
+          $body: user_status.UserStatusSetStatusRequestApplicationJson(
+            (b) => b..statusType = statusType,
+          ),
+        );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
       },
@@ -217,8 +223,11 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setPredefinedMessage(
-          messageId: id,
-          clearAt: clearAt?.secondsSinceEpoch,
+          $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
+            (b) => b
+              ..messageId = id
+              ..clearAt = clearAt?.secondsSinceEpoch,
+          ),
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
@@ -236,9 +245,12 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     await wrapAction(
       () async {
         final response = await account.client.userStatus.userStatus.setCustomMessage(
-          statusIcon: icon,
-          message: message,
-          clearAt: clearAt?.secondsSinceEpoch,
+          $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
+            (b) => b
+              ..statusIcon = icon
+              ..message = message
+              ..clearAt = clearAt?.secondsSinceEpoch,
+          ),
         );
 
         updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));

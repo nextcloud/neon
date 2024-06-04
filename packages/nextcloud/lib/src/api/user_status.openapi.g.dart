@@ -79,6 +79,8 @@ final BuiltSet<ClearAtTimeType> _$clearAtTimeTypeValues = BuiltSet<ClearAtTimeTy
   _$clearAtTimeTypeWeek,
 ]);
 
+Serializer<HeartbeatHeartbeatRequestApplicationJson> _$heartbeatHeartbeatRequestApplicationJsonSerializer =
+    _$HeartbeatHeartbeatRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<Public> _$publicSerializer = _$PublicSerializer();
 Serializer<Private> _$privateSerializer = _$PrivateSerializer();
@@ -93,6 +95,8 @@ Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
     _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson> _$predefinedStatusFindAllResponseApplicationJsonSerializer =
     _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
+Serializer<StatusesFindAllRequestApplicationJson> _$statusesFindAllRequestApplicationJsonSerializer =
+    _$StatusesFindAllRequestApplicationJsonSerializer();
 Serializer<StatusesFindAllResponseApplicationJson_Ocs> _$statusesFindAllResponseApplicationJsonOcsSerializer =
     _$StatusesFindAllResponseApplicationJson_OcsSerializer();
 Serializer<StatusesFindAllResponseApplicationJson> _$statusesFindAllResponseApplicationJsonSerializer =
@@ -105,16 +109,24 @@ Serializer<UserStatusGetStatusResponseApplicationJson_Ocs> _$userStatusGetStatus
     _$UserStatusGetStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusGetStatusResponseApplicationJson> _$userStatusGetStatusResponseApplicationJsonSerializer =
     _$UserStatusGetStatusResponseApplicationJsonSerializer();
+Serializer<UserStatusSetStatusRequestApplicationJson> _$userStatusSetStatusRequestApplicationJsonSerializer =
+    _$UserStatusSetStatusRequestApplicationJsonSerializer();
 Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> _$userStatusSetStatusResponseApplicationJsonOcsSerializer =
     _$UserStatusSetStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetStatusResponseApplicationJson> _$userStatusSetStatusResponseApplicationJsonSerializer =
     _$UserStatusSetStatusResponseApplicationJsonSerializer();
+Serializer<UserStatusSetPredefinedMessageRequestApplicationJson>
+    _$userStatusSetPredefinedMessageRequestApplicationJsonSerializer =
+    _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs>
     _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer =
     _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson>
     _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer =
     _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer();
+Serializer<UserStatusSetCustomMessageRequestApplicationJson>
+    _$userStatusSetCustomMessageRequestApplicationJsonSerializer =
+    _$UserStatusSetCustomMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs>
     _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer =
     _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer();
@@ -133,6 +145,48 @@ Serializer<UserStatusRevertStatusResponseApplicationJson> _$userStatusRevertStat
     _$UserStatusRevertStatusResponseApplicationJsonSerializer();
 Serializer<Capabilities_UserStatus> _$capabilitiesUserStatusSerializer = _$Capabilities_UserStatusSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$HeartbeatHeartbeatRequestApplicationJsonSerializer
+    implements StructuredSerializer<HeartbeatHeartbeatRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    HeartbeatHeartbeatRequestApplicationJson,
+    _$HeartbeatHeartbeatRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'HeartbeatHeartbeatRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  HeartbeatHeartbeatRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = HeartbeatHeartbeatRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -655,6 +709,57 @@ class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
   }
 }
 
+class _$StatusesFindAllRequestApplicationJsonSerializer
+    implements StructuredSerializer<StatusesFindAllRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [StatusesFindAllRequestApplicationJson, _$StatusesFindAllRequestApplicationJson];
+  @override
+  final String wireName = 'StatusesFindAllRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.limit;
+    if (value != null) {
+      result
+        ..add('limit')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.offset;
+    if (value != null) {
+      result
+        ..add('offset')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  StatusesFindAllRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StatusesFindAllRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'limit':
+          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'offset':
+          result.offset = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$StatusesFindAllResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<StatusesFindAllResponseApplicationJson_Ocs> {
   @override
@@ -923,6 +1028,48 @@ class _$UserStatusGetStatusResponseApplicationJsonSerializer
   }
 }
 
+class _$UserStatusSetStatusRequestApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetStatusRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetStatusRequestApplicationJson,
+    _$UserStatusSetStatusRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetStatusRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'statusType',
+      serializers.serialize(object.statusType, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetStatusRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetStatusRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'statusType':
+          result.statusType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$UserStatusSetStatusResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<UserStatusSetStatusResponseApplicationJson_Ocs> {
   @override
@@ -1006,6 +1153,58 @@ class _$UserStatusSetStatusResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs))!
               as UserStatusSetStatusResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetPredefinedMessageRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetPredefinedMessageRequestApplicationJson,
+    _$UserStatusSetPredefinedMessageRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetPredefinedMessageRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'messageId',
+      serializers.serialize(object.messageId, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  UserStatusSetPredefinedMessageRequestApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetPredefinedMessageRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'messageId':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'clearAt':
+          result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -1100,6 +1299,69 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs))!
               as UserStatusSetPredefinedMessageResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetCustomMessageRequestApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetCustomMessageRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetCustomMessageRequestApplicationJson,
+    _$UserStatusSetCustomMessageRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetCustomMessageRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.statusIcon;
+    if (value != null) {
+      result
+        ..add('statusIcon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  UserStatusSetCustomMessageRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetCustomMessageRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'statusIcon':
+          result.statusIcon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'clearAt':
+          result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -1472,6 +1734,102 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder {
+  void replace($HeartbeatHeartbeatRequestApplicationJsonInterface other);
+  void update(void Function($HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+}
+
+class _$HeartbeatHeartbeatRequestApplicationJson extends HeartbeatHeartbeatRequestApplicationJson {
+  @override
+  final String status;
+
+  factory _$HeartbeatHeartbeatRequestApplicationJson(
+          [void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? updates]) =>
+      (HeartbeatHeartbeatRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$HeartbeatHeartbeatRequestApplicationJson._({required this.status}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status');
+  }
+
+  @override
+  HeartbeatHeartbeatRequestApplicationJson rebuild(
+          void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  HeartbeatHeartbeatRequestApplicationJsonBuilder toBuilder() =>
+      HeartbeatHeartbeatRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is HeartbeatHeartbeatRequestApplicationJson && status == other.status;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'HeartbeatHeartbeatRequestApplicationJson')..add('status', status)).toString();
+  }
+}
+
+class HeartbeatHeartbeatRequestApplicationJsonBuilder
+    implements
+        Builder<HeartbeatHeartbeatRequestApplicationJson, HeartbeatHeartbeatRequestApplicationJsonBuilder>,
+        $HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder {
+  _$HeartbeatHeartbeatRequestApplicationJson? _$v;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  HeartbeatHeartbeatRequestApplicationJsonBuilder() {
+    HeartbeatHeartbeatRequestApplicationJson._defaults(this);
+  }
+
+  HeartbeatHeartbeatRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _status = $v.status;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant HeartbeatHeartbeatRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$HeartbeatHeartbeatRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  HeartbeatHeartbeatRequestApplicationJson build() => _build();
+
+  _$HeartbeatHeartbeatRequestApplicationJson _build() {
+    HeartbeatHeartbeatRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$HeartbeatHeartbeatRequestApplicationJson._(
+            status:
+                BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status'));
+    replace(_$result);
+    return _$result;
   }
 }
 
@@ -2696,6 +3054,110 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $StatusesFindAllRequestApplicationJsonInterfaceBuilder {
+  void replace($StatusesFindAllRequestApplicationJsonInterface other);
+  void update(void Function($StatusesFindAllRequestApplicationJsonInterfaceBuilder) updates);
+  int? get limit;
+  set limit(int? limit);
+
+  int? get offset;
+  set offset(int? offset);
+}
+
+class _$StatusesFindAllRequestApplicationJson extends StatusesFindAllRequestApplicationJson {
+  @override
+  final int? limit;
+  @override
+  final int? offset;
+
+  factory _$StatusesFindAllRequestApplicationJson(
+          [void Function(StatusesFindAllRequestApplicationJsonBuilder)? updates]) =>
+      (StatusesFindAllRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$StatusesFindAllRequestApplicationJson._({this.limit, this.offset}) : super._();
+
+  @override
+  StatusesFindAllRequestApplicationJson rebuild(void Function(StatusesFindAllRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  StatusesFindAllRequestApplicationJsonBuilder toBuilder() =>
+      StatusesFindAllRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is StatusesFindAllRequestApplicationJson && limit == other.limit && offset == other.offset;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, limit.hashCode);
+    _$hash = $jc(_$hash, offset.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'StatusesFindAllRequestApplicationJson')
+          ..add('limit', limit)
+          ..add('offset', offset))
+        .toString();
+  }
+}
+
+class StatusesFindAllRequestApplicationJsonBuilder
+    implements
+        Builder<StatusesFindAllRequestApplicationJson, StatusesFindAllRequestApplicationJsonBuilder>,
+        $StatusesFindAllRequestApplicationJsonInterfaceBuilder {
+  _$StatusesFindAllRequestApplicationJson? _$v;
+
+  int? _limit;
+  int? get limit => _$this._limit;
+  set limit(covariant int? limit) => _$this._limit = limit;
+
+  int? _offset;
+  int? get offset => _$this._offset;
+  set offset(covariant int? offset) => _$this._offset = offset;
+
+  StatusesFindAllRequestApplicationJsonBuilder() {
+    StatusesFindAllRequestApplicationJson._defaults(this);
+  }
+
+  StatusesFindAllRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _limit = $v.limit;
+      _offset = $v.offset;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant StatusesFindAllRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$StatusesFindAllRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(StatusesFindAllRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  StatusesFindAllRequestApplicationJson build() => _build();
+
+  _$StatusesFindAllRequestApplicationJson _build() {
+    StatusesFindAllRequestApplicationJson._validate(this);
+    final _$result = _$v ?? _$StatusesFindAllRequestApplicationJson._(limit: limit, offset: offset);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder {
   void replace($StatusesFindAllResponseApplicationJson_OcsInterface other);
   void update(void Function($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -3378,6 +3840,103 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $UserStatusSetStatusRequestApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetStatusRequestApplicationJsonInterface other);
+  void update(void Function($UserStatusSetStatusRequestApplicationJsonInterfaceBuilder) updates);
+  String? get statusType;
+  set statusType(String? statusType);
+}
+
+class _$UserStatusSetStatusRequestApplicationJson extends UserStatusSetStatusRequestApplicationJson {
+  @override
+  final String statusType;
+
+  factory _$UserStatusSetStatusRequestApplicationJson(
+          [void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? updates]) =>
+      (UserStatusSetStatusRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusSetStatusRequestApplicationJson._({required this.statusType}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType');
+  }
+
+  @override
+  UserStatusSetStatusRequestApplicationJson rebuild(
+          void Function(UserStatusSetStatusRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusSetStatusRequestApplicationJsonBuilder toBuilder() =>
+      UserStatusSetStatusRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusSetStatusRequestApplicationJson && statusType == other.statusType;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, statusType.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusSetStatusRequestApplicationJson')..add('statusType', statusType))
+        .toString();
+  }
+}
+
+class UserStatusSetStatusRequestApplicationJsonBuilder
+    implements
+        Builder<UserStatusSetStatusRequestApplicationJson, UserStatusSetStatusRequestApplicationJsonBuilder>,
+        $UserStatusSetStatusRequestApplicationJsonInterfaceBuilder {
+  _$UserStatusSetStatusRequestApplicationJson? _$v;
+
+  String? _statusType;
+  String? get statusType => _$this._statusType;
+  set statusType(covariant String? statusType) => _$this._statusType = statusType;
+
+  UserStatusSetStatusRequestApplicationJsonBuilder() {
+    UserStatusSetStatusRequestApplicationJson._defaults(this);
+  }
+
+  UserStatusSetStatusRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _statusType = $v.statusType;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserStatusSetStatusRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusSetStatusRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusSetStatusRequestApplicationJson build() => _build();
+
+  _$UserStatusSetStatusRequestApplicationJson _build() {
+    UserStatusSetStatusRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$UserStatusSetStatusRequestApplicationJson._(
+            statusType: BuiltValueNullFieldError.checkNotNull(
+                statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder {
   void replace($UserStatusSetStatusResponseApplicationJson_OcsInterface other);
   void update(void Function($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -3602,6 +4161,122 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetPredefinedMessageRequestApplicationJsonInterface other);
+  void update(void Function($UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder) updates);
+  String? get messageId;
+  set messageId(String? messageId);
+
+  int? get clearAt;
+  set clearAt(int? clearAt);
+}
+
+class _$UserStatusSetPredefinedMessageRequestApplicationJson
+    extends UserStatusSetPredefinedMessageRequestApplicationJson {
+  @override
+  final String messageId;
+  @override
+  final int? clearAt;
+
+  factory _$UserStatusSetPredefinedMessageRequestApplicationJson(
+          [void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? updates]) =>
+      (UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusSetPredefinedMessageRequestApplicationJson._({required this.messageId, this.clearAt}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId');
+  }
+
+  @override
+  UserStatusSetPredefinedMessageRequestApplicationJson rebuild(
+          void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusSetPredefinedMessageRequestApplicationJsonBuilder toBuilder() =>
+      UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusSetPredefinedMessageRequestApplicationJson &&
+        messageId == other.messageId &&
+        clearAt == other.clearAt;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, messageId.hashCode);
+    _$hash = $jc(_$hash, clearAt.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusSetPredefinedMessageRequestApplicationJson')
+          ..add('messageId', messageId)
+          ..add('clearAt', clearAt))
+        .toString();
+  }
+}
+
+class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
+    implements
+        Builder<UserStatusSetPredefinedMessageRequestApplicationJson,
+            UserStatusSetPredefinedMessageRequestApplicationJsonBuilder>,
+        $UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder {
+  _$UserStatusSetPredefinedMessageRequestApplicationJson? _$v;
+
+  String? _messageId;
+  String? get messageId => _$this._messageId;
+  set messageId(covariant String? messageId) => _$this._messageId = messageId;
+
+  int? _clearAt;
+  int? get clearAt => _$this._clearAt;
+  set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
+
+  UserStatusSetPredefinedMessageRequestApplicationJsonBuilder() {
+    UserStatusSetPredefinedMessageRequestApplicationJson._defaults(this);
+  }
+
+  UserStatusSetPredefinedMessageRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _messageId = $v.messageId;
+      _clearAt = $v.clearAt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserStatusSetPredefinedMessageRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusSetPredefinedMessageRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusSetPredefinedMessageRequestApplicationJson build() => _build();
+
+  _$UserStatusSetPredefinedMessageRequestApplicationJson _build() {
+    UserStatusSetPredefinedMessageRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$UserStatusSetPredefinedMessageRequestApplicationJson._(
+            messageId: BuiltValueNullFieldError.checkNotNull(
+                messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId'),
+            clearAt: clearAt);
     replace(_$result);
     return _$result;
   }
@@ -3840,6 +4515,129 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetCustomMessageRequestApplicationJsonInterface other);
+  void update(void Function($UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder) updates);
+  String? get statusIcon;
+  set statusIcon(String? statusIcon);
+
+  String? get message;
+  set message(String? message);
+
+  int? get clearAt;
+  set clearAt(int? clearAt);
+}
+
+class _$UserStatusSetCustomMessageRequestApplicationJson extends UserStatusSetCustomMessageRequestApplicationJson {
+  @override
+  final String? statusIcon;
+  @override
+  final String? message;
+  @override
+  final int? clearAt;
+
+  factory _$UserStatusSetCustomMessageRequestApplicationJson(
+          [void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? updates]) =>
+      (UserStatusSetCustomMessageRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UserStatusSetCustomMessageRequestApplicationJson._({this.statusIcon, this.message, this.clearAt}) : super._();
+
+  @override
+  UserStatusSetCustomMessageRequestApplicationJson rebuild(
+          void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserStatusSetCustomMessageRequestApplicationJsonBuilder toBuilder() =>
+      UserStatusSetCustomMessageRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserStatusSetCustomMessageRequestApplicationJson &&
+        statusIcon == other.statusIcon &&
+        message == other.message &&
+        clearAt == other.clearAt;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, statusIcon.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, clearAt.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserStatusSetCustomMessageRequestApplicationJson')
+          ..add('statusIcon', statusIcon)
+          ..add('message', message)
+          ..add('clearAt', clearAt))
+        .toString();
+  }
+}
+
+class UserStatusSetCustomMessageRequestApplicationJsonBuilder
+    implements
+        Builder<UserStatusSetCustomMessageRequestApplicationJson,
+            UserStatusSetCustomMessageRequestApplicationJsonBuilder>,
+        $UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder {
+  _$UserStatusSetCustomMessageRequestApplicationJson? _$v;
+
+  String? _statusIcon;
+  String? get statusIcon => _$this._statusIcon;
+  set statusIcon(covariant String? statusIcon) => _$this._statusIcon = statusIcon;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  int? _clearAt;
+  int? get clearAt => _$this._clearAt;
+  set clearAt(covariant int? clearAt) => _$this._clearAt = clearAt;
+
+  UserStatusSetCustomMessageRequestApplicationJsonBuilder() {
+    UserStatusSetCustomMessageRequestApplicationJson._defaults(this);
+  }
+
+  UserStatusSetCustomMessageRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _statusIcon = $v.statusIcon;
+      _message = $v.message;
+      _clearAt = $v.clearAt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserStatusSetCustomMessageRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserStatusSetCustomMessageRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserStatusSetCustomMessageRequestApplicationJson build() => _build();
+
+  _$UserStatusSetCustomMessageRequestApplicationJson _build() {
+    UserStatusSetCustomMessageRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$UserStatusSetCustomMessageRequestApplicationJson._(
+            statusIcon: statusIcon, message: message, clearAt: clearAt);
     replace(_$result);
     return _$result;
   }

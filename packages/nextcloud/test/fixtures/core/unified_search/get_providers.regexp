@@ -1,4 +1,6 @@
-GET http://localhost/ocs/v2\.php/search/providers\?from=
+GET http://localhost/ocs/v2\.php/search/providers
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"from":""\}

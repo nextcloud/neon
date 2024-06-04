@@ -16,6 +16,8 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -182,7 +184,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [appId] App to search changelog entry for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -197,24 +198,21 @@ class $ApiClient {
   @_i2.experimental
   _i3.Request $getAppChangelogEntry_Request({
     required String appId,
-    String? version,
     ApiGetAppChangelogEntryApiVersion? apiVersion,
     bool? oCSAPIRequest,
+    ApiGetAppChangelogEntryRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
-
-    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _parameters['version'] = __version;
 
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppChangelogEntryApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}{?version*}')
-        .expand(_parameters);
+    final _path =
+        _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -239,6 +237,20 @@ class $ApiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ApiGetAppChangelogEntryRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ApiGetAppChangelogEntryRequestApplicationJson(),
+              specifiedType: const FullType(ApiGetAppChangelogEntryRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -250,7 +262,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [version] The version to search the changelog entry for (defaults to the latest installed).
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [appId] App to search changelog entry for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -264,15 +275,15 @@ class $ApiClient {
   ///  * [$getAppChangelogEntry_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGetAppChangelogEntryResponseApplicationJson, void>> getAppChangelogEntry({
     required String appId,
-    String? version,
     ApiGetAppChangelogEntryApiVersion? apiVersion,
     bool? oCSAPIRequest,
+    ApiGetAppChangelogEntryRequestApplicationJson? $body,
   }) async {
     final _request = $getAppChangelogEntry_Request(
       appId: appId,
-      version: version,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -701,6 +712,70 @@ class _$ApiGetAppChangelogEntryApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ApiGetAppChangelogEntryRequestApplicationJsonInterface {
+  /// The version to search the changelog entry for (defaults to the latest installed).
+  String? get version;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder].
+  $ApiGetAppChangelogEntryRequestApplicationJsonInterface rebuild(
+    void Function($ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder].
+  $ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiGetAppChangelogEntryRequestApplicationJson
+    implements
+        $ApiGetAppChangelogEntryRequestApplicationJsonInterface,
+        Built<ApiGetAppChangelogEntryRequestApplicationJson, ApiGetAppChangelogEntryRequestApplicationJsonBuilder> {
+  /// Creates a new ApiGetAppChangelogEntryRequestApplicationJson object using the builder pattern.
+  factory ApiGetAppChangelogEntryRequestApplicationJson([
+    void Function(ApiGetAppChangelogEntryRequestApplicationJsonBuilder)? b,
+  ]) = _$ApiGetAppChangelogEntryRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiGetAppChangelogEntryRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGetAppChangelogEntryRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGetAppChangelogEntryRequestApplicationJson.
+  static Serializer<ApiGetAppChangelogEntryRequestApplicationJson> get serializer =>
+      _$apiGetAppChangelogEntryRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGetAppChangelogEntryRequestApplicationJsonBuilder b) {
+    $ApiGetAppChangelogEntryRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGetAppChangelogEntryRequestApplicationJsonBuilder b) {
+    $ApiGetAppChangelogEntryRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
   String get appName;
   String get content;
@@ -924,6 +999,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(App.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new)
       ..add(ApiGetAppChangelogEntryApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(ApiGetAppChangelogEntryRequestApplicationJson),
+        ApiGetAppChangelogEntryRequestApplicationJsonBuilder.new,
+      )
+      ..add(ApiGetAppChangelogEntryRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetAppChangelogEntryResponseApplicationJson),
         ApiGetAppChangelogEntryResponseApplicationJsonBuilder.new,

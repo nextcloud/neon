@@ -102,6 +102,9 @@ final BuiltSet<DeclarativeFormField_Type> _$declarativeFormFieldTypeValues =
   _$declarativeFormFieldTypeMultiSelect,
 ]);
 
+Serializer<DeclarativeSettingsSetValueRequestApplicationJson>
+    _$declarativeSettingsSetValueRequestApplicationJsonSerializer =
+    _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DeclarativeSettingsSetValueResponseApplicationJson_Ocs>
     _$declarativeSettingsSetValueResponseApplicationJsonOcsSerializer =
@@ -121,6 +124,63 @@ Serializer<DeclarativeSettingsGetFormsResponseApplicationJson>
     _$DeclarativeSettingsGetFormsResponseApplicationJsonSerializer();
 Serializer<LogSettingsLogSettingsDownloadHeaders> _$logSettingsLogSettingsDownloadHeadersSerializer =
     _$LogSettingsLogSettingsDownloadHeadersSerializer();
+
+class _$DeclarativeSettingsSetValueRequestApplicationJsonSerializer
+    implements StructuredSerializer<DeclarativeSettingsSetValueRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    DeclarativeSettingsSetValueRequestApplicationJson,
+    _$DeclarativeSettingsSetValueRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'DeclarativeSettingsSetValueRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DeclarativeSettingsSetValueRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'app',
+      serializers.serialize(object.app, specifiedType: const FullType(String)),
+      'formId',
+      serializers.serialize(object.formId, specifiedType: const FullType(String)),
+      'fieldId',
+      serializers.serialize(object.fieldId, specifiedType: const FullType(String)),
+      'value',
+      serializers.serialize(object.value, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  DeclarativeSettingsSetValueRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DeclarativeSettingsSetValueRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'app':
+          result.app = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'formId':
+          result.formId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fieldId':
+          result.fieldId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'value':
+          result.value = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -658,6 +718,156 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder {
+  void replace($DeclarativeSettingsSetValueRequestApplicationJsonInterface other);
+  void update(void Function($DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder) updates);
+  String? get app;
+  set app(String? app);
+
+  String? get formId;
+  set formId(String? formId);
+
+  String? get fieldId;
+  set fieldId(String? fieldId);
+
+  JsonObject? get value;
+  set value(JsonObject? value);
+}
+
+class _$DeclarativeSettingsSetValueRequestApplicationJson extends DeclarativeSettingsSetValueRequestApplicationJson {
+  @override
+  final String app;
+  @override
+  final String formId;
+  @override
+  final String fieldId;
+  @override
+  final JsonObject value;
+
+  factory _$DeclarativeSettingsSetValueRequestApplicationJson(
+          [void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder)? updates]) =>
+      (DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DeclarativeSettingsSetValueRequestApplicationJson._(
+      {required this.app, required this.formId, required this.fieldId, required this.value})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeSettingsSetValueRequestApplicationJson', 'app');
+    BuiltValueNullFieldError.checkNotNull(formId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'formId');
+    BuiltValueNullFieldError.checkNotNull(fieldId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'fieldId');
+    BuiltValueNullFieldError.checkNotNull(value, r'DeclarativeSettingsSetValueRequestApplicationJson', 'value');
+  }
+
+  @override
+  DeclarativeSettingsSetValueRequestApplicationJson rebuild(
+          void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DeclarativeSettingsSetValueRequestApplicationJsonBuilder toBuilder() =>
+      DeclarativeSettingsSetValueRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DeclarativeSettingsSetValueRequestApplicationJson &&
+        app == other.app &&
+        formId == other.formId &&
+        fieldId == other.fieldId &&
+        value == other.value;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, app.hashCode);
+    _$hash = $jc(_$hash, formId.hashCode);
+    _$hash = $jc(_$hash, fieldId.hashCode);
+    _$hash = $jc(_$hash, value.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DeclarativeSettingsSetValueRequestApplicationJson')
+          ..add('app', app)
+          ..add('formId', formId)
+          ..add('fieldId', fieldId)
+          ..add('value', value))
+        .toString();
+  }
+}
+
+class DeclarativeSettingsSetValueRequestApplicationJsonBuilder
+    implements
+        Builder<DeclarativeSettingsSetValueRequestApplicationJson,
+            DeclarativeSettingsSetValueRequestApplicationJsonBuilder>,
+        $DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder {
+  _$DeclarativeSettingsSetValueRequestApplicationJson? _$v;
+
+  String? _app;
+  String? get app => _$this._app;
+  set app(covariant String? app) => _$this._app = app;
+
+  String? _formId;
+  String? get formId => _$this._formId;
+  set formId(covariant String? formId) => _$this._formId = formId;
+
+  String? _fieldId;
+  String? get fieldId => _$this._fieldId;
+  set fieldId(covariant String? fieldId) => _$this._fieldId = fieldId;
+
+  JsonObject? _value;
+  JsonObject? get value => _$this._value;
+  set value(covariant JsonObject? value) => _$this._value = value;
+
+  DeclarativeSettingsSetValueRequestApplicationJsonBuilder() {
+    DeclarativeSettingsSetValueRequestApplicationJson._defaults(this);
+  }
+
+  DeclarativeSettingsSetValueRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _app = $v.app;
+      _formId = $v.formId;
+      _fieldId = $v.fieldId;
+      _value = $v.value;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DeclarativeSettingsSetValueRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DeclarativeSettingsSetValueRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DeclarativeSettingsSetValueRequestApplicationJson build() => _build();
+
+  _$DeclarativeSettingsSetValueRequestApplicationJson _build() {
+    DeclarativeSettingsSetValueRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$DeclarativeSettingsSetValueRequestApplicationJson._(
+            app:
+                BuiltValueNullFieldError.checkNotNull(app, r'DeclarativeSettingsSetValueRequestApplicationJson', 'app'),
+            formId: BuiltValueNullFieldError.checkNotNull(
+                formId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'formId'),
+            fieldId: BuiltValueNullFieldError.checkNotNull(
+                fieldId, r'DeclarativeSettingsSetValueRequestApplicationJson', 'fieldId'),
+            value: BuiltValueNullFieldError.checkNotNull(
+                value, r'DeclarativeSettingsSetValueRequestApplicationJson', 'value'));
+    replace(_$result);
+    return _$result;
   }
 }
 

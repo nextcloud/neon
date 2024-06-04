@@ -1,8 +1,12 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/settings\?token=[a-z0-9]{8}
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/settings
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"token":"[a-z0-9]{8}"\}

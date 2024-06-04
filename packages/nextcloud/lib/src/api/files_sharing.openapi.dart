@@ -16,6 +16,7 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -350,10 +351,6 @@ class $PublicPreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [token] Token of the share.
   ///
   /// Status codes:
@@ -368,33 +365,13 @@ class $PublicPreviewClient {
   @_i2.experimental
   _i3.Request $getPreview_Request({
     required String token,
-    String? file,
-    int? x,
-    int? y,
-    PublicPreviewGetPreviewA? a,
+    PublicPreviewGetPreviewRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = __token;
 
-    var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    __file ??= '';
-    _parameters['file'] = __file;
-
-    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    __x ??= 32;
-    _parameters['x'] = __x;
-
-    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    __y ??= 32;
-    _parameters['y'] = __y;
-
-    var __a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PublicPreviewGetPreviewA));
-    __a ??= 0;
-    _parameters['a'] = __a;
-
-    final _path =
-        _i6.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -413,6 +390,20 @@ class $PublicPreviewClient {
     }
 
 // coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(PublicPreviewGetPreviewRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              PublicPreviewGetPreviewRequestApplicationJson(),
+              specifiedType: const FullType(PublicPreviewGetPreviewRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -422,10 +413,6 @@ class $PublicPreviewClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [file] File in the share. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `32`.
-  ///   * [y] Height of the preview. Defaults to `32`.
-  ///   * [a] Whether to not crop the preview. Defaults to `0`.
   ///   * [token] Token of the share.
   ///
   /// Status codes:
@@ -439,17 +426,11 @@ class $PublicPreviewClient {
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
     required String token,
-    String? file,
-    int? x,
-    int? y,
-    PublicPreviewGetPreviewA? a,
+    PublicPreviewGetPreviewRequestApplicationJson? $body,
   }) async {
     final _request = $getPreview_Request(
       token: token,
-      file: file,
-      x: x,
-      y: y,
-      a: a,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1037,12 +1018,6 @@ class $ShareInfoClient {
   /// Returns a `DynamiteRequest` backing the [info] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
-  /// Parameters:
-  ///   * [t] Token of the share.
-  ///   * [password] Password of the share.
-  ///   * [dir] Subdirectory to get info about.
-  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
-  ///
   /// Status codes:
   ///   * 200: Share info returned
   ///   * 403: Getting share info is not allowed
@@ -1052,28 +1027,8 @@ class $ShareInfoClient {
   ///  * [info] for a method executing this request and parsing the response.
   ///  * [$info_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $info_Request({
-    required String t,
-    String? password,
-    String? dir,
-    int? depth,
-  }) {
-    final _parameters = <String, Object?>{};
-    final __t = _$jsonSerializers.serialize(t, specifiedType: const FullType(String));
-    _parameters['t'] = __t;
-
-    final __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    _parameters['password'] = __password;
-
-    final __dir = _$jsonSerializers.serialize(dir, specifiedType: const FullType(String));
-    _parameters['dir'] = __dir;
-
-    var __depth = _$jsonSerializers.serialize(depth, specifiedType: const FullType(int));
-    __depth ??= -1;
-    _parameters['depth'] = __depth;
-
-    final _path =
-        _i6.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
+  _i3.Request $info_Request({required ShareInfoInfoRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/files_sharing/shareinfo';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1092,6 +1047,9 @@ class $ShareInfoClient {
     }
 
 // coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json
+        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ShareInfoInfoRequestApplicationJson)));
     return _request;
   }
 
@@ -1099,12 +1057,6 @@ class $ShareInfoClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [t] Token of the share.
-  ///   * [password] Password of the share.
-  ///   * [dir] Subdirectory to get info about.
-  ///   * [depth] Maximum depth to get info about. Defaults to `-1`.
   ///
   /// Status codes:
   ///   * 200: Share info returned
@@ -1114,17 +1066,9 @@ class $ShareInfoClient {
   /// See:
   ///  * [$info_Request] for the request send by this method.
   ///  * [$info_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ShareInfo, void>> info({
-    required String t,
-    String? password,
-    String? dir,
-    int? depth,
-  }) async {
+  Future<_i1.DynamiteResponse<ShareInfo, void>> info({required ShareInfoInfoRequestApplicationJson $body}) async {
     final _request = $info_Request(
-      t: t,
-      password: password,
-      dir: dir,
-      depth: depth,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1157,11 +1101,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `"false"`.
-  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `"false"`.
-  ///   * [subfiles] Only get all shares in a folder. Defaults to `"false"`.
-  ///   * [path] Get shares for a specific path. Defaults to `""`.
-  ///   * [includeTags] Include tags in the share. Defaults to `"false"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1173,37 +1112,10 @@ class $ShareapiClient {
   ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getShares_Request({
-    String? sharedWithMe,
-    String? reshares,
-    String? subfiles,
-    String? path,
-    String? includeTags,
     bool? oCSAPIRequest,
+    ShareapiGetSharesRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var __sharedWithMe = _$jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
-    __sharedWithMe ??= 'false';
-    _parameters['shared_with_me'] = __sharedWithMe;
-
-    var __reshares = _$jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
-    __reshares ??= 'false';
-    _parameters['reshares'] = __reshares;
-
-    var __subfiles = _$jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
-    __subfiles ??= 'false';
-    _parameters['subfiles'] = __subfiles;
-
-    var __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    __path ??= '';
-    _parameters['path'] = __path;
-
-    var __includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
-    __includeTags ??= 'false';
-    _parameters['include_tags'] = __includeTags;
-
-    final _path = _i6.UriTemplate(
-      '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
-    ).expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1228,6 +1140,17 @@ class $ShareapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(ShareapiGetSharesRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareapiGetSharesRequestApplicationJson(),
+              specifiedType: const FullType(ShareapiGetSharesRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1237,11 +1160,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sharedWithMe] Only get shares with the current user. Defaults to `"false"`.
-  ///   * [reshares] Only get shares by the current user and reshares. Defaults to `"false"`.
-  ///   * [subfiles] Only get all shares in a folder. Defaults to `"false"`.
-  ///   * [path] Get shares for a specific path. Defaults to `""`.
-  ///   * [includeTags] Include tags in the share. Defaults to `"false"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1252,20 +1170,12 @@ class $ShareapiClient {
   ///  * [$getShares_Request] for the request send by this method.
   ///  * [$getShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiGetSharesResponseApplicationJson, void>> getShares({
-    String? sharedWithMe,
-    String? reshares,
-    String? subfiles,
-    String? path,
-    String? includeTags,
     bool? oCSAPIRequest,
+    ShareapiGetSharesRequestApplicationJson? $body,
   }) async {
     final _request = $getShares_Request(
-      sharedWithMe: sharedWithMe,
-      reshares: reshares,
-      subfiles: subfiles,
-      path: path,
-      includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1292,17 +1202,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share.
-  ///   * [permissions] Permissions for the share.
-  ///   * [shareType] Type of the share. Defaults to `-1`.
-  ///   * [shareWith] The entity this should be shared with.
-  ///   * [publicUpload] If public uploading is allowed. Defaults to `"false"`.
-  ///   * [password] Password for the share. Defaults to `""`.
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `""`.
-  ///   * [note] Note for the share. Defaults to `""`.
-  ///   * [label] Label for the share (only used in link and email). Defaults to `""`.
-  ///   * [attributes] Additional attributes for the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1316,62 +1215,10 @@ class $ShareapiClient {
   ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $createShare_Request({
-    String? path,
-    int? permissions,
-    int? shareType,
-    String? shareWith,
-    String? publicUpload,
-    String? password,
-    String? sendPasswordByTalk,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? attributes,
     bool? oCSAPIRequest,
+    ShareapiCreateShareRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    _parameters['permissions'] = __permissions;
-
-    var __shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
-    __shareType ??= -1;
-    _parameters['shareType'] = __shareType;
-
-    final __shareWith = _$jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
-    _parameters['shareWith'] = __shareWith;
-
-    var __publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
-    __publicUpload ??= 'false';
-    _parameters['publicUpload'] = __publicUpload;
-
-    var __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    __password ??= '';
-    _parameters['password'] = __password;
-
-    final __sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    _parameters['sendPasswordByTalk'] = __sendPasswordByTalk;
-
-    var __expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
-    __expireDate ??= '';
-    _parameters['expireDate'] = __expireDate;
-
-    var __note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
-    __note ??= '';
-    _parameters['note'] = __note;
-
-    var __label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
-    __label ??= '';
-    _parameters['label'] = __label;
-
-    final __attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    _parameters['attributes'] = __attributes;
-
-    final _path = _i6.UriTemplate(
-      '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
-    ).expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1396,6 +1243,20 @@ class $ShareapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareapiCreateShareRequestApplicationJson(),
+              specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1405,17 +1266,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the share.
-  ///   * [permissions] Permissions for the share.
-  ///   * [shareType] Type of the share. Defaults to `-1`.
-  ///   * [shareWith] The entity this should be shared with.
-  ///   * [publicUpload] If public uploading is allowed. Defaults to `"false"`.
-  ///   * [password] Password for the share. Defaults to `""`.
-  ///   * [sendPasswordByTalk] Send the password for the share over Talk.
-  ///   * [expireDate] Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used. Defaults to `""`.
-  ///   * [note] Note for the share. Defaults to `""`.
-  ///   * [label] Label for the share (only used in link and email). Defaults to `""`.
-  ///   * [attributes] Additional attributes for the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1428,32 +1278,12 @@ class $ShareapiClient {
   ///  * [$createShare_Request] for the request send by this method.
   ///  * [$createShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiCreateShareResponseApplicationJson, void>> createShare({
-    String? path,
-    int? permissions,
-    int? shareType,
-    String? shareWith,
-    String? publicUpload,
-    String? password,
-    String? sendPasswordByTalk,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? attributes,
     bool? oCSAPIRequest,
+    ShareapiCreateShareRequestApplicationJson? $body,
   }) async {
     final _request = $createShare_Request(
-      path: path,
-      permissions: permissions,
-      shareType: shareType,
-      shareWith: shareWith,
-      publicUpload: publicUpload,
-      password: password,
-      sendPasswordByTalk: sendPasswordByTalk,
-      expireDate: expireDate,
-      note: note,
-      label: label,
-      attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1480,7 +1310,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1493,14 +1322,10 @@ class $ShareapiClient {
   ///  * [$getInheritedShares_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getInheritedShares_Request({
-    required String path,
+    required ShareapiGetInheritedSharesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1525,6 +1350,13 @@ class $ShareapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ShareapiGetInheritedSharesRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -1534,7 +1366,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path all shares will be relative to.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1546,12 +1377,12 @@ class $ShareapiClient {
   ///  * [$getInheritedShares_Request] for the request send by this method.
   ///  * [$getInheritedShares_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
-    required String path,
+    required ShareapiGetInheritedSharesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getInheritedShares_Request(
-      path: path,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1661,7 +1492,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share. Defaults to `0`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1675,20 +1505,14 @@ class $ShareapiClient {
   @_i2.experimental
   _i3.Request $getShare_Request({
     required String id,
-    ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
+    ShareapiGetShareRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
 
-    var __includeTags =
-        _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
-    __includeTags ??= 0;
-    _parameters['include_tags'] = __includeTags;
-
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1713,6 +1537,17 @@ class $ShareapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(ShareapiGetShareRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareapiGetShareRequestApplicationJson(),
+              specifiedType: const FullType(ShareapiGetShareRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1722,7 +1557,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [includeTags] Include tags in the share. Defaults to `0`.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1735,13 +1569,13 @@ class $ShareapiClient {
   ///  * [$getShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiGetShareResponseApplicationJson, void>> getShare({
     required String id,
-    ShareapiGetShareIncludeTags? includeTags,
     bool? oCSAPIRequest,
+    ShareapiGetShareRequestApplicationJson? $body,
   }) async {
     final _request = $getShare_Request(
       id: id,
-      includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1768,15 +1602,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions.
-  ///   * [password] New password.
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
-  ///   * [publicUpload] New condition if public uploading is allowed.
-  ///   * [expireDate] New expiry date.
-  ///   * [note] New note.
-  ///   * [label] New label.
-  ///   * [hideDownload] New condition if the download should be hidden.
-  ///   * [attributes] New additional attributes.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1792,51 +1617,14 @@ class $ShareapiClient {
   @_i2.experimental
   _i3.Request $updateShare_Request({
     required String id,
-    int? permissions,
-    String? password,
-    String? sendPasswordByTalk,
-    String? publicUpload,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? hideDownload,
-    String? attributes,
     bool? oCSAPIRequest,
+    ShareapiUpdateShareRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
     _parameters['id'] = __id;
 
-    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    _parameters['permissions'] = __permissions;
-
-    final __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    _parameters['password'] = __password;
-
-    final __sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    _parameters['sendPasswordByTalk'] = __sendPasswordByTalk;
-
-    final __publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
-    _parameters['publicUpload'] = __publicUpload;
-
-    final __expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
-    _parameters['expireDate'] = __expireDate;
-
-    final __note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
-    _parameters['note'] = __note;
-
-    final __label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
-    _parameters['label'] = __label;
-
-    final __hideDownload = _$jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
-    _parameters['hideDownload'] = __hideDownload;
-
-    final __attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    _parameters['attributes'] = __attributes;
-
-    final _path = _i6.UriTemplate(
-      '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
-    ).expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1861,6 +1649,20 @@ class $ShareapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareapiUpdateShareRequestApplicationJson(),
+              specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1870,15 +1672,6 @@ class $ShareapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [permissions] New permissions.
-  ///   * [password] New password.
-  ///   * [sendPasswordByTalk] New condition if the password should be send over Talk.
-  ///   * [publicUpload] New condition if public uploading is allowed.
-  ///   * [expireDate] New expiry date.
-  ///   * [note] New note.
-  ///   * [label] New label.
-  ///   * [hideDownload] New condition if the download should be hidden.
-  ///   * [attributes] New additional attributes.
   ///   * [id] ID of the share.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1893,29 +1686,13 @@ class $ShareapiClient {
   ///  * [$updateShare_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareapiUpdateShareResponseApplicationJson, void>> updateShare({
     required String id,
-    int? permissions,
-    String? password,
-    String? sendPasswordByTalk,
-    String? publicUpload,
-    String? expireDate,
-    String? note,
-    String? label,
-    String? hideDownload,
-    String? attributes,
     bool? oCSAPIRequest,
+    ShareapiUpdateShareRequestApplicationJson? $body,
   }) async {
     final _request = $updateShare_Request(
       id: id,
-      permissions: permissions,
-      password: password,
-      sendPasswordByTalk: sendPasswordByTalk,
-      publicUpload: publicUpload,
-      expireDate: expireDate,
-      note: note,
-      label: label,
-      hideDownload: hideDownload,
-      attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2145,12 +1922,6 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [itemType] Limit to specific item types.
-  ///   * [page] Page offset for searching. Defaults to `1`.
-  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
-  ///   * [shareType] Limit to specific share types.
-  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2162,41 +1933,10 @@ class $ShareesapiClient {
   ///  * [$search_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $search_Request({
-    String? search,
-    String? itemType,
-    int? page,
-    int? perPage,
-    ShareesapiSearchShareType? shareType,
-    ShareesapiSearchLookup? lookup,
     bool? oCSAPIRequest,
+    ShareesapiSearchRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    __search ??= '';
-    _parameters['search'] = __search;
-
-    final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    _parameters['itemType'] = __itemType;
-
-    var __page = _$jsonSerializers.serialize(page, specifiedType: const FullType(int));
-    __page ??= 1;
-    _parameters['page'] = __page;
-
-    var __perPage = _$jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
-    __perPage ??= 200;
-    _parameters['perPage'] = __perPage;
-
-    final __shareType =
-        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
-    _parameters['shareType'] = __shareType;
-
-    var __lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(ShareesapiSearchLookup));
-    __lookup ??= 0;
-    _parameters['lookup'] = __lookup;
-
-    final _path = _i6.UriTemplate(
-      '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
-    ).expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2221,6 +1961,17 @@ class $ShareesapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(ShareesapiSearchRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ShareesapiSearchRequestApplicationJson(),
+              specifiedType: const FullType(ShareesapiSearchRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -2230,12 +1981,6 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [itemType] Limit to specific item types.
-  ///   * [page] Page offset for searching. Defaults to `1`.
-  ///   * [perPage] Limit amount of search results per page. Defaults to `200`.
-  ///   * [shareType] Limit to specific share types.
-  ///   * [lookup] If a global lookup should be performed too. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2246,22 +1991,12 @@ class $ShareesapiClient {
   ///  * [$search_Request] for the request send by this method.
   ///  * [$search_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>> search({
-    String? search,
-    String? itemType,
-    int? page,
-    int? perPage,
-    ShareesapiSearchShareType? shareType,
-    ShareesapiSearchLookup? lookup,
     bool? oCSAPIRequest,
+    ShareesapiSearchRequestApplicationJson? $body,
   }) async {
     final _request = $search_Request(
-      search: search,
-      itemType: itemType,
-      page: page,
-      perPage: perPage,
-      shareType: shareType,
-      lookup: lookup,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2290,8 +2025,6 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types.
-  ///   * [shareType] Limit to specific share types.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2302,20 +2035,10 @@ class $ShareesapiClient {
   ///  * [$findRecommended_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $findRecommended_Request({
-    required String itemType,
-    ShareesapiFindRecommendedShareType? shareType,
+    required ShareesapiFindRecommendedRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    _parameters['itemType'] = __itemType;
-
-    final __shareType =
-        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
-    _parameters['shareType'] = __shareType;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2340,6 +2063,13 @@ class $ShareesapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ShareesapiFindRecommendedRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -2349,8 +2079,6 @@ class $ShareesapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [itemType] Limit to specific item types.
-  ///   * [shareType] Limit to specific share types.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2360,14 +2088,12 @@ class $ShareesapiClient {
   ///  * [$findRecommended_Request] for the request send by this method.
   ///  * [$findRecommended_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
-    required String itemType,
-    ShareesapiFindRecommendedShareType? shareType,
+    required ShareesapiFindRecommendedRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $findRecommended_Request(
-      itemType: itemType,
-      shareType: shareType,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2778,67 +2504,103 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   }
 }
 
-class PublicPreviewGetPreviewA extends EnumClass {
-  const PublicPreviewGetPreviewA._(super.name);
+@BuiltValue(instantiable: false)
+sealed class $PublicPreviewGetPreviewRequestApplicationJsonInterface {
+  static final _$file = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
 
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const PublicPreviewGetPreviewA $0 = _$publicPreviewGetPreviewA$0;
+  static final _$x = _$jsonSerializers.deserialize(
+    32,
+    specifiedType: const FullType(int),
+  )! as int;
 
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const PublicPreviewGetPreviewA $1 = _$publicPreviewGetPreviewA$1;
+  static final _$y = _$jsonSerializers.deserialize(
+    32,
+    specifiedType: const FullType(int),
+  )! as int;
 
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<PublicPreviewGetPreviewA> get values => _$publicPreviewGetPreviewAValues;
-  // coverage:ignore-end
+  static final _$a = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
 
-  /// Returns the enum value associated to the [name].
-  static PublicPreviewGetPreviewA valueOf(String name) => _$valueOfPublicPreviewGetPreviewA(name);
+  /// File in the share.
+  String get file;
 
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+  /// Width of the preview.
+  int get x;
 
-  /// Serializer for PublicPreviewGetPreviewA.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicPreviewGetPreviewA> get serializer => const _$PublicPreviewGetPreviewASerializer();
+  /// Height of the preview.
+  int get y;
+
+  /// Whether to not crop the preview.
+  bool get a;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
+  $PublicPreviewGetPreviewRequestApplicationJsonInterface rebuild(
+    void Function($PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
+  $PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {
+    b.file = _$file;
+    b.x = _$x;
+    b.y = _$y;
+    b.a = _$a;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {}
 }
 
-class _$PublicPreviewGetPreviewASerializer implements PrimitiveSerializer<PublicPreviewGetPreviewA> {
-  const _$PublicPreviewGetPreviewASerializer();
+abstract class PublicPreviewGetPreviewRequestApplicationJson
+    implements
+        $PublicPreviewGetPreviewRequestApplicationJsonInterface,
+        Built<PublicPreviewGetPreviewRequestApplicationJson, PublicPreviewGetPreviewRequestApplicationJsonBuilder> {
+  /// Creates a new PublicPreviewGetPreviewRequestApplicationJson object using the builder pattern.
+  factory PublicPreviewGetPreviewRequestApplicationJson([
+    void Function(PublicPreviewGetPreviewRequestApplicationJsonBuilder)? b,
+  ]) = _$PublicPreviewGetPreviewRequestApplicationJson;
 
-  static const Map<PublicPreviewGetPreviewA, Object> _toWire = <PublicPreviewGetPreviewA, Object>{
-    PublicPreviewGetPreviewA.$0: 0,
-    PublicPreviewGetPreviewA.$1: 1,
-  };
+  // coverage:ignore-start
+  const PublicPreviewGetPreviewRequestApplicationJson._();
+  // coverage:ignore-end
 
-  static const Map<Object, PublicPreviewGetPreviewA> _fromWire = <Object, PublicPreviewGetPreviewA>{
-    0: PublicPreviewGetPreviewA.$0,
-    1: PublicPreviewGetPreviewA.$1,
-  };
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PublicPreviewGetPreviewRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
-  @override
-  Iterable<Type> get types => const [PublicPreviewGetPreviewA];
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
-  @override
-  String get wireName => 'PublicPreviewGetPreviewA';
+  /// Serializer for PublicPreviewGetPreviewRequestApplicationJson.
+  static Serializer<PublicPreviewGetPreviewRequestApplicationJson> get serializer =>
+      _$publicPreviewGetPreviewRequestApplicationJsonSerializer;
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    PublicPreviewGetPreviewA object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PublicPreviewGetPreviewRequestApplicationJsonBuilder b) {
+    $PublicPreviewGetPreviewRequestApplicationJsonInterface._defaults(b);
+  }
 
-  @override
-  PublicPreviewGetPreviewA deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PublicPreviewGetPreviewRequestApplicationJsonBuilder b) {
+    $PublicPreviewGetPreviewRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3674,6 +3436,86 @@ abstract class RemoteUnshareResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareInfoInfoRequestApplicationJsonInterface {
+  static final _$depth = _$jsonSerializers.deserialize(
+    -1,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Token of the share.
+  String get t;
+
+  /// Password of the share.
+  String? get password;
+
+  /// Subdirectory to get info about.
+  String? get dir;
+
+  /// Maximum depth to get info about.
+  int get depth;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareInfoInfoRequestApplicationJsonInterfaceBuilder].
+  $ShareInfoInfoRequestApplicationJsonInterface rebuild(
+    void Function($ShareInfoInfoRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareInfoInfoRequestApplicationJsonInterfaceBuilder].
+  $ShareInfoInfoRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareInfoInfoRequestApplicationJsonInterfaceBuilder b) {
+    b.depth = _$depth;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareInfoInfoRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareInfoInfoRequestApplicationJson
+    implements
+        $ShareInfoInfoRequestApplicationJsonInterface,
+        Built<ShareInfoInfoRequestApplicationJson, ShareInfoInfoRequestApplicationJsonBuilder> {
+  /// Creates a new ShareInfoInfoRequestApplicationJson object using the builder pattern.
+  factory ShareInfoInfoRequestApplicationJson([void Function(ShareInfoInfoRequestApplicationJsonBuilder)? b]) =
+      _$ShareInfoInfoRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareInfoInfoRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareInfoInfoRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareInfoInfoRequestApplicationJson.
+  static Serializer<ShareInfoInfoRequestApplicationJson> get serializer =>
+      _$shareInfoInfoRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareInfoInfoRequestApplicationJsonBuilder b) {
+    $ShareInfoInfoRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareInfoInfoRequestApplicationJsonBuilder b) {
+    $ShareInfoInfoRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareInfoInterface {
   int get id;
   int get parentId;
@@ -3733,6 +3575,115 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ShareInfoBuilder b) {
     $ShareInfoInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGetSharesRequestApplicationJsonInterface {
+  static final _$sharedWithMe = _$jsonSerializers.deserialize(
+    'false',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$reshares = _$jsonSerializers.deserialize(
+    'false',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$subfiles = _$jsonSerializers.deserialize(
+    'false',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$path = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$includeTags = _$jsonSerializers.deserialize(
+    'false',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Only get shares with the current user.
+  @BuiltValueField(wireName: 'shared_with_me')
+  String get sharedWithMe;
+
+  /// Only get shares by the current user and reshares.
+  String get reshares;
+
+  /// Only get all shares in a folder.
+  String get subfiles;
+
+  /// Get shares for a specific path.
+  String get path;
+
+  /// Include tags in the share.
+  @BuiltValueField(wireName: 'include_tags')
+  String get includeTags;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetSharesRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetSharesRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiGetSharesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetSharesRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetSharesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetSharesRequestApplicationJsonInterfaceBuilder b) {
+    b.sharedWithMe = _$sharedWithMe;
+    b.reshares = _$reshares;
+    b.subfiles = _$subfiles;
+    b.path = _$path;
+    b.includeTags = _$includeTags;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetSharesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGetSharesRequestApplicationJson
+    implements
+        $ShareapiGetSharesRequestApplicationJsonInterface,
+        Built<ShareapiGetSharesRequestApplicationJson, ShareapiGetSharesRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetSharesRequestApplicationJson object using the builder pattern.
+  factory ShareapiGetSharesRequestApplicationJson([void Function(ShareapiGetSharesRequestApplicationJsonBuilder)? b]) =
+      _$ShareapiGetSharesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiGetSharesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGetSharesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGetSharesRequestApplicationJson.
+  static Serializer<ShareapiGetSharesRequestApplicationJson> get serializer =>
+      _$shareapiGetSharesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetSharesRequestApplicationJsonBuilder b) {
+    $ShareapiGetSharesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetSharesRequestApplicationJsonBuilder b) {
+    $ShareapiGetSharesRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -4228,6 +4179,138 @@ abstract class ShareapiGetSharesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ShareapiCreateShareRequestApplicationJsonInterface {
+  static final _$shareType = _$jsonSerializers.deserialize(
+    -1,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$publicUpload = _$jsonSerializers.deserialize(
+    'false',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$password = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$expireDate = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$note = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$label = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Path of the share.
+  String? get path;
+
+  /// Permissions for the share.
+  int? get permissions;
+
+  /// Type of the share.
+  int get shareType;
+
+  /// The entity this should be shared with.
+  String? get shareWith;
+
+  /// If public uploading is allowed.
+  String get publicUpload;
+
+  /// Password for the share.
+  String get password;
+
+  /// Send the password for the share over Talk.
+  String? get sendPasswordByTalk;
+
+  /// Expiry date of the share using user timezone at 00:00. It means date in UTC timezone will be used.
+  String get expireDate;
+
+  /// Note for the share.
+  String get note;
+
+  /// Label for the share (only used in link and email).
+  String get label;
+
+  /// Additional attributes for the share.
+  String? get attributes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiCreateShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiCreateShareRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiCreateShareRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiCreateShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiCreateShareRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiCreateShareRequestApplicationJsonInterfaceBuilder b) {
+    b.shareType = _$shareType;
+    b.publicUpload = _$publicUpload;
+    b.password = _$password;
+    b.expireDate = _$expireDate;
+    b.note = _$note;
+    b.label = _$label;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiCreateShareRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiCreateShareRequestApplicationJson
+    implements
+        $ShareapiCreateShareRequestApplicationJsonInterface,
+        Built<ShareapiCreateShareRequestApplicationJson, ShareapiCreateShareRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiCreateShareRequestApplicationJson object using the builder pattern.
+  factory ShareapiCreateShareRequestApplicationJson([
+    void Function(ShareapiCreateShareRequestApplicationJsonBuilder)? b,
+  ]) = _$ShareapiCreateShareRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiCreateShareRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiCreateShareRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiCreateShareRequestApplicationJson.
+  static Serializer<ShareapiCreateShareRequestApplicationJson> get serializer =>
+      _$shareapiCreateShareRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiCreateShareRequestApplicationJsonBuilder b) {
+    $ShareapiCreateShareRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiCreateShareRequestApplicationJsonBuilder b) {
+    $ShareapiCreateShareRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ShareapiCreateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
@@ -4351,6 +4434,71 @@ abstract class ShareapiCreateShareResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ShareapiCreateShareResponseApplicationJsonBuilder b) {
     $ShareapiCreateShareResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGetInheritedSharesRequestApplicationJsonInterface {
+  /// Path all shares will be relative to.
+  String get path;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetInheritedSharesRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiGetInheritedSharesRequestApplicationJson
+    implements
+        $ShareapiGetInheritedSharesRequestApplicationJsonInterface,
+        Built<ShareapiGetInheritedSharesRequestApplicationJson,
+            ShareapiGetInheritedSharesRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetInheritedSharesRequestApplicationJson object using the builder pattern.
+  factory ShareapiGetInheritedSharesRequestApplicationJson([
+    void Function(ShareapiGetInheritedSharesRequestApplicationJsonBuilder)? b,
+  ]) = _$ShareapiGetInheritedSharesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiGetInheritedSharesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGetInheritedSharesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiGetInheritedSharesRequestApplicationJson.
+  static Serializer<ShareapiGetInheritedSharesRequestApplicationJson> get serializer =>
+      _$shareapiGetInheritedSharesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetInheritedSharesRequestApplicationJsonBuilder b) {
+    $ShareapiGetInheritedSharesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetInheritedSharesRequestApplicationJsonBuilder b) {
+    $ShareapiGetInheritedSharesRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -4611,67 +4759,76 @@ abstract class ShareapiPendingSharesResponseApplicationJson
   }
 }
 
-class ShareapiGetShareIncludeTags extends EnumClass {
-  const ShareapiGetShareIncludeTags._(super.name);
+@BuiltValue(instantiable: false)
+sealed class $ShareapiGetShareRequestApplicationJsonInterface {
+  static final _$includeTags = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
 
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const ShareapiGetShareIncludeTags $0 = _$shareapiGetShareIncludeTags$0;
+  /// Include tags in the share.
+  @BuiltValueField(wireName: 'include_tags')
+  bool get includeTags;
 
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const ShareapiGetShareIncludeTags $1 = _$shareapiGetShareIncludeTags$1;
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetShareRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiGetShareRequestApplicationJsonInterfaceBuilder) updates,
+  );
 
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ShareapiGetShareIncludeTags> get values => _$shareapiGetShareIncludeTagsValues;
-  // coverage:ignore-end
+  /// Converts the instance to a builder [$ShareapiGetShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiGetShareRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiGetShareRequestApplicationJsonInterfaceBuilder b) {
+    b.includeTags = _$includeTags;
+  }
 
-  /// Returns the enum value associated to the [name].
-  static ShareapiGetShareIncludeTags valueOf(String name) => _$valueOfShareapiGetShareIncludeTags(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for ShareapiGetShareIncludeTags.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareapiGetShareIncludeTags> get serializer => const _$ShareapiGetShareIncludeTagsSerializer();
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiGetShareRequestApplicationJsonInterfaceBuilder b) {}
 }
 
-class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<ShareapiGetShareIncludeTags> {
-  const _$ShareapiGetShareIncludeTagsSerializer();
+abstract class ShareapiGetShareRequestApplicationJson
+    implements
+        $ShareapiGetShareRequestApplicationJsonInterface,
+        Built<ShareapiGetShareRequestApplicationJson, ShareapiGetShareRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetShareRequestApplicationJson object using the builder pattern.
+  factory ShareapiGetShareRequestApplicationJson([void Function(ShareapiGetShareRequestApplicationJsonBuilder)? b]) =
+      _$ShareapiGetShareRequestApplicationJson;
 
-  static const Map<ShareapiGetShareIncludeTags, Object> _toWire = <ShareapiGetShareIncludeTags, Object>{
-    ShareapiGetShareIncludeTags.$0: 0,
-    ShareapiGetShareIncludeTags.$1: 1,
-  };
+  // coverage:ignore-start
+  const ShareapiGetShareRequestApplicationJson._();
+  // coverage:ignore-end
 
-  static const Map<Object, ShareapiGetShareIncludeTags> _fromWire = <Object, ShareapiGetShareIncludeTags>{
-    0: ShareapiGetShareIncludeTags.$0,
-    1: ShareapiGetShareIncludeTags.$1,
-  };
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiGetShareRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
-  @override
-  Iterable<Type> get types => const [ShareapiGetShareIncludeTags];
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
-  @override
-  String get wireName => 'ShareapiGetShareIncludeTags';
+  /// Serializer for ShareapiGetShareRequestApplicationJson.
+  static Serializer<ShareapiGetShareRequestApplicationJson> get serializer =>
+      _$shareapiGetShareRequestApplicationJsonSerializer;
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    ShareapiGetShareIncludeTags object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiGetShareRequestApplicationJsonBuilder b) {
+    $ShareapiGetShareRequestApplicationJsonInterface._defaults(b);
+  }
 
-  @override
-  ShareapiGetShareIncludeTags deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiGetShareRequestApplicationJsonBuilder b) {
+    $ShareapiGetShareRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4797,6 +4954,94 @@ abstract class ShareapiGetShareResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ShareapiGetShareResponseApplicationJsonBuilder b) {
     $ShareapiGetShareResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ShareapiUpdateShareRequestApplicationJsonInterface {
+  /// New permissions.
+  int? get permissions;
+
+  /// New password.
+  String? get password;
+
+  /// New condition if the password should be send over Talk.
+  String? get sendPasswordByTalk;
+
+  /// New condition if public uploading is allowed.
+  String? get publicUpload;
+
+  /// New expiry date.
+  String? get expireDate;
+
+  /// New note.
+  String? get note;
+
+  /// New label.
+  String? get label;
+
+  /// New condition if the download should be hidden.
+  String? get hideDownload;
+
+  /// New additional attributes.
+  String? get attributes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiUpdateShareRequestApplicationJsonInterface rebuild(
+    void Function($ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder].
+  $ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareapiUpdateShareRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ShareapiUpdateShareRequestApplicationJson
+    implements
+        $ShareapiUpdateShareRequestApplicationJsonInterface,
+        Built<ShareapiUpdateShareRequestApplicationJson, ShareapiUpdateShareRequestApplicationJsonBuilder> {
+  /// Creates a new ShareapiUpdateShareRequestApplicationJson object using the builder pattern.
+  factory ShareapiUpdateShareRequestApplicationJson([
+    void Function(ShareapiUpdateShareRequestApplicationJsonBuilder)? b,
+  ]) = _$ShareapiUpdateShareRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareapiUpdateShareRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareapiUpdateShareRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareapiUpdateShareRequestApplicationJson.
+  static Serializer<ShareapiUpdateShareRequestApplicationJson> get serializer =>
+      _$shareapiUpdateShareRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareapiUpdateShareRequestApplicationJsonBuilder b) {
+    $ShareapiUpdateShareRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareapiUpdateShareRequestApplicationJsonBuilder b) {
+    $ShareapiUpdateShareRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -5181,69 +5426,113 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   }
 }
 
-typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
+/// Limit to specific share types.
+typedef ShareesapiSearchRequestApplicationJson_ShareType = ({BuiltList<int>? builtListInt, int? $int});
 
-class ShareesapiSearchLookup extends EnumClass {
-  const ShareesapiSearchLookup._(super.name);
+@BuiltValue(instantiable: false)
+sealed class $ShareesapiSearchRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
 
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const ShareesapiSearchLookup $0 = _$shareesapiSearchLookup$0;
+  static final _$page = _$jsonSerializers.deserialize(
+    1,
+    specifiedType: const FullType(int),
+  )! as int;
 
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const ShareesapiSearchLookup $1 = _$shareesapiSearchLookup$1;
+  static final _$perPage = _$jsonSerializers.deserialize(
+    200,
+    specifiedType: const FullType(int),
+  )! as int;
 
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ShareesapiSearchLookup> get values => _$shareesapiSearchLookupValues;
-  // coverage:ignore-end
+  static final _$lookup = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
 
-  /// Returns the enum value associated to the [name].
-  static ShareesapiSearchLookup valueOf(String name) => _$valueOfShareesapiSearchLookup(name);
+  /// Text to search for.
+  String get search;
 
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+  /// Limit to specific item types.
+  String? get itemType;
 
-  /// Serializer for ShareesapiSearchLookup.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiSearchLookup> get serializer => const _$ShareesapiSearchLookupSerializer();
+  /// Page offset for searching.
+  int get page;
+
+  /// Limit amount of search results per page.
+  int get perPage;
+
+  /// Limit to specific share types.
+  ShareesapiSearchRequestApplicationJson_ShareType? get shareType;
+
+  /// If a global lookup should be performed too.
+  bool get lookup;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiSearchRequestApplicationJsonInterfaceBuilder].
+  $ShareesapiSearchRequestApplicationJsonInterface rebuild(
+    void Function($ShareesapiSearchRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiSearchRequestApplicationJsonInterfaceBuilder].
+  $ShareesapiSearchRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiSearchRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.page = _$page;
+    b.perPage = _$perPage;
+    b.lookup = _$lookup;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiSearchRequestApplicationJsonInterfaceBuilder b) {
+    b.shareType?.validateOneOf();
+  }
 }
 
-class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<ShareesapiSearchLookup> {
-  const _$ShareesapiSearchLookupSerializer();
+abstract class ShareesapiSearchRequestApplicationJson
+    implements
+        $ShareesapiSearchRequestApplicationJsonInterface,
+        Built<ShareesapiSearchRequestApplicationJson, ShareesapiSearchRequestApplicationJsonBuilder> {
+  /// Creates a new ShareesapiSearchRequestApplicationJson object using the builder pattern.
+  factory ShareesapiSearchRequestApplicationJson([void Function(ShareesapiSearchRequestApplicationJsonBuilder)? b]) =
+      _$ShareesapiSearchRequestApplicationJson;
 
-  static const Map<ShareesapiSearchLookup, Object> _toWire = <ShareesapiSearchLookup, Object>{
-    ShareesapiSearchLookup.$0: 0,
-    ShareesapiSearchLookup.$1: 1,
-  };
+  // coverage:ignore-start
+  const ShareesapiSearchRequestApplicationJson._();
+  // coverage:ignore-end
 
-  static const Map<Object, ShareesapiSearchLookup> _fromWire = <Object, ShareesapiSearchLookup>{
-    0: ShareesapiSearchLookup.$0,
-    1: ShareesapiSearchLookup.$1,
-  };
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareesapiSearchRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
-  @override
-  Iterable<Type> get types => const [ShareesapiSearchLookup];
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
-  @override
-  String get wireName => 'ShareesapiSearchLookup';
+  /// Serializer for ShareesapiSearchRequestApplicationJson.
+  static Serializer<ShareesapiSearchRequestApplicationJson> get serializer =>
+      _$shareesapiSearchRequestApplicationJsonSerializer;
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    ShareesapiSearchLookup object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiSearchRequestApplicationJsonBuilder b) {
+    $ShareesapiSearchRequestApplicationJsonInterface._defaults(b);
+  }
 
-  @override
-  ShareesapiSearchLookup deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiSearchRequestApplicationJsonBuilder b) {
+    $ShareesapiSearchRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -6486,7 +6775,77 @@ abstract class ShareesapiShareesapiSearchHeaders
   }
 }
 
-typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
+/// Limit to specific share types.
+typedef ShareesapiFindRecommendedRequestApplicationJson_ShareType = ({BuiltList<int>? builtListInt, int? $int});
+
+@BuiltValue(instantiable: false)
+sealed class $ShareesapiFindRecommendedRequestApplicationJsonInterface {
+  /// Limit to specific item types.
+  String get itemType;
+
+  /// Limit to specific share types.
+  ShareesapiFindRecommendedRequestApplicationJson_ShareType? get shareType;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder].
+  $ShareesapiFindRecommendedRequestApplicationJsonInterface rebuild(
+    void Function($ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder].
+  $ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder b) {
+    b.shareType?.validateOneOf();
+  }
+}
+
+abstract class ShareesapiFindRecommendedRequestApplicationJson
+    implements
+        $ShareesapiFindRecommendedRequestApplicationJsonInterface,
+        Built<ShareesapiFindRecommendedRequestApplicationJson, ShareesapiFindRecommendedRequestApplicationJsonBuilder> {
+  /// Creates a new ShareesapiFindRecommendedRequestApplicationJson object using the builder pattern.
+  factory ShareesapiFindRecommendedRequestApplicationJson([
+    void Function(ShareesapiFindRecommendedRequestApplicationJsonBuilder)? b,
+  ]) = _$ShareesapiFindRecommendedRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ShareesapiFindRecommendedRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ShareesapiFindRecommendedRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ShareesapiFindRecommendedRequestApplicationJson.
+  static Serializer<ShareesapiFindRecommendedRequestApplicationJson> get serializer =>
+      _$shareesapiFindRecommendedRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ShareesapiFindRecommendedRequestApplicationJsonBuilder b) {
+    $ShareesapiFindRecommendedRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ShareesapiFindRecommendedRequestApplicationJsonBuilder b) {
+    $ShareesapiFindRecommendedRequestApplicationJsonInterface._validate(b);
+  }
+}
 
 @BuiltValue(instantiable: false)
 sealed class $ShareesRecommendedResult_ExactInterface {
@@ -7714,29 +8073,33 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   }
 }
 
-/// Serialization extension for `ShareesapiSearchShareType`.
-extension $ShareesapiSearchShareTypeExtension on ShareesapiSearchShareType {
-  /// Serializer for ShareesapiSearchShareType.
+/// Serialization extension for `ShareesapiSearchRequestApplicationJson_ShareType`.
+extension $ShareesapiSearchRequestApplicationJson_ShareTypeExtension
+    on ShareesapiSearchRequestApplicationJson_ShareType {
+  /// Serializer for ShareesapiSearchRequestApplicationJson_ShareType.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiSearchShareType> get serializer => $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use `toJson` to serialize it back into json.
-  static ShareesapiSearchShareType fromJson(Object? json) => $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
-}
-
-/// Serialization extension for `ShareesapiFindRecommendedShareType`.
-extension $ShareesapiFindRecommendedShareTypeExtension on ShareesapiFindRecommendedShareType {
-  /// Serializer for ShareesapiFindRecommendedShareType.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
+  static Serializer<ShareesapiSearchRequestApplicationJson_ShareType> get serializer =>
       $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static ShareesapiFindRecommendedShareType fromJson(Object? json) =>
+  static ShareesapiSearchRequestApplicationJson_ShareType fromJson(Object? json) =>
+      $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
+}
+
+/// Serialization extension for `ShareesapiFindRecommendedRequestApplicationJson_ShareType`.
+extension $ShareesapiFindRecommendedRequestApplicationJson_ShareTypeExtension
+    on ShareesapiFindRecommendedRequestApplicationJson_ShareType {
+  /// Serializer for ShareesapiFindRecommendedRequestApplicationJson_ShareType.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ShareesapiFindRecommendedRequestApplicationJson_ShareType> get serializer =>
+      $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static ShareesapiFindRecommendedRequestApplicationJson_ShareType fromJson(Object? json) =>
       $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
 }
 
@@ -7855,7 +8218,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
-      ..add(PublicPreviewGetPreviewA.serializer)
+      ..addBuilderFactory(
+        const FullType(PublicPreviewGetPreviewRequestApplicationJson),
+        PublicPreviewGetPreviewRequestApplicationJsonBuilder.new,
+      )
+      ..add(PublicPreviewGetPreviewRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RemoteGetSharesResponseApplicationJson),
         RemoteGetSharesResponseApplicationJsonBuilder.new,
@@ -7919,6 +8286,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         RemoteUnshareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RemoteUnshareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareInfoInfoRequestApplicationJson),
+        ShareInfoInfoRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareInfoInfoRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(ShareInfo), ShareInfoBuilder.new)
       ..add(ShareInfo.serializer)
       ..addBuilderFactory(
@@ -7931,6 +8303,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         ListBuilder<BuiltMap<String, JsonObject>>.new,
       )
+      ..addBuilderFactory(
+        const FullType(ShareapiGetSharesRequestApplicationJson),
+        ShareapiGetSharesRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiGetSharesRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiGetSharesResponseApplicationJson),
         ShareapiGetSharesResponseApplicationJsonBuilder.new,
@@ -7950,6 +8327,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Share_Status.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
       ..addBuilderFactory(
+        const FullType(ShareapiCreateShareRequestApplicationJson),
+        ShareapiCreateShareRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiCreateShareRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(ShareapiCreateShareResponseApplicationJson),
         ShareapiCreateShareResponseApplicationJsonBuilder.new,
       )
@@ -7959,6 +8341,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiCreateShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiCreateShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGetInheritedSharesRequestApplicationJson),
+        ShareapiGetInheritedSharesRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiGetInheritedSharesRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
         ShareapiGetInheritedSharesResponseApplicationJsonBuilder.new,
@@ -7979,7 +8366,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiPendingSharesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiPendingSharesResponseApplicationJson_Ocs.serializer)
-      ..add(ShareapiGetShareIncludeTags.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiGetShareRequestApplicationJson),
+        ShareapiGetShareRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiGetShareRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiGetShareResponseApplicationJson),
         ShareapiGetShareResponseApplicationJsonBuilder.new,
@@ -7990,6 +8381,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiGetShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiGetShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareapiUpdateShareRequestApplicationJson),
+        ShareapiUpdateShareRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareapiUpdateShareRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ShareapiUpdateShareResponseApplicationJson),
         ShareapiUpdateShareResponseApplicationJsonBuilder.new,
@@ -8020,9 +8416,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareesapiSearchRequestApplicationJson),
+        ShareesapiSearchRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareesapiSearchRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
-      ..add(ShareesapiSearchLookup.serializer)
       ..addBuilderFactory(
         const FullType(ShareesapiSearchResponseApplicationJson),
         ShareesapiSearchResponseApplicationJsonBuilder.new,
@@ -8079,6 +8479,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ShareesapiShareesapiSearchHeadersBuilder.new,
       )
       ..add(ShareesapiShareesapiSearchHeaders.serializer)
+      ..addBuilderFactory(
+        const FullType(ShareesapiFindRecommendedRequestApplicationJson),
+        ShareesapiFindRecommendedRequestApplicationJsonBuilder.new,
+      )
+      ..add(ShareesapiFindRecommendedRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ShareesapiFindRecommendedResponseApplicationJson),
         ShareesapiFindRecommendedResponseApplicationJsonBuilder.new,

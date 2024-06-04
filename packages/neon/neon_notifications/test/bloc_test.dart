@@ -26,7 +26,7 @@ Account mockNotificationsAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/notifications/api/v2/notifications/([0-9]+)'): {
-      'delete': (match, queryParameters) {
+      'delete': (match, bodyBytes) {
         final id = int.parse(match.group(1)!);
         notifications.removeWhere((n) => n['notification_id'] == id);
 
@@ -42,7 +42,7 @@ Account mockNotificationsAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/notifications/api/v2/notifications'): {
-      'get': (match, queryParameters) => Response(
+      'get': (match, bodyBytes) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -51,7 +51,7 @@ Account mockNotificationsAccount() {
             }),
             200,
           ),
-      'delete': (match, queryParameters) {
+      'delete': (match, bodyBytes) {
         notifications.clear();
 
         return Response(

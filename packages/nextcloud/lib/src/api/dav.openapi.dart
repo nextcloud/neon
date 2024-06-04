@@ -16,17 +16,19 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i8;
-import 'package:collection/collection.dart' as _i5;
+import 'package:collection/collection.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i6;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i6;
 
 part 'dav.openapi.g.dart';
 
@@ -72,8 +74,6 @@ class $DirectClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file.
-  ///   * [expirationTime] Duration until the link expires.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -87,23 +87,15 @@ class $DirectClient {
   ///  * [$getUrl_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getUrl_Request({
-    required int fileId,
-    required int expirationTime,
+    required DirectGetUrlRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = __fileId;
-
-    final __expirationTime = _$jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
-    _parameters['expirationTime'] = __expirationTime;
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/dav/api/v1/direct';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -121,8 +113,11 @@ class $DirectClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json
+        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(DirectGetUrlRequestApplicationJson)));
     return _request;
   }
 
@@ -132,8 +127,6 @@ class $DirectClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [fileId] ID of the file.
-  ///   * [expirationTime] Duration until the link expires.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -146,14 +139,12 @@ class $DirectClient {
   ///  * [$getUrl_Request] for the request send by this method.
   ///  * [$getUrl_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
-    required int fileId,
-    required int expirationTime,
+    required DirectGetUrlRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getUrl_Request(
-      fileId: fileId,
-      expirationTime: expirationTime,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -206,12 +197,12 @@ class $OutOfOfficeClient {
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -229,7 +220,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -304,12 +295,12 @@ class $OutOfOfficeClient {
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -327,7 +318,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -381,10 +372,6 @@ class $OutOfOfficeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
-  ///   * [lastDay] Last day of the absence in format `YYYY-MM-DD`.
-  ///   * [status] Short text that is set as user status during the absence.
-  ///   * [message] Longer multiline message that is shown to others during the absence.
   ///   * [userId]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -398,37 +385,20 @@ class $OutOfOfficeClient {
   ///  * [$setOutOfOffice_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setOutOfOffice_Request({
-    required String firstDay,
-    required String lastDay,
-    required String status,
-    required String message,
     required String userId,
+    required OutOfOfficeSetOutOfOfficeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __firstDay = _$jsonSerializers.serialize(firstDay, specifiedType: const FullType(String));
-    _parameters['firstDay'] = __firstDay;
-
-    final __lastDay = _$jsonSerializers.serialize(lastDay, specifiedType: const FullType(String));
-    _parameters['lastDay'] = __lastDay;
-
-    final __status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
-    _parameters['status'] = __status;
-
-    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = __message;
-
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
-            .expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -446,8 +416,15 @@ class $OutOfOfficeClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(OutOfOfficeSetOutOfOfficeRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -457,10 +434,6 @@ class $OutOfOfficeClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [firstDay] First day of the absence in format `YYYY-MM-DD`.
-  ///   * [lastDay] Last day of the absence in format `YYYY-MM-DD`.
-  ///   * [status] Short text that is set as user status during the absence.
-  ///   * [message] Longer multiline message that is shown to others during the absence.
   ///   * [userId]
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -473,20 +446,14 @@ class $OutOfOfficeClient {
   ///  * [$setOutOfOffice_Request] for the request send by this method.
   ///  * [$setOutOfOffice_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>> setOutOfOffice({
-    required String firstDay,
-    required String lastDay,
-    required String status,
-    required String message,
     required String userId,
+    required OutOfOfficeSetOutOfOfficeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setOutOfOffice_Request(
-      firstDay: firstDay,
-      lastDay: lastDay,
-      status: status,
-      message: message,
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -532,12 +499,12 @@ class $OutOfOfficeClient {
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -555,7 +522,7 @@ class $OutOfOfficeClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -591,6 +558,72 @@ class $OutOfOfficeClient {
     final _rawResponse =
         _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DirectGetUrlRequestApplicationJsonInterface {
+  /// ID of the file.
+  int get fileId;
+
+  /// Duration until the link expires.
+  int get expirationTime;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DirectGetUrlRequestApplicationJsonInterfaceBuilder].
+  $DirectGetUrlRequestApplicationJsonInterface rebuild(
+    void Function($DirectGetUrlRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DirectGetUrlRequestApplicationJsonInterfaceBuilder].
+  $DirectGetUrlRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectGetUrlRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectGetUrlRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DirectGetUrlRequestApplicationJson
+    implements
+        $DirectGetUrlRequestApplicationJsonInterface,
+        Built<DirectGetUrlRequestApplicationJson, DirectGetUrlRequestApplicationJsonBuilder> {
+  /// Creates a new DirectGetUrlRequestApplicationJson object using the builder pattern.
+  factory DirectGetUrlRequestApplicationJson([void Function(DirectGetUrlRequestApplicationJsonBuilder)? b]) =
+      _$DirectGetUrlRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DirectGetUrlRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DirectGetUrlRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DirectGetUrlRequestApplicationJson.
+  static Serializer<DirectGetUrlRequestApplicationJson> get serializer =>
+      _$directGetUrlRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectGetUrlRequestApplicationJsonBuilder b) {
+    $DirectGetUrlRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectGetUrlRequestApplicationJsonBuilder b) {
+    $DirectGetUrlRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1286,6 +1319,79 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface {
+  /// First day of the absence in format `YYYY-MM-DD`.
+  String get firstDay;
+
+  /// Last day of the absence in format `YYYY-MM-DD`.
+  String get lastDay;
+
+  /// Short text that is set as user status during the absence.
+  String get status;
+
+  /// Longer multiline message that is shown to others during the absence.
+  String get message;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder].
+  $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface rebuild(
+    void Function($OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder].
+  $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class OutOfOfficeSetOutOfOfficeRequestApplicationJson
+    implements
+        $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface,
+        Built<OutOfOfficeSetOutOfOfficeRequestApplicationJson, OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder> {
+  /// Creates a new OutOfOfficeSetOutOfOfficeRequestApplicationJson object using the builder pattern.
+  factory OutOfOfficeSetOutOfOfficeRequestApplicationJson([
+    void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? b,
+  ]) = _$OutOfOfficeSetOutOfOfficeRequestApplicationJson;
+
+  // coverage:ignore-start
+  const OutOfOfficeSetOutOfOfficeRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory OutOfOfficeSetOutOfOfficeRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for OutOfOfficeSetOutOfOfficeRequestApplicationJson.
+  static Serializer<OutOfOfficeSetOutOfOfficeRequestApplicationJson> get serializer =>
+      _$outOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder b) {
+    $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder b) {
+    $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OutOfOfficeData get data;
@@ -1662,6 +1768,11 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
+        const FullType(DirectGetUrlRequestApplicationJson),
+        DirectGetUrlRequestApplicationJsonBuilder.new,
+      )
+      ..add(DirectGetUrlRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(DirectGetUrlResponseApplicationJson),
         DirectGetUrlResponseApplicationJsonBuilder.new,
       )
@@ -1704,6 +1815,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OutOfOfficeData), OutOfOfficeDataBuilder.new)
       ..add(OutOfOfficeData.serializer)
+      ..addBuilderFactory(
+        const FullType(OutOfOfficeSetOutOfOfficeRequestApplicationJson),
+        OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder.new,
+      )
+      ..add(OutOfOfficeSetOutOfOfficeRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
         OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder.new,

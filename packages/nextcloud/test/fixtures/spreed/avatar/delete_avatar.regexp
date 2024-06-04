@@ -1,11 +1,15 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/room/[a-z0-9]{8}/avatar/emoji\?emoji=%F0%9F%98%80
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/room/[a-z0-9]{8}/avatar/emoji
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"emoji":"😀"\}
 DELETE http://localhost/ocs/v2\.php/apps/spreed/api/v1/room/[a-z0-9]{8}/avatar
 accept: application/json
 authorization: Bearer mock

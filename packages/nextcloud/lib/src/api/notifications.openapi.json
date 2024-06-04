@@ -666,20 +666,30 @@
                         "basic_auth": []
                     }
                 ],
-                "parameters": [
-                    {
-                        "name": "ids[]",
-                        "in": "query",
-                        "description": "IDs of the notifications to check",
-                        "required": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "integer",
-                                "format": "int64"
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "ids"
+                                ],
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "description": "IDs of the notifications to check",
+                                        "items": {
+                                            "type": "integer",
+                                            "format": "int64"
+                                        }
+                                    }
+                                }
                             }
                         }
-                    },
+                    }
+                },
+                "parameters": [
                     {
                         "name": "apiVersion",
                         "in": "path",
@@ -792,35 +802,37 @@
                         "basic_auth": []
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "batchSetting",
+                                    "soundNotification",
+                                    "soundTalk"
+                                ],
+                                "properties": {
+                                    "batchSetting": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "description": "How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)"
+                                    },
+                                    "soundNotification": {
+                                        "type": "string",
+                                        "description": "Enable sound for notifications ('yes' or 'no')"
+                                    },
+                                    "soundTalk": {
+                                        "type": "string",
+                                        "description": "Enable sound for Talk notifications ('yes' or 'no')"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "parameters": [
-                    {
-                        "name": "batchSetting",
-                        "in": "query",
-                        "description": "How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int64"
-                        }
-                    },
-                    {
-                        "name": "soundNotification",
-                        "in": "query",
-                        "description": "Enable sound for notifications ('yes' or 'no')",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "soundTalk",
-                        "in": "query",
-                        "description": "Enable sound for Talk notifications ('yes' or 'no')",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "apiVersion",
                         "in": "path",
@@ -892,25 +904,31 @@
                         "basic_auth": []
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "shortMessage"
+                                ],
+                                "properties": {
+                                    "shortMessage": {
+                                        "type": "string",
+                                        "description": "Subject of the notification"
+                                    },
+                                    "longMessage": {
+                                        "type": "string",
+                                        "default": "",
+                                        "description": "Message of the notification"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "parameters": [
-                    {
-                        "name": "shortMessage",
-                        "in": "query",
-                        "description": "Subject of the notification",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "longMessage",
-                        "in": "query",
-                        "description": "Message of the notification",
-                        "schema": {
-                            "type": "string",
-                            "default": ""
-                        }
-                    },
                     {
                         "name": "apiVersion",
                         "in": "path",
@@ -1082,35 +1100,37 @@
                         "basic_auth": []
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "batchSetting",
+                                    "soundNotification",
+                                    "soundTalk"
+                                ],
+                                "properties": {
+                                    "batchSetting": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "description": "How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)"
+                                    },
+                                    "soundNotification": {
+                                        "type": "string",
+                                        "description": "Enable sound for notifications ('yes' or 'no')"
+                                    },
+                                    "soundTalk": {
+                                        "type": "string",
+                                        "description": "Enable sound for Talk notifications ('yes' or 'no')"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "parameters": [
-                    {
-                        "name": "batchSetting",
-                        "in": "query",
-                        "description": "How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int64"
-                        }
-                    },
-                    {
-                        "name": "soundNotification",
-                        "in": "query",
-                        "description": "Enable sound for notifications ('yes' or 'no')",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "soundTalk",
-                        "in": "query",
-                        "description": "Enable sound for Talk notifications ('yes' or 'no')",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "apiVersion",
                         "in": "path",
@@ -1181,34 +1201,36 @@
                         "basic_auth": []
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "pushTokenHash",
+                                    "devicePublicKey",
+                                    "proxyServer"
+                                ],
+                                "properties": {
+                                    "pushTokenHash": {
+                                        "type": "string",
+                                        "description": "Hash of the push token"
+                                    },
+                                    "devicePublicKey": {
+                                        "type": "string",
+                                        "description": "Public key of the device"
+                                    },
+                                    "proxyServer": {
+                                        "type": "string",
+                                        "description": "Proxy server to be used"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "parameters": [
-                    {
-                        "name": "pushTokenHash",
-                        "in": "query",
-                        "description": "Hash of the push token",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "devicePublicKey",
-                        "in": "query",
-                        "description": "Public key of the device",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "proxyServer",
-                        "in": "query",
-                        "description": "Proxy server to be used",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "apiVersion",
                         "in": "path",

@@ -6,8 +6,67 @@ part of 'files_versions.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<PreviewGetPreviewRequestApplicationJson> _$previewGetPreviewRequestApplicationJsonSerializer =
+    _$PreviewGetPreviewRequestApplicationJsonSerializer();
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$PreviewGetPreviewRequestApplicationJsonSerializer
+    implements StructuredSerializer<PreviewGetPreviewRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    PreviewGetPreviewRequestApplicationJson,
+    _$PreviewGetPreviewRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'PreviewGetPreviewRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PreviewGetPreviewRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'file',
+      serializers.serialize(object.file, specifiedType: const FullType(String)),
+      'x',
+      serializers.serialize(object.x, specifiedType: const FullType(int)),
+      'y',
+      serializers.serialize(object.y, specifiedType: const FullType(int)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PreviewGetPreviewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PreviewGetPreviewRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'file':
+          result.file = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'x':
+          result.x = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'y':
+          result.y = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
@@ -93,6 +152,152 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
+  void replace($PreviewGetPreviewRequestApplicationJsonInterface other);
+  void update(void Function($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates);
+  String? get file;
+  set file(String? file);
+
+  int? get x;
+  set x(int? x);
+
+  int? get y;
+  set y(int? y);
+
+  String? get version;
+  set version(String? version);
+}
+
+class _$PreviewGetPreviewRequestApplicationJson extends PreviewGetPreviewRequestApplicationJson {
+  @override
+  final String file;
+  @override
+  final int x;
+  @override
+  final int y;
+  @override
+  final String version;
+
+  factory _$PreviewGetPreviewRequestApplicationJson(
+          [void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates]) =>
+      (PreviewGetPreviewRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$PreviewGetPreviewRequestApplicationJson._(
+      {required this.file, required this.x, required this.y, required this.version})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(file, r'PreviewGetPreviewRequestApplicationJson', 'file');
+    BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x');
+    BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y');
+    BuiltValueNullFieldError.checkNotNull(version, r'PreviewGetPreviewRequestApplicationJson', 'version');
+  }
+
+  @override
+  PreviewGetPreviewRequestApplicationJson rebuild(
+          void Function(PreviewGetPreviewRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PreviewGetPreviewRequestApplicationJsonBuilder toBuilder() =>
+      PreviewGetPreviewRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PreviewGetPreviewRequestApplicationJson &&
+        file == other.file &&
+        x == other.x &&
+        y == other.y &&
+        version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, file.hashCode);
+    _$hash = $jc(_$hash, x.hashCode);
+    _$hash = $jc(_$hash, y.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PreviewGetPreviewRequestApplicationJson')
+          ..add('file', file)
+          ..add('x', x)
+          ..add('y', y)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class PreviewGetPreviewRequestApplicationJsonBuilder
+    implements
+        Builder<PreviewGetPreviewRequestApplicationJson, PreviewGetPreviewRequestApplicationJsonBuilder>,
+        $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
+  _$PreviewGetPreviewRequestApplicationJson? _$v;
+
+  String? _file;
+  String? get file => _$this._file;
+  set file(covariant String? file) => _$this._file = file;
+
+  int? _x;
+  int? get x => _$this._x;
+  set x(covariant int? x) => _$this._x = x;
+
+  int? _y;
+  int? get y => _$this._y;
+  set y(covariant int? y) => _$this._y = y;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  PreviewGetPreviewRequestApplicationJsonBuilder() {
+    PreviewGetPreviewRequestApplicationJson._defaults(this);
+  }
+
+  PreviewGetPreviewRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _file = $v.file;
+      _x = $v.x;
+      _y = $v.y;
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PreviewGetPreviewRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PreviewGetPreviewRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PreviewGetPreviewRequestApplicationJson build() => _build();
+
+  _$PreviewGetPreviewRequestApplicationJson _build() {
+    PreviewGetPreviewRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$PreviewGetPreviewRequestApplicationJson._(
+            file: BuiltValueNullFieldError.checkNotNull(file, r'PreviewGetPreviewRequestApplicationJson', 'file'),
+            x: BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x'),
+            y: BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y'),
+            version:
+                BuiltValueNullFieldError.checkNotNull(version, r'PreviewGetPreviewRequestApplicationJson', 'version'));
+    replace(_$result);
+    return _$result;
   }
 }
 

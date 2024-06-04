@@ -16,6 +16,7 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -381,9 +382,6 @@ class $DirectEditingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -396,23 +394,10 @@ class $DirectEditingClient {
   ///  * [$open_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $open_Request({
-    required String path,
-    String? editorId,
-    int? fileId,
+    required DirectEditingOpenRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final __editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    _parameters['editorId'] = __editorId;
-
-    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = __fileId;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing/open';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -437,6 +422,10 @@ class $DirectEditingClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(DirectEditingOpenRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -446,9 +435,6 @@ class $DirectEditingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -460,16 +446,12 @@ class $DirectEditingClient {
   ///  * [$open_Request] for the request send by this method.
   ///  * [$open_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DirectEditingOpenResponseApplicationJson, void>> open({
-    required String path,
-    String? editorId,
-    int? fileId,
+    required DirectEditingOpenRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $open_Request(
-      path: path,
-      editorId: editorId,
-      fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -496,10 +478,6 @@ class $DirectEditingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [creatorId] ID of the creator.
-  ///   * [templateId] ID of the template.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -512,28 +490,10 @@ class $DirectEditingClient {
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $create_Request({
-    required String path,
-    required String editorId,
-    required String creatorId,
-    String? templateId,
+    required DirectEditingCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final __editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    _parameters['editorId'] = __editorId;
-
-    final __creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
-    _parameters['creatorId'] = __creatorId;
-
-    final __templateId = _$jsonSerializers.serialize(templateId, specifiedType: const FullType(String));
-    _parameters['templateId'] = __templateId;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
-            .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing/create';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -558,6 +518,10 @@ class $DirectEditingClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(DirectEditingCreateRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -567,10 +531,6 @@ class $DirectEditingClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
-  ///   * [editorId] ID of the editor.
-  ///   * [creatorId] ID of the creator.
-  ///   * [templateId] ID of the template.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -582,18 +542,12 @@ class $DirectEditingClient {
   ///  * [$create_Request] for the request send by this method.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DirectEditingCreateResponseApplicationJson, void>> create({
-    required String path,
-    required String editorId,
-    required String creatorId,
-    String? templateId,
+    required DirectEditingCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $create_Request(
-      path: path,
-      editorId: editorId,
-      creatorId: creatorId,
-      templateId: templateId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -627,7 +581,6 @@ class $OpenLocalEditorClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -639,14 +592,10 @@ class $OpenLocalEditorClient {
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $create_Request({
-    required String path,
+    required OpenLocalEditorCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/openlocaleditor';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -671,6 +620,10 @@ class $OpenLocalEditorClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(OpenLocalEditorCreateRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -680,7 +633,6 @@ class $OpenLocalEditorClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -691,12 +643,12 @@ class $OpenLocalEditorClient {
   ///  * [$create_Request] for the request send by this method.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OpenLocalEditorCreateResponseApplicationJson, void>> create({
-    required String path,
+    required OpenLocalEditorCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $create_Request(
-      path: path,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -723,7 +675,6 @@ class $OpenLocalEditorClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
   ///   * [token] Token of the local editor.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -736,18 +687,15 @@ class $OpenLocalEditorClient {
   ///  * [$validate_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $validate_Request({
-    required String path,
     required String token,
+    required OpenLocalEditorValidateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _parameters['token'] = __token;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -772,6 +720,13 @@ class $OpenLocalEditorClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(OpenLocalEditorValidateRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -781,7 +736,6 @@ class $OpenLocalEditorClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [path] Path of the file.
   ///   * [token] Token of the local editor.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -793,14 +747,14 @@ class $OpenLocalEditorClient {
   ///  * [$validate_Request] for the request send by this method.
   ///  * [$validate_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validate({
-    required String path,
     required String token,
+    required OpenLocalEditorValidateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $validate_Request(
-      path: path,
       token: token,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -913,9 +867,6 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file.
-  ///   * [templatePath] Name of the template. Defaults to `""`.
-  ///   * [templateType] Type of the template. Defaults to `"user"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -927,26 +878,10 @@ class $TemplateClient {
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $create_Request({
-    required String filePath,
-    String? templatePath,
-    String? templateType,
+    required TemplateCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __filePath = _$jsonSerializers.serialize(filePath, specifiedType: const FullType(String));
-    _parameters['filePath'] = __filePath;
-
-    var __templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
-    __templatePath ??= '';
-    _parameters['templatePath'] = __templatePath;
-
-    var __templateType = _$jsonSerializers.serialize(templateType, specifiedType: const FullType(String));
-    __templateType ??= 'user';
-    _parameters['templateType'] = __templateType;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
-            .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/templates/create';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -971,6 +906,10 @@ class $TemplateClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(TemplateCreateRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -980,9 +919,6 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filePath] Path of the file.
-  ///   * [templatePath] Name of the template. Defaults to `""`.
-  ///   * [templateType] Type of the template. Defaults to `"user"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -993,16 +929,12 @@ class $TemplateClient {
   ///  * [$create_Request] for the request send by this method.
   ///  * [$create_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TemplateCreateResponseApplicationJson, void>> create({
-    required String filePath,
-    String? templatePath,
-    String? templateType,
+    required TemplateCreateRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $create_Request(
-      filePath: filePath,
-      templatePath: templatePath,
-      templateType: templateType,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1028,8 +960,6 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `""`.
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1041,24 +971,10 @@ class $TemplateClient {
   ///  * [$path_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $path_Request({
-    String? templatePath,
-    TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
+    TemplatePathRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var __templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
-    __templatePath ??= '';
-    _parameters['templatePath'] = __templatePath;
-
-    var __copySystemTemplates = _$jsonSerializers.serialize(
-      copySystemTemplates,
-      specifiedType: const FullType(TemplatePathCopySystemTemplates),
-    );
-    __copySystemTemplates ??= 0;
-    _parameters['copySystemTemplates'] = __copySystemTemplates;
-
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/templates/path';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1083,6 +999,17 @@ class $TemplateClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(TemplatePathRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              TemplatePathRequestApplicationJson(),
+              specifiedType: const FullType(TemplatePathRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1092,8 +1019,6 @@ class $TemplateClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [templatePath] Path of the template directory. Defaults to `""`.
-  ///   * [copySystemTemplates] Whether to copy the system templates to the template directory. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1104,14 +1029,12 @@ class $TemplateClient {
   ///  * [$path_Request] for the request send by this method.
   ///  * [$path_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
-    String? templatePath,
-    TemplatePathCopySystemTemplates? copySystemTemplates,
     bool? oCSAPIRequest,
+    TemplatePathRequestApplicationJson? $body,
   }) async {
     final _request = $path_Request(
-      templatePath: templatePath,
-      copySystemTemplates: copySystemTemplates,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1145,8 +1068,6 @@ class $TransferOwnershipClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient.
-  ///   * [path] Path of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1159,19 +1080,10 @@ class $TransferOwnershipClient {
   ///  * [$transfer_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $transfer_Request({
-    required String recipient,
-    required String path,
+    required TransferOwnershipTransferRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __recipient = _$jsonSerializers.serialize(recipient, specifiedType: const FullType(String));
-    _parameters['recipient'] = __recipient;
-
-    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = __path;
-
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/transferownership';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1196,6 +1108,13 @@ class $TransferOwnershipClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(TransferOwnershipTransferRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -1205,8 +1124,6 @@ class $TransferOwnershipClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [recipient] Username of the recipient.
-  ///   * [path] Path of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1218,14 +1135,12 @@ class $TransferOwnershipClient {
   ///  * [$transfer_Request] for the request send by this method.
   ///  * [$transfer_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TransferOwnershipTransferResponseApplicationJson, void>> transfer({
-    required String recipient,
-    required String path,
+    required TransferOwnershipTransferRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $transfer_Request(
-      recipient: recipient,
-      path: path,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2083,6 +1998,75 @@ abstract class DirectEditingTemplatesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $DirectEditingOpenRequestApplicationJsonInterface {
+  /// Path of the file.
+  String get path;
+
+  /// ID of the editor.
+  String? get editorId;
+
+  /// ID of the file.
+  int? get fileId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DirectEditingOpenRequestApplicationJsonInterfaceBuilder].
+  $DirectEditingOpenRequestApplicationJsonInterface rebuild(
+    void Function($DirectEditingOpenRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DirectEditingOpenRequestApplicationJsonInterfaceBuilder].
+  $DirectEditingOpenRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectEditingOpenRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectEditingOpenRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DirectEditingOpenRequestApplicationJson
+    implements
+        $DirectEditingOpenRequestApplicationJsonInterface,
+        Built<DirectEditingOpenRequestApplicationJson, DirectEditingOpenRequestApplicationJsonBuilder> {
+  /// Creates a new DirectEditingOpenRequestApplicationJson object using the builder pattern.
+  factory DirectEditingOpenRequestApplicationJson([void Function(DirectEditingOpenRequestApplicationJsonBuilder)? b]) =
+      _$DirectEditingOpenRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DirectEditingOpenRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DirectEditingOpenRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DirectEditingOpenRequestApplicationJson.
+  static Serializer<DirectEditingOpenRequestApplicationJson> get serializer =>
+      _$directEditingOpenRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectEditingOpenRequestApplicationJsonBuilder b) {
+    $DirectEditingOpenRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectEditingOpenRequestApplicationJsonBuilder b) {
+    $DirectEditingOpenRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface {
   String get url;
 
@@ -2270,6 +2254,79 @@ abstract class DirectEditingOpenResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(DirectEditingOpenResponseApplicationJsonBuilder b) {
     $DirectEditingOpenResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DirectEditingCreateRequestApplicationJsonInterface {
+  /// Path of the file.
+  String get path;
+
+  /// ID of the editor.
+  String get editorId;
+
+  /// ID of the creator.
+  String get creatorId;
+
+  /// ID of the template.
+  String? get templateId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DirectEditingCreateRequestApplicationJsonInterfaceBuilder].
+  $DirectEditingCreateRequestApplicationJsonInterface rebuild(
+    void Function($DirectEditingCreateRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DirectEditingCreateRequestApplicationJsonInterfaceBuilder].
+  $DirectEditingCreateRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DirectEditingCreateRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DirectEditingCreateRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DirectEditingCreateRequestApplicationJson
+    implements
+        $DirectEditingCreateRequestApplicationJsonInterface,
+        Built<DirectEditingCreateRequestApplicationJson, DirectEditingCreateRequestApplicationJsonBuilder> {
+  /// Creates a new DirectEditingCreateRequestApplicationJson object using the builder pattern.
+  factory DirectEditingCreateRequestApplicationJson([
+    void Function(DirectEditingCreateRequestApplicationJsonBuilder)? b,
+  ]) = _$DirectEditingCreateRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DirectEditingCreateRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DirectEditingCreateRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DirectEditingCreateRequestApplicationJson.
+  static Serializer<DirectEditingCreateRequestApplicationJson> get serializer =>
+      _$directEditingCreateRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DirectEditingCreateRequestApplicationJsonBuilder b) {
+    $DirectEditingCreateRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DirectEditingCreateRequestApplicationJsonBuilder b) {
+    $DirectEditingCreateRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -2465,6 +2522,70 @@ abstract class DirectEditingCreateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $OpenLocalEditorCreateRequestApplicationJsonInterface {
+  /// Path of the file.
+  String get path;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder].
+  $OpenLocalEditorCreateRequestApplicationJsonInterface rebuild(
+    void Function($OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder].
+  $OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class OpenLocalEditorCreateRequestApplicationJson
+    implements
+        $OpenLocalEditorCreateRequestApplicationJsonInterface,
+        Built<OpenLocalEditorCreateRequestApplicationJson, OpenLocalEditorCreateRequestApplicationJsonBuilder> {
+  /// Creates a new OpenLocalEditorCreateRequestApplicationJson object using the builder pattern.
+  factory OpenLocalEditorCreateRequestApplicationJson([
+    void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder)? b,
+  ]) = _$OpenLocalEditorCreateRequestApplicationJson;
+
+  // coverage:ignore-start
+  const OpenLocalEditorCreateRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory OpenLocalEditorCreateRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for OpenLocalEditorCreateRequestApplicationJson.
+  static Serializer<OpenLocalEditorCreateRequestApplicationJson> get serializer =>
+      _$openLocalEditorCreateRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OpenLocalEditorCreateRequestApplicationJsonBuilder b) {
+    $OpenLocalEditorCreateRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OpenLocalEditorCreateRequestApplicationJsonBuilder b) {
+    $OpenLocalEditorCreateRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface {
   String? get userId;
   String get pathHash;
@@ -2656,6 +2777,70 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(OpenLocalEditorCreateResponseApplicationJsonBuilder b) {
     $OpenLocalEditorCreateResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $OpenLocalEditorValidateRequestApplicationJsonInterface {
+  /// Path of the file.
+  String get path;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder].
+  $OpenLocalEditorValidateRequestApplicationJsonInterface rebuild(
+    void Function($OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder].
+  $OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class OpenLocalEditorValidateRequestApplicationJson
+    implements
+        $OpenLocalEditorValidateRequestApplicationJsonInterface,
+        Built<OpenLocalEditorValidateRequestApplicationJson, OpenLocalEditorValidateRequestApplicationJsonBuilder> {
+  /// Creates a new OpenLocalEditorValidateRequestApplicationJson object using the builder pattern.
+  factory OpenLocalEditorValidateRequestApplicationJson([
+    void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder)? b,
+  ]) = _$OpenLocalEditorValidateRequestApplicationJson;
+
+  // coverage:ignore-start
+  const OpenLocalEditorValidateRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory OpenLocalEditorValidateRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for OpenLocalEditorValidateRequestApplicationJson.
+  static Serializer<OpenLocalEditorValidateRequestApplicationJson> get serializer =>
+      _$openLocalEditorValidateRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OpenLocalEditorValidateRequestApplicationJsonBuilder b) {
+    $OpenLocalEditorValidateRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(OpenLocalEditorValidateRequestApplicationJsonBuilder b) {
+    $OpenLocalEditorValidateRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -3044,6 +3229,89 @@ abstract class TemplateListResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $TemplateCreateRequestApplicationJsonInterface {
+  static final _$templatePath = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$templateType = _$jsonSerializers.deserialize(
+    'user',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Path of the file.
+  String get filePath;
+
+  /// Name of the template.
+  String get templatePath;
+
+  /// Type of the template.
+  String get templateType;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TemplateCreateRequestApplicationJsonInterfaceBuilder].
+  $TemplateCreateRequestApplicationJsonInterface rebuild(
+    void Function($TemplateCreateRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TemplateCreateRequestApplicationJsonInterfaceBuilder].
+  $TemplateCreateRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TemplateCreateRequestApplicationJsonInterfaceBuilder b) {
+    b.templatePath = _$templatePath;
+    b.templateType = _$templateType;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TemplateCreateRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TemplateCreateRequestApplicationJson
+    implements
+        $TemplateCreateRequestApplicationJsonInterface,
+        Built<TemplateCreateRequestApplicationJson, TemplateCreateRequestApplicationJsonBuilder> {
+  /// Creates a new TemplateCreateRequestApplicationJson object using the builder pattern.
+  factory TemplateCreateRequestApplicationJson([void Function(TemplateCreateRequestApplicationJsonBuilder)? b]) =
+      _$TemplateCreateRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TemplateCreateRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TemplateCreateRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TemplateCreateRequestApplicationJson.
+  static Serializer<TemplateCreateRequestApplicationJson> get serializer =>
+      _$templateCreateRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TemplateCreateRequestApplicationJsonBuilder b) {
+    $TemplateCreateRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TemplateCreateRequestApplicationJsonBuilder b) {
+    $TemplateCreateRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $TemplateFileInterface {
   String get basename;
   String get etag;
@@ -3231,68 +3499,84 @@ abstract class TemplateCreateResponseApplicationJson
   }
 }
 
-class TemplatePathCopySystemTemplates extends EnumClass {
-  const TemplatePathCopySystemTemplates._(super.name);
+@BuiltValue(instantiable: false)
+sealed class $TemplatePathRequestApplicationJsonInterface {
+  static final _$templatePath = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
 
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const TemplatePathCopySystemTemplates $0 = _$templatePathCopySystemTemplates$0;
+  static final _$copySystemTemplates = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
 
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const TemplatePathCopySystemTemplates $1 = _$templatePathCopySystemTemplates$1;
+  /// Path of the template directory.
+  String get templatePath;
 
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<TemplatePathCopySystemTemplates> get values => _$templatePathCopySystemTemplatesValues;
-  // coverage:ignore-end
+  /// Whether to copy the system templates to the template directory.
+  bool get copySystemTemplates;
 
-  /// Returns the enum value associated to the [name].
-  static TemplatePathCopySystemTemplates valueOf(String name) => _$valueOfTemplatePathCopySystemTemplates(name);
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TemplatePathRequestApplicationJsonInterfaceBuilder].
+  $TemplatePathRequestApplicationJsonInterface rebuild(
+    void Function($TemplatePathRequestApplicationJsonInterfaceBuilder) updates,
+  );
 
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+  /// Converts the instance to a builder [$TemplatePathRequestApplicationJsonInterfaceBuilder].
+  $TemplatePathRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TemplatePathRequestApplicationJsonInterfaceBuilder b) {
+    b.templatePath = _$templatePath;
+    b.copySystemTemplates = _$copySystemTemplates;
+  }
 
-  /// Serializer for TemplatePathCopySystemTemplates.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<TemplatePathCopySystemTemplates> get serializer =>
-      const _$TemplatePathCopySystemTemplatesSerializer();
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TemplatePathRequestApplicationJsonInterfaceBuilder b) {}
 }
 
-class _$TemplatePathCopySystemTemplatesSerializer implements PrimitiveSerializer<TemplatePathCopySystemTemplates> {
-  const _$TemplatePathCopySystemTemplatesSerializer();
+abstract class TemplatePathRequestApplicationJson
+    implements
+        $TemplatePathRequestApplicationJsonInterface,
+        Built<TemplatePathRequestApplicationJson, TemplatePathRequestApplicationJsonBuilder> {
+  /// Creates a new TemplatePathRequestApplicationJson object using the builder pattern.
+  factory TemplatePathRequestApplicationJson([void Function(TemplatePathRequestApplicationJsonBuilder)? b]) =
+      _$TemplatePathRequestApplicationJson;
 
-  static const Map<TemplatePathCopySystemTemplates, Object> _toWire = <TemplatePathCopySystemTemplates, Object>{
-    TemplatePathCopySystemTemplates.$0: 0,
-    TemplatePathCopySystemTemplates.$1: 1,
-  };
+  // coverage:ignore-start
+  const TemplatePathRequestApplicationJson._();
+  // coverage:ignore-end
 
-  static const Map<Object, TemplatePathCopySystemTemplates> _fromWire = <Object, TemplatePathCopySystemTemplates>{
-    0: TemplatePathCopySystemTemplates.$0,
-    1: TemplatePathCopySystemTemplates.$1,
-  };
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TemplatePathRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
-  @override
-  Iterable<Type> get types => const [TemplatePathCopySystemTemplates];
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
-  @override
-  String get wireName => 'TemplatePathCopySystemTemplates';
+  /// Serializer for TemplatePathRequestApplicationJson.
+  static Serializer<TemplatePathRequestApplicationJson> get serializer =>
+      _$templatePathRequestApplicationJsonSerializer;
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    TemplatePathCopySystemTemplates object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TemplatePathRequestApplicationJsonBuilder b) {
+    $TemplatePathRequestApplicationJsonInterface._defaults(b);
+  }
 
-  @override
-  TemplatePathCopySystemTemplates deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TemplatePathRequestApplicationJsonBuilder b) {
+    $TemplatePathRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3482,6 +3766,73 @@ abstract class TemplatePathResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(TemplatePathResponseApplicationJsonBuilder b) {
     $TemplatePathResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TransferOwnershipTransferRequestApplicationJsonInterface {
+  /// Username of the recipient.
+  String get recipient;
+
+  /// Path of the file.
+  String get path;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder].
+  $TransferOwnershipTransferRequestApplicationJsonInterface rebuild(
+    void Function($TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder].
+  $TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class TransferOwnershipTransferRequestApplicationJson
+    implements
+        $TransferOwnershipTransferRequestApplicationJsonInterface,
+        Built<TransferOwnershipTransferRequestApplicationJson, TransferOwnershipTransferRequestApplicationJsonBuilder> {
+  /// Creates a new TransferOwnershipTransferRequestApplicationJson object using the builder pattern.
+  factory TransferOwnershipTransferRequestApplicationJson([
+    void Function(TransferOwnershipTransferRequestApplicationJsonBuilder)? b,
+  ]) = _$TransferOwnershipTransferRequestApplicationJson;
+
+  // coverage:ignore-start
+  const TransferOwnershipTransferRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TransferOwnershipTransferRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TransferOwnershipTransferRequestApplicationJson.
+  static Serializer<TransferOwnershipTransferRequestApplicationJson> get serializer =>
+      _$transferOwnershipTransferRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TransferOwnershipTransferRequestApplicationJsonBuilder b) {
+    $TransferOwnershipTransferRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TransferOwnershipTransferRequestApplicationJsonBuilder b) {
+    $TransferOwnershipTransferRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -4126,6 +4477,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>.new,
       )
       ..addBuilderFactory(
+        const FullType(DirectEditingOpenRequestApplicationJson),
+        DirectEditingOpenRequestApplicationJsonBuilder.new,
+      )
+      ..add(DirectEditingOpenRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(DirectEditingOpenResponseApplicationJson),
         DirectEditingOpenResponseApplicationJsonBuilder.new,
       )
@@ -4140,6 +4496,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectEditingOpenResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(DirectEditingCreateRequestApplicationJson),
+        DirectEditingCreateRequestApplicationJsonBuilder.new,
+      )
+      ..add(DirectEditingCreateRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingCreateResponseApplicationJson),
         DirectEditingCreateResponseApplicationJsonBuilder.new,
@@ -4156,6 +4517,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(DirectEditingCreateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(OpenLocalEditorCreateRequestApplicationJson),
+        OpenLocalEditorCreateRequestApplicationJsonBuilder.new,
+      )
+      ..add(OpenLocalEditorCreateRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(OpenLocalEditorCreateResponseApplicationJson),
         OpenLocalEditorCreateResponseApplicationJsonBuilder.new,
       )
@@ -4170,6 +4536,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(OpenLocalEditorValidateRequestApplicationJson),
+        OpenLocalEditorValidateRequestApplicationJsonBuilder.new,
+      )
+      ..add(OpenLocalEditorValidateRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorValidateResponseApplicationJson),
         OpenLocalEditorValidateResponseApplicationJsonBuilder.new,
@@ -4202,6 +4573,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<TemplateFileCreator>.new,
       )
       ..addBuilderFactory(
+        const FullType(TemplateCreateRequestApplicationJson),
+        TemplateCreateRequestApplicationJsonBuilder.new,
+      )
+      ..add(TemplateCreateRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(TemplateCreateResponseApplicationJson),
         TemplateCreateResponseApplicationJsonBuilder.new,
       )
@@ -4213,7 +4589,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(TemplateCreateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(TemplateFile), TemplateFileBuilder.new)
       ..add(TemplateFile.serializer)
-      ..add(TemplatePathCopySystemTemplates.serializer)
+      ..addBuilderFactory(
+        const FullType(TemplatePathRequestApplicationJson),
+        TemplatePathRequestApplicationJsonBuilder.new,
+      )
+      ..add(TemplatePathRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TemplatePathResponseApplicationJson),
         TemplatePathResponseApplicationJsonBuilder.new,
@@ -4229,6 +4609,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         TemplatePathResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TemplatePathResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TransferOwnershipTransferRequestApplicationJson),
+        TransferOwnershipTransferRequestApplicationJsonBuilder.new,
+      )
+      ..add(TransferOwnershipTransferRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipTransferResponseApplicationJson),
         TransferOwnershipTransferResponseApplicationJsonBuilder.new,

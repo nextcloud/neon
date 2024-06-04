@@ -16,18 +16,20 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i8;
-import 'package:collection/collection.dart' as _i5;
+import 'package:collection/collection.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i6;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
+import 'package:uri/uri.dart' as _i6;
 
 part 'user_status.openapi.g.dart';
 
@@ -78,7 +80,6 @@ class $HeartbeatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -92,19 +93,15 @@ class $HeartbeatClient {
   ///  * [$heartbeat_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $heartbeat_Request({
-    required String status,
+    required HeartbeatHeartbeatRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
-    _parameters['status'] = __status;
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/heartbeat';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -122,8 +119,12 @@ class $HeartbeatClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(HeartbeatHeartbeatRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -133,7 +134,6 @@ class $HeartbeatClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [status] Only online, away.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -146,12 +146,12 @@ class $HeartbeatClient {
   ///  * [$heartbeat_Request] for the request send by this method.
   ///  * [$heartbeat_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<HeartbeatHeartbeatResponseApplicationJson, void>> heartbeat({
-    required String status,
+    required HeartbeatHeartbeatRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $heartbeat_Request(
-      status: status,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -200,7 +200,7 @@ class $PredefinedStatusClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -218,7 +218,7 @@ class $PredefinedStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -274,8 +274,6 @@ class $StatusesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find.
-  ///   * [offset] Offset for finding statuses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -286,23 +284,15 @@ class $StatusesClient {
   ///  * [$findAll_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $findAll_Request({
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    StatusesFindAllRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = __limit;
-
-    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    _parameters['offset'] = __offset;
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -320,8 +310,19 @@ class $StatusesClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(StatusesFindAllRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              StatusesFindAllRequestApplicationJson(),
+              specifiedType: const FullType(StatusesFindAllRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -331,8 +332,6 @@ class $StatusesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Maximum number of statuses to find.
-  ///   * [offset] Offset for finding statuses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -342,14 +341,12 @@ class $StatusesClient {
   ///  * [$findAll_Request] for the request send by this method.
   ///  * [$findAll_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<StatusesFindAllResponseApplicationJson, void>> findAll({
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    StatusesFindAllRequestApplicationJson? $body,
   }) async {
     final _request = $findAll_Request(
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -394,12 +391,12 @@ class $StatusesClient {
     final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     _parameters['userId'] = __userId;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -417,7 +414,7 @@ class $StatusesClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -494,7 +491,7 @@ class $UserStatusClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -512,7 +509,7 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -563,7 +560,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -575,20 +571,15 @@ class $UserStatusClient {
   ///  * [$setStatus_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setStatus_Request({
-    required String statusType,
+    required UserStatusSetStatusRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __statusType = _$jsonSerializers.serialize(statusType, specifiedType: const FullType(String));
-    _parameters['statusType'] = __statusType;
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/status';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -606,8 +597,12 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UserStatusSetStatusRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -617,7 +612,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusType] The new status type.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -628,12 +622,12 @@ class $UserStatusClient {
   ///  * [$setStatus_Request] for the request send by this method.
   ///  * [$setStatus_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UserStatusSetStatusResponseApplicationJson, void>> setStatus({
-    required String statusType,
+    required UserStatusSetStatusRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setStatus_Request(
-      statusType: statusType,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -660,8 +654,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message.
-  ///   * [clearAt] When the message should be cleared.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -673,25 +665,15 @@ class $UserStatusClient {
   ///  * [$setPredefinedMessage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setPredefinedMessage_Request({
-    required String messageId,
-    int? clearAt,
+    required UserStatusSetPredefinedMessageRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
-    _parameters['messageId'] = __messageId;
-
-    final __clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    _parameters['clearAt'] = __clearAt;
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
-            .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -709,8 +691,15 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UserStatusSetPredefinedMessageRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -720,8 +709,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [messageId] ID of the predefined message.
-  ///   * [clearAt] When the message should be cleared.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -732,14 +719,12 @@ class $UserStatusClient {
   ///  * [$setPredefinedMessage_Request] for the request send by this method.
   ///  * [$setPredefinedMessage_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>> setPredefinedMessage({
-    required String messageId,
-    int? clearAt,
+    required UserStatusSetPredefinedMessageRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setPredefinedMessage_Request(
-      messageId: messageId,
-      clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -766,9 +751,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status.
-  ///   * [message] Message of the status.
-  ///   * [clearAt] When the message should be cleared.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -780,29 +762,15 @@ class $UserStatusClient {
   ///  * [$setCustomMessage_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setCustomMessage_Request({
-    String? statusIcon,
-    String? message,
-    int? clearAt,
     bool? oCSAPIRequest,
+    UserStatusSetCustomMessageRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final __statusIcon = _$jsonSerializers.serialize(statusIcon, specifiedType: const FullType(String));
-    _parameters['statusIcon'] = __statusIcon;
-
-    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = __message;
-
-    final __clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    _parameters['clearAt'] = __clearAt;
-
-    final _path = _i4.UriTemplate(
-      '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}',
-    ).expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -820,8 +788,22 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              UserStatusSetCustomMessageRequestApplicationJson(),
+              specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -831,9 +813,6 @@ class $UserStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [statusIcon] Icon of the status.
-  ///   * [message] Message of the status.
-  ///   * [clearAt] When the message should be cleared.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -844,16 +823,12 @@ class $UserStatusClient {
   ///  * [$setCustomMessage_Request] for the request send by this method.
   ///  * [$setCustomMessage_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UserStatusSetCustomMessageResponseApplicationJson, void>> setCustomMessage({
-    String? statusIcon,
-    String? message,
-    int? clearAt,
     bool? oCSAPIRequest,
+    UserStatusSetCustomMessageRequestApplicationJson? $body,
   }) async {
     final _request = $setCustomMessage_Request(
-      statusIcon: statusIcon,
-      message: message,
-      clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -895,7 +870,7 @@ class $UserStatusClient {
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -913,7 +888,7 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -982,12 +957,12 @@ class $UserStatusClient {
     _parameters['messageId'] = __messageId;
 
     final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
+        _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1005,7 +980,7 @@ class $UserStatusClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1040,6 +1015,70 @@ class $UserStatusClient {
     final _rawResponse =
         _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $HeartbeatHeartbeatRequestApplicationJsonInterface {
+  /// Only online, away.
+  String get status;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder].
+  $HeartbeatHeartbeatRequestApplicationJsonInterface rebuild(
+    void Function($HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder].
+  $HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($HeartbeatHeartbeatRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class HeartbeatHeartbeatRequestApplicationJson
+    implements
+        $HeartbeatHeartbeatRequestApplicationJsonInterface,
+        Built<HeartbeatHeartbeatRequestApplicationJson, HeartbeatHeartbeatRequestApplicationJsonBuilder> {
+  /// Creates a new HeartbeatHeartbeatRequestApplicationJson object using the builder pattern.
+  factory HeartbeatHeartbeatRequestApplicationJson([
+    void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? b,
+  ]) = _$HeartbeatHeartbeatRequestApplicationJson;
+
+  // coverage:ignore-start
+  const HeartbeatHeartbeatRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory HeartbeatHeartbeatRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for HeartbeatHeartbeatRequestApplicationJson.
+  static Serializer<HeartbeatHeartbeatRequestApplicationJson> get serializer =>
+      _$heartbeatHeartbeatRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(HeartbeatHeartbeatRequestApplicationJsonBuilder b) {
+    $HeartbeatHeartbeatRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(HeartbeatHeartbeatRequestApplicationJsonBuilder b) {
+    $HeartbeatHeartbeatRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1799,6 +1838,72 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $StatusesFindAllRequestApplicationJsonInterface {
+  /// Maximum number of statuses to find.
+  int? get limit;
+
+  /// Offset for finding statuses.
+  int? get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StatusesFindAllRequestApplicationJsonInterfaceBuilder].
+  $StatusesFindAllRequestApplicationJsonInterface rebuild(
+    void Function($StatusesFindAllRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StatusesFindAllRequestApplicationJsonInterfaceBuilder].
+  $StatusesFindAllRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StatusesFindAllRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StatusesFindAllRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class StatusesFindAllRequestApplicationJson
+    implements
+        $StatusesFindAllRequestApplicationJsonInterface,
+        Built<StatusesFindAllRequestApplicationJson, StatusesFindAllRequestApplicationJsonBuilder> {
+  /// Creates a new StatusesFindAllRequestApplicationJson object using the builder pattern.
+  factory StatusesFindAllRequestApplicationJson([void Function(StatusesFindAllRequestApplicationJsonBuilder)? b]) =
+      _$StatusesFindAllRequestApplicationJson;
+
+  // coverage:ignore-start
+  const StatusesFindAllRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory StatusesFindAllRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for StatusesFindAllRequestApplicationJson.
+  static Serializer<StatusesFindAllRequestApplicationJson> get serializer =>
+      _$statusesFindAllRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StatusesFindAllRequestApplicationJsonBuilder b) {
+    $StatusesFindAllRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StatusesFindAllRequestApplicationJsonBuilder b) {
+    $StatusesFindAllRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $StatusesFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Public> get data;
@@ -2177,6 +2282,70 @@ abstract class UserStatusGetStatusResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UserStatusSetStatusRequestApplicationJsonInterface {
+  /// The new status type.
+  String get statusType;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetStatusRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetStatusRequestApplicationJsonInterface rebuild(
+    void Function($UserStatusSetStatusRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetStatusRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetStatusRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetStatusRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetStatusRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UserStatusSetStatusRequestApplicationJson
+    implements
+        $UserStatusSetStatusRequestApplicationJsonInterface,
+        Built<UserStatusSetStatusRequestApplicationJson, UserStatusSetStatusRequestApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetStatusRequestApplicationJson object using the builder pattern.
+  factory UserStatusSetStatusRequestApplicationJson([
+    void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? b,
+  ]) = _$UserStatusSetStatusRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UserStatusSetStatusRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UserStatusSetStatusRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UserStatusSetStatusRequestApplicationJson.
+  static Serializer<UserStatusSetStatusRequestApplicationJson> get serializer =>
+      _$userStatusSetStatusRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetStatusRequestApplicationJsonBuilder b) {
+    $UserStatusSetStatusRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetStatusRequestApplicationJsonBuilder b) {
+    $UserStatusSetStatusRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UserStatusSetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
@@ -2300,6 +2469,74 @@ abstract class UserStatusSetStatusResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UserStatusSetStatusResponseApplicationJsonBuilder b) {
     $UserStatusSetStatusResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UserStatusSetPredefinedMessageRequestApplicationJsonInterface {
+  /// ID of the predefined message.
+  String get messageId;
+
+  /// When the message should be cleared.
+  int? get clearAt;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetPredefinedMessageRequestApplicationJsonInterface rebuild(
+    void Function($UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UserStatusSetPredefinedMessageRequestApplicationJson
+    implements
+        $UserStatusSetPredefinedMessageRequestApplicationJsonInterface,
+        Built<UserStatusSetPredefinedMessageRequestApplicationJson,
+            UserStatusSetPredefinedMessageRequestApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetPredefinedMessageRequestApplicationJson object using the builder pattern.
+  factory UserStatusSetPredefinedMessageRequestApplicationJson([
+    void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? b,
+  ]) = _$UserStatusSetPredefinedMessageRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UserStatusSetPredefinedMessageRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UserStatusSetPredefinedMessageRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UserStatusSetPredefinedMessageRequestApplicationJson.
+  static Serializer<UserStatusSetPredefinedMessageRequestApplicationJson> get serializer =>
+      _$userStatusSetPredefinedMessageRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder b) {
+    $UserStatusSetPredefinedMessageRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder b) {
+    $UserStatusSetPredefinedMessageRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -2429,6 +2666,77 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder b) {
     $UserStatusSetPredefinedMessageResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UserStatusSetCustomMessageRequestApplicationJsonInterface {
+  /// Icon of the status.
+  String? get statusIcon;
+
+  /// Message of the status.
+  String? get message;
+
+  /// When the message should be cleared.
+  int? get clearAt;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetCustomMessageRequestApplicationJsonInterface rebuild(
+    void Function($UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder].
+  $UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UserStatusSetCustomMessageRequestApplicationJson
+    implements
+        $UserStatusSetCustomMessageRequestApplicationJsonInterface,
+        Built<UserStatusSetCustomMessageRequestApplicationJson,
+            UserStatusSetCustomMessageRequestApplicationJsonBuilder> {
+  /// Creates a new UserStatusSetCustomMessageRequestApplicationJson object using the builder pattern.
+  factory UserStatusSetCustomMessageRequestApplicationJson([
+    void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? b,
+  ]) = _$UserStatusSetCustomMessageRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UserStatusSetCustomMessageRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UserStatusSetCustomMessageRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UserStatusSetCustomMessageRequestApplicationJson.
+  static Serializer<UserStatusSetCustomMessageRequestApplicationJson> get serializer =>
+      _$userStatusSetCustomMessageRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserStatusSetCustomMessageRequestApplicationJsonBuilder b) {
+    $UserStatusSetCustomMessageRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UserStatusSetCustomMessageRequestApplicationJsonBuilder b) {
+    $UserStatusSetCustomMessageRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -2971,13 +3279,13 @@ extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e
   List<String> get _names => const ['clearAtTimeType', r'$int'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -3053,13 +3361,13 @@ extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb
   List<String> get _names => const ['builtListNever', 'private'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -3135,6 +3443,11 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
+        const FullType(HeartbeatHeartbeatRequestApplicationJson),
+        HeartbeatHeartbeatRequestApplicationJsonBuilder.new,
+      )
+      ..add(HeartbeatHeartbeatRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(HeartbeatHeartbeatResponseApplicationJson),
         HeartbeatHeartbeatResponseApplicationJsonBuilder.new,
       )
@@ -3170,6 +3483,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add($557344b3ba734aacc7109e5420fcb6c5Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
       ..addBuilderFactory(
+        const FullType(StatusesFindAllRequestApplicationJson),
+        StatusesFindAllRequestApplicationJsonBuilder.new,
+      )
+      ..add(StatusesFindAllRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(StatusesFindAllResponseApplicationJson),
         StatusesFindAllResponseApplicationJsonBuilder.new,
       )
@@ -3201,6 +3519,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UserStatusGetStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(UserStatusSetStatusRequestApplicationJson),
+        UserStatusSetStatusRequestApplicationJsonBuilder.new,
+      )
+      ..add(UserStatusSetStatusRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UserStatusSetStatusResponseApplicationJson),
         UserStatusSetStatusResponseApplicationJsonBuilder.new,
       )
@@ -3211,6 +3534,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UserStatusSetStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(UserStatusSetPredefinedMessageRequestApplicationJson),
+        UserStatusSetPredefinedMessageRequestApplicationJsonBuilder.new,
+      )
+      ..add(UserStatusSetPredefinedMessageRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
         UserStatusSetPredefinedMessageResponseApplicationJsonBuilder.new,
       )
@@ -3220,6 +3548,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+        UserStatusSetCustomMessageRequestApplicationJsonBuilder.new,
+      )
+      ..add(UserStatusSetCustomMessageRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UserStatusSetCustomMessageResponseApplicationJson),
         UserStatusSetCustomMessageResponseApplicationJsonBuilder.new,

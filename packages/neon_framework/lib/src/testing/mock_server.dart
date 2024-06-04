@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
@@ -8,8 +9,7 @@ import 'package:neon_framework/src/models/account.dart';
 ///
 /// To be used for end-to-end testing `Bloc`s.
 Account mockServer(
-  Map<RegExp, Map<String, FutureOr<Response> Function(RegExpMatch match, Map<String, List<String>> queryParameters)>>
-      requests,
+  Map<RegExp, Map<String, FutureOr<Response> Function(RegExpMatch match, Uint8List bodyBytes)>> requests,
 ) =>
     Account(
       (b) => b
@@ -22,7 +22,7 @@ Account mockServer(
             if (match != null) {
               final call = entry.value[request.method];
               if (call != null) {
-                return call(match, request.url.queryParametersAll);
+                return call(match, request.bodyBytes);
               }
             }
           }

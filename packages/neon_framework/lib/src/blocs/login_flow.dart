@@ -71,7 +71,11 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
       cancelPollTimer();
       pollTimer = Timer.periodic(const Duration(seconds: 1), (_) async {
         try {
-          final resultResponse = await client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
+          final resultResponse = await client.core.clientFlowLoginV2.poll(
+            $body: core.ClientFlowLoginV2PollRequestApplicationJson(
+              (b) => b..token = initResponse.body.poll.token,
+            ),
+          );
           cancelPollTimer();
           resultController.add(resultResponse.body);
         } on DynamiteStatusCodeException catch (error) {

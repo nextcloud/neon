@@ -6,26 +6,6 @@ part of 'files.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const TemplatePathCopySystemTemplates _$templatePathCopySystemTemplates$0 = TemplatePathCopySystemTemplates._('\$0');
-const TemplatePathCopySystemTemplates _$templatePathCopySystemTemplates$1 = TemplatePathCopySystemTemplates._('\$1');
-
-TemplatePathCopySystemTemplates _$valueOfTemplatePathCopySystemTemplates(String name) {
-  switch (name) {
-    case '\$0':
-      return _$templatePathCopySystemTemplates$0;
-    case '\$1':
-      return _$templatePathCopySystemTemplates$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<TemplatePathCopySystemTemplates> _$templatePathCopySystemTemplatesValues =
-    BuiltSet<TemplatePathCopySystemTemplates>(const <TemplatePathCopySystemTemplates>[
-  _$templatePathCopySystemTemplates$0,
-  _$templatePathCopySystemTemplates$1,
-]);
-
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
     _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
@@ -51,6 +31,8 @@ Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs>
     _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer();
 Serializer<DirectEditingTemplatesResponseApplicationJson> _$directEditingTemplatesResponseApplicationJsonSerializer =
     _$DirectEditingTemplatesResponseApplicationJsonSerializer();
+Serializer<DirectEditingOpenRequestApplicationJson> _$directEditingOpenRequestApplicationJsonSerializer =
+    _$DirectEditingOpenRequestApplicationJsonSerializer();
 Serializer<DirectEditingOpenResponseApplicationJson_Ocs_Data>
     _$directEditingOpenResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer();
@@ -58,6 +40,8 @@ Serializer<DirectEditingOpenResponseApplicationJson_Ocs> _$directEditingOpenResp
     _$DirectEditingOpenResponseApplicationJson_OcsSerializer();
 Serializer<DirectEditingOpenResponseApplicationJson> _$directEditingOpenResponseApplicationJsonSerializer =
     _$DirectEditingOpenResponseApplicationJsonSerializer();
+Serializer<DirectEditingCreateRequestApplicationJson> _$directEditingCreateRequestApplicationJsonSerializer =
+    _$DirectEditingCreateRequestApplicationJsonSerializer();
 Serializer<DirectEditingCreateResponseApplicationJson_Ocs_Data>
     _$directEditingCreateResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer();
@@ -65,6 +49,8 @@ Serializer<DirectEditingCreateResponseApplicationJson_Ocs> _$directEditingCreate
     _$DirectEditingCreateResponseApplicationJson_OcsSerializer();
 Serializer<DirectEditingCreateResponseApplicationJson> _$directEditingCreateResponseApplicationJsonSerializer =
     _$DirectEditingCreateResponseApplicationJsonSerializer();
+Serializer<OpenLocalEditorCreateRequestApplicationJson> _$openLocalEditorCreateRequestApplicationJsonSerializer =
+    _$OpenLocalEditorCreateRequestApplicationJsonSerializer();
 Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data>
     _$openLocalEditorCreateResponseApplicationJsonOcsDataSerializer =
     _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer();
@@ -73,6 +59,8 @@ Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs>
     _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer();
 Serializer<OpenLocalEditorCreateResponseApplicationJson> _$openLocalEditorCreateResponseApplicationJsonSerializer =
     _$OpenLocalEditorCreateResponseApplicationJsonSerializer();
+Serializer<OpenLocalEditorValidateRequestApplicationJson> _$openLocalEditorValidateRequestApplicationJsonSerializer =
+    _$OpenLocalEditorValidateRequestApplicationJsonSerializer();
 Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data>
     _$openLocalEditorValidateResponseApplicationJsonOcsDataSerializer =
     _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer();
@@ -86,17 +74,24 @@ Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplic
     _$TemplateListResponseApplicationJson_OcsSerializer();
 Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
     _$TemplateListResponseApplicationJsonSerializer();
+Serializer<TemplateCreateRequestApplicationJson> _$templateCreateRequestApplicationJsonSerializer =
+    _$TemplateCreateRequestApplicationJsonSerializer();
 Serializer<TemplateFile> _$templateFileSerializer = _$TemplateFileSerializer();
 Serializer<TemplateCreateResponseApplicationJson_Ocs> _$templateCreateResponseApplicationJsonOcsSerializer =
     _$TemplateCreateResponseApplicationJson_OcsSerializer();
 Serializer<TemplateCreateResponseApplicationJson> _$templateCreateResponseApplicationJsonSerializer =
     _$TemplateCreateResponseApplicationJsonSerializer();
+Serializer<TemplatePathRequestApplicationJson> _$templatePathRequestApplicationJsonSerializer =
+    _$TemplatePathRequestApplicationJsonSerializer();
 Serializer<TemplatePathResponseApplicationJson_Ocs_Data> _$templatePathResponseApplicationJsonOcsDataSerializer =
     _$TemplatePathResponseApplicationJson_Ocs_DataSerializer();
 Serializer<TemplatePathResponseApplicationJson_Ocs> _$templatePathResponseApplicationJsonOcsSerializer =
     _$TemplatePathResponseApplicationJson_OcsSerializer();
 Serializer<TemplatePathResponseApplicationJson> _$templatePathResponseApplicationJsonSerializer =
     _$TemplatePathResponseApplicationJsonSerializer();
+Serializer<TransferOwnershipTransferRequestApplicationJson>
+    _$transferOwnershipTransferRequestApplicationJsonSerializer =
+    _$TransferOwnershipTransferRequestApplicationJsonSerializer();
 Serializer<TransferOwnershipTransferResponseApplicationJson_Ocs>
     _$transferOwnershipTransferResponseApplicationJsonOcsSerializer =
     _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer();
@@ -682,6 +677,66 @@ class _$DirectEditingTemplatesResponseApplicationJsonSerializer
   }
 }
 
+class _$DirectEditingOpenRequestApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingOpenRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    DirectEditingOpenRequestApplicationJson,
+    _$DirectEditingOpenRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'DirectEditingOpenRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.editorId;
+    if (value != null) {
+      result
+        ..add('editorId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.fileId;
+    if (value != null) {
+      result
+        ..add('fileId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  DirectEditingOpenRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DirectEditingOpenRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'editorId':
+          result.editorId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'fileId':
+          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<DirectEditingOpenResponseApplicationJson_Ocs_Data> {
   @override
@@ -818,6 +873,67 @@ class _$DirectEditingOpenResponseApplicationJsonSerializer
   }
 }
 
+class _$DirectEditingCreateRequestApplicationJsonSerializer
+    implements StructuredSerializer<DirectEditingCreateRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    DirectEditingCreateRequestApplicationJson,
+    _$DirectEditingCreateRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'DirectEditingCreateRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+      'editorId',
+      serializers.serialize(object.editorId, specifiedType: const FullType(String)),
+      'creatorId',
+      serializers.serialize(object.creatorId, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.templateId;
+    if (value != null) {
+      result
+        ..add('templateId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  DirectEditingCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DirectEditingCreateRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'editorId':
+          result.editorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'creatorId':
+          result.creatorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'templateId':
+          result.templateId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<DirectEditingCreateResponseApplicationJson_Ocs_Data> {
   @override
@@ -946,6 +1062,48 @@ class _$DirectEditingCreateResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs))!
               as DirectEditingCreateResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OpenLocalEditorCreateRequestApplicationJsonSerializer
+    implements StructuredSerializer<OpenLocalEditorCreateRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OpenLocalEditorCreateRequestApplicationJson,
+    _$OpenLocalEditorCreateRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'OpenLocalEditorCreateRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OpenLocalEditorCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OpenLocalEditorCreateRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1103,6 +1261,48 @@ class _$OpenLocalEditorCreateResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs))!
               as OpenLocalEditorCreateResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OpenLocalEditorValidateRequestApplicationJsonSerializer
+    implements StructuredSerializer<OpenLocalEditorValidateRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OpenLocalEditorValidateRequestApplicationJson,
+    _$OpenLocalEditorValidateRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'OpenLocalEditorValidateRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OpenLocalEditorValidateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OpenLocalEditorValidateRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1439,6 +1639,55 @@ class _$TemplateListResponseApplicationJsonSerializer
   }
 }
 
+class _$TemplateCreateRequestApplicationJsonSerializer
+    implements StructuredSerializer<TemplateCreateRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [TemplateCreateRequestApplicationJson, _$TemplateCreateRequestApplicationJson];
+  @override
+  final String wireName = 'TemplateCreateRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplateCreateRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'filePath',
+      serializers.serialize(object.filePath, specifiedType: const FullType(String)),
+      'templatePath',
+      serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
+      'templateType',
+      serializers.serialize(object.templateType, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TemplateCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplateCreateRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'filePath':
+          result.filePath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'templatePath':
+          result.templatePath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'templateType':
+          result.templateType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$TemplateFileSerializer implements StructuredSerializer<TemplateFile> {
   @override
   final Iterable<Type> types = const [TemplateFile, _$TemplateFile];
@@ -1610,6 +1859,50 @@ class _$TemplateCreateResponseApplicationJsonSerializer
   }
 }
 
+class _$TemplatePathRequestApplicationJsonSerializer
+    implements StructuredSerializer<TemplatePathRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [TemplatePathRequestApplicationJson, _$TemplatePathRequestApplicationJson];
+  @override
+  final String wireName = 'TemplatePathRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TemplatePathRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'templatePath',
+      serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
+      'copySystemTemplates',
+      serializers.serialize(object.copySystemTemplates, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TemplatePathRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TemplatePathRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'templatePath':
+          result.templatePath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'copySystemTemplates':
+          result.copySystemTemplates = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$TemplatePathResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<TemplatePathResponseApplicationJson_Ocs_Data> {
   @override
@@ -1741,6 +2034,53 @@ class _$TemplatePathResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs))!
                   as TemplatePathResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TransferOwnershipTransferRequestApplicationJsonSerializer
+    implements StructuredSerializer<TransferOwnershipTransferRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TransferOwnershipTransferRequestApplicationJson,
+    _$TransferOwnershipTransferRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'TransferOwnershipTransferRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'recipient',
+      serializers.serialize(object.recipient, specifiedType: const FullType(String)),
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TransferOwnershipTransferRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TransferOwnershipTransferRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'recipient':
+          result.recipient = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -3584,6 +3924,132 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $DirectEditingOpenRequestApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingOpenRequestApplicationJsonInterface other);
+  void update(void Function($DirectEditingOpenRequestApplicationJsonInterfaceBuilder) updates);
+  String? get path;
+  set path(String? path);
+
+  String? get editorId;
+  set editorId(String? editorId);
+
+  int? get fileId;
+  set fileId(int? fileId);
+}
+
+class _$DirectEditingOpenRequestApplicationJson extends DirectEditingOpenRequestApplicationJson {
+  @override
+  final String path;
+  @override
+  final String? editorId;
+  @override
+  final int? fileId;
+
+  factory _$DirectEditingOpenRequestApplicationJson(
+          [void Function(DirectEditingOpenRequestApplicationJsonBuilder)? updates]) =>
+      (DirectEditingOpenRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DirectEditingOpenRequestApplicationJson._({required this.path, this.editorId, this.fileId}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingOpenRequestApplicationJson', 'path');
+  }
+
+  @override
+  DirectEditingOpenRequestApplicationJson rebuild(
+          void Function(DirectEditingOpenRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DirectEditingOpenRequestApplicationJsonBuilder toBuilder() =>
+      DirectEditingOpenRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DirectEditingOpenRequestApplicationJson &&
+        path == other.path &&
+        editorId == other.editorId &&
+        fileId == other.fileId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jc(_$hash, editorId.hashCode);
+    _$hash = $jc(_$hash, fileId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DirectEditingOpenRequestApplicationJson')
+          ..add('path', path)
+          ..add('editorId', editorId)
+          ..add('fileId', fileId))
+        .toString();
+  }
+}
+
+class DirectEditingOpenRequestApplicationJsonBuilder
+    implements
+        Builder<DirectEditingOpenRequestApplicationJson, DirectEditingOpenRequestApplicationJsonBuilder>,
+        $DirectEditingOpenRequestApplicationJsonInterfaceBuilder {
+  _$DirectEditingOpenRequestApplicationJson? _$v;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  String? _editorId;
+  String? get editorId => _$this._editorId;
+  set editorId(covariant String? editorId) => _$this._editorId = editorId;
+
+  int? _fileId;
+  int? get fileId => _$this._fileId;
+  set fileId(covariant int? fileId) => _$this._fileId = fileId;
+
+  DirectEditingOpenRequestApplicationJsonBuilder() {
+    DirectEditingOpenRequestApplicationJson._defaults(this);
+  }
+
+  DirectEditingOpenRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _path = $v.path;
+      _editorId = $v.editorId;
+      _fileId = $v.fileId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DirectEditingOpenRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DirectEditingOpenRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DirectEditingOpenRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DirectEditingOpenRequestApplicationJson build() => _build();
+
+  _$DirectEditingOpenRequestApplicationJson _build() {
+    DirectEditingOpenRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$DirectEditingOpenRequestApplicationJson._(
+            path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingOpenRequestApplicationJson', 'path'),
+            editorId: editorId,
+            fileId: fileId);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($DirectEditingOpenResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -3906,6 +4372,152 @@ class DirectEditingOpenResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $DirectEditingCreateRequestApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingCreateRequestApplicationJsonInterface other);
+  void update(void Function($DirectEditingCreateRequestApplicationJsonInterfaceBuilder) updates);
+  String? get path;
+  set path(String? path);
+
+  String? get editorId;
+  set editorId(String? editorId);
+
+  String? get creatorId;
+  set creatorId(String? creatorId);
+
+  String? get templateId;
+  set templateId(String? templateId);
+}
+
+class _$DirectEditingCreateRequestApplicationJson extends DirectEditingCreateRequestApplicationJson {
+  @override
+  final String path;
+  @override
+  final String editorId;
+  @override
+  final String creatorId;
+  @override
+  final String? templateId;
+
+  factory _$DirectEditingCreateRequestApplicationJson(
+          [void Function(DirectEditingCreateRequestApplicationJsonBuilder)? updates]) =>
+      (DirectEditingCreateRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DirectEditingCreateRequestApplicationJson._(
+      {required this.path, required this.editorId, required this.creatorId, this.templateId})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingCreateRequestApplicationJson', 'path');
+    BuiltValueNullFieldError.checkNotNull(editorId, r'DirectEditingCreateRequestApplicationJson', 'editorId');
+    BuiltValueNullFieldError.checkNotNull(creatorId, r'DirectEditingCreateRequestApplicationJson', 'creatorId');
+  }
+
+  @override
+  DirectEditingCreateRequestApplicationJson rebuild(
+          void Function(DirectEditingCreateRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DirectEditingCreateRequestApplicationJsonBuilder toBuilder() =>
+      DirectEditingCreateRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DirectEditingCreateRequestApplicationJson &&
+        path == other.path &&
+        editorId == other.editorId &&
+        creatorId == other.creatorId &&
+        templateId == other.templateId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jc(_$hash, editorId.hashCode);
+    _$hash = $jc(_$hash, creatorId.hashCode);
+    _$hash = $jc(_$hash, templateId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DirectEditingCreateRequestApplicationJson')
+          ..add('path', path)
+          ..add('editorId', editorId)
+          ..add('creatorId', creatorId)
+          ..add('templateId', templateId))
+        .toString();
+  }
+}
+
+class DirectEditingCreateRequestApplicationJsonBuilder
+    implements
+        Builder<DirectEditingCreateRequestApplicationJson, DirectEditingCreateRequestApplicationJsonBuilder>,
+        $DirectEditingCreateRequestApplicationJsonInterfaceBuilder {
+  _$DirectEditingCreateRequestApplicationJson? _$v;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  String? _editorId;
+  String? get editorId => _$this._editorId;
+  set editorId(covariant String? editorId) => _$this._editorId = editorId;
+
+  String? _creatorId;
+  String? get creatorId => _$this._creatorId;
+  set creatorId(covariant String? creatorId) => _$this._creatorId = creatorId;
+
+  String? _templateId;
+  String? get templateId => _$this._templateId;
+  set templateId(covariant String? templateId) => _$this._templateId = templateId;
+
+  DirectEditingCreateRequestApplicationJsonBuilder() {
+    DirectEditingCreateRequestApplicationJson._defaults(this);
+  }
+
+  DirectEditingCreateRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _path = $v.path;
+      _editorId = $v.editorId;
+      _creatorId = $v.creatorId;
+      _templateId = $v.templateId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DirectEditingCreateRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DirectEditingCreateRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DirectEditingCreateRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DirectEditingCreateRequestApplicationJson build() => _build();
+
+  _$DirectEditingCreateRequestApplicationJson _build() {
+    DirectEditingCreateRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$DirectEditingCreateRequestApplicationJson._(
+            path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingCreateRequestApplicationJson', 'path'),
+            editorId: BuiltValueNullFieldError.checkNotNull(
+                editorId, r'DirectEditingCreateRequestApplicationJson', 'editorId'),
+            creatorId: BuiltValueNullFieldError.checkNotNull(
+                creatorId, r'DirectEditingCreateRequestApplicationJson', 'creatorId'),
+            templateId: templateId);
     replace(_$result);
     return _$result;
   }
@@ -4235,6 +4847,101 @@ class DirectEditingCreateResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder {
+  void replace($OpenLocalEditorCreateRequestApplicationJsonInterface other);
+  void update(void Function($OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder) updates);
+  String? get path;
+  set path(String? path);
+}
+
+class _$OpenLocalEditorCreateRequestApplicationJson extends OpenLocalEditorCreateRequestApplicationJson {
+  @override
+  final String path;
+
+  factory _$OpenLocalEditorCreateRequestApplicationJson(
+          [void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder)? updates]) =>
+      (OpenLocalEditorCreateRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$OpenLocalEditorCreateRequestApplicationJson._({required this.path}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorCreateRequestApplicationJson', 'path');
+  }
+
+  @override
+  OpenLocalEditorCreateRequestApplicationJson rebuild(
+          void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OpenLocalEditorCreateRequestApplicationJsonBuilder toBuilder() =>
+      OpenLocalEditorCreateRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OpenLocalEditorCreateRequestApplicationJson && path == other.path;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorCreateRequestApplicationJson')..add('path', path)).toString();
+  }
+}
+
+class OpenLocalEditorCreateRequestApplicationJsonBuilder
+    implements
+        Builder<OpenLocalEditorCreateRequestApplicationJson, OpenLocalEditorCreateRequestApplicationJsonBuilder>,
+        $OpenLocalEditorCreateRequestApplicationJsonInterfaceBuilder {
+  _$OpenLocalEditorCreateRequestApplicationJson? _$v;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  OpenLocalEditorCreateRequestApplicationJsonBuilder() {
+    OpenLocalEditorCreateRequestApplicationJson._defaults(this);
+  }
+
+  OpenLocalEditorCreateRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _path = $v.path;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OpenLocalEditorCreateRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OpenLocalEditorCreateRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OpenLocalEditorCreateRequestApplicationJson build() => _build();
+
+  _$OpenLocalEditorCreateRequestApplicationJson _build() {
+    OpenLocalEditorCreateRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$OpenLocalEditorCreateRequestApplicationJson._(
+            path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorCreateRequestApplicationJson', 'path'));
     replace(_$result);
     return _$result;
   }
@@ -4617,6 +5324,103 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder {
+  void replace($OpenLocalEditorValidateRequestApplicationJsonInterface other);
+  void update(void Function($OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder) updates);
+  String? get path;
+  set path(String? path);
+}
+
+class _$OpenLocalEditorValidateRequestApplicationJson extends OpenLocalEditorValidateRequestApplicationJson {
+  @override
+  final String path;
+
+  factory _$OpenLocalEditorValidateRequestApplicationJson(
+          [void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder)? updates]) =>
+      (OpenLocalEditorValidateRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$OpenLocalEditorValidateRequestApplicationJson._({required this.path}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorValidateRequestApplicationJson', 'path');
+  }
+
+  @override
+  OpenLocalEditorValidateRequestApplicationJson rebuild(
+          void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OpenLocalEditorValidateRequestApplicationJsonBuilder toBuilder() =>
+      OpenLocalEditorValidateRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OpenLocalEditorValidateRequestApplicationJson && path == other.path;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateRequestApplicationJson')..add('path', path))
+        .toString();
+  }
+}
+
+class OpenLocalEditorValidateRequestApplicationJsonBuilder
+    implements
+        Builder<OpenLocalEditorValidateRequestApplicationJson, OpenLocalEditorValidateRequestApplicationJsonBuilder>,
+        $OpenLocalEditorValidateRequestApplicationJsonInterfaceBuilder {
+  _$OpenLocalEditorValidateRequestApplicationJson? _$v;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  OpenLocalEditorValidateRequestApplicationJsonBuilder() {
+    OpenLocalEditorValidateRequestApplicationJson._defaults(this);
+  }
+
+  OpenLocalEditorValidateRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _path = $v.path;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OpenLocalEditorValidateRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OpenLocalEditorValidateRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OpenLocalEditorValidateRequestApplicationJson build() => _build();
+
+  _$OpenLocalEditorValidateRequestApplicationJson _build() {
+    OpenLocalEditorValidateRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$OpenLocalEditorValidateRequestApplicationJson._(
+            path:
+                BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorValidateRequestApplicationJson', 'path'));
     replace(_$result);
     return _$result;
   }
@@ -5448,6 +6252,138 @@ class TemplateListResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $TemplateCreateRequestApplicationJsonInterfaceBuilder {
+  void replace($TemplateCreateRequestApplicationJsonInterface other);
+  void update(void Function($TemplateCreateRequestApplicationJsonInterfaceBuilder) updates);
+  String? get filePath;
+  set filePath(String? filePath);
+
+  String? get templatePath;
+  set templatePath(String? templatePath);
+
+  String? get templateType;
+  set templateType(String? templateType);
+}
+
+class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplicationJson {
+  @override
+  final String filePath;
+  @override
+  final String templatePath;
+  @override
+  final String templateType;
+
+  factory _$TemplateCreateRequestApplicationJson(
+          [void Function(TemplateCreateRequestApplicationJsonBuilder)? updates]) =>
+      (TemplateCreateRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TemplateCreateRequestApplicationJson._(
+      {required this.filePath, required this.templatePath, required this.templateType})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath');
+    BuiltValueNullFieldError.checkNotNull(templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath');
+    BuiltValueNullFieldError.checkNotNull(templateType, r'TemplateCreateRequestApplicationJson', 'templateType');
+  }
+
+  @override
+  TemplateCreateRequestApplicationJson rebuild(void Function(TemplateCreateRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TemplateCreateRequestApplicationJsonBuilder toBuilder() =>
+      TemplateCreateRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplateCreateRequestApplicationJson &&
+        filePath == other.filePath &&
+        templatePath == other.templatePath &&
+        templateType == other.templateType;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, filePath.hashCode);
+    _$hash = $jc(_$hash, templatePath.hashCode);
+    _$hash = $jc(_$hash, templateType.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplateCreateRequestApplicationJson')
+          ..add('filePath', filePath)
+          ..add('templatePath', templatePath)
+          ..add('templateType', templateType))
+        .toString();
+  }
+}
+
+class TemplateCreateRequestApplicationJsonBuilder
+    implements
+        Builder<TemplateCreateRequestApplicationJson, TemplateCreateRequestApplicationJsonBuilder>,
+        $TemplateCreateRequestApplicationJsonInterfaceBuilder {
+  _$TemplateCreateRequestApplicationJson? _$v;
+
+  String? _filePath;
+  String? get filePath => _$this._filePath;
+  set filePath(covariant String? filePath) => _$this._filePath = filePath;
+
+  String? _templatePath;
+  String? get templatePath => _$this._templatePath;
+  set templatePath(covariant String? templatePath) => _$this._templatePath = templatePath;
+
+  String? _templateType;
+  String? get templateType => _$this._templateType;
+  set templateType(covariant String? templateType) => _$this._templateType = templateType;
+
+  TemplateCreateRequestApplicationJsonBuilder() {
+    TemplateCreateRequestApplicationJson._defaults(this);
+  }
+
+  TemplateCreateRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _filePath = $v.filePath;
+      _templatePath = $v.templatePath;
+      _templateType = $v.templateType;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplateCreateRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TemplateCreateRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TemplateCreateRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplateCreateRequestApplicationJson build() => _build();
+
+  _$TemplateCreateRequestApplicationJson _build() {
+    TemplateCreateRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$TemplateCreateRequestApplicationJson._(
+            filePath:
+                BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
+            templatePath: BuiltValueNullFieldError.checkNotNull(
+                templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
+            templateType: BuiltValueNullFieldError.checkNotNull(
+                templateType, r'TemplateCreateRequestApplicationJson', 'templateType'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $TemplateFileInterfaceBuilder {
   void replace($TemplateFileInterface other);
   void update(void Function($TemplateFileInterfaceBuilder) updates);
@@ -5895,6 +6831,119 @@ class TemplateCreateResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $TemplatePathRequestApplicationJsonInterfaceBuilder {
+  void replace($TemplatePathRequestApplicationJsonInterface other);
+  void update(void Function($TemplatePathRequestApplicationJsonInterfaceBuilder) updates);
+  String? get templatePath;
+  set templatePath(String? templatePath);
+
+  bool? get copySystemTemplates;
+  set copySystemTemplates(bool? copySystemTemplates);
+}
+
+class _$TemplatePathRequestApplicationJson extends TemplatePathRequestApplicationJson {
+  @override
+  final String templatePath;
+  @override
+  final bool copySystemTemplates;
+
+  factory _$TemplatePathRequestApplicationJson([void Function(TemplatePathRequestApplicationJsonBuilder)? updates]) =>
+      (TemplatePathRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TemplatePathRequestApplicationJson._({required this.templatePath, required this.copySystemTemplates}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(templatePath, r'TemplatePathRequestApplicationJson', 'templatePath');
+    BuiltValueNullFieldError.checkNotNull(
+        copySystemTemplates, r'TemplatePathRequestApplicationJson', 'copySystemTemplates');
+  }
+
+  @override
+  TemplatePathRequestApplicationJson rebuild(void Function(TemplatePathRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TemplatePathRequestApplicationJsonBuilder toBuilder() => TemplatePathRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TemplatePathRequestApplicationJson &&
+        templatePath == other.templatePath &&
+        copySystemTemplates == other.copySystemTemplates;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, templatePath.hashCode);
+    _$hash = $jc(_$hash, copySystemTemplates.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TemplatePathRequestApplicationJson')
+          ..add('templatePath', templatePath)
+          ..add('copySystemTemplates', copySystemTemplates))
+        .toString();
+  }
+}
+
+class TemplatePathRequestApplicationJsonBuilder
+    implements
+        Builder<TemplatePathRequestApplicationJson, TemplatePathRequestApplicationJsonBuilder>,
+        $TemplatePathRequestApplicationJsonInterfaceBuilder {
+  _$TemplatePathRequestApplicationJson? _$v;
+
+  String? _templatePath;
+  String? get templatePath => _$this._templatePath;
+  set templatePath(covariant String? templatePath) => _$this._templatePath = templatePath;
+
+  bool? _copySystemTemplates;
+  bool? get copySystemTemplates => _$this._copySystemTemplates;
+  set copySystemTemplates(covariant bool? copySystemTemplates) => _$this._copySystemTemplates = copySystemTemplates;
+
+  TemplatePathRequestApplicationJsonBuilder() {
+    TemplatePathRequestApplicationJson._defaults(this);
+  }
+
+  TemplatePathRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _templatePath = $v.templatePath;
+      _copySystemTemplates = $v.copySystemTemplates;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TemplatePathRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TemplatePathRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TemplatePathRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TemplatePathRequestApplicationJson build() => _build();
+
+  _$TemplatePathRequestApplicationJson _build() {
+    TemplatePathRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$TemplatePathRequestApplicationJson._(
+            templatePath: BuiltValueNullFieldError.checkNotNull(
+                templatePath, r'TemplatePathRequestApplicationJson', 'templatePath'),
+            copySystemTemplates: BuiltValueNullFieldError.checkNotNull(
+                copySystemTemplates, r'TemplatePathRequestApplicationJson', 'copySystemTemplates'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($TemplatePathResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -6243,6 +7292,122 @@ class TemplatePathResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder {
+  void replace($TransferOwnershipTransferRequestApplicationJsonInterface other);
+  void update(void Function($TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder) updates);
+  String? get recipient;
+  set recipient(String? recipient);
+
+  String? get path;
+  set path(String? path);
+}
+
+class _$TransferOwnershipTransferRequestApplicationJson extends TransferOwnershipTransferRequestApplicationJson {
+  @override
+  final String recipient;
+  @override
+  final String path;
+
+  factory _$TransferOwnershipTransferRequestApplicationJson(
+          [void Function(TransferOwnershipTransferRequestApplicationJsonBuilder)? updates]) =>
+      (TransferOwnershipTransferRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$TransferOwnershipTransferRequestApplicationJson._({required this.recipient, required this.path}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(recipient, r'TransferOwnershipTransferRequestApplicationJson', 'recipient');
+    BuiltValueNullFieldError.checkNotNull(path, r'TransferOwnershipTransferRequestApplicationJson', 'path');
+  }
+
+  @override
+  TransferOwnershipTransferRequestApplicationJson rebuild(
+          void Function(TransferOwnershipTransferRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TransferOwnershipTransferRequestApplicationJsonBuilder toBuilder() =>
+      TransferOwnershipTransferRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TransferOwnershipTransferRequestApplicationJson &&
+        recipient == other.recipient &&
+        path == other.path;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, recipient.hashCode);
+    _$hash = $jc(_$hash, path.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TransferOwnershipTransferRequestApplicationJson')
+          ..add('recipient', recipient)
+          ..add('path', path))
+        .toString();
+  }
+}
+
+class TransferOwnershipTransferRequestApplicationJsonBuilder
+    implements
+        Builder<TransferOwnershipTransferRequestApplicationJson,
+            TransferOwnershipTransferRequestApplicationJsonBuilder>,
+        $TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder {
+  _$TransferOwnershipTransferRequestApplicationJson? _$v;
+
+  String? _recipient;
+  String? get recipient => _$this._recipient;
+  set recipient(covariant String? recipient) => _$this._recipient = recipient;
+
+  String? _path;
+  String? get path => _$this._path;
+  set path(covariant String? path) => _$this._path = path;
+
+  TransferOwnershipTransferRequestApplicationJsonBuilder() {
+    TransferOwnershipTransferRequestApplicationJson._defaults(this);
+  }
+
+  TransferOwnershipTransferRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _recipient = $v.recipient;
+      _path = $v.path;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TransferOwnershipTransferRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TransferOwnershipTransferRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(TransferOwnershipTransferRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TransferOwnershipTransferRequestApplicationJson build() => _build();
+
+  _$TransferOwnershipTransferRequestApplicationJson _build() {
+    TransferOwnershipTransferRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$TransferOwnershipTransferRequestApplicationJson._(
+            recipient: BuiltValueNullFieldError.checkNotNull(
+                recipient, r'TransferOwnershipTransferRequestApplicationJson', 'recipient'),
+            path: BuiltValueNullFieldError.checkNotNull(
+                path, r'TransferOwnershipTransferRequestApplicationJson', 'path'));
     replace(_$result);
     return _$result;
   }

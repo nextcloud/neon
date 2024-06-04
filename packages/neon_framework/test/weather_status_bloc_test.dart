@@ -31,16 +31,18 @@ Account mockWeatherStatusAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/location'): {
-      'get': (match, queryParameters) => locationResponse(),
-      'put': (match, queryParameters) {
-        lat = queryParameters['lat']?.single;
-        lon = queryParameters['lon']?.single;
-        address = queryParameters['address']!.single;
+      'get': (match, bodyBytes) => locationResponse(),
+      'put': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+        lat = data['lat'] as String?;
+        lon = data['lon'] as String?;
+        address = data['address'] as String;
         return locationResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/forecast'): {
-      'get': (match, queryParameters) => Response(
+      'get': (match, bodyBytes) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},

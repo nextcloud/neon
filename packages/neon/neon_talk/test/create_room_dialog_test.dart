@@ -23,8 +23,10 @@ import 'package:rxdart/subjects.dart';
 Account mockAutocompleteAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/core/autocomplete/get'): {
-      'get': (match, queryParameters) {
-        final source = queryParameters['shareTypes[]']![0] == '0' ? 'users' : 'groups';
+      'get': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+        final source = ((data['shareTypes'] as List)[0] as int) == 0 ? 'users' : 'groups';
         return Response(
           json.encode(
             {
@@ -49,7 +51,7 @@ Account mockAutocompleteAccount() {
       },
     },
     RegExp(r'/index\.php/avatar/.*'): {
-      'get': (match, queryParameters) => Response('', 404),
+      'get': (match, bodyBytes) => Response('', 404),
     },
   });
 }

@@ -1,16 +1,24 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}\?message=bla&actorDisplayName=&referenceId=&replyTo=0&silent=0
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/reaction/[a-z0-9]{8}/[0-9]+\?reaction=%F0%9F%98%80
+\{"message":"bla","actorDisplayName":"","referenceId":"","replyTo":0,"silent":false\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/reaction/[a-z0-9]{8}/[0-9]+
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"reaction":"😀"\}
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/reaction/[a-z0-9]{8}/[0-9]+
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{\}

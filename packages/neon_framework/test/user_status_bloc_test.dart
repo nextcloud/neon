@@ -73,35 +73,41 @@ Account mockUserStatusAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/predefined_statuses'): {
-      'get': (match, queryParameters) => predefinedStatusesResponse(),
+      'get': (match, bodyBytes) => predefinedStatusesResponse(),
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/predefined'): {
-      'put': (match, queryParameters) {
-        messageId = queryParameters['messageId']!.single;
+      'put': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+        messageId = data['messageId'] as String;
         messageIsPredefined = true;
-        clearAt = int.parse(queryParameters['clearAt']!.single);
+        clearAt = data['clearAt'] as int;
         return statusResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom'): {
-      'put': (match, queryParameters) {
+      'put': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
         messageId = null;
-        message = queryParameters['message']!.single;
+        message = data['message'] as String;
         messageIsPredefined = false;
-        icon = queryParameters['statusIcon']!.single;
-        clearAt = int.parse(queryParameters['clearAt']!.single);
+        icon = data['statusIcon'] as String;
+        clearAt = data['clearAt'] as int;
         return statusResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/status'): {
-      'put': (match, queryParameters) {
-        status = queryParameters['statusType']!.single;
+      'put': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+        status = data['statusType'] as String;
         statusIsUserDefined = true;
         return statusResponse();
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message'): {
-      'delete': (match, queryParameters) {
+      'delete': (match, bodyBytes) {
         messageId = null;
         messageIsPredefined = false;
         message = null;
@@ -111,10 +117,12 @@ Account mockUserStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/statuses/(.*)'): {
-      'get': (match, queryParameters) => statusResponse(),
+      'get': (match, bodyBytes) => statusResponse(),
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/heartbeat'): {
-      'put': (match, queryParameters) {
+      'put': (match, bodyBytes) {
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
         // Hardcoded behavior for testing
         if (status == 'offline') {
           return Response('', 204);
@@ -122,7 +130,7 @@ Account mockUserStatusAccount() {
           return Response('', 201);
         }
 
-        status = queryParameters['status']!.single;
+        status = data['status'] as String;
         statusIsUserDefined = false;
         return statusResponse();
       },

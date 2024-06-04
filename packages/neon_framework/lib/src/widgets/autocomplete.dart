@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:neon_framework/models.dart';
@@ -89,11 +88,18 @@ class _NeonAutocompleteState extends State<NeonAutocomplete> {
         }
 
         final response = await account.client.core.autoComplete.$get(
-          search: text.text,
-          itemType: widget.itemType,
-          itemId: widget.itemId,
-          shareTypes: BuiltList(widget.shareTypes.map((s) => s.index)),
-          limit: widget.limit,
+          $body: core.AutoCompleteGetRequestApplicationJson(
+            (b) {
+              b
+                ..search = text.text
+                ..itemType = widget.itemType
+                ..itemId = widget.itemId
+                ..shareTypes.replace(widget.shareTypes.map((s) => s.index));
+              if (widget.limit != null) {
+                b.limit = widget.limit;
+              }
+            },
+          ),
         );
         return response.body.ocs.data;
       },

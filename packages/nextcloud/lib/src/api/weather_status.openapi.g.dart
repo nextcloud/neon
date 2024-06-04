@@ -6,6 +6,8 @@ part of 'weather_status.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<WeatherStatusSetModeRequestApplicationJson> _$weatherStatusSetModeRequestApplicationJsonSerializer =
+    _$WeatherStatusSetModeRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<Success> _$successSerializer = _$SuccessSerializer();
 Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs> _$weatherStatusSetModeResponseApplicationJsonOcsSerializer =
@@ -28,6 +30,8 @@ Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs>
 Serializer<WeatherStatusGetLocationResponseApplicationJson>
     _$weatherStatusGetLocationResponseApplicationJsonSerializer =
     _$WeatherStatusGetLocationResponseApplicationJsonSerializer();
+Serializer<WeatherStatusSetLocationRequestApplicationJson> _$weatherStatusSetLocationRequestApplicationJsonSerializer =
+    _$WeatherStatusSetLocationRequestApplicationJsonSerializer();
 Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs>
     _$weatherStatusSetLocationResponseApplicationJsonOcsSerializer =
     _$WeatherStatusSetLocationResponseApplicationJson_OcsSerializer();
@@ -69,6 +73,9 @@ Serializer<WeatherStatusGetFavoritesResponseApplicationJson_Ocs>
 Serializer<WeatherStatusGetFavoritesResponseApplicationJson>
     _$weatherStatusGetFavoritesResponseApplicationJsonSerializer =
     _$WeatherStatusGetFavoritesResponseApplicationJsonSerializer();
+Serializer<WeatherStatusSetFavoritesRequestApplicationJson>
+    _$weatherStatusSetFavoritesRequestApplicationJsonSerializer =
+    _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer();
 Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs>
     _$weatherStatusSetFavoritesResponseApplicationJsonOcsSerializer =
     _$WeatherStatusSetFavoritesResponseApplicationJson_OcsSerializer();
@@ -77,6 +84,48 @@ Serializer<WeatherStatusSetFavoritesResponseApplicationJson>
     _$WeatherStatusSetFavoritesResponseApplicationJsonSerializer();
 Serializer<Capabilities_WeatherStatus> _$capabilitiesWeatherStatusSerializer = _$Capabilities_WeatherStatusSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$WeatherStatusSetModeRequestApplicationJsonSerializer
+    implements StructuredSerializer<WeatherStatusSetModeRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    WeatherStatusSetModeRequestApplicationJson,
+    _$WeatherStatusSetModeRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'WeatherStatusSetModeRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, WeatherStatusSetModeRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'mode',
+      serializers.serialize(object.mode, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  WeatherStatusSetModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = WeatherStatusSetModeRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'mode':
+          result.mode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -684,6 +733,69 @@ class _$WeatherStatusGetLocationResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs))!
               as WeatherStatusGetLocationResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$WeatherStatusSetLocationRequestApplicationJsonSerializer
+    implements StructuredSerializer<WeatherStatusSetLocationRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    WeatherStatusSetLocationRequestApplicationJson,
+    _$WeatherStatusSetLocationRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'WeatherStatusSetLocationRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, WeatherStatusSetLocationRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.address;
+    if (value != null) {
+      result
+        ..add('address')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.lat;
+    if (value != null) {
+      result
+        ..add('lat')
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+    }
+    value = object.lon;
+    if (value != null) {
+      result
+        ..add('lon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
+    }
+    return result;
+  }
+
+  @override
+  WeatherStatusSetLocationRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = WeatherStatusSetLocationRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'address':
+          result.address = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'lat':
+          result.lat = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
+          break;
+        case 'lon':
+          result.lon = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
       }
     }
@@ -1592,6 +1704,49 @@ class _$WeatherStatusGetFavoritesResponseApplicationJsonSerializer
   }
 }
 
+class _$WeatherStatusSetFavoritesRequestApplicationJsonSerializer
+    implements StructuredSerializer<WeatherStatusSetFavoritesRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    WeatherStatusSetFavoritesRequestApplicationJson,
+    _$WeatherStatusSetFavoritesRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'WeatherStatusSetFavoritesRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, WeatherStatusSetFavoritesRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'favorites',
+      serializers.serialize(object.favorites, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  WeatherStatusSetFavoritesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = WeatherStatusSetFavoritesRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'favorites':
+          result.favorites.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$WeatherStatusSetFavoritesResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs> {
   @override
@@ -1759,6 +1914,101 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetModeRequestApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder) updates);
+  int? get mode;
+  set mode(int? mode);
+}
+
+class _$WeatherStatusSetModeRequestApplicationJson extends WeatherStatusSetModeRequestApplicationJson {
+  @override
+  final int mode;
+
+  factory _$WeatherStatusSetModeRequestApplicationJson(
+          [void Function(WeatherStatusSetModeRequestApplicationJsonBuilder)? updates]) =>
+      (WeatherStatusSetModeRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$WeatherStatusSetModeRequestApplicationJson._({required this.mode}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode');
+  }
+
+  @override
+  WeatherStatusSetModeRequestApplicationJson rebuild(
+          void Function(WeatherStatusSetModeRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  WeatherStatusSetModeRequestApplicationJsonBuilder toBuilder() =>
+      WeatherStatusSetModeRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is WeatherStatusSetModeRequestApplicationJson && mode == other.mode;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, mode.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'WeatherStatusSetModeRequestApplicationJson')..add('mode', mode)).toString();
+  }
+}
+
+class WeatherStatusSetModeRequestApplicationJsonBuilder
+    implements
+        Builder<WeatherStatusSetModeRequestApplicationJson, WeatherStatusSetModeRequestApplicationJsonBuilder>,
+        $WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder {
+  _$WeatherStatusSetModeRequestApplicationJson? _$v;
+
+  int? _mode;
+  int? get mode => _$this._mode;
+  set mode(covariant int? mode) => _$this._mode = mode;
+
+  WeatherStatusSetModeRequestApplicationJsonBuilder() {
+    WeatherStatusSetModeRequestApplicationJson._defaults(this);
+  }
+
+  WeatherStatusSetModeRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _mode = $v.mode;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant WeatherStatusSetModeRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$WeatherStatusSetModeRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(WeatherStatusSetModeRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  WeatherStatusSetModeRequestApplicationJson build() => _build();
+
+  _$WeatherStatusSetModeRequestApplicationJson _build() {
+    WeatherStatusSetModeRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$WeatherStatusSetModeRequestApplicationJson._(
+            mode: BuiltValueNullFieldError.checkNotNull(mode, r'WeatherStatusSetModeRequestApplicationJson', 'mode'));
+    replace(_$result);
+    return _$result;
   }
 }
 
@@ -3156,6 +3406,126 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetLocationRequestApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder) updates);
+  String? get address;
+  set address(String? address);
+
+  double? get lat;
+  set lat(double? lat);
+
+  double? get lon;
+  set lon(double? lon);
+}
+
+class _$WeatherStatusSetLocationRequestApplicationJson extends WeatherStatusSetLocationRequestApplicationJson {
+  @override
+  final String? address;
+  @override
+  final double? lat;
+  @override
+  final double? lon;
+
+  factory _$WeatherStatusSetLocationRequestApplicationJson(
+          [void Function(WeatherStatusSetLocationRequestApplicationJsonBuilder)? updates]) =>
+      (WeatherStatusSetLocationRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$WeatherStatusSetLocationRequestApplicationJson._({this.address, this.lat, this.lon}) : super._();
+
+  @override
+  WeatherStatusSetLocationRequestApplicationJson rebuild(
+          void Function(WeatherStatusSetLocationRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  WeatherStatusSetLocationRequestApplicationJsonBuilder toBuilder() =>
+      WeatherStatusSetLocationRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is WeatherStatusSetLocationRequestApplicationJson &&
+        address == other.address &&
+        lat == other.lat &&
+        lon == other.lon;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, address.hashCode);
+    _$hash = $jc(_$hash, lat.hashCode);
+    _$hash = $jc(_$hash, lon.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'WeatherStatusSetLocationRequestApplicationJson')
+          ..add('address', address)
+          ..add('lat', lat)
+          ..add('lon', lon))
+        .toString();
+  }
+}
+
+class WeatherStatusSetLocationRequestApplicationJsonBuilder
+    implements
+        Builder<WeatherStatusSetLocationRequestApplicationJson, WeatherStatusSetLocationRequestApplicationJsonBuilder>,
+        $WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder {
+  _$WeatherStatusSetLocationRequestApplicationJson? _$v;
+
+  String? _address;
+  String? get address => _$this._address;
+  set address(covariant String? address) => _$this._address = address;
+
+  double? _lat;
+  double? get lat => _$this._lat;
+  set lat(covariant double? lat) => _$this._lat = lat;
+
+  double? _lon;
+  double? get lon => _$this._lon;
+  set lon(covariant double? lon) => _$this._lon = lon;
+
+  WeatherStatusSetLocationRequestApplicationJsonBuilder() {
+    WeatherStatusSetLocationRequestApplicationJson._defaults(this);
+  }
+
+  WeatherStatusSetLocationRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _address = $v.address;
+      _lat = $v.lat;
+      _lon = $v.lon;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant WeatherStatusSetLocationRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$WeatherStatusSetLocationRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(WeatherStatusSetLocationRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  WeatherStatusSetLocationRequestApplicationJson build() => _build();
+
+  _$WeatherStatusSetLocationRequestApplicationJson _build() {
+    WeatherStatusSetLocationRequestApplicationJson._validate(this);
+    final _$result = _$v ?? _$WeatherStatusSetLocationRequestApplicationJson._(address: address, lat: lat, lon: lon);
     replace(_$result);
     return _$result;
   }
@@ -5423,6 +5793,115 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'WeatherStatusGetFavoritesResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetFavoritesRequestApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<String> get favorites;
+  set favorites(ListBuilder<String>? favorites);
+}
+
+class _$WeatherStatusSetFavoritesRequestApplicationJson extends WeatherStatusSetFavoritesRequestApplicationJson {
+  @override
+  final BuiltList<String> favorites;
+
+  factory _$WeatherStatusSetFavoritesRequestApplicationJson(
+          [void Function(WeatherStatusSetFavoritesRequestApplicationJsonBuilder)? updates]) =>
+      (WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$WeatherStatusSetFavoritesRequestApplicationJson._({required this.favorites}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(favorites, r'WeatherStatusSetFavoritesRequestApplicationJson', 'favorites');
+  }
+
+  @override
+  WeatherStatusSetFavoritesRequestApplicationJson rebuild(
+          void Function(WeatherStatusSetFavoritesRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  WeatherStatusSetFavoritesRequestApplicationJsonBuilder toBuilder() =>
+      WeatherStatusSetFavoritesRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is WeatherStatusSetFavoritesRequestApplicationJson && favorites == other.favorites;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, favorites.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'WeatherStatusSetFavoritesRequestApplicationJson')
+          ..add('favorites', favorites))
+        .toString();
+  }
+}
+
+class WeatherStatusSetFavoritesRequestApplicationJsonBuilder
+    implements
+        Builder<WeatherStatusSetFavoritesRequestApplicationJson,
+            WeatherStatusSetFavoritesRequestApplicationJsonBuilder>,
+        $WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder {
+  _$WeatherStatusSetFavoritesRequestApplicationJson? _$v;
+
+  ListBuilder<String>? _favorites;
+  ListBuilder<String> get favorites => _$this._favorites ??= ListBuilder<String>();
+  set favorites(covariant ListBuilder<String>? favorites) => _$this._favorites = favorites;
+
+  WeatherStatusSetFavoritesRequestApplicationJsonBuilder() {
+    WeatherStatusSetFavoritesRequestApplicationJson._defaults(this);
+  }
+
+  WeatherStatusSetFavoritesRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _favorites = $v.favorites.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant WeatherStatusSetFavoritesRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$WeatherStatusSetFavoritesRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(WeatherStatusSetFavoritesRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  WeatherStatusSetFavoritesRequestApplicationJson build() => _build();
+
+  _$WeatherStatusSetFavoritesRequestApplicationJson _build() {
+    WeatherStatusSetFavoritesRequestApplicationJson._validate(this);
+    _$WeatherStatusSetFavoritesRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$WeatherStatusSetFavoritesRequestApplicationJson._(favorites: favorites.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'favorites';
+        favorites.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'WeatherStatusSetFavoritesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

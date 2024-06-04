@@ -1,12 +1,18 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants\?newParticipant=user2&source=users
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}/mentions\?search=user&limit=20&includeStatus=0
+\{"newParticipant":"user2","source":"users"\}
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}/mentions
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"search":"user","limit":20,"includeStatus":false\}

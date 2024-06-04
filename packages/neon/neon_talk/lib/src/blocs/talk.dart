@@ -94,10 +94,17 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
   ) async {
     await wrapAction(() async {
       await account.client.spreed.room.createRoom(
-        roomType: type.value,
-        roomName: roomName,
-        invite: invite?.id,
-        source: invite?.source,
+        $body: spreed.RoomCreateRoomRequestApplicationJson(
+          (b) {
+            b
+              ..roomType = type.value
+              ..invite = invite?.id
+              ..source = invite?.source;
+            if (roomName != null) {
+              b.roomName = roomName;
+            }
+          },
+        ),
       );
     });
   }

@@ -16,21 +16,20 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i8;
-import 'package:collection/collection.dart' as _i5;
-import 'package:dynamite_runtime/built_value.dart' as _i7;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart' as _i6;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
 
 part 'settings.openapi.g.dart';
 
@@ -77,10 +76,6 @@ class $DeclarativeSettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app.
-  ///   * [formId] ID of the form.
-  ///   * [fieldId] ID of the field.
-  ///   * [value] Value to be saved.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -93,33 +88,15 @@ class $DeclarativeSettingsClient {
   ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setValue_Request({
-    required String app,
-    required String formId,
-    required String fieldId,
-    required ContentString<JsonObject> value,
+    required DeclarativeSettingsSetValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = __app;
-
-    final __formId = _$jsonSerializers.serialize(formId, specifiedType: const FullType(String));
-    _parameters['formId'] = __formId;
-
-    final __fieldId = _$jsonSerializers.serialize(fieldId, specifiedType: const FullType(String));
-    _parameters['fieldId'] = __fieldId;
-
-    final __value =
-        _$jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(JsonObject)]));
-    _parameters['value'] = __value;
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/settings/api/declarative/value{?app*,formId*,fieldId*,value*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/settings/api/declarative/value';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -137,8 +114,15 @@ class $DeclarativeSettingsClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(DeclarativeSettingsSetValueRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -148,10 +132,6 @@ class $DeclarativeSettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app.
-  ///   * [formId] ID of the form.
-  ///   * [fieldId] ID of the field.
-  ///   * [value] Value to be saved.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -163,18 +143,12 @@ class $DeclarativeSettingsClient {
   ///  * [$setValue_Request] for the request send by this method.
   ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DeclarativeSettingsSetValueResponseApplicationJson, void>> setValue({
-    required String app,
-    required String formId,
-    required String fieldId,
-    required ContentString<JsonObject> value,
+    required DeclarativeSettingsSetValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setValue_Request(
-      app: app,
-      formId: formId,
-      fieldId: fieldId,
-      value: value,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -217,7 +191,7 @@ class $DeclarativeSettingsClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -235,7 +209,7 @@ class $DeclarativeSettingsClient {
 // coverage:ignore-end
     var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     __oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -307,7 +281,7 @@ class $LogSettingsClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/octet-stream';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -348,6 +322,80 @@ class $LogSettingsClient {
     final _rawResponse =
         _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DeclarativeSettingsSetValueRequestApplicationJsonInterface {
+  /// ID of the app.
+  String get app;
+
+  /// ID of the form.
+  String get formId;
+
+  /// ID of the field.
+  String get fieldId;
+
+  /// Value to be saved.
+  JsonObject get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsSetValueRequestApplicationJsonInterface rebuild(
+    void Function($DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder].
+  $DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeclarativeSettingsSetValueRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class DeclarativeSettingsSetValueRequestApplicationJson
+    implements
+        $DeclarativeSettingsSetValueRequestApplicationJsonInterface,
+        Built<DeclarativeSettingsSetValueRequestApplicationJson,
+            DeclarativeSettingsSetValueRequestApplicationJsonBuilder> {
+  /// Creates a new DeclarativeSettingsSetValueRequestApplicationJson object using the builder pattern.
+  factory DeclarativeSettingsSetValueRequestApplicationJson([
+    void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder)? b,
+  ]) = _$DeclarativeSettingsSetValueRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DeclarativeSettingsSetValueRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeclarativeSettingsSetValueRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeclarativeSettingsSetValueRequestApplicationJson.
+  static Serializer<DeclarativeSettingsSetValueRequestApplicationJson> get serializer =>
+      _$declarativeSettingsSetValueRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeclarativeSettingsSetValueRequestApplicationJsonBuilder b) {
+    $DeclarativeSettingsSetValueRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeclarativeSettingsSetValueRequestApplicationJsonBuilder b) {
+    $DeclarativeSettingsSetValueRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1200,13 +1248,13 @@ extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2
   List<String> get _names => const ['declarativeFormFieldOptions1', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -1287,13 +1335,13 @@ extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27
   List<String> get _names => const [r'$bool', 'builtListString', r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -1390,8 +1438,11 @@ class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerialize
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ContentString, [FullType(JsonObject)]), ContentStringBuilder<JsonObject>.new)
-      ..add(ContentString.serializer)
+      ..addBuilderFactory(
+        const FullType(DeclarativeSettingsSetValueRequestApplicationJson),
+        DeclarativeSettingsSetValueRequestApplicationJsonBuilder.new,
+      )
+      ..add(DeclarativeSettingsSetValueRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DeclarativeSettingsSetValueResponseApplicationJson),
         DeclarativeSettingsSetValueResponseApplicationJsonBuilder.new,
@@ -1449,16 +1500,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
+      ..add(_i6.DynamiteDoubleSerializer())
       ..addPlugin(
-        _i8.StandardJsonPlugin(
+        _i7.StandardJsonPlugin(
           typesToLeaveAsList: const {
             _$ecd8d9fe35935410da9dc2662cd86d27,
             _$bb4e9af94b69347c125c27e03a648d24,
           },
         ),
       )
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

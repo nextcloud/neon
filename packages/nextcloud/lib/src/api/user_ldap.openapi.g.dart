@@ -6,26 +6,6 @@ part of 'user_ldap.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ConfigapiShowShowPassword _$configapiShowShowPassword$0 = ConfigapiShowShowPassword._('\$0');
-const ConfigapiShowShowPassword _$configapiShowShowPassword$1 = ConfigapiShowShowPassword._('\$1');
-
-ConfigapiShowShowPassword _$valueOfConfigapiShowShowPassword(String name) {
-  switch (name) {
-    case '\$0':
-      return _$configapiShowShowPassword$0;
-    case '\$1':
-      return _$configapiShowShowPassword$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<ConfigapiShowShowPassword> _$configapiShowShowPasswordValues =
-    BuiltSet<ConfigapiShowShowPassword>(const <ConfigapiShowShowPassword>[
-  _$configapiShowShowPassword$0,
-  _$configapiShowShowPassword$1,
-]);
-
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ConfigapiCreateResponseApplicationJson_Ocs_Data> _$configapiCreateResponseApplicationJsonOcsDataSerializer =
     _$ConfigapiCreateResponseApplicationJson_Ocs_DataSerializer();
@@ -33,10 +13,14 @@ Serializer<ConfigapiCreateResponseApplicationJson_Ocs> _$configapiCreateResponse
     _$ConfigapiCreateResponseApplicationJson_OcsSerializer();
 Serializer<ConfigapiCreateResponseApplicationJson> _$configapiCreateResponseApplicationJsonSerializer =
     _$ConfigapiCreateResponseApplicationJsonSerializer();
+Serializer<ConfigapiShowRequestApplicationJson> _$configapiShowRequestApplicationJsonSerializer =
+    _$ConfigapiShowRequestApplicationJsonSerializer();
 Serializer<ConfigapiShowResponseApplicationJson_Ocs> _$configapiShowResponseApplicationJsonOcsSerializer =
     _$ConfigapiShowResponseApplicationJson_OcsSerializer();
 Serializer<ConfigapiShowResponseApplicationJson> _$configapiShowResponseApplicationJsonSerializer =
     _$ConfigapiShowResponseApplicationJsonSerializer();
+Serializer<ConfigapiModifyRequestApplicationJson> _$configapiModifyRequestApplicationJsonSerializer =
+    _$ConfigapiModifyRequestApplicationJsonSerializer();
 Serializer<ConfigapiModifyResponseApplicationJson_Ocs> _$configapiModifyResponseApplicationJsonOcsSerializer =
     _$ConfigapiModifyResponseApplicationJson_OcsSerializer();
 Serializer<ConfigapiModifyResponseApplicationJson> _$configapiModifyResponseApplicationJsonSerializer =
@@ -249,6 +233,45 @@ class _$ConfigapiCreateResponseApplicationJsonSerializer
   }
 }
 
+class _$ConfigapiShowRequestApplicationJsonSerializer
+    implements StructuredSerializer<ConfigapiShowRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ConfigapiShowRequestApplicationJson, _$ConfigapiShowRequestApplicationJson];
+  @override
+  final String wireName = 'ConfigapiShowRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConfigapiShowRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'showPassword',
+      serializers.serialize(object.showPassword, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ConfigapiShowRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConfigapiShowRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'showPassword':
+          result.showPassword = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ConfigapiShowResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ConfigapiShowResponseApplicationJson_Ocs> {
   @override
@@ -331,6 +354,47 @@ class _$ConfigapiShowResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ConfigapiShowResponseApplicationJson_Ocs))!
                   as ConfigapiShowResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ConfigapiModifyRequestApplicationJsonSerializer
+    implements StructuredSerializer<ConfigapiModifyRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ConfigapiModifyRequestApplicationJson, _$ConfigapiModifyRequestApplicationJson];
+  @override
+  final String wireName = 'ConfigapiModifyRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ConfigapiModifyRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'configData',
+      serializers.serialize(object.configData,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ConfigapiModifyRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ConfigapiModifyRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'configData':
+          result.configData.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
           break;
       }
     }
@@ -990,6 +1054,100 @@ class ConfigapiCreateResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $ConfigapiShowRequestApplicationJsonInterfaceBuilder {
+  void replace($ConfigapiShowRequestApplicationJsonInterface other);
+  void update(void Function($ConfigapiShowRequestApplicationJsonInterfaceBuilder) updates);
+  bool? get showPassword;
+  set showPassword(bool? showPassword);
+}
+
+class _$ConfigapiShowRequestApplicationJson extends ConfigapiShowRequestApplicationJson {
+  @override
+  final bool showPassword;
+
+  factory _$ConfigapiShowRequestApplicationJson([void Function(ConfigapiShowRequestApplicationJsonBuilder)? updates]) =>
+      (ConfigapiShowRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ConfigapiShowRequestApplicationJson._({required this.showPassword}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(showPassword, r'ConfigapiShowRequestApplicationJson', 'showPassword');
+  }
+
+  @override
+  ConfigapiShowRequestApplicationJson rebuild(void Function(ConfigapiShowRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConfigapiShowRequestApplicationJsonBuilder toBuilder() => ConfigapiShowRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConfigapiShowRequestApplicationJson && showPassword == other.showPassword;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, showPassword.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConfigapiShowRequestApplicationJson')..add('showPassword', showPassword))
+        .toString();
+  }
+}
+
+class ConfigapiShowRequestApplicationJsonBuilder
+    implements
+        Builder<ConfigapiShowRequestApplicationJson, ConfigapiShowRequestApplicationJsonBuilder>,
+        $ConfigapiShowRequestApplicationJsonInterfaceBuilder {
+  _$ConfigapiShowRequestApplicationJson? _$v;
+
+  bool? _showPassword;
+  bool? get showPassword => _$this._showPassword;
+  set showPassword(covariant bool? showPassword) => _$this._showPassword = showPassword;
+
+  ConfigapiShowRequestApplicationJsonBuilder() {
+    ConfigapiShowRequestApplicationJson._defaults(this);
+  }
+
+  ConfigapiShowRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _showPassword = $v.showPassword;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConfigapiShowRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConfigapiShowRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ConfigapiShowRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConfigapiShowRequestApplicationJson build() => _build();
+
+  _$ConfigapiShowRequestApplicationJson _build() {
+    ConfigapiShowRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ConfigapiShowRequestApplicationJson._(
+            showPassword: BuiltValueNullFieldError.checkNotNull(
+                showPassword, r'ConfigapiShowRequestApplicationJson', 'showPassword'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ConfigapiShowResponseApplicationJson_OcsInterface other);
   void update(void Function($ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -1209,6 +1367,111 @@ class ConfigapiShowResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ConfigapiShowResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ConfigapiModifyRequestApplicationJsonInterfaceBuilder {
+  void replace($ConfigapiModifyRequestApplicationJsonInterface other);
+  void update(void Function($ConfigapiModifyRequestApplicationJsonInterfaceBuilder) updates);
+  MapBuilder<String, JsonObject> get configData;
+  set configData(MapBuilder<String, JsonObject>? configData);
+}
+
+class _$ConfigapiModifyRequestApplicationJson extends ConfigapiModifyRequestApplicationJson {
+  @override
+  final BuiltMap<String, JsonObject> configData;
+
+  factory _$ConfigapiModifyRequestApplicationJson(
+          [void Function(ConfigapiModifyRequestApplicationJsonBuilder)? updates]) =>
+      (ConfigapiModifyRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ConfigapiModifyRequestApplicationJson._({required this.configData}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(configData, r'ConfigapiModifyRequestApplicationJson', 'configData');
+  }
+
+  @override
+  ConfigapiModifyRequestApplicationJson rebuild(void Function(ConfigapiModifyRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ConfigapiModifyRequestApplicationJsonBuilder toBuilder() =>
+      ConfigapiModifyRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ConfigapiModifyRequestApplicationJson && configData == other.configData;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, configData.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ConfigapiModifyRequestApplicationJson')..add('configData', configData))
+        .toString();
+  }
+}
+
+class ConfigapiModifyRequestApplicationJsonBuilder
+    implements
+        Builder<ConfigapiModifyRequestApplicationJson, ConfigapiModifyRequestApplicationJsonBuilder>,
+        $ConfigapiModifyRequestApplicationJsonInterfaceBuilder {
+  _$ConfigapiModifyRequestApplicationJson? _$v;
+
+  MapBuilder<String, JsonObject>? _configData;
+  MapBuilder<String, JsonObject> get configData => _$this._configData ??= MapBuilder<String, JsonObject>();
+  set configData(covariant MapBuilder<String, JsonObject>? configData) => _$this._configData = configData;
+
+  ConfigapiModifyRequestApplicationJsonBuilder() {
+    ConfigapiModifyRequestApplicationJson._defaults(this);
+  }
+
+  ConfigapiModifyRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _configData = $v.configData.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ConfigapiModifyRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ConfigapiModifyRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ConfigapiModifyRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ConfigapiModifyRequestApplicationJson build() => _build();
+
+  _$ConfigapiModifyRequestApplicationJson _build() {
+    ConfigapiModifyRequestApplicationJson._validate(this);
+    _$ConfigapiModifyRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ConfigapiModifyRequestApplicationJson._(configData: configData.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'configData';
+        configData.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ConfigapiModifyRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

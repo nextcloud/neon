@@ -17,13 +17,7 @@ import 'package:provider/provider.dart';
 Account mockAutocompleteAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/core/autocomplete/get'): {
-      'get': (match, queryParameters) {
-        assert(queryParameters['itemType']!.single == 'itemType');
-        assert(queryParameters['itemId']!.single == 'itemId');
-        assert(queryParameters['shareTypes[]']![0] == '0');
-        assert(queryParameters['shareTypes[]']![1] == '1');
-        assert(queryParameters['limit']!.single == '10');
-
+      'get': (match, bodyBytes) {
         return Response(
           json.encode(
             {

@@ -20,7 +20,11 @@ void main() {
       });
 
       Future<void> resetStatus() async {
-        await client.userStatus.userStatus.setStatus(statusType: user_status.$Type.online.value);
+        await client.userStatus.userStatus.setStatus(
+          $body: user_status.UserStatusSetStatusRequestApplicationJson(
+            (b) => b..statusType = user_status.$Type.online.value,
+          ),
+        );
         await client.userStatus.userStatus.clearMessage();
       }
 
@@ -64,7 +68,11 @@ void main() {
         test('Set', () async {
           await resetStatus();
 
-          final response = await client.userStatus.userStatus.setStatus(statusType: user_status.$Type.online.value);
+          final response = await client.userStatus.userStatus.setStatus(
+            $body: user_status.UserStatusSetStatusRequestApplicationJson(
+              (b) => b..statusType = user_status.$Type.online.value,
+            ),
+          );
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -114,8 +122,11 @@ void main() {
 
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setPredefinedMessage(
-            messageId: 'meeting',
-            clearAt: clearAt,
+            $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
+              (b) => b
+                ..messageId = 'meeting'
+                ..clearAt = clearAt,
+            ),
           );
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -135,9 +146,12 @@ void main() {
 
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setCustomMessage(
-            statusIcon: '😀',
-            message: 'bla',
-            clearAt: clearAt,
+            $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
+              (b) => b
+                ..statusIcon = '😀'
+                ..message = 'bla'
+                ..clearAt = clearAt,
+            ),
           );
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -157,9 +171,12 @@ void main() {
 
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           await client.userStatus.userStatus.setCustomMessage(
-            statusIcon: '😀',
-            message: 'bla',
-            clearAt: clearAt,
+            $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
+              (b) => b
+                ..statusIcon = '😀'
+                ..message = 'bla'
+                ..clearAt = clearAt,
+            ),
           );
           await client.userStatus.userStatus.clearMessage();
 
@@ -198,7 +215,11 @@ void main() {
         test('Heartbeat', () async {
           await resetStatus();
 
-          final response = await client.userStatus.heartbeat.heartbeat(status: user_status.$Type.online.value);
+          final response = await client.userStatus.heartbeat.heartbeat(
+            $body: user_status.HeartbeatHeartbeatRequestApplicationJson(
+              (b) => b..status = user_status.$Type.online.value,
+            ),
+          );
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 

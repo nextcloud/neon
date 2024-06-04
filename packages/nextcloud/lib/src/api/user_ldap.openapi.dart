@@ -16,6 +16,8 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -24,7 +26,6 @@ import 'package:built_value/standard_json_plugin.dart' as _i8;
 import 'package:collection/collection.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
@@ -159,7 +160,6 @@ class $ConfigapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [showPassword] Whether to show the password. Defaults to `0`.
   ///   * [configID] ID of the config.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -173,20 +173,14 @@ class $ConfigapiClient {
   @_i2.experimental
   _i3.Request $$show_Request({
     required String configID,
-    ConfigapiShowShowPassword? showPassword,
     bool? oCSAPIRequest,
+    ConfigapiShowRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
     _parameters['configID'] = __configID;
 
-    var __showPassword =
-        _$jsonSerializers.serialize(showPassword, specifiedType: const FullType(ConfigapiShowShowPassword));
-    __showPassword ??= 0;
-    _parameters['showPassword'] = __showPassword;
-
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -211,6 +205,17 @@ class $ConfigapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(ConfigapiShowRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              ConfigapiShowRequestApplicationJson(),
+              specifiedType: const FullType(ConfigapiShowRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -223,7 +228,6 @@ class $ConfigapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [showPassword] Whether to show the password. Defaults to `0`.
   ///   * [configID] ID of the config.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -236,13 +240,13 @@ class $ConfigapiClient {
   ///  * [$$show_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ConfigapiShowResponseApplicationJson, void>> $show({
     required String configID,
-    ConfigapiShowShowPassword? showPassword,
     bool? oCSAPIRequest,
+    ConfigapiShowRequestApplicationJson? $body,
   }) async {
     final _request = $$show_Request(
       configID: configID,
-      showPassword: showPassword,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -270,7 +274,6 @@ class $ConfigapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configData] New config.
   ///   * [configID] ID of the config.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -284,24 +287,15 @@ class $ConfigapiClient {
   ///  * [$modify_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $modify_Request({
-    required ContentString<BuiltMap<String, JsonObject>> configData,
     required String configID,
+    required ConfigapiModifyRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final __configData = _$jsonSerializers.serialize(
-      configData,
-      specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-      ]),
-    );
-    _parameters['configData'] = __configData;
-
     final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
     _parameters['configID'] = __configID;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?configData*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -326,6 +320,10 @@ class $ConfigapiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ConfigapiModifyRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -337,7 +335,6 @@ class $ConfigapiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configData] New config.
   ///   * [configID] ID of the config.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -350,14 +347,14 @@ class $ConfigapiClient {
   ///  * [$modify_Request] for the request send by this method.
   ///  * [$modify_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ConfigapiModifyResponseApplicationJson, void>> modify({
-    required ContentString<BuiltMap<String, JsonObject>> configData,
     required String configID,
+    required ConfigapiModifyRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $modify_Request(
-      configData: configData,
       configID: configID,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -715,67 +712,75 @@ abstract class ConfigapiCreateResponseApplicationJson
   }
 }
 
-class ConfigapiShowShowPassword extends EnumClass {
-  const ConfigapiShowShowPassword._(super.name);
+@BuiltValue(instantiable: false)
+sealed class $ConfigapiShowRequestApplicationJsonInterface {
+  static final _$showPassword = _$jsonSerializers.deserialize(
+    false,
+    specifiedType: const FullType(bool),
+  )! as bool;
 
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const ConfigapiShowShowPassword $0 = _$configapiShowShowPassword$0;
+  /// Whether to show the password.
+  bool get showPassword;
 
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const ConfigapiShowShowPassword $1 = _$configapiShowShowPassword$1;
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiShowRequestApplicationJsonInterfaceBuilder].
+  $ConfigapiShowRequestApplicationJsonInterface rebuild(
+    void Function($ConfigapiShowRequestApplicationJsonInterfaceBuilder) updates,
+  );
 
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ConfigapiShowShowPassword> get values => _$configapiShowShowPasswordValues;
-  // coverage:ignore-end
+  /// Converts the instance to a builder [$ConfigapiShowRequestApplicationJsonInterfaceBuilder].
+  $ConfigapiShowRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiShowRequestApplicationJsonInterfaceBuilder b) {
+    b.showPassword = _$showPassword;
+  }
 
-  /// Returns the enum value associated to the [name].
-  static ConfigapiShowShowPassword valueOf(String name) => _$valueOfConfigapiShowShowPassword(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for ConfigapiShowShowPassword.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ConfigapiShowShowPassword> get serializer => const _$ConfigapiShowShowPasswordSerializer();
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiShowRequestApplicationJsonInterfaceBuilder b) {}
 }
 
-class _$ConfigapiShowShowPasswordSerializer implements PrimitiveSerializer<ConfigapiShowShowPassword> {
-  const _$ConfigapiShowShowPasswordSerializer();
+abstract class ConfigapiShowRequestApplicationJson
+    implements
+        $ConfigapiShowRequestApplicationJsonInterface,
+        Built<ConfigapiShowRequestApplicationJson, ConfigapiShowRequestApplicationJsonBuilder> {
+  /// Creates a new ConfigapiShowRequestApplicationJson object using the builder pattern.
+  factory ConfigapiShowRequestApplicationJson([void Function(ConfigapiShowRequestApplicationJsonBuilder)? b]) =
+      _$ConfigapiShowRequestApplicationJson;
 
-  static const Map<ConfigapiShowShowPassword, Object> _toWire = <ConfigapiShowShowPassword, Object>{
-    ConfigapiShowShowPassword.$0: 0,
-    ConfigapiShowShowPassword.$1: 1,
-  };
+  // coverage:ignore-start
+  const ConfigapiShowRequestApplicationJson._();
+  // coverage:ignore-end
 
-  static const Map<Object, ConfigapiShowShowPassword> _fromWire = <Object, ConfigapiShowShowPassword>{
-    0: ConfigapiShowShowPassword.$0,
-    1: ConfigapiShowShowPassword.$1,
-  };
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ConfigapiShowRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
 
-  @override
-  Iterable<Type> get types => const [ConfigapiShowShowPassword];
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
 
-  @override
-  String get wireName => 'ConfigapiShowShowPassword';
+  /// Serializer for ConfigapiShowRequestApplicationJson.
+  static Serializer<ConfigapiShowRequestApplicationJson> get serializer =>
+      _$configapiShowRequestApplicationJsonSerializer;
 
-  @override
-  Object serialize(
-    Serializers serializers,
-    ConfigapiShowShowPassword object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiShowRequestApplicationJsonBuilder b) {
+    $ConfigapiShowRequestApplicationJsonInterface._defaults(b);
+  }
 
-  @override
-  ConfigapiShowShowPassword deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiShowRequestApplicationJsonBuilder b) {
+    $ConfigapiShowRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -901,6 +906,69 @@ abstract class ConfigapiShowResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ConfigapiShowResponseApplicationJsonBuilder b) {
     $ConfigapiShowResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ConfigapiModifyRequestApplicationJsonInterface {
+  /// New config.
+  BuiltMap<String, JsonObject> get configData;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiModifyRequestApplicationJsonInterfaceBuilder].
+  $ConfigapiModifyRequestApplicationJsonInterface rebuild(
+    void Function($ConfigapiModifyRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiModifyRequestApplicationJsonInterfaceBuilder].
+  $ConfigapiModifyRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ConfigapiModifyRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ConfigapiModifyRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ConfigapiModifyRequestApplicationJson
+    implements
+        $ConfigapiModifyRequestApplicationJsonInterface,
+        Built<ConfigapiModifyRequestApplicationJson, ConfigapiModifyRequestApplicationJsonBuilder> {
+  /// Creates a new ConfigapiModifyRequestApplicationJson object using the builder pattern.
+  factory ConfigapiModifyRequestApplicationJson([void Function(ConfigapiModifyRequestApplicationJsonBuilder)? b]) =
+      _$ConfigapiModifyRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ConfigapiModifyRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ConfigapiModifyRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ConfigapiModifyRequestApplicationJson.
+  static Serializer<ConfigapiModifyRequestApplicationJson> get serializer =>
+      _$configapiModifyRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ConfigapiModifyRequestApplicationJsonBuilder b) {
+    $ConfigapiModifyRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ConfigapiModifyRequestApplicationJsonBuilder b) {
+    $ConfigapiModifyRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1181,7 +1249,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ConfigapiCreateResponseApplicationJson_Ocs_Data.serializer)
-      ..add(ConfigapiShowShowPassword.serializer)
+      ..addBuilderFactory(
+        const FullType(ConfigapiShowRequestApplicationJson),
+        ConfigapiShowRequestApplicationJsonBuilder.new,
+      )
+      ..add(ConfigapiShowRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ConfigapiShowResponseApplicationJson),
         ConfigapiShowResponseApplicationJsonBuilder.new,
@@ -1197,12 +1269,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, JsonObject>.new,
       )
       ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        ]),
-        ContentStringBuilder<BuiltMap<String, JsonObject>>.new,
+        const FullType(ConfigapiModifyRequestApplicationJson),
+        ConfigapiModifyRequestApplicationJsonBuilder.new,
       )
-      ..add(ContentString.serializer)
+      ..add(ConfigapiModifyRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ConfigapiModifyResponseApplicationJson),
         ConfigapiModifyResponseApplicationJsonBuilder.new,

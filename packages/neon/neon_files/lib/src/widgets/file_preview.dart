@@ -107,9 +107,12 @@ class FilePreviewImage extends NeonApiImage {
     required super.account,
   }) : super(
           getRequest: (client) => client.core.preview.$getPreview_Request(
-            file: file.uri.path,
-            x: width,
-            y: height,
+            $body: PreviewGetPreviewRequestApplicationJson(
+              (b) => b
+                ..file = file.uri.path
+                ..x = width
+                ..y = height,
+            ),
           ),
           etag: file.etag,
           expires: null,
