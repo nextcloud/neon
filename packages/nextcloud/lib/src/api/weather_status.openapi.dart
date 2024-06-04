@@ -86,8 +86,8 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(int));
-    _parameters['mode'] = $mode;
+    final __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(int));
+    _parameters['mode'] = __mode;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -110,9 +110,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -196,9 +196,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -280,9 +280,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -351,14 +351,14 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $address = _$jsonSerializers.serialize(address, specifiedType: const FullType(String));
-    _parameters['address'] = $address;
+    final __address = _$jsonSerializers.serialize(address, specifiedType: const FullType(String));
+    _parameters['address'] = __address;
 
-    final $lat = _$jsonSerializers.serialize(lat, specifiedType: const FullType(double));
-    _parameters['lat'] = $lat;
+    final __lat = _$jsonSerializers.serialize(lat, specifiedType: const FullType(double));
+    _parameters['lat'] = __lat;
 
-    final $lon = _$jsonSerializers.serialize(lon, specifiedType: const FullType(double));
-    _parameters['lon'] = $lon;
+    final __lon = _$jsonSerializers.serialize(lon, specifiedType: const FullType(double));
+    _parameters['lon'] = __lon;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(_parameters);
@@ -382,9 +382,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -475,9 +475,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -559,9 +559,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -626,9 +626,9 @@ class $WeatherStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $favorites =
+    final __favorites =
         _$jsonSerializers.serialize(favorites, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['favorites%5B%5D'] = $favorites;
+    _parameters['favorites%5B%5D'] = __favorites;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(_parameters);
@@ -652,9 +652,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

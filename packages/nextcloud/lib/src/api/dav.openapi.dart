@@ -92,11 +92,11 @@ class $DirectClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
-    final $expirationTime = _$jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
-    _parameters['expirationTime'] = $expirationTime;
+    final __expirationTime = _$jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
+    _parameters['expirationTime'] = __expirationTime;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -119,9 +119,9 @@ class $DirectClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -203,8 +203,8 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}/now').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -227,9 +227,9 @@ class $OutOfOfficeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -301,8 +301,8 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -325,9 +325,9 @@ class $OutOfOfficeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -406,20 +406,20 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $firstDay = _$jsonSerializers.serialize(firstDay, specifiedType: const FullType(String));
-    _parameters['firstDay'] = $firstDay;
+    final __firstDay = _$jsonSerializers.serialize(firstDay, specifiedType: const FullType(String));
+    _parameters['firstDay'] = __firstDay;
 
-    final $lastDay = _$jsonSerializers.serialize(lastDay, specifiedType: const FullType(String));
-    _parameters['lastDay'] = $lastDay;
+    final __lastDay = _$jsonSerializers.serialize(lastDay, specifiedType: const FullType(String));
+    _parameters['lastDay'] = __lastDay;
 
-    final $status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
-    _parameters['status'] = $status;
+    final __status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
+    _parameters['status'] = __status;
 
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}{?firstDay*,lastDay*,status*,message*}')
@@ -444,9 +444,9 @@ class $OutOfOfficeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -529,8 +529,8 @@ class $OutOfOfficeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/dav/api/v1/outOfOffice/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -553,9 +553,9 @@ class $OutOfOfficeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

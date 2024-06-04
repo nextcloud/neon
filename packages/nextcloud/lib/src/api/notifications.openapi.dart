@@ -104,20 +104,20 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $shortMessage = _$jsonSerializers.serialize(shortMessage, specifiedType: const FullType(String));
-    _parameters['shortMessage'] = $shortMessage;
+    final __shortMessage = _$jsonSerializers.serialize(shortMessage, specifiedType: const FullType(String));
+    _parameters['shortMessage'] = __shortMessage;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    var $longMessage = _$jsonSerializers.serialize(longMessage, specifiedType: const FullType(String));
-    $longMessage ??= '';
-    _parameters['longMessage'] = $longMessage;
+    var __longMessage = _$jsonSerializers.serialize(longMessage, specifiedType: const FullType(String));
+    __longMessage ??= '';
+    _parameters['longMessage'] = __longMessage;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGenerateNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
@@ -142,9 +142,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -234,10 +234,10 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointListNotificationsApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -260,9 +260,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -336,12 +336,12 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(EndpointDeleteAllNotificationsApiVersion),
     );
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -364,9 +364,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -438,13 +438,13 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointGetNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
@@ -468,9 +468,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -546,13 +546,13 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointDeleteNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
@@ -576,9 +576,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -654,13 +654,13 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $ids = _$jsonSerializers.serialize(ids, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    _parameters['ids%5B%5D'] = $ids;
+    final __ids = _$jsonSerializers.serialize(ids, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    _parameters['ids%5B%5D'] = __ids;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointConfirmIdsForUserApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
         .expand(_parameters);
@@ -684,9 +684,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -774,19 +774,19 @@ class $PushClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $pushTokenHash = _$jsonSerializers.serialize(pushTokenHash, specifiedType: const FullType(String));
-    _parameters['pushTokenHash'] = $pushTokenHash;
+    final __pushTokenHash = _$jsonSerializers.serialize(pushTokenHash, specifiedType: const FullType(String));
+    _parameters['pushTokenHash'] = __pushTokenHash;
 
-    final $devicePublicKey = _$jsonSerializers.serialize(devicePublicKey, specifiedType: const FullType(String));
-    _parameters['devicePublicKey'] = $devicePublicKey;
+    final __devicePublicKey = _$jsonSerializers.serialize(devicePublicKey, specifiedType: const FullType(String));
+    _parameters['devicePublicKey'] = __devicePublicKey;
 
-    final $proxyServer = _$jsonSerializers.serialize(proxyServer, specifiedType: const FullType(String));
-    _parameters['proxyServer'] = $proxyServer;
+    final __proxyServer = _$jsonSerializers.serialize(proxyServer, specifiedType: const FullType(String));
+    _parameters['proxyServer'] = __proxyServer;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRegisterDeviceApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
@@ -811,9 +811,9 @@ class $PushClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -896,10 +896,10 @@ class $PushClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRemoveDeviceApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -922,9 +922,9 @@ class $PushClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1008,19 +1008,19 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    _parameters['batchSetting'] = $batchSetting;
+    final __batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
+    _parameters['batchSetting'] = __batchSetting;
 
-    final $soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    _parameters['soundNotification'] = $soundNotification;
+    final __soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
+    _parameters['soundNotification'] = __soundNotification;
 
-    final $soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    _parameters['soundTalk'] = $soundTalk;
+    final __soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
+    _parameters['soundTalk'] = __soundTalk;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsPersonalApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
@@ -1045,9 +1045,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1131,18 +1131,18 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    _parameters['batchSetting'] = $batchSetting;
+    final __batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
+    _parameters['batchSetting'] = __batchSetting;
 
-    final $soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    _parameters['soundNotification'] = $soundNotification;
+    final __soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
+    _parameters['soundNotification'] = __soundNotification;
 
-    final $soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    _parameters['soundTalk'] = $soundTalk;
+    final __soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
+    _parameters['soundTalk'] = __soundTalk;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsAdminApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsAdminApiVersion));
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
@@ -1167,9 +1167,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

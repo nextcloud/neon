@@ -26,7 +26,7 @@ void main() async {
         return Response('{}', 200);
       }),
     );
-    await client.$get(uint8List: data);
+    await client.$get($body: data);
   });
 
   test('Request String body', () async {
@@ -48,6 +48,6 @@ void main() async {
         return Response('{}', 200);
       }),
     );
-    await client.post(string: 'value');
+    await client.post($body: 'value');
   });
 }

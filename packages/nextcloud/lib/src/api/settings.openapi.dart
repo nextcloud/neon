@@ -100,18 +100,18 @@ class $DeclarativeSettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
-    final $formId = _$jsonSerializers.serialize(formId, specifiedType: const FullType(String));
-    _parameters['formId'] = $formId;
+    final __formId = _$jsonSerializers.serialize(formId, specifiedType: const FullType(String));
+    _parameters['formId'] = __formId;
 
-    final $fieldId = _$jsonSerializers.serialize(fieldId, specifiedType: const FullType(String));
-    _parameters['fieldId'] = $fieldId;
+    final __fieldId = _$jsonSerializers.serialize(fieldId, specifiedType: const FullType(String));
+    _parameters['fieldId'] = __fieldId;
 
-    final $value =
+    final __value =
         _$jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(JsonObject)]));
-    _parameters['value'] = $value;
+    _parameters['value'] = __value;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/settings/api/declarative/value{?app*,formId*,fieldId*,value*}')
         .expand(_parameters);
@@ -135,9 +135,9 @@ class $DeclarativeSettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -233,9 +233,9 @@ class $DeclarativeSettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

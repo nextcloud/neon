@@ -115,9 +115,9 @@ class $DeletedShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -181,8 +181,8 @@ class $DeletedShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -205,9 +205,9 @@ class $DeletedShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -281,8 +281,8 @@ class $PublicPreviewClient {
   @_i2.experimental
   _i3.Request $directLink_Request({required String token}) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
     final _path = _i6.UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -374,24 +374,24 @@ class $PublicPreviewClient {
     PublicPreviewGetPreviewA? a,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
-    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    $file ??= '';
-    _parameters['file'] = $file;
+    var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    __file ??= '';
+    _parameters['file'] = __file;
 
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 32;
-    _parameters['x'] = $x;
+    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    __x ??= 32;
+    _parameters['x'] = __x;
 
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 32;
-    _parameters['y'] = $y;
+    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    __y ??= 32;
+    _parameters['y'] = __y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PublicPreviewGetPreviewA));
-    $a ??= 0;
-    _parameters['a'] = $a;
+    var __a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PublicPreviewGetPreviewA));
+    __a ??= 0;
+    _parameters['a'] = __a;
 
     final _path =
         _i6.UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
@@ -513,9 +513,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -594,9 +594,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -662,8 +662,8 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
@@ -687,9 +687,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -759,8 +759,8 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
@@ -784,9 +784,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -855,8 +855,8 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -879,9 +879,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -951,8 +951,8 @@ class $RemoteClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -975,9 +975,9 @@ class $RemoteClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1059,18 +1059,18 @@ class $ShareInfoClient {
     int? depth,
   }) {
     final _parameters = <String, Object?>{};
-    final $t = _$jsonSerializers.serialize(t, specifiedType: const FullType(String));
-    _parameters['t'] = $t;
+    final __t = _$jsonSerializers.serialize(t, specifiedType: const FullType(String));
+    _parameters['t'] = __t;
 
-    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    _parameters['password'] = $password;
+    final __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    _parameters['password'] = __password;
 
-    final $dir = _$jsonSerializers.serialize(dir, specifiedType: const FullType(String));
-    _parameters['dir'] = $dir;
+    final __dir = _$jsonSerializers.serialize(dir, specifiedType: const FullType(String));
+    _parameters['dir'] = __dir;
 
-    var $depth = _$jsonSerializers.serialize(depth, specifiedType: const FullType(int));
-    $depth ??= -1;
-    _parameters['depth'] = $depth;
+    var __depth = _$jsonSerializers.serialize(depth, specifiedType: const FullType(int));
+    __depth ??= -1;
+    _parameters['depth'] = __depth;
 
     final _path =
         _i6.UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
@@ -1181,25 +1181,25 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $sharedWithMe = _$jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
-    $sharedWithMe ??= 'false';
-    _parameters['shared_with_me'] = $sharedWithMe;
+    var __sharedWithMe = _$jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
+    __sharedWithMe ??= 'false';
+    _parameters['shared_with_me'] = __sharedWithMe;
 
-    var $reshares = _$jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
-    $reshares ??= 'false';
-    _parameters['reshares'] = $reshares;
+    var __reshares = _$jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
+    __reshares ??= 'false';
+    _parameters['reshares'] = __reshares;
 
-    var $subfiles = _$jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
-    $subfiles ??= 'false';
-    _parameters['subfiles'] = $subfiles;
+    var __subfiles = _$jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
+    __subfiles ??= 'false';
+    _parameters['subfiles'] = __subfiles;
 
-    var $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    $path ??= '';
-    _parameters['path'] = $path;
+    var __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    __path ??= '';
+    _parameters['path'] = __path;
 
-    var $includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
-    $includeTags ??= 'false';
-    _parameters['include_tags'] = $includeTags;
+    var __includeTags = _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
+    __includeTags ??= 'false';
+    _parameters['include_tags'] = __includeTags;
 
     final _path = _i6.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
@@ -1224,9 +1224,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1330,44 +1330,44 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
-    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    _parameters['permissions'] = $permissions;
+    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    _parameters['permissions'] = __permissions;
 
-    var $shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
-    $shareType ??= -1;
-    _parameters['shareType'] = $shareType;
+    var __shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
+    __shareType ??= -1;
+    _parameters['shareType'] = __shareType;
 
-    final $shareWith = _$jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
-    _parameters['shareWith'] = $shareWith;
+    final __shareWith = _$jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
+    _parameters['shareWith'] = __shareWith;
 
-    var $publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
-    $publicUpload ??= 'false';
-    _parameters['publicUpload'] = $publicUpload;
+    var __publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
+    __publicUpload ??= 'false';
+    _parameters['publicUpload'] = __publicUpload;
 
-    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    $password ??= '';
-    _parameters['password'] = $password;
+    var __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    __password ??= '';
+    _parameters['password'] = __password;
 
-    final $sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
+    final __sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
+    _parameters['sendPasswordByTalk'] = __sendPasswordByTalk;
 
-    var $expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
-    $expireDate ??= '';
-    _parameters['expireDate'] = $expireDate;
+    var __expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
+    __expireDate ??= '';
+    _parameters['expireDate'] = __expireDate;
 
-    var $note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
-    $note ??= '';
-    _parameters['note'] = $note;
+    var __note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
+    __note ??= '';
+    _parameters['note'] = __note;
 
-    var $label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
-    $label ??= '';
-    _parameters['label'] = $label;
+    var __label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
+    __label ??= '';
+    _parameters['label'] = __label;
 
-    final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    _parameters['attributes'] = $attributes;
+    final __attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
+    _parameters['attributes'] = __attributes;
 
     final _path = _i6.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
@@ -1392,9 +1392,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1497,8 +1497,8 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1521,9 +1521,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1609,9 +1609,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1679,13 +1679,13 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
 
-    var $includeTags =
+    var __includeTags =
         _$jsonSerializers.serialize(includeTags, specifiedType: const FullType(ShareapiGetShareIncludeTags));
-    $includeTags ??= 0;
-    _parameters['include_tags'] = $includeTags;
+    __includeTags ??= 0;
+    _parameters['include_tags'] = __includeTags;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
@@ -1709,9 +1709,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1804,35 +1804,35 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
 
-    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    _parameters['permissions'] = $permissions;
+    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    _parameters['permissions'] = __permissions;
 
-    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    _parameters['password'] = $password;
+    final __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    _parameters['password'] = __password;
 
-    final $sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
+    final __sendPasswordByTalk = _$jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
+    _parameters['sendPasswordByTalk'] = __sendPasswordByTalk;
 
-    final $publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
-    _parameters['publicUpload'] = $publicUpload;
+    final __publicUpload = _$jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
+    _parameters['publicUpload'] = __publicUpload;
 
-    final $expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
-    _parameters['expireDate'] = $expireDate;
+    final __expireDate = _$jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
+    _parameters['expireDate'] = __expireDate;
 
-    final $note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
-    _parameters['note'] = $note;
+    final __note = _$jsonSerializers.serialize(note, specifiedType: const FullType(String));
+    _parameters['note'] = __note;
 
-    final $label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
-    _parameters['label'] = $label;
+    final __label = _$jsonSerializers.serialize(label, specifiedType: const FullType(String));
+    _parameters['label'] = __label;
 
-    final $hideDownload = _$jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
-    _parameters['hideDownload'] = $hideDownload;
+    final __hideDownload = _$jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
+    _parameters['hideDownload'] = __hideDownload;
 
-    final $attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    _parameters['attributes'] = $attributes;
+    final __attributes = _$jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
+    _parameters['attributes'] = __attributes;
 
     final _path = _i6.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
@@ -1857,9 +1857,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1959,8 +1959,8 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1983,9 +1983,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2057,8 +2057,8 @@ class $ShareapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(String));
+    _parameters['id'] = __id;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2081,9 +2081,9 @@ class $ShareapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2171,27 +2171,28 @@ class $ShareesapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    _parameters['itemType'] = $itemType;
+    final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    _parameters['itemType'] = __itemType;
 
-    var $page = _$jsonSerializers.serialize(page, specifiedType: const FullType(int));
-    $page ??= 1;
-    _parameters['page'] = $page;
+    var __page = _$jsonSerializers.serialize(page, specifiedType: const FullType(int));
+    __page ??= 1;
+    _parameters['page'] = __page;
 
-    var $perPage = _$jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
-    $perPage ??= 200;
-    _parameters['perPage'] = $perPage;
+    var __perPage = _$jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
+    __perPage ??= 200;
+    _parameters['perPage'] = __perPage;
 
-    final $shareType = _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
-    _parameters['shareType'] = $shareType;
+    final __shareType =
+        _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
+    _parameters['shareType'] = __shareType;
 
-    var $lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(ShareesapiSearchLookup));
-    $lookup ??= 0;
-    _parameters['lookup'] = $lookup;
+    var __lookup = _$jsonSerializers.serialize(lookup, specifiedType: const FullType(ShareesapiSearchLookup));
+    __lookup ??= 0;
+    _parameters['lookup'] = __lookup;
 
     final _path = _i6.UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
@@ -2216,9 +2217,9 @@ class $ShareesapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2306,12 +2307,12 @@ class $ShareesapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    _parameters['itemType'] = $itemType;
+    final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    _parameters['itemType'] = __itemType;
 
-    final $shareType =
+    final __shareType =
         _$jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
-    _parameters['shareType'] = $shareType;
+    _parameters['shareType'] = __shareType;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
         .expand(_parameters);
@@ -2335,9 +2336,9 @@ class $ShareesapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

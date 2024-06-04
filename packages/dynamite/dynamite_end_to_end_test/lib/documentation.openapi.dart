@@ -89,11 +89,11 @@ class $Client extends _i1.DynamiteClient {
     int? limit,
   }) {
     final _parameters = <String, Object?>{};
-    final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['tags'] = $tags;
+    final __tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['tags'] = __tags;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
     final _path = _i4.UriTemplate('/{?tags*,limit*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');

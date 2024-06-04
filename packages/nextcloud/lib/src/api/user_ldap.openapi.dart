@@ -105,9 +105,9 @@ class $ConfigapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -177,13 +177,13 @@ class $ConfigapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
-    _parameters['configID'] = $configID;
+    final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
+    _parameters['configID'] = __configID;
 
-    var $showPassword =
+    var __showPassword =
         _$jsonSerializers.serialize(showPassword, specifiedType: const FullType(ConfigapiShowShowPassword));
-    $showPassword ??= 0;
-    _parameters['showPassword'] = $showPassword;
+    __showPassword ??= 0;
+    _parameters['showPassword'] = __showPassword;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?showPassword*}').expand(_parameters);
@@ -207,9 +207,9 @@ class $ConfigapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -289,16 +289,16 @@ class $ConfigapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configData = _$jsonSerializers.serialize(
+    final __configData = _$jsonSerializers.serialize(
       configData,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    _parameters['configData'] = $configData;
+    _parameters['configData'] = __configData;
 
-    final $configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
-    _parameters['configID'] = $configID;
+    final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
+    _parameters['configID'] = __configID;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}{?configData*}').expand(_parameters);
@@ -322,9 +322,9 @@ class $ConfigapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -401,8 +401,8 @@ class $ConfigapiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
-    _parameters['configID'] = $configID;
+    final __configID = _$jsonSerializers.serialize(configID, specifiedType: const FullType(String));
+    _parameters['configID'] = __configID;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_ldap/api/v1/config/{configID}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -425,9 +425,9 @@ class $ConfigapiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

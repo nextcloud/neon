@@ -91,21 +91,21 @@ class $PreviewClient {
     String? version,
   }) {
     final _parameters = <String, Object?>{};
-    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    $file ??= '';
-    _parameters['file'] = $file;
+    var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    __file ??= '';
+    _parameters['file'] = __file;
 
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 44;
-    _parameters['x'] = $x;
+    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    __x ??= 44;
+    _parameters['x'] = __x;
 
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 44;
-    _parameters['y'] = $y;
+    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    __y ??= 44;
+    _parameters['y'] = __y;
 
-    var $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    $version ??= '';
-    _parameters['version'] = $version;
+    var __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    __version ??= '';
+    _parameters['version'] = __version;
 
     final _path = _i4.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');

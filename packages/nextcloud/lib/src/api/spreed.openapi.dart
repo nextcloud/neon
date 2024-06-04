@@ -129,21 +129,22 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetAvatarDarkTheme));
-    $darkTheme ??= 0;
-    _parameters['darkTheme'] = $darkTheme;
+    var __darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetAvatarDarkTheme));
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
         .expand(_parameters);
@@ -165,9 +166,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -243,18 +244,18 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarUploadAvatarApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -275,9 +276,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -351,18 +352,18 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarDeleteAvatarApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -383,9 +384,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -463,24 +464,24 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $emoji = _$jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
-    _parameters['emoji'] = $emoji;
+    final __emoji = _$jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
+    _parameters['emoji'] = __emoji;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
-    _parameters['color'] = $color;
+    final __color = _$jsonSerializers.serialize(color, specifiedType: const FullType(String));
+    _parameters['color'] = __color;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarEmojiAvatarApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
         .expand(_parameters);
@@ -502,9 +503,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -583,18 +584,18 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarDarkApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(_parameters);
@@ -616,9 +617,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -693,26 +694,26 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
-    _parameters['cloudId'] = $cloudId;
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
 
-    final $size =
+    final __size =
         _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomSize));
-    _parameters['size'] = $size;
+    _parameters['size'] = __size;
 
-    var $darkTheme = _$jsonSerializers.serialize(
+    var __darkTheme = _$jsonSerializers.serialize(
       darkTheme,
       specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomDarkTheme),
     );
-    $darkTheme ??= 0;
-    _parameters['darkTheme'] = $darkTheme;
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}{?cloudId*,darkTheme*}')
@@ -737,9 +738,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -818,19 +819,19 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
-    _parameters['cloudId'] = $cloudId;
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
 
-    final $size =
+    final __size =
         _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomSize));
-    _parameters['size'] = $size;
+    _parameters['size'] = __size;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark{?cloudId*}')
@@ -855,9 +856,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -937,29 +938,29 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
-    _parameters['cloudId'] = $cloudId;
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarSize));
-    _parameters['size'] = $size;
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarSize));
+    _parameters['size'] = __size;
 
-    var $darkTheme =
+    var __darkTheme =
         _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkTheme));
-    $darkTheme ??= 0;
-    _parameters['darkTheme'] = $darkTheme;
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}{?cloudId*,darkTheme*}',
@@ -982,9 +983,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1068,24 +1069,24 @@ class $AvatarClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
-    _parameters['cloudId'] = $cloudId;
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkSize));
-    _parameters['size'] = $size;
+    final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkSize));
+    _parameters['size'] = __size;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark{?cloudId*}')
@@ -1108,9 +1109,9 @@ class $AvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1194,17 +1195,17 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1227,9 +1228,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1305,20 +1306,20 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
-    _parameters['botId'] = $botId;
+    final __botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    _parameters['botId'] = __botId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1341,9 +1342,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1423,20 +1424,20 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
-    _parameters['botId'] = $botId;
+    final __botId = _$jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    _parameters['botId'] = __botId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1459,9 +1460,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1551,32 +1552,32 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
-    $referenceId ??= '';
-    _parameters['referenceId'] = $referenceId;
+    var __referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    __referenceId ??= '';
+    _parameters['referenceId'] = __referenceId;
 
-    var $replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
-    $replyTo ??= 0;
-    _parameters['replyTo'] = $replyTo;
+    var __replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    __replyTo ??= 0;
+    _parameters['replyTo'] = __replyTo;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(BotSendMessageSilent));
-    $silent ??= 0;
-    _parameters['silent'] = $silent;
+    var __silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(BotSendMessageSilent));
+    __silent ??= 0;
+    _parameters['silent'] = __silent;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
@@ -1599,9 +1600,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1698,23 +1699,23 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
-    _parameters['reaction'] = $reaction;
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _parameters['messageId'] = $messageId;
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotReactApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotReactApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
@@ -1737,9 +1738,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1828,24 +1829,24 @@ class $BotClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
-    _parameters['reaction'] = $reaction;
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
-    _parameters['messageId'] = $messageId;
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
@@ -1868,9 +1869,9 @@ class $BotClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1966,37 +1967,37 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $mode =
+    final __mode =
         _$jsonSerializers.serialize(mode, specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsMode));
-    _parameters['mode'] = $mode;
+    _parameters['mode'] = __mode;
 
-    final $amount = _$jsonSerializers.serialize(amount, specifiedType: const FullType(int));
+    final __amount = _$jsonSerializers.serialize(amount, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $amount,
+      __amount,
       'amount',
       maximum: 20,
       minimum: 1,
     );
-    _parameters['amount'] = $amount;
+    _parameters['amount'] = __amount;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
-    $attendeeMap ??= '[]';
-    _parameters['attendeeMap'] = $attendeeMap;
+    var __attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    __attendeeMap ??= '[]';
+    _parameters['attendeeMap'] = __attendeeMap;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
@@ -2021,9 +2022,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2107,20 +2108,20 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(_parameters);
@@ -2144,9 +2145,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2224,23 +2225,23 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomBroadcastChatMessageApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
@@ -2265,9 +2266,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2349,21 +2350,21 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
-    _parameters['attendeeMap'] = $attendeeMap;
+    final __attendeeMap = _$jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    _parameters['attendeeMap'] = __attendeeMap;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
@@ -2388,9 +2389,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2468,18 +2469,18 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
@@ -2503,9 +2504,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2580,20 +2581,20 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomResetRequestForAssistanceApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
         .expand(_parameters);
@@ -2617,9 +2618,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2696,20 +2697,20 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
@@ -2733,9 +2734,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2810,18 +2811,18 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(_parameters);
@@ -2845,9 +2846,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2924,23 +2925,23 @@ class $BreakoutRoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $target = _$jsonSerializers.serialize(target, specifiedType: const FullType(String));
-    _parameters['target'] = $target;
+    final __target = _$jsonSerializers.serialize(target, specifiedType: const FullType(String));
+    _parameters['target'] = __target;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
         .expand(_parameters);
@@ -2964,9 +2965,9 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3050,18 +3051,18 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallGetPeersForCallApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3082,9 +3083,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3161,27 +3162,27 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    final __flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $flags,
+      __flags,
       'flags',
       maximum: 15,
       minimum: 0,
     );
-    _parameters['flags'] = $flags;
+    _parameters['flags'] = __flags;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateCallFlagsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3202,9 +3203,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3291,44 +3292,44 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    final __flags = _$jsonSerializers.serialize(flags, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $flags,
+      __flags,
       'flags',
       maximum: 15,
       minimum: 0,
     );
-    _parameters['flags'] = $flags;
+    _parameters['flags'] = __flags;
 
-    final $forcePermissions = _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(int));
+    final __forcePermissions = _$jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $forcePermissions,
+      __forcePermissions,
       'forcePermissions',
       maximum: 255,
       minimum: 0,
     );
-    _parameters['forcePermissions'] = $forcePermissions;
+    _parameters['forcePermissions'] = __forcePermissions;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(CallJoinCallSilent));
-    $silent ??= 0;
-    _parameters['silent'] = $silent;
+    var __silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(CallJoinCallSilent));
+    __silent ??= 0;
+    _parameters['silent'] = __silent;
 
-    var $recordingConsent =
+    var __recordingConsent =
         _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(CallJoinCallRecordingConsent));
-    $recordingConsent ??= 0;
-    _parameters['recordingConsent'] = $recordingConsent;
+    __recordingConsent ??= 0;
+    _parameters['recordingConsent'] = __recordingConsent;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
@@ -3351,9 +3352,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3442,21 +3443,21 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $all = _$jsonSerializers.serialize(all, specifiedType: const FullType(CallLeaveCallAll));
-    $all ??= 0;
-    _parameters['all'] = $all;
+    var __all = _$jsonSerializers.serialize(all, specifiedType: const FullType(CallLeaveCallAll));
+    __all ??= 0;
+    _parameters['all'] = __all;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3477,9 +3478,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3560,21 +3561,21 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
-    _parameters['attendeeId'] = $attendeeId;
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    _parameters['attendeeId'] = __attendeeId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallRingAttendeeApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(_parameters);
@@ -3596,9 +3597,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3681,20 +3682,20 @@ class $CallClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
-    _parameters['attendeeId'] = $attendeeId;
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    _parameters['attendeeId'] = __attendeeId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallSipDialOutApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallSipDialOutApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}')
         .expand(_parameters);
@@ -3716,9 +3717,9 @@ class $CallClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3827,78 +3828,78 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $lookIntoFuture =
+    final __lookIntoFuture =
         _$jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
-    _parameters['lookIntoFuture'] = $lookIntoFuture;
+    _parameters['lookIntoFuture'] = __lookIntoFuture;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 100;
-    _parameters['limit'] = $limit;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 100;
+    _parameters['limit'] = __limit;
 
-    var $lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
-    $lastKnownMessageId ??= 0;
+    var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    __lastKnownMessageId ??= 0;
     _i4.checkNumber(
-      $lastKnownMessageId,
+      __lastKnownMessageId,
       'lastKnownMessageId',
       minimum: 0,
     );
-    _parameters['lastKnownMessageId'] = $lastKnownMessageId;
+    _parameters['lastKnownMessageId'] = __lastKnownMessageId;
 
-    var $lastCommonReadId = _$jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
-    $lastCommonReadId ??= 0;
+    var __lastCommonReadId = _$jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
+    __lastCommonReadId ??= 0;
     _i4.checkNumber(
-      $lastCommonReadId,
+      __lastCommonReadId,
       'lastCommonReadId',
       minimum: 0,
     );
-    _parameters['lastCommonReadId'] = $lastCommonReadId;
+    _parameters['lastCommonReadId'] = __lastCommonReadId;
 
-    var $timeout = _$jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
-    $timeout ??= 30;
+    var __timeout = _$jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
+    __timeout ??= 30;
     _i4.checkNumber(
-      $timeout,
+      __timeout,
       'timeout',
       maximum: 30,
       minimum: 0,
     );
-    _parameters['timeout'] = $timeout;
+    _parameters['timeout'] = __timeout;
 
-    var $setReadMarker =
+    var __setReadMarker =
         _$jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
-    $setReadMarker ??= 1;
-    _parameters['setReadMarker'] = $setReadMarker;
+    __setReadMarker ??= 1;
+    _parameters['setReadMarker'] = __setReadMarker;
 
-    var $includeLastKnown = _$jsonSerializers.serialize(
+    var __includeLastKnown = _$jsonSerializers.serialize(
       includeLastKnown,
       specifiedType: const FullType(ChatReceiveMessagesIncludeLastKnown),
     );
-    $includeLastKnown ??= 0;
-    _parameters['includeLastKnown'] = $includeLastKnown;
+    __includeLastKnown ??= 0;
+    _parameters['includeLastKnown'] = __includeLastKnown;
 
-    var $noStatusUpdate =
+    var __noStatusUpdate =
         _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
-    $noStatusUpdate ??= 0;
-    _parameters['noStatusUpdate'] = $noStatusUpdate;
+    __noStatusUpdate ??= 0;
+    _parameters['noStatusUpdate'] = __noStatusUpdate;
 
-    var $markNotificationsAsRead = _$jsonSerializers.serialize(
+    var __markNotificationsAsRead = _$jsonSerializers.serialize(
       markNotificationsAsRead,
       specifiedType: const FullType(ChatReceiveMessagesMarkNotificationsAsRead),
     );
-    $markNotificationsAsRead ??= 1;
-    _parameters['markNotificationsAsRead'] = $markNotificationsAsRead;
+    __markNotificationsAsRead ??= 1;
+    _parameters['markNotificationsAsRead'] = __markNotificationsAsRead;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
@@ -3921,9 +3922,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4047,41 +4048,42 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
-    $actorDisplayName ??= '';
-    _parameters['actorDisplayName'] = $actorDisplayName;
+    var __actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    __actorDisplayName ??= '';
+    _parameters['actorDisplayName'] = __actorDisplayName;
 
-    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
-    $referenceId ??= '';
-    _parameters['referenceId'] = $referenceId;
+    var __referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    __referenceId ??= '';
+    _parameters['referenceId'] = __referenceId;
 
-    var $replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
-    $replyTo ??= 0;
+    var __replyTo = _$jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    __replyTo ??= 0;
     _i4.checkNumber(
-      $replyTo,
+      __replyTo,
       'replyTo',
       minimum: 0,
     );
-    _parameters['replyTo'] = $replyTo;
+    _parameters['replyTo'] = __replyTo;
 
-    var $silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(ChatSendMessageSilent));
-    $silent ??= 0;
-    _parameters['silent'] = $silent;
+    var __silent = _$jsonSerializers.serialize(silent, specifiedType: const FullType(ChatSendMessageSilent));
+    __silent ??= 0;
+    _parameters['silent'] = __silent;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
@@ -4104,9 +4106,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4203,18 +4205,18 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -4237,9 +4239,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4325,28 +4327,29 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatEditMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatEditMessageApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}{?message*}')
         .expand(_parameters);
@@ -4368,9 +4371,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4463,26 +4466,26 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(_parameters);
@@ -4504,9 +4507,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4593,36 +4596,36 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 50;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 50;
     _i4.checkNumber(
-      $limit,
+      __limit,
       'limit',
       maximum: 100,
       minimum: 1,
     );
-    _parameters['limit'] = $limit;
+    _parameters['limit'] = __limit;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetMessageContextApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
         .expand(_parameters);
@@ -4644,9 +4647,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4732,25 +4735,26 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
@@ -4774,9 +4778,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4858,33 +4862,34 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final __timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $timestamp,
+      __timestamp,
       'timestamp',
       minimum: 0,
     );
-    _parameters['timestamp'] = $timestamp;
+    _parameters['timestamp'] = __timestamp;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
@@ -4909,9 +4914,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4994,26 +4999,26 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteReminderApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder')
         .expand(_parameters);
@@ -5037,9 +5042,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5118,26 +5123,26 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $lastReadMessage = _$jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
+    final __lastReadMessage = _$jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $lastReadMessage,
+      __lastReadMessage,
       'lastReadMessage',
       minimum: 0,
     );
-    _parameters['lastReadMessage'] = $lastReadMessage;
+    _parameters['lastReadMessage'] = __lastReadMessage;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}')
         .expand(_parameters);
@@ -5159,9 +5164,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5238,17 +5243,17 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -5269,9 +5274,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5350,29 +5355,29 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    _parameters['search'] = $search;
+    final __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    _parameters['search'] = __search;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 20;
-    _parameters['limit'] = $limit;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 20;
+    _parameters['limit'] = __limit;
 
-    var $includeStatus =
+    var __includeStatus =
         _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(ChatMentionsIncludeStatus));
-    $includeStatus ??= 0;
-    _parameters['includeStatus'] = $includeStatus;
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}',
@@ -5395,9 +5400,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5485,40 +5490,40 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
-    _parameters['objectType'] = $objectType;
+    final __objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    _parameters['objectType'] = __objectType;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
-    $lastKnownMessageId ??= 0;
+    var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    __lastKnownMessageId ??= 0;
     _i4.checkNumber(
-      $lastKnownMessageId,
+      __lastKnownMessageId,
       'lastKnownMessageId',
       minimum: 0,
     );
-    _parameters['lastKnownMessageId'] = $lastKnownMessageId;
+    _parameters['lastKnownMessageId'] = __lastKnownMessageId;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 100;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 100;
     _i4.checkNumber(
-      $limit,
+      __limit,
       'limit',
       maximum: 200,
       minimum: 1,
     );
-    _parameters['limit'] = $limit;
+    _parameters['limit'] = __limit;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
@@ -5541,9 +5546,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5643,36 +5648,36 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
-    _parameters['objectType'] = $objectType;
+    final __objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    _parameters['objectType'] = __objectType;
 
-    final $objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
-    _parameters['objectId'] = $objectId;
+    final __objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    _parameters['objectId'] = __objectId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $metaData = _$jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
-    $metaData ??= '';
-    _parameters['metaData'] = $metaData;
+    var __metaData = _$jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
+    __metaData ??= '';
+    _parameters['metaData'] = __metaData;
 
-    var $actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
-    $actorDisplayName ??= '';
-    _parameters['actorDisplayName'] = $actorDisplayName;
+    var __actorDisplayName = _$jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    __actorDisplayName ??= '';
+    _parameters['actorDisplayName'] = __actorDisplayName;
 
-    var $referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
-    $referenceId ??= '';
-    _parameters['referenceId'] = $referenceId;
+    var __referenceId = _$jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    __referenceId ??= '';
+    _parameters['referenceId'] = __referenceId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatShareObjectToChatApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
@@ -5695,9 +5700,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5795,30 +5800,30 @@ class $ChatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 7;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 7;
     _i4.checkNumber(
-      $limit,
+      __limit,
       'limit',
       maximum: 20,
       minimum: 1,
     );
-    _parameters['limit'] = $limit;
+    _parameters['limit'] = __limit;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
         .expand(_parameters);
@@ -5840,9 +5845,9 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -5929,14 +5934,14 @@ class $ExternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    $token ??= '';
-    _parameters['token'] = $token;
+    var __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    __token ??= '';
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
@@ -5958,9 +5963,9 @@ class $ExternalSignalingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6047,18 +6052,18 @@ class $FederationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $id,
+      __id,
       'id',
       minimum: 0,
     );
-    _parameters['id'] = $id;
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationAcceptShareApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
@@ -6082,9 +6087,9 @@ class $FederationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6166,18 +6171,18 @@ class $FederationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $id,
+      __id,
       'id',
       minimum: 0,
     );
-    _parameters['id'] = $id;
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationRejectShareApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
@@ -6201,9 +6206,9 @@ class $FederationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6280,10 +6285,10 @@ class $FederationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationGetSharesApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -6306,9 +6311,9 @@ class $FederationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6393,20 +6398,20 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
     _i4.checkString(
-      $fileId,
+      __fileId,
       'fileId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['fileId'] = $fileId;
+    _parameters['fileId'] = __fileId;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(FilesIntegrationGetRoomByFileIdApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -6429,9 +6434,9 @@ class $FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6518,20 +6523,20 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    final __shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
     _i4.checkString(
-      $shareToken,
+      __shareToken,
       'shareToken',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['shareToken'] = $shareToken;
+    _parameters['shareToken'] = __shareToken;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(_parameters);
@@ -6553,9 +6558,9 @@ class $FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6640,13 +6645,13 @@ class $FilesIntegrationClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
-    _parameters['shareToken'] = $shareToken;
+    final __shareToken = _$jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    _parameters['shareToken'] = __shareToken;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(_parameters);
@@ -6668,9 +6673,9 @@ class $FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6758,21 +6763,21 @@ class $GuestClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
-    _parameters['displayName'] = $displayName;
+    final __displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
+    _parameters['displayName'] = __displayName;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(GuestSetDisplayNameApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}')
         .expand(_parameters);
@@ -6794,9 +6799,9 @@ class $GuestClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -6893,27 +6898,27 @@ class $HostedSignalingServerClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
-    _parameters['url'] = $url;
+    final __url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
+    _parameters['url'] = __url;
 
-    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    _parameters['name'] = $name;
+    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    _parameters['name'] = __name;
 
-    final $email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
-    _parameters['email'] = $email;
+    final __email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
+    _parameters['email'] = __email;
 
-    final $language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
-    _parameters['language'] = $language;
+    final __language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
+    _parameters['language'] = __language;
 
-    final $country = _$jsonSerializers.serialize(country, specifiedType: const FullType(String));
-    _parameters['country'] = $country;
+    final __country = _$jsonSerializers.serialize(country, specifiedType: const FullType(String));
+    _parameters['country'] = __country;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(HostedSignalingServerRequestTrialApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
@@ -6938,9 +6943,9 @@ class $HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7031,12 +7036,12 @@ class $HostedSignalingServerClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(HostedSignalingServerDeleteAccountApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(_parameters);
@@ -7059,9 +7064,9 @@ class $HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7143,14 +7148,14 @@ class $InternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    $token ??= '';
-    _parameters['token'] = $token;
+    var __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    __token ??= '';
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
@@ -7172,9 +7177,9 @@ class $InternalSignalingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7252,18 +7257,18 @@ class $InternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -7284,9 +7289,9 @@ class $InternalSignalingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7365,21 +7370,21 @@ class $InternalSignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
-    _parameters['messages'] = $messages;
+    final __messages = _$jsonSerializers.serialize(messages, specifiedType: const FullType(String));
+    _parameters['messages'] = __messages;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(_parameters);
@@ -7401,9 +7406,9 @@ class $InternalSignalingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7487,18 +7492,18 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -7521,9 +7526,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7601,19 +7606,19 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $enabled =
+    final __enabled =
         _$jsonSerializers.serialize(enabled, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomEnabled));
-    _parameters['enabled'] = $enabled;
+    _parameters['enabled'] = __enabled;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $parts = _$jsonSerializers.serialize(
+    final __parts = _$jsonSerializers.serialize(
       parts,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltList, [
@@ -7621,12 +7626,12 @@ class $MatterbridgeClient {
         ]),
       ]),
     );
-    _parameters['parts'] = $parts;
+    _parameters['parts'] = __parts;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}')
         .expand(_parameters);
@@ -7650,9 +7655,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7733,20 +7738,20 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -7769,9 +7774,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7845,20 +7850,20 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeGetBridgeProcessStateApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(_parameters);
@@ -7882,9 +7887,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -7959,12 +7964,12 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeSettingsStopAllBridgesApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -7987,9 +7992,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8065,12 +8070,12 @@ class $MatterbridgeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -8093,9 +8098,9 @@ class $MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8186,30 +8191,31 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $question = _$jsonSerializers.serialize(question, specifiedType: const FullType(String));
-    _parameters['question'] = $question;
+    final __question = _$jsonSerializers.serialize(question, specifiedType: const FullType(String));
+    _parameters['question'] = __question;
 
-    final $options = _$jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['options%5B%5D'] = $options;
+    final __options =
+        _$jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['options%5B%5D'] = __options;
 
-    final $resultMode =
+    final __resultMode =
         _$jsonSerializers.serialize(resultMode, specifiedType: const FullType(PollCreatePollResultMode));
-    _parameters['resultMode'] = $resultMode;
+    _parameters['resultMode'] = __resultMode;
 
-    final $maxVotes = _$jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
-    _parameters['maxVotes'] = $maxVotes;
+    final __maxVotes = _$jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
+    _parameters['maxVotes'] = __maxVotes;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
@@ -8232,9 +8238,9 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8322,25 +8328,25 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $pollId,
+      __pollId,
       'pollId',
       minimum: 0,
     );
-    _parameters['pollId'] = $pollId;
+    _parameters['pollId'] = __pollId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -8361,9 +8367,9 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8445,29 +8451,29 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $pollId,
+      __pollId,
       'pollId',
       minimum: 0,
     );
-    _parameters['pollId'] = $pollId;
+    _parameters['pollId'] = __pollId;
 
-    var $optionIds = _$jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    $optionIds ??= const [];
-    _parameters['optionIds%5B%5D'] = $optionIds;
+    var __optionIds = _$jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    __optionIds ??= const [];
+    _parameters['optionIds%5B%5D'] = __optionIds;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
         .expand(_parameters);
@@ -8489,9 +8495,9 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8577,25 +8583,25 @@ class $PollClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    final __pollId = _$jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $pollId,
+      __pollId,
       'pollId',
       minimum: 0,
     );
-    _parameters['pollId'] = $pollId;
+    _parameters['pollId'] = __pollId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -8616,9 +8622,9 @@ class $PollClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8710,29 +8716,29 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
-    _parameters['reaction'] = $reaction;
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionGetReactionsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
@@ -8754,9 +8760,9 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8842,28 +8848,28 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
-    _parameters['reaction'] = $reaction;
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
@@ -8885,9 +8891,9 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -8974,28 +8980,28 @@ class $ReactionClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
-    _parameters['reaction'] = $reaction;
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $messageId,
+      __messageId,
       'messageId',
       minimum: 0,
     );
-    _parameters['messageId'] = $messageId;
+    _parameters['messageId'] = __messageId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
         .expand(_parameters);
@@ -9017,9 +9023,9 @@ class $ReactionClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9109,20 +9115,20 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $status = _$jsonSerializers.serialize(status, specifiedType: const FullType(int));
-    _parameters['status'] = $status;
+    final __status = _$jsonSerializers.serialize(status, specifiedType: const FullType(int));
+    _parameters['status'] = __status;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(_parameters);
@@ -9146,9 +9152,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9225,17 +9231,17 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -9258,9 +9264,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9337,26 +9343,26 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final __timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $timestamp,
+      __timestamp,
       'timestamp',
       minimum: 0,
     );
-    _parameters['timestamp'] = $timestamp;
+    _parameters['timestamp'] = __timestamp;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
@@ -9381,9 +9387,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9465,34 +9471,34 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $fileId,
+      __fileId,
       'fileId',
       minimum: 0,
     );
-    _parameters['fileId'] = $fileId;
+    _parameters['fileId'] = __fileId;
 
-    final $timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    final __timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $timestamp,
+      __timestamp,
       'timestamp',
       minimum: 0,
     );
-    _parameters['timestamp'] = $timestamp;
+    _parameters['timestamp'] = __timestamp;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingShareToChatApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
@@ -9517,9 +9523,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9599,10 +9605,10 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingBackendApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/backend').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -9623,9 +9629,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9701,20 +9707,20 @@ class $RecordingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $owner = _$jsonSerializers.serialize(owner, specifiedType: const FullType(String));
-    _parameters['owner'] = $owner;
+    final __owner = _$jsonSerializers.serialize(owner, specifiedType: const FullType(String));
+    _parameters['owner'] = __owner;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}')
         .expand(_parameters);
@@ -9736,9 +9742,9 @@ class $RecordingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9827,28 +9833,28 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $noStatusUpdate =
+    var __noStatusUpdate =
         _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
-    $noStatusUpdate ??= 0;
-    _parameters['noStatusUpdate'] = $noStatusUpdate;
+    __noStatusUpdate ??= 0;
+    _parameters['noStatusUpdate'] = __noStatusUpdate;
 
-    var $includeStatus =
+    var __includeStatus =
         _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetRoomsIncludeStatus));
-    $includeStatus ??= 0;
-    _parameters['includeStatus'] = $includeStatus;
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
 
-    var $modifiedSince = _$jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
-    $modifiedSince ??= 0;
+    var __modifiedSince = _$jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
+    __modifiedSince ??= 0;
     _i4.checkNumber(
-      $modifiedSince,
+      __modifiedSince,
       'modifiedSince',
       minimum: 0,
     );
-    _parameters['modifiedSince'] = $modifiedSince;
+    _parameters['modifiedSince'] = __modifiedSince;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
@@ -9873,9 +9879,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -9969,32 +9975,32 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $roomType = _$jsonSerializers.serialize(roomType, specifiedType: const FullType(int));
-    _parameters['roomType'] = $roomType;
+    final __roomType = _$jsonSerializers.serialize(roomType, specifiedType: const FullType(int));
+    _parameters['roomType'] = __roomType;
 
-    var $invite = _$jsonSerializers.serialize(invite, specifiedType: const FullType(String));
-    $invite ??= '';
-    _parameters['invite'] = $invite;
+    var __invite = _$jsonSerializers.serialize(invite, specifiedType: const FullType(String));
+    __invite ??= '';
+    _parameters['invite'] = __invite;
 
-    var $roomName = _$jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
-    $roomName ??= '';
-    _parameters['roomName'] = $roomName;
+    var __roomName = _$jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
+    __roomName ??= '';
+    _parameters['roomName'] = __roomName;
 
-    var $source = _$jsonSerializers.serialize(source, specifiedType: const FullType(String));
-    $source ??= '';
-    _parameters['source'] = $source;
+    var __source = _$jsonSerializers.serialize(source, specifiedType: const FullType(String));
+    __source ??= '';
+    _parameters['source'] = __source;
 
-    var $objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
-    $objectType ??= '';
-    _parameters['objectType'] = $objectType;
+    var __objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    __objectType ??= '';
+    _parameters['objectType'] = __objectType;
 
-    var $objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
-    $objectId ??= '';
-    _parameters['objectId'] = $objectId;
+    var __objectId = _$jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    __objectId ??= '';
+    _parameters['objectId'] = __objectId;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
@@ -10019,9 +10025,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10113,14 +10119,14 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $searchTerm = _$jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
-    $searchTerm ??= '';
-    _parameters['searchTerm'] = $searchTerm;
+    var __searchTerm = _$jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
+    __searchTerm ??= '';
+    _parameters['searchTerm'] = __searchTerm;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetListedRoomsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
@@ -10144,9 +10150,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10219,10 +10225,10 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -10245,9 +10251,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10324,18 +10330,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -10356,9 +10362,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10437,18 +10443,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(_parameters);
@@ -10472,9 +10478,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10551,17 +10557,17 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -10584,9 +10590,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10661,17 +10667,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -10694,9 +10701,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10773,21 +10780,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $description = _$jsonSerializers.serialize(description, specifiedType: const FullType(String));
-    _parameters['description'] = $description;
+    final __description = _$jsonSerializers.serialize(description, specifiedType: const FullType(String));
+    _parameters['description'] = __description;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetDescriptionApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
         .expand(_parameters);
@@ -10809,9 +10816,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -10891,20 +10898,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetReadOnlyState));
-    _parameters['state'] = $state;
+    final __state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetReadOnlyState));
+    _parameters['state'] = __state;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(_parameters);
@@ -10928,9 +10936,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11010,20 +11018,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $scope = _$jsonSerializers.serialize(scope, specifiedType: const FullType(RoomSetListableScope));
-    _parameters['scope'] = $scope;
+    final __scope = _$jsonSerializers.serialize(scope, specifiedType: const FullType(RoomSetListableScope));
+    _parameters['scope'] = __scope;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(_parameters);
@@ -11047,9 +11056,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11130,20 +11139,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    _parameters['password'] = $password;
+    final __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    _parameters['password'] = __password;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion =
+        _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}')
         .expand(_parameters);
@@ -11165,9 +11175,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11250,35 +11260,35 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $permissions,
+      __permissions,
       'permissions',
       maximum: 255,
       minimum: 0,
     );
-    _parameters['permissions'] = $permissions;
+    _parameters['permissions'] = __permissions;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
+    final __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
     _i4.checkString(
-      $mode,
+      __mode,
       'mode',
       pattern: RegExp(r'^(call|default)$'),
     );
-    _parameters['mode'] = $mode;
+    _parameters['mode'] = __mode;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPermissionsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
@@ -11301,9 +11311,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11386,23 +11396,23 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $includeStatus =
+    var __includeStatus =
         _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetParticipantsIncludeStatus));
-    $includeStatus ??= 0;
-    _parameters['includeStatus'] = $includeStatus;
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetParticipantsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
         .expand(_parameters);
@@ -11424,9 +11434,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11513,25 +11523,25 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $newParticipant = _$jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
-    _parameters['newParticipant'] = $newParticipant;
+    final __newParticipant = _$jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
+    _parameters['newParticipant'] = __newParticipant;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $source = _$jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
-    $source ??= 'users';
-    _parameters['source'] = $source;
+    var __source = _$jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
+    __source ??= 'users';
+    _parameters['source'] = __source;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddParticipantToRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
@@ -11556,9 +11566,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11645,27 +11655,27 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $includeStatus = _$jsonSerializers.serialize(
+    var __includeStatus = _$jsonSerializers.serialize(
       includeStatus,
       specifiedType: const FullType(RoomGetBreakoutRoomParticipantsIncludeStatus),
     );
-    $includeStatus ??= 0;
-    _parameters['includeStatus'] = $includeStatus;
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(RoomGetBreakoutRoomParticipantsApiVersion),
     );
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
@@ -11688,9 +11698,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11773,18 +11783,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(_parameters);
@@ -11808,9 +11818,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -11890,26 +11900,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $attendeeId,
+      __attendeeId,
       'attendeeId',
       minimum: 0,
     );
-    _parameters['attendeeId'] = $attendeeId;
+    _parameters['attendeeId'] = __attendeeId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
         .expand(_parameters);
@@ -11931,9 +11941,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12021,39 +12031,39 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $attendeeId,
+      __attendeeId,
       'attendeeId',
       minimum: 0,
     );
-    _parameters['attendeeId'] = $attendeeId;
+    _parameters['attendeeId'] = __attendeeId;
 
-    final $method =
+    final __method =
         _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAttendeePermissionsMethod));
-    _parameters['method'] = $method;
+    _parameters['method'] = __method;
 
-    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $permissions,
+      __permissions,
       'permissions',
       maximum: 255,
       minimum: 0,
     );
-    _parameters['permissions'] = $permissions;
+    _parameters['permissions'] = __permissions;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
@@ -12076,9 +12086,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12168,33 +12178,33 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $method =
+    final __method =
         _$jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAllAttendeesPermissionsMethod));
-    _parameters['method'] = $method;
+    _parameters['method'] = __method;
 
-    final $permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final __permissions = _$jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $permissions,
+      __permissions,
       'permissions',
       maximum: 255,
       minimum: 0,
     );
-    _parameters['permissions'] = $permissions;
+    _parameters['permissions'] = __permissions;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(RoomSetAllAttendeesPermissionsApiVersion),
     );
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
@@ -12217,9 +12227,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12306,25 +12316,25 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    $password ??= '';
-    _parameters['password'] = $password;
+    var __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    __password ??= '';
+    _parameters['password'] = __password;
 
-    var $force = _$jsonSerializers.serialize(force, specifiedType: const FullType(RoomJoinRoomForce));
-    $force ??= 1;
-    _parameters['force'] = $force;
+    var __force = _$jsonSerializers.serialize(force, specifiedType: const FullType(RoomJoinRoomForce));
+    __force ??= 1;
+    _parameters['force'] = __force;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
@@ -12347,9 +12357,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12431,17 +12441,17 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active')
         .expand(_parameters);
@@ -12463,9 +12473,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12541,26 +12551,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $attendeeId,
+      __attendeeId,
       'attendeeId',
       minimum: 0,
     );
-    _parameters['attendeeId'] = $attendeeId;
+    _parameters['attendeeId'] = __attendeeId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomResendInvitationsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
@@ -12585,9 +12595,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12668,21 +12678,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetSessionStateState));
-    _parameters['state'] = $state;
+    final __state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetSessionStateState));
+    _parameters['state'] = __state;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetSessionStateApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
         .expand(_parameters);
@@ -12704,9 +12714,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12789,26 +12799,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $attendeeId,
+      __attendeeId,
       'attendeeId',
       minimum: 0,
     );
-    _parameters['attendeeId'] = $attendeeId;
+    _parameters['attendeeId'] = __attendeeId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomPromoteModeratorApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
@@ -12830,9 +12840,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -12916,26 +12926,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $attendeeId,
+      __attendeeId,
       'attendeeId',
       minimum: 0,
     );
-    _parameters['attendeeId'] = $attendeeId;
+    _parameters['attendeeId'] = __attendeeId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
         .expand(_parameters);
@@ -12957,9 +12967,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13038,18 +13048,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddToFavoritesApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -13072,9 +13082,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13147,18 +13157,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -13181,9 +13191,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13259,21 +13269,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
-    _parameters['level'] = $level;
+    final __level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    _parameters['level'] = __level;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationLevelApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(_parameters);
@@ -13297,9 +13307,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13379,21 +13389,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
-    _parameters['level'] = $level;
+    final __level = _$jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    _parameters['level'] = __level;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationCallsApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}')
         .expand(_parameters);
@@ -13417,9 +13427,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13500,28 +13510,28 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(int));
-    _parameters['state'] = $state;
+    final __state = _$jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    _parameters['state'] = __state;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $timer = _$jsonSerializers.serialize(timer, specifiedType: const FullType(int));
+    final __timer = _$jsonSerializers.serialize(timer, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $timer,
+      __timer,
       'timer',
       minimum: 0,
     );
-    _parameters['timer'] = $timer;
+    _parameters['timer'] = __timer;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
         .expand(_parameters);
@@ -13545,9 +13555,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13633,21 +13643,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetsipEnabledState));
-    _parameters['state'] = $state;
+    final __state = _$jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetsipEnabledState));
+    _parameters['state'] = __state;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}')
         .expand(_parameters);
@@ -13671,9 +13681,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13757,21 +13767,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $recordingConsent = _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
-    _parameters['recordingConsent'] = $recordingConsent;
+    final __recordingConsent = _$jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    _parameters['recordingConsent'] = __recordingConsent;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetRecordingConsentApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
@@ -13796,9 +13806,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -13879,26 +13889,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $seconds = _$jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
+    final __seconds = _$jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $seconds,
+      __seconds,
       'seconds',
       minimum: 0,
     );
-    _parameters['seconds'] = $seconds;
+    _parameters['seconds'] = __seconds;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMessageExpirationApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
         .expand(_parameters);
@@ -13920,9 +13930,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14001,18 +14011,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetCapabilitiesApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/capabilities').expand(_parameters);
@@ -14034,9 +14044,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14115,18 +14125,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinFederatedRoomApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/federation/active').expand(_parameters);
@@ -14148,9 +14158,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14232,26 +14242,26 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
+    final __pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
     _i4.checkString(
-      $pin,
+      __pin,
       'pin',
       pattern: RegExp(r'^\d{7,32}$'),
     );
-    _parameters['pin'] = $pin;
+    _parameters['pin'] = __pin;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinDeprecatedApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/pin/{pin}').expand(_parameters);
@@ -14273,9 +14283,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14359,21 +14369,21 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
-    _parameters['pin'] = $pin;
+    final __pin = _$jsonSerializers.serialize(pin, specifiedType: const FullType(String));
+    _parameters['pin'] = __pin;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialInPinApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialin{?pin*}')
         .expand(_parameters);
@@ -14395,9 +14405,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14484,27 +14494,27 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $number = _$jsonSerializers.serialize(number, specifiedType: const FullType(String));
-    _parameters['number'] = $number;
+    final __number = _$jsonSerializers.serialize(number, specifiedType: const FullType(String));
+    _parameters['number'] = __number;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $options = _$jsonSerializers.serialize(
+    final __options = _$jsonSerializers.serialize(
       options,
       specifiedType: const FullType(ContentString, [FullType(RoomVerifyDialOutNumberOptions)]),
     );
-    _parameters['options'] = $options;
+    _parameters['options'] = __options;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomVerifyDialOutNumberApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/verify-dialout{?number*,options*}')
@@ -14527,9 +14537,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14614,18 +14624,18 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateGuestByDialInApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/open-dial-in').expand(_parameters);
@@ -14647,9 +14657,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14732,27 +14742,27 @@ class $RoomClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $callId = _$jsonSerializers.serialize(callId, specifiedType: const FullType(String));
-    _parameters['callId'] = $callId;
+    final __callId = _$jsonSerializers.serialize(callId, specifiedType: const FullType(String));
+    _parameters['callId'] = __callId;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
     _i4.checkString(
-      $token,
+      __token,
       'token',
       pattern: RegExp(r'^[a-z0-9]{4,30}$'),
     );
-    _parameters['token'] = $token;
+    _parameters['token'] = __token;
 
-    final $options = _$jsonSerializers.serialize(
+    final __options = _$jsonSerializers.serialize(
       options,
       specifiedType: const FullType(ContentString, [FullType(RoomRejectedDialOutRequestOptions)]),
     );
-    _parameters['options'] = $options;
+    _parameters['options'] = __options;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRejectedDialOutRequestApiVersion));
-    $apiVersion ??= 'v4';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v4';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout{?callId*,options*}')
@@ -14775,9 +14785,9 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14870,16 +14880,16 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
-    _parameters['key'] = $key;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
+    _parameters['key'] = __key;
 
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
-    _parameters['value'] = $value;
+    final __value = _$jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
+    _parameters['value'] = __value;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(_parameters);
@@ -14903,9 +14913,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -14982,10 +14992,10 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -15008,9 +15018,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15085,15 +15095,15 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
-    _parameters['host'] = $host;
+    final __host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
+    _parameters['host'] = __host;
 
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
     );
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
@@ -15117,9 +15127,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15201,18 +15211,18 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    final __serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $serverId,
+      __serverId,
       'serverId',
       minimum: 0,
     );
-    _parameters['serverId'] = $serverId;
+    _parameters['serverId'] = __serverId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(_parameters);
@@ -15236,9 +15246,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15321,23 +15331,23 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $sipGroups =
+    var __sipGroups =
         _$jsonSerializers.serialize(sipGroups, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $sipGroups ??= const [];
-    _parameters['sipGroups%5B%5D'] = $sipGroups;
+    __sipGroups ??= const [];
+    _parameters['sipGroups%5B%5D'] = __sipGroups;
 
-    var $dialInInfo = _$jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
-    $dialInInfo ??= '';
-    _parameters['dialInInfo'] = $dialInInfo;
+    var __dialInInfo = _$jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
+    __dialInInfo ??= '';
+    _parameters['dialInInfo'] = __dialInInfo;
 
-    var $sharedSecret = _$jsonSerializers.serialize(sharedSecret, specifiedType: const FullType(String));
-    $sharedSecret ??= '';
-    _parameters['sharedSecret'] = $sharedSecret;
+    var __sharedSecret = _$jsonSerializers.serialize(sharedSecret, specifiedType: const FullType(String));
+    __sharedSecret ??= '';
+    _parameters['sharedSecret'] = __sharedSecret;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetsipSettingsApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate(
       '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
@@ -15362,9 +15372,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15450,18 +15460,18 @@ class $SettingsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    final __serverId = _$jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
     _i4.checkNumber(
-      $serverId,
+      __serverId,
       'serverId',
       minimum: 0,
     );
-    _parameters['serverId'] = $serverId;
+    _parameters['serverId'] = __serverId;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(_parameters);
@@ -15485,9 +15495,9 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15571,10 +15581,10 @@ class $SignalingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingBackendApiVersion));
-    $apiVersion ??= 'v3';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v3';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/backend').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -15595,9 +15605,9 @@ class $SignalingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15691,9 +15701,9 @@ class $UserAvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -15776,9 +15786,9 @@ class $UserAvatarClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

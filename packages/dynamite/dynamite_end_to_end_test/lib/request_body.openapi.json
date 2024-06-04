@@ -33,6 +33,15 @@
                         }
                     }
                 },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
                 "responses": {
                     "default": {
                         "description": ""

@@ -263,11 +263,10 @@ Iterable<Method> buildTags(
 
           bodyParameter = (mimeType: mimeType, result: result);
 
-          final parameterName = toDartName(result.name);
           operationParameters.add(
             Parameter(
               (b) => b
-                ..name = parameterName
+                ..name = r'$body'
                 ..type = refer(result.nullableName)
                 ..named = true
                 ..required = dartParameterRequired,
@@ -555,7 +554,7 @@ String buildParameterSerialization(
   String Function(Reference) allocate,
 ) {
   final dartName = toDartName(parameter.name);
-  final serializedName = '\$$dartName';
+  final serializedName = '__$dartName';
   final buffer = StringBuffer();
 
   final $default = parameter.schema?.$default;

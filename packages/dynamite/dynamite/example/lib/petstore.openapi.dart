@@ -85,11 +85,11 @@ class $Client extends _i1.DynamiteClient {
     int? limit,
   }) {
     final _parameters = <String, Object?>{};
-    final $tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['tags'] = $tags;
+    final __tags = _$jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['tags'] = __tags;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
     final _path = _i4.UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -156,13 +156,13 @@ class $Client extends _i1.DynamiteClient {
   ///  * [addPet] for a method executing this request and parsing the response.
   ///  * [$addPet_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $addPet_Request({required NewPet newPet}) {
+  _i3.Request $addPet_Request({required NewPet $body}) {
     const _path = '/pets';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(_$jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet)));
+    _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(NewPet)));
     return _request;
   }
 
@@ -178,9 +178,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$addPet_Request] for the request send by this method.
   ///  * [$addPet_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet newPet}) async {
+  Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet $body}) async {
     final _request = $addPet_Request(
-      newPet: newPet,
+      $body: $body,
     );
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -217,8 +217,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $findPetById_Request({required int id}) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i4.UriTemplate('/pets/{id}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -281,8 +281,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deletePet_Request({required int id}) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i4.UriTemplate('/pets/{id}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');

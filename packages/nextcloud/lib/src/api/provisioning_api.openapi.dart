@@ -113,9 +113,9 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -182,8 +182,8 @@ class $AppConfigClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -206,9 +206,9 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -286,14 +286,14 @@ class $AppConfigClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
+    final __value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
+    _parameters['value'] = __value;
 
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    _parameters['key'] = __key;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}')
         .expand(_parameters);
@@ -317,9 +317,9 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -404,8 +404,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
-    _parameters['filter'] = $filter;
+    final __filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
+    _parameters['filter'] = __filter;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -428,9 +428,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -502,8 +502,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -526,9 +526,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -600,8 +600,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -624,9 +624,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -698,8 +698,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -722,9 +722,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -804,13 +804,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -833,9 +833,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -909,16 +909,16 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -941,9 +941,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1018,13 +1018,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1047,9 +1047,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1122,16 +1122,16 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1154,9 +1154,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1232,13 +1232,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1261,9 +1261,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1339,24 +1339,24 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}')
         .expand(_parameters);
@@ -1380,9 +1380,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1471,14 +1471,14 @@ class $PreferencesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configValue = _$jsonSerializers.serialize(configValue, specifiedType: const FullType(String));
-    _parameters['configValue'] = $configValue;
+    final __configValue = _$jsonSerializers.serialize(configValue, specifiedType: const FullType(String));
+    _parameters['configValue'] = __configValue;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
-    _parameters['configKey'] = $configKey;
+    final __configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
+    _parameters['configKey'] = __configKey;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
@@ -1503,9 +1503,9 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1583,11 +1583,11 @@ class $PreferencesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
-    _parameters['configKey'] = $configKey;
+    final __configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
+    _parameters['configKey'] = __configKey;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}')
         .expand(_parameters);
@@ -1611,9 +1611,9 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1688,16 +1688,16 @@ class $PreferencesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configs = _$jsonSerializers.serialize(
+    final __configs = _$jsonSerializers.serialize(
       configs,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
-    _parameters['configs'] = $configs;
+    _parameters['configs'] = __configs;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
@@ -1721,9 +1721,9 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1799,12 +1799,12 @@ class $PreferencesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configKeys =
+    final __configKeys =
         _$jsonSerializers.serialize(configKeys, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['configKeys%5B%5D'] = $configKeys;
+    _parameters['configKeys%5B%5D'] = __configKeys;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
         .expand(_parameters);
@@ -1828,9 +1828,9 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1913,8 +1913,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1937,9 +1937,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2014,11 +2014,11 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    _parameters['groupid'] = __groupid;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2041,9 +2041,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2122,11 +2122,11 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    _parameters['groupid'] = __groupid;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2149,9 +2149,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2228,16 +2228,16 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2260,9 +2260,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2354,39 +2354,40 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userid = _$jsonSerializers.serialize(userid, specifiedType: const FullType(String));
-    _parameters['userid'] = $userid;
+    final __userid = _$jsonSerializers.serialize(userid, specifiedType: const FullType(String));
+    _parameters['userid'] = __userid;
 
-    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    $password ??= '';
-    _parameters['password'] = $password;
+    var __password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    __password ??= '';
+    _parameters['password'] = __password;
 
-    var $displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
-    $displayName ??= '';
-    _parameters['displayName'] = $displayName;
+    var __displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
+    __displayName ??= '';
+    _parameters['displayName'] = __displayName;
 
-    var $email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
-    $email ??= '';
-    _parameters['email'] = $email;
+    var __email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
+    __email ??= '';
+    _parameters['email'] = __email;
 
-    var $groups = _$jsonSerializers.serialize(groups, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $groups ??= const [];
-    _parameters['groups%5B%5D'] = $groups;
+    var __groups = _$jsonSerializers.serialize(groups, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    __groups ??= const [];
+    _parameters['groups%5B%5D'] = __groups;
 
-    var $subadmin = _$jsonSerializers.serialize(subadmin, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $subadmin ??= const [];
-    _parameters['subadmin%5B%5D'] = $subadmin;
+    var __subadmin =
+        _$jsonSerializers.serialize(subadmin, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    __subadmin ??= const [];
+    _parameters['subadmin%5B%5D'] = __subadmin;
 
-    var $quota = _$jsonSerializers.serialize(quota, specifiedType: const FullType(String));
-    $quota ??= '';
-    _parameters['quota'] = $quota;
+    var __quota = _$jsonSerializers.serialize(quota, specifiedType: const FullType(String));
+    __quota ??= '';
+    _parameters['quota'] = __quota;
 
-    var $language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
-    $language ??= '';
-    _parameters['language'] = $language;
+    var __language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
+    __language ??= '';
+    _parameters['language'] = __language;
 
-    final $manager = _$jsonSerializers.serialize(manager, specifiedType: const FullType(String));
-    _parameters['manager'] = $manager;
+    final __manager = _$jsonSerializers.serialize(manager, specifiedType: const FullType(String));
+    _parameters['manager'] = __manager;
 
     final _path = _i6.UriTemplate(
       '/ocs/v2.php/cloud/users{?userid*,password*,displayName*,email*,groups%5B%5D*,subadmin%5B%5D*,quota*,language*,manager*}',
@@ -2411,9 +2412,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2512,16 +2513,16 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
+    var __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    __search ??= '';
+    _parameters['search'] = __search;
 
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2544,9 +2545,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2622,12 +2623,12 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2650,9 +2651,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2726,10 +2727,10 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $location = _$jsonSerializers.serialize(location, specifiedType: const FullType(String));
-    _parameters['location'] = $location;
+    final __location = _$jsonSerializers.serialize(location, specifiedType: const FullType(String));
+    _parameters['location'] = __location;
 
-    final $search = _$jsonSerializers.serialize(
+    final __search = _$jsonSerializers.serialize(
       search,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [
@@ -2738,7 +2739,7 @@ class $UsersClient {
         ]),
       ]),
     );
-    _parameters['search'] = $search;
+    _parameters['search'] = __search;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2761,9 +2762,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2834,8 +2835,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2858,9 +2859,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2933,14 +2934,14 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    _parameters['key'] = __key;
 
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
+    final __value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
+    _parameters['value'] = __value;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2963,9 +2964,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3043,8 +3044,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3067,9 +3068,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3155,9 +3156,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3238,9 +3239,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3305,8 +3306,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3329,9 +3330,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3407,22 +3408,22 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    _parameters['key'] = __key;
 
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
+    final __value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
+    _parameters['value'] = __value;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
+    final __collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
     _i5.checkString(
-      $collectionName,
+      __collectionName,
       'collectionName',
       pattern: RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
     );
-    _parameters['collectionName'] = $collectionName;
+    _parameters['collectionName'] = __collectionName;
 
     final _path =
         _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
@@ -3446,9 +3447,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3529,8 +3530,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3553,9 +3554,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3627,8 +3628,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3651,9 +3652,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3725,8 +3726,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3749,9 +3750,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3821,8 +3822,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3845,9 +3846,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3919,12 +3920,12 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    var $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    $groupid ??= '';
-    _parameters['groupid'] = $groupid;
+    var __groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    __groupid ??= '';
+    _parameters['groupid'] = __groupid;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3947,9 +3948,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4026,11 +4027,11 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
+    _parameters['groupid'] = __groupid;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -4053,9 +4054,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4130,8 +4131,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -4154,9 +4155,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

@@ -96,8 +96,8 @@ class $HeartbeatClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
-    _parameters['status'] = $status;
+    final __status = _$jsonSerializers.serialize(status, specifiedType: const FullType(String));
+    _parameters['status'] = __status;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -120,9 +120,9 @@ class $HeartbeatClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -216,9 +216,9 @@ class $PredefinedStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -291,11 +291,11 @@ class $StatusesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
 
-    final $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    _parameters['offset'] = $offset;
+    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _parameters['offset'] = __offset;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -318,9 +318,9 @@ class $StatusesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -391,8 +391,8 @@ class $StatusesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -415,9 +415,9 @@ class $StatusesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -510,9 +510,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -579,8 +579,8 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $statusType = _$jsonSerializers.serialize(statusType, specifiedType: const FullType(String));
-    _parameters['statusType'] = $statusType;
+    final __statusType = _$jsonSerializers.serialize(statusType, specifiedType: const FullType(String));
+    _parameters['statusType'] = __statusType;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(_parameters);
@@ -604,9 +604,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -678,11 +678,11 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
-    _parameters['messageId'] = $messageId;
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
+    _parameters['messageId'] = __messageId;
 
-    final $clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    _parameters['clearAt'] = $clearAt;
+    final __clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
+    _parameters['clearAt'] = __clearAt;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
@@ -707,9 +707,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -786,14 +786,14 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $statusIcon = _$jsonSerializers.serialize(statusIcon, specifiedType: const FullType(String));
-    _parameters['statusIcon'] = $statusIcon;
+    final __statusIcon = _$jsonSerializers.serialize(statusIcon, specifiedType: const FullType(String));
+    _parameters['statusIcon'] = __statusIcon;
 
-    final $message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    _parameters['message'] = $message;
+    final __message = _$jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    _parameters['message'] = __message;
 
-    final $clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    _parameters['clearAt'] = $clearAt;
+    final __clearAt = _$jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
+    _parameters['clearAt'] = __clearAt;
 
     final _path = _i4.UriTemplate(
       '/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}',
@@ -818,9 +818,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -911,9 +911,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -978,8 +978,8 @@ class $UserStatusClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
-    _parameters['messageId'] = $messageId;
+    final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
+    _parameters['messageId'] = __messageId;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
@@ -1003,9 +1003,9 @@ class $UserStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

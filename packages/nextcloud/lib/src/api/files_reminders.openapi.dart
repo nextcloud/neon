@@ -88,16 +88,16 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -120,9 +120,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -200,19 +200,19 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
-    _parameters['dueDate'] = $dueDate;
+    final __dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
+    _parameters['dueDate'] = __dueDate;
 
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
@@ -236,9 +236,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -318,16 +318,16 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -350,9 +350,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

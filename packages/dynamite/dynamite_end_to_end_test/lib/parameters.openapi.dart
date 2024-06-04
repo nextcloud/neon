@@ -93,63 +93,64 @@ class $Client extends _i1.DynamiteClient {
     GetEnumPattern? enumPattern,
   }) {
     final _parameters = <String, Object?>{};
-    final $contentString = _$jsonSerializers.serialize(
+    final __contentString = _$jsonSerializers.serialize(
       contentString,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    _parameters['content_string'] = $contentString;
+    _parameters['content_string'] = __contentString;
 
-    final $contentParameter = _$jsonSerializers.serialize(
+    final __contentParameter = _$jsonSerializers.serialize(
       contentParameter,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    _parameters['content_parameter'] = $contentParameter;
+    _parameters['content_parameter'] = __contentParameter;
 
-    final $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
-    _parameters['array'] = $array;
+    final __array =
+        _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    _parameters['array'] = __array;
 
-    final $arrayString =
+    final __arrayString =
         _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['array_string'] = $arrayString;
+    _parameters['array_string'] = __arrayString;
 
-    final $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
-    _parameters['bool'] = $$bool;
+    final __$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
+    _parameters['bool'] = __$bool;
 
-    final $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
-    _parameters['string'] = $string;
+    final __string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
+    _parameters['string'] = __string;
 
-    final $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
-    _parameters['string_binary'] = $stringBinary;
+    final __stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    _parameters['string_binary'] = __stringBinary;
 
-    final $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
-    _parameters['int'] = $$int;
+    final __$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
+    _parameters['int'] = __$int;
 
-    final $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
-    _parameters['double'] = $$double;
+    final __$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
+    _parameters['double'] = __$double;
 
-    final $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
-    _parameters['num'] = $$num;
+    final __$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
+    _parameters['num'] = __$num;
 
-    final $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
-    _parameters['object'] = $object;
+    final __object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    _parameters['object'] = __object;
 
-    final $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
-    _parameters['oneOf'] = $oneOf;
+    final __oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
+    _parameters['oneOf'] = __oneOf;
 
-    final $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
-    _parameters['anyOf'] = $anyOf;
+    final __anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
+    _parameters['anyOf'] = __anyOf;
 
-    final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
+    final __enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
     _i4.checkString(
-      $enumPattern,
+      __enumPattern,
       'enumPattern',
       pattern: RegExp('[a-z]'),
     );
-    _parameters['enum_pattern'] = $enumPattern;
+    _parameters['enum_pattern'] = __enumPattern;
 
     final _path = _i5.UriTemplate(
       '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
@@ -277,81 +278,81 @@ class $Client extends _i1.DynamiteClient {
     GetDefaultsEnumPattern? enumPattern,
   }) {
     final _parameters = <String, Object?>{};
-    var $contentString = _$jsonSerializers.serialize(
+    var __contentString = _$jsonSerializers.serialize(
       contentString,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    $contentString ??= '"{}"';
-    _parameters['content_string'] = $contentString;
+    __contentString ??= '"{}"';
+    _parameters['content_string'] = __contentString;
 
-    final $contentParameter = _$jsonSerializers.serialize(
+    final __contentParameter = _$jsonSerializers.serialize(
       contentParameter,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    _parameters['content_parameter'] = $contentParameter;
+    _parameters['content_parameter'] = __contentParameter;
 
-    var $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
-    $array ??= const ['default-item', true, 1.0];
-    _parameters['array'] = $array;
+    var __array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    __array ??= const ['default-item', true, 1.0];
+    _parameters['array'] = __array;
 
-    var $arrayString =
+    var __arrayString =
         _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $arrayString ??= const ['default-item', 'item'];
-    _parameters['array_string'] = $arrayString;
+    __arrayString ??= const ['default-item', 'item'];
+    _parameters['array_string'] = __arrayString;
 
-    var $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
-    $$bool ??= true;
-    _parameters['bool'] = $$bool;
+    var __$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
+    __$bool ??= true;
+    _parameters['bool'] = __$bool;
 
-    var $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
-    $string ??= 'default';
-    _parameters['string'] = $string;
+    var __string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
+    __string ??= 'default';
+    _parameters['string'] = __string;
 
-    var $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
-    $stringBinary ??= '';
-    _parameters['string_binary'] = $stringBinary;
+    var __stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    __stringBinary ??= '';
+    _parameters['string_binary'] = __stringBinary;
 
-    var $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
-    $$int ??= 1;
-    _parameters['int'] = $$int;
+    var __$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
+    __$int ??= 1;
+    _parameters['int'] = __$int;
 
-    var $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
-    $$double ??= 1.0;
-    _parameters['double'] = $$double;
+    var __$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
+    __$double ??= 1.0;
+    _parameters['double'] = __$double;
 
-    var $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
-    $$num ??= 0;
-    _parameters['num'] = $$num;
+    var __$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
+    __$num ??= 0;
+    _parameters['num'] = __$num;
 
-    var $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
-    $object ??= const {
+    var __object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    __object ??= const {
       'list': ['list'],
       'string': 'default-item',
       'bool': true,
       'num': 1.0,
     };
-    _parameters['object'] = $object;
+    _parameters['object'] = __object;
 
-    var $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetDefaultsOneOf));
-    $oneOf ??= false;
-    _parameters['oneOf'] = $oneOf;
+    var __oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetDefaultsOneOf));
+    __oneOf ??= false;
+    _parameters['oneOf'] = __oneOf;
 
-    var $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetDefaultsAnyOf));
-    $anyOf ??= 'default-value';
-    _parameters['anyOf'] = $anyOf;
+    var __anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetDefaultsAnyOf));
+    __anyOf ??= 'default-value';
+    _parameters['anyOf'] = __anyOf;
 
-    var $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetDefaultsEnumPattern));
-    $enumPattern ??= 'a';
+    var __enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetDefaultsEnumPattern));
+    __enumPattern ??= 'a';
     _i4.checkString(
-      $enumPattern,
+      __enumPattern,
       'enumPattern',
       pattern: RegExp('[a-z]'),
     );
-    _parameters['enum_pattern'] = $enumPattern;
+    _parameters['enum_pattern'] = __enumPattern;
 
     final _path = _i5.UriTemplate(
       '/defaults{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
@@ -482,90 +483,92 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-    final $contentString = _$jsonSerializers.serialize(
+    final __contentString = _$jsonSerializers.serialize(
       contentString,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    if ($contentString != null) {
-      _request.headers['content_string'] = const _i4.HeaderEncoder().convert($contentString);
+    if (__contentString != null) {
+      _request.headers['content_string'] = const _i4.HeaderEncoder().convert(__contentString);
     }
 
-    final $contentParameter = _$jsonSerializers.serialize(
+    final __contentParameter = _$jsonSerializers.serialize(
       contentParameter,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    if ($contentParameter != null) {
-      _request.headers['content_parameter'] = const _i4.HeaderEncoder().convert($contentParameter);
+    if (__contentParameter != null) {
+      _request.headers['content_parameter'] = const _i4.HeaderEncoder().convert(__contentParameter);
     }
 
-    final $array = _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
-    if ($array != null) {
-      _request.headers['array'] = const _i4.HeaderEncoder().convert($array);
+    final __array =
+        _$jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
+    if (__array != null) {
+      _request.headers['array'] = const _i4.HeaderEncoder().convert(__array);
     }
 
-    final $arrayString =
+    final __arrayString =
         _$jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    if ($arrayString != null) {
-      _request.headers['array_string'] = const _i4.HeaderEncoder().convert($arrayString);
+    if (__arrayString != null) {
+      _request.headers['array_string'] = const _i4.HeaderEncoder().convert(__arrayString);
     }
 
-    final $$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
-    if ($$bool != null) {
-      _request.headers['bool'] = const _i4.HeaderEncoder().convert($$bool);
+    final __$bool = _$jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
+    if (__$bool != null) {
+      _request.headers['bool'] = const _i4.HeaderEncoder().convert(__$bool);
     }
 
-    final $string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
-    if ($string != null) {
-      _request.headers['string'] = const _i4.HeaderEncoder().convert($string);
+    final __string = _$jsonSerializers.serialize(string, specifiedType: const FullType(String));
+    if (__string != null) {
+      _request.headers['string'] = const _i4.HeaderEncoder().convert(__string);
     }
 
-    final $stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
-    if ($stringBinary != null) {
-      _request.headers['string_binary'] = const _i4.HeaderEncoder().convert($stringBinary);
+    final __stringBinary = _$jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    if (__stringBinary != null) {
+      _request.headers['string_binary'] = const _i4.HeaderEncoder().convert(__stringBinary);
     }
 
-    final $$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
-    if ($$int != null) {
-      _request.headers['int'] = const _i4.HeaderEncoder().convert($$int);
+    final __$int = _$jsonSerializers.serialize($int, specifiedType: const FullType(int));
+    if (__$int != null) {
+      _request.headers['int'] = const _i4.HeaderEncoder().convert(__$int);
     }
 
-    final $$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
-    if ($$double != null) {
-      _request.headers['double'] = const _i4.HeaderEncoder().convert($$double);
+    final __$double = _$jsonSerializers.serialize($double, specifiedType: const FullType(double));
+    if (__$double != null) {
+      _request.headers['double'] = const _i4.HeaderEncoder().convert(__$double);
     }
 
-    final $$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
-    if ($$num != null) {
-      _request.headers['num'] = const _i4.HeaderEncoder().convert($$num);
+    final __$num = _$jsonSerializers.serialize($num, specifiedType: const FullType(num));
+    if (__$num != null) {
+      _request.headers['num'] = const _i4.HeaderEncoder().convert(__$num);
     }
 
-    final $object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
-    if ($object != null) {
-      _request.headers['object'] = const _i4.HeaderEncoder().convert($object);
+    final __object = _$jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    if (__object != null) {
+      _request.headers['object'] = const _i4.HeaderEncoder().convert(__object);
     }
 
-    final $oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
-    if ($oneOf != null) {
-      _request.headers['oneOf'] = const _i4.HeaderEncoder().convert($oneOf);
+    final __oneOf = _$jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
+    if (__oneOf != null) {
+      _request.headers['oneOf'] = const _i4.HeaderEncoder().convert(__oneOf);
     }
 
-    final $anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
-    if ($anyOf != null) {
-      _request.headers['anyOf'] = const _i4.HeaderEncoder().convert($anyOf);
+    final __anyOf = _$jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
+    if (__anyOf != null) {
+      _request.headers['anyOf'] = const _i4.HeaderEncoder().convert(__anyOf);
     }
 
-    final $enumPattern = _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
+    final __enumPattern =
+        _$jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
     _i4.checkString(
-      $enumPattern,
+      __enumPattern,
       'enumPattern',
       pattern: RegExp('[a-z]'),
     );
-    if ($enumPattern != null) {
-      _request.headers['enum_pattern'] = const _i4.HeaderEncoder().convert($enumPattern);
+    if (__enumPattern != null) {
+      _request.headers['enum_pattern'] = const _i4.HeaderEncoder().convert(__enumPattern);
     }
 
     return _request;
@@ -657,8 +660,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $getPathParameter_Request({required String pathParameter}) {
     final _parameters = <String, Object?>{};
-    final $pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
-    _parameters['path_parameter'] = $pathParameter;
+    final __pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
+    _parameters['path_parameter'] = __pathParameter;
 
     final _path = _i5.UriTemplate('/{path_parameter}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -715,31 +718,31 @@ class $Client extends _i1.DynamiteClient {
     required String headers,
   }) {
     final _parameters = <String, Object?>{};
-    final $jsonSerializers = _$jsonSerializers.serialize(jsonSerializers, specifiedType: const FullType(String));
-    _parameters['%24jsonSerializers'] = $jsonSerializers;
+    final __jsonSerializers = _$jsonSerializers.serialize(jsonSerializers, specifiedType: const FullType(String));
+    _parameters['%24jsonSerializers'] = __jsonSerializers;
 
     final _path = _i5.UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
-    final $serializers = _$jsonSerializers.serialize(serializers, specifiedType: const FullType(String));
-    if ($serializers != null) {
-      _request.headers['%24serializers'] = const _i4.HeaderEncoder().convert($serializers);
+    final __serializers = _$jsonSerializers.serialize(serializers, specifiedType: const FullType(String));
+    if (__serializers != null) {
+      _request.headers['%24serializers'] = const _i4.HeaderEncoder().convert(__serializers);
     }
 
-    final $body = _$jsonSerializers.serialize(body, specifiedType: const FullType(String));
-    if ($body != null) {
-      _request.headers['_body'] = const _i4.HeaderEncoder().convert($body);
+    final __body = _$jsonSerializers.serialize(body, specifiedType: const FullType(String));
+    if (__body != null) {
+      _request.headers['_body'] = const _i4.HeaderEncoder().convert(__body);
     }
 
-    final $parameters = _$jsonSerializers.serialize(parameters, specifiedType: const FullType(String));
-    if ($parameters != null) {
-      _request.headers['_parameters'] = const _i4.HeaderEncoder().convert($parameters);
+    final __parameters = _$jsonSerializers.serialize(parameters, specifiedType: const FullType(String));
+    if (__parameters != null) {
+      _request.headers['_parameters'] = const _i4.HeaderEncoder().convert(__parameters);
     }
 
-    final $headers = _$jsonSerializers.serialize(headers, specifiedType: const FullType(String));
-    if ($headers != null) {
-      _request.headers['_headers'] = const _i4.HeaderEncoder().convert($headers);
+    final __headers = _$jsonSerializers.serialize(headers, specifiedType: const FullType(String));
+    if (__headers != null) {
+      _request.headers['_headers'] = const _i4.HeaderEncoder().convert(__headers);
     }
 
     return _request;

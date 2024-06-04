@@ -92,21 +92,21 @@ class $PreviewClient {
     PreviewGetPreviewA? a,
   }) {
     final _parameters = <String, Object?>{};
-    var $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    $fileId ??= -1;
-    _parameters['fileId'] = $fileId;
+    var __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    __fileId ??= -1;
+    _parameters['fileId'] = __fileId;
 
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 32;
-    _parameters['x'] = $x;
+    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    __x ??= 32;
+    _parameters['x'] = __x;
 
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 32;
-    _parameters['y'] = $y;
+    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    __y ??= 32;
+    _parameters['y'] = __y;
 
-    var $a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
-    $a ??= 0;
-    _parameters['a'] = $a;
+    var __a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
+    __a ??= 0;
+    _parameters['a'] = __a;
 
     final _path = _i4.UriTemplate('/index.php/apps/files_trashbin/preview{?fileId*,x*,y*,a*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');

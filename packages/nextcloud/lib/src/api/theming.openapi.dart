@@ -92,9 +92,9 @@ class $IconClient {
   @_i2.experimental
   _i3.Request $getFavicon_Request({String? app}) {
     final _parameters = <String, Object?>{};
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
+    var __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    __app ??= 'core';
+    _parameters['app'] = __app;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/favicon/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -174,9 +174,9 @@ class $IconClient {
   @_i2.experimental
   _i3.Request $getTouchIcon_Request({String? app}) {
     final _parameters = <String, Object?>{};
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
+    var __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    __app ??= 'core';
+    _parameters['app'] = __app;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/icon/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -260,16 +260,16 @@ class $IconClient {
     required String image,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
-    final $image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
+    final __image = _$jsonSerializers.serialize(image, specifiedType: const FullType(String));
     _i6.checkString(
-      $image,
+      __image,
       'image',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['image'] = $image;
+    _parameters['image'] = __image;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -368,19 +368,19 @@ class $ThemingClient {
     ThemingGetThemeStylesheetWithCustomCss? withCustomCss,
   }) {
     final _parameters = <String, Object?>{};
-    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
-    _parameters['themeId'] = $themeId;
+    final __themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    _parameters['themeId'] = __themeId;
 
-    var $plain = _$jsonSerializers.serialize(plain, specifiedType: const FullType(ThemingGetThemeStylesheetPlain));
-    $plain ??= 0;
-    _parameters['plain'] = $plain;
+    var __plain = _$jsonSerializers.serialize(plain, specifiedType: const FullType(ThemingGetThemeStylesheetPlain));
+    __plain ??= 0;
+    _parameters['plain'] = __plain;
 
-    var $withCustomCss = _$jsonSerializers.serialize(
+    var __withCustomCss = _$jsonSerializers.serialize(
       withCustomCss,
       specifiedType: const FullType(ThemingGetThemeStylesheetWithCustomCss),
     );
-    $withCustomCss ??= 0;
-    _parameters['withCustomCss'] = $withCustomCss;
+    __withCustomCss ??= 0;
+    _parameters['withCustomCss'] = __withCustomCss;
 
     final _path =
         _i4.UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(_parameters);
@@ -472,12 +472,12 @@ class $ThemingClient {
     ThemingGetImageUseSvg? useSvg,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    _parameters['key'] = __key;
 
-    var $useSvg = _$jsonSerializers.serialize(useSvg, specifiedType: const FullType(ThemingGetImageUseSvg));
-    $useSvg ??= 1;
-    _parameters['useSvg'] = $useSvg;
+    var __useSvg = _$jsonSerializers.serialize(useSvg, specifiedType: const FullType(ThemingGetImageUseSvg));
+    __useSvg ??= 1;
+    _parameters['useSvg'] = __useSvg;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -562,9 +562,9 @@ class $ThemingClient {
   @_i2.experimental
   _i3.Request $getManifest_Request({String? app}) {
     final _parameters = <String, Object?>{};
-    var $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    $app ??= 'core';
-    _parameters['app'] = $app;
+    var __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    __app ??= 'core';
+    _parameters['app'] = __app;
 
     final _path = _i4.UriTemplate('/index.php/apps/theming/manifest/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -725,8 +725,8 @@ class $UserThemeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
-    _parameters['themeId'] = $themeId;
+    final __themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    _parameters['themeId'] = __themeId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -749,9 +749,9 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -823,8 +823,8 @@ class $UserThemeClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
-    _parameters['themeId'] = $themeId;
+    final __themeId = _$jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    _parameters['themeId'] = __themeId;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -847,9 +847,9 @@ class $UserThemeClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

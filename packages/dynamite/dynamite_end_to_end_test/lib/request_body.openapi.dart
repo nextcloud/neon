@@ -13,11 +13,12 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i5;
-import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
+import 'package:uri/uri.dart' as _i4;
 
 class $Client extends _i1.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
@@ -52,13 +53,13 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$get] for a method executing this request and parsing the response.
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $$get_Request({Uint8List? uint8List}) {
+  _i3.Request $$get_Request({Uint8List? $body}) {
     const _path = '/';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
-    if (uint8List != null) {
-      _request.bodyBytes = uint8List;
+    if ($body != null) {
+      _request.bodyBytes = $body;
     }
     return _request;
   }
@@ -72,9 +73,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$$get_Request] for the request send by this method.
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
+  Future<_i1.DynamiteResponse<void, void>> $get({Uint8List? $body}) async {
     final _request = $$get_Request(
-      uint8List: uint8List,
+      $body: $body,
     );
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -95,6 +96,9 @@ class $Client extends _i1.DynamiteClient {
   /// Returns a `DynamiteRequest` backing the [post] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Parameters:
+  ///   * [body]
+  ///
   /// Status codes:
   ///   * default
   ///
@@ -102,13 +106,20 @@ class $Client extends _i1.DynamiteClient {
   ///  * [post] for a method executing this request and parsing the response.
   ///  * [$post_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $post_Request({String? string}) {
-    const _path = '/';
+  _i3.Request $post_Request({
+    int? body,
+    String? $body,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __body = _$jsonSerializers.serialize(body, specifiedType: const FullType(int));
+    _parameters['body'] = __body;
+
+    final _path = _i4.UriTemplate('/{?body*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Content-Type'] = 'application/octet-stream';
-    if (string != null) {
-      _request.bodyBytes = utf8.encode(string);
+    if ($body != null) {
+      _request.bodyBytes = utf8.encode($body);
     }
     return _request;
   }
@@ -116,15 +127,22 @@ class $Client extends _i1.DynamiteClient {
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Parameters:
+  ///   * [body]
+  ///
   /// Status codes:
   ///   * default
   ///
   /// See:
   ///  * [$post_Request] for the request send by this method.
   ///  * [$post_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> post({String? string}) async {
+  Future<_i1.DynamiteResponse<void, void>> post({
+    int? body,
+    String? $body,
+  }) async {
     final _request = $post_Request(
-      string: string,
+      body: body,
+      $body: $body,
     );
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -151,9 +169,9 @@ final Serializers _$serializers = Serializers();
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -48,18 +48,17 @@ void resolveMimeTypeEncode(
   StringSink output,
 ) {
   output.writeln("_request.headers['Content-Type'] = '$mimeType';");
-  final parameterName = toDartName(result.name);
 
   if (result.nullable) {
-    output.writeln('if ($parameterName != null) {');
+    output.writeln(r'if ($body != null) {');
   }
 
   switch (mimeType) {
     case 'application/json':
     case 'application/x-www-form-urlencoded':
-      output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
+      output.writeln('_request.body = ${result.encode(r'$body', mimeType: mimeType)};');
     case 'application/octet-stream':
-      output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
+      output.writeln('_request.bodyBytes = ${result.encode(r'$body', mimeType: mimeType)};');
     case _:
       throw Exception('Can not parse any mime type of the Operation.');
   }

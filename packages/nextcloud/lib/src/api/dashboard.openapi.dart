@@ -103,9 +103,9 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -174,27 +174,27 @@ class $DashboardApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $sinceIds = _$jsonSerializers.serialize(
+    final __sinceIds = _$jsonSerializers.serialize(
       sinceIds,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
-    _parameters['sinceIds'] = $sinceIds;
+    _parameters['sinceIds'] = __sinceIds;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 7;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 7;
     _i5.checkNumber(
-      $limit,
+      __limit,
       'limit',
       maximum: 30,
       minimum: 1,
     );
-    _parameters['limit'] = $limit;
+    _parameters['limit'] = __limit;
 
-    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= const [];
-    _parameters['widgets%5B%5D'] = $widgets;
+    var __widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    __widgets ??= const [];
+    _parameters['widgets%5B%5D'] = __widgets;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
@@ -218,9 +218,9 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -298,27 +298,27 @@ class $DashboardApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $sinceIds = _$jsonSerializers.serialize(
+    final __sinceIds = _$jsonSerializers.serialize(
       sinceIds,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
-    _parameters['sinceIds'] = $sinceIds;
+    _parameters['sinceIds'] = __sinceIds;
 
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 7;
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 7;
     _i5.checkNumber(
-      $limit,
+      __limit,
       'limit',
       maximum: 30,
       minimum: 1,
     );
-    _parameters['limit'] = $limit;
+    _parameters['limit'] = __limit;
 
-    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= const [];
-    _parameters['widgets%5B%5D'] = $widgets;
+    var __widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    __widgets ??= const [];
+    _parameters['widgets%5B%5D'] = __widgets;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
         .expand(_parameters);
@@ -342,9 +342,9 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

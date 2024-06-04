@@ -168,7 +168,7 @@ void main() {
         expect(response.body.noteMode, notes.Settings_NoteMode.rich);
 
         response = await client.notes.updateSettings(
-          settings: notes.Settings(
+          $body: notes.Settings(
             (b) => b
               ..notesPath = 'Test Notes'
               ..fileSuffix = '.txt'

@@ -100,19 +100,19 @@ class $ApiClient {
     required String file,
   }) {
     final _parameters = <String, Object?>{};
-    final $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    _parameters['x'] = $x;
+    final __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    _parameters['x'] = __x;
 
-    final $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    _parameters['y'] = $y;
+    final __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    _parameters['y'] = __y;
 
-    final $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    final __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
     _i4.checkString(
-      $file,
+      __file,
       'file',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['file'] = $file;
+    _parameters['file'] = __file;
 
     final _path = _i5.UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -227,9 +227,9 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -295,11 +295,11 @@ class $DirectEditingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    _parameters['editorId'] = $editorId;
+    final __editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
+    _parameters['editorId'] = __editorId;
 
-    final $creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
-    _parameters['creatorId'] = $creatorId;
+    final __creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
+    _parameters['creatorId'] = __creatorId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}')
         .expand(_parameters);
@@ -323,9 +323,9 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -402,14 +402,14 @@ class $DirectEditingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
-    final $editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    _parameters['editorId'] = $editorId;
+    final __editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
+    _parameters['editorId'] = __editorId;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}')
         .expand(_parameters);
@@ -433,9 +433,9 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -519,17 +519,17 @@ class $DirectEditingClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
-    final $editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    _parameters['editorId'] = $editorId;
+    final __editorId = _$jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
+    _parameters['editorId'] = __editorId;
 
-    final $creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
-    _parameters['creatorId'] = $creatorId;
+    final __creatorId = _$jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
+    _parameters['creatorId'] = __creatorId;
 
-    final $templateId = _$jsonSerializers.serialize(templateId, specifiedType: const FullType(String));
-    _parameters['templateId'] = $templateId;
+    final __templateId = _$jsonSerializers.serialize(templateId, specifiedType: const FullType(String));
+    _parameters['templateId'] = __templateId;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
@@ -554,9 +554,9 @@ class $DirectEditingClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -643,8 +643,8 @@ class $OpenLocalEditorClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -667,9 +667,9 @@ class $OpenLocalEditorClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -741,11 +741,11 @@ class $OpenLocalEditorClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -768,9 +768,9 @@ class $OpenLocalEditorClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -864,9 +864,9 @@ class $TemplateClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -933,16 +933,16 @@ class $TemplateClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $filePath = _$jsonSerializers.serialize(filePath, specifiedType: const FullType(String));
-    _parameters['filePath'] = $filePath;
+    final __filePath = _$jsonSerializers.serialize(filePath, specifiedType: const FullType(String));
+    _parameters['filePath'] = __filePath;
 
-    var $templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
-    $templatePath ??= '';
-    _parameters['templatePath'] = $templatePath;
+    var __templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
+    __templatePath ??= '';
+    _parameters['templatePath'] = __templatePath;
 
-    var $templateType = _$jsonSerializers.serialize(templateType, specifiedType: const FullType(String));
-    $templateType ??= 'user';
-    _parameters['templateType'] = $templateType;
+    var __templateType = _$jsonSerializers.serialize(templateType, specifiedType: const FullType(String));
+    __templateType ??= 'user';
+    _parameters['templateType'] = __templateType;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
@@ -967,9 +967,9 @@ class $TemplateClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1046,16 +1046,16 @@ class $TemplateClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
-    $templatePath ??= '';
-    _parameters['templatePath'] = $templatePath;
+    var __templatePath = _$jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
+    __templatePath ??= '';
+    _parameters['templatePath'] = __templatePath;
 
-    var $copySystemTemplates = _$jsonSerializers.serialize(
+    var __copySystemTemplates = _$jsonSerializers.serialize(
       copySystemTemplates,
       specifiedType: const FullType(TemplatePathCopySystemTemplates),
     );
-    $copySystemTemplates ??= 0;
-    _parameters['copySystemTemplates'] = $copySystemTemplates;
+    __copySystemTemplates ??= 0;
+    _parameters['copySystemTemplates'] = __copySystemTemplates;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
         .expand(_parameters);
@@ -1079,9 +1079,9 @@ class $TemplateClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1164,11 +1164,11 @@ class $TransferOwnershipClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $recipient = _$jsonSerializers.serialize(recipient, specifiedType: const FullType(String));
-    _parameters['recipient'] = $recipient;
+    final __recipient = _$jsonSerializers.serialize(recipient, specifiedType: const FullType(String));
+    _parameters['recipient'] = __recipient;
 
-    final $path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    _parameters['path'] = $path;
+    final __path = _$jsonSerializers.serialize(path, specifiedType: const FullType(String));
+    _parameters['path'] = __path;
 
     final _path =
         _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
@@ -1192,9 +1192,9 @@ class $TransferOwnershipClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1269,8 +1269,8 @@ class $TransferOwnershipClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1293,9 +1293,9 @@ class $TransferOwnershipClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1367,8 +1367,8 @@ class $TransferOwnershipClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1391,9 +1391,9 @@ class $TransferOwnershipClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }

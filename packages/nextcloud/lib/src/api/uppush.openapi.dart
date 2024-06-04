@@ -141,8 +141,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $setKeepalive_Request({required int keepalive}) {
     final _parameters = <String, Object?>{};
-    final $keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
-    _parameters['keepalive'] = $keepalive;
+    final __keepalive = _$jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
+    _parameters['keepalive'] = __keepalive;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -224,8 +224,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $createDevice_Request({required String deviceName}) {
     final _parameters = <String, Object?>{};
-    final $deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
-    _parameters['deviceName'] = $deviceName;
+    final __deviceName = _$jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
+    _parameters['deviceName'] = __deviceName;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -305,8 +305,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $syncDevice_Request({required String deviceId}) {
     final _parameters = <String, Object?>{};
-    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    _parameters['deviceId'] = $deviceId;
+    final __deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    _parameters['deviceId'] = __deviceId;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -381,8 +381,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteDevice_Request({required String deviceId}) {
     final _parameters = <String, Object?>{};
-    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    _parameters['deviceId'] = $deviceId;
+    final __deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    _parameters['deviceId'] = __deviceId;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -464,11 +464,11 @@ class $Client extends _i1.DynamiteClient {
     required String appName,
   }) {
     final _parameters = <String, Object?>{};
-    final $deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    _parameters['deviceId'] = $deviceId;
+    final __deviceId = _$jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    _parameters['deviceId'] = __deviceId;
 
-    final $appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
-    _parameters['appName'] = $appName;
+    final __appName = _$jsonSerializers.serialize(appName, specifiedType: const FullType(String));
+    _parameters['appName'] = __appName;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -548,8 +548,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteApp_Request({required String token}) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -622,8 +622,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $unifiedpushDiscovery_Request({required String token}) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -698,8 +698,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $push_Request({required String token}) {
     final _parameters = <String, Object?>{};
-    final $token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    _parameters['token'] = $token;
+    final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    _parameters['token'] = __token;
 
     final _path = _i5.UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');

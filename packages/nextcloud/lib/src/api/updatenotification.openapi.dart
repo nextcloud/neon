@@ -90,12 +90,12 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $newVersion = _$jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
-    _parameters['newVersion'] = $newVersion;
+    final __newVersion = _$jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
+    _parameters['newVersion'] = __newVersion;
 
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}')
         .expand(_parameters);
@@ -119,9 +119,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -202,16 +202,16 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    _parameters['version'] = $version;
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    _parameters['version'] = __version;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppChangelogEntryApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v1';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/changelog/{appId}{?version*}')
         .expand(_parameters);
@@ -235,9 +235,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
