@@ -28,6 +28,10 @@ final client = NextcloudClient(
 Not all endpoints work with just HTTP Basic auth, so it is advised to use app passwords obtained either directly in the Web UI by the user or using the [login flow](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html#login-flow-v2).  
 Some endpoints do not need any authentication at all or provide extended information when the request is optionally authenticated.
 
+**Note**
+Flutter applications may require [additional configuration](https://docs.flutter.dev/data-and-backend/networking#platform-notes) to make HTTP requests.
+
+
 ### Endpoints
 
 It is not guaranteed that an API request will work unless the app is installed and enabled on the server (and has a supported version).  
