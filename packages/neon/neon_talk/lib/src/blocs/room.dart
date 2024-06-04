@@ -1,13 +1,14 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:collection/collection.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
-import 'package:neon_talk/src/utils/constants.dart';
+import 'package:neon_talk/src/utils/helpers.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
@@ -58,6 +59,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   })  : room = BehaviorSubject.seeded(Result.success(room)),
         token = room.token {
     messages.listen((result) {
+      assert(
+        result.data?.where((message) => message.isHidden).isEmpty ?? true,
+        'No hidden messages should be emitted',
+      );
+
       if (!result.hasSuccessfulData) {
         return;
       }
@@ -98,8 +104,6 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
     unawaited(() async {
       while (pollLoop) {
-        final lastKnownMessageId =
-            messages.valueOrNull?.data?.firstOrNull?.id ?? this.room.value.data?.lastMessage.chatMessage?.id;
         if (lastKnownMessageId == null) {
           log.fine('Last message ID not known');
           await Future<void>.delayed(const Duration(seconds: 1));
@@ -118,6 +122,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
           );
 
           updateLastCommonRead(response.headers.xChatLastCommonRead);
+          updateLastKnownMessageId(response.body.ocs.data.lastOrNull?.id);
           prependMessages(response.body.ocs.data.reversed);
         } catch (error, stackTrace) {
           if (error case DynamiteStatusCodeException(statusCode: 304)) {
@@ -144,6 +149,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final TalkBloc talkBloc;
   final Account account;
   final String token;
+  int? lastKnownMessageId;
   bool pollLoop = true;
 
   @override
@@ -196,8 +202,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         serializer: account.client.spreed.chat.$receiveMessages_Serializer(),
         unwrap: (response) {
           updateLastCommonRead(response.headers.xChatLastCommonRead);
+          updateLastKnownMessageId(response.body.ocs.data.firstOrNull?.id);
 
-          return response.body.ocs.data;
+          return response.body.ocs.data.rebuild((b) {
+            b.removeWhere((message) => message.isHidden);
+          });
         },
       ),
     ]);
@@ -216,6 +225,8 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
         final m = response.body.ocs.data;
         if (m != null) {
+          updateLastKnownMessageId(m.id);
+
           prependMessages([m]);
         }
       },
@@ -285,14 +296,23 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   void updateLastCommonRead(String? header) {
     if (header != null) {
-      lastCommonRead.add(int.parse(header));
+      final id = int.parse(header);
+      log.info('Updated last common read: $id');
+      lastCommonRead.add(id);
+    }
+  }
+
+  void updateLastKnownMessageId(int? id) {
+    if (id != null && (lastKnownMessageId == null || id > lastKnownMessageId!)) {
+      log.info('Updated last known message id: $id');
+      lastKnownMessageId = id;
     }
   }
 
   void prependMessages(Iterable<spreed.ChatMessageWithParent> newMessages) {
-    if (messages.hasValue) {
-      final builder = ListBuilder<spreed.ChatMessageWithParent>(newMessages);
+    final builder = ListBuilder<spreed.ChatMessageWithParent>(newMessages);
 
+    if (messages.hasValue) {
       final result = messages.value;
       if (result.hasData) {
         final lastMessageID = newMessages.lastOrNull?.id;
@@ -305,9 +325,8 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       }
 
       // Skip messages without parents as we can't know which message should be updated
-      final newHiddenMessages = newMessages
-          .where((newMessage) => hiddenMessages.contains(newMessage.systemMessage) && newMessage.parent != null)
-          .toBuiltList();
+      final newHiddenMessages =
+          newMessages.where((newMessage) => newMessage.isHidden && newMessage.parent != null).toBuiltList();
 
       if (newHiddenMessages.isNotEmpty) {
         builder.map((message) {
@@ -324,13 +343,17 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         });
       }
 
+      builder.removeWhere((message) => message.isHidden);
+
       messages.add(
         result.copyWith(
           data: builder.build(),
         ),
       );
     } else {
-      messages.add(Result.success(BuiltList(newMessages)));
+      builder.removeWhere((message) => message.isHidden);
+
+      messages.add(Result.success(builder.build()));
     }
   }
 

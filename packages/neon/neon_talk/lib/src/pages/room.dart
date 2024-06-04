@@ -11,7 +11,6 @@ import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/theme.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
-import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Displays the room with a chat message list.
 class TalkRoomPage extends StatefulWidget {
@@ -119,11 +118,8 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                 itemCount: messagesResult.data?.length ?? 0,
                 itemBuilder: (context, index) {
                   final message = messagesResult.requireData[index];
-
-                  spreed.ChatMessageWithParent? previousMessage;
-                  if (messagesResult.requireData.length > index + 1) {
-                    previousMessage = messagesResult.requireData[index + 1];
-                  }
+                  final previousMessage =
+                      messagesResult.requireData.length > index + 1 ? messagesResult.requireData[index + 1] : null;
 
                   return Center(
                     child: ConstrainedBox(

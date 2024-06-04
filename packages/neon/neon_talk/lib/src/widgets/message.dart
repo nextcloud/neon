@@ -5,7 +5,6 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
-import 'package:neon_talk/src/utils/constants.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
@@ -276,10 +275,6 @@ class TalkSystemMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (hiddenMessages.contains(chatMessage.systemMessage)) {
-      return const SizedBox.shrink();
-    }
-
     final groupMessages = previousChatMessage?.messageType == spreed.MessageType.system;
 
     return Padding(
