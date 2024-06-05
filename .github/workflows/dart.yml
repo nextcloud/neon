@@ -49,6 +49,9 @@ jobs:
           packages_glob="${packages_glob:1}"
           if [ -n "$packages_glob" ]; then
             if [[ "$packages_glob" == *"nextcloud"* ]]; then
+              if [[ "${{ github.event.pull_request.head.repo.full_name }}" == "${{ github.repository }}" ]]; then
+                export PUSH_IMAGES="1"
+              fi
               ./tool/build-dev-container.sh
             fi
             MELOS_PACKAGES="$packages_glob" melos test
