@@ -302,6 +302,10 @@ void main() {
   });
 
   group('File preview', () {
+    const pixelRatio = 3;
+    const maxWidth = 800;
+    const maxHeight = 600 ~/ 2;
+
     testWidgets('Without dimensions', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -322,7 +326,7 @@ void main() {
         ),
       );
 
-      final expectedConstraints = BoxConstraints.loose(const Size(double.infinity, 300));
+      final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,
@@ -336,7 +340,8 @@ void main() {
     });
 
     testWidgets('With dimensions', (tester) async {
-      // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
+      const width = 900;
+      const height = 300;
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -351,20 +356,20 @@ void main() {
                 ..name = 'name'
                 ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
                 ..path = 'path'
-                ..width = ($int: 900, string: null)
-                ..height = ($int: 300, string: null),
+                ..width = ($int: width, string: null)
+                ..height = ($int: height, string: null),
             ),
             textStyle: null,
           ),
         ),
       );
 
-      final expectedConstraints = BoxConstraints.tight(const Size(300, 100));
+      final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,
       );
-      const expectedCacheKey = 'preview-path-900-300';
+      const expectedCacheKey = 'preview-path-$width-$height';
       expect(
         find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
         findsOne,
@@ -373,7 +378,8 @@ void main() {
     });
 
     testWidgets('With dimensions too big', (tester) async {
-      // Default device pixel ratio for tests is 3, so we don't need to set it manually to ensure the calculations are right.
+      const widthFactor = 2; // Make it too big
+      const heightFactor = 4; // Make this even bigger
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -388,20 +394,25 @@ void main() {
                 ..name = 'name'
                 ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
                 ..path = 'path'
-                ..width = ($int: 6000, string: null)
-                ..height = ($int: 2000, string: null),
+                ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
+                ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
             ),
             textStyle: null,
           ),
         ),
       );
 
-      final expectedConstraints = BoxConstraints.tight(const Size(900, 300));
+      final size = Size(
+        widthFactor * maxWidth / heightFactor,
+        maxHeight.toDouble(),
+      );
+      final expectedConstraints = BoxConstraints.tight(size);
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,
       );
-      const expectedCacheKey = 'preview-path-2700-900';
+      final expectedCacheKey =
+          'preview-path-${(size.width * pixelRatio).toInt()}-${(size.height * pixelRatio).toInt()}';
       expect(
         find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
         findsOne,
