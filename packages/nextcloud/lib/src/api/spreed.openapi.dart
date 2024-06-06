@@ -24644,7 +24644,7 @@ abstract interface class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
-  String get mentionId;
+  String? get mentionId;
   String? get status;
   int? get statusClearAt;
   String? get statusIcon;

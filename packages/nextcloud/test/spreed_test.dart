@@ -9,6 +9,7 @@ import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets(
@@ -346,6 +347,29 @@ void main() {
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment);
           });
+        });
+
+        test('Mention suggestions', () async {
+          final room = await createTestRoom();
+
+          await client1.spreed.room.addParticipantToRoom(
+            newParticipant: 'user2',
+            token: room.token,
+          );
+
+          final response = await client1.spreed.chat.mentions(
+            search: 'user',
+            token: room.token,
+          );
+          expect(response.body.ocs.data, hasLength(1));
+          expect(response.body.ocs.data[0].id, 'user2');
+          expect(response.body.ocs.data[0].label, 'User Two');
+          expect(response.body.ocs.data[0].source, 'users');
+          expect(response.body.ocs.data[0].mentionId, 'user2', skip: preset.version < Version(19, 0, 0));
+          expect(response.body.ocs.data[0].status, null);
+          expect(response.body.ocs.data[0].statusClearAt, null);
+          expect(response.body.ocs.data[0].statusIcon, null);
+          expect(response.body.ocs.data[0].statusMessage, null);
         });
       });
 

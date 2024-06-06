@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -18,13 +19,16 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'testing.dart';
 
 void main() {
   late spreed.Room room;
   late TalkRoomBloc bloc;
+
+  setUpAll(() {
+    KeyboardVisibilityTesting.setVisibilityForTesting(true);
+  });
 
   setUp(() {
     FakeNeonStorage.setup();
@@ -197,70 +201,8 @@ void main() {
       ),
     );
 
-    expect(find.byType(TextField), findsNothing);
+    expect(find.byType(TypeAheadField), findsNothing);
     expect(find.byIcon(Icons.emoji_emotions_outlined), findsNothing);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_read_only.png'));
-  });
-
-  testWidgets('Cupertino no emoji button', (tester) async {
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        localizationsDelegates: TalkLocalizations.localizationsDelegates,
-        supportedLocales: TalkLocalizations.supportedLocales,
-        appThemes: const [
-          TalkTheme(),
-        ],
-        platform: TargetPlatform.iOS,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: const TalkRoomPage(),
-      ),
-    );
-
-    expect(find.byType(TextField), findsOne);
-    expect(find.byIcon(Icons.emoji_emotions_outlined), findsNothing);
-    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_message_input_no_emoji_button.png'));
-  });
-
-  testWidgets('Emoji button', (tester) async {
-    SharedPreferences.setMockInitialValues({});
-
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        localizationsDelegates: TalkLocalizations.localizationsDelegates,
-        supportedLocales: TalkLocalizations.supportedLocales,
-        appThemes: const [
-          TalkTheme(),
-        ],
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: const TalkRoomPage(),
-      ),
-    );
-
-    expect(find.byType(TextField), findsOne);
-    expect(find.byIcon(Icons.emoji_emotions_outlined), findsOne);
-
-    await tester.enterText(find.byType(TextField), '123456');
-    for (var i = 0; i < 3; i++) {
-      await simulateKeyDownEvent(LogicalKeyboardKey.arrowLeft);
-      await simulateKeyUpEvent(LogicalKeyboardKey.arrowLeft);
-    }
-
-    await tester.runAsync(() async {
-      await tester.tap(find.byIcon(Icons.emoji_emotions_outlined));
-    });
-    await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.tag_faces));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('😀'));
-    await tester.pumpAndSettle();
-
-    await expectLater(find.byType(TextField), matchesGoldenFile('goldens/room_page_message_input_emoji.png'));
-
-    await tester.testTextInput.receiveAction(TextInputAction.send);
-    verify(() => bloc.sendMessage('123😀456')).called(1);
   });
 }

@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/theme.dart';
 import 'package:neon_talk/src/widgets/message.dart';
+import 'package:neon_talk/src/widgets/message_input.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -31,9 +30,6 @@ class TalkRoomPage extends StatefulWidget {
 class _TalkRoomPageState extends State<TalkRoomPage> {
   late final TalkRoomBloc bloc;
   late final StreamSubscription<Object> errorsSubscription;
-  final messageFormKey = GlobalKey<FormState>();
-  final messageController = TextEditingController();
-  final messageFocus = FocusNode();
 
   @override
   void initState() {
@@ -49,19 +45,8 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
   @override
   void dispose() {
     unawaited(errorsSubscription.cancel());
-    messageController.dispose();
-    messageFocus.dispose();
     bloc.dispose();
     super.dispose();
-  }
-
-  void sendMessage() {
-    final message = messageController.text;
-    if (messageFormKey.currentState!.validate()) {
-      bloc.sendMessage(message);
-      messageController.clear();
-    }
-    messageFocus.requestFocus();
   }
 
   @override
@@ -186,32 +171,6 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
         );
 
         if (room.readOnly == 0) {
-          Widget? emojiButton;
-          // On cupertino the keyboard always has an option to insert emojis, so we don't need to add it
-          if (!isCupertino(context)) {
-            emojiButton = IconButton(
-              tooltip: TalkLocalizations.of(context).roomMessageAddEmoji,
-              onPressed: () async {
-                final emoji = await showDialog<String>(
-                  context: context,
-                  builder: (context) => const NeonEmojiPickerDialog(),
-                );
-                if (emoji != null) {
-                  final text = messageController.text;
-                  final textSelection = messageController.selection;
-
-                  messageController
-                    ..text = text.replaceRange(textSelection.start, textSelection.end, emoji)
-                    ..selection = textSelection.copyWith(
-                      baseOffset: textSelection.start + emoji.length,
-                      extentOffset: textSelection.start + emoji.length,
-                    );
-                }
-              },
-              icon: const Icon(Icons.emoji_emotions_outlined),
-            );
-          }
-
           body = Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -224,25 +183,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                 child: Center(
                   child: ConstrainedBox(
                     constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
-                    child: Form(
-                      key: messageFormKey,
-                      child: TextFormField(
-                        controller: messageController,
-                        focusNode: messageFocus,
-                        textInputAction: TextInputAction.send,
-                        decoration: InputDecoration(
-                          prefixIcon: emojiButton,
-                          suffixIcon: IconButton(
-                            tooltip: TalkLocalizations.of(context).roomMessageSend,
-                            icon: Icon(AdaptiveIcons.send),
-                            onPressed: sendMessage,
-                          ),
-                          hintText: TalkLocalizations.of(context).roomWriteMessage,
-                        ),
-                        validator: (input) => validateNotEmpty(context, input),
-                        onFieldSubmitted: (_) => sendMessage(),
-                      ),
-                    ),
+                    child: const TalkMessageInput(),
                   ),
                 ),
               ),

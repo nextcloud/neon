@@ -50,7 +50,7 @@ class NeonError extends StatelessWidget {
   final Object? error;
 
   /// A function that's called when the user decides to retry the action that lead to the error.
-  final VoidCallback onRetry;
+  final VoidCallback? onRetry;
 
   /// The size of the icon in logical pixels.
   ///

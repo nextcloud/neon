@@ -375,7 +375,6 @@
                     "id",
                     "label",
                     "source",
-                    "mentionId",
                     "status",
                     "statusClearAt",
                     "statusIcon",

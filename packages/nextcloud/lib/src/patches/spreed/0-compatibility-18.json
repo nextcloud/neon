@@ -10,5 +10,18 @@
       "previews",
       "signaling"
     ]
+  },
+  {
+    "op": "replace",
+    "path": "/components/schemas/ChatMentionSuggestion/required",
+    "value": [
+      "id",
+      "label",
+      "source",
+      "status",
+      "statusClearAt",
+      "statusIcon",
+      "statusMessage"
+    ]
   }
 ]
