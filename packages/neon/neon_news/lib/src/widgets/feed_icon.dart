@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/news.dart' as news;
 
@@ -26,6 +28,7 @@ class NewsFeedIcon extends StatelessWidget {
           ? NeonUriImage(
               uri: Uri.parse(faviconLink),
               size: Size.square(size),
+              account: NeonProvider.of<Account>(context),
             )
           : Icon(
               Icons.rss_feed,

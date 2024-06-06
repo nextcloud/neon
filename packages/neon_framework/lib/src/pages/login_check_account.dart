@@ -124,9 +124,12 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
     }
 
     if (result.hasData) {
+      final account = result.requireData;
+
       return NeonAccountTile(
-        account: result.requireData,
-        showStatus: false,
+        account: account,
+        userStatusBloc: null,
+        userDetailsBloc: NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account),
       );
     }
 

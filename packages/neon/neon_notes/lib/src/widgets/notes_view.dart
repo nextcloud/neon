@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -101,7 +102,7 @@ class NotesView extends StatelessWidget {
               builder: (context) => NotesNotePage(
                 bloc: NotesNoteBloc(
                   notesBloc: bloc,
-                  account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+                  account: NeonProvider.of<Account>(context),
                   note: note,
                 ),
                 notesBloc: bloc,

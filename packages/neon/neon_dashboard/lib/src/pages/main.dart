@@ -27,9 +27,6 @@ class DashboardMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = NeonProvider.of<DashboardBloc>(context);
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final userStatusBloc = accountsBloc.activeUserStatusBloc;
-    final weatherStatusBloc = accountsBloc.activeWeatherStatusBloc;
 
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
@@ -39,9 +36,8 @@ class DashboardMainPage extends StatelessWidget {
           builder: (context, itemsResult) {
             final children = <Widget>[
               _buildStatuses(
-                account: accountsBloc.activeAccount.value!,
-                userStatusBloc: userStatusBloc,
-                weatherStatusBloc: weatherStatusBloc,
+                userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
+                weatherStatusBloc: NeonProvider.of<WeatherStatusBloc>(context),
               ),
             ];
 
@@ -119,7 +115,6 @@ class DashboardMainPage extends StatelessWidget {
   }
 
   Widget _buildStatuses({
-    required Account account,
     required UserStatusBloc userStatusBloc,
     required WeatherStatusBloc weatherStatusBloc,
   }) =>
@@ -163,9 +158,7 @@ class DashboardMainPage extends StatelessWidget {
                 onPressed: () async {
                   await showDialog<void>(
                     context: context,
-                    builder: (context) => NeonUserStatusDialog(
-                      account: account,
-                    ),
+                    builder: (context) => const NeonUserStatusDialog(),
                   );
                 },
               );
@@ -350,6 +343,7 @@ class DashboardMainPage extends StatelessWidget {
         uri: Uri.parse(widget.iconUrl),
         svgColorFilter: colorFilter,
         size: const Size.square(largeIconSize),
+        account: NeonProvider.of<Account>(context),
       );
     }
 

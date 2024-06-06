@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 import 'package:neon_news/src/blocs/news.dart';
@@ -56,7 +56,7 @@ class _NewsFolderViewState extends State<NewsFolderView> {
                   bloc: NewsArticlesBloc(
                     newsBloc: widget.bloc,
                     options: widget.bloc.options,
-                    account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+                    account: NeonProvider.of<Account>(context),
                     id: widget.folder.id,
                     listType: ListType.folder,
                   ),

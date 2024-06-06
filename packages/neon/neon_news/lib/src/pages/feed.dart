@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 import 'package:neon_news/src/blocs/news.dart';
@@ -28,7 +28,7 @@ class NewsFeedPage extends StatelessWidget {
           bloc: NewsArticlesBloc(
             newsBloc: bloc,
             options: bloc.options,
-            account: NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
+            account: NeonProvider.of<Account>(context),
             id: feed.id,
             listType: ListType.feed,
           ),

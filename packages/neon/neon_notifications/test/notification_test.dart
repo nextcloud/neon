@@ -14,7 +14,6 @@ import 'package:neon_notifications/src/widgets/notification.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:provider/provider.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
@@ -22,7 +21,7 @@ import 'testing.dart';
 void main() {
   late notifications.Notification notification;
   late void Function() callback;
-  late AccountsBloc accountsBloc;
+  late Account account;
 
   setUpAll(() {
     registerFallbackValue(Uri());
@@ -49,11 +48,8 @@ void main() {
 
     callback = MockCallbackFunction<void>().call;
 
-    final account = MockAccount();
+    account = MockAccount();
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
-
-    accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
   });
 
   testWidgets('Without matching app', (tester) async {
@@ -63,7 +59,7 @@ void main() {
         supportedLocales: NotificationsLocalizations.supportedLocales,
         providers: [
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
         ],
         child: NotificationsNotification(
           notification: notification,
@@ -94,8 +90,6 @@ void main() {
   testWidgets('With matching app', (tester) async {
     final appsBloc = MockAppsBloc();
 
-    when(() => accountsBloc.activeAppsBloc).thenReturn(appsBloc);
-
     final app = MockAppImplementation();
     when(() => app.id).thenReturn('app');
     when(() => app.buildIcon(size: any(named: 'size'))).thenReturn(const SizedBox());
@@ -106,7 +100,8 @@ void main() {
         supportedLocales: NotificationsLocalizations.supportedLocales,
         providers: [
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet({app})),
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
+          NeonProvider<AppsBloc>.value(value: appsBloc),
         ],
         child: NotificationsNotification(
           notification: notification,

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -26,7 +25,6 @@ class NeonDrawer extends StatefulWidget {
 }
 
 class _NeonDrawerState extends State<NeonDrawer> {
-  late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   List<AppImplementation>? _apps;
   int? _activeApp;
@@ -35,8 +33,7 @@ class _NeonDrawerState extends State<NeonDrawer> {
   void initState() {
     super.initState();
 
-    _accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    _appsBloc = _accountsBloc.activeAppsBloc;
+    _appsBloc = NeonProvider.of<AppsBloc>(context);
 
     _appsBloc.appImplementations.listen((result) {
       setState(() {
@@ -90,8 +87,7 @@ class NeonDrawerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final capabilitiesBloc = accountsBloc.activeCapabilitiesBloc;
+    final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
 
     final branding = ResultBuilder.behaviorSubject(
       subject: capabilitiesBloc.capabilities,
@@ -128,6 +124,7 @@ class NeonDrawerHeader extends StatelessWidget {
             Flexible(
               child: NeonUriImage(
                 uri: Uri.parse(theme.logo),
+                account: NeonProvider.of<Account>(context),
               ),
             ),
           ],

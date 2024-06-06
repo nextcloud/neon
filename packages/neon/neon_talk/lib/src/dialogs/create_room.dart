@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -166,6 +168,8 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
     final icon = switch (result.source) {
       'users' => NeonUserAvatar(
           username: result.id,
+          account: NeonProvider.of<Account>(context),
+          userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
         ),
       'groups' => CircleAvatar(
           child: Icon(

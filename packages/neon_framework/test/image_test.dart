@@ -96,7 +96,7 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        child: NeonApiImage.withAccount(
+        child: NeonApiImage(
           getRequest: (_) => mockRequest,
           cacheKey: 'key',
           etag: null,
@@ -138,7 +138,7 @@ void main() {
     final uri = Uri.parse('https://example.com');
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        child: NeonUriImage.withAccount(
+        child: NeonUriImage(
           uri: uri,
           account: mockAccount,
         ),

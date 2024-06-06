@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
-import 'package:rxdart/rxdart.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   setUp(() {
@@ -24,13 +23,10 @@ void main() {
       when(() => account.id).thenReturn('');
       when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            Provider<Account>.value(value: account),
           ],
           child: TalkActorAvatar(
             actorId: '',

@@ -4,8 +4,8 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';
@@ -48,14 +48,11 @@ void main() {
     final capabilitiesBloc = MockCapabilitiesBloc();
     when(() => capabilitiesBloc.capabilities).thenAnswer((_) => capabilities);
 
-    final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAppsBloc).thenReturn(appsBloc);
-    when(() => accountsBloc.activeCapabilitiesBloc).thenReturn(capabilitiesBloc);
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         providers: [
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          NeonProvider<AppsBloc>.value(value: appsBloc),
+          NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
         ],
         child: const NeonDrawer(),
       ),

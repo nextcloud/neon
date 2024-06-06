@@ -21,7 +21,7 @@ import 'testing.dart';
 
 void main() {
   late NotificationsBloc bloc;
-  late AccountsBloc accountsBloc;
+  late Account account;
 
   setUpAll(() {
     registerFallbackValue(Uri());
@@ -35,11 +35,8 @@ void main() {
     when(() => bloc.unreadCounter).thenAnswer((_) => BehaviorSubject.seeded(0));
     when(() => bloc.notifications).thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList())));
 
-    final account = MockAccount();
+    account = MockAccount();
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
-
-    accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
   });
 
   testWidgets('Errors', (tester) async {
@@ -53,7 +50,7 @@ void main() {
         providers: [
           NeonProvider<NotificationsBlocInterface>.value(value: bloc),
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
         ],
         child: const NotificationsMainPage(),
       ),
@@ -76,7 +73,7 @@ void main() {
         providers: [
           NeonProvider<NotificationsBlocInterface>.value(value: bloc),
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
         ],
         child: const NotificationsMainPage(),
       ),
@@ -120,7 +117,7 @@ void main() {
         providers: [
           NeonProvider<NotificationsBlocInterface>.value(value: bloc),
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
-          NeonProvider<AccountsBloc>.value(value: accountsBloc),
+          Provider<Account>.value(value: account),
         ],
         child: const NotificationsMainPage(),
       ),

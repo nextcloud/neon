@@ -17,6 +17,7 @@ import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/user_status.dart' as user_status;
+import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
 
 Account mockAutocompleteAccount() {
@@ -101,18 +102,15 @@ void main() {
         ),
       );
 
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-      when(() => accountsBloc.getUserStatusBlocFor(account)).thenReturn(userStatusBloc);
-
       await tester.pumpWidgetWithAccessibility(
-        NeonProvider<AccountsBloc>.value(
-          value: accountsBloc,
-          child: const TestApp(
-            localizationsDelegates: TalkLocalizations.localizationsDelegates,
-            supportedLocales: TalkLocalizations.supportedLocales,
-            child: SizedBox(),
-          ),
+        TestApp(
+          providers: [
+            NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
+            Provider<Account>.value(value: account),
+          ],
+          localizationsDelegates: TalkLocalizations.localizationsDelegates,
+          supportedLocales: TalkLocalizations.supportedLocales,
+          child: const SizedBox(),
         ),
       );
 
@@ -157,17 +155,11 @@ void main() {
   }
 
   testWidgets('Public', (tester) async {
-    final accountsBloc = MockAccountsBloc();
-    when(() => accountsBloc.activeAccount).thenAnswer((_) => BehaviorSubject.seeded(account));
-
     await tester.pumpWidgetWithAccessibility(
-      NeonProvider<AccountsBloc>.value(
-        value: accountsBloc,
-        child: const TestApp(
-          localizationsDelegates: TalkLocalizations.localizationsDelegates,
-          supportedLocales: TalkLocalizations.supportedLocales,
-          child: SizedBox(),
-        ),
+      const TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        child: SizedBox(),
       ),
     );
 

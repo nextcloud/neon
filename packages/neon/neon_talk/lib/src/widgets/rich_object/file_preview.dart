@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
@@ -45,6 +47,7 @@ class TalkRichObjectFilePreview extends StatelessWidget {
       child: Tooltip(
         message: parameter.name,
         child: NeonApiImage(
+          account: NeonProvider.of<Account>(context),
           cacheKey: 'preview-${parameter.path!}-${deviceSize.width.toInt()}-${deviceSize.height.toInt()}',
           etag: parameter.etag,
           expires: null,

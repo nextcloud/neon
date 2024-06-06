@@ -2,7 +2,9 @@ import 'package:file_icons/file_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/core.dart';
 
@@ -50,6 +52,7 @@ class FilePreview extends StatelessWidget {
                 final preview = FilePreviewImage(
                   file: details,
                   size: size,
+                  account: NeonProvider.of<Account>(context),
                 );
 
                 if (withBackground) {
@@ -79,6 +82,7 @@ class FilePreviewImage extends NeonApiImage {
   factory FilePreviewImage({
     required FileDetails file,
     required Size size,
+    required Account account,
   }) {
     final width = size.width.toInt();
     final height = size.height.toInt();
@@ -90,6 +94,7 @@ class FilePreviewImage extends NeonApiImage {
       cacheKey: cacheKey,
       width: width,
       height: height,
+      account: account,
     );
   }
 
@@ -99,6 +104,7 @@ class FilePreviewImage extends NeonApiImage {
     required super.cacheKey,
     required int width,
     required int height,
+    required super.account,
   }) : super(
           getRequest: (client) => client.core.preview.$getPreview_Request(
             file: file.uri.path,

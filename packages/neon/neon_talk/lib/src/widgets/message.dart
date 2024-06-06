@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
-import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
@@ -443,8 +443,7 @@ class TalkCommentMessage extends StatelessWidget {
       );
     }
 
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final account = accountsBloc.activeAccount.value!;
+    final account = NeonProvider.of<Account>(context);
 
     Widget? readIndicator;
     if (lastCommonRead != null && account.username == chatMessage.actorId) {

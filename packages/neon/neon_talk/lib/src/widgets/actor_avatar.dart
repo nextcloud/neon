@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
@@ -25,7 +27,8 @@ class TalkActorAvatar extends StatelessWidget {
     return switch (actorType) {
       spreed.ActorType.users => NeonUserAvatar(
           username: actorId,
-          showStatus: false,
+          account: NeonProvider.of<Account>(context),
+          userStatusBloc: null,
         ),
       spreed.ActorType.groups || spreed.ActorType.circles => CircleAvatar(
           child: Icon(AdaptiveIcons.group),

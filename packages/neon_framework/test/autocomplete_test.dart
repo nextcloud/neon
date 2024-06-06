@@ -12,6 +12,7 @@ import 'package:neon_framework/src/utils/validators.dart';
 import 'package:neon_framework/src/widgets/autocomplete.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:provider/provider.dart';
 
 Account mockAutocompleteAccount() {
   return mockServer({
@@ -71,9 +72,11 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
+        providers: [
+          Provider<Account>.value(value: account),
+        ],
         child: Builder(
-          builder: (context) => NeonAutocomplete.withAccount(
-            account: account,
+          builder: (context) => NeonAutocomplete(
             itemType: 'itemType',
             itemId: 'itemId',
             shareTypes: const [

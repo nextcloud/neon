@@ -5,43 +5,36 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
-import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/image.dart';
 import 'package:neon_framework/src/widgets/user_status_icon.dart';
-import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/core.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 
 /// A circle that contains the user profile image and status.
 class NeonUserAvatar extends StatefulWidget {
   /// Creates a new Neon user avatar.
   const NeonUserAvatar({
+    required this.account,
+    required this.userStatusBloc,
     this.username,
-    this.showStatus = true,
-    this.size,
-    super.key,
-  }) : account = null;
-
-  /// Creates a new Neon user avatar with the given [account].
-  const NeonUserAvatar.withAccount({
-    required Account this.account,
-    this.username,
-    this.showStatus = true,
     this.size,
     super.key,
   });
 
   /// The account used to fetch the image.
+  final Account account;
+
+  /// {@template neon_framework.UserStatus.userStatusBloc}
+  /// The user status bloc used for displaying the user status.
   ///
-  /// Defaults to the currently active account in [AccountsBloc.activeAccount].
-  final Account? account;
+  /// If `null` no status will be displayed.
+  /// {@endtemplate}
+  final UserStatusBloc? userStatusBloc;
 
   /// The user profile to display.
   ///
   /// Defaults to the username of [account].
   final String? username;
-
-  /// Whether to show the status.
-  final bool showStatus;
 
   /// The size of the avatar.
   final double? size;
@@ -51,22 +44,16 @@ class NeonUserAvatar extends StatefulWidget {
 }
 
 class _UserAvatarState extends State<NeonUserAvatar> {
-  late Account account;
   late String username;
-  UserStatusBloc? userStatusBloc;
   late double size;
 
   @override
   void initState() {
     super.initState();
 
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    account = widget.account ?? accountsBloc.activeAccount.value!;
-    username = widget.username ?? account.username;
+    username = widget.username ?? widget.account.username;
 
-    if (widget.showStatus) {
-      userStatusBloc = accountsBloc.getUserStatusBlocFor(account)..load(username);
-    }
+    widget.userStatusBloc?.load(username);
   }
 
   @override
@@ -80,8 +67,8 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         final avatar = CircleAvatar(
           radius: size / 2,
           child: ClipOval(
-            child: NeonApiImage.withAccount(
-              account: account,
+            child: NeonApiImage(
+              account: widget.account,
               cacheKey: 'avatar-$username-$brightness-$pixelSize',
               etag: null,
               expires: null,
@@ -99,15 +86,16 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           ),
         );
 
-        if (!widget.showStatus) {
+        if (widget.userStatusBloc == null) {
           return avatar;
         }
+
         return Stack(
           alignment: Alignment.center,
           children: [
             avatar,
             ResultBuilder(
-              stream: userStatusBloc!.statuses.map(
+              stream: widget.userStatusBloc!.statuses.map(
                 (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
               ),
               builder: (context, result) => NeonUserStatusIndicator(

@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
@@ -96,12 +95,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   /// Blocs will not be disposed on disposal of the provider. You must handle
   /// the [blocsCache] manually.
   Provider<T> get blocProvider => Provider<T>(
-        create: (context) {
-          final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-          final account = accountsBloc.activeAccount.value!;
-
-          return getBloc(account);
-        },
+        create: (context) => getBloc(NeonProvider.of<Account>(context)),
       );
 
   /// The count of unread notifications.
@@ -116,9 +110,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   /// The drawer destination used in widgets like [NavigationDrawer].
   NeonNavigationDestination destination(BuildContext context) {
-    final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final account = accountsBloc.activeAccount.value!;
-    final bloc = getBloc(account);
+    final bloc = getBloc(NeonProvider.of<Account>(context));
 
     return NeonNavigationDestination(
       label: name(context),

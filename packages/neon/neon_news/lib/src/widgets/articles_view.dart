@@ -3,6 +3,7 @@ import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
@@ -144,6 +145,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 uri: Uri.parse(article.mediaThumbnail!),
                 size: const Size(100, 50),
                 fit: BoxFit.cover,
+                account: NeonProvider.of<Account>(context),
               ),
           ],
         ),
@@ -218,7 +220,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             );
           }
 
-          final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+          final account = NeonProvider.of<Account>(context);
 
           if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
             await Navigator.of(context).push(
