@@ -102,6 +102,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
           davGetetag: true,
           davGetlastmodified: true,
           ncHasPreview: true,
+          ncMetadataBlurhash: true,
           ocSize: true,
           ocFavorite: true,
         ),

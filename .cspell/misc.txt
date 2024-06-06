@@ -1,5 +1,6 @@
 asctime
 Blist
+blurhash
 browsable
 canonicalized
 cleartext

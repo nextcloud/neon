@@ -114,5 +114,6 @@ class FilePreviewImage extends NeonApiImage {
           etag: file.etag,
           expires: null,
           isSvgHint: file.mimeType?.contains('svg') ?? false,
+          blurHash: file.blurHash,
         );
 }

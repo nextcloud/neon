@@ -45,7 +45,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -56,6 +55,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -106,7 +106,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     bool ncLockTime = false,
     bool ncLockTimeout = false,
     bool ncLockToken = false,
-    bool ncMetadataEtag = false,
     bool ncMountType = false,
     bool ncNote = false,
     bool ncReminderDueDate = false,
@@ -117,6 +116,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     bool ncUploadTime = false,
     bool ncVersionAuthor = false,
     bool ncVersionLabel = false,
+    bool ncMetadataBlurhash = false,
     bool ocChecksums = false,
     bool ocCommentsCount = false,
     bool ocCommentsHref = false,
@@ -164,7 +164,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
         ncLockTime = ncLockTime ? const [null] : null,
         ncLockTimeout = ncLockTimeout ? const [null] : null,
         ncLockToken = ncLockToken ? const [null] : null,
-        ncMetadataEtag = ncMetadataEtag ? const [null] : null,
         ncMountType = ncMountType ? const [null] : null,
         ncNote = ncNote ? const [null] : null,
         ncReminderDueDate = ncReminderDueDate ? const [null] : null,
@@ -175,6 +174,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
         ncUploadTime = ncUploadTime ? const [null] : null,
         ncVersionAuthor = ncVersionAuthor ? const [null] : null,
         ncVersionLabel = ncVersionLabel ? const [null] : null,
+        ncMetadataBlurhash = ncMetadataBlurhash ? const [null] : null,
         ocChecksums = ocChecksums ? const [null] : null,
         ocCommentsCount = ocCommentsCount ? const [null] : null,
         ocCommentsHref = ocCommentsHref ? const [null] : null,
@@ -444,14 +444,6 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   final List<String?>? ncLockToken;
 
   @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: true,
-    isSelfClosing: true,
-  )
-  final List<String?>? ncMetadataEtag;
-
-  @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
     includeIfNull: true,
@@ -530,6 +522,14 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
     isSelfClosing: true,
   )
   final List<String?>? ncVersionLabel;
+
+  @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: true,
+    isSelfClosing: true,
+  )
+  final List<String?>? ncMetadataBlurhash;
 
   @annotation.XmlElement(
     name: 'checksums',
@@ -696,7 +696,6 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -707,6 +706,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -950,13 +950,6 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
   final String? ncLockToken;
 
   @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: false,
-  )
-  final String? ncMetadataEtag;
-
-  @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -1027,6 +1020,13 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     includeIfNull: false,
   )
   final String? ncVersionLabel;
+
+  @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncMetadataBlurhash;
 
   @annotation.XmlElement(
     name: 'checksums',
@@ -1177,7 +1177,6 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ncLockTime,
     this.ncLockTimeout,
     this.ncLockToken,
-    this.ncMetadataEtag,
     this.ncMountType,
     this.ncNote,
     this.ncReminderDueDate,
@@ -1188,6 +1187,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ncUploadTime,
     this.ncVersionAuthor,
     this.ncVersionLabel,
+    this.ncMetadataBlurhash,
     this.ocChecksums,
     this.ocCommentsCount,
     this.ocCommentsHref,
@@ -1431,13 +1431,6 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
   final String? ncLockToken;
 
   @annotation.XmlElement(
-    name: 'metadata_etag',
-    namespace: namespaceNextcloud,
-    includeIfNull: false,
-  )
-  final String? ncMetadataEtag;
-
-  @annotation.XmlElement(
     name: 'mount-type',
     namespace: namespaceNextcloud,
     includeIfNull: false,
@@ -1508,6 +1501,13 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     includeIfNull: false,
   )
   final String? ncVersionLabel;
+
+  @annotation.XmlElement(
+    name: 'metadata-blurhash',
+    namespace: namespaceNextcloud,
+    includeIfNull: false,
+  )
+  final String? ncMetadataBlurhash;
 
   @annotation.XmlElement(
     name: 'checksums',

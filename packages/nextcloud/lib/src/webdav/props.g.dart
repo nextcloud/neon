@@ -349,17 +349,6 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
       });
     }
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    for (final value in ncMetadataEtagSerialized) {
-      builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
-        if (value != null) {
-          builder.text(value);
-        }
-      });
-    }
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -464,6 +453,17 @@ void _$WebDavPropWithoutValuesBuildXmlChildren(WebDavPropWithoutValues instance,
   if (ncVersionLabelSerialized != null) {
     for (final value in ncVersionLabelSerialized) {
       builder.element('version-label', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
+        if (value != null) {
+          builder.text(value);
+        }
+      });
+    }
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  if (ncMetadataBlurhashSerialized != null) {
+    for (final value in ncMetadataBlurhashSerialized) {
+      builder.element('metadata-blurhash', namespace: 'http://nextcloud.org/ns', isSelfClosing: true, nest: () {
         if (value != null) {
           builder.text(value);
         }
@@ -756,10 +756,6 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       .getElements('lock-token', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
-  final ncMetadataEtag = element
-      .getElements('metadata_etag', namespace: 'http://nextcloud.org/ns')
-      ?.map((e) => e.getText())
-      .whereType<String>();
   final ncMountType = element
       .getElements('mount-type', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
@@ -794,6 +790,10 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       .whereType<String>();
   final ncVersionLabel = element
       .getElements('version-label', namespace: 'http://nextcloud.org/ns')
+      ?.map((e) => e.getText())
+      .whereType<String>();
+  final ncMetadataBlurhash = element
+      .getElements('metadata-blurhash', namespace: 'http://nextcloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
   final ocChecksums = element
@@ -880,7 +880,6 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       ncLockTime: ncLockTime?.toList(),
       ncLockTimeout: ncLockTimeout?.toList(),
       ncLockToken: ncLockToken?.toList(),
-      ncMetadataEtag: ncMetadataEtag?.toList(),
       ncMountType: ncMountType?.toList(),
       ncNote: ncNote?.toList(),
       ncReminderDueDate: ncReminderDueDate?.toList(),
@@ -891,6 +890,7 @@ WebDavPropWithoutValues _$WebDavPropWithoutValuesFromXmlElement(XmlElement eleme
       ncUploadTime: ncUploadTime?.toList(),
       ncVersionAuthor: ncVersionAuthor?.toList(),
       ncVersionLabel: ncVersionLabel?.toList(),
+      ncMetadataBlurhash: ncMetadataBlurhash?.toList(),
       ocChecksums: ocChecksums?.toList(),
       ocCommentsCount: ocCommentsCount?.toList(),
       ocCommentsHref: ocCommentsHref?.toList(),
@@ -1141,13 +1141,6 @@ List<XmlNode> _$WebDavPropWithoutValuesToXmlChildren(WebDavPropWithoutValues ins
   if (ncLockTokenConstructed != null) {
     children.addAll(ncLockTokenConstructed);
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized?.map((e) => XmlElement(
-      XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
-  if (ncMetadataEtagConstructed != null) {
-    children.addAll(ncMetadataEtagConstructed);
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   final ncMountTypeConstructed = ncMountTypeSerialized?.map((e) => XmlElement(
@@ -1217,6 +1210,13 @@ List<XmlNode> _$WebDavPropWithoutValuesToXmlChildren(WebDavPropWithoutValues ins
       XmlName('version-label', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
   if (ncVersionLabelConstructed != null) {
     children.addAll(ncVersionLabelConstructed);
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  final ncMetadataBlurhashConstructed = ncMetadataBlurhashSerialized?.map((e) => XmlElement(
+      XmlName('metadata-blurhash', namespaces['http://nextcloud.org/ns']), [], e != null ? [XmlText(e)] : [], true));
+  if (ncMetadataBlurhashConstructed != null) {
+    children.addAll(ncMetadataBlurhashConstructed);
   }
   final ocChecksums = instance.ocChecksums;
   final ocChecksumsSerialized = ocChecksums;
@@ -1611,13 +1611,6 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
       builder.text(ncLockTokenSerialized);
     });
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncMetadataEtagSerialized);
-    });
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -1686,6 +1679,13 @@ void _$WebDavPropBuildXmlChildren(WebDavProp instance, XmlBuilder builder,
   if (ncVersionLabelSerialized != null) {
     builder.element('version-label', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncVersionLabelSerialized);
+    });
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  if (ncMetadataBlurhashSerialized != null) {
+    builder.element('metadata-blurhash', namespace: 'http://nextcloud.org/ns', nest: () {
+      builder.text(ncMetadataBlurhashSerialized);
     });
   }
   final ocChecksums = instance.ocChecksums;
@@ -1847,7 +1847,6 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
@@ -1859,6 +1858,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
   final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns');
   final ncVersionAuthor = element.getElement('version-author', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncVersionLabel = element.getElement('version-label', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMetadataBlurhash = element.getElement('metadata-blurhash', namespace: 'http://nextcloud.org/ns')?.getText();
   final ocChecksums = element.getElement('checksums', namespace: 'http://owncloud.org/ns');
   final ocCommentsCount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
   final ocCommentsHref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
@@ -1952,7 +1952,6 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
-      ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
       ncReminderDueDate:
@@ -1964,6 +1963,7 @@ WebDavProp _$WebDavPropFromXmlElement(XmlElement element) {
       ncUploadTime: ncUploadTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncUploadTime) : null,
       ncVersionAuthor: ncVersionAuthor,
       ncVersionLabel: ncVersionLabel,
+      ncMetadataBlurhash: ncMetadataBlurhash,
       ocChecksums: ocChecksums != null ? WebDavOcChecksums.fromXmlElement(ocChecksums) : null,
       ocCommentsCount: ocCommentsCount != null ? int.parse(ocCommentsCount) : null,
       ocCommentsHref: ocCommentsHref,
@@ -2306,15 +2306,6 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
   if (ncLockTokenConstructed != null) {
     children.add(ncLockTokenConstructed);
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
-      ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
-      : null;
-  if (ncMetadataEtagConstructed != null) {
-    children.add(ncMetadataEtagConstructed);
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   final ncMountTypeConstructed = ncMountTypeSerialized != null
@@ -2408,6 +2399,15 @@ List<XmlNode> _$WebDavPropToXmlChildren(WebDavProp instance, {Map<String, String
       : null;
   if (ncVersionLabelConstructed != null) {
     children.add(ncVersionLabelConstructed);
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  final ncMetadataBlurhashConstructed = ncMetadataBlurhashSerialized != null
+      ? XmlElement(XmlName('metadata-blurhash', namespaces['http://nextcloud.org/ns']), [],
+          [XmlText(ncMetadataBlurhashSerialized)])
+      : null;
+  if (ncMetadataBlurhashConstructed != null) {
+    children.add(ncMetadataBlurhashConstructed);
   }
   final ocChecksums = instance.ocChecksums;
   final ocChecksumsSerialized = ocChecksums;
@@ -2830,13 +2830,6 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
       builder.text(ncLockTokenSerialized);
     });
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  if (ncMetadataEtagSerialized != null) {
-    builder.element('metadata_etag', namespace: 'http://nextcloud.org/ns', nest: () {
-      builder.text(ncMetadataEtagSerialized);
-    });
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   if (ncMountTypeSerialized != null) {
@@ -2905,6 +2898,13 @@ void _$WebDavOcFilterRulesBuildXmlChildren(WebDavOcFilterRules instance, XmlBuil
   if (ncVersionLabelSerialized != null) {
     builder.element('version-label', namespace: 'http://nextcloud.org/ns', nest: () {
       builder.text(ncVersionLabelSerialized);
+    });
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  if (ncMetadataBlurhashSerialized != null) {
+    builder.element('metadata-blurhash', namespace: 'http://nextcloud.org/ns', nest: () {
+      builder.text(ncMetadataBlurhashSerialized);
     });
   }
   final ocChecksums = instance.ocChecksums;
@@ -3067,7 +3067,6 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final ncLockTime = element.getElement('lock-time', namespace: 'http://nextcloud.org/ns');
   final ncLockTimeout = element.getElement('lock-timeout', namespace: 'http://nextcloud.org/ns');
   final ncLockToken = element.getElement('lock-token', namespace: 'http://nextcloud.org/ns')?.getText();
-  final ncMetadataEtag = element.getElement('metadata_etag', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncMountType = element.getElement('mount-type', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncNote = element.getElement('note', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncReminderDueDate = element.getElement('reminder-due-date', namespace: 'http://nextcloud.org/ns');
@@ -3079,6 +3078,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
   final ncUploadTime = element.getElement('upload_time', namespace: 'http://nextcloud.org/ns');
   final ncVersionAuthor = element.getElement('version-author', namespace: 'http://nextcloud.org/ns')?.getText();
   final ncVersionLabel = element.getElement('version-label', namespace: 'http://nextcloud.org/ns')?.getText();
+  final ncMetadataBlurhash = element.getElement('metadata-blurhash', namespace: 'http://nextcloud.org/ns')?.getText();
   final ocChecksums = element.getElement('checksums', namespace: 'http://owncloud.org/ns');
   final ocCommentsCount = element.getElement('comments-count', namespace: 'http://owncloud.org/ns')?.getText();
   final ocCommentsHref = element.getElement('comments-href', namespace: 'http://owncloud.org/ns')?.getText();
@@ -3172,7 +3172,6 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncLockTime: ncLockTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncLockTime) : null,
       ncLockTimeout: ncLockTimeout != null ? const DurationXMLConverter().fromXmlElement(ncLockTimeout) : null,
       ncLockToken: ncLockToken,
-      ncMetadataEtag: ncMetadataEtag,
       ncMountType: ncMountType,
       ncNote: ncNote,
       ncReminderDueDate:
@@ -3184,6 +3183,7 @@ WebDavOcFilterRules _$WebDavOcFilterRulesFromXmlElement(XmlElement element) {
       ncUploadTime: ncUploadTime != null ? const UnixEpochXMLConverter().fromXmlElement(ncUploadTime) : null,
       ncVersionAuthor: ncVersionAuthor,
       ncVersionLabel: ncVersionLabel,
+      ncMetadataBlurhash: ncMetadataBlurhash,
       ocChecksums: ocChecksums != null ? WebDavOcChecksums.fromXmlElement(ocChecksums) : null,
       ocCommentsCount: ocCommentsCount != null ? int.parse(ocCommentsCount) : null,
       ocCommentsHref: ocCommentsHref,
@@ -3528,15 +3528,6 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
   if (ncLockTokenConstructed != null) {
     children.add(ncLockTokenConstructed);
   }
-  final ncMetadataEtag = instance.ncMetadataEtag;
-  final ncMetadataEtagSerialized = ncMetadataEtag;
-  final ncMetadataEtagConstructed = ncMetadataEtagSerialized != null
-      ? XmlElement(
-          XmlName('metadata_etag', namespaces['http://nextcloud.org/ns']), [], [XmlText(ncMetadataEtagSerialized)])
-      : null;
-  if (ncMetadataEtagConstructed != null) {
-    children.add(ncMetadataEtagConstructed);
-  }
   final ncMountType = instance.ncMountType;
   final ncMountTypeSerialized = ncMountType;
   final ncMountTypeConstructed = ncMountTypeSerialized != null
@@ -3630,6 +3621,15 @@ List<XmlNode> _$WebDavOcFilterRulesToXmlChildren(WebDavOcFilterRules instance,
       : null;
   if (ncVersionLabelConstructed != null) {
     children.add(ncVersionLabelConstructed);
+  }
+  final ncMetadataBlurhash = instance.ncMetadataBlurhash;
+  final ncMetadataBlurhashSerialized = ncMetadataBlurhash;
+  final ncMetadataBlurhashConstructed = ncMetadataBlurhashSerialized != null
+      ? XmlElement(XmlName('metadata-blurhash', namespaces['http://nextcloud.org/ns']), [],
+          [XmlText(ncMetadataBlurhashSerialized)])
+      : null;
+  if (ncMetadataBlurhashConstructed != null) {
+    children.add(ncMetadataBlurhashConstructed);
   }
   final ocChecksums = instance.ocChecksums;
   final ocChecksumsSerialized = ocChecksums;

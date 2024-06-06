@@ -77,6 +77,9 @@ class WebDavFile {
   /// Whether this file has a preview image
   late final bool? hasPreview = props.ncHasPreview;
 
+  /// The compact representation of an image preview.
+  late final String? blurHash = props.ncMetadataBlurhash;
+
   /// Returns the decoded name of the file / folder without the whole path
   late final String name = path.name;
 

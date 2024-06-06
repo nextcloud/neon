@@ -39,7 +39,6 @@ void main() {
       'lock-time': 'unixEpoch',
       'lock-timeout': 'seconds',
       'lock-token': 'String',
-      'metadata_etag': 'String',
       'mount-type': 'String',
       'note': 'String',
       'reminder-due-date': 'iso8601',
@@ -50,6 +49,7 @@ void main() {
       'upload_time': 'unixEpoch',
       'version-author': 'String',
       'version-label': 'String',
+      'metadata-blurhash': 'String',
     },
     'oc': {
       'checksums': 'WebDavOcChecksums',
