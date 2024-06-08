@@ -26,7 +26,7 @@ This will add our external dependencies to `external/` so scripts can use them f
 You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
 ## Commits
-All commits need to be signed and signed off to to be pass our tests.
+All commits need to be signed and signed off to pass our tests.
 To sign off your commits use `git commit --signoff`.
 To setup commit signing please consult the [Github documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 We use conventional commits to have meaningful commit messages and be able to generate changelogs.
