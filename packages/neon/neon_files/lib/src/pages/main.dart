@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
@@ -18,15 +20,23 @@ class FilesMainPage extends StatefulWidget {
 
 class _FilesMainPageState extends State<FilesMainPage> {
   late FilesBloc bloc;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
     super.initState();
     bloc = NeonProvider.of<FilesBloc>(context);
 
-    bloc.errors.listen((error) {
+    errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -6,6 +8,7 @@ import 'package:neon_framework/src/blocs/login_flow.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
@@ -23,6 +26,8 @@ class LoginFlowPage extends StatefulWidget {
 
 class _LoginFlowPageState extends State<LoginFlowPage> {
   late final LoginFlowBloc bloc;
+  late final StreamSubscription<Result<core.LoginFlowV2>> initSubscription;
+  late final StreamSubscription<core.LoginFlowV2Credentials> resultSubscription;
 
   @override
   void initState() {
@@ -32,7 +37,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
       serverURL: widget.serverURL,
     );
 
-    bloc.init.listen((result) async {
+    initSubscription = bloc.init.listen((result) async {
       if (result.hasData) {
         await launchUrlString(
           result.requireData.login,
@@ -41,7 +46,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
       }
     });
 
-    bloc.result.listen((result) async {
+    resultSubscription = bloc.result.listen((result) async {
       await LoginCheckAccountRoute(
         serverUrl: Uri.parse(result.server),
         loginName: result.loginName,
@@ -52,7 +57,10 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
   @override
   void dispose() {
+    unawaited(initSubscription.cancel());
+    unawaited(resultSubscription.cancel());
     bloc.dispose();
+
     super.dispose();
   }
 

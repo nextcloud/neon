@@ -33,7 +33,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
     if (disabled) {
       return;
     }
-    Rx.merge([
+    changesSubscription = Rx.merge([
       globalOptions.pushNotificationsEnabled.stream,
       globalOptions.pushNotificationsDistributor.stream,
       accountsSubject,
@@ -88,9 +88,11 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
   final BehaviorSubject<BuiltList<Account>> accountsSubject;
   final GlobalOptions globalOptions;
   final supported = <Account, bool>{};
+  late final StreamSubscription<Object?> changesSubscription;
 
   @override
   void dispose() {
+    unawaited(changesSubscription.cancel());
     unawaited(onNextPushSupported.close());
   }
 

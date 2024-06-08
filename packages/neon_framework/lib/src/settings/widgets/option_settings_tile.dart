@@ -123,11 +123,10 @@ class SelectSettingsTileDialog<T> extends StatefulWidget {
 
 class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T>> {
   late T value;
-  late SelectOption<T> option = widget.option;
 
   @override
   void initState() {
-    value = option.value;
+    value = widget.option.value;
 
     super.initState();
   }
@@ -140,10 +139,10 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
     final content = SingleChildScrollView(
       child: Column(
         children: [
-          ...option.values.keys.map(
+          ...widget.option.values.keys.map(
             (k) => RadioListTile(
               title: Text(
-                option.values[k]!(context),
+                widget.option.values[k]!(context),
                 overflow: TextOverflow.ellipsis,
               ),
               value: k,
@@ -176,7 +175,7 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
 
     return AlertDialog(
       title: Text(
-        option.label(context),
+        widget.option.label(context),
       ),
       content: content,
       actions: widget.immediateSelection ? null : actions,

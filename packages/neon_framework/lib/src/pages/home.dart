@@ -32,9 +32,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late global_options.GlobalOptions _globalOptions;
   late AppsBloc _appsBloc;
-  late StreamSubscription<BuiltMap<String, VersionCheck>> _versionCheckSubscription;
-  late StreamSubscription<Object> maintenanceModeErrorsSubscription;
-  late StreamSubscription<void> maintenanceModeSubscription;
+  late final StreamSubscription<BuiltMap<String, VersionCheck>> _versionCheckSubscription;
+  late final StreamSubscription<Object> maintenanceModeErrorsSubscription;
+  late final StreamSubscription<void> maintenanceModeSubscription;
 
   @override
   void initState() {

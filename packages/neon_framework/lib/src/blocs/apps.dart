@@ -68,7 +68,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       unawaited(updateApps());
     });
 
-    capabilitiesSubject.listen((result) {
+    capabilitiesSubscription = capabilitiesSubject.listen((result) {
       unawaited(updateApps());
     });
 
@@ -214,6 +214,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   }
 
   final BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilitiesSubject;
+  late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+      capabilitiesSubscription;
   final Account account;
   final AccountOptions accountOptions;
   final BuiltSet<AppImplementation> allAppImplementations;
@@ -221,6 +223,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   void dispose() {
+    unawaited(capabilitiesSubscription.cancel());
     unawaited(apps.close());
     unawaited(appImplementations.close());
     unawaited(activeApp.close());

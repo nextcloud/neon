@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
@@ -28,6 +31,7 @@ class _NeonDrawerState extends State<NeonDrawer> {
   late AppsBloc _appsBloc;
   List<AppImplementation>? _apps;
   int? _activeApp;
+  late final StreamSubscription<Result<BuiltSet<AppImplementation>>> appImplementationsSubscription;
 
   @override
   void initState() {
@@ -35,12 +39,19 @@ class _NeonDrawerState extends State<NeonDrawer> {
 
     _appsBloc = NeonProvider.of<AppsBloc>(context);
 
-    _appsBloc.appImplementations.listen((result) {
+    appImplementationsSubscription = _appsBloc.appImplementations.listen((result) {
       setState(() {
         _apps = result.data?.toList();
         _activeApp = _apps?.indexWhere((app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
       });
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(appImplementationsSubscription.cancel());
+
+    super.dispose();
   }
 
   void onAppChange(int index) {
