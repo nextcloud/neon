@@ -159,4 +159,48 @@ void main() {
     await tester.testTextInput.receiveAction(TextInputAction.send);
     verify(() => bloc.sendMessage('123 @"id" 456')).called(1);
   });
+
+  testWidgets('Multiline', (tester) async {
+    final account = mockTalkAccount();
+
+    final room = MockRoom();
+    when(() => room.token).thenReturn('token');
+    when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+          Provider<Account>.value(value: account),
+        ],
+        child: const Align(
+          alignment: Alignment.bottomCenter,
+          child: TalkMessageInput(),
+        ),
+      ),
+    );
+
+    await tester.enterText(find.byType(TextField), '123456');
+
+    for (var i = 0; i < 3; i++) {
+      await simulateKeyDownEvent(LogicalKeyboardKey.arrowLeft);
+      await simulateKeyUpEvent(LogicalKeyboardKey.arrowLeft);
+    }
+
+    await simulateKeyDownEvent(LogicalKeyboardKey.shift);
+    await simulateKeyDownEvent(LogicalKeyboardKey.enter);
+    await simulateKeyUpEvent(LogicalKeyboardKey.shift);
+    await simulateKeyUpEvent(LogicalKeyboardKey.enter);
+
+    await tester.pumpAndSettle();
+
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/message_input_multiline.png'));
+
+    await simulateKeyDownEvent(LogicalKeyboardKey.enter);
+    await simulateKeyUpEvent(LogicalKeyboardKey.enter);
+
+    verify(() => bloc.sendMessage('123\n456')).called(1);
+  });
 }
