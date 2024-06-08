@@ -6,6 +6,13 @@ A framework for building convergent cross-platform Nextcloud clients using Flutt
 
 At the Nextcloud Conference 2023 there was a lightning talk summarizing the Neon framework: https://www.youtube.com/watch?v=MD3zlRHdSEw
 
+## Contributing
+
+Check out our [contributing docs](CONTRIBUTING.md) to get started with developing with Neon.
+
+We have a lot of [documentation](docs) from helping you set up your development environment to our guidelines.
+Please make sure to read them before starting to contribute.
+
 ## The goals of Neon
 
 The Neon project has three main goals:
@@ -29,14 +36,10 @@ For more details on generating the OpenAPI specifications you can watch the foll
 
 We provide abstractions, common utilities and prebuilt UI components (called Widgets in Flutter) that can be re-used. This allows Neon to make developing a new Nextcloud client as easy as adding a few custom UI elements and the necessary state management, while everything else is already taken care of for you.
 
-## Contributing
+## Contributing back
 
 We encourage every client developer to contribute their app implementation back into Neon.
 This way the app developers can choose from a large set of clients to enable.
-Check out our [contributing docs](CONTRIBUTING.md) to get started with developing with Neon.
-
-We have a lot of [documentation](docs) from helping you set up your development environment to our guidelines.
-Please make sure to read them before starting to contribute.
 
 ## Development and support
 
