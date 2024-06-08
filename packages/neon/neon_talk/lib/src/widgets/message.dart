@@ -392,7 +392,7 @@ class TalkCommentMessage extends StatelessWidget {
         );
 
         time = Text(
-          _timeFormat.format(date),
+          _timeFormat.format(date.toLocal()),
           style: textTheme.labelSmall,
         );
       }
