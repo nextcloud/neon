@@ -758,26 +758,26 @@ abstract class NeonLocalizations {
   /// No description provided for @relativeTimeMinutes.
   ///
   /// In en, this message translates to:
-  /// **'{time} {time,plural, =1{minute}other{minutes}}'**
-  String relativeTimeMinutes(int time);
+  /// **'{time}{abbreviation,select, true{m} other{ {time,plural, =1{minute}other{minutes}}}}'**
+  String relativeTimeMinutes(int time, String abbreviation);
 
   /// No description provided for @relativeTimeHours.
   ///
   /// In en, this message translates to:
-  /// **'{time} {time,plural, =1{hour}other{hours}}'**
-  String relativeTimeHours(int time);
+  /// **'{time}{abbreviation,select, true{h} other{ {time,plural, =1{hour}other{hours}}}}'**
+  String relativeTimeHours(int time, String abbreviation);
 
   /// No description provided for @relativeTimeDays.
   ///
   /// In en, this message translates to:
-  /// **'{time} {time,plural, =1{day}other{days}}'**
-  String relativeTimeDays(int time);
+  /// **'{time}{abbreviation,select, true{d} other{ {time,plural, =1{day}other{days}}}}'**
+  String relativeTimeDays(int time, String abbreviation);
 
   /// No description provided for @relativeTimeYears.
   ///
   /// In en, this message translates to:
-  /// **'{time} {time,plural, =1{year}other{years}}'**
-  String relativeTimeYears(int time);
+  /// **'{time}{abbreviation,select, true{y} other{ {time,plural, =1{year}other{years}}}}'**
+  String relativeTimeYears(int time, String abbreviation);
 
   /// No description provided for @userStatusSetStatus.
   ///

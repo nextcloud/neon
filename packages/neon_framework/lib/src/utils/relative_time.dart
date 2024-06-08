@@ -13,11 +13,13 @@ extension RelativeTimeFormatDateTime on tz.TZDateTime {
   String formatRelative(
     NeonLocalizations localizations, {
     bool includeSign = true,
+    bool abbreviation = false,
     tz.TZDateTime? to,
   }) =>
       difference(to ?? tz.TZDateTime.now(tz.UTC)).formatRelative(
         localizations,
         includeSign: includeSign,
+        abbreviation: abbreviation,
       );
 }
 
@@ -31,21 +33,24 @@ extension RelativeTimeFormatDuration on Duration {
   String formatRelative(
     NeonLocalizations localizations, {
     bool includeSign = true,
+    bool abbreviation = false,
   }) {
     final normalizedDuration = isNegative ? Duration(microseconds: -inMicroseconds) : this;
     if (normalizedDuration.inMinutes < 1) {
       return localizations.relativeTimeNow;
     }
 
+    final abbr = abbreviation ? 'true' : 'false';
+
     String time;
     if (normalizedDuration.inHours < 1) {
-      time = localizations.relativeTimeMinutes(normalizedDuration.inMinutes);
+      time = localizations.relativeTimeMinutes(normalizedDuration.inMinutes, abbr);
     } else if (normalizedDuration.inDays < 1) {
-      time = localizations.relativeTimeHours(normalizedDuration.inHours);
+      time = localizations.relativeTimeHours(normalizedDuration.inHours, abbr);
     } else if (normalizedDuration.inDays < 365) {
-      time = localizations.relativeTimeDays(normalizedDuration.inDays);
+      time = localizations.relativeTimeDays(normalizedDuration.inDays, abbr);
     } else {
-      time = localizations.relativeTimeYears(normalizedDuration.inDays ~/ 365);
+      time = localizations.relativeTimeYears(normalizedDuration.inDays ~/ 365, abbr);
     }
 
     if (!includeSign) {

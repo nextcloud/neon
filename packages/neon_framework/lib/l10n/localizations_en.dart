@@ -390,47 +390,75 @@ class NeonLocalizationsEn extends NeonLocalizations {
   }
 
   @override
-  String relativeTimeMinutes(int time) {
+  String relativeTimeMinutes(int time, String abbreviation) {
     String _temp0 = intl.Intl.pluralLogic(
       time,
       locale: localeName,
       other: 'minutes',
       one: 'minute',
     );
-    return '$time $_temp0';
+    String _temp1 = intl.Intl.selectLogic(
+      abbreviation,
+      {
+        'true': 'm',
+        'other': ' $_temp0',
+      },
+    );
+    return '$time$_temp1';
   }
 
   @override
-  String relativeTimeHours(int time) {
+  String relativeTimeHours(int time, String abbreviation) {
     String _temp0 = intl.Intl.pluralLogic(
       time,
       locale: localeName,
       other: 'hours',
       one: 'hour',
     );
-    return '$time $_temp0';
+    String _temp1 = intl.Intl.selectLogic(
+      abbreviation,
+      {
+        'true': 'h',
+        'other': ' $_temp0',
+      },
+    );
+    return '$time$_temp1';
   }
 
   @override
-  String relativeTimeDays(int time) {
+  String relativeTimeDays(int time, String abbreviation) {
     String _temp0 = intl.Intl.pluralLogic(
       time,
       locale: localeName,
       other: 'days',
       one: 'day',
     );
-    return '$time $_temp0';
+    String _temp1 = intl.Intl.selectLogic(
+      abbreviation,
+      {
+        'true': 'd',
+        'other': ' $_temp0',
+      },
+    );
+    return '$time$_temp1';
   }
 
   @override
-  String relativeTimeYears(int time) {
+  String relativeTimeYears(int time, String abbreviation) {
     String _temp0 = intl.Intl.pluralLogic(
       time,
       locale: localeName,
       other: 'years',
       one: 'year',
     );
-    return '$time $_temp0';
+    String _temp1 = intl.Intl.selectLogic(
+      abbreviation,
+      {
+        'true': 'y',
+        'other': ' $_temp0',
+      },
+    );
+    return '$time$_temp1';
   }
 
   @override

@@ -29,7 +29,7 @@ void main() {
         ..type = user_status.ClearAt_Type.period
         ..time = ($int: 120, clearAtTimeType: null),
     ): (
-      localizations.relativeTimeMinutes(2),
+      localizations.relativeTimeMinutes(2, 'false'),
       DateTime.utc(2024, 1, 1, 0, 2),
     ),
   };
