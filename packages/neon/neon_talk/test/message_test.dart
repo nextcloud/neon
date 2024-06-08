@@ -355,6 +355,7 @@ void main() {
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
       expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsNothing);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
@@ -405,6 +406,7 @@ void main() {
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
       expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsNothing);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
@@ -483,6 +485,7 @@ void main() {
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
       expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsOne);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsNothing);
@@ -584,6 +587,7 @@ void main() {
         );
         expect(find.byType(TalkActorAvatar), findsOne);
         expect(find.text('1:00 AM'), findsOne);
+        expect(find.byTooltip('1/1/1970 1:00 AM'), findsOne);
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
@@ -678,6 +682,7 @@ void main() {
         );
         expect(find.byType(TalkActorAvatar), findsOne);
         expect(find.text('1:00 AM'), findsOne);
+        expect(find.byTooltip('1/1/1970 1:00 AM'), findsOne);
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
