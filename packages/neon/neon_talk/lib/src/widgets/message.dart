@@ -419,15 +419,17 @@ class TalkCommentMessage extends StatelessWidget {
       topMargin = 0;
     }
 
-    Widget text = RichText(
-      maxLines: isParent ? 1 : null,
-      overflow: isParent ? TextOverflow.ellipsis : TextOverflow.visible,
-      text: buildChatMessage(
-        chatMessage: chatMessage,
-        isPreview: isParent,
-        style: isParent || chatMessage.messageType == spreed.MessageType.commentDeleted
-            ? textTheme.bodySmall
-            : textTheme.bodyMedium,
+    Widget text = SelectionArea(
+      child: Text.rich(
+        buildChatMessage(
+          chatMessage: chatMessage,
+          isPreview: isParent,
+          style: isParent || chatMessage.messageType == spreed.MessageType.commentDeleted
+              ? textTheme.bodySmall
+              : textTheme.bodyMedium,
+        ),
+        maxLines: isParent ? 1 : null,
+        overflow: isParent ? TextOverflow.ellipsis : TextOverflow.visible,
       ),
     );
     if (chatMessage.messageType == spreed.MessageType.commentDeleted) {
