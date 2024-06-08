@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:neon_framework/blocs.dart';
@@ -19,6 +21,7 @@ class NotificationsMainPage extends StatefulWidget {
 
 class _NotificationsMainPageState extends State<NotificationsMainPage> {
   late NotificationsBloc bloc;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
@@ -26,9 +29,16 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
 
     bloc = NeonProvider.of<NotificationsBlocInterface>(context) as NotificationsBloc;
 
-    bloc.errors.listen((error) {
+    errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

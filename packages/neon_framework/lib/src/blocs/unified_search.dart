@@ -41,7 +41,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     required this.activeAppSubject,
     required this.account,
   }) {
-    activeAppSubject.listen((_) {
+    activeAppSubscription = activeAppSubject.listen((_) {
       term = '';
       extendedSearchEnabled = false;
       results.add(BuiltMap());
@@ -52,6 +52,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   final log = Logger('UnifiedSearchBloc');
 
   final BehaviorSubject<AppImplementation> activeAppSubject;
+  late final StreamSubscription<AppImplementation> activeAppSubscription;
   final Account account;
   String term = '';
   bool extendedSearchEnabled = false;
@@ -67,6 +68,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   void dispose() {
+    unawaited(activeAppSubscription.cancel());
     unawaited(isExtendedSearch.close());
     unawaited(providers.close());
     unawaited(results.close());

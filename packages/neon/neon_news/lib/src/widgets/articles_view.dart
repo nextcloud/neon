@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
@@ -39,13 +41,22 @@ class NewsArticlesView extends StatefulWidget {
 }
 
 class _NewsArticlesViewState extends State<NewsArticlesView> {
+  late final StreamSubscription<Object> errorsSubscription;
+
   @override
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((error) {
+    errorsSubscription = widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

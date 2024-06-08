@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -20,6 +22,7 @@ class NotesMainPage extends StatefulWidget {
 class _NotesMainPageState extends State<NotesMainPage> {
   late NotesBloc bloc;
   late int _index = bloc.options.defaultCategoryOption.value.index;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
@@ -27,9 +30,16 @@ class _NotesMainPageState extends State<NotesMainPage> {
 
     bloc = NeonProvider.of<NotesBloc>(context);
 
-    bloc.errors.listen((error) {
+    errorsSubscription = bloc.errors.listen((error) {
       handleNotesException(context, error);
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

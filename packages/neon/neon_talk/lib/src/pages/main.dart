@@ -28,7 +28,7 @@ class TalkMainPage extends StatefulWidget {
 class _TalkMainPageState extends State<TalkMainPage> {
   late Account account;
   late TalkBloc bloc;
-  late StreamSubscription<Object> errorsSubscription;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {

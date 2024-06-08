@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +31,22 @@ class FilesBrowserView extends StatefulWidget {
 }
 
 class _FilesBrowserViewState extends State<FilesBrowserView> {
+  late final StreamSubscription<Object> errorsSubscription;
+
   @override
   void initState() {
-    widget.bloc.errors.listen((error) {
+    errorsSubscription = widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

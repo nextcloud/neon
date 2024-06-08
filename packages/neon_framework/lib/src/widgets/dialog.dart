@@ -562,6 +562,8 @@ class NeonAccountDeletionDialog extends StatefulWidget {
 class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
   core.DropAccountCapabilities_DropAccount? dropAccountCapabilities;
   AccountDeletion value = AccountDeletion.local;
+  late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
+      capabilitiesSubscription;
 
   void update(AccountDeletion value) {
     setState(() {
@@ -573,7 +575,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
   void initState() {
     super.initState();
 
-    widget.capabilitiesBloc.capabilities.listen((result) {
+    capabilitiesSubscription = widget.capabilitiesBloc.capabilities.listen((result) {
       setState(() {
         dropAccountCapabilities = result.data?.capabilities.dropAccountCapabilities?.dropAccount;
         if (!(dropAccountCapabilities?.enabled ?? false)) {
@@ -581,6 +583,13 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
         }
       });
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(capabilitiesSubscription.cancel());
+
+    super.dispose();
   }
 
   @override

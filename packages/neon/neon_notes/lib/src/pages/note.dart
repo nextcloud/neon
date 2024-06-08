@@ -36,6 +36,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   bool _showEditor = false;
   final _contentStreamController = StreamController<String>();
   final _titleStreamController = StreamController<String>();
+  late final StreamSubscription<Object> errorsSubscription;
 
   void _focusEditor() {
     _contentFocusNode.requestFocus();
@@ -46,7 +47,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((error) {
+    errorsSubscription = widget.bloc.errors.listen((error) {
       handleNotesException(context, error);
     });
 
@@ -79,6 +80,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
     _titleFocusNode.dispose();
     unawaited(_contentStreamController.close());
     unawaited(_titleStreamController.close());
+    unawaited(errorsSubscription.cancel());
     super.dispose();
   }
 

@@ -38,12 +38,13 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   WebViewController? _webviewController;
   Timer? _markAsReadTimer;
   bool loading = false;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
     super.initState();
 
-    widget.bloc.errors.listen((error) {
+    errorsSubscription = widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
 
@@ -81,6 +82,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
   @override
   void dispose() {
     _cancelMarkAsReadTimer();
+    unawaited(errorsSubscription.cancel());
 
     super.dispose();
   }

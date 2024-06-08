@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -22,15 +24,23 @@ class NewsMainPage extends StatefulWidget {
 class _NewsMainPageState extends State<NewsMainPage> {
   late NewsBloc bloc;
   late int _index = bloc.options.defaultCategoryOption.value.index;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
     super.initState();
     bloc = NeonProvider.of<NewsBloc>(context);
 
-    bloc.errors.listen((error) {
+    errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorsSubscription.cancel());
+
+    super.dispose();
   }
 
   @override
