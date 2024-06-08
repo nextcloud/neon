@@ -162,6 +162,9 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
             onPressed: sendMessage,
           ),
           hintText: TalkLocalizations.of(context).roomWriteMessage,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+          ),
         ),
         onFieldSubmitted: (_) {
           sendMessage();
