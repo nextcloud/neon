@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -22,7 +23,29 @@ class TalkMessageInput extends StatefulWidget {
 
 class _TalkMessageInputState extends State<TalkMessageInput> {
   final controller = TextEditingController();
-  final focusNode = FocusNode();
+  late final focusNode = FocusNode(
+    onKeyEvent: (node, event) {
+      if (event.logicalKey.keyLabel == 'Enter') {
+        if (event is KeyDownEvent) {
+          if (HardwareKeyboard.instance.isShiftPressed) {
+            final selection = controller.selection;
+            final text = controller.text;
+            controller
+              ..text = '${text.substring(0, selection.start)}\n${text.substring(selection.start)}'
+              ..selection = selection.copyWith(
+                baseOffset: selection.start + 1,
+                extentOffset: selection.end + 1,
+              );
+          } else {
+            sendMessage();
+          }
+        }
+        return KeyEventResult.handled;
+      } else {
+        return KeyEventResult.ignored;
+      }
+    },
+  );
   late TalkRoomBloc bloc;
 
   @override
@@ -127,7 +150,10 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       builder: (context, controller, focusNode) => TextFormField(
         controller: controller,
         focusNode: focusNode,
-        textInputAction: TextInputAction.send,
+        textInputAction: TextInputAction.newline,
+        keyboardType: TextInputType.multiline,
+        minLines: 1,
+        maxLines: 5,
         decoration: InputDecoration(
           prefixIcon: emojiButton,
           suffixIcon: IconButton(
