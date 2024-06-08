@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -15,6 +16,8 @@ import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/utils.dart';
+import 'package:timezone/timezone.dart' as tz;
 
 /// The main page displaying the chat list.
 class TalkMainPage extends StatefulWidget {
@@ -95,19 +98,54 @@ class _TalkMainPageState extends State<TalkMainPage> {
         roomType: spreed.RoomType.fromValue(room.type),
         chatMessage: lastChatMessage,
       );
-    }
 
-    if (room.unreadMessages > 0) {
-      trailing = TalkUnreadIndicator(
-        room: room,
+      if (room.unreadMessages > 0) {
+        trailing = TalkUnreadIndicator(
+          room: room,
+        );
+      } else if (account.username == lastChatMessage.actorId) {
+        trailing = Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: TalkReadIndicator(
+            chatMessage: lastChatMessage,
+            lastCommonRead: room.lastCommonReadMessage,
+          ),
+        );
+      }
+
+      final timestamp = DateTimeUtils.fromSecondsSinceEpoch(
+        tz.local,
+        lastChatMessage.timestamp,
       );
-    } else if (lastChatMessage != null && account.username == lastChatMessage.actorId) {
-      trailing = Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: TalkReadIndicator(
-          chatMessage: lastChatMessage,
-          lastCommonRead: room.lastCommonReadMessage,
+
+      final time = Tooltip(
+        message: DateFormat.yMd().add_jm().format(timestamp),
+        child: RelativeTime(
+          date: timestamp,
+          includeSign: false,
+          abbreviation: true,
         ),
+      );
+
+      if (trailing != null) {
+        trailing = Column(
+          children: [
+            time,
+            Expanded(
+              child: trailing,
+            ),
+          ],
+        );
+      } else {
+        trailing = Align(
+          alignment: Alignment.topCenter,
+          child: time,
+        );
+      }
+
+      trailing = SizedBox(
+        width: 40,
+        child: trailing,
       );
     }
 
