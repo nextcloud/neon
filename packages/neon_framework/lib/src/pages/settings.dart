@@ -72,7 +72,7 @@ enum SettingsCategories {
 ///
 /// Settings are specified as `Option`s.
 @internal
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends StatelessWidget {
   /// Creates a new settings page.
   const SettingsPage({
     this.initialCategory,
@@ -82,11 +82,6 @@ class SettingsPage extends StatefulWidget {
   /// The optional initial category to show.
   final SettingsCategories? initialCategory;
 
-  @override
-  State<SettingsPage> createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
@@ -128,7 +123,7 @@ class _SettingsPageState extends State<SettingsPage> {
       ],
     );
     final body = SettingsList(
-      initialCategoryKey: widget.initialCategory?.name,
+      initialCategoryKey: initialCategory?.name,
       categories: [
         SettingsCategory(
           hasLeading: true,
@@ -173,7 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ],
         ),
-        if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(),
+        if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(context),
         if (NeonPlatform.instance.canUseWindowManager)
           SettingsCategory(
             title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
@@ -187,7 +182,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-        ...buildAccountCategory(),
+        ...buildAccountCategory(context),
         SettingsCategory(
           hasLeading: true,
           title: Text(NeonLocalizations.of(context).optionsCategoryOther),
@@ -325,7 +320,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget buildNotificationsCategory() {
+  Widget buildNotificationsCategory(BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
 
     return ValueListenableBuilder(
@@ -354,7 +349,7 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Iterable<Widget> buildAccountCategory() sync* {
+  Iterable<Widget> buildAccountCategory(BuildContext context) sync* {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final accounts = accountsBloc.accounts.value;
