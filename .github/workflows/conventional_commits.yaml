@@ -5,7 +5,7 @@ on:
 jobs:
   conventional-commits:
     name: Conventional commits
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4

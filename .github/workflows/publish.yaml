@@ -11,7 +11,7 @@ concurrency:
 jobs:
   android:
     name: Android
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
@@ -70,7 +70,7 @@ jobs:
 
   linux:
     name: Linux ${{ matrix.architecture.flutter }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       packages: write
     strategy:
