@@ -102,6 +102,7 @@ void main() {
               when(() => notification.datetime).thenReturn(tz.TZDateTime.now(tz.UTC).toIso8601String());
               when(() => notification.actions).thenReturn(BuiltList());
               when(() => notification.icon).thenReturn('');
+              when(() => notification.link).thenReturn('/link');
 
               return notification;
             }),
