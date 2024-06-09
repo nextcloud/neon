@@ -94,12 +94,6 @@ abstract class NotificationsLocalizations {
   /// In en, this message translates to:
   /// **'Dismiss all notifications'**
   String get notificationsDismissAll;
-
-  /// No description provided for @notificationAppNotImplementedYet.
-  ///
-  /// In en, this message translates to:
-  /// **'Sorry, this Nextcloud app has not been implemented yet'**
-  String get notificationAppNotImplementedYet;
 }
 
 class _NotificationsLocalizationsDelegate extends LocalizationsDelegate<NotificationsLocalizations> {

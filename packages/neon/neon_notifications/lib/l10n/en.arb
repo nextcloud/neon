@@ -1,5 +1,4 @@
 {
   "@@locale": "en",
-  "notificationsDismissAll": "Dismiss all notifications",
-  "notificationAppNotImplementedYet": "Sorry, this Nextcloud app has not been implemented yet"
+  "notificationsDismissAll": "Dismiss all notifications"
 }
