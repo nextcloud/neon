@@ -100,6 +100,7 @@ class TalkReactions extends StatelessWidget {
           );
 
           return Row(
+            mainAxisSize: MainAxisSize.min,
             children: children
                 .intersperse(
                   const SizedBox(
