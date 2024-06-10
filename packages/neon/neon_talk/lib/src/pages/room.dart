@@ -14,7 +14,7 @@ import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
 
-const _secondsPerDay = 24 * 60 * 60;
+const _millisecondsPerDay = 24 * 60 * 60 * 1000;
 
 /// Displays the room with a chat message list.
 class TalkRoomPage extends StatefulWidget {
@@ -118,8 +118,9 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                   );
 
                   if (previousMessage == null ||
-                      (previousMessage.timestamp ~/ _secondsPerDay) != (message.timestamp ~/ _secondsPerDay)) {
-                    final date = DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, message.timestamp);
+                      (tz.local.translate(previousMessage.timestamp * 1000) ~/ _millisecondsPerDay) !=
+                          (tz.local.translate(message.timestamp * 1000) ~/ _millisecondsPerDay)) {
+                    final date = DateTimeUtils.fromSecondsSinceEpoch(tz.local, message.timestamp);
 
                     child = Column(
                       children: [

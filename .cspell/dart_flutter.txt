@@ -13,6 +13,7 @@ qrcode
 steb
 sublist
 todos
+tzdata
 unawaited
 unfocus
 writeln

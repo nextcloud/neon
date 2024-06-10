@@ -19,6 +19,8 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
@@ -28,6 +30,9 @@ void main() {
 
   setUpAll(() {
     KeyboardVisibilityTesting.setVisibilityForTesting(true);
+
+    tzdata.initializeTimeZones();
+    tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
   });
 
   setUp(() {
@@ -100,7 +105,7 @@ void main() {
   testWidgets('Messages', (tester) async {
     final chatMessage1 = MockChatMessageWithParent();
     when(() => chatMessage1.id).thenReturn(1);
-    when(() => chatMessage1.timestamp).thenReturn(0);
+    when(() => chatMessage1.timestamp).thenReturn((1 * 24 - 1) * 60 * 60);
     when(() => chatMessage1.actorId).thenReturn('test');
     when(() => chatMessage1.actorType).thenReturn(spreed.ActorType.users);
     when(() => chatMessage1.actorDisplayName).thenReturn('test');
@@ -112,7 +117,7 @@ void main() {
 
     final chatMessage2 = MockChatMessageWithParent();
     when(() => chatMessage2.id).thenReturn(2);
-    when(() => chatMessage2.timestamp).thenReturn(24 * 60 * 60);
+    when(() => chatMessage2.timestamp).thenReturn((2 * 24 - 1) * 60 * 60);
     when(() => chatMessage2.actorId).thenReturn('test');
     when(() => chatMessage2.actorType).thenReturn(spreed.ActorType.users);
     when(() => chatMessage2.actorDisplayName).thenReturn('test');
@@ -124,7 +129,7 @@ void main() {
 
     final chatMessage3 = MockChatMessageWithParent();
     when(() => chatMessage3.id).thenReturn(3);
-    when(() => chatMessage3.timestamp).thenReturn(24 * 60 * 60 * 2 - 1);
+    when(() => chatMessage3.timestamp).thenReturn((3 * 24 - 1) * 60 * 60 - 1);
     when(() => chatMessage3.actorId).thenReturn('test');
     when(() => chatMessage3.actorType).thenReturn(spreed.ActorType.users);
     when(() => chatMessage3.actorDisplayName).thenReturn('test');
@@ -182,8 +187,8 @@ void main() {
       findsOne,
     );
     expect(find.byType(Divider), findsExactly(2));
-    expect(find.text('1/1/1970'), findsOne);
     expect(find.text('1/2/1970'), findsOne);
+    expect(find.text('1/3/1970'), findsOne);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_messages.png'));
   });
 
