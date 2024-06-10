@@ -23,6 +23,8 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
@@ -42,6 +44,9 @@ void main() {
     FakeNeonStorage.setup();
 
     registerFallbackValue(Uri());
+
+    tzdata.initializeTimeZones();
+    tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
   });
 
   group('getActorDisplayName', () {
@@ -349,7 +354,8 @@ void main() {
         ),
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
-      expect(find.text('12:00 AM'), findsNothing);
+      expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsNothing);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
@@ -399,7 +405,8 @@ void main() {
         ),
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
-      expect(find.text('12:00 AM'), findsNothing);
+      expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsNothing);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
@@ -477,7 +484,8 @@ void main() {
         ),
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
-      expect(find.text('12:00 AM'), findsNothing);
+      expect(find.text('1:00 AM'), findsNothing);
+      expect(find.byTooltip('1/1/1970 1:00 AM'), findsNothing);
       expect(find.text('test'), findsOne);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsNothing);
@@ -578,7 +586,8 @@ void main() {
           ),
         );
         expect(find.byType(TalkActorAvatar), findsOne);
-        expect(find.text('12:00 AM'), findsOne);
+        expect(find.text('1:00 AM'), findsOne);
+        expect(find.byTooltip('1/1/1970 1:00 AM'), findsOne);
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
@@ -625,7 +634,7 @@ void main() {
           ),
         );
         expect(find.byType(TalkActorAvatar), findsOne);
-        expect(find.text('12:05 AM'), findsOne);
+        expect(find.text('1:05 AM'), findsOne);
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
@@ -672,7 +681,8 @@ void main() {
           ),
         );
         expect(find.byType(TalkActorAvatar), findsOne);
-        expect(find.text('12:00 AM'), findsOne);
+        expect(find.text('1:00 AM'), findsOne);
+        expect(find.byTooltip('1/1/1970 1:00 AM'), findsOne);
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);

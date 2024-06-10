@@ -17,6 +17,7 @@ import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 final _timeFormat = DateFormat.jm();
+final _dateTimeFormat = DateFormat.yMd().add_jm();
 
 /// Returns the display name of the actor of the [chatMessage].
 ///
@@ -391,9 +392,12 @@ class TalkCommentMessage extends StatelessWidget {
           actorType: chatMessage.actorType,
         );
 
-        time = Text(
-          _timeFormat.format(date),
-          style: textTheme.labelSmall,
+        time = Tooltip(
+          message: _dateTimeFormat.format(date.toLocal()),
+          child: Text(
+            _timeFormat.format(date.toLocal()),
+            style: textTheme.labelSmall,
+          ),
         );
       }
     }
