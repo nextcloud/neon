@@ -18,7 +18,7 @@ abstract interface class NeonPlatform {
   static NeonPlatform get instance {
     if (_instance == null) {
       throw StateError(
-        'NeonPlatform has not been set up yet. Please make sure NeonPlatform.setup() has been called before and completed.',
+        'NeonPlatform has not been set up yet. Please make sure NeonPlatform.instance has been initialized before.',
       );
     }
 
