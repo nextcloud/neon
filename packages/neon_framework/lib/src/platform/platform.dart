@@ -12,13 +12,17 @@ import 'package:meta/meta.dart';
 abstract interface class NeonPlatform {
   static NeonPlatform? _instance;
 
+  /// Sets the global instance of [NeonPlatform].
+  ///
+  /// This setter is only to be called in Dart-only platform plugin implementation as described in https://docs.flutter.dev/packages-and-plugins/developing-packages#dart-only-platform-implementations.
+  /// Make sure to configure the class in pubspec.yaml, export it through lib/neon_framework.dart and call this setter inside the static registerWith method.
   static set instance(NeonPlatform instance) => _instance = instance;
 
   /// Gets the current instance of [NeonPlatform].
   static NeonPlatform get instance {
     if (_instance == null) {
       throw StateError(
-        'NeonPlatform has not been set up yet. Please make sure NeonPlatform.setup() has been called before and completed.',
+        'NeonPlatform has not been set up yet. Please make sure NeonPlatform.instance has been initialized before.',
       );
     }
 
