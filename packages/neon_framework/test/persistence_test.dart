@@ -1,5 +1,7 @@
 // ignore_for_file: inference_failure_on_instance_creation, strict_raw_type, inference_failure_on_collection_literal
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:cookie_store_conformance_tests/cookie_store_conformance_tests.dart' as cookie_jar_conformance;
@@ -46,19 +48,19 @@ void main() {
         var result = await cache.get(account, 'key');
         expect(result, isNull);
 
-        await cache.set(account, 'key', 'value', null);
+        await cache.set(account, 'key', utf8.encode('value'), null);
         result = await cache.get(account, 'key');
-        expect(result?.value, equals('value'));
+        expect(result?.value, equals(utf8.encode('value')));
 
-        await cache.set(account, 'key', 'upsert', null);
+        await cache.set(account, 'key', utf8.encode('upsert'), null);
         result = await cache.get(account, 'key');
-        expect(result?.value, equals('upsert'));
+        expect(result?.value, equals(utf8.encode('upsert')));
 
         var parameters = const CacheParameters(etag: null, expires: null);
         result = await cache.get(account, 'newKey');
         expect(result?.parameters, isNull);
 
-        await cache.set(account, 'key', 'value', parameters);
+        await cache.set(account, 'key', utf8.encode('value'), parameters);
         result = await cache.get(account, 'key');
         expect(result?.parameters, equals(parameters));
 
