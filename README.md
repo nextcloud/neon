@@ -49,24 +49,23 @@ We have a Matrix space where you can ask questions: https://matrix.to/#/#nextclo
 
 See [here](packages/app/README.md) for screenshots.
 
-- :heavy_check_mark: Supported
+- :white_check_mark: Supported
 - :construction: Work in progress 
 - :rocket: Planned
 
 | App                                               | Status             |
 |---------------------------------------------------|--------------------|
-| [Dashboard](packages/neon/neon_dashboard)         | :heavy_check_mark: |
-| [Files](packages/neon/neon_files)                 | :heavy_check_mark: |
-| [News](packages/neon/neon_news)                   | :heavy_check_mark: |
-| [Notes](packages/neon/neon_notes)                 | :heavy_check_mark: |
-| [Notifications](packages/neon/neon_notifications) | :heavy_check_mark: |
+| [Dashboard](packages/neon/neon_dashboard)         | :white_check_mark: |
+| [Files](packages/neon/neon_files)                 | :white_check_mark: |
+| [News](packages/neon/neon_news)                   | :white_check_mark: |
+| [Notes](packages/neon/neon_notes)                 | :white_check_mark: |
+| [Notifications](packages/neon/neon_notifications) | :white_check_mark: |
 | Activity                                          | :rocket:           |
 | Calendar                                          | :rocket:           |
 | Contacts                                          | :rocket:           |
 | Cookbook                                          | :rocket:           |
 | Cospend                                           | :rocket:           |
 | Deck                                              | :rocket:           |
-| Photos                                            | :rocket:           |
 | Photos                                            | :rocket:           |
 | Talk                                              | :construction:     |
 | Tasks                                             | :rocket:           |
@@ -75,9 +74,9 @@ See [here](packages/app/README.md) for screenshots.
 
 | Platform | Progress           |
 |----------|--------------------|
-| Android  | :heavy_check_mark: |
+| Android  | :white_check_mark: |
 | iOS      | :construction:     |
 | MacOS    | :construction:     |
-| Linux    | :heavy_check_mark: |
+| Linux    | :white_check_mark: |
 | Windows  | :rocket:           |
-| Web      | :heavy_check_mark: |
+| Web      | :white_check_mark: |
