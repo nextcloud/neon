@@ -272,6 +272,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
                       NeonProvider<MaintenanceModeBloc>.value(
                         value: _accountsBloc.getMaintenanceModeBlocFor(account),
                       ),
+                      NeonProvider<ReferencesBloc>.value(
+                        value: _accountsBloc.getReferencesBlocFor(account),
+                      ),
                     ],
                     child: app,
                   );
