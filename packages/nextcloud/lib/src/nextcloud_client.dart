@@ -16,18 +16,17 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
   /// Note that not all endpoints can be access by using only the [password], so it is preferred to set the [appPassword] instead.
   /// [loginName] can be any user identifier like the username or the e-mail.
   ///
-  /// It is good practice to set the [userAgent] to allow server admins to identify clients.
-  /// A custom HTTP client can be provided through [httpClient].
-  /// Additionally a [cookieJar] can be specified to save cookies across requests.
+  /// It is good practice to set the `user-agent` header to allow server admins to identify clients.
   /// Some endpoints require the use of a cookies persistence.
+  /// A custom HTTP client can be provided through [httpClient].
   factory NextcloudClient(
     Uri baseURL, {
     String? loginName,
     String? password,
     String? appPassword,
-    String? userAgent,
+    @Deprecated('Use a custom http client to set the user agent.') String? userAgent,
     http.Client? httpClient,
-    cookie_jar.CookieJar? cookieJar,
+    @Deprecated('Use a custom http client to persist cookies.') cookie_jar.CookieJar? cookieJar,
   }) {
     var client = httpClient ?? http.Client();
     if (cookieJar != null || userAgent != null) {
