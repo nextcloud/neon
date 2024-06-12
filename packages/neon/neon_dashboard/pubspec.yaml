@@ -29,7 +29,7 @@ dev_dependencies:
     sdk: flutter
   go_router_builder: ^2.7.0
   http: ^1.2.1
-  mocktail: ^1.0.3
+  mocktail: ^1.0.4
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon
