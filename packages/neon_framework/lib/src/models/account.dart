@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:cookie_store/cookie_store.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/utils/cookie_store_interceptor.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -80,8 +80,14 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
       password: password,
       appPassword: password,
       userAgent: userAgent,
-      cookieJar: cookieStore != null ? CookieJarAdapter(cookieStore) : null,
       httpClient: httpClient,
+      interceptors: cookieStore != null
+          ? [
+              CookieStoreInterceptor(
+                cookieStore: cookieStore,
+              ),
+            ]
+          : null,
     );
   }
 
