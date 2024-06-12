@@ -38,7 +38,7 @@ class TalkUnreadIndicator extends StatelessWidget {
           color: colorScheme.primaryContainer,
         ),
       ),
-      padding: const EdgeInsets.all(2),
+      padding: const EdgeInsets.all(-2),
       backgroundColor: backgroundColor,
       avatar: avatar,
       label: Text(

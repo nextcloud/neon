@@ -220,35 +220,47 @@
       }
     }
   },
-  "relativeTimeMinutes": "{time} {time,plural, =1{minute}other{minutes}}",
+  "relativeTimeMinutes": "{time}{abbreviation,select, true{m} other{ {time,plural, =1{minute}other{minutes}}}}",
   "@relativeTimeMinutes": {
     "placeholders": {
       "time": {
         "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
       }
     }
   },
-  "relativeTimeHours": "{time} {time,plural, =1{hour}other{hours}}",
+  "relativeTimeHours": "{time}{abbreviation,select, true{h} other{ {time,plural, =1{hour}other{hours}}}}",
   "@relativeTimeHours": {
     "placeholders": {
       "time": {
         "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
       }
     }
   },
-  "relativeTimeDays": "{time} {time,plural, =1{day}other{days}}",
+  "relativeTimeDays": "{time}{abbreviation,select, true{d} other{ {time,plural, =1{day}other{days}}}}",
   "@relativeTimeDays": {
     "placeholders": {
       "time": {
         "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
       }
     }
   },
-  "relativeTimeYears": "{time} {time,plural, =1{year}other{years}}",
+  "relativeTimeYears": "{time}{abbreviation,select, true{y} other{ {time,plural, =1{year}other{years}}}}",
   "@relativeTimeYears": {
     "placeholders": {
       "time": {
         "type": "int"
+      },
+      "abbreviation": {
+        "type": "String"
       }
     }
   },

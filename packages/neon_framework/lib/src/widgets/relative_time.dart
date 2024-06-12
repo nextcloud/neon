@@ -11,6 +11,8 @@ class RelativeTime extends StatefulWidget {
   const RelativeTime({
     required this.date,
     this.style,
+    this.includeSign = true,
+    this.abbreviation = false,
     super.key,
   });
 
@@ -21,6 +23,12 @@ class RelativeTime extends StatefulWidget {
   ///
   /// If not specified the nearest [TextStyle] will be used.
   final TextStyle? style;
+
+  /// Skip the parts that tell if the difference is into the future or into the past.
+  final bool includeSign;
+
+  /// Use abbreviations for time units.
+  final bool abbreviation;
 
   @override
   State<RelativeTime> createState() => _RelativeTimeState();
@@ -49,7 +57,11 @@ class _RelativeTimeState extends State<RelativeTime> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      widget.date.formatRelative(NeonLocalizations.of(context)),
+      widget.date.formatRelative(
+        NeonLocalizations.of(context),
+        includeSign: widget.includeSign,
+        abbreviation: widget.abbreviation,
+      ),
       style: widget.style,
     );
   }
