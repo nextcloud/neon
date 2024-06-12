@@ -39,17 +39,19 @@ GoRouter buildAppRouter({
       onException: (context, state, router) async {
         final accountsBloc = NeonProvider.of<AccountsBloc>(context);
         if (accountsBloc.hasAccounts) {
-          var uri = state.uri;
           final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
           final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data;
           final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
-          if (!modRewriteWorking) {
-            uri = state.uri.replace(path: '/index.php${state.uri}');
-          }
 
           final account = NeonProvider.of<Account>(context);
+          var uri = account.completeUri(state.uri);
+
+          if (uri != state.uri && !modRewriteWorking && !uri.path.startsWith('/index.php')) {
+            uri = uri.replace(path: '/index.php${uri.path}');
+          }
+
           await launchUrl(
-            account.completeUri(uri),
+            uri,
             mode: LaunchMode.externalApplication,
           );
 
