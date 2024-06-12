@@ -33,7 +33,7 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
     String? appPassword,
     String? userAgent,
     super.httpClient,
-    cookie_jar.CookieJar? cookieJar,
+    @Deprecated('Use the CookieJarInterceptor instead') cookie_jar.CookieJar? cookieJar,
     Iterable<NextCloudInterceptor>? interceptors,
   })  : _interceptors = BuiltList.build((builder) {
           if (interceptors != null) {
