@@ -28,11 +28,11 @@ typedef UnwrapCallback<T, R> = T Function(R);
 ///
 /// This is used to store a value in the cache.
 @internal
-typedef SerializeCallback<T> = String Function(T);
+typedef SerializeCallback<T> = Uint8List Function(T);
 
 /// A callback to revive cached values [String] into their original type [T].
 @internal
-typedef DeserializeCallback<T> = T Function(String);
+typedef DeserializeCallback<T> = T Function(Uint8List);
 
 /// How often a request will be tried.
 ///
@@ -92,13 +92,10 @@ class RequestManager {
         },
         unwrap: (rawResponse) => unwrap(rawResponse),
         serialize: (data) {
-          const encoder = RawResponseEncoder();
-
-          return json.encode(encoder.convert(data as DynamiteRawResponse));
+          return const RawResponseEncoder().fuse(JsonUtf8Encoder()).convert(data as DynamiteRawResponse) as Uint8List;
         },
         deserialize: (data) {
-          final decoder = RawResponseDecoder<B, H>(serializer);
-          return decoder.convert(json.decode(data) as Map<String, dynamic>);
+          return const Utf8Decoder().fuse(const JsonDecoder()).fuse(RawResponseDecoder<B, H>(serializer)).convert(data);
         },
         disableTimeout: disableTimeout,
       );
@@ -121,8 +118,8 @@ class RequestManager {
           return const WebDavResponseConverter().convert(response);
         },
         unwrap: unwrap,
-        serialize: (data) => data.toXmlElement(namespaces: namespaces).toXmlString(),
-        deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(data).rootElement),
+        serialize: (data) => utf8.encode(data.toXmlElement(namespaces: namespaces).toXmlString()),
+        deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(utf8.decode(data)).rootElement),
         disableTimeout: disableTimeout,
       );
 
@@ -163,10 +160,10 @@ class RequestManager {
 
         return data;
       },
-      serialize: (response) => base64.encode(response.body),
+      serialize: (response) => response.body,
       deserialize: (data) => DynamiteResponse(
         200,
-        base64.decode(data),
+        data,
         null,
       ),
       getCacheParameters: getCacheParameters,

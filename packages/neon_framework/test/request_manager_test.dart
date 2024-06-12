@@ -25,6 +25,10 @@ void main() {
   when(() => account.id).thenReturn('clientID');
   late MockNeonStorage storage;
 
+  setUpAll(() {
+    registerFallbackValue(Uint8List(0));
+  });
+
   setUp(() {
     storage = MockNeonStorage();
     when(() => storage.requestCache).thenReturn(null);
@@ -80,8 +84,8 @@ void main() {
           subject: subject,
           request: () async => callback.call(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         verify(callback.call).called(kMaxTries);
@@ -192,8 +196,8 @@ void main() {
           subject: subject,
           request: () async => utf8.encode('Test value'),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -216,8 +220,8 @@ void main() {
           subject: subject,
           request: () async => utf8.encode('Test value'),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -249,8 +253,8 @@ void main() {
           subject: subject,
           request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -289,8 +293,8 @@ void main() {
           subject: subject,
           request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -315,8 +319,8 @@ void main() {
           subject: subject,
           request: () async => throw ClientException(''),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -339,8 +343,8 @@ void main() {
           subject: subject,
           request: () async => throw ClientException(''),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -358,7 +362,7 @@ void main() {
         cache = MockRequestCache();
 
         when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value((value: 'Cached value', parameters: null)),
+          (_) => Future.value((value: utf8.encode('Cached value'), parameters: null)),
         );
 
         when(() => cache.set(any(), any(), any(), any())).thenAnswer(
@@ -391,13 +395,13 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verify(() => cache.set(account, 'key', 'Test value', null)).called(1);
+        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null)).called(1);
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -417,13 +421,13 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verify(() => cache.set(account, 'key', 'Test value', null)).called(1);
+        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null)).called(1);
       });
 
       test('timeout request', () async {
@@ -460,8 +464,8 @@ void main() {
           subject: subject,
           request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -502,8 +506,8 @@ void main() {
           subject: subject,
           request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -531,8 +535,8 @@ void main() {
           subject: subject,
           request: () async => throw ClientException(''),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -557,8 +561,8 @@ void main() {
           subject: subject,
           request: () async => throw ClientException(''),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -570,7 +574,7 @@ void main() {
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
             (
-              value: 'Cached value',
+              value: utf8.encode('Cached value'),
               parameters: CacheParameters(
                 etag: null,
                 expires: tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)),
@@ -596,8 +600,8 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -607,7 +611,7 @@ void main() {
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
             (
-              value: 'Cached value',
+              value: utf8.encode('Cached value'),
               parameters: CacheParameters(
                 etag: null,
                 expires: tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)),
@@ -634,8 +638,8 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -653,7 +657,7 @@ void main() {
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
             (
-              value: 'Cached value',
+              value: utf8.encode('Cached value'),
               parameters: const CacheParameters(
                 etag: 'a',
                 expires: null,
@@ -686,8 +690,8 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           getCacheParameters: () async => callback(),
         );
 
@@ -700,7 +704,7 @@ void main() {
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
             (
-              value: 'Cached value',
+              value: utf8.encode('Cached value'),
               parameters: const CacheParameters(
                 etag: 'a',
                 expires: null,
@@ -733,15 +737,15 @@ void main() {
           subject: subject,
           request: () => Future.value(utf8.encode('Test value')),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => utf8.decode(deserialized),
-          deserialize: (serialized) => utf8.encode(serialized),
+          serialize: (deserialized) => deserialized,
+          deserialize: (serialized) => serialized,
           getCacheParameters: () async => callback(),
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.set(account, 'key', 'Test value', null));
+        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null));
         verifyNever(() => cache.updateParameters(any(), any(), any()));
       });
 
@@ -778,11 +782,11 @@ void main() {
               },
             ),
             unwrap: (rawResponse) => rawResponse.body,
-            serialize: (rawResponse) => rawResponse.body,
+            serialize: (rawResponse) => utf8.encode(rawResponse.body),
             deserialize: (data) {
               final json = {
                 'statusCode': 200,
-                'body': data,
+                'body': utf8.decode(data),
                 'headers': <String, String>{},
               };
 
@@ -802,7 +806,7 @@ void main() {
             () => cache.set(
               account,
               'key',
-              'Test value',
+              utf8.encode('Test value'),
               CacheParameters(etag: 'a', expires: isSet ? newExpires : null),
             ),
           ).called(1);

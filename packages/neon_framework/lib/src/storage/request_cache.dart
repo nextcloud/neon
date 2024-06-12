@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
@@ -16,12 +17,12 @@ final _log = Logger('RequestCache');
 /// A storage used to cache a key value pair.
 abstract interface class RequestCache {
   /// Get's the cached value and parameters for the given [key].
-  Future<({String value, CacheParameters? parameters})?> get(Account account, String key);
+  Future<({Uint8List value, CacheParameters? parameters})?> get(Account account, String key);
 
   /// Set's the cached [value] at the given [key].
   ///
   /// If a value is already present it will be updated with the new one.
-  Future<void> set(Account account, String key, String value, CacheParameters? parameters);
+  Future<void> set(Account account, String key, Uint8List value, CacheParameters? parameters);
 
   /// Updates the cache [parameters] for a given [key] without modifying the `value`.
   Future<void> updateParameters(Account account, String key, CacheParameters? parameters);
@@ -60,19 +61,19 @@ final class DefaultRequestCache implements RequestCache {
     final cacheDir = await getApplicationCacheDirectory();
     database = await openDatabase(
       p.join(cacheDir.path, 'cache.db'),
-      version: 4,
+      version: 5,
       onCreate: onCreate,
       onUpgrade: (db, oldVersion, newVersion) async {
         // We can safely drop the table as it only contains cached data.
         // Non breaking migrations should not drop the cache. The next
         // breaking change should remove all non breaking migrations before it.
         await db.transaction((txn) async {
-          if (oldVersion <= 3) {
+          if (oldVersion <= 4) {
             await txn.execute('DROP TABLE cache');
             await onCreate(txn);
           }
 
-          if (oldVersion <= 3) {
+          if (oldVersion <= 4) {
             await txn.delete('cache');
           }
         });
@@ -86,7 +87,7 @@ final class DefaultRequestCache implements RequestCache {
 CREATE TABLE "cache" (
 	"account" TEXT NOT NULL,
 	"key"     TEXT NOT NULL,
-	"value"   TEXT NOT NULL,
+	"value"   BLOB NOT NULL,
 	"etag"    TEXT,
 	"expires" INTEGER,
 	PRIMARY KEY("key", "account")
@@ -106,7 +107,7 @@ CREATE TABLE "cache" (
   }
 
   @override
-  Future<({String value, CacheParameters? parameters})?> get(Account account, String key) async {
+  Future<({Uint8List value, CacheParameters? parameters})?> get(Account account, String key) async {
     List<Map<String, Object?>>? result;
     try {
       result = await _requireDatabase.rawQuery(
@@ -130,7 +131,7 @@ WHERE account = ? AND key = ?
       return null;
     }
 
-    final value = row['value']! as String;
+    final value = row['value']! as Uint8List;
     final etag = row['etag'] as String?;
     final expires = row['expires'] as int?;
 
@@ -148,7 +149,7 @@ WHERE account = ? AND key = ?
   }
 
   @override
-  Future<void> set(Account account, String key, String value, CacheParameters? parameters) async {
+  Future<void> set(Account account, String key, Uint8List value, CacheParameters? parameters) async {
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024

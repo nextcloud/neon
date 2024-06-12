@@ -153,7 +153,7 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
 }
 
 /// Encoder to efficiently convert a raw response to json.
-final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynamic>, Map<String, Object?>> {
+final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynamic>, Object?> {
   /// Creates a new raw response encoder.
   const RawResponseEncoder();
 
@@ -166,7 +166,7 @@ final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynam
 }
 
 /// Encoder to revive the json from a raw response.
-final class RawResponseDecoder<B, H> with Converter<Map<String, Object?>, DynamiteResponse<B, H>> {
+final class RawResponseDecoder<B, H> with Converter<Object?, DynamiteResponse<B, H>> {
   /// Creates a new raw response decoder.
   const RawResponseDecoder(this.serializer);
 
@@ -174,7 +174,11 @@ final class RawResponseDecoder<B, H> with Converter<Map<String, Object?>, Dynami
   final DynamiteSerializer<B, H> serializer;
 
   @override
-  DynamiteResponse<B, H> convert(Map<String, Object?> input) {
+  DynamiteResponse<B, H> convert(Object? input) {
+    if (input is! Map<String, Object?>) {
+      throw ArgumentError('Expected Map<String, Object?>, got ${input.runtimeType} instead');
+    }
+
     final rawHeaders = input['headers'];
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
