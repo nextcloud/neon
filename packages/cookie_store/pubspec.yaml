@@ -1,5 +1,5 @@
 name: cookie_store
-description: A RFC compliant cookie_jar alternative
+description: A RFC compliant cookie store
 version: 0.1.0
 publish_to: none
 
@@ -7,7 +7,6 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
-  cookie_jar: ^4.0.0
   meta: ^1.0.0
   timezone: ^0.9.4
   universal_io: ^2.0.0
