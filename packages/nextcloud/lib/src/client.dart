@@ -2,8 +2,9 @@ import 'package:built_collection/built_collection.dart';
 import 'package:cookie_jar/cookie_jar.dart' as cookie_jar;
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:nextcloud/src/interceptors/base_header_interceptor.dart';
+import 'package:nextcloud/src/interceptors/cookie_interceptor.dart';
 import 'package:nextcloud/src/interceptors/http_interceptor.dart';
-import 'package:nextcloud/src/utils/cookie_jar_client.dart';
 import 'package:universal_io/io.dart';
 
 /// A  [HttpInterceptor] for the [NextcloudClient];
@@ -31,22 +32,32 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
     String? password,
     String? appPassword,
     String? userAgent,
-    http.Client? httpClient,
+    super.httpClient,
     cookie_jar.CookieJar? cookieJar,
     Iterable<NextCloudInterceptor>? interceptors,
   })  : _interceptors = BuiltList.build((builder) {
           if (interceptors != null) {
             builder.addAll(interceptors);
           }
+
+          if (cookieJar != null) {
+            builder.add(
+              CookieJarInterceptor(cookieJar: cookieJar),
+            );
+          }
+
+          // Adding last to not overwrite request headers to avoid invalid requests.
+          if (userAgent != null) {
+            builder.add(
+              BaseHeaderInterceptor(
+                baseHeaders: {
+                  HttpHeaders.userAgentHeader: userAgent,
+                },
+              ),
+            );
+          }
         }),
         super(
-          httpClient: CookieJarClient(
-            httpClient: httpClient,
-            cookieJar: cookieJar,
-            baseHeaders: {
-              if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
-            },
-          ),
           authentications: [
             if (appPassword != null)
               DynamiteHttpBearerAuthentication(

@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:http/http.dart' as http;
+import 'package:meta/meta.dart';
 
 /// Interceptor that can manipulate http requests and responses.
+@immutable
 abstract interface class HttpInterceptor<S extends http.BaseRequest, T extends http.BaseResponse> {
   /// Whether this interceptor should intercept requests.
   bool shouldInterceptRequest();
