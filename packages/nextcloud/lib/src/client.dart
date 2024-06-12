@@ -1,8 +1,13 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:cookie_jar/cookie_jar.dart' as cookie_jar;
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:nextcloud/src/interceptors/http_interceptor.dart';
 import 'package:nextcloud/src/utils/cookie_jar_client.dart';
 import 'package:universal_io/io.dart';
+
+/// A  [HttpInterceptor] for the [NextcloudClient];
+typedef NextCloudInterceptor = HttpInterceptor<http.BaseRequest, http.StreamedResponse>;
 
 /// A client configuring the clients for all Nextcloud APIs.
 ///
@@ -28,7 +33,13 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
     String? userAgent,
     http.Client? httpClient,
     cookie_jar.CookieJar? cookieJar,
-  }) : super(
+    Iterable<NextCloudInterceptor>? interceptors,
+  })  : _interceptors = BuiltList.build((builder) {
+          if (interceptors != null) {
+            builder.addAll(interceptors);
+          }
+        }),
+        super(
           httpClient: CookieJarClient(
             httpClient: httpClient,
             cookieJar: cookieJar,
@@ -49,6 +60,36 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
           ],
         );
 
+  final BuiltList<NextCloudInterceptor> _interceptors;
+
   @override
-  Future<http.StreamedResponse> send(http.BaseRequest request) => httpClient.send(request);
+  Future<http.StreamedResponse> send(http.BaseRequest request) {
+    if (_interceptors.isNotEmpty) {
+      return _sendIntercepted(request);
+    }
+
+    return httpClient.send(request);
+  }
+
+  Future<http.StreamedResponse> _sendIntercepted(http.BaseRequest request) async {
+    var interceptedRequest = request;
+    for (final interceptor in _interceptors) {
+      if (interceptor.shouldInterceptRequest()) {
+        interceptedRequest = await interceptor.interceptRequest(
+          request: interceptedRequest,
+        );
+      }
+    }
+
+    var interceptedResponse = await httpClient.send(interceptedRequest);
+    for (final interceptor in _interceptors) {
+      if (interceptor.shouldInterceptResponse()) {
+        interceptedResponse = await interceptor.interceptResponse(
+          response: interceptedResponse,
+        );
+      }
+    }
+
+    return interceptedResponse;
+  }
 }

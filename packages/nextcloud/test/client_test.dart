@@ -1,12 +1,80 @@
+// ignore_for_file: discarded_futures
+
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/utils.dart';
 import 'package:test/test.dart';
+
+class _MockInterceptor extends Mock implements HttpInterceptor<BaseRequest, StreamedResponse> {}
 
 void main() {
   final uri = Uri.parse('http://example.com');
   group(NextcloudClient, () {
+    group('interceptors', () {
+      final fakeRequest = Request('PUT', uri);
+      final fakeResponse = StreamedResponse(const Stream.empty(), 200);
+
+      final mockedClient = MockClient((request) async {
+        return Response.fromStream(fakeResponse);
+      });
+      late NextCloudInterceptor interceptor;
+      late NextcloudClient client;
+
+      setUpAll(() {
+        registerFallbackValue(fakeResponse);
+        registerFallbackValue(fakeRequest);
+      });
+
+      setUp(() {
+        interceptor = _MockInterceptor();
+
+        client = NextcloudClient(
+          uri,
+          httpClient: mockedClient,
+          interceptors: [interceptor],
+        );
+      });
+
+      test('does not intercept', () async {
+        when(() => interceptor.shouldInterceptRequest()).thenReturn(false);
+        when(() => interceptor.shouldInterceptResponse()).thenReturn(false);
+
+        final request = Request('GET', uri);
+        await client.send(request);
+
+        verifyNever(() => interceptor.interceptRequest(request: any(named: 'request', that: equals(request))));
+        verifyNever(() => interceptor.interceptResponse(response: any(named: 'response', that: equals(fakeResponse))));
+      });
+
+      test('does intercept', () async {
+        when(() => interceptor.shouldInterceptRequest()).thenReturn(true);
+        when(() => interceptor.shouldInterceptResponse()).thenReturn(true);
+        when(
+          () => interceptor.interceptRequest(request: any(named: 'request')),
+        ).thenReturn(fakeRequest);
+        when(
+          () => interceptor.interceptResponse(response: any(named: 'response')),
+        ).thenReturn(fakeResponse);
+
+        final request = Request('GET', uri);
+        await client.send(request);
+
+        verify(
+          () => interceptor.interceptRequest(
+            request: any(named: 'request', that: equals(request)),
+          ),
+        ).called(1);
+        verify(
+          () => interceptor.interceptResponse(
+            response: any(named: 'response'),
+          ),
+        ).called(1);
+      });
+    });
+
     group('Cookies', () {
       late CookieJar cookieJar;
       setUp(() {
