@@ -311,6 +311,7 @@ void main() {
       ),
     );
     expect(find.byType(TalkCommentMessage), findsOne);
+    expect(find.byType(SelectionArea), findsNothing);
     await expectLater(find.byType(TalkParentMessage), matchesGoldenFile('goldens/message_parent_message.png'));
   });
 
@@ -360,6 +361,7 @@ void main() {
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
       expect(find.byType(TalkReadIndicator), findsOne);
+      expect(find.byType(SelectionArea), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message_self.png'),
@@ -411,6 +413,7 @@ void main() {
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
       expect(find.byType(TalkReadIndicator), findsNothing);
+      expect(find.byType(SelectionArea), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message_other.png'),
@@ -452,6 +455,7 @@ void main() {
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byIcon(AdaptiveIcons.cancel), findsOne);
       expect(find.byType(TalkReactions), findsNothing);
+      expect(find.byType(SelectionArea), findsNothing);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message_deleted.png'),
@@ -489,6 +493,7 @@ void main() {
       expect(find.text('test'), findsOne);
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsNothing);
+      expect(find.byType(SelectionArea), findsNothing);
       await expectLater(
         find.byType(TalkCommentMessage),
         matchesGoldenFile('goldens/message_comment_message_as_parent.png'),
@@ -542,6 +547,7 @@ void main() {
       );
       expect(find.byType(TalkParentMessage), findsOne);
       expect(find.byType(TalkReactions), findsOne);
+      expect(find.byType(SelectionArea), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage).first,
         matchesGoldenFile('goldens/message_comment_message_with_parent.png'),
@@ -591,6 +597,7 @@ void main() {
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
+        expect(find.byType(SelectionArea), findsOne);
         await expectLater(
           find.byType(TalkCommentMessage),
           matchesGoldenFile('goldens/message_comment_message_separate_actor.png'),
@@ -638,6 +645,7 @@ void main() {
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
+        expect(find.byType(SelectionArea), findsOne);
         await expectLater(
           find.byType(TalkCommentMessage),
           matchesGoldenFile('goldens/message_comment_message_separate_time.png'),
@@ -686,6 +694,7 @@ void main() {
         expect(find.text('test'), findsOne);
         expect(find.text('abc', findRichText: true), findsOne);
         expect(find.byType(TalkReactions), findsOne);
+        expect(find.byType(SelectionArea), findsOne);
         await expectLater(
           find.byType(TalkCommentMessage),
           matchesGoldenFile('goldens/message_comment_message_separate_system_message.png'),
