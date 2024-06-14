@@ -36,6 +36,12 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// Loads the emoji reactions for the [message].
   void loadReactions(spreed.$ChatMessageInterface message);
 
+  /// Sets a [chatMessage] as the message to [replyTo].
+  void setReplyChatMessage(spreed.$ChatMessageInterface chatMessage);
+
+  /// Removes the current [replyTo] chat message.
+  void removeReplyChatMessage();
+
   /// The current room data.
   BehaviorSubject<Result<spreed.Room>> get room;
 
@@ -49,6 +55,9 @@ abstract class TalkRoomBloc implements InteractiveBloc {
 
   /// Map of emoji reactions for the [messages].
   BehaviorSubject<BuiltMap<int, BuiltMap<String, BuiltList<spreed.Reaction>>>> get reactions;
+
+  /// Current chat message to reply to.
+  BehaviorSubject<spreed.$ChatMessageInterface?> get replyTo;
 }
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
@@ -165,6 +174,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final reactions = BehaviorSubject.seeded(BuiltMap());
 
   @override
+  final replyTo = BehaviorSubject.seeded(null);
+
+  @override
   void dispose() {
     pollLoop = false;
     unawaited(account.client.spreed.room.leaveRoom(token: token));
@@ -173,6 +185,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     unawaited(messages.close());
     unawaited(lastCommonRead.close());
     unawaited(reactions.close());
+    unawaited(replyTo.close());
     super.dispose();
   }
 
@@ -214,10 +227,14 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   Future<void> sendMessage(String message) async {
+    final replyToId = replyTo.value?.id;
+    replyTo.add(null);
+
     await wrapAction(
       () async {
         final response = await account.client.spreed.chat.sendMessage(
           message: message,
+          replyTo: replyToId,
           token: token,
         );
 
@@ -292,6 +309,16 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       },
       refresh: () async {},
     );
+  }
+
+  @override
+  void setReplyChatMessage(spreed.$ChatMessageInterface chatMessage) {
+    replyTo.add(chatMessage);
+  }
+
+  @override
+  void removeReplyChatMessage() {
+    replyTo.add(null);
   }
 
   void updateLastCommonRead(String? header) {

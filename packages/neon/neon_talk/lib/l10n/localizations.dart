@@ -149,6 +149,18 @@ abstract class TalkLocalizations {
   /// **'Send message'**
   String get roomMessageSend;
 
+  /// No description provided for @roomMessageReply.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply'**
+  String get roomMessageReply;
+
+  /// No description provided for @roomMessageReaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Add reaction'**
+  String get roomMessageReaction;
+
   /// No description provided for @reactionsAddNew.
   ///
   /// In en, this message translates to:
