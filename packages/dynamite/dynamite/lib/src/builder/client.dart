@@ -365,7 +365,7 @@ ${allocate(returnType)}(
 
             final acceptHeader = responses.keys
                 .map((response) => response.content?.keys)
-                .whereNotNull()
+                .nonNulls
                 .expand((element) => element)
                 .toSet()
                 .join(',');
