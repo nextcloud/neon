@@ -620,6 +620,18 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             NeonProvider.of<TalkRoomBloc>(context).setReplyChatMessage(chatMessage);
           },
         ),
+      if (chatMessage.messageType != spreed.MessageType.commentDeleted && chatMessage.actorId == room.actorId)
+        MenuItemButton(
+          leadingIcon: const Icon(Icons.delete_forever),
+          child: Text(TalkLocalizations.of(context).roomMessageDelete),
+          onPressed: () {
+            setState(() {
+              menuOpen = false;
+            });
+
+            NeonProvider.of<TalkRoomBloc>(context).deleteMessage(chatMessage);
+          },
+        ),
     ];
 
     if (children.isEmpty) {
