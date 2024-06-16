@@ -141,6 +141,10 @@
             "Object": {
                 "type": "object"
             },
+            "ObjectNullable": {
+                "type": "object",
+                "nullable": true
+            },
             "AdditionalProperties": {
                 "type": "object",
                 "properties": {
@@ -163,6 +167,13 @@
                         "type": "object",
                         "additionalProperties": {
                             "type": "object"
+                        }
+                    },
+                    "ObjectNullable": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "object",
+                            "nullable": true
                         }
                     },
                     "bool": {

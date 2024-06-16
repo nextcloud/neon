@@ -1661,7 +1661,7 @@ class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializ
     if (value != null) {
       result
         ..add('x-nc-iscustomavatar')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(int)])));
     }
     return result;
   }
@@ -1678,8 +1678,8 @@ class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(int)]))! as Header<int>);
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(int)]))! as Header<int?>);
           break;
       }
     }
@@ -1703,7 +1703,7 @@ class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<A
     if (value != null) {
       result
         ..add('x-nc-iscustomavatar')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(int)])));
     }
     return result;
   }
@@ -1720,8 +1720,8 @@ class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<A
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(int)]))! as Header<int>);
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(int)]))! as Header<int?>);
           break;
       }
     }
@@ -3396,7 +3396,7 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
       result
         ..add('x-nextcloud-ocm-providers')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)])));
+            specifiedType: const FullType(Header, [FullType.nullable(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)])));
     }
     return result;
   }
@@ -3414,8 +3414,9 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
       switch (key) {
         case 'x-nextcloud-ocm-providers':
           result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Header, [FullType(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]))!
-              as Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>);
+                  specifiedType:
+                      const FullType(Header, [FullType.nullable(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]))!
+              as Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>);
           break;
       }
     }
@@ -7046,7 +7047,7 @@ class _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
     ];
 
     return result;
@@ -7065,7 +7066,7 @@ class _$ReferenceApiExtractResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
           break;
       }
     }
@@ -7184,7 +7185,7 @@ class _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
     ];
 
     return result;
@@ -7204,7 +7205,7 @@ class _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
           break;
       }
     }
@@ -7324,7 +7325,7 @@ class _$ReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer
     final result = <Object?>[
       'references',
       serializers.serialize(object.references,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)])),
     ];
 
     return result;
@@ -7343,7 +7344,7 @@ class _$ReferenceApiResolveResponseApplicationJson_Ocs_DataSerializer
       switch (key) {
         case 'references':
           result.references.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Reference)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]))!);
           break;
       }
     }
@@ -13222,13 +13223,13 @@ class AutoCompleteGetResponseApplicationJsonBuilder
 abstract mixin class $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarDarkHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates);
-  HeaderBuilder<int> get xNcIscustomavatar;
-  set xNcIscustomavatar(HeaderBuilder<int>? xNcIscustomavatar);
+  HeaderBuilder<int?> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int?>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarDarkHeaders extends AvatarAvatarGetAvatarDarkHeaders {
   @override
-  final Header<int>? xNcIscustomavatar;
+  final Header<int?>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarDarkHeaders([void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarDarkHeadersBuilder()..update(updates))._build();
@@ -13270,9 +13271,9 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
         $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarDarkHeaders? _$v;
 
-  HeaderBuilder<int>? _xNcIscustomavatar;
-  HeaderBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int>();
-  set xNcIscustomavatar(covariant HeaderBuilder<int>? xNcIscustomavatar) =>
+  HeaderBuilder<int?>? _xNcIscustomavatar;
+  HeaderBuilder<int?> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int?>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int?>? xNcIscustomavatar) =>
       _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarDarkHeadersBuilder() {
@@ -13325,13 +13326,13 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
 abstract mixin class $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarHeadersInterfaceBuilder) updates);
-  HeaderBuilder<int> get xNcIscustomavatar;
-  set xNcIscustomavatar(HeaderBuilder<int>? xNcIscustomavatar);
+  HeaderBuilder<int?> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int?>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarHeaders extends AvatarAvatarGetAvatarHeaders {
   @override
-  final Header<int>? xNcIscustomavatar;
+  final Header<int?>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarHeaders([void Function(AvatarAvatarGetAvatarHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarHeadersBuilder()..update(updates))._build();
@@ -13372,9 +13373,9 @@ class AvatarAvatarGetAvatarHeadersBuilder
         $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarHeaders? _$v;
 
-  HeaderBuilder<int>? _xNcIscustomavatar;
-  HeaderBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int>();
-  set xNcIscustomavatar(covariant HeaderBuilder<int>? xNcIscustomavatar) =>
+  HeaderBuilder<int?>? _xNcIscustomavatar;
+  HeaderBuilder<int?> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int?>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int?>? xNcIscustomavatar) =>
       _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarHeadersBuilder() {
@@ -17632,13 +17633,13 @@ class OcmDiscoveryResponseApplicationJsonBuilder
 abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
   void replace($OcmOcmDiscoveryHeadersInterface other);
   void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders);
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?> get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? xNextcloudOcmProviders);
 }
 
 class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
   @override
-  final Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders;
+  final Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? xNextcloudOcmProviders;
 
   factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
       (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
@@ -17678,11 +17679,11 @@ class OcmOcmDiscoveryHeadersBuilder
     implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
   _$OcmOcmDiscoveryHeaders? _$v;
 
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? _xNextcloudOcmProviders;
-  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> get xNextcloudOcmProviders =>
-      _$this._xNextcloudOcmProviders ??= HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>();
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? _xNextcloudOcmProviders;
+  HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?> get xNextcloudOcmProviders =>
+      _$this._xNextcloudOcmProviders ??= HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>();
   set xNextcloudOcmProviders(
-          covariant HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>? xNextcloudOcmProviders) =>
+          covariant HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? xNextcloudOcmProviders) =>
       _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
 
   OcmOcmDiscoveryHeadersBuilder() {
@@ -26776,14 +26777,14 @@ class ReferenceBuilder implements Builder<Reference, ReferenceBuilder>, $Referen
 abstract mixin class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, Reference> get references;
-  set references(MapBuilder<String, Reference>? references);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
 }
 
 class _$ReferenceApiExtractResponseApplicationJson_Ocs_Data
     extends ReferenceApiExtractResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, Reference> references;
+  final BuiltMap<String, Reference?> references;
 
   factory _$ReferenceApiExtractResponseApplicationJson_Ocs_Data(
           [void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
@@ -26832,9 +26833,9 @@ class ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
         $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ReferenceApiExtractResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, Reference>? _references;
-  MapBuilder<String, Reference> get references => _$this._references ??= MapBuilder<String, Reference>();
-  set references(covariant MapBuilder<String, Reference>? references) => _$this._references = references;
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
 
   ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder() {
     ReferenceApiExtractResponseApplicationJson_Ocs_Data._defaults(this);
@@ -27117,14 +27118,14 @@ class ReferenceApiExtractResponseApplicationJsonBuilder
 abstract mixin class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, Reference> get references;
-  set references(MapBuilder<String, Reference>? references);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
 }
 
 class _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
     extends ReferenceApiResolveOneResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, Reference> references;
+  final BuiltMap<String, Reference?> references;
 
   factory _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data(
           [void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
@@ -27173,9 +27174,9 @@ class ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder
         $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, Reference>? _references;
-  MapBuilder<String, Reference> get references => _$this._references ??= MapBuilder<String, Reference>();
-  set references(covariant MapBuilder<String, Reference>? references) => _$this._references = references;
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
 
   ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder() {
     ReferenceApiResolveOneResponseApplicationJson_Ocs_Data._defaults(this);
@@ -27459,14 +27460,14 @@ class ReferenceApiResolveOneResponseApplicationJsonBuilder
 abstract mixin class $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  MapBuilder<String, Reference> get references;
-  set references(MapBuilder<String, Reference>? references);
+  MapBuilder<String, Reference?> get references;
+  set references(MapBuilder<String, Reference?>? references);
 }
 
 class _$ReferenceApiResolveResponseApplicationJson_Ocs_Data
     extends ReferenceApiResolveResponseApplicationJson_Ocs_Data {
   @override
-  final BuiltMap<String, Reference> references;
+  final BuiltMap<String, Reference?> references;
 
   factory _$ReferenceApiResolveResponseApplicationJson_Ocs_Data(
           [void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
@@ -27515,9 +27516,9 @@ class ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder
         $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ReferenceApiResolveResponseApplicationJson_Ocs_Data? _$v;
 
-  MapBuilder<String, Reference>? _references;
-  MapBuilder<String, Reference> get references => _$this._references ??= MapBuilder<String, Reference>();
-  set references(covariant MapBuilder<String, Reference>? references) => _$this._references = references;
+  MapBuilder<String, Reference?>? _references;
+  MapBuilder<String, Reference?> get references => _$this._references ??= MapBuilder<String, Reference?>();
+  set references(covariant MapBuilder<String, Reference?>? references) => _$this._references = references;
 
   ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder() {
     ReferenceApiResolveResponseApplicationJson_Ocs_Data._defaults(this);

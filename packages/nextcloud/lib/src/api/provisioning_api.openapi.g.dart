@@ -823,7 +823,7 @@ class _$AppsGetAppInfoResponseApplicationJson_OcsSerializer
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
       serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])),
     ];
 
     return result;
@@ -845,7 +845,7 @@ class _$AppsGetAppInfoResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]))!);
           break;
       }
     }
@@ -6560,15 +6560,15 @@ abstract mixin class $AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder 
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  MapBuilder<String, JsonObject> get data;
-  set data(MapBuilder<String, JsonObject>? data);
+  MapBuilder<String, JsonObject?> get data;
+  set data(MapBuilder<String, JsonObject?>? data);
 }
 
 class _$AppsGetAppInfoResponseApplicationJson_Ocs extends AppsGetAppInfoResponseApplicationJson_Ocs {
   @override
   final OCSMeta meta;
   @override
-  final BuiltMap<String, JsonObject> data;
+  final BuiltMap<String, JsonObject?> data;
 
   factory _$AppsGetAppInfoResponseApplicationJson_Ocs(
           [void Function(AppsGetAppInfoResponseApplicationJson_OcsBuilder)? updates]) =>
@@ -6622,9 +6622,9 @@ class AppsGetAppInfoResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  MapBuilder<String, JsonObject>? _data;
-  MapBuilder<String, JsonObject> get data => _$this._data ??= MapBuilder<String, JsonObject>();
-  set data(covariant MapBuilder<String, JsonObject>? data) => _$this._data = data;
+  MapBuilder<String, JsonObject?>? _data;
+  MapBuilder<String, JsonObject?> get data => _$this._data ??= MapBuilder<String, JsonObject?>();
+  set data(covariant MapBuilder<String, JsonObject?>? data) => _$this._data = data;
 
   AppsGetAppInfoResponseApplicationJson_OcsBuilder() {
     AppsGetAppInfoResponseApplicationJson_Ocs._defaults(this);

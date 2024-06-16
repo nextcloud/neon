@@ -4792,7 +4792,7 @@ abstract class AppsGetAppsResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $AppsGetAppInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
-  BuiltMap<String, JsonObject> get data;
+  BuiltMap<String, JsonObject?> get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsGetAppInfoResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -10123,8 +10123,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppsGetAppInfoResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
+        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        MapBuilder<String, JsonObject?>.new,
       )
       ..addBuilderFactory(
         const FullType(AppsEnableResponseApplicationJson),

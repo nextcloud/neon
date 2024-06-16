@@ -24,6 +24,7 @@ import 'package:meta/meta.dart' as _i2;
 part 'types.openapi.g.dart';
 
 typedef $Object = dynamic;
+typedef ObjectNullable = dynamic;
 typedef $String = dynamic;
 typedef $Uri = dynamic;
 typedef $Uint8List = dynamic;
@@ -253,6 +254,8 @@ abstract interface class $AdditionalPropertiesInterface {
   BuiltMap<String, BuiltMap<String, JsonObject>>? get nested;
   @BuiltValueField(wireName: 'Object')
   BuiltMap<String, JsonObject>? get object;
+  @BuiltValueField(wireName: 'ObjectNullable')
+  BuiltMap<String, JsonObject?>? get objectNullable;
   @BuiltValueField(wireName: 'bool')
   BuiltMap<String, bool>? get $bool;
   BuiltMap<String, int>? get integer;
@@ -262,7 +265,7 @@ abstract interface class $AdditionalPropertiesInterface {
   BuiltMap<String, num>? get $num;
   BuiltMap<String, String>? get string;
   @BuiltValueField(wireName: 'content-string')
-  BuiltMap<String, ContentString<int>>? get contentString;
+  BuiltMap<String, ContentString<int>?>? get contentString;
   @BuiltValueField(wireName: 'string-binary')
   BuiltMap<String, Uint8List>? get stringBinary;
   BuiltMap<String, BuiltList<JsonObject>>? get list;
@@ -338,6 +341,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltMap<String, JsonObject>>.new,
       )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+        MapBuilder<String, JsonObject?>.new,
+      )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(bool)]), MapBuilder<String, bool>.new)
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(
@@ -352,9 +359,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
-          FullType(ContentString, [FullType(int)]),
+          FullType.nullable(ContentString, [FullType(int)]),
         ]),
-        MapBuilder<String, ContentString<int>>.new,
+        MapBuilder<String, ContentString<int>?>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(Uint8List)]),

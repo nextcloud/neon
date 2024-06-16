@@ -14661,7 +14661,7 @@ class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer
     if (value != null) {
       result
         ..add('x-nextcloud-has-user-statuses')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(bool)])));
     }
     return result;
   }
@@ -14678,8 +14678,8 @@ class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
+          result.xNextcloudHasUserStatuses.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(bool)]))! as Header<bool?>);
           break;
       }
     }
@@ -14941,7 +14941,7 @@ class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
     if (value != null) {
       result
         ..add('x-nextcloud-has-user-statuses')
-        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType.nullable(bool)])));
     }
     return result;
   }
@@ -14958,8 +14958,8 @@ class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
+          result.xNextcloudHasUserStatuses.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Header, [FullType.nullable(bool)]))! as Header<bool?>);
           break;
       }
     }
@@ -46626,13 +46626,13 @@ class RoomGetParticipantsResponseApplicationJsonBuilder
 abstract mixin class $RoomRoomGetParticipantsHeadersInterfaceBuilder {
   void replace($RoomRoomGetParticipantsHeadersInterface other);
   void update(void Function($RoomRoomGetParticipantsHeadersInterfaceBuilder) updates);
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
+  HeaderBuilder<bool?> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(HeaderBuilder<bool?>? xNextcloudHasUserStatuses);
 }
 
 class _$RoomRoomGetParticipantsHeaders extends RoomRoomGetParticipantsHeaders {
   @override
-  final Header<bool>? xNextcloudHasUserStatuses;
+  final Header<bool?>? xNextcloudHasUserStatuses;
 
   factory _$RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? updates]) =>
       (RoomRoomGetParticipantsHeadersBuilder()..update(updates))._build();
@@ -46674,9 +46674,9 @@ class RoomRoomGetParticipantsHeadersBuilder
         $RoomRoomGetParticipantsHeadersInterfaceBuilder {
   _$RoomRoomGetParticipantsHeaders? _$v;
 
-  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
-  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
+  HeaderBuilder<bool?>? _xNextcloudHasUserStatuses;
+  HeaderBuilder<bool?> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool?>();
+  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool?>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
   RoomRoomGetParticipantsHeadersBuilder() {
@@ -47307,13 +47307,13 @@ class RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder
 abstract mixin class $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
   void replace($RoomRoomGetBreakoutRoomParticipantsHeadersInterface other);
   void update(void Function($RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder) updates);
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(HeaderBuilder<bool>? xNextcloudHasUserStatuses);
+  HeaderBuilder<bool?> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(HeaderBuilder<bool?>? xNextcloudHasUserStatuses);
 }
 
 class _$RoomRoomGetBreakoutRoomParticipantsHeaders extends RoomRoomGetBreakoutRoomParticipantsHeaders {
   @override
-  final Header<bool>? xNextcloudHasUserStatuses;
+  final Header<bool?>? xNextcloudHasUserStatuses;
 
   factory _$RoomRoomGetBreakoutRoomParticipantsHeaders(
           [void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates]) =>
@@ -47359,9 +47359,9 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
         $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
   _$RoomRoomGetBreakoutRoomParticipantsHeaders? _$v;
 
-  HeaderBuilder<bool>? _xNextcloudHasUserStatuses;
-  HeaderBuilder<bool> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool>();
-  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool>? xNextcloudHasUserStatuses) =>
+  HeaderBuilder<bool?>? _xNextcloudHasUserStatuses;
+  HeaderBuilder<bool?> get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses ??= HeaderBuilder<bool?>();
+  set xNextcloudHasUserStatuses(covariant HeaderBuilder<bool?>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
   RoomRoomGetBreakoutRoomParticipantsHeadersBuilder() {

@@ -283,6 +283,13 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
         ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
     }
+    value = object.objectNullable;
+    if (value != null) {
+      result
+        ..add('ObjectNullable')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)])));
+    }
     value = object.$bool;
     if (value != null) {
       result
@@ -323,7 +330,7 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
         ..add(serializers.serialize(value,
             specifiedType: const FullType(BuiltMap, [
               FullType(String),
-              FullType(ContentString, [FullType(int)])
+              FullType.nullable(ContentString, [FullType(int)])
             ])));
     }
     value = object.stringBinary;
@@ -396,6 +403,10 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
           result.object.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
           break;
+        case 'ObjectNullable':
+          result.objectNullable.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]))!);
+          break;
         case 'bool':
           result.$bool.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(bool)]))!);
@@ -420,7 +431,7 @@ class _$AdditionalPropertiesSerializer implements StructuredSerializer<Additiona
           result.contentString.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, [
                 FullType(String),
-                FullType(ContentString, [FullType(int)])
+                FullType.nullable(ContentString, [FullType(int)])
               ]))!);
           break;
         case 'string-binary':
@@ -1016,6 +1027,9 @@ abstract mixin class $AdditionalPropertiesInterfaceBuilder {
   MapBuilder<String, JsonObject> get object;
   set object(MapBuilder<String, JsonObject>? object);
 
+  MapBuilder<String, JsonObject?> get objectNullable;
+  set objectNullable(MapBuilder<String, JsonObject?>? objectNullable);
+
   MapBuilder<String, bool> get $bool;
   set $bool(MapBuilder<String, bool>? $bool);
 
@@ -1031,8 +1045,8 @@ abstract mixin class $AdditionalPropertiesInterfaceBuilder {
   MapBuilder<String, String> get string;
   set string(MapBuilder<String, String>? string);
 
-  MapBuilder<String, ContentString<int>> get contentString;
-  set contentString(MapBuilder<String, ContentString<int>>? contentString);
+  MapBuilder<String, ContentString<int>?> get contentString;
+  set contentString(MapBuilder<String, ContentString<int>?>? contentString);
 
   MapBuilder<String, Uint8List> get stringBinary;
   set stringBinary(MapBuilder<String, Uint8List>? stringBinary);
@@ -1057,6 +1071,8 @@ class _$AdditionalProperties extends AdditionalProperties {
   @override
   final BuiltMap<String, JsonObject>? object;
   @override
+  final BuiltMap<String, JsonObject?>? objectNullable;
+  @override
   final BuiltMap<String, bool>? $bool;
   @override
   final BuiltMap<String, int>? integer;
@@ -1067,7 +1083,7 @@ class _$AdditionalProperties extends AdditionalProperties {
   @override
   final BuiltMap<String, String>? string;
   @override
-  final BuiltMap<String, ContentString<int>>? contentString;
+  final BuiltMap<String, ContentString<int>?>? contentString;
   @override
   final BuiltMap<String, Uint8List>? stringBinary;
   @override
@@ -1085,6 +1101,7 @@ class _$AdditionalProperties extends AdditionalProperties {
       this.emptySchema,
       this.nested,
       this.object,
+      this.objectNullable,
       this.$bool,
       this.integer,
       this.$double,
@@ -1112,6 +1129,7 @@ class _$AdditionalProperties extends AdditionalProperties {
         emptySchema == other.emptySchema &&
         nested == other.nested &&
         object == other.object &&
+        objectNullable == other.objectNullable &&
         $bool == other.$bool &&
         integer == other.integer &&
         $double == other.$double &&
@@ -1131,6 +1149,7 @@ class _$AdditionalProperties extends AdditionalProperties {
     _$hash = $jc(_$hash, emptySchema.hashCode);
     _$hash = $jc(_$hash, nested.hashCode);
     _$hash = $jc(_$hash, object.hashCode);
+    _$hash = $jc(_$hash, objectNullable.hashCode);
     _$hash = $jc(_$hash, $bool.hashCode);
     _$hash = $jc(_$hash, integer.hashCode);
     _$hash = $jc(_$hash, $double.hashCode);
@@ -1152,6 +1171,7 @@ class _$AdditionalProperties extends AdditionalProperties {
           ..add('emptySchema', emptySchema)
           ..add('nested', nested)
           ..add('object', object)
+          ..add('objectNullable', objectNullable)
           ..add('\$bool', $bool)
           ..add('integer', integer)
           ..add('\$double', $double)
@@ -1188,6 +1208,11 @@ class AdditionalPropertiesBuilder
   MapBuilder<String, JsonObject> get object => _$this._object ??= MapBuilder<String, JsonObject>();
   set object(covariant MapBuilder<String, JsonObject>? object) => _$this._object = object;
 
+  MapBuilder<String, JsonObject?>? _objectNullable;
+  MapBuilder<String, JsonObject?> get objectNullable => _$this._objectNullable ??= MapBuilder<String, JsonObject?>();
+  set objectNullable(covariant MapBuilder<String, JsonObject?>? objectNullable) =>
+      _$this._objectNullable = objectNullable;
+
   MapBuilder<String, bool>? _$bool;
   MapBuilder<String, bool> get $bool => _$this._$bool ??= MapBuilder<String, bool>();
   set $bool(covariant MapBuilder<String, bool>? $bool) => _$this._$bool = $bool;
@@ -1208,10 +1233,10 @@ class AdditionalPropertiesBuilder
   MapBuilder<String, String> get string => _$this._string ??= MapBuilder<String, String>();
   set string(covariant MapBuilder<String, String>? string) => _$this._string = string;
 
-  MapBuilder<String, ContentString<int>>? _contentString;
-  MapBuilder<String, ContentString<int>> get contentString =>
-      _$this._contentString ??= MapBuilder<String, ContentString<int>>();
-  set contentString(covariant MapBuilder<String, ContentString<int>>? contentString) =>
+  MapBuilder<String, ContentString<int>?>? _contentString;
+  MapBuilder<String, ContentString<int>?> get contentString =>
+      _$this._contentString ??= MapBuilder<String, ContentString<int>?>();
+  set contentString(covariant MapBuilder<String, ContentString<int>?>? contentString) =>
       _$this._contentString = contentString;
 
   MapBuilder<String, Uint8List>? _stringBinary;
@@ -1242,6 +1267,7 @@ class AdditionalPropertiesBuilder
       _emptySchema = $v.emptySchema?.toBuilder();
       _nested = $v.nested?.toBuilder();
       _object = $v.object?.toBuilder();
+      _objectNullable = $v.objectNullable?.toBuilder();
       _$bool = $v.$bool?.toBuilder();
       _integer = $v.integer?.toBuilder();
       _$double = $v.$double?.toBuilder();
@@ -1281,6 +1307,7 @@ class AdditionalPropertiesBuilder
               emptySchema: _emptySchema?.build(),
               nested: _nested?.build(),
               object: _object?.build(),
+              objectNullable: _objectNullable?.build(),
               $bool: _$bool?.build(),
               integer: _integer?.build(),
               $double: _$double?.build(),
@@ -1302,6 +1329,8 @@ class AdditionalPropertiesBuilder
         _nested?.build();
         _$failedField = 'object';
         _object?.build();
+        _$failedField = 'objectNullable';
+        _objectNullable?.build();
         _$failedField = '\$bool';
         _$bool?.build();
         _$failedField = 'integer';

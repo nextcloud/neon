@@ -22,14 +22,12 @@ List<Spec> buildSerializer(State state) => [
           ..type = refer('Serializers', 'package:built_value/serializer.dart')
           ..name = r'_$serializers';
 
-        final serializers = state.resolvedTypes.map((type) => type.serializers).expand((element) => element).toSet();
-
-        if (serializers.isEmpty) {
+        if (state.resolvedSerializers.isEmpty) {
           b.assignment = const Code('Serializers()');
         } else {
           final bodyBuilder = StringBuffer()
             ..writeln('(Serializers().toBuilder()')
-            ..writeAll(serializers, '\n')
+            ..writeAll(state.resolvedSerializers, '\n')
             ..writeln(').build()');
 
           b.assignment = Code(bodyBuilder.toString());
