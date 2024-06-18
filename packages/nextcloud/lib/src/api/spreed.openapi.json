@@ -226,9 +226,13 @@
                                     "enabled",
                                     "breakout-rooms",
                                     "recording",
+                                    "recording-consent",
                                     "supported-reactions",
                                     "predefined-backgrounds",
-                                    "can-upload-background"
+                                    "can-upload-background",
+                                    "sip-enabled",
+                                    "sip-dialout-enabled",
+                                    "can-enable-sip"
                                 ],
                                 "properties": {
                                     "enabled": {
@@ -275,6 +279,7 @@
                                 "required": [
                                     "max-length",
                                     "read-privacy",
+                                    "has-translation-providers",
                                     "typing-privacy"
                                 ],
                                 "properties": {
@@ -292,12 +297,6 @@
                                     "typing-privacy": {
                                         "type": "integer",
                                         "format": "int64"
-                                    },
-                                    "translations": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
                                     }
                                 }
                             },
@@ -422,6 +421,7 @@
                         "required": [
                             "id",
                             "isReplyable",
+                            "markdown",
                             "reactions",
                             "referenceId",
                             "timestamp",
@@ -1062,6 +1062,7 @@
                     "participantType",
                     "permissions",
                     "readOnly",
+                    "recordingConsent",
                     "sessionId",
                     "sipEnabled",
                     "token",

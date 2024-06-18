@@ -74,8 +74,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
         // Filter all widgets that don't support v1 nor v2
         unwrap: (response) => BuiltList(
-          response.body.ocs.data.values
-              .where((widget) => widget.itemApiVersions == null || widget.itemApiVersions!.isNotEmpty),
+          response.body.ocs.data.values.where((widget) => widget.itemApiVersions.isNotEmpty),
         ),
       );
     }
@@ -89,7 +88,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
     for (final widget in widgets.value.requireData) {
       final itemApiVersions = widget.itemApiVersions;
-      if (itemApiVersions != null && itemApiVersions.contains(2)) {
+      if (itemApiVersions.contains(2)) {
         v2WidgetIDs.add(widget.id);
       } else {
         v1WidgetIDs.add(widget.id);

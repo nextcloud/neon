@@ -53,13 +53,13 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
-| [Server](https://github.com/nextcloud/server) (2)                                  | 27 - 29                |
-| [News app](https://github.com/nextcloud/news)                                      | 22 - 25                |
-| [Notes app](https://github.com/nextcloud/notes)                                    | 4.7 - 4.10             |
-| [Notifications app](https://github.com/nextcloud/notifications)                    | 27 - 29                |
-| [Talk app](https://github.com/nextcloud/spreed)                                    | 17 - 19                |
+| [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 29                |
+| [News app](https://github.com/nextcloud/news)                                      | 25                     |
+| [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
+| [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 29                |
+| [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 19                |
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
-| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.3 - 2.5              |
+| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.5              |
 
 1: Other versions might be supported too or at least mostly working, but we do not test against those.  
 2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, systemtags, theming, updatenotification, user_ldap, user_status, weather_status and WebDAV.  

@@ -11064,7 +11064,7 @@ abstract interface class $SpreedCapabilities_Config_CallInterface {
   bool get breakoutRooms;
   bool get recording;
   @BuiltValueField(wireName: 'recording-consent')
-  int? get recordingConsent;
+  int get recordingConsent;
   @BuiltValueField(wireName: 'supported-reactions')
   BuiltList<String> get supportedReactions;
   @BuiltValueField(wireName: 'predefined-backgrounds')
@@ -11072,11 +11072,11 @@ abstract interface class $SpreedCapabilities_Config_CallInterface {
   @BuiltValueField(wireName: 'can-upload-background')
   bool get canUploadBackground;
   @BuiltValueField(wireName: 'sip-enabled')
-  bool? get sipEnabled;
+  bool get sipEnabled;
   @BuiltValueField(wireName: 'sip-dialout-enabled')
-  bool? get sipDialoutEnabled;
+  bool get sipDialoutEnabled;
   @BuiltValueField(wireName: 'can-enable-sip')
-  bool? get canEnableSip;
+  bool get canEnableSip;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_CallInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -11131,10 +11131,9 @@ abstract interface class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueField(wireName: 'read-privacy')
   int get readPrivacy;
   @BuiltValueField(wireName: 'has-translation-providers')
-  bool? get hasTranslationProviders;
+  bool get hasTranslationProviders;
   @BuiltValueField(wireName: 'typing-privacy')
   int get typingPrivacy;
-  BuiltList<String>? get translations;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedCapabilities_Config_ChatInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -16412,13 +16411,13 @@ abstract class TranslationApiTranslateResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchProviderInterface {
   String get id;
-  String? get appId;
+  String get appId;
   String get name;
-  String? get icon;
+  String get icon;
   int get order;
-  BuiltList<String>? get triggers;
-  BuiltMap<String, String>? get filters;
-  bool? get inAppSearch;
+  BuiltList<String> get triggers;
+  BuiltMap<String, String> get filters;
+  bool get inAppSearch;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedSearchProviderInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

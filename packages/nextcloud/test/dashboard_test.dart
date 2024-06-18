@@ -3,7 +3,6 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
-import 'package:version/version.dart';
 
 void main() {
   presets(
@@ -39,14 +38,10 @@ void main() {
           expect(response.body.ocs.data.keys, equals(['recommendations', 'spreed']));
         });
 
-        test(
-          'v2',
-          () async {
-            final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
-            expect(response.statusCode, 200);
-          },
-          skip: preset.version < Version(27, 1, 0),
-        );
+        test('v2', () async {
+          final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
+          expect(response.statusCode, 200);
+        });
       });
     },
     retry: retryCount,
