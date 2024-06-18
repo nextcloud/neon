@@ -60,8 +60,11 @@ Account mockUnifiedSearchAccount() => mockServer({
                       for (final id in ['a', 'b', 'c'])
                         {
                           'id': id,
+                          'appId': '',
                           'name': '',
+                          'icon': '',
                           'order': 0,
+                          'inAppSearch': false,
                         },
                     ],
                   },

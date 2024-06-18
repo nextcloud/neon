@@ -41,7 +41,7 @@ class DashboardWidgetItem extends StatelessWidget {
     );
 
     final overlayIconUrl = item.overlayIconUrl;
-    if (overlayIconUrl != null && overlayIconUrl.isNotEmpty) {
+    if (overlayIconUrl.isNotEmpty) {
       leading = Stack(
         children: [
           leading,

@@ -11,7 +11,6 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
-import 'package:version/version.dart';
 
 class MockCallbackFunction extends Mock {
   void progressCallback(double progress);
@@ -343,10 +342,10 @@ void main() {
         expect(response.props.ncDataFingerprint, isNull);
         expect(response.props.ncGroupFolderId, isNull);
         expect(response.props.ncHasPreview, isTrue);
-        expect(response.props.ncHidden, preset.version >= Version(28, 0, 0) ? isFalse : isNull);
+        expect(response.props.ncHidden, isFalse);
         expect(response.props.ncInheritedAclList, isNull);
         expect(response.props.ncIsEncrypted, isNull);
-        expect(response.props.ncIsMountRoot, preset.version >= Version(28, 0, 0) ? isFalse : isNull);
+        expect(response.props.ncIsMountRoot, isFalse);
         expect(response.props.ncLock, isNull);
         expect(response.props.ncLockOwner, isNull);
         expect(response.props.ncLockOwnerDisplayname, isNull);

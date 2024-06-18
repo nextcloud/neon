@@ -4137,6 +4137,8 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'isReplyable',
       serializers.serialize(object.isReplyable, specifiedType: const FullType(bool)),
+      'markdown',
+      serializers.serialize(object.markdown, specifiedType: const FullType(bool)),
       'reactions',
       serializers.serialize(object.reactions,
           specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)])),
@@ -4170,12 +4172,6 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
       result
         ..add('deleted')
         ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage_Deleted)));
-    }
-    value = object.markdown;
-    if (value != null) {
-      result
-        ..add('markdown')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.lastEditActorDisplayName;
     if (value != null) {
@@ -4238,7 +4234,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           result.isReplyable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'markdown':
-          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'reactions':
           result.reactions.replace(serializers.deserialize(value,
@@ -4398,6 +4394,8 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       serializers.serialize(object.permissions, specifiedType: const FullType(int)),
       'readOnly',
       serializers.serialize(object.readOnly, specifiedType: const FullType(int)),
+      'recordingConsent',
+      serializers.serialize(object.recordingConsent, specifiedType: const FullType(int)),
       'sessionId',
       serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
       'sipEnabled',
@@ -4419,12 +4417,6 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
       result
         ..add('attendeePin')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.recordingConsent;
-    if (value != null) {
-      result
-        ..add('recordingConsent')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.status;
     if (value != null) {
@@ -4592,7 +4584,7 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.readOnly = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'recordingConsent':
-          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'sessionId':
           result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -7022,6 +7014,8 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'isReplyable',
       serializers.serialize(object.isReplyable, specifiedType: const FullType(bool)),
+      'markdown',
+      serializers.serialize(object.markdown, specifiedType: const FullType(bool)),
       'reactions',
       serializers.serialize(object.reactions,
           specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)])),
@@ -7061,12 +7055,6 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       result
         ..add('deleted')
         ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage_Deleted)));
-    }
-    value = object.markdown;
-    if (value != null) {
-      result
-        ..add('markdown')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.lastEditActorDisplayName;
     if (value != null) {
@@ -7133,7 +7121,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           result.isReplyable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'markdown':
-          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'reactions':
           result.reactions.replace(serializers.deserialize(value,
@@ -16716,38 +16704,22 @@ class _$Capabilities_Config_CallSerializer implements StructuredSerializer<Capab
       serializers.serialize(object.breakoutRooms, specifiedType: const FullType(bool)),
       'recording',
       serializers.serialize(object.recording, specifiedType: const FullType(bool)),
+      'recording-consent',
+      serializers.serialize(object.recordingConsent, specifiedType: const FullType(int)),
       'supported-reactions',
       serializers.serialize(object.supportedReactions, specifiedType: const FullType(BuiltList, [FullType(String)])),
       'predefined-backgrounds',
       serializers.serialize(object.predefinedBackgrounds, specifiedType: const FullType(BuiltList, [FullType(String)])),
       'can-upload-background',
       serializers.serialize(object.canUploadBackground, specifiedType: const FullType(bool)),
+      'sip-enabled',
+      serializers.serialize(object.sipEnabled, specifiedType: const FullType(bool)),
+      'sip-dialout-enabled',
+      serializers.serialize(object.sipDialoutEnabled, specifiedType: const FullType(bool)),
+      'can-enable-sip',
+      serializers.serialize(object.canEnableSip, specifiedType: const FullType(bool)),
     ];
-    Object? value;
-    value = object.recordingConsent;
-    if (value != null) {
-      result
-        ..add('recording-consent')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.sipEnabled;
-    if (value != null) {
-      result
-        ..add('sip-enabled')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.sipDialoutEnabled;
-    if (value != null) {
-      result
-        ..add('sip-dialout-enabled')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.canEnableSip;
-    if (value != null) {
-      result
-        ..add('can-enable-sip')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
+
     return result;
   }
 
@@ -16772,7 +16744,7 @@ class _$Capabilities_Config_CallSerializer implements StructuredSerializer<Capab
           result.recording = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'recording-consent':
-          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'supported-reactions':
           result.supportedReactions.replace(serializers.deserialize(value,
@@ -16786,13 +16758,13 @@ class _$Capabilities_Config_CallSerializer implements StructuredSerializer<Capab
           result.canUploadBackground = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'sip-enabled':
-          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'sip-dialout-enabled':
-          result.sipDialoutEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.sipDialoutEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'can-enable-sip':
-          result.canEnableSip = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.canEnableSip = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -16815,22 +16787,12 @@ class _$Capabilities_Config_ChatSerializer implements StructuredSerializer<Capab
       serializers.serialize(object.maxLength, specifiedType: const FullType(int)),
       'read-privacy',
       serializers.serialize(object.readPrivacy, specifiedType: const FullType(int)),
+      'has-translation-providers',
+      serializers.serialize(object.hasTranslationProviders, specifiedType: const FullType(bool)),
       'typing-privacy',
       serializers.serialize(object.typingPrivacy, specifiedType: const FullType(int)),
     ];
-    Object? value;
-    value = object.hasTranslationProviders;
-    if (value != null) {
-      result
-        ..add('has-translation-providers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.translations;
-    if (value != null) {
-      result
-        ..add('translations')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
-    }
+
     return result;
   }
 
@@ -16852,14 +16814,10 @@ class _$Capabilities_Config_ChatSerializer implements StructuredSerializer<Capab
           result.readPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'has-translation-providers':
-          result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'typing-privacy':
           result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'translations':
-          result.translations.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -20377,7 +20335,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final bool isReplyable;
   @override
-  final bool? markdown;
+  final bool markdown;
   @override
   final BuiltMap<String, int> reactions;
   @override
@@ -20422,7 +20380,7 @@ class _$ChatMessage extends ChatMessage {
       {this.deleted,
       required this.id,
       required this.isReplyable,
-      this.markdown,
+      required this.markdown,
       required this.reactions,
       required this.referenceId,
       required this.timestamp,
@@ -20444,6 +20402,7 @@ class _$ChatMessage extends ChatMessage {
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMessage', 'id');
     BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessage', 'isReplyable');
+    BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessage', 'markdown');
     BuiltValueNullFieldError.checkNotNull(reactions, r'ChatMessage', 'reactions');
     BuiltValueNullFieldError.checkNotNull(referenceId, r'ChatMessage', 'referenceId');
     BuiltValueNullFieldError.checkNotNull(timestamp, r'ChatMessage', 'timestamp');
@@ -20701,7 +20660,7 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
               deleted: deleted,
               id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMessage', 'id'),
               isReplyable: BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessage', 'isReplyable'),
-              markdown: markdown,
+              markdown: BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessage', 'markdown'),
               reactions: reactions.build(),
               referenceId: BuiltValueNullFieldError.checkNotNull(referenceId, r'ChatMessage', 'referenceId'),
               timestamp: BuiltValueNullFieldError.checkNotNull(timestamp, r'ChatMessage', 'timestamp'),
@@ -20995,7 +20954,7 @@ class _$Room extends Room {
   @override
   final int readOnly;
   @override
-  final int? recordingConsent;
+  final int recordingConsent;
   @override
   final String sessionId;
   @override
@@ -21064,7 +21023,7 @@ class _$Room extends Room {
       required this.participantType,
       required this.permissions,
       required this.readOnly,
-      this.recordingConsent,
+      required this.recordingConsent,
       required this.sessionId,
       required this.sipEnabled,
       this.status,
@@ -21118,6 +21077,7 @@ class _$Room extends Room {
     BuiltValueNullFieldError.checkNotNull(participantType, r'Room', 'participantType');
     BuiltValueNullFieldError.checkNotNull(permissions, r'Room', 'permissions');
     BuiltValueNullFieldError.checkNotNull(readOnly, r'Room', 'readOnly');
+    BuiltValueNullFieldError.checkNotNull(recordingConsent, r'Room', 'recordingConsent');
     BuiltValueNullFieldError.checkNotNull(sessionId, r'Room', 'sessionId');
     BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Room', 'sipEnabled');
     BuiltValueNullFieldError.checkNotNull(token, r'Room', 'token');
@@ -21669,7 +21629,7 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
             participantType: BuiltValueNullFieldError.checkNotNull(participantType, r'Room', 'participantType'),
             permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Room', 'permissions'),
             readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'Room', 'readOnly'),
-            recordingConsent: recordingConsent,
+            recordingConsent: BuiltValueNullFieldError.checkNotNull(recordingConsent, r'Room', 'recordingConsent'),
             sessionId: BuiltValueNullFieldError.checkNotNull(sessionId, r'Room', 'sessionId'),
             sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Room', 'sipEnabled'),
             status: status,
@@ -27740,7 +27700,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final bool isReplyable;
   @override
-  final bool? markdown;
+  final bool markdown;
   @override
   final BuiltMap<String, int> reactions;
   @override
@@ -27786,7 +27746,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
       this.deleted,
       required this.id,
       required this.isReplyable,
-      this.markdown,
+      required this.markdown,
       required this.reactions,
       required this.referenceId,
       required this.timestamp,
@@ -27808,6 +27768,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMessageWithParent', 'id');
     BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessageWithParent', 'isReplyable');
+    BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessageWithParent', 'markdown');
     BuiltValueNullFieldError.checkNotNull(reactions, r'ChatMessageWithParent', 'reactions');
     BuiltValueNullFieldError.checkNotNull(referenceId, r'ChatMessageWithParent', 'referenceId');
     BuiltValueNullFieldError.checkNotNull(timestamp, r'ChatMessageWithParent', 'timestamp');
@@ -28076,7 +28037,7 @@ class ChatMessageWithParentBuilder
               deleted: deleted,
               id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMessageWithParent', 'id'),
               isReplyable: BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessageWithParent', 'isReplyable'),
-              markdown: markdown,
+              markdown: BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessageWithParent', 'markdown'),
               reactions: reactions.build(),
               referenceId: BuiltValueNullFieldError.checkNotNull(referenceId, r'ChatMessageWithParent', 'referenceId'),
               timestamp: BuiltValueNullFieldError.checkNotNull(timestamp, r'ChatMessageWithParent', 'timestamp'),
@@ -51827,7 +51788,7 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
   @override
   final bool recording;
   @override
-  final int? recordingConsent;
+  final int recordingConsent;
   @override
   final BuiltList<String> supportedReactions;
   @override
@@ -51835,11 +51796,11 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
   @override
   final bool canUploadBackground;
   @override
-  final bool? sipEnabled;
+  final bool sipEnabled;
   @override
-  final bool? sipDialoutEnabled;
+  final bool sipDialoutEnabled;
   @override
-  final bool? canEnableSip;
+  final bool canEnableSip;
 
   factory _$Capabilities_Config_Call([void Function(Capabilities_Config_CallBuilder)? updates]) =>
       (Capabilities_Config_CallBuilder()..update(updates))._build();
@@ -51848,20 +51809,24 @@ class _$Capabilities_Config_Call extends Capabilities_Config_Call {
       {required this.enabled,
       required this.breakoutRooms,
       required this.recording,
-      this.recordingConsent,
+      required this.recordingConsent,
       required this.supportedReactions,
       required this.predefinedBackgrounds,
       required this.canUploadBackground,
-      this.sipEnabled,
-      this.sipDialoutEnabled,
-      this.canEnableSip})
+      required this.sipEnabled,
+      required this.sipDialoutEnabled,
+      required this.canEnableSip})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Config_Call', 'enabled');
     BuiltValueNullFieldError.checkNotNull(breakoutRooms, r'Capabilities_Config_Call', 'breakoutRooms');
     BuiltValueNullFieldError.checkNotNull(recording, r'Capabilities_Config_Call', 'recording');
+    BuiltValueNullFieldError.checkNotNull(recordingConsent, r'Capabilities_Config_Call', 'recordingConsent');
     BuiltValueNullFieldError.checkNotNull(supportedReactions, r'Capabilities_Config_Call', 'supportedReactions');
     BuiltValueNullFieldError.checkNotNull(predefinedBackgrounds, r'Capabilities_Config_Call', 'predefinedBackgrounds');
     BuiltValueNullFieldError.checkNotNull(canUploadBackground, r'Capabilities_Config_Call', 'canUploadBackground');
+    BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Capabilities_Config_Call', 'sipEnabled');
+    BuiltValueNullFieldError.checkNotNull(sipDialoutEnabled, r'Capabilities_Config_Call', 'sipDialoutEnabled');
+    BuiltValueNullFieldError.checkNotNull(canEnableSip, r'Capabilities_Config_Call', 'canEnableSip');
   }
 
   @override
@@ -52015,14 +51980,17 @@ class Capabilities_Config_CallBuilder
               breakoutRooms:
                   BuiltValueNullFieldError.checkNotNull(breakoutRooms, r'Capabilities_Config_Call', 'breakoutRooms'),
               recording: BuiltValueNullFieldError.checkNotNull(recording, r'Capabilities_Config_Call', 'recording'),
-              recordingConsent: recordingConsent,
+              recordingConsent: BuiltValueNullFieldError.checkNotNull(
+                  recordingConsent, r'Capabilities_Config_Call', 'recordingConsent'),
               supportedReactions: supportedReactions.build(),
               predefinedBackgrounds: predefinedBackgrounds.build(),
               canUploadBackground: BuiltValueNullFieldError.checkNotNull(
                   canUploadBackground, r'Capabilities_Config_Call', 'canUploadBackground'),
-              sipEnabled: sipEnabled,
-              sipDialoutEnabled: sipDialoutEnabled,
-              canEnableSip: canEnableSip);
+              sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Capabilities_Config_Call', 'sipEnabled'),
+              sipDialoutEnabled: BuiltValueNullFieldError.checkNotNull(
+                  sipDialoutEnabled, r'Capabilities_Config_Call', 'sipDialoutEnabled'),
+              canEnableSip:
+                  BuiltValueNullFieldError.checkNotNull(canEnableSip, r'Capabilities_Config_Call', 'canEnableSip'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -52054,9 +52022,6 @@ abstract mixin class $Capabilities_Config_ChatInterfaceBuilder {
 
   int? get typingPrivacy;
   set typingPrivacy(int? typingPrivacy);
-
-  ListBuilder<String> get translations;
-  set translations(ListBuilder<String>? translations);
 }
 
 class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
@@ -52065,11 +52030,9 @@ class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
   @override
   final int readPrivacy;
   @override
-  final bool? hasTranslationProviders;
+  final bool hasTranslationProviders;
   @override
   final int typingPrivacy;
-  @override
-  final BuiltList<String>? translations;
 
   factory _$Capabilities_Config_Chat([void Function(Capabilities_Config_ChatBuilder)? updates]) =>
       (Capabilities_Config_ChatBuilder()..update(updates))._build();
@@ -52077,12 +52040,13 @@ class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
   _$Capabilities_Config_Chat._(
       {required this.maxLength,
       required this.readPrivacy,
-      this.hasTranslationProviders,
-      required this.typingPrivacy,
-      this.translations})
+      required this.hasTranslationProviders,
+      required this.typingPrivacy})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(maxLength, r'Capabilities_Config_Chat', 'maxLength');
     BuiltValueNullFieldError.checkNotNull(readPrivacy, r'Capabilities_Config_Chat', 'readPrivacy');
+    BuiltValueNullFieldError.checkNotNull(
+        hasTranslationProviders, r'Capabilities_Config_Chat', 'hasTranslationProviders');
     BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'Capabilities_Config_Chat', 'typingPrivacy');
   }
 
@@ -52100,8 +52064,7 @@ class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
         maxLength == other.maxLength &&
         readPrivacy == other.readPrivacy &&
         hasTranslationProviders == other.hasTranslationProviders &&
-        typingPrivacy == other.typingPrivacy &&
-        translations == other.translations;
+        typingPrivacy == other.typingPrivacy;
   }
 
   @override
@@ -52111,7 +52074,6 @@ class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
     _$hash = $jc(_$hash, readPrivacy.hashCode);
     _$hash = $jc(_$hash, hasTranslationProviders.hashCode);
     _$hash = $jc(_$hash, typingPrivacy.hashCode);
-    _$hash = $jc(_$hash, translations.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -52122,8 +52084,7 @@ class _$Capabilities_Config_Chat extends Capabilities_Config_Chat {
           ..add('maxLength', maxLength)
           ..add('readPrivacy', readPrivacy)
           ..add('hasTranslationProviders', hasTranslationProviders)
-          ..add('typingPrivacy', typingPrivacy)
-          ..add('translations', translations))
+          ..add('typingPrivacy', typingPrivacy))
         .toString();
   }
 }
@@ -52151,10 +52112,6 @@ class Capabilities_Config_ChatBuilder
   int? get typingPrivacy => _$this._typingPrivacy;
   set typingPrivacy(covariant int? typingPrivacy) => _$this._typingPrivacy = typingPrivacy;
 
-  ListBuilder<String>? _translations;
-  ListBuilder<String> get translations => _$this._translations ??= ListBuilder<String>();
-  set translations(covariant ListBuilder<String>? translations) => _$this._translations = translations;
-
   Capabilities_Config_ChatBuilder() {
     Capabilities_Config_Chat._defaults(this);
   }
@@ -52166,7 +52123,6 @@ class Capabilities_Config_ChatBuilder
       _readPrivacy = $v.readPrivacy;
       _hasTranslationProviders = $v.hasTranslationProviders;
       _typingPrivacy = $v.typingPrivacy;
-      _translations = $v.translations?.toBuilder();
       _$v = null;
     }
     return this;
@@ -52188,27 +52144,14 @@ class Capabilities_Config_ChatBuilder
 
   _$Capabilities_Config_Chat _build() {
     Capabilities_Config_Chat._validate(this);
-    _$Capabilities_Config_Chat _$result;
-    try {
-      _$result = _$v ??
-          _$Capabilities_Config_Chat._(
-              maxLength: BuiltValueNullFieldError.checkNotNull(maxLength, r'Capabilities_Config_Chat', 'maxLength'),
-              readPrivacy:
-                  BuiltValueNullFieldError.checkNotNull(readPrivacy, r'Capabilities_Config_Chat', 'readPrivacy'),
-              hasTranslationProviders: hasTranslationProviders,
-              typingPrivacy:
-                  BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'Capabilities_Config_Chat', 'typingPrivacy'),
-              translations: _translations?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'translations';
-        _translations?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'Capabilities_Config_Chat', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        _$Capabilities_Config_Chat._(
+            maxLength: BuiltValueNullFieldError.checkNotNull(maxLength, r'Capabilities_Config_Chat', 'maxLength'),
+            readPrivacy: BuiltValueNullFieldError.checkNotNull(readPrivacy, r'Capabilities_Config_Chat', 'readPrivacy'),
+            hasTranslationProviders: BuiltValueNullFieldError.checkNotNull(
+                hasTranslationProviders, r'Capabilities_Config_Chat', 'hasTranslationProviders'),
+            typingPrivacy:
+                BuiltValueNullFieldError.checkNotNull(typingPrivacy, r'Capabilities_Config_Chat', 'typingPrivacy'));
     replace(_$result);
     return _$result;
   }

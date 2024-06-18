@@ -168,6 +168,10 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
       serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
       'item_icons_round',
       serializers.serialize(object.itemIconsRound, specifiedType: const FullType(bool)),
+      'item_api_versions',
+      serializers.serialize(object.itemApiVersions, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      'reload_interval',
+      serializers.serialize(object.reloadInterval, specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.widgetUrl;
@@ -175,18 +179,6 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
       result
         ..add('widget_url')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.itemApiVersions;
-    if (value != null) {
-      result
-        ..add('item_api_versions')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])));
-    }
-    value = object.reloadInterval;
-    if (value != null) {
-      result
-        ..add('reload_interval')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.buttons;
     if (value != null) {
@@ -234,7 +226,7 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
               specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
           break;
         case 'reload_interval':
-          result.reloadInterval = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          result.reloadInterval = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'buttons':
           result.buttons.replace(serializers.deserialize(value,
@@ -358,16 +350,12 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
       serializers.serialize(object.link, specifiedType: const FullType(String)),
       'iconUrl',
       serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
+      'overlayIconUrl',
+      serializers.serialize(object.overlayIconUrl, specifiedType: const FullType(String)),
       'sinceId',
       serializers.serialize(object.sinceId, specifiedType: const FullType(String)),
     ];
-    Object? value;
-    value = object.overlayIconUrl;
-    if (value != null) {
-      result
-        ..add('overlayIconUrl')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -395,7 +383,7 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
           result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'overlayIconUrl':
-          result.overlayIconUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          result.overlayIconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'sinceId':
           result.sinceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -969,9 +957,9 @@ class _$Widget extends Widget {
   @override
   final bool itemIconsRound;
   @override
-  final BuiltList<int>? itemApiVersions;
+  final BuiltList<int> itemApiVersions;
   @override
-  final int? reloadInterval;
+  final int reloadInterval;
   @override
   final BuiltList<Widget_Buttons>? buttons;
 
@@ -985,8 +973,8 @@ class _$Widget extends Widget {
       required this.iconUrl,
       this.widgetUrl,
       required this.itemIconsRound,
-      this.itemApiVersions,
-      this.reloadInterval,
+      required this.itemApiVersions,
+      required this.reloadInterval,
       this.buttons})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id');
@@ -995,6 +983,8 @@ class _$Widget extends Widget {
     BuiltValueNullFieldError.checkNotNull(iconClass, r'Widget', 'iconClass');
     BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl');
     BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound');
+    BuiltValueNullFieldError.checkNotNull(itemApiVersions, r'Widget', 'itemApiVersions');
+    BuiltValueNullFieldError.checkNotNull(reloadInterval, r'Widget', 'reloadInterval');
   }
 
   @override
@@ -1110,7 +1100,7 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
       _iconUrl = $v.iconUrl;
       _widgetUrl = $v.widgetUrl;
       _itemIconsRound = $v.itemIconsRound;
-      _itemApiVersions = $v.itemApiVersions?.toBuilder();
+      _itemApiVersions = $v.itemApiVersions.toBuilder();
       _reloadInterval = $v.reloadInterval;
       _buttons = $v.buttons?.toBuilder();
       _$v = null;
@@ -1145,14 +1135,14 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
               iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'Widget', 'iconUrl'),
               widgetUrl: widgetUrl,
               itemIconsRound: BuiltValueNullFieldError.checkNotNull(itemIconsRound, r'Widget', 'itemIconsRound'),
-              itemApiVersions: _itemApiVersions?.build(),
-              reloadInterval: reloadInterval,
+              itemApiVersions: itemApiVersions.build(),
+              reloadInterval: BuiltValueNullFieldError.checkNotNull(reloadInterval, r'Widget', 'reloadInterval'),
               buttons: _buttons?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'itemApiVersions';
-        _itemApiVersions?.build();
+        itemApiVersions.build();
 
         _$failedField = 'buttons';
         _buttons?.build();
@@ -1428,7 +1418,7 @@ class _$WidgetItem extends WidgetItem {
   @override
   final String iconUrl;
   @override
-  final String? overlayIconUrl;
+  final String overlayIconUrl;
   @override
   final String sinceId;
 
@@ -1439,13 +1429,14 @@ class _$WidgetItem extends WidgetItem {
       required this.title,
       required this.link,
       required this.iconUrl,
-      this.overlayIconUrl,
+      required this.overlayIconUrl,
       required this.sinceId})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle');
     BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title');
     BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link');
     BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl');
+    BuiltValueNullFieldError.checkNotNull(overlayIconUrl, r'WidgetItem', 'overlayIconUrl');
     BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId');
   }
 
@@ -1560,7 +1551,7 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
             title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
             link: BuiltValueNullFieldError.checkNotNull(link, r'WidgetItem', 'link'),
             iconUrl: BuiltValueNullFieldError.checkNotNull(iconUrl, r'WidgetItem', 'iconUrl'),
-            overlayIconUrl: overlayIconUrl,
+            overlayIconUrl: BuiltValueNullFieldError.checkNotNull(overlayIconUrl, r'WidgetItem', 'overlayIconUrl'),
             sinceId: BuiltValueNullFieldError.checkNotNull(sinceId, r'WidgetItem', 'sinceId'));
     replace(_$result);
     return _$result;

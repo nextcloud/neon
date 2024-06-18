@@ -54,7 +54,9 @@
                     "icon_class",
                     "icon_url",
                     "widget_url",
-                    "item_icons_round"
+                    "item_icons_round",
+                    "item_api_versions",
+                    "reload_interval"
                 ],
                 "properties": {
                     "id": {
@@ -122,6 +124,7 @@
                     "title",
                     "link",
                     "iconUrl",
+                    "overlayIconUrl",
                     "sinceId"
                 ],
                 "properties": {
@@ -444,8 +447,7 @@
                             }
                         }
                     }
-                },
-                "description": "Only available since 27.1"
+                }
             }
         }
     },

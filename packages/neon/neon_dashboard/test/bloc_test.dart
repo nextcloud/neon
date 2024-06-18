@@ -16,7 +16,6 @@ Account mockDashboardAccount() => mockServer({
                   'meta': {'status': '', 'statuscode': 0},
                   'data': {
                     for (final entry in {
-                      'null': null,
                       'empty': <dynamic>[],
                       'v1': [1],
                       'v2': [2],
@@ -30,6 +29,7 @@ Account mockDashboardAccount() => mockServer({
                         'icon_url': '',
                         'item_icons_round': false,
                         'item_api_versions': entry.value,
+                        'reload_interval': 0,
                       },
                   },
                 },
@@ -50,6 +50,7 @@ Account mockDashboardAccount() => mockServer({
                           'title': key,
                           'link': '',
                           'iconUrl': '',
+                          'overlayIconUrl': '',
                           'sinceId': '',
                         },
                       ],
@@ -60,6 +61,7 @@ Account mockDashboardAccount() => mockServer({
                           'title': '$i',
                           'link': '',
                           'iconUrl': '',
+                          'overlayIconUrl': '',
                           'sinceId': '',
                         },
                     ],
@@ -83,6 +85,7 @@ Account mockDashboardAccount() => mockServer({
                             'title': key,
                             'link': '',
                             'iconUrl': '',
+                            'overlayIconUrl': '',
                             'sinceId': '',
                           },
                         ],
@@ -97,6 +100,7 @@ Account mockDashboardAccount() => mockServer({
                             'title': '$i',
                             'link': '',
                             'iconUrl': '',
+                            'overlayIconUrl': '',
                             'sinceId': '',
                           },
                       ],
@@ -134,7 +138,6 @@ void main() {
 
   test('refresh', () async {
     final widgets = BuiltList<String>([
-      'null',
       'v1',
       'v2',
       'v1v2',
@@ -148,7 +151,6 @@ void main() {
     );
 
     final items = BuiltList<String>([
-      'null',
       'v1',
       for (var i = 0; i < 7; i++) '$i',
       'v2',

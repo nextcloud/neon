@@ -6,7 +6,7 @@ import 'package:nextcloud/src/helpers/common.dart';
 import 'package:version/version.dart';
 
 /// Minimum version of core/Server supported
-final minVersion = Version(27, 0, 0);
+final minVersion = Version(28, 0, 0);
 
 /// Maximum major of core/Server supported
 const maxMajor = 29;
