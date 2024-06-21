@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -23,6 +24,7 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/data/latest.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
 
@@ -546,7 +548,7 @@ void main() {
         ),
       );
       expect(find.byType(TalkParentMessage), findsOne);
-      expect(find.byType(TalkReactions), findsOne);
+      expect(find.byType(TalkReactions), findsNothing);
       expect(find.byType(SelectionArea), findsOne);
       await expectLater(
         find.byType(TalkCommentMessage).first,
@@ -699,6 +701,104 @@ void main() {
           find.byType(TalkCommentMessage),
           matchesGoldenFile('goldens/message_comment_message_separate_system_message.png'),
         );
+      });
+    });
+
+    group('Menu', () {
+      late Account account;
+      late spreed.ChatMessage chatMessage;
+      late TalkRoomBloc roomBloc;
+
+      setUp(() {
+        account = MockAccount();
+        when(() => account.id).thenReturn('');
+        when(() => account.username).thenReturn('test');
+        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+        chatMessage = MockChatMessage();
+        when(() => chatMessage.timestamp).thenReturn(0);
+        when(() => chatMessage.actorId).thenReturn('test');
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorDisplayName).thenReturn('test');
+        when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+        when(() => chatMessage.message).thenReturn('abc');
+        when(() => chatMessage.reactions).thenReturn(BuiltMap());
+        when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+        when(() => chatMessage.id).thenReturn(0);
+        when(() => chatMessage.isReplyable).thenReturn(true);
+
+        roomBloc = MockRoomBloc();
+        when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+      });
+
+      testWidgets('Add reaction', (tester) async {
+        SharedPreferences.setMockInitialValues({});
+
+        await tester.pumpWidgetWithAccessibility(
+          wrapWidget(
+            providers: [
+              Provider<Account>.value(value: account),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            ],
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: 0,
+            ),
+          ),
+        );
+
+        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+        await gesture.addPointer(location: Offset.zero);
+        addTearDown(gesture.removePointer);
+        await tester.pump();
+        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+
+        await tester.runAsync(() async {
+          await tester.tap(find.byIcon(Icons.add_reaction_outlined));
+          await tester.pumpAndSettle();
+          await tester.tap(find.byIcon(Icons.tag_faces));
+          await tester.pumpAndSettle();
+          await tester.tap(find.text('😂'));
+          await tester.pumpAndSettle();
+
+          verify(() => roomBloc.addReaction(chatMessage, '😂')).called(1);
+        });
+      });
+
+      testWidgets('Reply', (tester) async {
+        await tester.pumpWidgetWithAccessibility(
+          wrapWidget(
+            providers: [
+              Provider<Account>.value(value: account),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            ],
+            child: TalkCommentMessage(
+              chatMessage: chatMessage,
+              lastCommonRead: 0,
+            ),
+          ),
+        );
+
+        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+        await gesture.addPointer(location: Offset.zero);
+        addTearDown(gesture.removePointer);
+        await tester.pump();
+        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+
+        await tester.runAsync(() async {
+          await tester.tap(find.byIcon(Icons.reply));
+          await tester.pumpAndSettle();
+
+          verify(() => roomBloc.setReplyChatMessage(chatMessage)).called(1);
+        });
       });
     });
   });

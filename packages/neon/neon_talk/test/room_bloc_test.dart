@@ -97,18 +97,29 @@ Account mockTalkAccount() {
           );
         }
       },
-      'post': (match, queryParameters) => Response(
-            json.encode({
-              'ocs': {
-                'meta': {'status': '', 'statuscode': 0},
-                'data': getChatMessage(id: messageCount++),
-              },
-            }),
-            201,
-            headers: {
-              'x-chat-last-common-read': '1',
+      'post': (match, queryParameters) {
+        final replyTo = queryParameters['replyTo']?.firstOrNull;
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': getChatMessage(
+                id: messageCount++,
+                parent: replyTo != null
+                    ? getChatMessage(
+                        id: int.parse(replyTo),
+                      )
+                    : null,
+              ),
             },
-          ),
+          }),
+          201,
+          headers: {
+            'x-chat-last-common-read': '1',
+          },
+        );
+      },
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/reaction/abcd/[0-9]+'): {
       'post': (match, queryParameters) {
@@ -301,6 +312,40 @@ void main() {
     roomBloc.sendMessage('');
 
     verify(() => talkBloc.updateRoom(any())).called(3);
+  });
+
+  test('Reply', () async {
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(1);
+
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<int?>(e.map((m) => m.parent?.id))),
+      emitsInOrder([
+        Result<BuiltList<int?>>.loading(),
+        Result.success(BuiltList<int?>([null, null, null])),
+        Result.success(BuiltList<int?>([message.id, null, null, null])),
+      ]),
+    );
+
+    expect(
+      roomBloc.replyTo,
+      emitsInOrder([
+        null,
+        message,
+        null,
+        message,
+        null,
+      ]),
+    );
+
+    // The delay is necessary to avoid a race condition with loading twice at the same time
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    roomBloc
+      ..setReplyChatMessage(message)
+      ..removeReplyChatMessage()
+      ..setReplyChatMessage(message)
+      ..sendMessage('');
   });
 
   test('addReaction', () async {

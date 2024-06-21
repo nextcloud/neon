@@ -53,6 +53,7 @@ void main() {
     when(() => bloc.messages)
         .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>())));
     when(() => bloc.lastCommonRead).thenAnswer((_) => BehaviorSubject.seeded(0));
+    when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
   });
 
   testWidgets('Status message', (tester) async {
@@ -209,5 +210,51 @@ void main() {
     expect(find.byType(TypeAheadField), findsNothing);
     expect(find.byIcon(Icons.emoji_emotions_outlined), findsNothing);
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_read_only.png'));
+  });
+
+  testWidgets('Reply', (tester) async {
+    final replyTo = BehaviorSubject<spreed.$ChatMessageInterface?>.seeded(null);
+
+    when(() => bloc.replyTo).thenAnswer((_) => replyTo);
+
+    final account = MockAccount();
+    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        appThemes: const [
+          TalkTheme(),
+        ],
+        providers: [
+          Provider<Account>.value(value: account),
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+        ],
+        child: const TalkRoomPage(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TalkParentMessage), findsNothing);
+
+    final message = MockChatMessage();
+    when(() => message.messageType).thenReturn(spreed.MessageType.comment);
+    when(() => message.timestamp).thenReturn(0);
+    when(() => message.actorId).thenReturn('test');
+    when(() => message.actorDisplayName).thenReturn('test');
+    when(() => message.message).thenReturn('abc');
+    when(() => message.messageParameters).thenReturn(BuiltMap());
+
+    replyTo.add(message);
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TalkParentMessage), findsOne);
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/room_page_reply.png'));
+
+    await tester.tap(find.byIcon(Icons.close));
+    verify(() => bloc.removeReplyChatMessage()).called(1);
+
+    unawaited(replyTo.close());
   });
 }

@@ -57,6 +57,7 @@ void main() {
     FakeNeonStorage.setup();
 
     bloc = MockRoomBloc();
+    when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
   });
 
   testWidgets('Cupertino no emoji button', (tester) async {

@@ -8,6 +8,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
+import 'package:neon_talk/src/widgets/message.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Widget for displaying the emoji button, text input and send button.
@@ -53,6 +54,12 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
     super.initState();
 
     bloc = NeonProvider.of<TalkRoomBloc>(context);
+
+    bloc.replyTo.listen((replyTo) {
+      if (replyTo != null) {
+        focusNode.requestFocus();
+      }
+    });
   }
 
   @override
@@ -99,7 +106,39 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       );
     }
 
-    return TypeAheadField<_Suggestion>(
+    final replyTo = StreamBuilder(
+      stream: bloc.replyTo,
+      builder: (context, replyToSnapshot) {
+        if (!replyToSnapshot.hasData) {
+          return const SizedBox();
+        }
+
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 5),
+          child: Row(
+            children: [
+              const SizedBox.square(
+                dimension: 40,
+              ),
+              Expanded(
+                child: TalkParentMessage(
+                  parentChatMessage: replyToSnapshot.requireData!,
+                  lastCommonRead: null,
+                ),
+              ),
+              IconButton(
+                onPressed: () {
+                  bloc.removeReplyChatMessage();
+                },
+                icon: const Icon(Icons.close),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    final inputField = TypeAheadField<_Suggestion>(
       direction: VerticalDirection.up,
       hideOnEmpty: true,
       debounceDuration: const Duration(milliseconds: 50),
@@ -177,6 +216,14 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
         ),
       ),
       loadingBuilder: (context) => const NeonLinearProgressIndicator(),
+    );
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        replyTo,
+        inputField,
+      ],
     );
   }
 

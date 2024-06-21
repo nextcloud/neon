@@ -162,7 +162,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                 onRefresh: bloc.refresh,
                 sliver: SliverPadding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
+                    horizontal: 10,
                   ),
                   sliver: sliver,
                 ),
