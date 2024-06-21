@@ -118,7 +118,17 @@ Account mockTalkAccount() {
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
-                'data': List.generate(messageCount, (i) => getChatMessage(id: messageCount - i - 1)),
+                'data': List.generate(
+                  messageCount,
+                  (i) => getChatMessage(
+                    id: messageCount - i - 1,
+                    parent: messageCount - i - 2 >= 0
+                        ? getChatMessage(
+                            id: messageCount - i - 2,
+                          )
+                        : null,
+                  ),
+                ),
               },
             }),
             200,
@@ -360,8 +370,8 @@ void main() {
       roomBloc.messages.transformResult((e) => BuiltList<int?>(e.map((m) => m.parent?.id))),
       emitsInOrder([
         Result<BuiltList<int?>>.loading(),
-        Result.success(BuiltList<int?>([null, null, null])),
-        Result.success(BuiltList<int?>([message.id, null, null, null])),
+        Result.success(BuiltList<int?>([1, 0, null])),
+        Result.success(BuiltList<int?>([1, 1, 0, null])),
       ]),
     );
 
@@ -589,6 +599,26 @@ void main() {
             spreed.MessageType.comment,
             spreed.MessageType.commentDeleted,
             spreed.MessageType.comment,
+          ]),
+        ),
+      ]),
+    );
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<spreed.MessageType?>(e.map((m) => m.parent?.messageType))),
+      emitsInOrder([
+        Result<BuiltList<spreed.MessageType?>>.loading(),
+        Result.success(
+          BuiltList<spreed.MessageType?>([
+            spreed.MessageType.comment,
+            spreed.MessageType.comment,
+            null,
+          ]),
+        ),
+        Result.success(
+          BuiltList<spreed.MessageType?>([
+            spreed.MessageType.commentDeleted,
+            null,
+            null,
           ]),
         ),
       ]),
