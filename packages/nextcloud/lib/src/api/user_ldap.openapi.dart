@@ -465,7 +465,7 @@ class $ConfigapiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -514,7 +514,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface {
+sealed class $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface {
   String get configID;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -566,7 +566,7 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiCreateResponseApplicationJson_OcsInterface {
+sealed class $ConfigapiCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ConfigapiCreateResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -619,7 +619,7 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiCreateResponseApplicationJsonInterface {
+sealed class $ConfigapiCreateResponseApplicationJsonInterface {
   ConfigapiCreateResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiCreateResponseApplicationJsonInterfaceBuilder b) {}
@@ -733,7 +733,7 @@ class _$ConfigapiShowShowPasswordSerializer implements PrimitiveSerializer<Confi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiShowResponseApplicationJson_OcsInterface {
+sealed class $ConfigapiShowResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -786,7 +786,7 @@ abstract class ConfigapiShowResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiShowResponseApplicationJsonInterface {
+sealed class $ConfigapiShowResponseApplicationJsonInterface {
   ConfigapiShowResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiShowResponseApplicationJsonInterfaceBuilder b) {}
@@ -837,7 +837,7 @@ abstract class ConfigapiShowResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiModifyResponseApplicationJson_OcsInterface {
+sealed class $ConfigapiModifyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -890,7 +890,7 @@ abstract class ConfigapiModifyResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiModifyResponseApplicationJsonInterface {
+sealed class $ConfigapiModifyResponseApplicationJsonInterface {
   ConfigapiModifyResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiModifyResponseApplicationJsonInterfaceBuilder b) {}
@@ -941,7 +941,7 @@ abstract class ConfigapiModifyResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiDeleteResponseApplicationJson_OcsInterface {
+sealed class $ConfigapiDeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -994,7 +994,7 @@ abstract class ConfigapiDeleteResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ConfigapiDeleteResponseApplicationJsonInterface {
+sealed class $ConfigapiDeleteResponseApplicationJsonInterface {
   ConfigapiDeleteResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiDeleteResponseApplicationJsonInterfaceBuilder b) {}

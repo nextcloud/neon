@@ -31,7 +31,7 @@ typedef AnyOfIntDouble = num;
 typedef AnyOfIntDoubleNum = num;
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectAnyOf0Interface {
+sealed class $ObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute1-anyOf')
   String get attribute1AnyOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -71,7 +71,7 @@ abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectAnyOf1Interface {
+sealed class $ObjectAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute2-anyOf')
   String get attribute2AnyOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -114,7 +114,7 @@ abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf
 typedef ObjectAnyOf = ({ObjectAnyOf0? objectAnyOf0, ObjectAnyOf1? objectAnyOf1});
 
 @BuiltValue(instantiable: false)
-abstract interface class $MixedAnyOf1Interface {
+sealed class $MixedAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -157,7 +157,7 @@ abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, 
 typedef MixedAnyOf = ({MixedAnyOf1? mixedAnyOf1, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $OneObjectAnyOf0Interface {
+sealed class $OneObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
   @BuiltValueHook(initializeBuilder: true)

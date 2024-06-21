@@ -114,7 +114,7 @@ class $Client extends _i1.DynamiteClient {
 typedef Redirect = Object2;
 
 @BuiltValue(instantiable: false)
-abstract interface class $Object2Interface {
+sealed class $Object2Interface {
   @Deprecated('')
   String get name;
   String? get tag;
@@ -159,7 +159,7 @@ abstract class Object2 implements $Object2Interface, Built<Object2, Object2Build
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Object1Interface implements $Object2Interface {
+sealed class $Object1Interface implements $Object2Interface {
   int get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Object1InterfaceBuilder b) {

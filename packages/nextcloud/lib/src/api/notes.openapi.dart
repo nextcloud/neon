@@ -712,7 +712,7 @@ class $Client extends _i1.DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NoteInterface {
+sealed class $NoteInterface {
   int get id;
   String get etag;
   bool get readonly;
@@ -832,7 +832,7 @@ class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_Note
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsInterface {
+sealed class $SettingsInterface {
   String get notesPath;
   String get fileSuffix;
   Settings_NoteMode get noteMode;
@@ -879,7 +879,7 @@ abstract class Settings implements $SettingsInterface, Built<Settings, SettingsB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_NotesInterface {
+sealed class $Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
@@ -928,7 +928,7 @@ abstract class Capabilities_Notes
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Notes get notes;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
@@ -973,7 +973,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1022,7 +1022,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EmptyOCS_OcsInterface {
+sealed class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1068,7 +1068,7 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EmptyOCSInterface {
+sealed class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCSInterfaceBuilder b) {}

@@ -27,7 +27,7 @@ import 'package:meta/meta.dart' as _i2;
 part 'sharebymail.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+sealed class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
@@ -80,7 +80,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
+sealed class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
   @BuiltValueHook(initializeBuilder: true)
@@ -133,7 +133,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+sealed class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
   @BuiltValueHook(initializeBuilder: true)
@@ -187,7 +187,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0_FilesSharing_SharebymailInterface {
+sealed class $Capabilities0_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
@@ -245,7 +245,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0_FilesSharingInterface {
+sealed class $Capabilities0_FilesSharingInterface {
   Capabilities0_FilesSharing_Sharebymail get sharebymail;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities0_FilesSharingInterfaceBuilder b) {}
@@ -295,7 +295,7 @@ abstract class Capabilities0_FilesSharing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities0Interface {
+sealed class $Capabilities0Interface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities0_FilesSharing get filesSharing;
   @BuiltValueHook(initializeBuilder: true)

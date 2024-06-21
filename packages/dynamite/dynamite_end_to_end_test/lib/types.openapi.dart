@@ -33,7 +33,7 @@ typedef $Map = dynamic;
 typedef $RegExp = dynamic;
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseInterface {
+sealed class $BaseInterface {
   @BuiltValueField(wireName: 'bool')
   bool? get $bool;
   int? get integer;
@@ -94,7 +94,7 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DefaultsInterface {
+sealed class $DefaultsInterface {
   static final _$$bool = _$jsonSerializers.deserialize(
     true,
     specifiedType: const FullType(bool),
@@ -246,7 +246,7 @@ abstract class Defaults implements $DefaultsInterface, Built<Defaults, DefaultsB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AdditionalPropertiesInterface {
+sealed class $AdditionalPropertiesInterface {
   @BuiltValueField(wireName: 'empty_schema_bool')
   BuiltMap<String, JsonObject>? get emptySchemaBool;
   @BuiltValueField(wireName: 'empty_schema')

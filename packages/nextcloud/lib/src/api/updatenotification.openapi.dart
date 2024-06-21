@@ -339,7 +339,7 @@ class _$ApiGetAppListApiVersionSerializer implements PrimitiveSerializer<ApiGetA
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -388,7 +388,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppInterface {
+sealed class $AppInterface {
   String get appId;
   String get appName;
   @BuiltValueHook(initializeBuilder: true)
@@ -434,7 +434,7 @@ abstract class App implements $AppInterface, Built<App, AppBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
+sealed class $ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
   BuiltList<App> get missing;
   BuiltList<App> get available;
   @BuiltValueHook(initializeBuilder: true)
@@ -487,7 +487,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppListResponseApplicationJson_OcsInterface {
+sealed class $ApiGetAppListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppListResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -540,7 +540,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppListResponseApplicationJsonInterface {
+sealed class $ApiGetAppListResponseApplicationJsonInterface {
   ApiGetAppListResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppListResponseApplicationJsonInterfaceBuilder b) {}
@@ -648,7 +648,7 @@ class _$ApiGetAppChangelogEntryApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
+sealed class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
   String get appName;
   String get content;
   String get version;
@@ -703,7 +703,7 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface {
+sealed class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -757,7 +757,7 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetAppChangelogEntryResponseApplicationJsonInterface {
+sealed class $ApiGetAppChangelogEntryResponseApplicationJsonInterface {
   ApiGetAppChangelogEntryResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetAppChangelogEntryResponseApplicationJsonInterfaceBuilder b) {}

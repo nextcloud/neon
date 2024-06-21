@@ -351,7 +351,7 @@ class $LogSettingsClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -400,7 +400,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface {
+sealed class $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -454,7 +454,7 @@ abstract class DeclarativeSettingsSetValueResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeSettingsSetValueResponseApplicationJsonInterface {
+sealed class $DeclarativeSettingsSetValueResponseApplicationJsonInterface {
   DeclarativeSettingsSetValueResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsSetValueResponseApplicationJsonInterfaceBuilder b) {}
@@ -738,7 +738,7 @@ class _$DeclarativeFormField_TypeSerializer implements PrimitiveSerializer<Decla
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeFormField_Options1Interface {
+sealed class $DeclarativeFormField_Options1Interface {
   String get name;
   JsonObject get value;
   @BuiltValueHook(initializeBuilder: true)
@@ -792,7 +792,7 @@ typedef DeclarativeFormField_Options = ({DeclarativeFormField_Options1? declarat
 typedef DeclarativeFormField_Value = ({bool? $bool, BuiltList<String>? builtListString, num? $num, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeFormFieldInterface {
+sealed class $DeclarativeFormFieldInterface {
   String get id;
   String get title;
   String? get description;
@@ -850,7 +850,7 @@ abstract class DeclarativeFormField
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeFormInterface {
+sealed class $DeclarativeFormInterface {
   String get id;
   int get priority;
   @BuiltValueField(wireName: 'section_type')
@@ -908,7 +908,7 @@ abstract class DeclarativeForm implements $DeclarativeFormInterface, Built<Decla
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface {
+sealed class $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeclarativeForm> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -962,7 +962,7 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeclarativeSettingsGetFormsResponseApplicationJsonInterface {
+sealed class $DeclarativeSettingsGetFormsResponseApplicationJsonInterface {
   DeclarativeSettingsGetFormsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeclarativeSettingsGetFormsResponseApplicationJsonInterfaceBuilder b) {}
@@ -1015,7 +1015,7 @@ abstract class DeclarativeSettingsGetFormsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LogSettingsLogSettingsDownloadHeadersInterface {
+sealed class $LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
   @BuiltValueHook(initializeBuilder: true)

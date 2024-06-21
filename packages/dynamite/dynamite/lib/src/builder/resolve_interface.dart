@@ -22,8 +22,7 @@ Spec buildInterface(
 
     b
       ..docs.addAll(escapeDescription(schema.formattedDescription()))
-      ..abstract = true
-      ..modifier = ClassModifier.interface
+      ..sealed = true
       ..name = className
       ..annotations.add(refer('BuiltValue').call([], {'instantiable': literalFalse}));
 

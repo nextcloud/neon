@@ -392,7 +392,7 @@ typedef Redirect = Object2;
 
 /// A representation of the second Object type.
 @BuiltValue(instantiable: false)
-abstract interface class $Object2Interface {
+sealed class $Object2Interface {
   /// The name of this object.
   String get name;
 
@@ -439,7 +439,7 @@ abstract class Object2 implements $Object2Interface, Built<Object2, Object2Build
 ///
 /// A representation of the main object.
 @BuiltValue(instantiable: false)
-abstract interface class $Object1Interface implements $Object2Interface {
+sealed class $Object1Interface implements $Object2Interface {
   /// The uuid in an UUIDv4 format.
   int get id;
   @BuiltValueHook(initializeBuilder: true)

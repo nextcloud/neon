@@ -388,7 +388,7 @@ class $DashboardApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -437,7 +437,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Widget_ButtonsInterface {
+sealed class $Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
@@ -484,7 +484,7 @@ abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WidgetInterface {
+sealed class $WidgetInterface {
   String get id;
   String get title;
   int get order;
@@ -544,7 +544,7 @@ abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
+sealed class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, Widget> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -598,7 +598,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
+sealed class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
   DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder b) {}
@@ -650,7 +650,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WidgetItemInterface {
+sealed class $WidgetItemInterface {
   String get subtitle;
   String get title;
   String get link;
@@ -700,7 +700,7 @@ abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, Wid
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
+sealed class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<WidgetItem>> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -754,7 +754,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
+sealed class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder b) {}
@@ -807,7 +807,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WidgetItemsInterface {
+sealed class $WidgetItemsInterface {
   BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
@@ -854,7 +854,7 @@ abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
+sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, WidgetItems> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -908,7 +908,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
+sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder b) {}

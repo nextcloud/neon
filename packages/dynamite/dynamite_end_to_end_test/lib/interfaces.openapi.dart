@@ -18,7 +18,7 @@ import 'package:meta/meta.dart' as _i1;
 part 'interfaces.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseInterface {
+sealed class $BaseInterface {
   String? get attribute;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceBuilder b) {}
@@ -57,7 +57,7 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseInterfaceInterface {
+sealed class $BaseInterfaceInterface {
   String? get attribute;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceInterfaceBuilder b) {}

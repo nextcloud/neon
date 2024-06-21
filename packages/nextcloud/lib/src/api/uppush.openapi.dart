@@ -881,7 +881,7 @@ class $Client extends _i1.DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CheckResponseApplicationJsonInterface {
+sealed class $CheckResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CheckResponseApplicationJsonInterfaceBuilder b) {}
@@ -931,7 +931,7 @@ abstract class CheckResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SetKeepaliveResponseApplicationJsonInterface {
+sealed class $SetKeepaliveResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SetKeepaliveResponseApplicationJsonInterfaceBuilder b) {}
@@ -982,7 +982,7 @@ abstract class SetKeepaliveResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CreateDeviceResponseApplicationJsonInterface {
+sealed class $CreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
   @BuiltValueHook(initializeBuilder: true)
@@ -1034,7 +1034,7 @@ abstract class CreateDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SyncDeviceResponseApplicationJsonInterface {
+sealed class $SyncDeviceResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SyncDeviceResponseApplicationJsonInterfaceBuilder b) {}
@@ -1084,7 +1084,7 @@ abstract class SyncDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeleteDeviceResponseApplicationJsonInterface {
+sealed class $DeleteDeviceResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeleteDeviceResponseApplicationJsonInterfaceBuilder b) {}
@@ -1135,7 +1135,7 @@ abstract class DeleteDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CreateAppResponseApplicationJsonInterface {
+sealed class $CreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
   @BuiltValueHook(initializeBuilder: true)
@@ -1186,7 +1186,7 @@ abstract class CreateAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DeleteAppResponseApplicationJsonInterface {
+sealed class $DeleteAppResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeleteAppResponseApplicationJsonInterfaceBuilder b) {}
@@ -1236,7 +1236,7 @@ abstract class DeleteAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
+sealed class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
@@ -1289,7 +1289,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedpushDiscoveryResponseApplicationJsonInterface {
+sealed class $UnifiedpushDiscoveryResponseApplicationJsonInterface {
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
@@ -1341,7 +1341,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushResponseApplicationJsonInterface {
+sealed class $PushResponseApplicationJsonInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PushResponseApplicationJsonInterfaceBuilder b) {}
@@ -1391,7 +1391,7 @@ abstract class PushResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
+sealed class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
@@ -1444,7 +1444,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GatewayMatrixDiscoveryResponseApplicationJsonInterface {
+sealed class $GatewayMatrixDiscoveryResponseApplicationJsonInterface {
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
@@ -1496,7 +1496,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GatewayMatrixResponseApplicationJsonInterface {
+sealed class $GatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixResponseApplicationJsonInterfaceBuilder b) {}

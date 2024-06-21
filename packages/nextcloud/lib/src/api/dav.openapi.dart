@@ -593,7 +593,7 @@ class $OutOfOfficeClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -642,7 +642,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
+sealed class $DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -694,7 +694,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DirectGetUrlResponseApplicationJson_OcsInterface {
+sealed class $DirectGetUrlResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectGetUrlResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -746,7 +746,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DirectGetUrlResponseApplicationJsonInterface {
+sealed class $DirectGetUrlResponseApplicationJsonInterface {
   DirectGetUrlResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DirectGetUrlResponseApplicationJsonInterfaceBuilder b) {}
@@ -797,7 +797,7 @@ abstract class DirectGetUrlResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeDataCommonInterface {
+sealed class $OutOfOfficeDataCommonInterface {
   String get userId;
   String get message;
   @BuiltValueHook(initializeBuilder: true)
@@ -845,7 +845,7 @@ abstract class OutOfOfficeDataCommon
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CurrentOutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
+sealed class $CurrentOutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
   String get id;
   int get startDate;
   int get endDate;
@@ -900,7 +900,7 @@ abstract class CurrentOutOfOfficeData
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface {
+sealed class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CurrentOutOfOfficeData get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -954,7 +954,7 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface {
+sealed class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface {
   OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder b) {}
@@ -1007,7 +1007,7 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
+sealed class $OutOfOfficeDataInterface implements $OutOfOfficeDataCommonInterface {
   int get id;
   String get firstDay;
   String get lastDay;
@@ -1060,7 +1060,7 @@ abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOf
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface {
+sealed class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OutOfOfficeData get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1114,7 +1114,7 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface {
+sealed class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
@@ -1167,7 +1167,7 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface {
+sealed class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OutOfOfficeData get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1221,7 +1221,7 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface {
+sealed class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
@@ -1274,7 +1274,7 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface {
+sealed class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1328,7 +1328,7 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface {
+sealed class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface {
   OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder b) {}
@@ -1381,7 +1381,7 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_DavInterface {
+sealed class $Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
   @BuiltValueHook(initializeBuilder: true)
@@ -1428,7 +1428,7 @@ abstract class Capabilities_Dav
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Dav get dav;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}

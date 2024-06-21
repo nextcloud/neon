@@ -345,7 +345,7 @@ class _$WrappedEnum_IntegerSerializer implements PrimitiveSerializer<WrappedEnum
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WrappedEnumInterface {
+sealed class $WrappedEnumInterface {
   @BuiltValueField(wireName: 'String')
   WrappedEnum_String get string;
   WrappedEnum_Integer get integer;
@@ -386,7 +386,7 @@ abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EnumReferenceInterface {
+sealed class $EnumReferenceInterface {
   EnumString get string;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EnumReferenceInterfaceBuilder b) {}

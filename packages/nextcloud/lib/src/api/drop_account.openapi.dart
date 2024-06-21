@@ -25,7 +25,7 @@ import 'package:meta/meta.dart' as _i1;
 part 'drop_account.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_DropAccount_DelayInterface {
+sealed class $Capabilities_DropAccount_DelayInterface {
   bool get enabled;
   int get hours;
   @BuiltValueHook(initializeBuilder: true)
@@ -76,7 +76,7 @@ abstract class Capabilities_DropAccount_Delay
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_DropAccountInterface {
+sealed class $Capabilities_DropAccountInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'api-version')
   String get apiVersion;
@@ -127,7 +127,7 @@ abstract class Capabilities_DropAccount
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'drop-account')
   Capabilities_DropAccount get dropAccount;
   @BuiltValueHook(initializeBuilder: true)

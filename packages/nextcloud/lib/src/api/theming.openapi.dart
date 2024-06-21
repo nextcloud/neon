@@ -1076,7 +1076,7 @@ class _$ThemingGetImageUseSvgSerializer implements PrimitiveSerializer<ThemingGe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ThemingGetManifestResponseApplicationJson_IconsInterface {
+sealed class $ThemingGetManifestResponseApplicationJson_IconsInterface {
   String get src;
   String get type;
   String get sizes;
@@ -1136,7 +1136,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ThemingGetManifestResponseApplicationJsonInterface {
+sealed class $ThemingGetManifestResponseApplicationJsonInterface {
   String get name;
   @BuiltValueField(wireName: 'short_name')
   String get shortName;
@@ -1199,7 +1199,7 @@ abstract class ThemingGetManifestResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1248,7 +1248,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserThemeEnableThemeResponseApplicationJson_OcsInterface {
+sealed class $UserThemeEnableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1301,7 +1301,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserThemeEnableThemeResponseApplicationJsonInterface {
+sealed class $UserThemeEnableThemeResponseApplicationJsonInterface {
   UserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder b) {}
@@ -1353,7 +1353,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
+sealed class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1407,7 +1407,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserThemeDisableThemeResponseApplicationJsonInterface {
+sealed class $UserThemeDisableThemeResponseApplicationJsonInterface {
   UserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder b) {}
@@ -1459,7 +1459,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities_ThemingInterface {
+sealed class $PublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -1528,7 +1528,7 @@ abstract class PublicCapabilities_Theming
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilitiesInterface {
+sealed class $PublicCapabilitiesInterface {
   PublicCapabilities_Theming get theming;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}

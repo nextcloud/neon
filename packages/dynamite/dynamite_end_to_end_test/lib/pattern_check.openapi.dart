@@ -21,7 +21,7 @@ import 'package:meta/meta.dart' as _i2;
 part 'pattern_check.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $TestObjectInterface {
+sealed class $TestObjectInterface {
   @BuiltValueField(wireName: 'only-numbers')
   String? get onlyNumbers;
   @BuiltValueField(wireName: 'min-length')
@@ -161,7 +161,7 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TestObjectUnspecifiedInterface {
+sealed class $TestObjectUnspecifiedInterface {
   JsonObject? get value;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TestObjectUnspecifiedInterfaceBuilder b) {}

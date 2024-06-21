@@ -1274,7 +1274,7 @@ class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1323,7 +1323,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGenerateNotificationResponseApplicationJson_OcsInterface {
+sealed class $ApiGenerateNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1377,7 +1377,7 @@ abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGenerateNotificationResponseApplicationJsonInterface {
+sealed class $ApiGenerateNotificationResponseApplicationJsonInterface {
   ApiGenerateNotificationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder b) {}
@@ -1493,7 +1493,7 @@ class _$EndpointListNotificationsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotificationActionInterface {
+sealed class $NotificationActionInterface {
   String get label;
   String get link;
   String get type;
@@ -1543,7 +1543,7 @@ abstract class NotificationAction
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotificationInterface {
+sealed class $NotificationInterface {
   @BuiltValueField(wireName: 'notification_id')
   int get notificationId;
   String get app;
@@ -1606,7 +1606,7 @@ abstract class Notification implements $NotificationInterface, Built<Notificatio
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointListNotificationsResponseApplicationJson_OcsInterface {
+sealed class $EndpointListNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Notification> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1660,7 +1660,7 @@ abstract class EndpointListNotificationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointListNotificationsResponseApplicationJsonInterface {
+sealed class $EndpointListNotificationsResponseApplicationJsonInterface {
   EndpointListNotificationsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EndpointListNotificationsResponseApplicationJsonInterfaceBuilder b) {}
@@ -1713,7 +1713,7 @@ abstract class EndpointListNotificationsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointEndpointListNotificationsHeadersInterface {
+sealed class $EndpointEndpointListNotificationsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-user-status')
   String? get xNextcloudUserStatus;
   @BuiltValueHook(initializeBuilder: true)
@@ -1833,7 +1833,7 @@ class _$EndpointDeleteAllNotificationsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
+sealed class $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1887,7 +1887,7 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointDeleteAllNotificationsResponseApplicationJsonInterface {
+sealed class $EndpointDeleteAllNotificationsResponseApplicationJsonInterface {
   EndpointDeleteAllNotificationsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder b) {}
@@ -2002,7 +2002,7 @@ class _$EndpointGetNotificationApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointGetNotificationResponseApplicationJson_OcsInterface {
+sealed class $EndpointGetNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Notification get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2056,7 +2056,7 @@ abstract class EndpointGetNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointGetNotificationResponseApplicationJsonInterface {
+sealed class $EndpointGetNotificationResponseApplicationJsonInterface {
   EndpointGetNotificationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EndpointGetNotificationResponseApplicationJsonInterfaceBuilder b) {}
@@ -2174,7 +2174,7 @@ class _$EndpointDeleteNotificationApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointDeleteNotificationResponseApplicationJson_OcsInterface {
+sealed class $EndpointDeleteNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2228,7 +2228,7 @@ abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointDeleteNotificationResponseApplicationJsonInterface {
+sealed class $EndpointDeleteNotificationResponseApplicationJsonInterface {
   EndpointDeleteNotificationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder b) {}
@@ -2345,7 +2345,7 @@ class _$EndpointConfirmIdsForUserApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
+sealed class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<int> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2399,7 +2399,7 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EndpointConfirmIdsForUserResponseApplicationJsonInterface {
+sealed class $EndpointConfirmIdsForUserResponseApplicationJsonInterface {
   EndpointConfirmIdsForUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -2508,7 +2508,7 @@ class _$PushRegisterDeviceApiVersionSerializer implements PrimitiveSerializer<Pu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushDeviceInterface {
+sealed class $PushDeviceInterface {
   String get publicKey;
   String get deviceIdentifier;
   String get signature;
@@ -2555,7 +2555,7 @@ abstract class PushDevice implements $PushDeviceInterface, Built<PushDevice, Pus
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushRegisterDeviceResponseApplicationJson_OcsInterface {
+sealed class $PushRegisterDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   PushDevice get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2608,7 +2608,7 @@ abstract class PushRegisterDeviceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushRegisterDeviceResponseApplicationJsonInterface {
+sealed class $PushRegisterDeviceResponseApplicationJsonInterface {
   PushRegisterDeviceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PushRegisterDeviceResponseApplicationJsonInterfaceBuilder b) {}
@@ -2716,7 +2716,7 @@ class _$PushRemoveDeviceApiVersionSerializer implements PrimitiveSerializer<Push
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushRemoveDeviceResponseApplicationJson_OcsInterface {
+sealed class $PushRemoveDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2769,7 +2769,7 @@ abstract class PushRemoveDeviceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PushRemoveDeviceResponseApplicationJsonInterface {
+sealed class $PushRemoveDeviceResponseApplicationJsonInterface {
   PushRemoveDeviceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PushRemoveDeviceResponseApplicationJsonInterfaceBuilder b) {}
@@ -2876,7 +2876,7 @@ class _$SettingsPersonalApiVersionSerializer implements PrimitiveSerializer<Sett
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsPersonalResponseApplicationJson_OcsInterface {
+sealed class $SettingsPersonalResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -2929,7 +2929,7 @@ abstract class SettingsPersonalResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsPersonalResponseApplicationJsonInterface {
+sealed class $SettingsPersonalResponseApplicationJsonInterface {
   SettingsPersonalResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SettingsPersonalResponseApplicationJsonInterfaceBuilder b) {}
@@ -3036,7 +3036,7 @@ class _$SettingsAdminApiVersionSerializer implements PrimitiveSerializer<Setting
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsAdminResponseApplicationJson_OcsInterface {
+sealed class $SettingsAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -3089,7 +3089,7 @@ abstract class SettingsAdminResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsAdminResponseApplicationJsonInterface {
+sealed class $SettingsAdminResponseApplicationJsonInterface {
   SettingsAdminResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SettingsAdminResponseApplicationJsonInterfaceBuilder b) {}
@@ -3140,7 +3140,7 @@ abstract class SettingsAdminResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_NotificationsInterface {
+sealed class $Capabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
   BuiltList<String> get push;
@@ -3194,7 +3194,7 @@ abstract class Capabilities_Notifications
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Notifications get notifications;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
