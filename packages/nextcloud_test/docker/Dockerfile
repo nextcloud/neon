@@ -25,7 +25,7 @@ COPY static /usr/src/nextcloud/static
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
-FROM alpine:latest@sha256:77726ef6b57ddf65bb551896826ec38bc3e53f75cdde31354fbffb4f25238ebd as apps
+FROM alpine:latest@sha256:b89d9c93e9ed3597455c90a0b88a8bbb5cb7188438f70953fede212a0c4394e0 as apps
 RUN apk add curl
 
 FROM apps as news
