@@ -19,7 +19,7 @@ import 'package:meta/meta.dart' as _i2;
 part 'nested_ofs.openapi.g.dart';
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseAllOfInterface {
+sealed class $BaseAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
@@ -61,7 +61,7 @@ abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAl
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseOneOf1Interface {
+sealed class $BaseOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -103,7 +103,7 @@ abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, Bas
 typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseAnyOf1Interface {
+sealed class $BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -145,7 +145,7 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
 typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterface {
+sealed class $BaseNestedAllOfInterface implements $BaseAllOfInterface {
   @BuiltValueField(wireName: 'BaseOneOf')
   BaseOneOf get baseOneOf;
   @BuiltValueField(wireName: 'BaseAnyOf')
@@ -196,7 +196,7 @@ abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseN
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseNestedOneOf3Interface {
+sealed class $BaseNestedOneOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-oneOf')
   String get attributeNestedOneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -245,7 +245,7 @@ typedef BaseNestedOneOf = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseNestedAnyOf3Interface {
+sealed class $BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
   String get attributeNestedAnyOf;
   @BuiltValueHook(initializeBuilder: true)

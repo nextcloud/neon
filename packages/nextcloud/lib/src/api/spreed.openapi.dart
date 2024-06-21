@@ -15883,7 +15883,7 @@ class _$AvatarUploadAvatarApiVersionSerializer implements PrimitiveSerializer<Av
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -16294,7 +16294,7 @@ typedef RichObjectParameter_Width = ({int? $int, String? string});
 typedef RichObjectParameter_Height = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $RichObjectParameterInterface {
+sealed class $RichObjectParameterInterface {
   String get type;
   String get id;
   String get name;
@@ -16481,7 +16481,7 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseMessageInterface {
+sealed class $BaseMessageInterface {
   String get actorDisplayName;
   String get actorId;
   ActorType get actorType;
@@ -16590,7 +16590,7 @@ class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMessageInterface implements $BaseMessageInterface {
+sealed class $ChatMessageInterface implements $BaseMessageInterface {
   ChatMessage_Deleted? get deleted;
   int get id;
   bool get isReplyable;
@@ -16656,7 +16656,7 @@ typedef RoomLastMessage = ({BaseMessage? baseMessage, ChatMessage? chatMessage})
 typedef Room_LastMessage = ({BaseMessage? baseMessage, BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomInterface {
+sealed class $RoomInterface {
   String get actorId;
   ActorType get actorType;
   int get attendeeId;
@@ -16756,7 +16756,7 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarUploadAvatarResponseApplicationJson_OcsInterface {
+sealed class $AvatarUploadAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16809,7 +16809,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarUploadAvatarResponseApplicationJsonInterface {
+sealed class $AvatarUploadAvatarResponseApplicationJsonInterface {
   AvatarUploadAvatarResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AvatarUploadAvatarResponseApplicationJsonInterfaceBuilder b) {}
@@ -16917,7 +16917,7 @@ class _$AvatarDeleteAvatarApiVersionSerializer implements PrimitiveSerializer<Av
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarDeleteAvatarResponseApplicationJson_OcsInterface {
+sealed class $AvatarDeleteAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16970,7 +16970,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarDeleteAvatarResponseApplicationJsonInterface {
+sealed class $AvatarDeleteAvatarResponseApplicationJsonInterface {
   AvatarDeleteAvatarResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AvatarDeleteAvatarResponseApplicationJsonInterfaceBuilder b) {}
@@ -17078,7 +17078,7 @@ class _$AvatarEmojiAvatarApiVersionSerializer implements PrimitiveSerializer<Ava
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarEmojiAvatarResponseApplicationJson_OcsInterface {
+sealed class $AvatarEmojiAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -17131,7 +17131,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarEmojiAvatarResponseApplicationJsonInterface {
+sealed class $AvatarEmojiAvatarResponseApplicationJsonInterface {
   AvatarEmojiAvatarResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AvatarEmojiAvatarResponseApplicationJsonInterfaceBuilder b) {}
@@ -17937,7 +17937,7 @@ class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotInterface {
+sealed class $BotInterface {
   String? get description;
   int get id;
   String get name;
@@ -17985,7 +17985,7 @@ abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotListBotsResponseApplicationJson_OcsInterface {
+sealed class $BotListBotsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Bot> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18037,7 +18037,7 @@ abstract class BotListBotsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotListBotsResponseApplicationJsonInterface {
+sealed class $BotListBotsResponseApplicationJsonInterface {
   BotListBotsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotListBotsResponseApplicationJsonInterfaceBuilder b) {}
@@ -18144,7 +18144,7 @@ class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnabl
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotEnableBotResponseApplicationJson_OcsInterface {
+sealed class $BotEnableBotResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Bot? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18196,7 +18196,7 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotEnableBotResponseApplicationJsonInterface {
+sealed class $BotEnableBotResponseApplicationJsonInterface {
   BotEnableBotResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotEnableBotResponseApplicationJsonInterfaceBuilder b) {}
@@ -18303,7 +18303,7 @@ class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotDisableBotResponseApplicationJson_OcsInterface {
+sealed class $BotDisableBotResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Bot? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18356,7 +18356,7 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotDisableBotResponseApplicationJsonInterface {
+sealed class $BotDisableBotResponseApplicationJsonInterface {
   BotDisableBotResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotDisableBotResponseApplicationJsonInterfaceBuilder b) {}
@@ -18526,7 +18526,7 @@ class _$BotSendMessageApiVersionSerializer implements PrimitiveSerializer<BotSen
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotSendMessageResponseApplicationJson_OcsInterface {
+sealed class $BotSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18579,7 +18579,7 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotSendMessageResponseApplicationJsonInterface {
+sealed class $BotSendMessageResponseApplicationJsonInterface {
   BotSendMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotSendMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -18686,7 +18686,7 @@ class _$BotReactApiVersionSerializer implements PrimitiveSerializer<BotReactApiV
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotReactResponseApplicationJson_OcsInterface {
+sealed class $BotReactResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18738,7 +18738,7 @@ abstract class BotReactResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotReactResponseApplicationJsonInterface {
+sealed class $BotReactResponseApplicationJsonInterface {
   BotReactResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotReactResponseApplicationJsonInterfaceBuilder b) {}
@@ -18844,7 +18844,7 @@ class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<Bot
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotDeleteReactionResponseApplicationJson_OcsInterface {
+sealed class $BotDeleteReactionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -18897,7 +18897,7 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotDeleteReactionResponseApplicationJsonInterface {
+sealed class $BotDeleteReactionResponseApplicationJsonInterface {
   BotDeleteReactionResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotDeleteReactionResponseApplicationJsonInterfaceBuilder b) {}
@@ -19091,7 +19091,7 @@ class _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19145,7 +19145,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface {
+sealed class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -19260,7 +19260,7 @@ class _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19314,7 +19314,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface {
+sealed class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -19429,7 +19429,7 @@ class _$BreakoutRoomBroadcastChatMessageApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19483,7 +19483,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface {
+sealed class $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface {
   BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -19597,7 +19597,7 @@ class _$BreakoutRoomApplyAttendeeMapApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19651,7 +19651,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface {
+sealed class $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface {
   BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterfaceBuilder b) {}
@@ -19766,7 +19766,7 @@ class _$BreakoutRoomRequestAssistanceApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19820,7 +19820,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface {
+sealed class $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface {
   BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomRequestAssistanceResponseApplicationJsonInterfaceBuilder b) {}
@@ -19935,7 +19935,7 @@ class _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -19989,7 +19989,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface {
+sealed class $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface {
   BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterfaceBuilder b) {}
@@ -20104,7 +20104,7 @@ class _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -20158,7 +20158,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface {
+sealed class $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -20273,7 +20273,7 @@ class _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -20327,7 +20327,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface {
+sealed class $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -20442,7 +20442,7 @@ class _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface {
+sealed class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -20496,7 +20496,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface {
+sealed class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface {
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -20605,7 +20605,7 @@ class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallPeerInterface {
+sealed class $CallPeerInterface {
   String get actorId;
   ActorType get actorType;
   String get displayName;
@@ -20655,7 +20655,7 @@ abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallGetPeersForCallResponseApplicationJson_OcsInterface {
+sealed class $CallGetPeersForCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<CallPeer> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -20708,7 +20708,7 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallGetPeersForCallResponseApplicationJsonInterface {
+sealed class $CallGetPeersForCallResponseApplicationJsonInterface {
   CallGetPeersForCallResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallGetPeersForCallResponseApplicationJsonInterfaceBuilder b) {}
@@ -20816,7 +20816,7 @@ class _$CallUpdateCallFlagsApiVersionSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallUpdateCallFlagsResponseApplicationJson_OcsInterface {
+sealed class $CallUpdateCallFlagsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -20869,7 +20869,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallUpdateCallFlagsResponseApplicationJsonInterface {
+sealed class $CallUpdateCallFlagsResponseApplicationJsonInterface {
   CallUpdateCallFlagsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallUpdateCallFlagsResponseApplicationJsonInterfaceBuilder b) {}
@@ -21103,7 +21103,7 @@ class _$CallJoinCallApiVersionSerializer implements PrimitiveSerializer<CallJoin
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallJoinCallResponseApplicationJson_OcsInterface {
+sealed class $CallJoinCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -21155,7 +21155,7 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallJoinCallResponseApplicationJsonInterface {
+sealed class $CallJoinCallResponseApplicationJsonInterface {
   CallJoinCallResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallJoinCallResponseApplicationJsonInterfaceBuilder b) {}
@@ -21325,7 +21325,7 @@ class _$CallLeaveCallApiVersionSerializer implements PrimitiveSerializer<CallLea
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallLeaveCallResponseApplicationJson_OcsInterface {
+sealed class $CallLeaveCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -21378,7 +21378,7 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallLeaveCallResponseApplicationJsonInterface {
+sealed class $CallLeaveCallResponseApplicationJsonInterface {
   CallLeaveCallResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallLeaveCallResponseApplicationJsonInterfaceBuilder b) {}
@@ -21485,7 +21485,7 @@ class _$CallRingAttendeeApiVersionSerializer implements PrimitiveSerializer<Call
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallRingAttendeeResponseApplicationJson_OcsInterface {
+sealed class $CallRingAttendeeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -21538,7 +21538,7 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallRingAttendeeResponseApplicationJsonInterface {
+sealed class $CallRingAttendeeResponseApplicationJsonInterface {
   CallRingAttendeeResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallRingAttendeeResponseApplicationJsonInterfaceBuilder b) {}
@@ -21645,7 +21645,7 @@ class _$CallSipDialOutApiVersionSerializer implements PrimitiveSerializer<CallSi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallSipDialOutResponseApplicationJson_Ocs_DataInterface {
+sealed class $CallSipDialOutResponseApplicationJson_Ocs_DataInterface {
   String? get error;
   String? get message;
   @BuiltValueHook(initializeBuilder: true)
@@ -21698,7 +21698,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallSipDialOutResponseApplicationJson_OcsInterface {
+sealed class $CallSipDialOutResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CallSipDialOutResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -21751,7 +21751,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CallSipDialOutResponseApplicationJsonInterface {
+sealed class $CallSipDialOutResponseApplicationJsonInterface {
   CallSipDialOutResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CallSipDialOutResponseApplicationJsonInterfaceBuilder b) {}
@@ -22185,7 +22185,7 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMessageWithParentInterface implements $ChatMessageInterface {
+sealed class $ChatMessageWithParentInterface implements $ChatMessageInterface {
   ChatMessage? get parent;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatMessageWithParentInterfaceBuilder b) {
@@ -22237,7 +22237,7 @@ abstract class ChatMessageWithParent
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatReceiveMessagesResponseApplicationJson_OcsInterface {
+sealed class $ChatReceiveMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessageWithParent> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -22290,7 +22290,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatReceiveMessagesResponseApplicationJsonInterface {
+sealed class $ChatReceiveMessagesResponseApplicationJsonInterface {
   ChatReceiveMessagesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatReceiveMessagesResponseApplicationJsonInterfaceBuilder b) {}
@@ -22342,7 +22342,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatReceiveMessagesHeadersInterface {
+sealed class $ChatChatReceiveMessagesHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueField(wireName: 'x-chat-last-given')
@@ -22514,7 +22514,7 @@ class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSendMessageResponseApplicationJson_OcsInterface {
+sealed class $ChatSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -22567,7 +22567,7 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSendMessageResponseApplicationJsonInterface {
+sealed class $ChatSendMessageResponseApplicationJsonInterface {
   ChatSendMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatSendMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -22618,7 +22618,7 @@ abstract class ChatSendMessageResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatSendMessageHeadersInterface {
+sealed class $ChatChatSendMessageHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -22725,7 +22725,7 @@ class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<Chat
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatClearHistoryResponseApplicationJson_OcsInterface {
+sealed class $ChatClearHistoryResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessage get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -22778,7 +22778,7 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatClearHistoryResponseApplicationJsonInterface {
+sealed class $ChatClearHistoryResponseApplicationJsonInterface {
   ChatClearHistoryResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatClearHistoryResponseApplicationJsonInterfaceBuilder b) {}
@@ -22829,7 +22829,7 @@ abstract class ChatClearHistoryResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatClearHistoryHeadersInterface {
+sealed class $ChatChatClearHistoryHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -22936,7 +22936,7 @@ class _$ChatEditMessageApiVersionSerializer implements PrimitiveSerializer<ChatE
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatEditMessageResponseApplicationJson_OcsInterface {
+sealed class $ChatEditMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -22989,7 +22989,7 @@ abstract class ChatEditMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatEditMessageResponseApplicationJsonInterface {
+sealed class $ChatEditMessageResponseApplicationJsonInterface {
   ChatEditMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatEditMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -23040,7 +23040,7 @@ abstract class ChatEditMessageResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatEditMessageHeadersInterface {
+sealed class $ChatChatEditMessageHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -23147,7 +23147,7 @@ class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<Cha
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatDeleteMessageResponseApplicationJson_OcsInterface {
+sealed class $ChatDeleteMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -23200,7 +23200,7 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatDeleteMessageResponseApplicationJsonInterface {
+sealed class $ChatDeleteMessageResponseApplicationJsonInterface {
   ChatDeleteMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatDeleteMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -23252,7 +23252,7 @@ abstract class ChatDeleteMessageResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatDeleteMessageHeadersInterface {
+sealed class $ChatChatDeleteMessageHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -23360,7 +23360,7 @@ class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetMessageContextResponseApplicationJson_OcsInterface {
+sealed class $ChatGetMessageContextResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessageWithParent> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -23414,7 +23414,7 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetMessageContextResponseApplicationJsonInterface {
+sealed class $ChatGetMessageContextResponseApplicationJsonInterface {
   ChatGetMessageContextResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatGetMessageContextResponseApplicationJsonInterfaceBuilder b) {}
@@ -23466,7 +23466,7 @@ abstract class ChatGetMessageContextResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatGetMessageContextHeadersInterface {
+sealed class $ChatChatGetMessageContextHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueField(wireName: 'x-chat-last-given')
@@ -23575,7 +23575,7 @@ class _$ChatGetReminderApiVersionSerializer implements PrimitiveSerializer<ChatG
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatReminderInterface {
+sealed class $ChatReminderInterface {
   int get messageId;
   int get timestamp;
   String get token;
@@ -23623,7 +23623,7 @@ abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetReminderResponseApplicationJson_OcsInterface {
+sealed class $ChatGetReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatReminder get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -23676,7 +23676,7 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetReminderResponseApplicationJsonInterface {
+sealed class $ChatGetReminderResponseApplicationJsonInterface {
   ChatGetReminderResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatGetReminderResponseApplicationJsonInterfaceBuilder b) {}
@@ -23783,7 +23783,7 @@ class _$ChatSetReminderApiVersionSerializer implements PrimitiveSerializer<ChatS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSetReminderResponseApplicationJson_OcsInterface {
+sealed class $ChatSetReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatReminder get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -23836,7 +23836,7 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSetReminderResponseApplicationJsonInterface {
+sealed class $ChatSetReminderResponseApplicationJsonInterface {
   ChatSetReminderResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatSetReminderResponseApplicationJsonInterfaceBuilder b) {}
@@ -23943,7 +23943,7 @@ class _$ChatDeleteReminderApiVersionSerializer implements PrimitiveSerializer<Ch
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface {
+sealed class $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface {
   String? get error;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatDeleteReminderResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -23996,7 +23996,7 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatDeleteReminderResponseApplicationJson_OcsInterface {
+sealed class $ChatDeleteReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatDeleteReminderResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -24049,7 +24049,7 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatDeleteReminderResponseApplicationJsonInterface {
+sealed class $ChatDeleteReminderResponseApplicationJsonInterface {
   ChatDeleteReminderResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatDeleteReminderResponseApplicationJsonInterfaceBuilder b) {}
@@ -24157,7 +24157,7 @@ class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<Cha
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSetReadMarkerResponseApplicationJson_OcsInterface {
+sealed class $ChatSetReadMarkerResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -24210,7 +24210,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatSetReadMarkerResponseApplicationJsonInterface {
+sealed class $ChatSetReadMarkerResponseApplicationJsonInterface {
   ChatSetReadMarkerResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatSetReadMarkerResponseApplicationJsonInterfaceBuilder b) {}
@@ -24262,7 +24262,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatSetReadMarkerHeadersInterface {
+sealed class $ChatChatSetReadMarkerHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -24369,7 +24369,7 @@ class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMarkUnreadResponseApplicationJson_OcsInterface {
+sealed class $ChatMarkUnreadResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -24422,7 +24422,7 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMarkUnreadResponseApplicationJsonInterface {
+sealed class $ChatMarkUnreadResponseApplicationJsonInterface {
   ChatMarkUnreadResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatMarkUnreadResponseApplicationJsonInterfaceBuilder b) {}
@@ -24473,7 +24473,7 @@ abstract class ChatMarkUnreadResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatMarkUnreadHeadersInterface {
+sealed class $ChatChatMarkUnreadHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -24640,7 +24640,7 @@ class _$ChatMentionsApiVersionSerializer implements PrimitiveSerializer<ChatMent
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMentionSuggestionInterface {
+sealed class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
@@ -24694,7 +24694,7 @@ abstract class ChatMentionSuggestion
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMentionsResponseApplicationJson_OcsInterface {
+sealed class $ChatMentionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMentionSuggestion> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -24746,7 +24746,7 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatMentionsResponseApplicationJsonInterface {
+sealed class $ChatMentionsResponseApplicationJsonInterface {
   ChatMentionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatMentionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -24858,7 +24858,7 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
+sealed class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessage> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -24912,7 +24912,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface {
+sealed class $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface {
   ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatGetObjectsSharedInRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -24965,7 +24965,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatGetObjectsSharedInRoomHeadersInterface {
+sealed class $ChatChatGetObjectsSharedInRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-given')
   String? get xChatLastGiven;
   @BuiltValueHook(initializeBuilder: true)
@@ -25074,7 +25074,7 @@ class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatShareObjectToChatResponseApplicationJson_OcsInterface {
+sealed class $ChatShareObjectToChatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent? get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -25128,7 +25128,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatShareObjectToChatResponseApplicationJsonInterface {
+sealed class $ChatShareObjectToChatResponseApplicationJsonInterface {
   ChatShareObjectToChatResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatShareObjectToChatResponseApplicationJsonInterfaceBuilder b) {}
@@ -25180,7 +25180,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatChatShareObjectToChatHeadersInterface {
+sealed class $ChatChatShareObjectToChatHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueHook(initializeBuilder: true)
@@ -25293,7 +25293,7 @@ class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface {
+sealed class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<ChatMessage>> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -25347,7 +25347,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface {
+sealed class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface {
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterfaceBuilder b) {}
@@ -25457,7 +25457,7 @@ class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_10Interface {
+sealed class $SignalingSettings_HelloAuthParams_10Interface {
   String? get userid;
   String get ticket;
   @BuiltValueHook(initializeBuilder: true)
@@ -25509,7 +25509,7 @@ abstract class SignalingSettings_HelloAuthParams_10
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParams_20Interface {
+sealed class $SignalingSettings_HelloAuthParams_20Interface {
   String get token;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingSettings_HelloAuthParams_20InterfaceBuilder b) {}
@@ -25560,7 +25560,7 @@ abstract class SignalingSettings_HelloAuthParams_20
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_HelloAuthParamsInterface {
+sealed class $SignalingSettings_HelloAuthParamsInterface {
   @BuiltValueField(wireName: '1.0')
   SignalingSettings_HelloAuthParams_10 get $10;
   @BuiltValueField(wireName: '2.0')
@@ -25613,7 +25613,7 @@ abstract class SignalingSettings_HelloAuthParams
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_StunserversInterface {
+sealed class $SignalingSettings_StunserversInterface {
   BuiltList<String> get urls;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingSettings_StunserversInterfaceBuilder b) {}
@@ -25663,7 +25663,7 @@ abstract class SignalingSettings_Stunservers
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettings_TurnserversInterface {
+sealed class $SignalingSettings_TurnserversInterface {
   BuiltList<String> get urls;
   String get username;
   JsonObject get credential;
@@ -25715,7 +25715,7 @@ abstract class SignalingSettings_Turnservers
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSettingsInterface {
+sealed class $SignalingSettingsInterface {
   SignalingSettings_HelloAuthParams get helloAuthParams;
   bool get hideWarning;
   String get server;
@@ -25769,7 +25769,7 @@ abstract class SignalingSettings
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingGetSettingsResponseApplicationJson_OcsInterface {
+sealed class $SignalingGetSettingsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   SignalingSettings get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -25822,7 +25822,7 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingGetSettingsResponseApplicationJsonInterface {
+sealed class $SignalingGetSettingsResponseApplicationJsonInterface {
   SignalingGetSettingsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingGetSettingsResponseApplicationJsonInterfaceBuilder b) {}
@@ -25931,7 +25931,7 @@ class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationAcceptShareResponseApplicationJson_OcsInterface {
+sealed class $FederationAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -25985,7 +25985,7 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationAcceptShareResponseApplicationJsonInterface {
+sealed class $FederationAcceptShareResponseApplicationJsonInterface {
   FederationAcceptShareResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FederationAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
@@ -26094,7 +26094,7 @@ class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationRejectShareResponseApplicationJson_OcsInterface {
+sealed class $FederationRejectShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -26148,7 +26148,7 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationRejectShareResponseApplicationJsonInterface {
+sealed class $FederationRejectShareResponseApplicationJsonInterface {
   FederationRejectShareResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FederationRejectShareResponseApplicationJsonInterfaceBuilder b) {}
@@ -26256,7 +26256,7 @@ class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<F
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationInviteInterface {
+sealed class $FederationInviteInterface {
   int get id;
   int get state;
   String get localCloudId;
@@ -26312,7 +26312,7 @@ abstract class FederationInvite
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationGetSharesResponseApplicationJson_OcsInterface {
+sealed class $FederationGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<FederationInvite> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -26365,7 +26365,7 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FederationGetSharesResponseApplicationJsonInterface {
+sealed class $FederationGetSharesResponseApplicationJsonInterface {
   FederationGetSharesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FederationGetSharesResponseApplicationJsonInterfaceBuilder b) {}
@@ -26479,7 +26479,7 @@ class _$FilesIntegrationGetRoomByFileIdApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface {
+sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface {
   String get token;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -26532,7 +26532,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface {
+sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -26586,7 +26586,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface {
+sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface {
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterfaceBuilder b) {}
@@ -26701,7 +26701,7 @@ class _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface {
+sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface {
   String get token;
   String get userId;
   String get userDisplayName;
@@ -26756,7 +26756,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface {
+sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -26810,7 +26810,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface {
+sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface {
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterfaceBuilder b) {}
@@ -26922,7 +26922,7 @@ class _$PublicShareAuthCreateRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
+sealed class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
   String get token;
   String get name;
   String get displayName;
@@ -26977,7 +26977,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
+sealed class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27031,7 +27031,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
+sealed class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicShareAuthCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -27140,7 +27140,7 @@ class _$GuestSetDisplayNameApiVersionSerializer implements PrimitiveSerializer<G
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GuestSetDisplayNameResponseApplicationJson_OcsInterface {
+sealed class $GuestSetDisplayNameResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27193,7 +27193,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GuestSetDisplayNameResponseApplicationJsonInterface {
+sealed class $GuestSetDisplayNameResponseApplicationJsonInterface {
   GuestSetDisplayNameResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GuestSetDisplayNameResponseApplicationJsonInterfaceBuilder b) {}
@@ -27307,7 +27307,7 @@ class _$HostedSignalingServerRequestTrialApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface {
+sealed class $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27361,7 +27361,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HostedSignalingServerRequestTrialResponseApplicationJsonInterface {
+sealed class $HostedSignalingServerRequestTrialResponseApplicationJsonInterface {
   HostedSignalingServerRequestTrialResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($HostedSignalingServerRequestTrialResponseApplicationJsonInterfaceBuilder b) {}
@@ -27533,7 +27533,7 @@ class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSessionInterface {
+sealed class $SignalingSessionInterface {
   int get inCall;
   int get lastPing;
   int get participantPermissions;
@@ -27589,7 +27589,7 @@ typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
+sealed class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
   String get type;
   SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27645,7 +27645,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
+sealed class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27699,7 +27699,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJsonInterface {
+sealed class $SignalingPullMessagesResponseApplicationJsonInterface {
   SignalingPullMessagesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingPullMessagesResponseApplicationJsonInterfaceBuilder b) {}
@@ -27808,7 +27808,7 @@ class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
+sealed class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -27862,7 +27862,7 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingSendMessagesResponseApplicationJsonInterface {
+sealed class $SignalingSendMessagesResponseApplicationJsonInterface {
   SignalingSendMessagesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingSendMessagesResponseApplicationJsonInterfaceBuilder b) {}
@@ -27975,7 +27975,7 @@ class _$MatterbridgeGetBridgeOfRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeInterface {
+sealed class $MatterbridgeInterface {
   bool get enabled;
   BuiltList<BuiltMap<String, JsonObject>> get parts;
   int get pid;
@@ -28022,7 +28022,7 @@ abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridg
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeProcessStateInterface {
+sealed class $MatterbridgeProcessStateInterface {
   String get log;
   bool get running;
   @BuiltValueHook(initializeBuilder: true)
@@ -28070,7 +28070,7 @@ abstract class MatterbridgeProcessState
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeWithProcessStateInterface
+sealed class $MatterbridgeWithProcessStateInterface
     implements $MatterbridgeInterface, $MatterbridgeProcessStateInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeWithProcessStateInterfaceBuilder b) {
@@ -28127,7 +28127,7 @@ abstract class MatterbridgeWithProcessState
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeWithProcessState get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -28181,7 +28181,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface {
+sealed class $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -28361,7 +28361,7 @@ class _$MatterbridgeEditBridgeOfRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeProcessState get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -28415,7 +28415,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface {
+sealed class $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -28530,7 +28530,7 @@ class _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   bool get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -28584,7 +28584,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface {
+sealed class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -28699,7 +28699,7 @@ class _$MatterbridgeGetBridgeProcessStateApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeProcessState get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -28753,7 +28753,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface {
+sealed class $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface {
   MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterfaceBuilder b) {}
@@ -28868,7 +28868,7 @@ class _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   bool get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -28922,7 +28922,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface {
+sealed class $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface {
   MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterfaceBuilder b) {}
@@ -29038,7 +29038,7 @@ class _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface {
+sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface {
   String get version;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(
@@ -29097,7 +29097,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface {
+sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -29151,7 +29151,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface {
+sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface {
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterfaceBuilder b) {}
@@ -29323,7 +29323,7 @@ class _$PollCreatePollApiVersionSerializer implements PrimitiveSerializer<PollCr
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollVoteInterface {
+sealed class $PollVoteInterface {
   String get actorDisplayName;
   String get actorId;
   ActorType get actorType;
@@ -29371,7 +29371,7 @@ abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollInterface {
+sealed class $PollInterface {
   String get actorDisplayName;
   String get actorId;
   ActorType get actorType;
@@ -29428,7 +29428,7 @@ abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollCreatePollResponseApplicationJson_OcsInterface {
+sealed class $PollCreatePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -29481,7 +29481,7 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollCreatePollResponseApplicationJsonInterface {
+sealed class $PollCreatePollResponseApplicationJsonInterface {
   PollCreatePollResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PollCreatePollResponseApplicationJsonInterfaceBuilder b) {}
@@ -29588,7 +29588,7 @@ class _$PollShowPollApiVersionSerializer implements PrimitiveSerializer<PollShow
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollShowPollResponseApplicationJson_OcsInterface {
+sealed class $PollShowPollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -29640,7 +29640,7 @@ abstract class PollShowPollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollShowPollResponseApplicationJsonInterface {
+sealed class $PollShowPollResponseApplicationJsonInterface {
   PollShowPollResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PollShowPollResponseApplicationJsonInterfaceBuilder b) {}
@@ -29747,7 +29747,7 @@ class _$PollVotePollApiVersionSerializer implements PrimitiveSerializer<PollVote
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollVotePollResponseApplicationJson_OcsInterface {
+sealed class $PollVotePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -29799,7 +29799,7 @@ abstract class PollVotePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollVotePollResponseApplicationJsonInterface {
+sealed class $PollVotePollResponseApplicationJsonInterface {
   PollVotePollResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PollVotePollResponseApplicationJsonInterfaceBuilder b) {}
@@ -29906,7 +29906,7 @@ class _$PollClosePollApiVersionSerializer implements PrimitiveSerializer<PollClo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollClosePollResponseApplicationJson_OcsInterface {
+sealed class $PollClosePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -29959,7 +29959,7 @@ abstract class PollClosePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PollClosePollResponseApplicationJsonInterface {
+sealed class $PollClosePollResponseApplicationJsonInterface {
   PollClosePollResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PollClosePollResponseApplicationJsonInterfaceBuilder b) {}
@@ -30067,7 +30067,7 @@ class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionInterface {
+sealed class $ReactionInterface {
   String get actorDisplayName;
   String get actorId;
   ActorType get actorType;
@@ -30115,7 +30115,7 @@ abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionGetReactionsResponseApplicationJson_OcsInterface {
+sealed class $ReactionGetReactionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30168,7 +30168,7 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionGetReactionsResponseApplicationJsonInterface {
+sealed class $ReactionGetReactionsResponseApplicationJsonInterface {
   ReactionGetReactionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReactionGetReactionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -30276,7 +30276,7 @@ class _$ReactionReactApiVersionSerializer implements PrimitiveSerializer<Reactio
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionReactResponseApplicationJson_OcsInterface {
+sealed class $ReactionReactResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30329,7 +30329,7 @@ abstract class ReactionReactResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionReactResponseApplicationJsonInterface {
+sealed class $ReactionReactResponseApplicationJsonInterface {
   ReactionReactResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReactionReactResponseApplicationJsonInterfaceBuilder b) {}
@@ -30436,7 +30436,7 @@ class _$ReactionDeleteApiVersionSerializer implements PrimitiveSerializer<Reacti
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionDeleteResponseApplicationJson_OcsInterface {
+sealed class $ReactionDeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30489,7 +30489,7 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReactionDeleteResponseApplicationJsonInterface {
+sealed class $ReactionDeleteResponseApplicationJsonInterface {
   ReactionDeleteResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReactionDeleteResponseApplicationJsonInterfaceBuilder b) {}
@@ -30596,7 +30596,7 @@ class _$RecordingStartApiVersionSerializer implements PrimitiveSerializer<Record
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStartResponseApplicationJson_OcsInterface {
+sealed class $RecordingStartResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30649,7 +30649,7 @@ abstract class RecordingStartResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStartResponseApplicationJsonInterface {
+sealed class $RecordingStartResponseApplicationJsonInterface {
   RecordingStartResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingStartResponseApplicationJsonInterfaceBuilder b) {}
@@ -30756,7 +30756,7 @@ class _$RecordingStopApiVersionSerializer implements PrimitiveSerializer<Recordi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStopResponseApplicationJson_OcsInterface {
+sealed class $RecordingStopResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30809,7 +30809,7 @@ abstract class RecordingStopResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStopResponseApplicationJsonInterface {
+sealed class $RecordingStopResponseApplicationJsonInterface {
   RecordingStopResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingStopResponseApplicationJsonInterfaceBuilder b) {}
@@ -30921,7 +30921,7 @@ class _$RecordingNotificationDismissApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingNotificationDismissResponseApplicationJson_OcsInterface {
+sealed class $RecordingNotificationDismissResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -30975,7 +30975,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingNotificationDismissResponseApplicationJsonInterface {
+sealed class $RecordingNotificationDismissResponseApplicationJsonInterface {
   RecordingNotificationDismissResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingNotificationDismissResponseApplicationJsonInterfaceBuilder b) {}
@@ -31085,7 +31085,7 @@ class _$RecordingShareToChatApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingShareToChatResponseApplicationJson_OcsInterface {
+sealed class $RecordingShareToChatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -31138,7 +31138,7 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingShareToChatResponseApplicationJsonInterface {
+sealed class $RecordingShareToChatResponseApplicationJsonInterface {
   RecordingShareToChatResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingShareToChatResponseApplicationJsonInterfaceBuilder b) {}
@@ -31246,7 +31246,7 @@ class _$RecordingBackendApiVersionSerializer implements PrimitiveSerializer<Reco
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingBackendResponseApplicationJson_OcsInterface {
+sealed class $RecordingBackendResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -31299,7 +31299,7 @@ abstract class RecordingBackendResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingBackendResponseApplicationJsonInterface {
+sealed class $RecordingBackendResponseApplicationJsonInterface {
   RecordingBackendResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingBackendResponseApplicationJsonInterfaceBuilder b) {}
@@ -31406,7 +31406,7 @@ class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<Record
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStoreResponseApplicationJson_OcsInterface {
+sealed class $RecordingStoreResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -31459,7 +31459,7 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingStoreResponseApplicationJsonInterface {
+sealed class $RecordingStoreResponseApplicationJsonInterface {
   RecordingStoreResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingStoreResponseApplicationJsonInterfaceBuilder b) {}
@@ -31692,7 +31692,7 @@ class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetR
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetRoomsResponseApplicationJson_OcsInterface {
+sealed class $RoomGetRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -31744,7 +31744,7 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetRoomsResponseApplicationJsonInterface {
+sealed class $RoomGetRoomsResponseApplicationJsonInterface {
   RoomGetRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -31795,7 +31795,7 @@ abstract class RoomGetRoomsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetRoomsHeadersInterface {
+sealed class $RoomRoomGetRoomsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueField(wireName: 'x-nextcloud-talk-modified-before')
@@ -31903,7 +31903,7 @@ class _$RoomCreateRoomApiVersionSerializer implements PrimitiveSerializer<RoomCr
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomCreateRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomCreateRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -31956,7 +31956,7 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomCreateRoomResponseApplicationJsonInterface {
+sealed class $RoomCreateRoomResponseApplicationJsonInterface {
   RoomCreateRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomCreateRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -32063,7 +32063,7 @@ class _$RoomGetListedRoomsApiVersionSerializer implements PrimitiveSerializer<Ro
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetListedRoomsResponseApplicationJson_OcsInterface {
+sealed class $RoomGetListedRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -32116,7 +32116,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetListedRoomsResponseApplicationJsonInterface {
+sealed class $RoomGetListedRoomsResponseApplicationJsonInterface {
   RoomGetListedRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetListedRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -32230,7 +32230,7 @@ class _$RoomGetNoteToSelfConversationApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface {
+sealed class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -32284,7 +32284,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetNoteToSelfConversationResponseApplicationJsonInterface {
+sealed class $RoomGetNoteToSelfConversationResponseApplicationJsonInterface {
   RoomGetNoteToSelfConversationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetNoteToSelfConversationResponseApplicationJsonInterfaceBuilder b) {}
@@ -32337,7 +32337,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetNoteToSelfConversationHeadersInterface {
+sealed class $RoomRoomGetNoteToSelfConversationHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueHook(initializeBuilder: true)
@@ -32446,7 +32446,7 @@ class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<Roo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetSingleRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomGetSingleRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -32499,7 +32499,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetSingleRoomResponseApplicationJsonInterface {
+sealed class $RoomGetSingleRoomResponseApplicationJsonInterface {
   RoomGetSingleRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetSingleRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -32551,7 +32551,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetSingleRoomHeadersInterface {
+sealed class $RoomRoomGetSingleRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueHook(initializeBuilder: true)
@@ -32659,7 +32659,7 @@ class _$RoomGetBreakoutRoomsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface {
+sealed class $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -32712,7 +32712,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetBreakoutRoomsResponseApplicationJsonInterface {
+sealed class $RoomGetBreakoutRoomsResponseApplicationJsonInterface {
   RoomGetBreakoutRoomsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetBreakoutRoomsResponseApplicationJsonInterfaceBuilder b) {}
@@ -32820,7 +32820,7 @@ class _$RoomMakePublicApiVersionSerializer implements PrimitiveSerializer<RoomMa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomMakePublicResponseApplicationJson_OcsInterface {
+sealed class $RoomMakePublicResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -32873,7 +32873,7 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomMakePublicResponseApplicationJsonInterface {
+sealed class $RoomMakePublicResponseApplicationJsonInterface {
   RoomMakePublicResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomMakePublicResponseApplicationJsonInterfaceBuilder b) {}
@@ -32980,7 +32980,7 @@ class _$RoomMakePrivateApiVersionSerializer implements PrimitiveSerializer<RoomM
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomMakePrivateResponseApplicationJson_OcsInterface {
+sealed class $RoomMakePrivateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -33033,7 +33033,7 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomMakePrivateResponseApplicationJsonInterface {
+sealed class $RoomMakePrivateResponseApplicationJsonInterface {
   RoomMakePrivateResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomMakePrivateResponseApplicationJsonInterfaceBuilder b) {}
@@ -33140,7 +33140,7 @@ class _$RoomSetDescriptionApiVersionSerializer implements PrimitiveSerializer<Ro
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetDescriptionResponseApplicationJson_OcsInterface {
+sealed class $RoomSetDescriptionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -33193,7 +33193,7 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetDescriptionResponseApplicationJsonInterface {
+sealed class $RoomSetDescriptionResponseApplicationJsonInterface {
   RoomSetDescriptionResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetDescriptionResponseApplicationJsonInterfaceBuilder b) {}
@@ -33364,7 +33364,7 @@ class _$RoomSetReadOnlyApiVersionSerializer implements PrimitiveSerializer<RoomS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetReadOnlyResponseApplicationJson_OcsInterface {
+sealed class $RoomSetReadOnlyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -33417,7 +33417,7 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetReadOnlyResponseApplicationJsonInterface {
+sealed class $RoomSetReadOnlyResponseApplicationJsonInterface {
   RoomSetReadOnlyResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetReadOnlyResponseApplicationJsonInterfaceBuilder b) {}
@@ -33593,7 +33593,7 @@ class _$RoomSetListableApiVersionSerializer implements PrimitiveSerializer<RoomS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetListableResponseApplicationJson_OcsInterface {
+sealed class $RoomSetListableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -33646,7 +33646,7 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetListableResponseApplicationJsonInterface {
+sealed class $RoomSetListableResponseApplicationJsonInterface {
   RoomSetListableResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetListableResponseApplicationJsonInterfaceBuilder b) {}
@@ -33753,7 +33753,7 @@ class _$RoomSetPasswordApiVersionSerializer implements PrimitiveSerializer<RoomS
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetPasswordResponseApplicationJson_OcsInterface {
+sealed class $RoomSetPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -33806,7 +33806,7 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetPasswordResponseApplicationJsonInterface {
+sealed class $RoomSetPasswordResponseApplicationJsonInterface {
   RoomSetPasswordResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -33975,7 +33975,7 @@ class _$RoomSetPermissionsApiVersionSerializer implements PrimitiveSerializer<Ro
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetPermissionsResponseApplicationJson_OcsInterface {
+sealed class $RoomSetPermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -34028,7 +34028,7 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetPermissionsResponseApplicationJsonInterface {
+sealed class $RoomSetPermissionsResponseApplicationJsonInterface {
   RoomSetPermissionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetPermissionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -34200,7 +34200,7 @@ class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ParticipantInterface {
+sealed class $ParticipantInterface {
   String get actorId;
   ActorType get actorType;
   int get attendeeId;
@@ -34262,7 +34262,7 @@ abstract class Participant implements $ParticipantInterface, Built<Participant, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetParticipantsResponseApplicationJson_OcsInterface {
+sealed class $RoomGetParticipantsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Participant> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -34315,7 +34315,7 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetParticipantsResponseApplicationJsonInterface {
+sealed class $RoomGetParticipantsResponseApplicationJsonInterface {
   RoomGetParticipantsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetParticipantsResponseApplicationJsonInterfaceBuilder b) {}
@@ -34367,7 +34367,7 @@ abstract class RoomGetParticipantsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetParticipantsHeadersInterface {
+sealed class $RoomRoomGetParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
   Header<bool?>? get xNextcloudHasUserStatuses;
   @BuiltValueHook(initializeBuilder: true)
@@ -34559,7 +34559,7 @@ class _$RoomAddParticipantToRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface {
+sealed class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface {
   int get type;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0InterfaceBuilder b) {}
@@ -34617,7 +34617,7 @@ typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -34673,7 +34673,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddParticipantToRoomResponseApplicationJsonInterface {
+sealed class $RoomAddParticipantToRoomResponseApplicationJsonInterface {
   RoomAddParticipantToRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomAddParticipantToRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -34856,7 +34856,7 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface {
+sealed class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Participant> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -34910,7 +34910,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface {
+sealed class $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface {
   RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterfaceBuilder b) {}
@@ -34963,7 +34963,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
+sealed class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
   Header<bool?>? get xNextcloudHasUserStatuses;
   @BuiltValueHook(initializeBuilder: true)
@@ -35073,7 +35073,7 @@ class _$RoomRemoveSelfFromRoomApiVersionSerializer implements PrimitiveSerialize
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -35127,7 +35127,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveSelfFromRoomResponseApplicationJsonInterface {
+sealed class $RoomRemoveSelfFromRoomResponseApplicationJsonInterface {
   RoomRemoveSelfFromRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRemoveSelfFromRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -35240,7 +35240,7 @@ class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -35294,7 +35294,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface {
+sealed class $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface {
   RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRemoveAttendeeFromRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -35476,7 +35476,7 @@ class _$RoomSetAttendeePermissionsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
+sealed class $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -35530,7 +35530,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetAttendeePermissionsResponseApplicationJsonInterface {
+sealed class $RoomSetAttendeePermissionsResponseApplicationJsonInterface {
   RoomSetAttendeePermissionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetAttendeePermissionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -35717,7 +35717,7 @@ class _$RoomSetAllAttendeesPermissionsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface {
+sealed class $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -35771,7 +35771,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface {
+sealed class $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface {
   RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetAllAttendeesPermissionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -35943,7 +35943,7 @@ class _$RoomJoinRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoin
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomJoinRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomJoinRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -35995,7 +35995,7 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomJoinRoomResponseApplicationJsonInterface {
+sealed class $RoomJoinRoomResponseApplicationJsonInterface {
   RoomJoinRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomJoinRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -36046,7 +36046,7 @@ abstract class RoomJoinRoomResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomJoinRoomHeadersInterface {
+sealed class $RoomRoomJoinRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-proxy-hash')
   String? get xNextcloudTalkProxyHash;
   @BuiltValueHook(initializeBuilder: true)
@@ -36150,7 +36150,7 @@ class _$RoomLeaveRoomApiVersionSerializer implements PrimitiveSerializer<RoomLea
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomLeaveRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomLeaveRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -36203,7 +36203,7 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomLeaveRoomResponseApplicationJsonInterface {
+sealed class $RoomLeaveRoomResponseApplicationJsonInterface {
   RoomLeaveRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomLeaveRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -36311,7 +36311,7 @@ class _$RoomResendInvitationsApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomResendInvitationsResponseApplicationJson_OcsInterface {
+sealed class $RoomResendInvitationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -36365,7 +36365,7 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomResendInvitationsResponseApplicationJsonInterface {
+sealed class $RoomResendInvitationsResponseApplicationJsonInterface {
   RoomResendInvitationsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomResendInvitationsResponseApplicationJsonInterfaceBuilder b) {}
@@ -36536,7 +36536,7 @@ class _$RoomSetSessionStateApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetSessionStateResponseApplicationJson_OcsInterface {
+sealed class $RoomSetSessionStateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -36589,7 +36589,7 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetSessionStateResponseApplicationJsonInterface {
+sealed class $RoomSetSessionStateResponseApplicationJsonInterface {
   RoomSetSessionStateResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetSessionStateResponseApplicationJsonInterfaceBuilder b) {}
@@ -36698,7 +36698,7 @@ class _$RoomPromoteModeratorApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomPromoteModeratorResponseApplicationJson_OcsInterface {
+sealed class $RoomPromoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -36751,7 +36751,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomPromoteModeratorResponseApplicationJsonInterface {
+sealed class $RoomPromoteModeratorResponseApplicationJsonInterface {
   RoomPromoteModeratorResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomPromoteModeratorResponseApplicationJsonInterfaceBuilder b) {}
@@ -36859,7 +36859,7 @@ class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomDemoteModeratorResponseApplicationJson_OcsInterface {
+sealed class $RoomDemoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -36912,7 +36912,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomDemoteModeratorResponseApplicationJsonInterface {
+sealed class $RoomDemoteModeratorResponseApplicationJsonInterface {
   RoomDemoteModeratorResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomDemoteModeratorResponseApplicationJsonInterfaceBuilder b) {}
@@ -37020,7 +37020,7 @@ class _$RoomAddToFavoritesApiVersionSerializer implements PrimitiveSerializer<Ro
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddToFavoritesResponseApplicationJson_OcsInterface {
+sealed class $RoomAddToFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37073,7 +37073,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddToFavoritesResponseApplicationJsonInterface {
+sealed class $RoomAddToFavoritesResponseApplicationJsonInterface {
   RoomAddToFavoritesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomAddToFavoritesResponseApplicationJsonInterfaceBuilder b) {}
@@ -37182,7 +37182,7 @@ class _$RoomRemoveFromFavoritesApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
+sealed class $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37236,7 +37236,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRemoveFromFavoritesResponseApplicationJsonInterface {
+sealed class $RoomRemoveFromFavoritesResponseApplicationJsonInterface {
   RoomRemoveFromFavoritesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRemoveFromFavoritesResponseApplicationJsonInterfaceBuilder b) {}
@@ -37346,7 +37346,7 @@ class _$RoomSetNotificationLevelApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
+sealed class $RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37400,7 +37400,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetNotificationLevelResponseApplicationJsonInterface {
+sealed class $RoomSetNotificationLevelResponseApplicationJsonInterface {
   RoomSetNotificationLevelResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetNotificationLevelResponseApplicationJsonInterfaceBuilder b) {}
@@ -37510,7 +37510,7 @@ class _$RoomSetNotificationCallsApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
+sealed class $RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37564,7 +37564,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetNotificationCallsResponseApplicationJsonInterface {
+sealed class $RoomSetNotificationCallsResponseApplicationJsonInterface {
   RoomSetNotificationCallsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetNotificationCallsResponseApplicationJsonInterfaceBuilder b) {}
@@ -37672,7 +37672,7 @@ class _$RoomSetLobbyApiVersionSerializer implements PrimitiveSerializer<RoomSetL
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetLobbyResponseApplicationJson_OcsInterface {
+sealed class $RoomSetLobbyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37724,7 +37724,7 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetLobbyResponseApplicationJsonInterface {
+sealed class $RoomSetLobbyResponseApplicationJsonInterface {
   RoomSetLobbyResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetLobbyResponseApplicationJsonInterfaceBuilder b) {}
@@ -37900,7 +37900,7 @@ class _$RoomSetsipEnabledApiVersionSerializer implements PrimitiveSerializer<Roo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetsipEnabledResponseApplicationJson_OcsInterface {
+sealed class $RoomSetsipEnabledResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -37953,7 +37953,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetsipEnabledResponseApplicationJsonInterface {
+sealed class $RoomSetsipEnabledResponseApplicationJsonInterface {
   RoomSetsipEnabledResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetsipEnabledResponseApplicationJsonInterfaceBuilder b) {}
@@ -38062,7 +38062,7 @@ class _$RoomSetRecordingConsentApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetRecordingConsentResponseApplicationJson_OcsInterface {
+sealed class $RoomSetRecordingConsentResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -38116,7 +38116,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetRecordingConsentResponseApplicationJsonInterface {
+sealed class $RoomSetRecordingConsentResponseApplicationJsonInterface {
   RoomSetRecordingConsentResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetRecordingConsentResponseApplicationJsonInterfaceBuilder b) {}
@@ -38226,7 +38226,7 @@ class _$RoomSetMessageExpirationApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
+sealed class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -38280,7 +38280,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomSetMessageExpirationResponseApplicationJsonInterface {
+sealed class $RoomSetMessageExpirationResponseApplicationJsonInterface {
   RoomSetMessageExpirationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomSetMessageExpirationResponseApplicationJsonInterfaceBuilder b) {}
@@ -38388,7 +38388,7 @@ class _$RoomGetCapabilitiesApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_AttachmentsInterface {
+sealed class $Capabilities_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
   @BuiltValueHook(initializeBuilder: true)
@@ -38439,7 +38439,7 @@ abstract class Capabilities_Config_Attachments
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_CallInterface {
+sealed class $Capabilities_Config_CallInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'breakout-rooms')
   bool get breakoutRooms;
@@ -38503,7 +38503,7 @@ abstract class Capabilities_Config_Call
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_ChatInterface {
+sealed class $Capabilities_Config_ChatInterface {
   @BuiltValueField(wireName: 'max-length')
   int get maxLength;
   @BuiltValueField(wireName: 'read-privacy')
@@ -38557,7 +38557,7 @@ abstract class Capabilities_Config_Chat
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_ConversationsInterface {
+sealed class $Capabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
   @BuiltValueHook(initializeBuilder: true)
@@ -38608,7 +38608,7 @@ abstract class Capabilities_Config_Conversations
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_FederationInterface {
+sealed class $Capabilities_Config_FederationInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'incoming-enabled')
   bool get incomingEnabled;
@@ -38664,7 +38664,7 @@ abstract class Capabilities_Config_Federation
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_PreviewsInterface {
+sealed class $Capabilities_Config_PreviewsInterface {
   @BuiltValueField(wireName: 'max-gif-size')
   int get maxGifSize;
   @BuiltValueHook(initializeBuilder: true)
@@ -38715,7 +38715,7 @@ abstract class Capabilities_Config_Previews
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_Config_SignalingInterface {
+sealed class $Capabilities_Config_SignalingInterface {
   @BuiltValueField(wireName: 'session-ping-limit')
   int get sessionPingLimit;
   @BuiltValueField(wireName: 'hello-v2-token-key')
@@ -38768,7 +38768,7 @@ abstract class Capabilities_Config_Signaling
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_ConfigInterface {
+sealed class $Capabilities_ConfigInterface {
   Capabilities_Config_Attachments get attachments;
   Capabilities_Config_Call get call;
   Capabilities_Config_Chat get chat;
@@ -38821,7 +38821,7 @@ abstract class Capabilities_Config
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   BuiltList<String> get features;
   Capabilities_Config get config;
   String get version;
@@ -38873,7 +38873,7 @@ typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetCapabilitiesResponseApplicationJson_OcsInterface {
+sealed class $RoomGetCapabilitiesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RoomGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -38928,7 +38928,7 @@ abstract class RoomGetCapabilitiesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomGetCapabilitiesResponseApplicationJsonInterface {
+sealed class $RoomGetCapabilitiesResponseApplicationJsonInterface {
   RoomGetCapabilitiesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomGetCapabilitiesResponseApplicationJsonInterfaceBuilder b) {}
@@ -38980,7 +38980,7 @@ abstract class RoomGetCapabilitiesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomGetCapabilitiesHeadersInterface {
+sealed class $RoomRoomGetCapabilitiesHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueField(wireName: 'x-nextcloud-talk-proxy-hash')
@@ -39090,7 +39090,7 @@ class _$RoomJoinFederatedRoomApiVersionSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface {
+sealed class $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -39144,7 +39144,7 @@ abstract class RoomJoinFederatedRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomJoinFederatedRoomResponseApplicationJsonInterface {
+sealed class $RoomJoinFederatedRoomResponseApplicationJsonInterface {
   RoomJoinFederatedRoomResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomJoinFederatedRoomResponseApplicationJsonInterfaceBuilder b) {}
@@ -39196,7 +39196,7 @@ abstract class RoomJoinFederatedRoomResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRoomJoinFederatedRoomHeadersInterface {
+sealed class $RoomRoomJoinFederatedRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueHook(initializeBuilder: true)
@@ -39309,7 +39309,7 @@ class _$RoomVerifyDialInPinDeprecatedApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface {
+sealed class $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -39363,7 +39363,7 @@ abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface {
+sealed class $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface {
   RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterfaceBuilder b) {}
@@ -39472,7 +39472,7 @@ class _$RoomVerifyDialInPinApiVersionSerializer implements PrimitiveSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialInPinResponseApplicationJson_OcsInterface {
+sealed class $RoomVerifyDialInPinResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -39525,7 +39525,7 @@ abstract class RoomVerifyDialInPinResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialInPinResponseApplicationJsonInterface {
+sealed class $RoomVerifyDialInPinResponseApplicationJsonInterface {
   RoomVerifyDialInPinResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomVerifyDialInPinResponseApplicationJsonInterfaceBuilder b) {}
@@ -39578,7 +39578,7 @@ abstract class RoomVerifyDialInPinResponseApplicationJson
 
 /// Additional details to verify the validity of the request.
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialOutNumberOptionsInterface {
+sealed class $RoomVerifyDialOutNumberOptionsInterface {
   String? get actorId;
   ActorType? get actorType;
   int? get attendeeId;
@@ -39688,7 +39688,7 @@ class _$RoomVerifyDialOutNumberApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface {
+sealed class $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -39742,7 +39742,7 @@ abstract class RoomVerifyDialOutNumberResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomVerifyDialOutNumberResponseApplicationJsonInterface {
+sealed class $RoomVerifyDialOutNumberResponseApplicationJsonInterface {
   RoomVerifyDialOutNumberResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomVerifyDialOutNumberResponseApplicationJsonInterfaceBuilder b) {}
@@ -39851,7 +39851,7 @@ class _$RoomCreateGuestByDialInApiVersionSerializer implements PrimitiveSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface {
+sealed class $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -39905,7 +39905,7 @@ abstract class RoomCreateGuestByDialInResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomCreateGuestByDialInResponseApplicationJsonInterface {
+sealed class $RoomCreateGuestByDialInResponseApplicationJsonInterface {
   RoomCreateGuestByDialInResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomCreateGuestByDialInResponseApplicationJsonInterfaceBuilder b) {}
@@ -39958,7 +39958,7 @@ abstract class RoomCreateGuestByDialInResponseApplicationJson
 
 /// Additional details to verify the validity of the request.
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRejectedDialOutRequestOptionsInterface {
+sealed class $RoomRejectedDialOutRequestOptionsInterface {
   String? get actorId;
   ActorType? get actorType;
   int? get attendeeId;
@@ -40072,7 +40072,7 @@ class _$RoomRejectedDialOutRequestApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface {
+sealed class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -40126,7 +40126,7 @@ abstract class RoomRejectedDialOutRequestResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomRejectedDialOutRequestResponseApplicationJsonInterface {
+sealed class $RoomRejectedDialOutRequestResponseApplicationJsonInterface {
   RoomRejectedDialOutRequestResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RoomRejectedDialOutRequestResponseApplicationJsonInterfaceBuilder b) {}
@@ -40313,7 +40313,7 @@ class _$SettingsSetUserSettingApiVersionSerializer implements PrimitiveSerialize
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsSetUserSettingResponseApplicationJson_OcsInterface {
+sealed class $SettingsSetUserSettingResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -40367,7 +40367,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsSetUserSettingResponseApplicationJsonInterface {
+sealed class $SettingsSetUserSettingResponseApplicationJsonInterface {
   SettingsSetUserSettingResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SettingsSetUserSettingResponseApplicationJsonInterfaceBuilder b) {}
@@ -40475,7 +40475,7 @@ class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotA
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsInterface implements $BotInterface {
+sealed class $BotWithDetailsInterface implements $BotInterface {
   @BuiltValueField(wireName: 'error_count')
   int get errorCount;
   int get features;
@@ -40534,7 +40534,7 @@ abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWith
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
+sealed class $BotAdminListBotsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<BotWithDetails> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -40587,7 +40587,7 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
+sealed class $BotAdminListBotsResponseApplicationJsonInterface {
   BotAdminListBotsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotAdminListBotsResponseApplicationJsonInterfaceBuilder b) {}
@@ -40700,7 +40700,7 @@ class _$CertificateGetCertificateExpirationApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
+sealed class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
   @BuiltValueField(wireName: 'expiration_in_days')
   int? get expirationInDays;
   @BuiltValueHook(initializeBuilder: true)
@@ -40754,7 +40754,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
+sealed class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -40808,7 +40808,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CertificateGetCertificateExpirationResponseApplicationJsonInterface {
+sealed class $CertificateGetCertificateExpirationResponseApplicationJsonInterface {
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CertificateGetCertificateExpirationResponseApplicationJsonInterfaceBuilder b) {}
@@ -40922,7 +40922,7 @@ class _$RecordingGetWelcomeMessageApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
+sealed class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
   double get version;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -40975,7 +40975,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+sealed class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41029,7 +41029,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
+sealed class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RecordingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -41139,7 +41139,7 @@ class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerialize
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
+sealed class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41193,7 +41193,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SettingsSetsipSettingsResponseApplicationJsonInterface {
+sealed class $SettingsSetsipSettingsResponseApplicationJsonInterface {
   SettingsSetsipSettingsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SettingsSetsipSettingsResponseApplicationJsonInterfaceBuilder b) {}
@@ -41306,7 +41306,7 @@ class _$SignalingGetWelcomeMessageApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+sealed class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41360,7 +41360,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
+sealed class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
   SignalingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingGetWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -41469,7 +41469,7 @@ class _$SignalingBackendApiVersionSerializer implements PrimitiveSerializer<Sign
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface {
+sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface {
   String get code;
   String get message;
   @BuiltValueHook(initializeBuilder: true)
@@ -41523,7 +41523,7 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Error
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface {
+sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface {
   String get version;
   String? get userid;
   BuiltMap<String, JsonObject>? get user;
@@ -41578,7 +41578,7 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Auth
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface {
+sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface {
   String get version;
   String? get roomid;
   BuiltMap<String, JsonObject>? get properties;
@@ -41635,7 +41635,7 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Room
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJson_Ocs_DataInterface {
+sealed class $SignalingBackendResponseApplicationJson_Ocs_DataInterface {
   String get type;
   SignalingBackendResponseApplicationJson_Ocs_Data_Error? get error;
   SignalingBackendResponseApplicationJson_Ocs_Data_Auth? get auth;
@@ -41691,7 +41691,7 @@ abstract class SignalingBackendResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJson_OcsInterface {
+sealed class $SignalingBackendResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   SignalingBackendResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41744,7 +41744,7 @@ abstract class SignalingBackendResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingBackendResponseApplicationJsonInterface {
+sealed class $SignalingBackendResponseApplicationJsonInterface {
   SignalingBackendResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SignalingBackendResponseApplicationJsonInterfaceBuilder b) {}
@@ -41795,7 +41795,7 @@ abstract class SignalingBackendResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TempAvatarPostAvatarResponseApplicationJson_OcsInterface {
+sealed class $TempAvatarPostAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41848,7 +41848,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TempAvatarPostAvatarResponseApplicationJsonInterface {
+sealed class $TempAvatarPostAvatarResponseApplicationJsonInterface {
   TempAvatarPostAvatarResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TempAvatarPostAvatarResponseApplicationJsonInterfaceBuilder b) {}
@@ -41900,7 +41900,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
+sealed class $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -41954,7 +41954,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TempAvatarDeleteAvatarResponseApplicationJsonInterface {
+sealed class $TempAvatarDeleteAvatarResponseApplicationJsonInterface {
   TempAvatarDeleteAvatarResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TempAvatarDeleteAvatarResponseApplicationJsonInterfaceBuilder b) {}
@@ -42006,7 +42006,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $BotWithDetailsAndSecretInterface implements $BotWithDetailsInterface {
+sealed class $BotWithDetailsAndSecretInterface implements $BotWithDetailsInterface {
   String get secret;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BotWithDetailsAndSecretInterfaceBuilder b) {
@@ -42058,7 +42058,7 @@ abstract class BotWithDetailsAndSecret
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities0Interface {
+sealed class $PublicCapabilities0Interface {
   Capabilities get spreed;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilities0InterfaceBuilder b) {}

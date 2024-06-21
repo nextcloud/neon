@@ -395,7 +395,7 @@ class $ApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -444,7 +444,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetResponseApplicationJson_Ocs_DataInterface {
+sealed class $ApiGetResponseApplicationJson_Ocs_DataInterface {
   String? get dueDate;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -495,7 +495,7 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetResponseApplicationJson_OcsInterface {
+sealed class $ApiGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -546,7 +546,7 @@ abstract class ApiGetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetResponseApplicationJsonInterface {
+sealed class $ApiGetResponseApplicationJsonInterface {
   ApiGetResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetResponseApplicationJsonInterfaceBuilder b) {}
@@ -596,7 +596,7 @@ abstract class ApiGetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiSetResponseApplicationJson_OcsInterface {
+sealed class $ApiSetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -647,7 +647,7 @@ abstract class ApiSetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiSetResponseApplicationJsonInterface {
+sealed class $ApiSetResponseApplicationJsonInterface {
   ApiSetResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiSetResponseApplicationJsonInterfaceBuilder b) {}
@@ -697,7 +697,7 @@ abstract class ApiSetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiRemoveResponseApplicationJson_OcsInterface {
+sealed class $ApiRemoveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -749,7 +749,7 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiRemoveResponseApplicationJsonInterface {
+sealed class $ApiRemoveResponseApplicationJsonInterface {
   ApiRemoveResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiRemoveResponseApplicationJsonInterfaceBuilder b) {}

@@ -173,7 +173,7 @@ class $Client extends _i1.DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GetHeadersInterface {
+sealed class $GetHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
   @BuiltValueHook(initializeBuilder: true)
@@ -213,7 +213,7 @@ abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, Get
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WithContentOperationIdHeadersInterface {
+sealed class $WithContentOperationIdHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
   @BuiltValueHook(initializeBuilder: true)
@@ -258,7 +258,7 @@ abstract class WithContentOperationIdHeaders
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GetWithContentHeadersInterface {
+sealed class $GetWithContentHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
   @BuiltValueHook(initializeBuilder: true)

@@ -5639,7 +5639,7 @@ class $WipeClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $StatusInterface {
+sealed class $StatusInterface {
   bool get installed;
   bool get maintenance;
   bool get needsDbUpgrade;
@@ -5691,7 +5691,7 @@ abstract class Status implements $StatusInterface, Built<Status, StatusBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -5740,7 +5740,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -5793,7 +5793,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
+sealed class $AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5847,7 +5847,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordGetAppPasswordResponseApplicationJsonInterface {
+sealed class $AppPasswordGetAppPasswordResponseApplicationJsonInterface {
   AppPasswordGetAppPasswordResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordGetAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -5900,7 +5900,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
+sealed class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5954,7 +5954,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
+sealed class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
   AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordDeleteAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -6007,7 +6007,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface {
   String get apppassword;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -6060,7 +6060,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
+sealed class $AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6114,7 +6114,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordRotateAppPasswordResponseApplicationJsonInterface {
+sealed class $AppPasswordRotateAppPasswordResponseApplicationJsonInterface {
   AppPasswordRotateAppPasswordResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordRotateAppPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -6167,7 +6167,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface {
   int get lastLogin;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -6220,7 +6220,7 @@ abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface {
+sealed class $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6274,7 +6274,7 @@ abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface {
+sealed class $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface {
   AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppPasswordConfirmUserPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -6327,7 +6327,7 @@ abstract class AppPasswordConfirmUserPasswordResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AutocompleteResult_Status0Interface {
+sealed class $AutocompleteResult_Status0Interface {
   String get status;
   String? get message;
   String? get icon;
@@ -6382,7 +6382,7 @@ abstract class AutocompleteResult_Status0
 typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $AutocompleteResultInterface {
+sealed class $AutocompleteResultInterface {
   String get id;
   String get label;
   String get icon;
@@ -6437,7 +6437,7 @@ abstract class AutocompleteResult
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AutoCompleteGetResponseApplicationJson_OcsInterface {
+sealed class $AutoCompleteGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<AutocompleteResult> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6490,7 +6490,7 @@ abstract class AutoCompleteGetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AutoCompleteGetResponseApplicationJsonInterface {
+sealed class $AutoCompleteGetResponseApplicationJsonInterface {
   AutoCompleteGetResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AutoCompleteGetResponseApplicationJsonInterfaceBuilder b) {}
@@ -6541,7 +6541,7 @@ abstract class AutoCompleteGetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarAvatarGetAvatarDarkHeadersInterface {
+sealed class $AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   Header<int?>? get xNcIscustomavatar;
   @BuiltValueHook(initializeBuilder: true)
@@ -6592,7 +6592,7 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AvatarAvatarGetAvatarHeadersInterface {
+sealed class $AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
   Header<int?>? get xNcIscustomavatar;
   @BuiltValueHook(initializeBuilder: true)
@@ -6643,7 +6643,7 @@ abstract class AvatarAvatarGetAvatarHeaders
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LoginFlowV2CredentialsInterface {
+sealed class $LoginFlowV2CredentialsInterface {
   String get server;
   String get loginName;
   String get appPassword;
@@ -6692,7 +6692,7 @@ abstract class LoginFlowV2Credentials
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LoginFlowV2_PollInterface {
+sealed class $LoginFlowV2_PollInterface {
   String get token;
   String get endpoint;
   @BuiltValueHook(initializeBuilder: true)
@@ -6739,7 +6739,7 @@ abstract class LoginFlowV2_Poll
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LoginFlowV2Interface {
+sealed class $LoginFlowV2Interface {
   LoginFlowV2_Poll get poll;
   String get login;
   @BuiltValueHook(initializeBuilder: true)
@@ -6785,7 +6785,7 @@ abstract class LoginFlowV2 implements $LoginFlowV2Interface, Built<LoginFlowV2, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OpenGraphObjectInterface {
+sealed class $OpenGraphObjectInterface {
   String get id;
   String get name;
   String? get description;
@@ -6834,7 +6834,7 @@ abstract class OpenGraphObject implements $OpenGraphObjectInterface, Built<OpenG
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ResourceInterface {
+sealed class $ResourceInterface {
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
   OpenGraphObject get openGraphObject;
@@ -6882,7 +6882,7 @@ abstract class Resource implements $ResourceInterface, Built<Resource, ResourceB
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollectionInterface {
+sealed class $CollectionInterface {
   int get id;
   String get name;
   BuiltList<Resource> get resources;
@@ -6929,7 +6929,7 @@ abstract class Collection implements $CollectionInterface, Built<Collection, Col
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6983,7 +6983,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesListCollectionResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesListCollectionResponseApplicationJsonInterface {
   CollaborationResourcesListCollectionResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesListCollectionResponseApplicationJsonInterfaceBuilder b) {}
@@ -7036,7 +7036,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7090,7 +7090,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesRenameCollectionResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesRenameCollectionResponseApplicationJsonInterface {
   CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesRenameCollectionResponseApplicationJsonInterfaceBuilder b) {}
@@ -7143,7 +7143,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7197,7 +7197,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesAddResourceResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesAddResourceResponseApplicationJsonInterface {
   CollaborationResourcesAddResourceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesAddResourceResponseApplicationJsonInterfaceBuilder b) {}
@@ -7250,7 +7250,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7304,7 +7304,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesRemoveResourceResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesRemoveResourceResponseApplicationJsonInterface {
   CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesRemoveResourceResponseApplicationJsonInterfaceBuilder b) {}
@@ -7357,7 +7357,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Collection> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7411,7 +7411,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Oc
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface {
   CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesSearchCollectionsResponseApplicationJsonInterfaceBuilder b) {}
@@ -7464,7 +7464,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Collection> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7520,7 +7520,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface {
   CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterfaceBuilder b) {}
@@ -7573,7 +7573,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface {
+sealed class $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7633,7 +7633,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface {
+sealed class $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface {
   CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterfaceBuilder b) {}
@@ -7749,7 +7749,7 @@ class _$GuestAvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<G
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ContactsActionInterface {
+sealed class $ContactsActionInterface {
   String get title;
   String get icon;
   String get hyperlink;
@@ -7797,7 +7797,7 @@ abstract class ContactsAction implements $ContactsActionInterface, Built<Contact
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HoverCardGetUserResponseApplicationJson_Ocs_DataInterface {
+sealed class $HoverCardGetUserResponseApplicationJson_Ocs_DataInterface {
   String get userId;
   String get displayName;
   BuiltList<ContactsAction> get actions;
@@ -7852,7 +7852,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HoverCardGetUserResponseApplicationJson_OcsInterface {
+sealed class $HoverCardGetUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   HoverCardGetUserResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7905,7 +7905,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $HoverCardGetUserResponseApplicationJsonInterface {
+sealed class $HoverCardGetUserResponseApplicationJsonInterface {
   HoverCardGetUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($HoverCardGetUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -7956,7 +7956,7 @@ abstract class HoverCardGetUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $LoginConfirmPasswordResponseApplicationJsonInterface {
+sealed class $LoginConfirmPasswordResponseApplicationJsonInterface {
   int get lastLogin;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LoginConfirmPasswordResponseApplicationJsonInterfaceBuilder b) {}
@@ -8076,7 +8076,7 @@ class _$NavigationGetAppsNavigationAbsoluteSerializer
 typedef NavigationEntry_Order = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationEntryInterface {
+sealed class $NavigationEntryInterface {
   String get id;
   NavigationEntry_Order get order;
   String get href;
@@ -8131,7 +8131,7 @@ abstract class NavigationEntry implements $NavigationEntryInterface, Built<Navig
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
+sealed class $NavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<NavigationEntry> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8185,7 +8185,7 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationGetAppsNavigationResponseApplicationJsonInterface {
+sealed class $NavigationGetAppsNavigationResponseApplicationJsonInterface {
   NavigationGetAppsNavigationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NavigationGetAppsNavigationResponseApplicationJsonInterfaceBuilder b) {}
@@ -8307,7 +8307,7 @@ class _$NavigationGetSettingsNavigationAbsoluteSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
+sealed class $NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<NavigationEntry> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8361,7 +8361,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationGetSettingsNavigationResponseApplicationJsonInterface {
+sealed class $NavigationGetSettingsNavigationResponseApplicationJsonInterface {
   NavigationGetSettingsNavigationResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NavigationGetSettingsNavigationResponseApplicationJsonInterfaceBuilder b) {}
@@ -8414,7 +8414,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
+sealed class $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface {
   String get webdav;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfaceBuilder b) {}
@@ -8467,7 +8467,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
+sealed class $OcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
   String get name;
   BuiltList<String> get shareTypes;
   OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols get protocols;
@@ -8522,7 +8522,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcmDiscoveryResponseApplicationJsonInterface {
+sealed class $OcmDiscoveryResponseApplicationJsonInterface {
   bool get enabled;
   String get apiVersion;
   String get endPoint;
@@ -8640,7 +8640,7 @@ class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcmOcmDiscoveryHeadersInterface {
+sealed class $OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
   Header<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>? get xNextcloudOcmProviders;
   @BuiltValueHook(initializeBuilder: true)
@@ -8688,7 +8688,7 @@ abstract class OcmOcmDiscoveryHeaders
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface {
+sealed class $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface {
   int get major;
   int get minor;
   int get micro;
@@ -8746,7 +8746,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CoreCapabilities_CoreInterface {
+sealed class $CoreCapabilities_CoreInterface {
   int get pollinterval;
   @BuiltValueField(wireName: 'webdav-root')
   String get webdavRoot;
@@ -8801,7 +8801,7 @@ abstract class CoreCapabilities_Core
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CoreCapabilitiesInterface {
+sealed class $CoreCapabilitiesInterface {
   CoreCapabilities_Core get core;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CoreCapabilitiesInterfaceBuilder b) {}
@@ -8847,7 +8847,7 @@ abstract class CoreCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CorePublicCapabilities_BruteforceInterface {
+sealed class $CorePublicCapabilities_BruteforceInterface {
   int get delay;
   @BuiltValueField(wireName: 'allow-listed')
   bool get allowListed;
@@ -8899,7 +8899,7 @@ abstract class CorePublicCapabilities_Bruteforce
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CorePublicCapabilitiesInterface {
+sealed class $CorePublicCapabilitiesInterface {
   CorePublicCapabilities_Bruteforce get bruteforce;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CorePublicCapabilitiesInterfaceBuilder b) {}
@@ -8946,7 +8946,7 @@ abstract class CorePublicCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CommentsCapabilities_FilesInterface {
+sealed class $CommentsCapabilities_FilesInterface {
   bool get comments;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CommentsCapabilities_FilesInterfaceBuilder b) {}
@@ -8996,7 +8996,7 @@ abstract class CommentsCapabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CommentsCapabilitiesInterface {
+sealed class $CommentsCapabilitiesInterface {
   CommentsCapabilities_Files get files;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CommentsCapabilitiesInterfaceBuilder b) {}
@@ -9043,7 +9043,7 @@ abstract class CommentsCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DavCapabilities_DavInterface {
+sealed class $DavCapabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
   @BuiltValueHook(initializeBuilder: true)
@@ -9091,7 +9091,7 @@ abstract class DavCapabilities_Dav
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DavCapabilitiesInterface {
+sealed class $DavCapabilitiesInterface {
   DavCapabilities_Dav get dav;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DavCapabilitiesInterfaceBuilder b) {}
@@ -9136,7 +9136,7 @@ abstract class DavCapabilities implements $DavCapabilitiesInterface, Built<DavCa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DropAccountCapabilities_DropAccount_DelayInterface {
+sealed class $DropAccountCapabilities_DropAccount_DelayInterface {
   bool get enabled;
   int get hours;
   @BuiltValueHook(initializeBuilder: true)
@@ -9189,7 +9189,7 @@ abstract class DropAccountCapabilities_DropAccount_Delay
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DropAccountCapabilities_DropAccountInterface {
+sealed class $DropAccountCapabilities_DropAccountInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'api-version')
   String get apiVersion;
@@ -9244,7 +9244,7 @@ abstract class DropAccountCapabilities_DropAccount
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $DropAccountCapabilitiesInterface {
+sealed class $DropAccountCapabilitiesInterface {
   @BuiltValueField(wireName: 'drop-account')
   DropAccountCapabilities_DropAccount get dropAccount;
   @BuiltValueHook(initializeBuilder: true)
@@ -9292,7 +9292,7 @@ abstract class DropAccountCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesCapabilities_Files_DirectEditingInterface {
+sealed class $FilesCapabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
   bool get supportsFileId;
@@ -9345,7 +9345,7 @@ abstract class FilesCapabilities_Files_DirectEditing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesCapabilities_FilesInterface {
+sealed class $FilesCapabilities_FilesInterface {
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
@@ -9397,7 +9397,7 @@ abstract class FilesCapabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesCapabilitiesInterface {
+sealed class $FilesCapabilitiesInterface {
   FilesCapabilities_Files get files;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesCapabilitiesInterfaceBuilder b) {}
@@ -9443,7 +9443,7 @@ abstract class FilesCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
   @BuiltValueHook(initializeBuilder: true)
@@ -9497,7 +9497,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_Password
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -9552,7 +9552,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -9607,7 +9607,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
@@ -9662,7 +9662,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_PublicInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_PublicInterface {
   bool get enabled;
   FilesSharingCapabilities_FilesSharing_Public_Password? get password;
   @BuiltValueField(wireName: 'multiple_links')
@@ -9728,7 +9728,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesSharingCapabilities_FilesSharing_User_ExpireDateInterfaceBuilder b) {}
@@ -9781,7 +9781,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_UserInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_UserInterface {
   @BuiltValueField(wireName: 'send_mail')
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
@@ -9836,7 +9836,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterfaceBuilder b) {}
@@ -9889,7 +9889,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_GroupInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   FilesSharingCapabilities_FilesSharing_Group_ExpireDate? get expireDate;
@@ -9943,7 +9943,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder b) {}
@@ -9996,7 +9996,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder b) {}
@@ -10049,7 +10049,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSuppor
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_FederationInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_FederationInterface {
   bool get outgoing;
   bool get incoming;
   @BuiltValueField(wireName: 'expire_date')
@@ -10107,7 +10107,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharing_ShareeInterface {
+sealed class $FilesSharingCapabilities_FilesSharing_ShareeInterface {
   @BuiltValueField(wireName: 'query_lookup_default')
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
@@ -10162,7 +10162,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Sharee
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilities_FilesSharingInterface {
+sealed class $FilesSharingCapabilities_FilesSharingInterface {
   @BuiltValueField(wireName: 'api_enabled')
   bool get apiEnabled;
   FilesSharingCapabilities_FilesSharing_Public get public;
@@ -10224,7 +10224,7 @@ abstract class FilesSharingCapabilities_FilesSharing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesSharingCapabilitiesInterface {
+sealed class $FilesSharingCapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   FilesSharingCapabilities_FilesSharing get filesSharing;
   @BuiltValueHook(initializeBuilder: true)
@@ -10272,7 +10272,7 @@ abstract class FilesSharingCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesTrashbinCapabilities_FilesInterface {
+sealed class $FilesTrashbinCapabilities_FilesInterface {
   bool get undelete;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesTrashbinCapabilities_FilesInterfaceBuilder b) {}
@@ -10322,7 +10322,7 @@ abstract class FilesTrashbinCapabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesTrashbinCapabilitiesInterface {
+sealed class $FilesTrashbinCapabilitiesInterface {
   FilesTrashbinCapabilities_Files get files;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesTrashbinCapabilitiesInterfaceBuilder b) {}
@@ -10369,7 +10369,7 @@ abstract class FilesTrashbinCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesVersionsCapabilities_FilesInterface {
+sealed class $FilesVersionsCapabilities_FilesInterface {
   bool get versioning;
   @BuiltValueField(wireName: 'version_labeling')
   bool get versionLabeling;
@@ -10423,7 +10423,7 @@ abstract class FilesVersionsCapabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FilesVersionsCapabilitiesInterface {
+sealed class $FilesVersionsCapabilitiesInterface {
   FilesVersionsCapabilities_Files get files;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FilesVersionsCapabilitiesInterfaceBuilder b) {}
@@ -10470,7 +10470,7 @@ abstract class FilesVersionsCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotificationsCapabilities_NotificationsInterface {
+sealed class $NotificationsCapabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
   BuiltList<String> get push;
@@ -10525,7 +10525,7 @@ abstract class NotificationsCapabilities_Notifications
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotificationsCapabilitiesInterface {
+sealed class $NotificationsCapabilitiesInterface {
   NotificationsCapabilities_Notifications get notifications;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NotificationsCapabilitiesInterfaceBuilder b) {}
@@ -10572,7 +10572,7 @@ abstract class NotificationsCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ProvisioningApiCapabilities_ProvisioningApiInterface {
+sealed class $ProvisioningApiCapabilities_ProvisioningApiInterface {
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
   int get accountPropertyScopesVersion;
@@ -10630,7 +10630,7 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ProvisioningApiCapabilitiesInterface {
+sealed class $ProvisioningApiCapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
   ProvisioningApiCapabilities_ProvisioningApi get provisioningApi;
   @BuiltValueHook(initializeBuilder: true)
@@ -10681,7 +10681,7 @@ abstract class ProvisioningApiCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder b) {}
@@ -10734,7 +10734,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface {
+sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
   @BuiltValueHook(initializeBuilder: true)
@@ -10788,7 +10788,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+sealed class $SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
   @BuiltValueHook(initializeBuilder: true)
@@ -10842,7 +10842,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0_FilesSharing_SharebymailInterface {
+sealed class $SharebymailCapabilities0_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
@@ -10902,7 +10902,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0_FilesSharingInterface {
+sealed class $SharebymailCapabilities0_FilesSharingInterface {
   SharebymailCapabilities0_FilesSharing_Sharebymail get sharebymail;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SharebymailCapabilities0_FilesSharingInterfaceBuilder b) {}
@@ -10953,7 +10953,7 @@ abstract class SharebymailCapabilities0_FilesSharing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilities0Interface {
+sealed class $SharebymailCapabilities0Interface {
   @BuiltValueField(wireName: 'files_sharing')
   SharebymailCapabilities0_FilesSharing get filesSharing;
   @BuiltValueHook(initializeBuilder: true)
@@ -11006,7 +11006,7 @@ typedef SharebymailCapabilities = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_AttachmentsInterface {
+sealed class $SpreedCapabilities_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
   @BuiltValueHook(initializeBuilder: true)
@@ -11058,7 +11058,7 @@ abstract class SpreedCapabilities_Config_Attachments
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_CallInterface {
+sealed class $SpreedCapabilities_Config_CallInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'breakout-rooms')
   bool get breakoutRooms;
@@ -11125,7 +11125,7 @@ abstract class SpreedCapabilities_Config_Call
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_ChatInterface {
+sealed class $SpreedCapabilities_Config_ChatInterface {
   @BuiltValueField(wireName: 'max-length')
   int get maxLength;
   @BuiltValueField(wireName: 'read-privacy')
@@ -11182,7 +11182,7 @@ abstract class SpreedCapabilities_Config_Chat
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_ConversationsInterface {
+sealed class $SpreedCapabilities_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
   @BuiltValueHook(initializeBuilder: true)
@@ -11234,7 +11234,7 @@ abstract class SpreedCapabilities_Config_Conversations
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_FederationInterface {
+sealed class $SpreedCapabilities_Config_FederationInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'incoming-enabled')
   bool get incomingEnabled;
@@ -11291,7 +11291,7 @@ abstract class SpreedCapabilities_Config_Federation
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_PreviewsInterface {
+sealed class $SpreedCapabilities_Config_PreviewsInterface {
   @BuiltValueField(wireName: 'max-gif-size')
   int get maxGifSize;
   @BuiltValueHook(initializeBuilder: true)
@@ -11342,7 +11342,7 @@ abstract class SpreedCapabilities_Config_Previews
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_Config_SignalingInterface {
+sealed class $SpreedCapabilities_Config_SignalingInterface {
   @BuiltValueField(wireName: 'session-ping-limit')
   int get sessionPingLimit;
   @BuiltValueField(wireName: 'hello-v2-token-key')
@@ -11396,7 +11396,7 @@ abstract class SpreedCapabilities_Config_Signaling
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilities_ConfigInterface {
+sealed class $SpreedCapabilities_ConfigInterface {
   SpreedCapabilities_Config_Attachments get attachments;
   SpreedCapabilities_Config_Call get call;
   SpreedCapabilities_Config_Chat get chat;
@@ -11449,7 +11449,7 @@ abstract class SpreedCapabilities_Config
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedCapabilitiesInterface {
+sealed class $SpreedCapabilitiesInterface {
   BuiltList<String> get features;
   SpreedCapabilities_Config get config;
   String get version;
@@ -11498,7 +11498,7 @@ abstract class SpreedCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilities0Interface {
+sealed class $SpreedPublicCapabilities0Interface {
   SpreedCapabilities get spreed;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SpreedPublicCapabilities0InterfaceBuilder b) {}
@@ -11613,7 +11613,7 @@ class _$SystemtagsCapabilities_Systemtags_EnabledSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SystemtagsCapabilities_SystemtagsInterface {
+sealed class $SystemtagsCapabilities_SystemtagsInterface {
   SystemtagsCapabilities_Systemtags_Enabled get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SystemtagsCapabilities_SystemtagsInterfaceBuilder b) {}
@@ -11663,7 +11663,7 @@ abstract class SystemtagsCapabilities_Systemtags
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SystemtagsCapabilitiesInterface {
+sealed class $SystemtagsCapabilitiesInterface {
   SystemtagsCapabilities_Systemtags get systemtags;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SystemtagsCapabilitiesInterfaceBuilder b) {}
@@ -11710,7 +11710,7 @@ abstract class SystemtagsCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ThemingPublicCapabilities_ThemingInterface {
+sealed class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -11779,7 +11779,7 @@ abstract class ThemingPublicCapabilities_Theming
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ThemingPublicCapabilitiesInterface {
+sealed class $ThemingPublicCapabilitiesInterface {
   ThemingPublicCapabilities_Theming get theming;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ThemingPublicCapabilitiesInterfaceBuilder b) {}
@@ -11826,7 +11826,7 @@ abstract class ThemingPublicCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserStatusCapabilities_UserStatusInterface {
+sealed class $UserStatusCapabilities_UserStatusInterface {
   bool get enabled;
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
@@ -11879,7 +11879,7 @@ abstract class UserStatusCapabilities_UserStatus
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserStatusCapabilitiesInterface {
+sealed class $UserStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
   UserStatusCapabilities_UserStatus get userStatus;
   @BuiltValueHook(initializeBuilder: true)
@@ -11927,7 +11927,7 @@ abstract class UserStatusCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusCapabilities_WeatherStatusInterface {
+sealed class $WeatherStatusCapabilities_WeatherStatusInterface {
   bool get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WeatherStatusCapabilities_WeatherStatusInterfaceBuilder b) {}
@@ -11978,7 +11978,7 @@ abstract class WeatherStatusCapabilities_WeatherStatus
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WeatherStatusCapabilitiesInterface {
+sealed class $WeatherStatusCapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   WeatherStatusCapabilities_WeatherStatus get weatherStatus;
   @BuiltValueHook(initializeBuilder: true)
@@ -12026,7 +12026,7 @@ abstract class WeatherStatusCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotesCapabilities_NotesInterface {
+sealed class $NotesCapabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
@@ -12075,7 +12075,7 @@ abstract class NotesCapabilities_Notes
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NotesCapabilitiesInterface {
+sealed class $NotesCapabilitiesInterface {
   NotesCapabilities_Notes get notes;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NotesCapabilitiesInterfaceBuilder b) {}
@@ -12143,7 +12143,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
+sealed class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version get version;
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities get capabilities;
   @BuiltValueHook(initializeBuilder: true)
@@ -12199,7 +12199,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcsGetCapabilitiesResponseApplicationJson_OcsInterface {
+sealed class $OcsGetCapabilitiesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -12252,7 +12252,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcsGetCapabilitiesResponseApplicationJsonInterface {
+sealed class $OcsGetCapabilitiesResponseApplicationJsonInterface {
   OcsGetCapabilitiesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OcsGetCapabilitiesResponseApplicationJsonInterfaceBuilder b) {}
@@ -12689,7 +12689,7 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
+sealed class $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -12743,7 +12743,7 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ProfileApiSetVisibilityResponseApplicationJsonInterface {
+sealed class $ProfileApiSetVisibilityResponseApplicationJsonInterface {
   ProfileApiSetVisibilityResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ProfileApiSetVisibilityResponseApplicationJsonInterfaceBuilder b) {}
@@ -12858,7 +12858,7 @@ class _$ReferenceApiExtractResolveSerializer implements PrimitiveSerializer<Refe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceInterface {
+sealed class $ReferenceInterface {
   String get richObjectType;
   BuiltMap<String, JsonObject> get richObject;
   OpenGraphObject get openGraphObject;
@@ -12906,7 +12906,7 @@ abstract class Reference implements $ReferenceInterface, Built<Reference, Refere
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
+sealed class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiExtractResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -12959,7 +12959,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJson_OcsInterface {
+sealed class $ReferenceApiExtractResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiExtractResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13012,7 +13012,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiExtractResponseApplicationJsonInterface {
+sealed class $ReferenceApiExtractResponseApplicationJsonInterface {
   ReferenceApiExtractResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiExtractResponseApplicationJsonInterfaceBuilder b) {}
@@ -13064,7 +13064,7 @@ abstract class ReferenceApiExtractResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
+sealed class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -13117,7 +13117,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveOneResponseApplicationJson_OcsInterface {
+sealed class $ReferenceApiResolveOneResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiResolveOneResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13171,7 +13171,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveOneResponseApplicationJsonInterface {
+sealed class $ReferenceApiResolveOneResponseApplicationJsonInterface {
   ReferenceApiResolveOneResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveOneResponseApplicationJsonInterfaceBuilder b) {}
@@ -13223,7 +13223,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
+sealed class $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, Reference?> get references;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -13276,7 +13276,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveResponseApplicationJson_OcsInterface {
+sealed class $ReferenceApiResolveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiResolveResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13329,7 +13329,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiResolveResponseApplicationJsonInterface {
+sealed class $ReferenceApiResolveResponseApplicationJsonInterface {
   ReferenceApiResolveResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiResolveResponseApplicationJsonInterfaceBuilder b) {}
@@ -13381,7 +13381,7 @@ abstract class ReferenceApiResolveResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceProviderInterface {
+sealed class $ReferenceProviderInterface {
   String get id;
   String get title;
   @BuiltValueField(wireName: 'icon_url')
@@ -13433,7 +13433,7 @@ abstract class ReferenceProvider
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
+sealed class $ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ReferenceProvider> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13487,7 +13487,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
+sealed class $ReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
   ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiGetProvidersInfoResponseApplicationJsonInterfaceBuilder b) {}
@@ -13540,7 +13540,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface {
+sealed class $ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface {
   bool get success;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -13593,7 +13593,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
+sealed class $ReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13647,7 +13647,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ReferenceApiTouchProviderResponseApplicationJsonInterface {
+sealed class $ReferenceApiTouchProviderResponseApplicationJsonInterface {
   ReferenceApiTouchProviderResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ReferenceApiTouchProviderResponseApplicationJsonInterfaceBuilder b) {}
@@ -13700,7 +13700,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamResourceInterface {
+sealed class $TeamResourceInterface {
   int get id;
   String get label;
   String get url;
@@ -13750,7 +13750,7 @@ abstract class TeamResource implements $TeamResourceInterface, Built<TeamResourc
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface {
+sealed class $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TeamResource> get resources;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -13803,7 +13803,7 @@ abstract class TeamsApiResolveOneResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiResolveOneResponseApplicationJson_OcsInterface {
+sealed class $TeamsApiResolveOneResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TeamsApiResolveOneResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -13856,7 +13856,7 @@ abstract class TeamsApiResolveOneResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiResolveOneResponseApplicationJsonInterface {
+sealed class $TeamsApiResolveOneResponseApplicationJsonInterface {
   TeamsApiResolveOneResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TeamsApiResolveOneResponseApplicationJsonInterfaceBuilder b) {}
@@ -13908,7 +13908,7 @@ abstract class TeamsApiResolveOneResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamInterface {
+sealed class $TeamInterface {
   String get id;
   String get name;
   String get icon;
@@ -13955,7 +13955,7 @@ abstract class Team implements $TeamInterface, Built<Team, TeamBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface {
+sealed class $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<Team> get teams;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14008,7 +14008,7 @@ abstract class TeamsApiListTeamsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiListTeamsResponseApplicationJson_OcsInterface {
+sealed class $TeamsApiListTeamsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TeamsApiListTeamsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -14061,7 +14061,7 @@ abstract class TeamsApiListTeamsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TeamsApiListTeamsResponseApplicationJsonInterface {
+sealed class $TeamsApiListTeamsResponseApplicationJsonInterface {
   TeamsApiListTeamsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TeamsApiListTeamsResponseApplicationJsonInterfaceBuilder b) {}
@@ -14113,7 +14113,7 @@ abstract class TeamsApiListTeamsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface {
+sealed class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface {
   String get id;
   String get name;
   String get description;
@@ -14168,7 +14168,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types> get types;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14221,7 +14221,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
+sealed class $TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -14275,7 +14275,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiTaskTypesResponseApplicationJsonInterface {
+sealed class $TextProcessingApiTaskTypesResponseApplicationJsonInterface {
   TextProcessingApiTaskTypesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiTaskTypesResponseApplicationJsonInterfaceBuilder b) {}
@@ -14409,7 +14409,7 @@ class _$TextProcessingTask_StatusSerializer implements PrimitiveSerializer<TextP
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingTaskInterface {
+sealed class $TextProcessingTaskInterface {
   int? get id;
   String get type;
   TextProcessingTask_Status get status;
@@ -14464,7 +14464,7 @@ abstract class TextProcessingTask
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14517,7 +14517,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiScheduleResponseApplicationJson_OcsInterface {
+sealed class $TextProcessingApiScheduleResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiScheduleResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -14571,7 +14571,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiScheduleResponseApplicationJsonInterface {
+sealed class $TextProcessingApiScheduleResponseApplicationJsonInterface {
   TextProcessingApiScheduleResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiScheduleResponseApplicationJsonInterfaceBuilder b) {}
@@ -14624,7 +14624,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14677,7 +14677,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
+sealed class $TextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -14731,7 +14731,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiGetTaskResponseApplicationJsonInterface {
+sealed class $TextProcessingApiGetTaskResponseApplicationJsonInterface {
   TextProcessingApiGetTaskResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiGetTaskResponseApplicationJsonInterfaceBuilder b) {}
@@ -14783,7 +14783,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
   TextProcessingTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14836,7 +14836,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
+sealed class $TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -14890,7 +14890,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiDeleteTaskResponseApplicationJsonInterface {
+sealed class $TextProcessingApiDeleteTaskResponseApplicationJsonInterface {
   TextProcessingApiDeleteTaskResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiDeleteTaskResponseApplicationJsonInterfaceBuilder b) {}
@@ -14943,7 +14943,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextProcessingTask> get tasks;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -14996,7 +14996,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
+sealed class $TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15050,7 +15050,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextProcessingApiListTasksByAppResponseApplicationJsonInterface {
+sealed class $TextProcessingApiListTasksByAppResponseApplicationJsonInterface {
   TextProcessingApiListTasksByAppResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextProcessingApiListTasksByAppResponseApplicationJsonInterfaceBuilder b) {}
@@ -15103,7 +15103,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface {
   bool get isAvailable;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -15156,7 +15156,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiIsAvailableResponseApplicationJson_OcsInterface {
+sealed class $TextToImageApiIsAvailableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15210,7 +15210,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiIsAvailableResponseApplicationJsonInterface {
+sealed class $TextToImageApiIsAvailableResponseApplicationJsonInterface {
   TextToImageApiIsAvailableResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiIsAvailableResponseApplicationJsonInterfaceBuilder b) {}
@@ -15344,7 +15344,7 @@ class _$TextToImageTask_StatusSerializer implements PrimitiveSerializer<TextToIm
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageTaskInterface {
+sealed class $TextToImageTaskInterface {
   int? get id;
   TextToImageTask_Status get status;
   String? get userId;
@@ -15396,7 +15396,7 @@ abstract class TextToImageTask implements $TextToImageTaskInterface, Built<TextT
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface {
   TextToImageTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -15449,7 +15449,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiScheduleResponseApplicationJson_OcsInterface {
+sealed class $TextToImageApiScheduleResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextToImageApiScheduleResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15503,7 +15503,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiScheduleResponseApplicationJsonInterface {
+sealed class $TextToImageApiScheduleResponseApplicationJsonInterface {
   TextToImageApiScheduleResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiScheduleResponseApplicationJsonInterfaceBuilder b) {}
@@ -15555,7 +15555,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface {
   TextToImageTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -15608,7 +15608,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiGetTaskResponseApplicationJson_OcsInterface {
+sealed class $TextToImageApiGetTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextToImageApiGetTaskResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15662,7 +15662,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiGetTaskResponseApplicationJsonInterface {
+sealed class $TextToImageApiGetTaskResponseApplicationJsonInterface {
   TextToImageApiGetTaskResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiGetTaskResponseApplicationJsonInterfaceBuilder b) {}
@@ -15714,7 +15714,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
   TextToImageTask get task;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -15767,7 +15767,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface {
+sealed class $TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15821,7 +15821,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiDeleteTaskResponseApplicationJsonInterface {
+sealed class $TextToImageApiDeleteTaskResponseApplicationJsonInterface {
   TextToImageApiDeleteTaskResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiDeleteTaskResponseApplicationJsonInterfaceBuilder b) {}
@@ -15873,7 +15873,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
+sealed class $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextToImageTask> get tasks;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -15926,7 +15926,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface {
+sealed class $TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -15980,7 +15980,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TextToImageApiListTasksByAppResponseApplicationJsonInterface {
+sealed class $TextToImageApiListTasksByAppResponseApplicationJsonInterface {
   TextToImageApiListTasksByAppResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TextToImageApiListTasksByAppResponseApplicationJsonInterfaceBuilder b) {}
@@ -16033,7 +16033,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface {
+sealed class $TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface {
   String get from;
   String get fromLabel;
   String get to;
@@ -16089,7 +16089,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
+sealed class $TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages> get languages;
   bool get languageDetection;
   @BuiltValueHook(initializeBuilder: true)
@@ -16143,7 +16143,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiLanguagesResponseApplicationJson_OcsInterface {
+sealed class $TranslationApiLanguagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TranslationApiLanguagesResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16197,7 +16197,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiLanguagesResponseApplicationJsonInterface {
+sealed class $TranslationApiLanguagesResponseApplicationJsonInterface {
   TranslationApiLanguagesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TranslationApiLanguagesResponseApplicationJsonInterfaceBuilder b) {}
@@ -16249,7 +16249,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
+sealed class $TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
   String get text;
   String? get from;
   @BuiltValueHook(initializeBuilder: true)
@@ -16303,7 +16303,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiTranslateResponseApplicationJson_OcsInterface {
+sealed class $TranslationApiTranslateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TranslationApiTranslateResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16357,7 +16357,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $TranslationApiTranslateResponseApplicationJsonInterface {
+sealed class $TranslationApiTranslateResponseApplicationJsonInterface {
   TranslationApiTranslateResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TranslationApiTranslateResponseApplicationJsonInterfaceBuilder b) {}
@@ -16409,7 +16409,7 @@ abstract class TranslationApiTranslateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchProviderInterface {
+sealed class $UnifiedSearchProviderInterface {
   String get id;
   String get appId;
   String get name;
@@ -16463,7 +16463,7 @@ abstract class UnifiedSearchProvider
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
+sealed class $UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<UnifiedSearchProvider> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16517,7 +16517,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchGetProvidersResponseApplicationJsonInterface {
+sealed class $UnifiedSearchGetProvidersResponseApplicationJsonInterface {
   UnifiedSearchGetProvidersResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedSearchGetProvidersResponseApplicationJsonInterfaceBuilder b) {}
@@ -16572,7 +16572,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
 typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchResultEntryInterface {
+sealed class $UnifiedSearchResultEntryInterface {
   String get thumbnailUrl;
   String get title;
   String get subline;
@@ -16627,7 +16627,7 @@ abstract class UnifiedSearchResultEntry
 typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchResultInterface {
+sealed class $UnifiedSearchResultInterface {
   String get name;
   bool get isPaginated;
   BuiltList<UnifiedSearchResultEntry> get entries;
@@ -16679,7 +16679,7 @@ abstract class UnifiedSearchResult
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchSearchResponseApplicationJson_OcsInterface {
+sealed class $UnifiedSearchSearchResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UnifiedSearchResult get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16732,7 +16732,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchSearchResponseApplicationJsonInterface {
+sealed class $UnifiedSearchSearchResponseApplicationJsonInterface {
   UnifiedSearchSearchResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedSearchSearchResponseApplicationJsonInterfaceBuilder b) {}
@@ -16784,7 +16784,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
+sealed class $WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
   BuiltList<String> get regular;
   BuiltList<String> get admin;
   @BuiltValueHook(initializeBuilder: true)
@@ -16838,7 +16838,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewGetResponseApplicationJson_Ocs_DataInterface {
+sealed class $WhatsNewGetResponseApplicationJson_Ocs_DataInterface {
   String get changelogURL;
   String get product;
   String get version;
@@ -16893,7 +16893,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewGetResponseApplicationJson_OcsInterface {
+sealed class $WhatsNewGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WhatsNewGetResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -16945,7 +16945,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewGetResponseApplicationJsonInterface {
+sealed class $WhatsNewGetResponseApplicationJsonInterface {
   WhatsNewGetResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WhatsNewGetResponseApplicationJsonInterfaceBuilder b) {}
@@ -16996,7 +16996,7 @@ abstract class WhatsNewGetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewDismissResponseApplicationJson_OcsInterface {
+sealed class $WhatsNewDismissResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -17049,7 +17049,7 @@ abstract class WhatsNewDismissResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WhatsNewDismissResponseApplicationJsonInterface {
+sealed class $WhatsNewDismissResponseApplicationJsonInterface {
   WhatsNewDismissResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WhatsNewDismissResponseApplicationJsonInterfaceBuilder b) {}
@@ -17100,7 +17100,7 @@ abstract class WhatsNewDismissResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $WipeCheckWipeResponseApplicationJsonInterface {
+sealed class $WipeCheckWipeResponseApplicationJsonInterface {
   bool get wipe;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($WipeCheckWipeResponseApplicationJsonInterfaceBuilder b) {}
@@ -17151,7 +17151,7 @@ abstract class WipeCheckWipeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_CoreInterface {
+sealed class $Capabilities_CoreInterface {
   int get pollinterval;
   @BuiltValueField(wireName: 'webdav-root')
   String get webdavRoot;
@@ -17205,7 +17205,7 @@ abstract class Capabilities_Core
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Core get core;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
@@ -17250,7 +17250,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilities_BruteforceInterface {
+sealed class $PublicCapabilities_BruteforceInterface {
   int get delay;
   @BuiltValueField(wireName: 'allow-listed')
   bool get allowListed;
@@ -17302,7 +17302,7 @@ abstract class PublicCapabilities_Bruteforce
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilitiesInterface {
+sealed class $PublicCapabilitiesInterface {
   PublicCapabilities_Bruteforce get bruteforce;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}

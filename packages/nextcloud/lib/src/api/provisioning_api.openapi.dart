@@ -4167,7 +4167,7 @@ class $UsersClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -4216,7 +4216,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppConfigGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppConfigGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -4269,7 +4269,7 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetAppsResponseApplicationJson_OcsInterface {
+sealed class $AppConfigGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetAppsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4322,7 +4322,7 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetAppsResponseApplicationJsonInterface {
+sealed class $AppConfigGetAppsResponseApplicationJsonInterface {
   AppConfigGetAppsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppConfigGetAppsResponseApplicationJsonInterfaceBuilder b) {}
@@ -4373,7 +4373,7 @@ abstract class AppConfigGetAppsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppConfigGetKeysResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppConfigGetKeysResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -4426,7 +4426,7 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetKeysResponseApplicationJson_OcsInterface {
+sealed class $AppConfigGetKeysResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppConfigGetKeysResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4479,7 +4479,7 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigGetKeysResponseApplicationJsonInterface {
+sealed class $AppConfigGetKeysResponseApplicationJsonInterface {
   AppConfigGetKeysResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppConfigGetKeysResponseApplicationJsonInterfaceBuilder b) {}
@@ -4530,7 +4530,7 @@ abstract class AppConfigGetKeysResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigSetValueResponseApplicationJson_OcsInterface {
+sealed class $AppConfigSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4583,7 +4583,7 @@ abstract class AppConfigSetValueResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppConfigSetValueResponseApplicationJsonInterface {
+sealed class $AppConfigSetValueResponseApplicationJsonInterface {
   AppConfigSetValueResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppConfigSetValueResponseApplicationJsonInterfaceBuilder b) {}
@@ -4635,7 +4635,7 @@ abstract class AppConfigSetValueResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsGetAppsResponseApplicationJson_Ocs_DataInterface {
+sealed class $AppsGetAppsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get apps;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -4687,7 +4687,7 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsGetAppsResponseApplicationJson_OcsInterface {
+sealed class $AppsGetAppsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   AppsGetAppsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4739,7 +4739,7 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsGetAppsResponseApplicationJsonInterface {
+sealed class $AppsGetAppsResponseApplicationJsonInterface {
   AppsGetAppsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsGetAppsResponseApplicationJsonInterfaceBuilder b) {}
@@ -4790,7 +4790,7 @@ abstract class AppsGetAppsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsGetAppInfoResponseApplicationJson_OcsInterface {
+sealed class $AppsGetAppInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject?> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4843,7 +4843,7 @@ abstract class AppsGetAppInfoResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsGetAppInfoResponseApplicationJsonInterface {
+sealed class $AppsGetAppInfoResponseApplicationJsonInterface {
   AppsGetAppInfoResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsGetAppInfoResponseApplicationJsonInterfaceBuilder b) {}
@@ -4894,7 +4894,7 @@ abstract class AppsGetAppInfoResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsEnableResponseApplicationJson_OcsInterface {
+sealed class $AppsEnableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -4946,7 +4946,7 @@ abstract class AppsEnableResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsEnableResponseApplicationJsonInterface {
+sealed class $AppsEnableResponseApplicationJsonInterface {
   AppsEnableResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsEnableResponseApplicationJsonInterfaceBuilder b) {}
@@ -4996,7 +4996,7 @@ abstract class AppsEnableResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsDisableResponseApplicationJson_OcsInterface {
+sealed class $AppsDisableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5048,7 +5048,7 @@ abstract class AppsDisableResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AppsDisableResponseApplicationJsonInterface {
+sealed class $AppsDisableResponseApplicationJsonInterface {
   AppsDisableResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($AppsDisableResponseApplicationJsonInterfaceBuilder b) {}
@@ -5099,7 +5099,7 @@ abstract class AppsDisableResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5153,7 +5153,7 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
+sealed class $GroupsGetSubAdminsOfGroupResponseApplicationJsonInterface {
   GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetSubAdminsOfGroupResponseApplicationJsonInterfaceBuilder b) {}
@@ -5206,7 +5206,7 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
+sealed class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -5258,7 +5258,7 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5311,7 +5311,7 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsResponseApplicationJsonInterface {
+sealed class $GroupsGetGroupsResponseApplicationJsonInterface {
   GroupsGetGroupsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupsResponseApplicationJsonInterfaceBuilder b) {}
@@ -5362,7 +5362,7 @@ abstract class GroupsGetGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
+sealed class $GroupsGetGroupResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -5414,7 +5414,7 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5467,7 +5467,7 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupResponseApplicationJsonInterface {
+sealed class $GroupsGetGroupResponseApplicationJsonInterface {
   GroupsGetGroupResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupResponseApplicationJsonInterfaceBuilder b) {}
@@ -5521,7 +5521,7 @@ typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
 typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupDetailsInterface {
+sealed class $GroupDetailsInterface {
   String get id;
   String get displayname;
   GroupDetails_Usercount get usercount;
@@ -5574,7 +5574,7 @@ abstract class GroupDetails implements $GroupDetailsInterface, Built<GroupDetail
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface {
+sealed class $GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<GroupDetails> get groups;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -5627,7 +5627,7 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetGroupsDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5681,7 +5681,7 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupsDetailsResponseApplicationJsonInterface {
+sealed class $GroupsGetGroupsDetailsResponseApplicationJsonInterface {
   GroupsGetGroupsDetailsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupsDetailsResponseApplicationJsonInterfaceBuilder b) {}
@@ -5733,7 +5733,7 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface {
+sealed class $GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -5786,7 +5786,7 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetGroupUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -5839,7 +5839,7 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersResponseApplicationJsonInterface {
+sealed class $GroupsGetGroupUsersResponseApplicationJsonInterface {
   GroupsGetGroupUsersResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupUsersResponseApplicationJsonInterfaceBuilder b) {}
@@ -5891,7 +5891,7 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserDetails_BackendCapabilitiesInterface {
+sealed class $UserDetails_BackendCapabilitiesInterface {
   bool get setDisplayName;
   bool get setPassword;
   @BuiltValueHook(initializeBuilder: true)
@@ -5944,7 +5944,7 @@ abstract class UserDetails_BackendCapabilities
 typedef UserDetailsQuota_Quota = ({num? $num, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuotaInterface {
+sealed class $UserDetailsQuotaInterface {
   num get free;
   UserDetailsQuota_Quota? get quota;
   num get relative;
@@ -5996,7 +5996,7 @@ abstract class UserDetailsQuota
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserDetailsInterface {
+sealed class $UserDetailsInterface {
   @BuiltValueField(wireName: 'additional_mail')
   BuiltList<String> get additionalMail;
   @BuiltValueField(wireName: 'additional_mailScope')
@@ -6087,7 +6087,7 @@ abstract class UserDetails implements $UserDetailsInterface, Built<UserDetails, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
+sealed class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
@@ -6145,7 +6145,7 @@ typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface {
+sealed class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -6198,7 +6198,7 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface {
+sealed class $GroupsGetGroupUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6252,7 +6252,7 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJsonInterface {
+sealed class $GroupsGetGroupUsersDetailsResponseApplicationJsonInterface {
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GroupsGetGroupUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
@@ -6305,7 +6305,7 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
+sealed class $PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6359,7 +6359,7 @@ abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesSetPreferenceResponseApplicationJsonInterface {
+sealed class $PreferencesSetPreferenceResponseApplicationJsonInterface {
   PreferencesSetPreferenceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PreferencesSetPreferenceResponseApplicationJsonInterfaceBuilder b) {}
@@ -6411,7 +6411,7 @@ abstract class PreferencesSetPreferenceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesDeletePreferenceResponseApplicationJson_OcsInterface {
+sealed class $PreferencesDeletePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6465,7 +6465,7 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesDeletePreferenceResponseApplicationJsonInterface {
+sealed class $PreferencesDeletePreferenceResponseApplicationJsonInterface {
   PreferencesDeletePreferenceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PreferencesDeletePreferenceResponseApplicationJsonInterfaceBuilder b) {}
@@ -6518,7 +6518,7 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface {
+sealed class $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6572,7 +6572,7 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface {
+sealed class $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface {
   PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PreferencesSetMultiplePreferencesResponseApplicationJsonInterfaceBuilder b) {}
@@ -6625,7 +6625,7 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface {
+sealed class $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6679,7 +6679,7 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface {
+sealed class $PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterface {
   PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PreferencesDeleteMultiplePreferenceResponseApplicationJsonInterfaceBuilder b) {}
@@ -6732,7 +6732,7 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
+sealed class $UsersGetUserSubAdminGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6786,7 +6786,7 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
+sealed class $UsersGetUserSubAdminGroupsResponseApplicationJsonInterface {
   UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUserSubAdminGroupsResponseApplicationJsonInterfaceBuilder b) {}
@@ -6839,7 +6839,7 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
+sealed class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6892,7 +6892,7 @@ abstract class UsersAddSubAdminResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddSubAdminResponseApplicationJsonInterface {
+sealed class $UsersAddSubAdminResponseApplicationJsonInterface {
   UsersAddSubAdminResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersAddSubAdminResponseApplicationJsonInterfaceBuilder b) {}
@@ -6943,7 +6943,7 @@ abstract class UsersAddSubAdminResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
+sealed class $UsersRemoveSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -6996,7 +6996,7 @@ abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveSubAdminResponseApplicationJsonInterface {
+sealed class $UsersRemoveSubAdminResponseApplicationJsonInterface {
   UsersRemoveSubAdminResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersRemoveSubAdminResponseApplicationJsonInterfaceBuilder b) {}
@@ -7048,7 +7048,7 @@ abstract class UsersRemoveSubAdminResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersResponseApplicationJson_Ocs_DataInterface {
+sealed class $UsersGetUsersResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -7100,7 +7100,7 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersResponseApplicationJson_OcsInterface {
+sealed class $UsersGetUsersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7153,7 +7153,7 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersResponseApplicationJsonInterface {
+sealed class $UsersGetUsersResponseApplicationJsonInterface {
   UsersGetUsersResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersResponseApplicationJsonInterfaceBuilder b) {}
@@ -7204,7 +7204,7 @@ abstract class UsersGetUsersResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddUserResponseApplicationJson_Ocs_DataInterface {
+sealed class $UsersAddUserResponseApplicationJson_Ocs_DataInterface {
   String get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersAddUserResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -7256,7 +7256,7 @@ abstract class UsersAddUserResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddUserResponseApplicationJson_OcsInterface {
+sealed class $UsersAddUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersAddUserResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7308,7 +7308,7 @@ abstract class UsersAddUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddUserResponseApplicationJsonInterface {
+sealed class $UsersAddUserResponseApplicationJsonInterface {
   UsersAddUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersAddUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -7359,7 +7359,7 @@ abstract class UsersAddUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
+sealed class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
@@ -7417,7 +7417,7 @@ typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
+sealed class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -7470,7 +7470,7 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersDetailsResponseApplicationJson_OcsInterface {
+sealed class $UsersGetUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7523,7 +7523,7 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersDetailsResponseApplicationJsonInterface {
+sealed class $UsersGetUsersDetailsResponseApplicationJsonInterface {
   UsersGetUsersDetailsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
@@ -7575,7 +7575,7 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
+sealed class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
   String get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder b) {}
@@ -7633,7 +7633,7 @@ typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface {
+sealed class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -7686,7 +7686,7 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface {
+sealed class $UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7740,7 +7740,7 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJsonInterface {
+sealed class $UsersGetDisabledUsersDetailsResponseApplicationJsonInterface {
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder b) {}
@@ -7793,7 +7793,7 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface {
+sealed class $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, String> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7847,7 +7847,7 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersSearchByPhoneNumbersResponseApplicationJsonInterface {
+sealed class $UsersSearchByPhoneNumbersResponseApplicationJsonInterface {
   UsersSearchByPhoneNumbersResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersSearchByPhoneNumbersResponseApplicationJsonInterfaceBuilder b) {}
@@ -7900,7 +7900,7 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserResponseApplicationJson_OcsInterface {
+sealed class $UsersGetUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -7952,7 +7952,7 @@ abstract class UsersGetUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUserResponseApplicationJsonInterface {
+sealed class $UsersGetUserResponseApplicationJsonInterface {
   UsersGetUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8003,7 +8003,7 @@ abstract class UsersGetUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEditUserResponseApplicationJson_OcsInterface {
+sealed class $UsersEditUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8056,7 +8056,7 @@ abstract class UsersEditUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEditUserResponseApplicationJsonInterface {
+sealed class $UsersEditUserResponseApplicationJsonInterface {
   UsersEditUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersEditUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8107,7 +8107,7 @@ abstract class UsersEditUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersDeleteUserResponseApplicationJson_OcsInterface {
+sealed class $UsersDeleteUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8160,7 +8160,7 @@ abstract class UsersDeleteUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersDeleteUserResponseApplicationJsonInterface {
+sealed class $UsersDeleteUserResponseApplicationJsonInterface {
   UsersDeleteUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersDeleteUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8211,7 +8211,7 @@ abstract class UsersDeleteUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetCurrentUserResponseApplicationJson_OcsInterface {
+sealed class $UsersGetCurrentUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserDetails get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8264,7 +8264,7 @@ abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetCurrentUserResponseApplicationJsonInterface {
+sealed class $UsersGetCurrentUserResponseApplicationJsonInterface {
   UsersGetCurrentUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetCurrentUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8316,7 +8316,7 @@ abstract class UsersGetCurrentUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetEditableFieldsResponseApplicationJson_OcsInterface {
+sealed class $UsersGetEditableFieldsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8370,7 +8370,7 @@ abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetEditableFieldsResponseApplicationJsonInterface {
+sealed class $UsersGetEditableFieldsResponseApplicationJsonInterface {
   UsersGetEditableFieldsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetEditableFieldsResponseApplicationJsonInterfaceBuilder b) {}
@@ -8422,7 +8422,7 @@ abstract class UsersGetEditableFieldsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface {
+sealed class $UsersGetEditableFieldsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8476,7 +8476,7 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetEditableFieldsForUserResponseApplicationJsonInterface {
+sealed class $UsersGetEditableFieldsForUserResponseApplicationJsonInterface {
   UsersGetEditableFieldsForUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetEditableFieldsForUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8529,7 +8529,7 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEditUserMultiValueResponseApplicationJson_OcsInterface {
+sealed class $UsersEditUserMultiValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8583,7 +8583,7 @@ abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEditUserMultiValueResponseApplicationJsonInterface {
+sealed class $UsersEditUserMultiValueResponseApplicationJsonInterface {
   UsersEditUserMultiValueResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersEditUserMultiValueResponseApplicationJsonInterfaceBuilder b) {}
@@ -8635,7 +8635,7 @@ abstract class UsersEditUserMultiValueResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersWipeUserDevicesResponseApplicationJson_OcsInterface {
+sealed class $UsersWipeUserDevicesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8688,7 +8688,7 @@ abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersWipeUserDevicesResponseApplicationJsonInterface {
+sealed class $UsersWipeUserDevicesResponseApplicationJsonInterface {
   UsersWipeUserDevicesResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersWipeUserDevicesResponseApplicationJsonInterfaceBuilder b) {}
@@ -8740,7 +8740,7 @@ abstract class UsersWipeUserDevicesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEnableUserResponseApplicationJson_OcsInterface {
+sealed class $UsersEnableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8793,7 +8793,7 @@ abstract class UsersEnableUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersEnableUserResponseApplicationJsonInterface {
+sealed class $UsersEnableUserResponseApplicationJsonInterface {
   UsersEnableUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersEnableUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8844,7 +8844,7 @@ abstract class UsersEnableUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersDisableUserResponseApplicationJson_OcsInterface {
+sealed class $UsersDisableUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -8897,7 +8897,7 @@ abstract class UsersDisableUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersDisableUserResponseApplicationJsonInterface {
+sealed class $UsersDisableUserResponseApplicationJsonInterface {
   UsersDisableUserResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersDisableUserResponseApplicationJsonInterfaceBuilder b) {}
@@ -8948,7 +8948,7 @@ abstract class UsersDisableUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface {
+sealed class $UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
@@ -9001,7 +9001,7 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersGroupsResponseApplicationJson_OcsInterface {
+sealed class $UsersGetUsersGroupsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UsersGetUsersGroupsResponseApplicationJson_Ocs_Data get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -9054,7 +9054,7 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersGroupsResponseApplicationJsonInterface {
+sealed class $UsersGetUsersGroupsResponseApplicationJsonInterface {
   UsersGetUsersGroupsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersGetUsersGroupsResponseApplicationJsonInterfaceBuilder b) {}
@@ -9106,7 +9106,7 @@ abstract class UsersGetUsersGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddToGroupResponseApplicationJson_OcsInterface {
+sealed class $UsersAddToGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -9159,7 +9159,7 @@ abstract class UsersAddToGroupResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersAddToGroupResponseApplicationJsonInterface {
+sealed class $UsersAddToGroupResponseApplicationJsonInterface {
   UsersAddToGroupResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersAddToGroupResponseApplicationJsonInterfaceBuilder b) {}
@@ -9210,7 +9210,7 @@ abstract class UsersAddToGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveFromGroupResponseApplicationJson_OcsInterface {
+sealed class $UsersRemoveFromGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -9263,7 +9263,7 @@ abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersRemoveFromGroupResponseApplicationJsonInterface {
+sealed class $UsersRemoveFromGroupResponseApplicationJsonInterface {
   UsersRemoveFromGroupResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersRemoveFromGroupResponseApplicationJsonInterfaceBuilder b) {}
@@ -9315,7 +9315,7 @@ abstract class UsersRemoveFromGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface {
+sealed class $UsersResendWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -9369,7 +9369,7 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersResendWelcomeMessageResponseApplicationJsonInterface {
+sealed class $UsersResendWelcomeMessageResponseApplicationJsonInterface {
   UsersResendWelcomeMessageResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UsersResendWelcomeMessageResponseApplicationJsonInterfaceBuilder b) {}
@@ -9422,7 +9422,7 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_ProvisioningApiInterface {
+sealed class $Capabilities_ProvisioningApiInterface {
   String get version;
   @BuiltValueField(wireName: 'AccountPropertyScopesVersion')
   int get accountPropertyScopesVersion;
@@ -9478,7 +9478,7 @@ abstract class Capabilities_ProvisioningApi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'provisioning_api')
   Capabilities_ProvisioningApi get provisioningApi;
   @BuiltValueHook(initializeBuilder: true)

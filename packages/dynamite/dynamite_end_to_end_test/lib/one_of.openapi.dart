@@ -33,7 +33,7 @@ typedef OneOfIntDouble = num;
 typedef OneOfIntDoubleNum = num;
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectOneOf0Interface {
+sealed class $ObjectOneOf0Interface {
   @BuiltValueField(wireName: 'attribute1-oneOf')
   String get attribute1OneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -73,7 +73,7 @@ abstract class ObjectOneOf0 implements $ObjectOneOf0Interface, Built<ObjectOneOf
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectOneOf1Interface {
+sealed class $ObjectOneOf1Interface {
   @BuiltValueField(wireName: 'attribute2-oneOf')
   String get attribute2OneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -116,7 +116,7 @@ abstract class ObjectOneOf1 implements $ObjectOneOf1Interface, Built<ObjectOneOf
 typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
 
 @BuiltValue(instantiable: false)
-abstract interface class $MixedOneOf1Interface {
+sealed class $MixedOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -159,7 +159,7 @@ abstract class MixedOneOf1 implements $MixedOneOf1Interface, Built<MixedOneOf1, 
 typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $OneObjectOneOf0Interface {
+sealed class $OneObjectOneOf0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -202,7 +202,7 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
 @BuiltValue(instantiable: false)
-abstract interface class $OneOfUnspecifiedArray0Interface {
+sealed class $OneOfUnspecifiedArray0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -249,7 +249,7 @@ typedef OneOfUnspecifiedArray = ({
 });
 
 @BuiltValue(instantiable: false)
-abstract interface class $OneOfStringArray0Interface {
+sealed class $OneOfStringArray0Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
   @BuiltValueHook(initializeBuilder: true)

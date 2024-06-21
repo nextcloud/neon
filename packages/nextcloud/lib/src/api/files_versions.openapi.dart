@@ -171,7 +171,7 @@ class $PreviewClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_FilesInterface {
+sealed class $Capabilities_FilesInterface {
   bool get versioning;
   @BuiltValueField(wireName: 'version_labeling')
   bool get versionLabeling;
@@ -222,7 +222,7 @@ abstract class Capabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Files get files;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}

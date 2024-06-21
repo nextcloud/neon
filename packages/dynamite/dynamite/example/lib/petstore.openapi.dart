@@ -315,7 +315,7 @@ class $Client extends _i1.DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NewPetInterface {
+sealed class $NewPetInterface {
   String get name;
   String? get tag;
   @BuiltValueHook(initializeBuilder: true)
@@ -361,7 +361,7 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $PetInterface implements $NewPetInterface {
+sealed class $PetInterface implements $NewPetInterface {
   int get id;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PetInterfaceBuilder b) {
@@ -411,7 +411,7 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ErrorInterface {
+sealed class $ErrorInterface {
   int get code;
   String get message;
   @BuiltValueHook(initializeBuilder: true)

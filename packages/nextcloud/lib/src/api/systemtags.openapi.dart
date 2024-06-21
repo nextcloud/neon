@@ -84,7 +84,7 @@ class _$Capabilities_Systemtags_EnabledSerializer implements PrimitiveSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Capabilities_SystemtagsInterface {
+sealed class $Capabilities_SystemtagsInterface {
   Capabilities_Systemtags_Enabled get enabled;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_SystemtagsInterfaceBuilder b) {}
@@ -131,7 +131,7 @@ abstract class Capabilities_Systemtags
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
+sealed class $CapabilitiesInterface {
   Capabilities_Systemtags get systemtags;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}

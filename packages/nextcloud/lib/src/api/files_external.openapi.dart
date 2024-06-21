@@ -139,7 +139,7 @@ class $ApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -366,7 +366,7 @@ class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfi
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $StorageConfigInterface {
+sealed class $StorageConfigInterface {
   BuiltList<String>? get applicableGroups;
   BuiltList<String>? get applicableUsers;
   String get authMechanism;
@@ -423,7 +423,7 @@ abstract class StorageConfig implements $StorageConfigInterface, Built<StorageCo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $MountInterface {
+sealed class $MountInterface {
   String get name;
   String get path;
   Mount_Type get type;
@@ -477,7 +477,7 @@ abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetUserMountsResponseApplicationJson_OcsInterface {
+sealed class $ApiGetUserMountsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Mount> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -530,7 +530,7 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ApiGetUserMountsResponseApplicationJsonInterface {
+sealed class $ApiGetUserMountsResponseApplicationJsonInterface {
   ApiGetUserMountsResponseApplicationJson_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder b) {}

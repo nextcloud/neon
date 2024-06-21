@@ -1439,7 +1439,7 @@ class $Client extends _i1.DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SupportedAPIVersionsInterface {
+sealed class $SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SupportedAPIVersionsInterfaceBuilder b) {}
@@ -1486,7 +1486,7 @@ abstract class SupportedAPIVersions
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ArticleInterface {
+sealed class $ArticleInterface {
   int get id;
   String get guid;
   String get guidHash;
@@ -1550,7 +1550,7 @@ abstract class Article implements $ArticleInterface, Built<Article, ArticleBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FeedInterface {
+sealed class $FeedInterface {
   int get id;
   String get url;
   String get title;
@@ -1607,7 +1607,7 @@ abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $FolderInterface {
+sealed class $FolderInterface {
   int get id;
   String get name;
   bool get opened;
@@ -1658,7 +1658,7 @@ abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ListFoldersInterface {
+sealed class $ListFoldersInterface {
   BuiltList<Folder> get folders;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ListFoldersInterfaceBuilder b) {}
@@ -1703,7 +1703,7 @@ abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ListFeedsInterface {
+sealed class $ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
   BuiltList<Feed> get feeds;
@@ -1750,7 +1750,7 @@ abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ListArticlesInterface {
+sealed class $ListArticlesInterface {
   BuiltList<Article> get items;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ListArticlesInterfaceBuilder b) {}
@@ -1795,7 +1795,7 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OCSMetaInterface {
+sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1844,7 +1844,7 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EmptyOCS_OcsInterface {
+sealed class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
   @BuiltValueHook(initializeBuilder: true)
@@ -1890,7 +1890,7 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $EmptyOCSInterface {
+sealed class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCSInterfaceBuilder b) {}

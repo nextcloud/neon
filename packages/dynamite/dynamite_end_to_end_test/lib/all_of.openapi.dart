@@ -20,7 +20,7 @@ part 'all_of.openapi.g.dart';
 
 /// All of with objects only.
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectAllOfInterface {
+sealed class $ObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute1-allOf')
   String get attribute1AllOf;
   @BuiltValueField(wireName: 'attribute2-allOf')
@@ -64,7 +64,7 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 
 /// All of with one object value.
 @BuiltValue(instantiable: false)
-abstract interface class $OneObjectAllOfInterface {
+sealed class $OneObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
   @BuiltValueHook(initializeBuilder: true)
@@ -106,7 +106,7 @@ abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObje
 
 /// All of with an primitive values.
 @BuiltValue(instantiable: false)
-abstract interface class $PrimitiveAllOfInterface {
+sealed class $PrimitiveAllOfInterface {
   @BuiltValueField(wireName: 'int')
   int get $int;
   @BuiltValueField(wireName: 'String')
@@ -150,7 +150,7 @@ abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<Primiti
 
 /// All of with object and primitive value.
 @BuiltValue(instantiable: false)
-abstract interface class $MixedAllOfInterface {
+sealed class $MixedAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
   @BuiltValueField(wireName: 'attribute-allOf')
@@ -194,7 +194,7 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
 
 /// All of with one primitive value.
 @BuiltValue(instantiable: false)
-abstract interface class $OneValueAllOfInterface {
+sealed class $OneValueAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
   @BuiltValueHook(initializeBuilder: true)
@@ -235,7 +235,7 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SuperObjectInterface {
+sealed class $SuperObjectInterface {
   static final _$value = _$jsonSerializers.deserialize(
     '123',
     specifiedType: const FullType(String),
@@ -290,7 +290,7 @@ abstract class SuperObject implements $SuperObjectInterface, Built<SuperObject, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SubObjectInterface implements $SuperObjectInterface {
+sealed class $SubObjectInterface implements $SuperObjectInterface {
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SubObjectInterfaceBuilder b) {
     $SuperObjectInterface._defaults(b);

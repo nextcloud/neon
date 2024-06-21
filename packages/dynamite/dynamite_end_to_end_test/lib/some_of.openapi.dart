@@ -28,7 +28,7 @@ typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
 /// Object with someOfs that only contain a single value (or are optimized to such).
 /// Should use the single member directly.
 @BuiltValue(instantiable: false)
-abstract interface class $OneValueSomeOfInObjectInterface {
+sealed class $OneValueSomeOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')
   int get oneValue;
   @BuiltValueField(wireName: 'IntDouble')

@@ -26,7 +26,7 @@ typedef RedirectBaseType = int;
 typedef RedirectEmptyType = dynamic;
 
 @BuiltValue(instantiable: false)
-abstract interface class $BaseInterface {
+sealed class $BaseInterface {
   String? get attribute;
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseInterfaceBuilder b) {}
@@ -65,7 +65,7 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NestedRedirectInterface {
+sealed class $NestedRedirectInterface {
   Base? get redirect;
   int? get redirectBaseType;
   JsonObject? get redirectEmptyType;
