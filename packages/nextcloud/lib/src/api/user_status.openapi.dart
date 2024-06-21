@@ -1042,6 +1042,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1172,6 +1181,15 @@ sealed class $PublicInterface {
   String? get icon;
   int? get clearAt;
   $Type get status;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PublicInterfaceBuilder].
+  $PublicInterface rebuild(void Function($PublicInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PublicInterfaceBuilder].
+  $PublicInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1219,6 +1237,17 @@ sealed class $PrivateInterface implements $PublicInterface {
   String? get messageId;
   bool get messageIsPredefined;
   bool get statusIsUserDefined;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PrivateInterfaceBuilder].
+  @override
+  $PrivateInterface rebuild(void Function($PrivateInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PrivateInterfaceBuilder].
+  @override
+  $PrivateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PrivateInterfaceBuilder b) {
     $PublicInterface._defaults(b);
@@ -1270,6 +1299,17 @@ abstract class Private implements $PrivateInterface, Built<Private, PrivateBuild
 sealed class $HeartbeatHeartbeatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder].
+  $HeartbeatHeartbeatResponseApplicationJson_OcsInterface rebuild(
+    void Function($HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder].
+  $HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1322,6 +1362,17 @@ abstract class HeartbeatHeartbeatResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $HeartbeatHeartbeatResponseApplicationJsonInterface {
   HeartbeatHeartbeatResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder].
+  $HeartbeatHeartbeatResponseApplicationJsonInterface rebuild(
+    void Function($HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder].
+  $HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1500,6 +1551,15 @@ typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
 sealed class $ClearAtInterface {
   ClearAt_Type get type;
   ClearAt_Time get time;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ClearAtInterfaceBuilder].
+  $ClearAtInterface rebuild(void Function($ClearAtInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ClearAtInterfaceBuilder].
+  $ClearAtInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ClearAtInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1551,6 +1611,15 @@ sealed class $PredefinedInterface {
   String get message;
   ClearAt? get clearAt;
   bool? get visible;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PredefinedInterfaceBuilder].
+  $PredefinedInterface rebuild(void Function($PredefinedInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PredefinedInterfaceBuilder].
+  $PredefinedInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PredefinedInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1597,6 +1666,17 @@ abstract class Predefined implements $PredefinedInterface, Built<Predefined, Pre
 sealed class $PredefinedStatusFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Predefined> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder].
+  $PredefinedStatusFindAllResponseApplicationJson_OcsInterface rebuild(
+    void Function($PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder].
+  $PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1650,6 +1730,17 @@ abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $PredefinedStatusFindAllResponseApplicationJsonInterface {
   PredefinedStatusFindAllResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder].
+  $PredefinedStatusFindAllResponseApplicationJsonInterface rebuild(
+    void Function($PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder].
+  $PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1703,6 +1794,17 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
 sealed class $StatusesFindAllResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Public> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder].
+  $StatusesFindAllResponseApplicationJson_OcsInterface rebuild(
+    void Function($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder].
+  $StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1755,6 +1857,17 @@ abstract class StatusesFindAllResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $StatusesFindAllResponseApplicationJsonInterface {
   StatusesFindAllResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StatusesFindAllResponseApplicationJsonInterfaceBuilder].
+  $StatusesFindAllResponseApplicationJsonInterface rebuild(
+    void Function($StatusesFindAllResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StatusesFindAllResponseApplicationJsonInterfaceBuilder].
+  $StatusesFindAllResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($StatusesFindAllResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1807,6 +1920,17 @@ abstract class StatusesFindAllResponseApplicationJson
 sealed class $StatusesFindResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Public get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StatusesFindResponseApplicationJson_OcsInterfaceBuilder].
+  $StatusesFindResponseApplicationJson_OcsInterface rebuild(
+    void Function($StatusesFindResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StatusesFindResponseApplicationJson_OcsInterfaceBuilder].
+  $StatusesFindResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($StatusesFindResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1858,6 +1982,17 @@ abstract class StatusesFindResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $StatusesFindResponseApplicationJsonInterface {
   StatusesFindResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StatusesFindResponseApplicationJsonInterfaceBuilder].
+  $StatusesFindResponseApplicationJsonInterface rebuild(
+    void Function($StatusesFindResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StatusesFindResponseApplicationJsonInterfaceBuilder].
+  $StatusesFindResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($StatusesFindResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1910,6 +2045,17 @@ abstract class StatusesFindResponseApplicationJson
 sealed class $UserStatusGetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusGetStatusResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1962,6 +2108,17 @@ abstract class UserStatusGetStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusGetStatusResponseApplicationJsonInterface {
   UserStatusGetStatusResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusGetStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusGetStatusResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusGetStatusResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusGetStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusGetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusGetStatusResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2015,6 +2172,17 @@ abstract class UserStatusGetStatusResponseApplicationJson
 sealed class $UserStatusSetStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetStatusResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2067,6 +2235,17 @@ abstract class UserStatusSetStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusSetStatusResponseApplicationJsonInterface {
   UserStatusSetStatusResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetStatusResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusSetStatusResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetStatusResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetStatusResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2120,6 +2299,17 @@ abstract class UserStatusSetStatusResponseApplicationJson
 sealed class $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2173,6 +2363,17 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusSetPredefinedMessageResponseApplicationJsonInterface {
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetPredefinedMessageResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2227,6 +2428,17 @@ abstract class UserStatusSetPredefinedMessageResponseApplicationJson
 sealed class $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Private get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2280,6 +2492,17 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusSetCustomMessageResponseApplicationJsonInterface {
   UserStatusSetCustomMessageResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetCustomMessageResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2334,6 +2557,17 @@ abstract class UserStatusSetCustomMessageResponseApplicationJson
 sealed class $UserStatusClearMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusClearMessageResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2387,6 +2621,17 @@ abstract class UserStatusClearMessageResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusClearMessageResponseApplicationJsonInterface {
   UserStatusClearMessageResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusClearMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusClearMessageResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusClearMessageResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusClearMessageResponseApplicationJsonInterfaceBuilder].
+  $UserStatusClearMessageResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusClearMessageResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2442,6 +2687,17 @@ typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Nev
 sealed class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusRevertStatusResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder].
+  $UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2497,6 +2753,17 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserStatusRevertStatusResponseApplicationJsonInterface {
   UserStatusRevertStatusResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusRevertStatusResponseApplicationJsonInterface rebuild(
+    void Function($UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder].
+  $UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2552,6 +2819,15 @@ sealed class $Capabilities_UserStatusInterface {
   bool get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_UserStatusInterfaceBuilder].
+  $Capabilities_UserStatusInterface rebuild(void Function($Capabilities_UserStatusInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities_UserStatusInterfaceBuilder].
+  $Capabilities_UserStatusInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_UserStatusInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2600,6 +2876,15 @@ abstract class Capabilities_UserStatus
 sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'user_status')
   Capabilities_UserStatus get userStatus;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

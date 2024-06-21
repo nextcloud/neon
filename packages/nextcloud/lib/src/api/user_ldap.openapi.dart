@@ -471,6 +471,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -516,6 +525,17 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 @BuiltValue(instantiable: false)
 sealed class $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface {
   String get configID;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJson_Ocs_DataInterface rebuild(
+    void Function($ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -569,6 +589,17 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs_Data
 sealed class $ConfigapiCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ConfigapiCreateResponseApplicationJson_Ocs_Data get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJson_OcsInterface rebuild(
+    void Function($ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiCreateResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -621,6 +652,17 @@ abstract class ConfigapiCreateResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ConfigapiCreateResponseApplicationJsonInterface {
   ConfigapiCreateResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiCreateResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJsonInterface rebuild(
+    void Function($ConfigapiCreateResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiCreateResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiCreateResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiCreateResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -736,6 +778,17 @@ class _$ConfigapiShowShowPasswordSerializer implements PrimitiveSerializer<Confi
 sealed class $ConfigapiShowResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiShowResponseApplicationJson_OcsInterface rebuild(
+    void Function($ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiShowResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -788,6 +841,17 @@ abstract class ConfigapiShowResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ConfigapiShowResponseApplicationJsonInterface {
   ConfigapiShowResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiShowResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiShowResponseApplicationJsonInterface rebuild(
+    void Function($ConfigapiShowResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiShowResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiShowResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiShowResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -840,6 +904,17 @@ abstract class ConfigapiShowResponseApplicationJson
 sealed class $ConfigapiModifyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiModifyResponseApplicationJson_OcsInterface rebuild(
+    void Function($ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiModifyResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -892,6 +967,17 @@ abstract class ConfigapiModifyResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ConfigapiModifyResponseApplicationJsonInterface {
   ConfigapiModifyResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiModifyResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiModifyResponseApplicationJsonInterface rebuild(
+    void Function($ConfigapiModifyResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiModifyResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiModifyResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiModifyResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -944,6 +1030,17 @@ abstract class ConfigapiModifyResponseApplicationJson
 sealed class $ConfigapiDeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiDeleteResponseApplicationJson_OcsInterface rebuild(
+    void Function($ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder].
+  $ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiDeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -996,6 +1093,17 @@ abstract class ConfigapiDeleteResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ConfigapiDeleteResponseApplicationJsonInterface {
   ConfigapiDeleteResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ConfigapiDeleteResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiDeleteResponseApplicationJsonInterface rebuild(
+    void Function($ConfigapiDeleteResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ConfigapiDeleteResponseApplicationJsonInterfaceBuilder].
+  $ConfigapiDeleteResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ConfigapiDeleteResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

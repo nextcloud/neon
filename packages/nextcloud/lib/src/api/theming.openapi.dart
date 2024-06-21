@@ -1080,6 +1080,17 @@ sealed class $ThemingGetManifestResponseApplicationJson_IconsInterface {
   String get src;
   String get type;
   String get sizes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder].
+  $ThemingGetManifestResponseApplicationJson_IconsInterface rebuild(
+    void Function($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder].
+  $ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1149,6 +1160,17 @@ sealed class $ThemingGetManifestResponseApplicationJsonInterface {
   String get description;
   BuiltList<ThemingGetManifestResponseApplicationJson_Icons> get icons;
   String get display;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ThemingGetManifestResponseApplicationJsonInterfaceBuilder].
+  $ThemingGetManifestResponseApplicationJsonInterface rebuild(
+    void Function($ThemingGetManifestResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ThemingGetManifestResponseApplicationJsonInterfaceBuilder].
+  $ThemingGetManifestResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ThemingGetManifestResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1205,6 +1227,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1251,6 +1282,17 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 sealed class $UserThemeEnableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder].
+  $UserThemeEnableThemeResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder].
+  $UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1303,6 +1345,17 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserThemeEnableThemeResponseApplicationJsonInterface {
   UserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder].
+  $UserThemeEnableThemeResponseApplicationJsonInterface rebuild(
+    void Function($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder].
+  $UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1356,6 +1409,17 @@ abstract class UserThemeEnableThemeResponseApplicationJson
 sealed class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder].
+  $UserThemeDisableThemeResponseApplicationJson_OcsInterface rebuild(
+    void Function($UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder].
+  $UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1409,6 +1473,17 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $UserThemeDisableThemeResponseApplicationJsonInterface {
   UserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder].
+  $UserThemeDisableThemeResponseApplicationJsonInterface rebuild(
+    void Function($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder].
+  $UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1480,6 +1555,15 @@ sealed class $PublicCapabilities_ThemingInterface {
   bool get backgroundDefault;
   String get logoheader;
   String get favicon;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PublicCapabilities_ThemingInterfaceBuilder].
+  $PublicCapabilities_ThemingInterface rebuild(void Function($PublicCapabilities_ThemingInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PublicCapabilities_ThemingInterfaceBuilder].
+  $PublicCapabilities_ThemingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilities_ThemingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1530,6 +1614,15 @@ abstract class PublicCapabilities_Theming
 @BuiltValue(instantiable: false)
 sealed class $PublicCapabilitiesInterface {
   PublicCapabilities_Theming get theming;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PublicCapabilitiesInterfaceBuilder].
+  $PublicCapabilitiesInterface rebuild(void Function($PublicCapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PublicCapabilitiesInterfaceBuilder].
+  $PublicCapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PublicCapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

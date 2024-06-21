@@ -35,6 +35,15 @@ sealed class $OneValueSomeOfInObjectInterface {
   num get intDouble;
   @BuiltValueField(wireName: 'IntDoubleString')
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OneValueSomeOfInObjectInterfaceBuilder].
+  $OneValueSomeOfInObjectInterface rebuild(void Function($OneValueSomeOfInObjectInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OneValueSomeOfInObjectInterfaceBuilder].
+  $OneValueSomeOfInObjectInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OneValueSomeOfInObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

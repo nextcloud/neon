@@ -883,6 +883,15 @@ class $Client extends _i1.DynamiteClient {
 @BuiltValue(instantiable: false)
 sealed class $CheckResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CheckResponseApplicationJsonInterfaceBuilder].
+  $CheckResponseApplicationJsonInterface rebuild(void Function($CheckResponseApplicationJsonInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CheckResponseApplicationJsonInterfaceBuilder].
+  $CheckResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CheckResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -933,6 +942,17 @@ abstract class CheckResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $SetKeepaliveResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SetKeepaliveResponseApplicationJsonInterfaceBuilder].
+  $SetKeepaliveResponseApplicationJsonInterface rebuild(
+    void Function($SetKeepaliveResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SetKeepaliveResponseApplicationJsonInterfaceBuilder].
+  $SetKeepaliveResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SetKeepaliveResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -985,6 +1005,17 @@ abstract class SetKeepaliveResponseApplicationJson
 sealed class $CreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CreateDeviceResponseApplicationJsonInterfaceBuilder].
+  $CreateDeviceResponseApplicationJsonInterface rebuild(
+    void Function($CreateDeviceResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$CreateDeviceResponseApplicationJsonInterfaceBuilder].
+  $CreateDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CreateDeviceResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1036,6 +1067,17 @@ abstract class CreateDeviceResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $SyncDeviceResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SyncDeviceResponseApplicationJsonInterfaceBuilder].
+  $SyncDeviceResponseApplicationJsonInterface rebuild(
+    void Function($SyncDeviceResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SyncDeviceResponseApplicationJsonInterfaceBuilder].
+  $SyncDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SyncDeviceResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1086,6 +1128,17 @@ abstract class SyncDeviceResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $DeleteDeviceResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeleteDeviceResponseApplicationJsonInterfaceBuilder].
+  $DeleteDeviceResponseApplicationJsonInterface rebuild(
+    void Function($DeleteDeviceResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeleteDeviceResponseApplicationJsonInterfaceBuilder].
+  $DeleteDeviceResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeleteDeviceResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1138,6 +1191,17 @@ abstract class DeleteDeviceResponseApplicationJson
 sealed class $CreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CreateAppResponseApplicationJsonInterfaceBuilder].
+  $CreateAppResponseApplicationJsonInterface rebuild(
+    void Function($CreateAppResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$CreateAppResponseApplicationJsonInterfaceBuilder].
+  $CreateAppResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CreateAppResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1188,6 +1252,17 @@ abstract class CreateAppResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $DeleteAppResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeleteAppResponseApplicationJsonInterfaceBuilder].
+  $DeleteAppResponseApplicationJsonInterface rebuild(
+    void Function($DeleteAppResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeleteAppResponseApplicationJsonInterfaceBuilder].
+  $DeleteAppResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeleteAppResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1238,6 +1313,17 @@ abstract class DeleteAppResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder].
+  $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
+    void Function($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder].
+  $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1291,6 +1377,17 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 @BuiltValue(instantiable: false)
 sealed class $UnifiedpushDiscoveryResponseApplicationJsonInterface {
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder].
+  $UnifiedpushDiscoveryResponseApplicationJsonInterface rebuild(
+    void Function($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder].
+  $UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1343,6 +1440,15 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $PushResponseApplicationJsonInterface {
   bool get success;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PushResponseApplicationJsonInterfaceBuilder].
+  $PushResponseApplicationJsonInterface rebuild(void Function($PushResponseApplicationJsonInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$PushResponseApplicationJsonInterfaceBuilder].
+  $PushResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PushResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1393,6 +1499,17 @@ abstract class PushResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder].
+  $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface rebuild(
+    void Function($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder].
+  $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1446,6 +1563,17 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 @BuiltValue(instantiable: false)
 sealed class $GatewayMatrixDiscoveryResponseApplicationJsonInterface {
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder].
+  $GatewayMatrixDiscoveryResponseApplicationJsonInterface rebuild(
+    void Function($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder].
+  $GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1498,6 +1626,17 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $GatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GatewayMatrixResponseApplicationJsonInterfaceBuilder].
+  $GatewayMatrixResponseApplicationJsonInterface rebuild(
+    void Function($GatewayMatrixResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GatewayMatrixResponseApplicationJsonInterfaceBuilder].
+  $GatewayMatrixResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($GatewayMatrixResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

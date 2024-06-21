@@ -1441,6 +1441,15 @@ class $Client extends _i1.DynamiteClient {
 @BuiltValue(instantiable: false)
 sealed class $SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SupportedAPIVersionsInterfaceBuilder].
+  $SupportedAPIVersionsInterface rebuild(void Function($SupportedAPIVersionsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$SupportedAPIVersionsInterfaceBuilder].
+  $SupportedAPIVersionsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SupportedAPIVersionsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1507,6 +1516,15 @@ sealed class $ArticleInterface {
   bool get rtl;
   String get fingerprint;
   String get contentHash;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ArticleInterfaceBuilder].
+  $ArticleInterface rebuild(void Function($ArticleInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ArticleInterfaceBuilder].
+  $ArticleInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ArticleInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1564,6 +1582,15 @@ sealed class $FeedInterface {
   int get updateErrorCount;
   String? get lastUpdateError;
   BuiltList<Article> get items;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FeedInterfaceBuilder].
+  $FeedInterface rebuild(void Function($FeedInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$FeedInterfaceBuilder].
+  $FeedInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FeedInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1615,6 +1642,15 @@ sealed class $FolderInterface {
   /// This seems to be broken. In testing it is always empty.
   @Deprecated('')
   BuiltList<Feed> get feeds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$FolderInterfaceBuilder].
+  $FolderInterface rebuild(void Function($FolderInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$FolderInterfaceBuilder].
+  $FolderInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($FolderInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1660,6 +1696,15 @@ abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> 
 @BuiltValue(instantiable: false)
 sealed class $ListFoldersInterface {
   BuiltList<Folder> get folders;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ListFoldersInterfaceBuilder].
+  $ListFoldersInterface rebuild(void Function($ListFoldersInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ListFoldersInterfaceBuilder].
+  $ListFoldersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ListFoldersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1707,6 +1752,15 @@ sealed class $ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
   BuiltList<Feed> get feeds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ListFeedsInterfaceBuilder].
+  $ListFeedsInterface rebuild(void Function($ListFeedsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ListFeedsInterfaceBuilder].
+  $ListFeedsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ListFeedsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1752,6 +1806,15 @@ abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFe
 @BuiltValue(instantiable: false)
 sealed class $ListArticlesInterface {
   BuiltList<Article> get items;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ListArticlesInterfaceBuilder].
+  $ListArticlesInterface rebuild(void Function($ListArticlesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ListArticlesInterfaceBuilder].
+  $ListArticlesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ListArticlesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1801,6 +1864,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1847,6 +1919,15 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 sealed class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$EmptyOCS_OcsInterfaceBuilder].
+  $EmptyOCS_OcsInterface rebuild(void Function($EmptyOCS_OcsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$EmptyOCS_OcsInterfaceBuilder].
+  $EmptyOCS_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCS_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1892,6 +1973,15 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 @BuiltValue(instantiable: false)
 sealed class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$EmptyOCSInterfaceBuilder].
+  $EmptyOCSInterface rebuild(void Function($EmptyOCSInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$EmptyOCSInterfaceBuilder].
+  $EmptyOCSInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCSInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

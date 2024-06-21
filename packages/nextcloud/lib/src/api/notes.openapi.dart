@@ -723,6 +723,15 @@ sealed class $NoteInterface {
   int get modified;
   bool get error;
   String get errorType;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$NoteInterfaceBuilder].
+  $NoteInterface rebuild(void Function($NoteInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$NoteInterfaceBuilder].
+  $NoteInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($NoteInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -836,6 +845,15 @@ sealed class $SettingsInterface {
   String get notesPath;
   String get fileSuffix;
   Settings_NoteMode get noteMode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SettingsInterfaceBuilder].
+  $SettingsInterface rebuild(void Function($SettingsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$SettingsInterfaceBuilder].
+  $SettingsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SettingsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -883,6 +901,15 @@ sealed class $Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_NotesInterfaceBuilder].
+  $Capabilities_NotesInterface rebuild(void Function($Capabilities_NotesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities_NotesInterfaceBuilder].
+  $Capabilities_NotesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_NotesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -930,6 +957,15 @@ abstract class Capabilities_Notes
 @BuiltValue(instantiable: false)
 sealed class $CapabilitiesInterface {
   Capabilities_Notes get notes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -979,6 +1015,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1025,6 +1070,15 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 sealed class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$EmptyOCS_OcsInterfaceBuilder].
+  $EmptyOCS_OcsInterface rebuild(void Function($EmptyOCS_OcsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$EmptyOCS_OcsInterfaceBuilder].
+  $EmptyOCS_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCS_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -1070,6 +1124,15 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
 @BuiltValue(instantiable: false)
 sealed class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$EmptyOCSInterfaceBuilder].
+  $EmptyOCSInterface rebuild(void Function($EmptyOCSInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$EmptyOCSInterfaceBuilder].
+  $EmptyOCSInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($EmptyOCSInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)

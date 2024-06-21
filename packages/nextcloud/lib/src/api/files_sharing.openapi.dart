@@ -2366,6 +2366,15 @@ sealed class $OCSMetaInterface {
   String? get message;
   String? get totalitems;
   String? get itemsperpage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterface rebuild(void Function($OCSMetaInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$OCSMetaInterfaceBuilder].
+  $OCSMetaInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($OCSMetaInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2443,6 +2452,15 @@ sealed class $DeletedShareInterface {
   String? get shareWithDisplayname;
   @BuiltValueField(wireName: 'share_with_link')
   String? get shareWithLink;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedShareInterfaceBuilder].
+  $DeletedShareInterface rebuild(void Function($DeletedShareInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$DeletedShareInterfaceBuilder].
+  $DeletedShareInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeletedShareInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2489,6 +2507,17 @@ abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShar
 sealed class $DeletedShareapiIndexResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<DeletedShare> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder].
+  $DeletedShareapiIndexResponseApplicationJson_OcsInterface rebuild(
+    void Function($DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder].
+  $DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2541,6 +2570,17 @@ abstract class DeletedShareapiIndexResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DeletedShareapiIndexResponseApplicationJsonInterface {
   DeletedShareapiIndexResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder].
+  $DeletedShareapiIndexResponseApplicationJsonInterface rebuild(
+    void Function($DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder].
+  $DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeletedShareapiIndexResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2594,6 +2634,17 @@ abstract class DeletedShareapiIndexResponseApplicationJson
 sealed class $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder].
+  $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface rebuild(
+    void Function($DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder].
+  $DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2647,6 +2698,17 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $DeletedShareapiUndeleteResponseApplicationJsonInterface {
   DeletedShareapiUndeleteResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder].
+  $DeletedShareapiUndeleteResponseApplicationJsonInterface rebuild(
+    void Function($DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder].
+  $DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2781,6 +2843,15 @@ sealed class $RemoteShareInterface {
   int get shareType;
   String? get type;
   String get user;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteShareInterfaceBuilder].
+  $RemoteShareInterface rebuild(void Function($RemoteShareInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$RemoteShareInterfaceBuilder].
+  $RemoteShareInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteShareInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2827,6 +2898,17 @@ abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, 
 sealed class $RemoteGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetSharesResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2879,6 +2961,17 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteGetSharesResponseApplicationJsonInterface {
   RemoteGetSharesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetSharesResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetSharesResponseApplicationJsonInterface rebuild(
+    void Function($RemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetSharesResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetSharesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2931,6 +3024,17 @@ abstract class RemoteGetSharesResponseApplicationJson
 sealed class $RemoteGetOpenSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<RemoteShare> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetOpenSharesResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -2983,6 +3087,17 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteGetOpenSharesResponseApplicationJsonInterface {
   RemoteGetOpenSharesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetOpenSharesResponseApplicationJsonInterface rebuild(
+    void Function($RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3036,6 +3151,17 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
 sealed class $RemoteAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteAcceptShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3088,6 +3214,17 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteAcceptShareResponseApplicationJsonInterface {
   RemoteAcceptShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteAcceptShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteAcceptShareResponseApplicationJsonInterface rebuild(
+    void Function($RemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteAcceptShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3141,6 +3278,17 @@ abstract class RemoteAcceptShareResponseApplicationJson
 sealed class $RemoteDeclineShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteDeclineShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3193,6 +3341,17 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteDeclineShareResponseApplicationJsonInterface {
   RemoteDeclineShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteDeclineShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteDeclineShareResponseApplicationJsonInterface rebuild(
+    void Function($RemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteDeclineShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteDeclineShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteDeclineShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3246,6 +3405,17 @@ abstract class RemoteDeclineShareResponseApplicationJson
 sealed class $RemoteGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RemoteShare get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3298,6 +3468,17 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteGetShareResponseApplicationJsonInterface {
   RemoteGetShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteGetShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetShareResponseApplicationJsonInterface rebuild(
+    void Function($RemoteGetShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteGetShareResponseApplicationJsonInterfaceBuilder].
+  $RemoteGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteGetShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3350,6 +3531,17 @@ abstract class RemoteGetShareResponseApplicationJson
 sealed class $RemoteUnshareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteUnshareResponseApplicationJson_OcsInterface rebuild(
+    void Function($RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder].
+  $RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3402,6 +3594,17 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $RemoteUnshareResponseApplicationJsonInterface {
   RemoteUnshareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$RemoteUnshareResponseApplicationJsonInterfaceBuilder].
+  $RemoteUnshareResponseApplicationJsonInterface rebuild(
+    void Function($RemoteUnshareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$RemoteUnshareResponseApplicationJsonInterfaceBuilder].
+  $RemoteUnshareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($RemoteUnshareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3462,6 +3665,15 @@ sealed class $ShareInfoInterface {
   String get type;
   String get etag;
   BuiltList<BuiltMap<String, JsonObject>>? get children;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareInfoInterfaceBuilder].
+  $ShareInfoInterface rebuild(void Function($ShareInfoInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareInfoInterfaceBuilder].
+  $ShareInfoInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareInfoInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3697,6 +3909,15 @@ sealed class $Share_StatusInterface {
   String? get icon;
   String? get message;
   String get status;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Share_StatusInterfaceBuilder].
+  $Share_StatusInterface rebuild(void Function($Share_StatusInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Share_StatusInterfaceBuilder].
+  $Share_StatusInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Share_StatusInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3808,6 +4029,15 @@ sealed class $ShareInterface {
   @BuiltValueField(wireName: 'uid_owner')
   String get uidOwner;
   String? get url;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareInterfaceBuilder].
+  $ShareInterface rebuild(void Function($ShareInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareInterfaceBuilder].
+  $ShareInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3854,6 +4084,17 @@ abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
 sealed class $ShareapiGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetSharesResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3906,6 +4147,17 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiGetSharesResponseApplicationJsonInterface {
   ShareapiGetSharesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetSharesResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetSharesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetSharesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -3959,6 +4211,17 @@ abstract class ShareapiGetSharesResponseApplicationJson
 sealed class $ShareapiCreateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiCreateShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4011,6 +4274,17 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiCreateShareResponseApplicationJsonInterface {
   ShareapiCreateShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiCreateShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiCreateShareResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiCreateShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiCreateShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiCreateShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4064,6 +4338,17 @@ abstract class ShareapiCreateShareResponseApplicationJson
 sealed class $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4117,6 +4402,17 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiGetInheritedSharesResponseApplicationJsonInterface {
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetInheritedSharesResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4171,6 +4467,17 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
 sealed class $ShareapiPendingSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Share> get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiPendingSharesResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4224,6 +4531,17 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiPendingSharesResponseApplicationJsonInterface {
   ShareapiPendingSharesResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiPendingSharesResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder].
+  $ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4340,6 +4658,17 @@ class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<Sha
 sealed class $ShareapiGetShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4392,6 +4721,17 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiGetShareResponseApplicationJsonInterface {
   ShareapiGetShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiGetShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetShareResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiGetShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiGetShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiGetShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4444,6 +4784,17 @@ abstract class ShareapiGetShareResponseApplicationJson
 sealed class $ShareapiUpdateShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Share get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiUpdateShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4496,6 +4847,17 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiUpdateShareResponseApplicationJsonInterface {
   ShareapiUpdateShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiUpdateShareResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4549,6 +4911,17 @@ abstract class ShareapiUpdateShareResponseApplicationJson
 sealed class $ShareapiDeleteShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiDeleteShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4601,6 +4974,17 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiDeleteShareResponseApplicationJsonInterface {
   ShareapiDeleteShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiDeleteShareResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4654,6 +5038,17 @@ abstract class ShareapiDeleteShareResponseApplicationJson
 sealed class $ShareapiAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiAcceptShareResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4706,6 +5101,17 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareapiAcceptShareResponseApplicationJsonInterface {
   ShareapiAcceptShareResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiAcceptShareResponseApplicationJsonInterface rebuild(
+    void Function($ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder].
+  $ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4824,6 +5230,15 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
 sealed class $ShareeInterface {
   int? get count;
   String get label;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeInterfaceBuilder].
+  $ShareeInterface rebuild(void Function($ShareeInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeInterfaceBuilder].
+  $ShareeInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4870,6 +5285,15 @@ abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> 
 sealed class $ShareeValueInterface {
   int get shareType;
   String get shareWith;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeValueInterfaceBuilder].
+  $ShareeValueInterface rebuild(void Function($ShareeValueInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeValueInterfaceBuilder].
+  $ShareeValueInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeValueInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -4915,6 +5339,17 @@ abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, 
 @BuiltValue(instantiable: false)
 sealed class $ShareeCircle_ValueInterface implements $ShareeValueInterface {
   String get circle;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeCircle_ValueInterfaceBuilder].
+  @override
+  $ShareeCircle_ValueInterface rebuild(void Function($ShareeCircle_ValueInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeCircle_ValueInterfaceBuilder].
+  @override
+  $ShareeCircle_ValueInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeCircle_ValueInterfaceBuilder b) {
     $ShareeValueInterface._defaults(b);
@@ -4968,6 +5403,17 @@ abstract class ShareeCircle_Value
 sealed class $ShareeCircleInterface implements $ShareeInterface {
   String get shareWithDescription;
   ShareeCircle_Value get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeCircleInterfaceBuilder].
+  @override
+  $ShareeCircleInterface rebuild(void Function($ShareeCircleInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeCircleInterfaceBuilder].
+  @override
+  $ShareeCircleInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeCircleInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5022,6 +5468,17 @@ sealed class $ShareeEmailInterface implements $ShareeInterface {
   String get type;
   String get shareWithDisplayNameUnique;
   ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeEmailInterfaceBuilder].
+  @override
+  $ShareeEmailInterface rebuild(void Function($ShareeEmailInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeEmailInterfaceBuilder].
+  @override
+  $ShareeEmailInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeEmailInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5072,6 +5529,17 @@ abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, 
 @BuiltValue(instantiable: false)
 sealed class $ShareeRemoteGroup_ValueInterface implements $ShareeValueInterface {
   String get server;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRemoteGroup_ValueInterfaceBuilder].
+  @override
+  $ShareeRemoteGroup_ValueInterface rebuild(void Function($ShareeRemoteGroup_ValueInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRemoteGroup_ValueInterfaceBuilder].
+  @override
+  $ShareeRemoteGroup_ValueInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeRemoteGroup_ValueInterfaceBuilder b) {
     $ShareeValueInterface._defaults(b);
@@ -5126,6 +5594,17 @@ sealed class $ShareeRemoteGroupInterface implements $ShareeInterface {
   String get guid;
   String get name;
   ShareeRemoteGroup_Value get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRemoteGroupInterfaceBuilder].
+  @override
+  $ShareeRemoteGroupInterface rebuild(void Function($ShareeRemoteGroupInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRemoteGroupInterfaceBuilder].
+  @override
+  $ShareeRemoteGroupInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeRemoteGroupInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5177,6 +5656,17 @@ abstract class ShareeRemoteGroup
 @BuiltValue(instantiable: false)
 sealed class $ShareeRemote_ValueInterface implements $ShareeValueInterface {
   String get server;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRemote_ValueInterfaceBuilder].
+  @override
+  $ShareeRemote_ValueInterface rebuild(void Function($ShareeRemote_ValueInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRemote_ValueInterfaceBuilder].
+  @override
+  $ShareeRemote_ValueInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeRemote_ValueInterfaceBuilder b) {
     $ShareeValueInterface._defaults(b);
@@ -5232,6 +5722,17 @@ sealed class $ShareeRemoteInterface implements $ShareeInterface {
   String get name;
   String get type;
   ShareeRemote_Value get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeRemoteInterfaceBuilder].
+  @override
+  $ShareeRemoteInterface rebuild(void Function($ShareeRemoteInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeRemoteInterfaceBuilder].
+  @override
+  $ShareeRemoteInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeRemoteInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5285,6 +5786,15 @@ sealed class $ShareeUser_StatusInterface {
   String get message;
   String get icon;
   int? get clearAt;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeUser_StatusInterfaceBuilder].
+  $ShareeUser_StatusInterface rebuild(void Function($ShareeUser_StatusInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeUser_StatusInterfaceBuilder].
+  $ShareeUser_StatusInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeUser_StatusInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5335,6 +5845,17 @@ sealed class $ShareeUserInterface implements $ShareeInterface {
   String get shareWithDisplayNameUnique;
   ShareeUser_Status get status;
   ShareeValue get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeUserInterfaceBuilder].
+  @override
+  $ShareeUserInterface rebuild(void Function($ShareeUserInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeUserInterfaceBuilder].
+  @override
+  $ShareeUserInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeUserInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5392,6 +5913,15 @@ sealed class $ShareesSearchResult_ExactInterface {
   BuiltList<ShareeRemote> get remotes;
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesSearchResult_ExactInterfaceBuilder].
+  $ShareesSearchResult_ExactInterface rebuild(void Function($ShareesSearchResult_ExactInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareesSearchResult_ExactInterfaceBuilder].
+  $ShareesSearchResult_ExactInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesSearchResult_ExactInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5440,6 +5970,15 @@ abstract class ShareesSearchResult_Exact
 sealed class $LookupInterface {
   String get value;
   int get verified;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$LookupInterfaceBuilder].
+  $LookupInterface rebuild(void Function($LookupInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$LookupInterfaceBuilder].
+  $LookupInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LookupInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5496,6 +6035,15 @@ sealed class $ShareeLookup_ExtraInterface {
   @BuiltValueField(wireName: 'website_signature')
   Lookup? get websiteSignature;
   Lookup? get userid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeLookup_ExtraInterfaceBuilder].
+  $ShareeLookup_ExtraInterface rebuild(void Function($ShareeLookup_ExtraInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeLookup_ExtraInterfaceBuilder].
+  $ShareeLookup_ExtraInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeLookup_ExtraInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5543,6 +6091,17 @@ abstract class ShareeLookup_Extra
 @BuiltValue(instantiable: false)
 sealed class $ShareeLookup_ValueInterface implements $ShareeValueInterface {
   bool get globalScale;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeLookup_ValueInterfaceBuilder].
+  @override
+  $ShareeLookup_ValueInterface rebuild(void Function($ShareeLookup_ValueInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeLookup_ValueInterfaceBuilder].
+  @override
+  $ShareeLookup_ValueInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeLookup_ValueInterfaceBuilder b) {
     $ShareeValueInterface._defaults(b);
@@ -5596,6 +6155,17 @@ abstract class ShareeLookup_Value
 sealed class $ShareeLookupInterface implements $ShareeInterface {
   ShareeLookup_Extra get extra;
   ShareeLookup_Value get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareeLookupInterfaceBuilder].
+  @override
+  $ShareeLookupInterface rebuild(void Function($ShareeLookupInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareeLookupInterfaceBuilder].
+  @override
+  $ShareeLookupInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareeLookupInterfaceBuilder b) {
     $ShareeInterface._defaults(b);
@@ -5656,6 +6226,15 @@ sealed class $ShareesSearchResultInterface {
   BuiltList<Sharee> get rooms;
   BuiltList<ShareeUser> get users;
   bool get lookupEnabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesSearchResultInterfaceBuilder].
+  $ShareesSearchResultInterface rebuild(void Function($ShareesSearchResultInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareesSearchResultInterfaceBuilder].
+  $ShareesSearchResultInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesSearchResultInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5704,6 +6283,17 @@ abstract class ShareesSearchResult
 sealed class $ShareesapiSearchResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesSearchResult get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareesapiSearchResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5756,6 +6346,17 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareesapiSearchResponseApplicationJsonInterface {
   ShareesapiSearchResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiSearchResponseApplicationJsonInterfaceBuilder].
+  $ShareesapiSearchResponseApplicationJsonInterface rebuild(
+    void Function($ShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiSearchResponseApplicationJsonInterfaceBuilder].
+  $ShareesapiSearchResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesapiSearchResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5807,6 +6408,17 @@ abstract class ShareesapiSearchResponseApplicationJson
 @BuiltValue(instantiable: false)
 sealed class $ShareesapiShareesapiSearchHeadersInterface {
   String? get link;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiShareesapiSearchHeadersInterfaceBuilder].
+  $ShareesapiShareesapiSearchHeadersInterface rebuild(
+    void Function($ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiShareesapiSearchHeadersInterfaceBuilder].
+  $ShareesapiShareesapiSearchHeadersInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesapiShareesapiSearchHeadersInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5864,6 +6476,17 @@ sealed class $ShareesRecommendedResult_ExactInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesRecommendedResult_ExactInterfaceBuilder].
+  $ShareesRecommendedResult_ExactInterface rebuild(
+    void Function($ShareesRecommendedResult_ExactInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesRecommendedResult_ExactInterfaceBuilder].
+  $ShareesRecommendedResult_ExactInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesRecommendedResult_ExactInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5920,6 +6543,15 @@ sealed class $ShareesRecommendedResultInterface {
   BuiltList<ShareeRemoteGroup> get remoteGroups;
   BuiltList<ShareeRemote> get remotes;
   BuiltList<ShareeUser> get users;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesRecommendedResultInterfaceBuilder].
+  $ShareesRecommendedResultInterface rebuild(void Function($ShareesRecommendedResultInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ShareesRecommendedResultInterfaceBuilder].
+  $ShareesRecommendedResultInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesRecommendedResultInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -5968,6 +6600,17 @@ abstract class ShareesRecommendedResult
 sealed class $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ShareesRecommendedResult get data;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface rebuild(
+    void Function($ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder].
+  $ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6021,6 +6664,17 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
 @BuiltValue(instantiable: false)
 sealed class $ShareesapiFindRecommendedResponseApplicationJsonInterface {
   ShareesapiFindRecommendedResponseApplicationJson_Ocs get ocs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder].
+  $ShareesapiFindRecommendedResponseApplicationJsonInterface rebuild(
+    void Function($ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder].
+  $ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6075,6 +6729,17 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
 sealed class $Capabilities_FilesSharing_Public_PasswordInterface {
   bool get enforced;
   bool get askForOptionalPassword;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Public_PasswordInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_PasswordInterface rebuild(
+    void Function($Capabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Public_PasswordInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_PasswordInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Public_PasswordInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6129,6 +6794,17 @@ sealed class $Capabilities_FilesSharing_Public_ExpireDateInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateInterface rebuild(
+    void Function($Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6183,6 +6859,17 @@ sealed class $Capabilities_FilesSharing_Public_ExpireDateInternalInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateInternalInterface rebuild(
+    void Function($Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6238,6 +6925,17 @@ sealed class $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface {
   bool get enabled;
   int? get days;
   bool? get enforced;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface rebuild(
+    void Function($Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder].
+  $Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6305,6 +7003,17 @@ sealed class $Capabilities_FilesSharing_PublicInterface {
   bool? get upload;
   @BuiltValueField(wireName: 'upload_files_drop')
   bool? get uploadFilesDrop;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_PublicInterfaceBuilder].
+  $Capabilities_FilesSharing_PublicInterface rebuild(
+    void Function($Capabilities_FilesSharing_PublicInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_PublicInterfaceBuilder].
+  $Capabilities_FilesSharing_PublicInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_PublicInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6355,6 +7064,17 @@ abstract class Capabilities_FilesSharing_Public
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesSharing_User_ExpireDateInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_User_ExpireDateInterface rebuild(
+    void Function($Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6410,6 +7130,17 @@ sealed class $Capabilities_FilesSharing_UserInterface {
   bool get sendMail;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_User_ExpireDate? get expireDate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_UserInterfaceBuilder].
+  $Capabilities_FilesSharing_UserInterface rebuild(
+    void Function($Capabilities_FilesSharing_UserInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_UserInterfaceBuilder].
+  $Capabilities_FilesSharing_UserInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_UserInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6460,6 +7191,17 @@ abstract class Capabilities_FilesSharing_User
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesSharing_Group_ExpireDateInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Group_ExpireDateInterface rebuild(
+    void Function($Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6514,6 +7256,17 @@ sealed class $Capabilities_FilesSharing_GroupInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'expire_date')
   Capabilities_FilesSharing_Group_ExpireDate? get expireDate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_GroupInterfaceBuilder].
+  $Capabilities_FilesSharing_GroupInterface rebuild(
+    void Function($Capabilities_FilesSharing_GroupInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_GroupInterfaceBuilder].
+  $Capabilities_FilesSharing_GroupInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_GroupInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6564,6 +7317,17 @@ abstract class Capabilities_FilesSharing_Group
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesSharing_Federation_ExpireDateInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Federation_ExpireDateInterface rebuild(
+    void Function($Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder].
+  $Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6616,6 +7380,17 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
 @BuiltValue(instantiable: false)
 sealed class $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface {
   bool get enabled;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder].
+  $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface rebuild(
+    void Function($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder].
+  $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6674,6 +7449,17 @@ sealed class $Capabilities_FilesSharing_FederationInterface {
   Capabilities_FilesSharing_Federation_ExpireDate get expireDate;
   @BuiltValueField(wireName: 'expire_date_supported')
   Capabilities_FilesSharing_Federation_ExpireDateSupported get expireDateSupported;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_FederationInterfaceBuilder].
+  $Capabilities_FilesSharing_FederationInterface rebuild(
+    void Function($Capabilities_FilesSharing_FederationInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_FederationInterfaceBuilder].
+  $Capabilities_FilesSharing_FederationInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_FederationInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6728,6 +7514,17 @@ sealed class $Capabilities_FilesSharing_ShareeInterface {
   bool get queryLookupDefault;
   @BuiltValueField(wireName: 'always_show_unique')
   bool get alwaysShowUnique;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharing_ShareeInterfaceBuilder].
+  $Capabilities_FilesSharing_ShareeInterface rebuild(
+    void Function($Capabilities_FilesSharing_ShareeInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharing_ShareeInterfaceBuilder].
+  $Capabilities_FilesSharing_ShareeInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharing_ShareeInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6789,6 +7586,15 @@ sealed class $Capabilities_FilesSharingInterface {
   int? get defaultPermissions;
   Capabilities_FilesSharing_Federation get federation;
   Capabilities_FilesSharing_Sharee get sharee;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$Capabilities_FilesSharingInterfaceBuilder].
+  $Capabilities_FilesSharingInterface rebuild(void Function($Capabilities_FilesSharingInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$Capabilities_FilesSharingInterfaceBuilder].
+  $Capabilities_FilesSharingInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($Capabilities_FilesSharingInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
@@ -6837,6 +7643,15 @@ abstract class Capabilities_FilesSharing
 sealed class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities_FilesSharing get filesSharing;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterface rebuild(void Function($CapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$CapabilitiesInterfaceBuilder].
+  $CapabilitiesInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($CapabilitiesInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
