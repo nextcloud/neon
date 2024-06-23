@@ -48,21 +48,33 @@ class TalkRichObjectFilePreview extends StatelessWidget {
           deviceSize = logicalSize * devicePixelRatio;
         }
 
+        final account = NeonProvider.of<Account>(context);
+        Widget image;
+        if (parameter.mimetype == 'image/gif') {
+          // Previews for animated GIFs are not animated, so we have to request the full file.
+          image = NeonUriImage(
+            account: account,
+            uri: Uri.parse('${account.serverURL}/remote.php/dav/files/${account.username}/${parameter.path!}'),
+          );
+        } else {
+          image = NeonApiImage(
+            account: account,
+            cacheKey: 'preview-${parameter.path!}-${deviceSize.width.toInt()}-${deviceSize.height.toInt()}',
+            etag: parameter.etag,
+            expires: null,
+            getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
+              fileId: int.parse(parameter.id),
+              x: deviceSize.width.toInt(),
+              y: deviceSize.height.toInt(),
+            ),
+          );
+        }
+
         return ConstrainedBox(
           constraints: logicalSize != null ? BoxConstraints.tight(logicalSize) : BoxConstraints.loose(maxSize),
           child: Tooltip(
             message: parameter.name,
-            child: NeonApiImage(
-              account: NeonProvider.of<Account>(context),
-              cacheKey: 'preview-${parameter.path!}-${deviceSize.width.toInt()}-${deviceSize.height.toInt()}',
-              etag: parameter.etag,
-              expires: null,
-              getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
-                fileId: int.parse(parameter.id),
-                x: deviceSize.width.toInt(),
-                y: deviceSize.height.toInt(),
-              ),
-            ),
+            child: image,
           ),
         );
       },
