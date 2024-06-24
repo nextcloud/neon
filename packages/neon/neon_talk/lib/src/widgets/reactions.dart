@@ -45,9 +45,10 @@ class TalkReactions extends StatelessWidget {
                 avatar: Text(reaction.key),
                 label: Text(
                   reaction.value.toString(),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 12,
                     fontFamily: 'monospace',
+                    color: isSelf ? Theme.of(context).colorScheme.onPrimary : null,
                   ),
                 ),
                 tooltip: reactions?[reaction.key]?.map((r) => r.actorDisplayName).join(', ') ??
