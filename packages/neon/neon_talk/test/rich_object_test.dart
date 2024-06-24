@@ -31,6 +31,7 @@ void main() {
   setUp(() {
     account = MockAccount();
     when(() => account.username).thenReturn('username');
+    when(() => account.serverURL).thenReturn(Uri.parse('http://example.com'));
     when(() => account.client).thenReturn(
       NextcloudClient(
         Uri(),
@@ -418,6 +419,37 @@ void main() {
         findsOne,
       );
       expect(find.byTooltip('name'), findsOne);
+    });
+
+    testWidgets('Full image for animated GIF', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = ''
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..path = 'path'
+                ..mimetype = 'image/gif',
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is NeonUriImage &&
+              widget.uri.toString() == 'http://example.com/remote.php/dav/files/username/path',
+        ),
+        findsOne,
+      );
     });
   });
 
