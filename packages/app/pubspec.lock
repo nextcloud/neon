@@ -109,10 +109,10 @@ packages:
     dependency: transitive
     description:
       name: camera_android_camerax
-      sha256: "7d84815edbb8304b51c10deba3c20f44eef80aa46ff156ec45428ed16600b49a"
+      sha256: "7abb0faddbf103c59365e805ad9a30ab4d602b2eb7a8de469697945fd4a69daa"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.5+5"
+    version: "0.6.5+6"
   camera_avfoundation:
     dependency: transitive
     description:
@@ -300,10 +300,10 @@ packages:
     dependency: transitive
     description:
       name: dev_build
-      sha256: "863842423cffd927af831b6b576cd391b5f5de2f3f62b83c25ca970af96ee708"
+      sha256: "4a4c8e3aaaaa9a7de4039dc711ee573de5612a35a4469d01ecf30e5ae74cbcfd"
       url: "https://pub.dev"
     source: hosted
-    version: "0.16.7+3"
+    version: "0.16.7+4"
   dynamic_color:
     dependency: transitive
     description:
@@ -516,10 +516,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_markdown
-      sha256: ff76a9300a06ad1f2b394e54c0b4beaaf6a95f95c98540c918b870221499bb10
+      sha256: "85cc6f7daeae537844c92e2d56e2aff61b00095f8f77913b529ea4be12fc45ea"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.2"
+    version: "0.7.2+1"
   flutter_material_design_icons:
     dependency: transitive
     description:
@@ -957,10 +957,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "9c96da072b421e98183f9ea7464898428e764bc0ce5567f27ec8693442e72514"
+      sha256: bca87b0165ffd7cdb9cad8edd22d18d2201e886d9a9f19b4fb3452ea7df3a72a
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.5"
+    version: "2.2.6"
   path_provider_foundation:
     dependency: transitive
     description:
@@ -1165,18 +1165,18 @@ packages:
     dependency: transitive
     description:
       name: quick_actions_android
-      sha256: cfb55d5d995bb5ed5699379d82941557e9f7fc4beb22286183b45feb77c07b01
+      sha256: "554914f18f4d7142aefcdbe0ba8e0a92303e4418264d213b5d0beedd43d7ced3"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.13"
+    version: "1.0.14"
   quick_actions_ios:
     dependency: transitive
     description:
       name: quick_actions_ios
-      sha256: "65f519b689926161eaf483001c8b6cadb3d45eea9e4ede7a143a13c2472af0e2"
+      sha256: "402596dea62a1028960b93f7651ec22be0e2a91e4fbf92a1c62d3b95f8ff95a5"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   quick_actions_platform_interface:
     dependency: transitive
     description:
@@ -1353,10 +1353,10 @@ packages:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: b384f598b813b347c5a7e5ffad82cbaff1bec3d1561af267041e66f6f0899295
+      sha256: "6d17989c0b06a5870b2190d391925186f944cb943e5262d0d3f778fcfca3bc6e"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.3"
+    version: "2.4.4"
   stack_trace:
     dependency: transitive
     description:
