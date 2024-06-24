@@ -220,12 +220,18 @@ class TalkMessagePreview extends StatelessWidget {
 class TalkMessage extends StatelessWidget {
   /// Creates a new Talk message.
   const TalkMessage({
+    required this.room,
     required this.chatMessage,
     required this.lastCommonRead,
     this.previousChatMessage,
     this.isParent = false,
     super.key,
   });
+
+  /// {@template TalkMessage.room}
+  /// The room where the [chatMessage] is in.
+  /// {@endtemplate}
+  final spreed.Room room;
 
   /// {@template TalkMessage.chatMessage}
   /// The chat message to display.
@@ -255,6 +261,7 @@ class TalkMessage extends StatelessWidget {
     }
 
     return TalkCommentMessage(
+      room: room,
       chatMessage: chatMessage,
       lastCommonRead: lastCommonRead,
       previousChatMessage: previousChatMessage,
@@ -300,10 +307,14 @@ class TalkSystemMessage extends StatelessWidget {
 class TalkParentMessage extends StatelessWidget {
   /// Creates a new Talk parent message.
   const TalkParentMessage({
+    required this.room,
     required this.parentChatMessage,
     required this.lastCommonRead,
     super.key,
   });
+
+  /// {@macro TalkMessage.room}
+  final spreed.Room room;
 
   /// The parent chat message.
   ///
@@ -327,6 +338,7 @@ class TalkParentMessage extends StatelessWidget {
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: TalkMessage(
+        room: room,
         chatMessage: parentChatMessage,
         lastCommonRead: lastCommonRead,
         isParent: true,
@@ -339,12 +351,16 @@ class TalkParentMessage extends StatelessWidget {
 class TalkCommentMessage extends StatefulWidget {
   /// Creates a new Talk comment message.
   const TalkCommentMessage({
+    required this.room,
     required this.chatMessage,
     required this.lastCommonRead,
     this.previousChatMessage,
     this.isParent = false,
     super.key,
   });
+
+  /// {@macro TalkMessage.room}
+  final spreed.Room room;
 
   /// {@macro TalkMessage.chatMessage}
   final spreed.$ChatMessageInterface chatMessage;
@@ -419,6 +435,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           messageType: != spreed.MessageType.commentDeleted,
         ) when p != null && !widget.isParent) {
       parent = TalkParentMessage(
+        room: widget.room,
         parentChatMessage: p,
         lastCommonRead: widget.lastCommonRead,
       );
@@ -540,7 +557,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
               SizedBox.square(
                 dimension: 32,
                 child: widget.chatMessage.messageType != spreed.MessageType.commentDeleted && (hoverState || menuOpen)
-                    ? _buildPopupMenuButton(widget.chatMessage)
+                    ? _buildPopupMenuButton(
+                        widget.room,
+                        widget.chatMessage,
+                      )
                     : null,
               ),
             ],
@@ -558,9 +578,16 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     );
   }
 
-  Widget? _buildPopupMenuButton(spreed.$ChatMessageInterface chatMessage) {
+  Widget? _buildPopupMenuButton(
+    spreed.Room room,
+    spreed.$ChatMessageInterface chatMessage,
+  ) {
+    final readOnly = room.readOnly == 1;
+    final permissions = spreed.ParticipantPermission.values.byBinary(room.permissions);
+    final hasChatPermission = permissions.contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
+
     final children = [
-      if (chatMessage.messageType != spreed.MessageType.commentDeleted)
+      if (chatMessage.isReplyable && !readOnly && hasChatPermission)
         MenuItemButton(
           leadingIcon: const Icon(Icons.add_reaction_outlined),
           onPressed: () async {
@@ -581,7 +608,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           },
           child: Text(TalkLocalizations.of(context).roomMessageReaction),
         ),
-      if (chatMessage.isReplyable)
+      if (chatMessage.isReplyable && !readOnly && hasChatPermission)
         MenuItemButton(
           leadingIcon: const Icon(Icons.reply),
           child: Text(TalkLocalizations.of(context).roomMessageReply),

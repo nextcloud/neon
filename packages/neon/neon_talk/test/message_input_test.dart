@@ -14,6 +14,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/widgets/message_input.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,6 +49,7 @@ Account mockTalkAccount() {
 
 void main() {
   late TalkRoomBloc bloc;
+  late spreed.Room room;
 
   setUpAll(() {
     KeyboardVisibilityTesting.setVisibilityForTesting(true);
@@ -58,6 +60,8 @@ void main() {
 
     bloc = MockRoomBloc();
     when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
+
+    room = MockRoom();
   });
 
   testWidgets('Cupertino no emoji button', (tester) async {
@@ -69,8 +73,10 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
         platform: TargetPlatform.iOS,
-        child: const Material(
-          child: TalkMessageInput(),
+        child: Material(
+          child: TalkMessageInput(
+            room: room,
+          ),
         ),
       ),
     );
@@ -90,7 +96,9 @@ void main() {
         providers: [
           NeonProvider<TalkRoomBloc>.value(value: bloc),
         ],
-        child: const TalkMessageInput(),
+        child: TalkMessageInput(
+          room: room,
+        ),
       ),
     );
 
@@ -133,9 +141,11 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
           Provider<Account>.value(value: account),
         ],
-        child: const Align(
+        child: Align(
           alignment: Alignment.bottomCenter,
-          child: TalkMessageInput(),
+          child: TalkMessageInput(
+            room: room,
+          ),
         ),
       ),
     );
@@ -176,9 +186,11 @@ void main() {
           NeonProvider<TalkRoomBloc>.value(value: bloc),
           Provider<Account>.value(value: account),
         ],
-        child: const Align(
+        child: Align(
           alignment: Alignment.bottomCenter,
-          child: TalkMessageInput(),
+          child: TalkMessageInput(
+            room: room,
+          ),
         ),
       ),
     );
