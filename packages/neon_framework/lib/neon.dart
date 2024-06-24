@@ -15,11 +15,13 @@ import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
+import 'package:neon_framework/src/utils/timezone.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 /// Runs Neon with the given [appImplementations].
 ///
@@ -38,7 +40,12 @@ Future<void> runNeon({
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
   await NeonPlatform.instance.init();
-  tz.initializeTimeZones();
+  tzdata.initializeTimeZones();
+
+  final location = guessDeviceLocation();
+  if (location != null) {
+    tz.setLocalLocation(location);
+  }
 
   await NeonStorage().init();
 
