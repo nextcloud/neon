@@ -142,17 +142,14 @@ class WebDavClient {
 
   /// Request to put a new file at [path] with [localData] as content.
   ///
-  /// Setting [contentLength] is important because some web servers will consider the file to be empty otherwise.
-  /// It will be required in the next major release.
-  ///
   /// See:
   ///   * [putStream] for a complete operation executing this request.
   http.BaseRequest putStream_Request(
     Stream<List<int>> localData,
     PathUri path, {
+    required int contentLength,
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
     void Function(double progress)? onProgress,
   }) {
     final request = http.StreamedRequest('PUT', _constructUri(path));
@@ -165,7 +162,7 @@ class WebDavClient {
       contentLength: contentLength,
     );
 
-    if (contentLength != null && onProgress != null) {
+    if (onProgress != null) {
       var uploaded = 0;
 
       unawaited(
@@ -190,8 +187,6 @@ class WebDavClient {
   /// [created] sets the date when the file was created on the server.
   /// [contentLength] sets the length of the [localData] that is uploaded.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
-  /// Setting [contentLength] is important because some web servers will consider the file to be empty otherwise.
-  /// It will be required in the next major release.
   ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
@@ -199,9 +194,9 @@ class WebDavClient {
   Future<http.StreamedResponse> putStream(
     Stream<List<int>> localData,
     PathUri path, {
+    required int contentLength,
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
     void Function(double progress)? onProgress,
   }) {
     final request = putStream_Request(
@@ -575,9 +570,9 @@ class WebDavClient {
 
   static void _addUploadHeaders(
     http.BaseRequest request, {
+    required int contentLength,
     DateTime? lastModified,
     DateTime? created,
-    int? contentLength,
   }) {
     if (lastModified != null) {
       request.headers['X-OC-Mtime'] = lastModified.secondsSinceEpoch.toString();
@@ -585,9 +580,7 @@ class WebDavClient {
     if (created != null) {
       request.headers['X-OC-CTime'] = created.secondsSinceEpoch.toString();
     }
-    if (contentLength != null) {
-      request.headers['content-length'] = contentLength.toString();
-    }
+    request.headers['content-length'] = contentLength.toString();
   }
 
   void _addCopyHeaders(http.BaseRequest request, {required PathUri destinationPath, required bool overwrite}) {
