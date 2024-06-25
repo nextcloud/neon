@@ -236,19 +236,19 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   void updateAccount(Account account) {
-    var as = accounts.value;
+    final as = accounts.value;
     final index = as.indexWhere((a) => a.id == account.id);
 
-    as = as.rebuild((b) {
-      if (index == -1) {
-        // TODO: Figure out how we can remove the old account without potentially race conditioning
-        b.add(account);
-      } else {
-        b[index] = account;
-      }
-    });
+    accounts.add(
+      as.rebuild((b) {
+        if (index == -1) {
+          b.add(account);
+        } else {
+          b[index] = account;
+        }
+      }),
+    );
 
-    accounts.add(as);
     setActiveAccount(account);
   }
 
