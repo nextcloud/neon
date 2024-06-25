@@ -149,6 +149,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       userDetailsBlocs.pruneAgainst(accounts);
       userStatusBlocs.pruneAgainst(accounts);
       unifiedSearchBlocs.pruneAgainst(accounts);
+      weatherStatusBlocs.pruneAgainst(accounts);
+      maintenanceModeBlocs.pruneAgainst(accounts);
       for (final app in allAppImplementations) {
         app.blocsCache.pruneAgainst(accounts);
       }
