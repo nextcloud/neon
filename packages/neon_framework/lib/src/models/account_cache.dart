@@ -1,13 +1,12 @@
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/disposable.dart';
-import 'package:neon_framework/src/utils/findable.dart';
 
 /// Cache for [Account] specific [Disposable] objects.
 class AccountCache<T extends Disposable> implements Disposable {
   /// Creates a new account cache.
   AccountCache();
 
-  final Map<String, T> _cache = {};
+  final Map<Account, T> _cache = {};
 
   /// Disposes all entries and clears the cache.
   @override
@@ -22,9 +21,9 @@ class AccountCache<T extends Disposable> implements Disposable {
   /// Every cache entry with an account no longer in [accounts] is removed and
   /// disposed. This method is in O(N²).
   void pruneAgainst(Iterable<Account> accounts) {
-    _cache.removeWhere((key, value) {
-      if (accounts.tryFind(key) == null) {
-        value.dispose();
+    _cache.removeWhere((account, disposable) {
+      if (!accounts.contains(account)) {
+        disposable.dispose();
         return true;
       }
 
@@ -36,16 +35,16 @@ class AccountCache<T extends Disposable> implements Disposable {
   ///
   /// If present the value associated with `account` is disposed.
   void remove(Account? account) {
-    final removed = _cache.remove(account?.id);
+    final removed = _cache.remove(account);
     removed?.dispose();
   }
 
   /// The value for the given [account], or `null` if [account] is not in the cache.
-  T? operator [](Account account) => _cache[account.id];
+  T? operator [](Account account) => _cache[account];
 
   /// Associates the [account] with the given [value].
   ///
   /// If the account was already in the cache, its associated value is changed.
   /// Otherwise the account/value pair is added to the cache.
-  void operator []=(Account account, T value) => _cache[account.id] = value;
+  void operator []=(Account account, T value) => _cache[account] = value;
 }
