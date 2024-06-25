@@ -176,10 +176,10 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       },
       onSelected: (suggestion) {
         final value = '@"${suggestion.mention.id}"';
-        final cursor = suggestion.start + value.length;
+        final cursor = suggestion.start + value.length + 1;
 
         controller
-          ..text = controller.text.replaceRange(suggestion.start, suggestion.end, value)
+          ..text = controller.text.replaceRange(suggestion.start, suggestion.end, '$value ')
           ..selection = controller.selection.copyWith(
             baseOffset: cursor,
             extentOffset: cursor,

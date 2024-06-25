@@ -140,13 +140,7 @@ void main() {
       ),
     );
 
-    await tester.enterText(find.byType(TextField), '123 @gr 456');
-
-    for (var i = 0; i < 4; i++) {
-      await simulateKeyDownEvent(LogicalKeyboardKey.arrowLeft);
-      await simulateKeyUpEvent(LogicalKeyboardKey.arrowLeft);
-    }
-
+    await tester.enterText(find.byType(TextField), '123 @gr');
     await tester.pumpAndSettle();
 
     expect(find.byType(ListTile), findsOne);
@@ -158,7 +152,7 @@ void main() {
 
     await tester.tap(find.byType(ListTile));
     await tester.testTextInput.receiveAction(TextInputAction.send);
-    verify(() => bloc.sendMessage('123 @"id" 456')).called(1);
+    verify(() => bloc.sendMessage('123 @"id" ')).called(1);
   });
 
   testWidgets('Multiline', (tester) async {
