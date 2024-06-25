@@ -23,8 +23,9 @@ Widget wrapWidget(
       providers: [
         Provider<Account>.value(
           value: Account(
-            serverURL: Uri(),
-            username: 'example',
+            (b) => b
+              ..serverURL = Uri()
+              ..username = 'example',
           ),
         ),
       ],

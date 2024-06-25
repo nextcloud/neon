@@ -1,15 +1,22 @@
 import 'dart:convert';
 
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+import 'package:built_value/standard_json_plugin.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'account.g.dart';
+
+@SerializersFor([
+  Account,
+])
+final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
 
 /// Credentials interface
 @internal
@@ -26,24 +33,48 @@ abstract interface class Credentials {
 }
 
 /// Account data.
-@JsonSerializable()
 @immutable
-class Account implements Credentials, Findable {
-  /// Creates a new account.
-  Account({
-    required this.serverURL,
-    required this.username,
-    this.password,
-    this.userAgent,
-    @visibleForTesting Client? httpClient,
-  })  : humanReadableID = _buildHumanReadableID(username, serverURL),
-        id = sha1.convert(utf8.encode('$username@$serverURL')).toString() {
+abstract class Account implements Credentials, Findable, Built<Account, AccountBuilder> {
+  // ignore: public_member_api_docs
+  factory Account([void Function(AccountBuilder)? updates]) = _$Account;
+
+  const Account._();
+
+  /// Creates a new account object from the given [json] data.
+  factory Account.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  Map<String, dynamic> toJson() => _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  // ignore: public_member_api_docs
+  static Serializer<Account> get serializer => _$accountSerializer;
+
+  @override
+  Uri get serverURL;
+
+  @override
+  String get username;
+
+  @override
+  String? get password;
+
+  /// The user agent to use.
+  String? get userAgent;
+
+  /// Custom HTTP client used for all requests.
+  @visibleForTesting
+  @BuiltValueField(serialize: false)
+  Client? get httpClient;
+
+  /// An authenticated API client.
+  @memoized
+  NextcloudClient get client {
     final cookieStore = NeonStorage().cookieStore(
       accountID: id,
       serverURL: serverURL,
     );
 
-    client = NextcloudClient(
+    return NextcloudClient(
       serverURL,
       loginName: username,
       password: password,
@@ -54,55 +85,16 @@ class Account implements Credentials, Findable {
     );
   }
 
-  /// Creates a new account object from the given [json] data.
-  factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
-
-  /// Parses this object into a json like map.
-  Map<String, dynamic> toJson() => _$AccountToJson(this);
-
-  @override
-  final Uri serverURL;
-  @override
-  final String username;
-  @override
-  final String? password;
-
-  /// The user agent to use.
-  final String? userAgent;
-
-  @override
-  bool operator ==(Object other) =>
-      other is Account &&
-      other.serverURL == serverURL &&
-      other.username == username &&
-      other.password == password &&
-      other.userAgent == userAgent;
-
-  @override
-  int get hashCode => Object.hashAll([
-        serverURL,
-        username,
-        password,
-        userAgent,
-      ]);
-
-  /// An authenticated API client.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  late final NextcloudClient client;
-
   /// The unique ID of the account.
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final String id;
+  @memoized
+  String get id => sha1.convert(utf8.encode('$username@$serverURL')).toString();
 
   /// A human readable representation of [username] and [serverURL].
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  final String humanReadableID;
-
-  /// Builds a human readable id for a user and server pair.
-  static String _buildHumanReadableID(String username, Uri serverURL) {
+  @memoized
+  String get humanReadableID {
     // Maybe also show path if it is not '/' ?
     final buffer = StringBuffer()
       ..write(username)
@@ -168,8 +160,10 @@ class LoginQRcode implements Credentials {
 
   @override
   final Uri serverURL;
+
   @override
   final String username;
+
   @override
   final String password;
 
