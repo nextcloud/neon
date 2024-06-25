@@ -9,9 +9,6 @@ void main() {
   final account0 = MockAccount();
   final account1 = MockAccount();
 
-  when(() => account0.id).thenReturn('key0');
-  when(() => account1.id).thenReturn('key1');
-
   group('AccountCache', () {
     test('map functionality', () {
       final cache = AccountCache<MockDisposable>();

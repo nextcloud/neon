@@ -79,7 +79,12 @@ class Account implements Credentials, Findable {
       other.userAgent == userAgent;
 
   @override
-  int get hashCode => serverURL.hashCode + username.hashCode;
+  int get hashCode => Object.hashAll([
+        serverURL,
+        username,
+        password,
+        userAgent,
+      ]);
 
   /// An authenticated API client.
   @JsonKey(includeFromJson: false, includeToJson: false)
