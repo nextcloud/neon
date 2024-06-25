@@ -88,7 +88,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                                   ..updateAccount(state.requireData)
                                   ..setActiveAccount(state.requireData);
 
-                                const HomeRoute().go(context);
+                                const HomeRoute().pushReplacement(context);
                               }
                             : () {
                                 if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
