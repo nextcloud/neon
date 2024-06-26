@@ -34,8 +34,9 @@ void main() {
     ]) {
       group(serverURL, () {
         final account = Account(
-          serverURL: Uri.parse(serverURL),
-          username: 'example',
+          (b) => b
+            ..serverURL = Uri.parse(serverURL)
+            ..username = 'example',
         );
 
         test('Complete absolute path', () {
@@ -64,9 +65,10 @@ void main() {
 
   test('getAuthorizationHeaders', () {
     final account = Account(
-      serverURL: Uri.parse('https://example.com:443/test'),
-      username: 'example',
-      password: 'example',
+      (b) => b
+        ..serverURL = Uri.parse('https://example.com:443/test')
+        ..username = 'example'
+        ..password = 'example',
     );
 
     for (final (url, shouldHaveHeaders) in [
@@ -89,9 +91,10 @@ void main() {
 
   group('Account', () {
     final account = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe'
+        ..password = 'super_secret',
     );
 
     test('serialization', () {
@@ -99,7 +102,6 @@ void main() {
         'serverURL': 'http://example.com',
         'username': 'JohnDoe',
         'password': 'super_secret',
-        'userAgent': null,
       };
 
       expect(account.toJson(), equals(json));
@@ -115,17 +117,19 @@ void main() {
       expect(account.humanReadableID, 'JohnDoe@example.com');
 
       final accountWithDefaultPort = Account(
-        serverURL: Uri(scheme: 'http', host: 'example.com', port: 80),
-        username: 'JohnDoe',
-        password: 'super_secret',
+        (b) => b
+          ..serverURL = Uri(scheme: 'http', host: 'example.com', port: 80)
+          ..username = 'JohnDoe'
+          ..password = 'super_secret',
       );
 
       expect(accountWithDefaultPort.humanReadableID, 'JohnDoe@example.com');
 
       final accountWithPort = Account(
-        serverURL: Uri(scheme: 'http', host: 'example.com', port: 8080),
-        username: 'JohnDoe',
-        password: 'super_secret',
+        (b) => b
+          ..serverURL = Uri(scheme: 'http', host: 'example.com', port: 8080)
+          ..username = 'JohnDoe'
+          ..password = 'super_secret',
       );
 
       expect(accountWithPort.humanReadableID, 'JohnDoe@example.com:8080');
@@ -134,29 +138,34 @@ void main() {
 
   test('AccountFind', () {
     final account1 = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe'
+        ..password = 'super_secret',
     );
     final account2 = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe2',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe2'
+        ..password = 'super_secret',
     );
     final account3 = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe3',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe3'
+        ..password = 'super_secret',
     );
     final account4 = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe4',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe4'
+        ..password = 'super_secret',
     );
     final account5 = Account(
-      serverURL: Uri(scheme: 'http', host: 'example.com'),
-      username: 'JohnDoe5',
-      password: 'super_secret',
+      (b) => b
+        ..serverURL = Uri(scheme: 'http', host: 'example.com')
+        ..username = 'JohnDoe5'
+        ..password = 'super_secret',
     );
     final accounts = {
       account1,

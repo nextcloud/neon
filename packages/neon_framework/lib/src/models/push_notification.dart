@@ -1,38 +1,18 @@
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+import 'package:built_value/standard_json_plugin.dart';
 import 'package:crypton/crypton.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/notifications.dart' show DecryptedSubject, decryptPushNotificationSubject;
+import 'package:nextcloud/notifications.dart';
 
 part 'push_notification.g.dart';
 
-/// The json key for [PushNotification.accountID].
-const String _accountIDKey = 'accountID';
-
-/// The json key for [PushNotification.priority].
-const String _priorityKey = 'priority';
-
-/// The json key for [PushNotification.type].
-const String _typeKey = 'type';
-
-/// The json key for [PushNotification.subject].
-const String _subjectKey = 'subject';
-
 /// Data for a push notification.
-@JsonSerializable()
 @internal
-class PushNotification {
-  /// Creates a new push notification.
-  const PushNotification({
-    required this.accountID,
-    required this.priority,
-    required this.type,
-    required this.subject,
-  });
+abstract class PushNotification implements Built<PushNotification, PushNotificationBuilder> {
+  factory PushNotification([void Function(PushNotificationBuilder)? updates]) = _$PushNotification;
 
-  /// Creates a new PushNotification object from the given [json] data.
-  ///
-  /// Use [PushNotification.fromEncrypted] when you the [subject] is still encrypted.
-  factory PushNotification.fromJson(Map<String, dynamic> json) => _$PushNotificationFromJson(json);
+  const PushNotification._();
 
   /// Creates a new PushNotification object from the given [json] data containing an encrypted [subject].
   ///
@@ -42,32 +22,42 @@ class PushNotification {
     String accountID,
     RSAPrivateKey privateKey,
   ) {
-    final subject = decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
+    final subject = DecryptedSubject.fromEncrypted(privateKey, json['subject'] as String);
 
     return PushNotification(
-      accountID: accountID,
-      priority: json[_priorityKey] as String,
-      type: json[_typeKey] as String,
-      subject: subject,
+      (b) => b
+        ..accountID = accountID
+        ..priority = json['priority'] as String
+        ..type = json['type'] as String
+        ..subject.replace(subject),
     );
   }
 
+  /// Creates a new PushNotification object from the given [json] data.
+  ///
+  /// Use [PushNotification.fromEncrypted] when you the [subject] is still encrypted.
+  factory PushNotification.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
+
   /// Parses this object into a json like map.
-  Map<String, dynamic> toJson() => _$PushNotificationToJson(this);
+  Map<String, dynamic> toJson() => _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<PushNotification> get serializer => _$pushNotificationSerializer;
 
   /// The account associated to this notification.
-  @JsonKey(name: _accountIDKey)
-  final String accountID;
+  String get accountID;
 
   /// The priority of the notification.
-  @JsonKey(name: _priorityKey)
-  final String priority;
+  String get priority;
 
   /// The type of the notification.
-  @JsonKey(name: _typeKey)
-  final String type;
+  String get type;
 
   /// The subject of this notification.
-  @JsonKey(name: _subjectKey)
-  final DecryptedSubject subject;
+  DecryptedSubject get subject;
 }
+
+@SerializersFor([
+  PushNotification,
+  DecryptedSubject,
+])
+final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

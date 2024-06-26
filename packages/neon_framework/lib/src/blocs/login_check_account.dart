@@ -65,10 +65,11 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
       final response = await client.provisioningApi.users.getCurrentUser();
 
       final account = Account(
-        serverURL: serverURL,
-        username: response.body.ocs.data.id,
-        password: password,
-        userAgent: neonUserAgent,
+        (b) => b
+          ..serverURL = serverURL
+          ..username = response.body.ocs.data.id
+          ..password = password
+          ..userAgent = neonUserAgent,
       );
 
       state.add(Result.success(account));

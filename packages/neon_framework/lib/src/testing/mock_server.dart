@@ -12,20 +12,21 @@ Account mockServer(
       requests,
 ) =>
     Account(
-      serverURL: Uri.parse('https://example.com'),
-      username: 'test',
-      password: 'test',
-      httpClient: MockClient((request) async {
-        for (final entry in requests.entries) {
-          final match = entry.key.firstMatch(request.url.path);
-          if (match != null) {
-            final call = entry.value[request.method];
-            if (call != null) {
-              return call(match, request.url.queryParametersAll);
+      (b) => b
+        ..serverURL = Uri.parse('https://example.com')
+        ..username = 'test'
+        ..password = 'test'
+        ..httpClient = MockClient((request) async {
+          for (final entry in requests.entries) {
+            final match = entry.key.firstMatch(request.url.path);
+            if (match != null) {
+              final call = entry.value[request.method];
+              if (call != null) {
+                return call(match, request.url.queryParametersAll);
+              }
             }
           }
-        }
 
-        throw Exception(request);
-      }),
+          throw Exception(request);
+        }),
     );

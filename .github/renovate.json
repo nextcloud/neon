@@ -77,13 +77,6 @@
       ]
     },
     {
-      "groupName": "json_serializable",
-      "matchPackageNames": [
-        "json_annotation",
-        "json_serializable"
-      ]
-    },
-    {
       "groupName": "test",
       "matchPackageNames": [
         "test",

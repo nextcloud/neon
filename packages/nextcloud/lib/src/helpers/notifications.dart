@@ -2,63 +2,60 @@
 
 import 'dart:convert';
 
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
+import 'package:built_value/standard_json_plugin.dart';
 import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'notifications.g.dart';
 
 /// Generates the push token hash which is just sha512
 String generatePushTokenHash(String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
 
-@JsonSerializable()
-// ignore: public_member_api_docs
-class DecryptedSubject {
+/// Decrypted version of the encrypted push notification received from the server.
+abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubjectBuilder> {
   // ignore: public_member_api_docs
-  DecryptedSubject({
-    this.nid,
-    this.app,
-    this.subject,
-    this.type,
-    this.id,
-    this.delete,
-    this.deleteAll,
-  });
+  factory DecryptedSubject([void Function(DecryptedSubjectBuilder)? updates]) = _$DecryptedSubject;
+
+  const DecryptedSubject._();
+
+  /// Decrypts the subject of a push notification
+  factory DecryptedSubject.fromEncrypted(RSAPrivateKey privateKey, String subject) => DecryptedSubject.fromJson(
+        json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
+      );
 
   // ignore: public_member_api_docs
-  factory DecryptedSubject.fromJson(Map<String, dynamic> json) => _$DecryptedSubjectFromJson(json);
+  factory DecryptedSubject.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
+
+  // ignore: public_member_api_docs
+  Map<String, dynamic> toJson() => _serializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  // ignore: public_member_api_docs
+  static Serializer<DecryptedSubject> get serializer => _$decryptedSubjectSerializer;
 
   /// ID if the notification
-  final int? nid;
+  int? get nid;
 
   /// App that sent the notification
-  final String? app;
+  String? get app;
 
   /// Subject of the notification
-  final String? subject;
+  String? get subject;
 
   /// Type of the notification
-  final String? type;
+  String? get type;
 
   /// ID of the notification
-  final String? id;
+  String? get id;
 
   /// Delete the notification
-  final bool? delete;
+  bool? get delete;
 
   /// Delete all notifications
-  @JsonKey(name: 'delete-all')
-  final bool? deleteAll;
-
-  // ignore: public_member_api_docs
-  Map<String, dynamic> toJson() => _$DecryptedSubjectToJson(this);
+  @BuiltValueField(wireName: 'delete-all')
+  bool? get deleteAll;
 }
 
-/// Decrypts the subject of a push notification
-DecryptedSubject decryptPushNotificationSubject(
-  RSAPrivateKey privateKey,
-  String subject,
-) =>
-    DecryptedSubject.fromJson(
-      json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
-    );
+@SerializersFor([DecryptedSubject])
+final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
