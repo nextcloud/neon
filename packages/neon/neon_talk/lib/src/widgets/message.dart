@@ -369,6 +369,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
 
     final date = DateTimeUtils.fromSecondsSinceEpoch(
       tz.UTC,
@@ -393,7 +394,9 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     if (separateMessages) {
       displayName = Text(
         getActorDisplayName(TalkLocalizations.of(context), widget.chatMessage),
-        style: textTheme.labelSmall,
+        style: textTheme.labelLarge!.copyWith(
+          color: labelColor,
+        ),
       );
 
       if (!widget.isParent) {
@@ -437,9 +440,11 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
       buildChatMessage(
         chatMessage: widget.chatMessage,
         isPreview: widget.isParent,
-        style: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
-            ? textTheme.bodySmall
-            : textTheme.bodyMedium,
+        style: textTheme.bodyLarge!.copyWith(
+          color: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
+              ? labelColor
+              : null,
+        ),
       ),
       maxLines: widget.isParent ? 1 : null,
       overflow: widget.isParent ? TextOverflow.ellipsis : TextOverflow.visible,
@@ -455,6 +460,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           Icon(
             AdaptiveIcons.cancel,
             size: textTheme.bodySmall!.fontSize,
+            color: labelColor,
           ),
           const SizedBox(
             width: 2.5,
