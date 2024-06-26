@@ -2,6 +2,8 @@
 
 A Nextcloud API client written in Dart.
 
+If you want to implement a Flutter app based on Nextcloud, checkout the [Neon project](https://github.com/nextcloud/neon) which provides a framework for this use-case and also develops this package.
+
 ## Usage
 
 ### Authentication
