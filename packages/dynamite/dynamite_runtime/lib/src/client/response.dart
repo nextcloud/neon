@@ -117,19 +117,7 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
     final statusCode = response.statusCode;
     final validStatuses = serializer.validStatuses;
     if (validStatuses != null && !validStatuses.contains(statusCode)) {
-      Object body;
-      try {
-        body = response.body;
-      } on FormatException {
-        body = 'binary';
-      }
-
-      throw DynamiteStatusCodeException.fromResponse(
-        statusCode: statusCode,
-        headers: rawHeaders,
-        body: body,
-        url: input.request?.url,
-      );
+      throw DynamiteStatusCodeException(response);
     }
 
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);

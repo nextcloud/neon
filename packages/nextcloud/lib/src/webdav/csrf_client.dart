@@ -22,13 +22,10 @@ final class WebDavCSRFClient with http.BaseClient {
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     if (_token == null) {
       final streamedResponse = await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php')));
-      if (streamedResponse.statusCode >= 300) {
-        throw DynamiteStatusCodeException(
-          streamedResponse.statusCode,
-        );
-      }
-
       final response = await http.Response.fromStream(streamedResponse);
+      if (streamedResponse.statusCode >= 300) {
+        throw DynamiteStatusCodeException(response);
+      }
 
       _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
     }
@@ -38,14 +35,14 @@ final class WebDavCSRFClient with http.BaseClient {
       'requesttoken': _token!,
     });
 
-    final response = await _inner.send(request);
+    final streamedResponse = await _inner.send(request);
 
-    if (response.statusCode >= 300) {
-      throw DynamiteStatusCodeException(
-        response.statusCode,
-      );
+    if (streamedResponse.statusCode >= 300) {
+      final response = await http.Response.fromStream(streamedResponse);
+
+      throw DynamiteStatusCodeException(response);
     }
 
-    return response;
+    return streamedResponse;
   }
 }

@@ -14,20 +14,16 @@ sealed class DynamiteApiException extends http.ClientException {
 
 /// An exception caused by an invalid status code in a response.
 class DynamiteStatusCodeException extends DynamiteApiException {
-  /// Creates a new dynamite exception with the given information.
-  DynamiteStatusCodeException(
-    this.statusCode, [
-    Uri? url,
-  ]) : super('Invalid status code $statusCode.', url);
+  /// Creates a new Exception from the HTTP request and response.
+  DynamiteStatusCodeException(this.response)
+      : super(
+          'Invalid status code ${response.statusCode}, headers: ${response.headers}, body: ${response.body}',
+          response.request?.url,
+        );
 
-  /// Creates a new Exception from the given response data.
-  DynamiteStatusCodeException.fromResponse({
-    required this.statusCode,
-    Map<String, Object?>? headers,
-    Object? body,
-    Uri? url,
-  }) : super('Invalid status code $statusCode, headers: $headers, body: $body', url);
+  /// The HTTP response that lead to this Exception being thrown.
+  final http.Response response;
 
   /// The returned status code when the exception was thrown.
-  final int statusCode;
+  int get statusCode => response.statusCode;
 }
