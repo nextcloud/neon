@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/folder.dart';
 import 'package:neon_news/src/sort/folders.dart';
 import 'package:neon_news/src/utils/dialog.dart';
@@ -19,14 +21,16 @@ class NewsFoldersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final options = NeonProvider.of<NewsOptions>(context);
+
     return ResultBuilder.behaviorSubject(
       subject: bloc.folders,
       builder: (context, folders) => ResultBuilder.behaviorSubject(
         subject: bloc.feeds,
         builder: (context, feeds) => SortBoxBuilder(
           sortBox: foldersSortBox,
-          sortProperty: bloc.options.foldersSortPropertyOption,
-          sortBoxOrder: bloc.options.foldersSortBoxOrderOption,
+          sortProperty: options.foldersSortPropertyOption,
+          sortBoxOrder: options.foldersSortBoxOrderOption,
           input: feeds.hasData
               ? [
                   ...?folders.data,

@@ -45,8 +45,6 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
 
   BehaviorSubject<FilterType> get filterType;
 
-  NewsOptions get options;
-
   ListType? get listType;
 }
 
@@ -80,7 +78,6 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
   final log = Logger('NewsArticlesBloc');
 
   final NewsBloc _newsBloc;
-  @override
   final NewsOptions options;
   final Account account;
   final int? id;

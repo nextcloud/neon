@@ -5,6 +5,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/options.dart';
 import 'package:neon_notes/src/utils/exception_handler.dart';
 import 'package:neon_notes/src/widgets/categories_view.dart';
 import 'package:neon_notes/src/widgets/notes_floating_action_button.dart';
@@ -21,7 +22,7 @@ class NotesMainPage extends StatefulWidget {
 
 class _NotesMainPageState extends State<NotesMainPage> {
   late NotesBloc bloc;
-  late int _index = bloc.options.defaultCategoryOption.value.index;
+  late int index;
   late final StreamSubscription<Object> errorsSubscription;
 
   @override
@@ -29,6 +30,8 @@ class _NotesMainPageState extends State<NotesMainPage> {
     super.initState();
 
     bloc = NeonProvider.of<NotesBloc>(context);
+
+    index = NeonProvider.of<NotesOptions>(context).defaultCategoryOption.value.index;
 
     errorsSubscription = bloc.errors.listen((error) {
       handleNotesException(context, error);
@@ -61,10 +64,10 @@ class _NotesMainPageState extends State<NotesMainPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
+        currentIndex: index,
         onTap: (index) {
           setState(() {
-            _index = index;
+            this.index = index;
           });
         },
         items: [
@@ -78,8 +81,8 @@ class _NotesMainPageState extends State<NotesMainPage> {
           ),
         ],
       ),
-      body: views[_index],
-      floatingActionButton: floatingActionButtons[_index],
+      body: views[index],
+      floatingActionButton: floatingActionButtons[index],
     );
   }
 }

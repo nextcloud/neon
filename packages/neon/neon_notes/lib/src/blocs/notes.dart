@@ -6,13 +6,11 @@ import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/notes.dart' as $notes;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesBloc implements InteractiveBloc {
   factory NotesBloc({
-    required NotesOptions options,
     required Account account,
   }) = _NotesBloc;
 
@@ -33,13 +31,10 @@ sealed class NotesBloc implements InteractiveBloc {
   void deleteNote(int id);
 
   BehaviorSubject<Result<BuiltList<$notes.Note>>> get notes;
-
-  NotesOptions get options;
 }
 
 class _NotesBloc extends InteractiveBloc implements NotesBloc {
   _NotesBloc({
-    required this.options,
     required this.account,
   }) {
     unawaited(refresh());
@@ -48,8 +43,6 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   @override
   final log = Logger('NotesBloc');
 
-  @override
-  final NotesOptions options;
   final Account account;
 
   @override

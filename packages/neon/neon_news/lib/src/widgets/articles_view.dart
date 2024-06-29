@@ -42,6 +42,7 @@ class NewsArticlesView extends StatefulWidget {
 
 class _NewsArticlesViewState extends State<NewsArticlesView> {
   late final StreamSubscription<Object> errorsSubscription;
+  late final NewsOptions options;
 
   @override
   void initState() {
@@ -50,6 +51,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     errorsSubscription = widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+
+    options = NeonProvider.of<NewsOptions>(context);
   }
 
   @override
@@ -67,8 +70,8 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
         subject: widget.bloc.articles,
         builder: (context, articles) => SortBoxBuilder(
           sortBox: articlesSortBox,
-          sortProperty: widget.newsBloc.options.articlesSortPropertyOption,
-          sortBoxOrder: widget.newsBloc.options.articlesSortBoxOrderOption,
+          sortProperty: options.articlesSortPropertyOption,
+          sortBoxOrder: options.articlesSortBoxOrderOption,
           input: articles.data?.toList(),
           builder: (context, sorted) => NeonListView(
             scrollKey: 'news-articles',
@@ -219,7 +222,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
           }
         },
         onTap: () async {
-          final viewType = widget.newsBloc.options.articleViewTypeOption.value;
+          final viewType = options.articleViewTypeOption.value;
           String? bodyData;
           try {
             bodyData = _fixArticleBody(article.body);

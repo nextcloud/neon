@@ -4,11 +4,13 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_files/src/widgets/actions.dart';
 import 'package:neon_files/src/widgets/file_preview.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 
 class FileListTile extends StatelessWidget {
@@ -27,7 +29,7 @@ class FileListTile extends StatelessWidget {
     if (details.isDirectory) {
       browserBloc.setPath(details.uri);
     } else if (browserBloc.mode == FilesBrowserMode.browser) {
-      final sizeWarning = bloc.options.downloadSizeWarning.value;
+      final sizeWarning = NeonProvider.of<FilesOptions>(context).downloadSizeWarning.value;
       if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
         final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
 

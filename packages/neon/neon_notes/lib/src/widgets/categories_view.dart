@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/options.dart';
 import 'package:neon_notes/src/pages/category.dart';
 import 'package:neon_notes/src/sort/categories.dart';
 import 'package:neon_notes/src/utils/category_color.dart';
@@ -19,12 +21,14 @@ class NotesCategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final options = NeonProvider.of<NotesOptions>(context);
+
     return ResultBuilder.behaviorSubject(
       subject: bloc.notes,
       builder: (context, notes) => SortBoxBuilder(
         sortBox: categoriesSortBox,
-        sortProperty: bloc.options.categoriesSortPropertyOption,
-        sortBoxOrder: bloc.options.categoriesSortBoxOrderOption,
+        sortProperty: options.categoriesSortPropertyOption,
+        sortBoxOrder: options.categoriesSortBoxOrderOption,
         input: notes.data
             ?.map((note) => note.category)
             .toSet()

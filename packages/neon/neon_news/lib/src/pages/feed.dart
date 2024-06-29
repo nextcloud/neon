@@ -3,6 +3,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/widgets/articles_view.dart';
 import 'package:nextcloud/news.dart' as news;
 
@@ -27,7 +28,7 @@ class NewsFeedPage extends StatelessWidget {
         child: NewsArticlesView(
           bloc: NewsArticlesBloc(
             newsBloc: bloc,
-            options: bloc.options,
+            options: NeonProvider.of<NewsOptions>(context),
             account: NeonProvider.of<Account>(context),
             id: feed.id,
             listType: ListType.feed,

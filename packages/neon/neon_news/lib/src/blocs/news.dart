@@ -41,8 +41,6 @@ sealed class NewsBloc implements InteractiveBloc {
 
   BehaviorSubject<int> get unreadCounter;
 
-  NewsOptions get options;
-
   NewsMainArticlesBloc get mainArticlesBloc;
 }
 

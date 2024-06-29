@@ -39,8 +39,6 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
 
   BehaviorSubject<PathUri> get uri;
 
-  FilesOptions get options;
-
   /// Mode to operate the `FilesBrowserView` in.
   FilesBrowserMode get mode;
 }
@@ -65,7 +63,6 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   @override
   final log = Logger('FilesBrowserBloc');
 
-  @override
   final FilesOptions options;
   final Account account;
 

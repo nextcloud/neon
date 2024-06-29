@@ -2,6 +2,7 @@ import 'package:file_icons/file_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_files/src/options.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -46,7 +47,7 @@ class FilePreview extends StatelessWidget {
           }
 
           return ValueListenableBuilder(
-            valueListenable: bloc.options.showPreviewsOption,
+            valueListenable: NeonProvider.of<FilesOptions>(context).showPreviewsOption,
             builder: (context, showPreviews, _) {
               if (showPreviews && (details.hasPreview ?? false)) {
                 final preview = FilePreviewImage(

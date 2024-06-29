@@ -13,6 +13,7 @@ import 'package:neon_files/src/widgets/file_list_tile.dart';
 import 'package:neon_files/src/widgets/navigator.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart';
 
@@ -32,12 +33,15 @@ class FilesBrowserView extends StatefulWidget {
 
 class _FilesBrowserViewState extends State<FilesBrowserView> {
   late final StreamSubscription<Object> errorsSubscription;
+  late final FilesOptions options;
 
   @override
   void initState() {
     errorsSubscription = widget.bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
+
+    options = NeonProvider.of<FilesOptions>(context);
 
     super.initState();
   }
@@ -72,8 +76,8 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
               },
               child: SortBoxBuilder(
                 sortBox: filesSortBox,
-                sortProperty: widget.bloc.options.filesSortPropertyOption,
-                sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
+                sortProperty: options.filesSortPropertyOption,
+                sortBoxOrder: options.filesSortBoxOrderOption,
                 presort: const {
                   (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                 },
