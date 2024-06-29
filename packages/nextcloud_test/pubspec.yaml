@@ -11,7 +11,6 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store
-  dynamite_runtime: ^0.4.0
   http: ^1.2.0
   meta: ^1.0.0
   nextcloud: ^6.1.0
