@@ -1,5 +1,5 @@
 import 'package:files_app/l10n/localizations.dart';
-import 'package:files_app/src/blocs/browser.dart';
+import 'package:files_app/src/blocs/files.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:nextcloud/webdav.dart';
@@ -8,11 +8,13 @@ class FilesBrowserNavigator extends StatelessWidget {
   const FilesBrowserNavigator({
     required this.uri,
     required this.bloc,
+    required this.setPath,
     super.key,
   });
 
   final PathUri uri;
-  final FilesBrowserBloc bloc;
+  final FilesBloc bloc;
+  final void Function(PathUri uri) setPath;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +36,7 @@ class FilesBrowserNavigator extends StatelessWidget {
               ),
               tooltip: FilesLocalizations.of(context).goToPath(''),
               icon: Icon(AdaptiveIcons.house),
-              onPressed: () {
-                bloc.setPath(PathUri.cwd());
-              },
+              onPressed: () => setPath(PathUri.cwd()),
             );
           }
 
@@ -46,9 +46,7 @@ class FilesBrowserNavigator extends StatelessWidget {
             pathSegments: uri.pathSegments.sublist(0, index),
           );
           return TextButton(
-            onPressed: () {
-              bloc.setPath(partialPath);
-            },
+            onPressed: () => setPath(partialPath),
             child: Text(
               partialPath.name,
               semanticsLabel: FilesLocalizations.of(context).goToPath(partialPath.name),

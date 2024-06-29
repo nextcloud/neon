@@ -12,22 +12,25 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
+import 'package:nextcloud/webdav.dart';
 
 class FileListTile extends StatelessWidget {
   const FileListTile({
     required this.bloc,
     required this.browserBloc,
     required this.details,
+    required this.setPath,
     super.key,
   });
 
   final FilesBloc bloc;
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
+  final void Function(PathUri uri) setPath;
 
   Future<void> _onTap(BuildContext context, FileDetails details) async {
     if (details.isDirectory) {
-      browserBloc.setPath(details.uri);
+      setPath(details.uri);
     } else if (browserBloc.mode == FilesBrowserMode.browser) {
       final sizeWarning = NeonProvider.of<FilesOptions>(context).downloadSizeWarning.value;
       if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
