@@ -20,6 +20,7 @@ dependencies:
   crypton: ^2.0.0
   dynamite_runtime: ^0.4.0
   http: ^1.2.0
+  logging: ^1.0.0
   meta: ^1.0.0
   string_scanner: ^1.1.0
   timezone: ^0.9.4
