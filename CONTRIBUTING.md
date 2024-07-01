@@ -20,7 +20,11 @@ For working with lower levels like generating the OpenAPI specifications a few m
 - [PHP](https://www.php.net)
 - [composer](https://getcomposer.org)
 Make sure to initialize the git submodules by running `git submodule update --init --recursive`.
-This will add our external dependencies to `external/` so scripts can use them for generation.  
+This will add our external dependencies to `external/` so scripts can use them for generation.
+
+For running the nextcloud server 
+- Install [docker](https://www.docker.com/get-started)
+- Run the `./tool/dev.sh` file to start the server 
 
 ## Picking an issue
 You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
