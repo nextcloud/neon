@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/src/utils/byte_stream_extension.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
@@ -112,15 +111,15 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
 
   @override
   Future<DynamiteRawResponse<B, H>> convert(http.StreamedResponse input) async {
-    final rawHeaders = input.headers;
-    final encoding = encodingForHeaders(input.headers);
+    final response = await http.Response.fromStream(input);
 
-    final statusCode = input.statusCode;
+    final rawHeaders = response.headers;
+    final statusCode = response.statusCode;
     final validStatuses = serializer.validStatuses;
     if (validStatuses != null && !validStatuses.contains(statusCode)) {
       Object body;
       try {
-        body = await input.stream.bytesToString(encoding);
+        body = response.body;
       } on FormatException {
         body = 'binary';
       }
@@ -136,9 +135,9 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
     final rawBody = switch (serializer.bodyType) {
-      const FullType(Uint8List) => await input.stream.bytes,
-      const FullType(String) => await input.stream.bytesToString(encoding),
-      _ => await input.stream.bytesToJson(encoding),
+      const FullType(Uint8List) => response.bodyBytes,
+      const FullType(String) => response.body,
+      _ => json.decode(response.body),
     };
     final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
