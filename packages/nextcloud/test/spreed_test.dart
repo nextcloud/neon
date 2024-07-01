@@ -371,6 +371,34 @@ void main() {
           expect(response.body.ocs.data[0].statusIcon, null);
           expect(response.body.ocs.data[0].statusMessage, null);
         });
+
+        test('Delete message', () async {
+          final room = await createTestRoom();
+
+          final messageResponse = await client1.spreed.chat.sendMessage(
+            token: room.token,
+            message: 'bla',
+          );
+
+          final response = await client1.spreed.chat.deleteMessage(
+            token: room.token,
+            messageId: messageResponse.body.ocs.data!.id,
+          );
+          expect(response.body.ocs.data.id, isPositive);
+          expect(response.body.ocs.data.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.actorId, 'user1');
+          expect(response.body.ocs.data.actorDisplayName, 'User One');
+          expect(response.body.ocs.data.message, 'You deleted a message');
+          expect(response.body.ocs.data.messageType, spreed.MessageType.system);
+          expect(response.body.ocs.data.systemMessage, 'message_deleted');
+          expect(response.body.ocs.data.parent!.id, isPositive);
+          expect(response.body.ocs.data.parent!.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.parent!.actorId, 'user1');
+          expect(response.body.ocs.data.parent!.actorDisplayName, 'User One');
+          expect(response.body.ocs.data.parent!.message, 'Message deleted by you');
+          expect(response.body.ocs.data.parent!.messageType, spreed.MessageType.commentDeleted);
+          expect(response.body.ocs.data.parent!.systemMessage, '');
+        });
       });
 
       group('Call', () {

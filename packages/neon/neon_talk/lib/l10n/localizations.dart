@@ -161,6 +161,12 @@ abstract class TalkLocalizations {
   /// **'Add reaction'**
   String get roomMessageReaction;
 
+  /// No description provided for @roomMessageDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get roomMessageDelete;
+
   /// No description provided for @reactionsAddNew.
   ///
   /// In en, this message translates to:
