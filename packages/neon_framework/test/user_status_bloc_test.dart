@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -190,13 +191,7 @@ void main() {
         Result.success(user_status.$Type.online),
         Result.success(user_status.$Type.dnd),
         Result.success(user_status.$Type.dnd).asLoading(),
-        Result<String>.error(
-          DynamiteStatusCodeException.fromResponse(
-            statusCode: 201,
-            headers: const {},
-            body: '',
-          ),
-        ),
+        Result<String>.error(DynamiteStatusCodeException(http.Response('', 201))),
       ]),
     );
 

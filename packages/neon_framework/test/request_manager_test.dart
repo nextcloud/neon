@@ -76,7 +76,7 @@ void main() {
       test('wrap', () async {
         final subject = BehaviorSubject<Result<String>>();
         final callback = MockCallbackFunction<Future<Uint8List>>();
-        when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
+        when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(http.Response('', 500)));
 
         await RequestManager.instance.wrap<String, Uint8List>(
           account: account,
@@ -96,7 +96,7 @@ void main() {
       test('wrapBinary', () async {
         final subject = BehaviorSubject<Result<Uint8List>>();
         final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(http.Response('', 500)));
 
         when(() => account.client).thenReturn(
           NextcloudClient(
@@ -126,7 +126,7 @@ void main() {
       test('wrapWebDav', () async {
         final subject = BehaviorSubject<Result<WebDavMultistatus>>();
         final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(http.Response('', 500)));
 
         when(() => account.client).thenReturn(
           NextcloudClient(
@@ -152,7 +152,7 @@ void main() {
       test('wrapNextcloud', () async {
         final subject = BehaviorSubject<Result<provisioning_api.UserDetails>>();
         final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(http.Response('', 500)));
 
         when(() => account.client).thenReturn(
           NextcloudClient(
