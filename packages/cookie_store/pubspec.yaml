@@ -9,7 +9,7 @@ environment:
 dependencies:
   cookie_jar: ^4.0.0
   meta: ^1.0.0
-  timezone: ^0.9.3
+  timezone: ^0.9.4
   universal_io: ^2.0.0
 
 dev_dependencies:
