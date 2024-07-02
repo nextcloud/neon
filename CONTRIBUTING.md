@@ -22,6 +22,11 @@ For working with lower levels like generating the OpenAPI specifications a few m
 Make sure to initialize the git submodules by running `git submodule update --init --recursive`.
 This will add our external dependencies to `external/` so scripts can use them for generation.  
 
+For running a development Nextcloud instance: 
+- Install [docker](https://www.docker.com/get-started)
+- Run the `./tool/dev.sh` script to start the server 
+- Development instance running on http://localhost. To access it in an Android Emulator use http://10.0.2.2
+
 ## Picking an issue
 You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
 
