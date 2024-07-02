@@ -1,4 +1,5 @@
-import 'package:dynamite_runtime/utils.dart';
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud_test/src/app.dart';
@@ -87,13 +88,14 @@ Future<List<Version>> _getServerVersions(http.Client httpClient) async {
   while (next != null) {
     final request = http.Request('GET', Uri.parse(next));
 
-    final response = await httpClient.send(request);
-    if (response.statusCode != 200) {
-      throw Exception('Unable to get server versions, status code: ${response.statusCode}');
+    final streamedResponse = await httpClient.send(request);
+    if (streamedResponse.statusCode != 200) {
+      throw Exception('Unable to get server versions, status code: ${streamedResponse.statusCode}');
     }
 
-    final encoding = encodingForHeaders(response.headers);
-    final data = (await response.stream.bytesToJson(encoding))! as Map<String, dynamic>;
+    final response = await http.Response.fromStream(streamedResponse);
+
+    final data = json.decode(response.body) as Map<String, dynamic>;
     next = data['next'] as String?;
 
     final results = data['results'] as List;
@@ -124,13 +126,15 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
   final apps = <App>[];
 
   final request = http.Request('GET', Uri.parse('https://apps.nextcloud.com/api/v1/apps.json'));
-  final response = await httpClient.send(request);
-  if (response.statusCode != 200) {
-    throw Exception('Unable to get apps, status code: ${response.statusCode}');
+
+  final streamedResponse = await httpClient.send(request);
+  if (streamedResponse.statusCode != 200) {
+    throw Exception('Unable to get apps, status code: ${streamedResponse.statusCode}');
   }
 
-  final encoding = encodingForHeaders(response.headers);
-  final appsItems = (await response.stream.bytesToJson(encoding))! as List;
+  final response = await http.Response.fromStream(streamedResponse);
+
+  final appsItems = json.decode(response.body) as List;
   for (final appItem in appsItems) {
     final app = appItem as Map<String, dynamic>;
     final id = app['id'] as String;

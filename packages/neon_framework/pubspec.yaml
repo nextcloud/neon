@@ -57,7 +57,7 @@ dependencies:
   sqflite: ^2.3.0
   sqflite_common_ffi: ^2.3.2
   sqflite_common_ffi_web: ^0.4.2+3
-  timezone: ^0.9.3
+  timezone: ^0.9.4
   unifiedpush: ^5.0.0
   unifiedpush_android: ^2.0.0
   universal_io: ^2.0.0

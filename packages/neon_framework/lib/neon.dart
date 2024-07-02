@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:logging/logging.dart';
 import 'package:neon_framework/src/app.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/first_launch.dart';
@@ -35,6 +37,10 @@ Future<void> runNeon({
   @visibleForTesting bool nextPushDisabled = false,
 }) async {
   assert(appImplementations.isNotEmpty, 'At least one AppImplementation required');
+
+  if (kDebugMode) {
+    Logger.root.level = Level.ALL;
+  }
 
   final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);

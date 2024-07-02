@@ -1,6 +1,6 @@
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart';
 import 'package:http/http.dart' as http;
+import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
@@ -16,23 +16,23 @@ final class WebDavCSRFClient with http.BaseClient {
 
   final NextcloudClient _inner;
 
+  final _log = Logger('WebDavCSRFClient');
+
   /// The request token sent by the [WebDavCSRFClient].
   String? _token;
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     if (_token == null) {
-      final response = await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php')));
-      if (response.statusCode >= 300) {
-        throw DynamiteStatusCodeException(
-          response.statusCode,
-        );
+      _log.fine('Acquiring new CSRF token for WebDAV');
+
+      final streamedResponse = await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php')));
+      final response = await http.Response.fromStream(streamedResponse);
+      if (streamedResponse.statusCode >= 300) {
+        throw DynamiteStatusCodeException(response);
       }
 
-      final encoding = encodingForHeaders(response.headers);
-      final body = await response.stream.bytesToString(encoding);
-
-      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(body)!.group(1);
+      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
     }
 
     request.headers.addAll({
@@ -40,14 +40,20 @@ final class WebDavCSRFClient with http.BaseClient {
       'requesttoken': _token!,
     });
 
-    final response = await _inner.send(request);
+    final streamedResponse = await _inner.send(request);
 
-    if (response.statusCode >= 300) {
-      throw DynamiteStatusCodeException(
-        response.statusCode,
-      );
+    if (streamedResponse.statusCode >= 300) {
+      if (streamedResponse.statusCode == 401) {
+        // Clear the token just in case it expired and lead to the failure.
+        _log.fine('Clearing CSRF token for WebDAV');
+        _token = null;
+      }
+
+      final response = await http.Response.fromStream(streamedResponse);
+
+      throw DynamiteStatusCodeException(response);
     }
 
-    return response;
+    return streamedResponse;
   }
 }

@@ -1,13 +1,14 @@
 import 'dart:convert';
 
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/models.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:xml/xml.dart' as xml;
+import 'package:xml/xml.dart';
+import 'package:xml/xml_events.dart';
 import 'package:xml_annotation/xml_annotation.dart' as xml_annotation;
 
 /// Base path used on the server
@@ -43,10 +44,15 @@ final class WebDavResponseConverter with Converter<http.StreamedResponse, Future
 
   @override
   Future<WebDavMultistatus> convert(http.StreamedResponse input) async {
-    final encoding = encodingForHeaders(input.headers);
+    final response = await http.Response.fromStream(input);
 
-    final xml = await input.stream.bytesToXml(encoding);
-    return WebDavMultistatus.fromXmlElement(xml!);
+    final xml = XmlEventDecoder()
+        .fuse(const XmlNormalizeEvents())
+        .fuse(const XmlNodeDecoder())
+        .convert(response.body)
+        .firstWhere((element) => element is XmlElement) as XmlElement;
+
+    return WebDavMultistatus.fromXmlElement(xml);
   }
 }
 

@@ -73,108 +73,125 @@ void main() {
     });
 
     group('throwing DynamiteException should retry', () {
-      test('wrap', () async {
-        final subject = BehaviorSubject<Result<String>>();
-        final callback = MockCallbackFunction<Future<Uint8List>>();
-        when(callback.call).thenAnswer((_) async => throw DynamiteStatusCodeException(500));
+      for (final entry in [
+        ('server side', 500, <String, String>{}, kMaxTries),
+        ('client side', 401, <String, String>{}, 1),
+        ('webdav authorization', 401, <String, String>{'content-type': 'application/xml; charset=utf-8'}, kMaxTries),
+        ('webdav not found', 404, <String, String>{'content-type': 'application/xml; charset=utf-8'}, 1),
+      ]) {
+        group(entry.$1, () {
+          test('wrap', () async {
+            final subject = BehaviorSubject<Result<String>>();
+            final callback = MockCallbackFunction<Future<Uint8List>>();
+            when(callback.call).thenAnswer(
+              (_) async => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
+            );
 
-        await RequestManager.instance.wrap<String, Uint8List>(
-          account: account,
-          cacheKey: 'key',
-          subject: subject,
-          request: () async => callback.call(),
-          unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
-        );
+            await RequestManager.instance.wrap<String, Uint8List>(
+              account: account,
+              cacheKey: 'key',
+              subject: subject,
+              request: () async => callback.call(),
+              unwrap: (deserialized) => base64.encode(deserialized),
+              serialize: (deserialized) => deserialized,
+              deserialize: (serialized) => serialized,
+            );
 
-        verify(callback.call).called(kMaxTries);
+            verify(callback.call).called(entry.$4);
 
-        await subject.close();
-      });
+            await subject.close();
+          });
 
-      test('wrapBinary', () async {
-        final subject = BehaviorSubject<Result<Uint8List>>();
-        final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+          test('wrapBinary', () async {
+            final subject = BehaviorSubject<Result<Uint8List>>();
+            final callback = MockCallbackFunction<http.BaseRequest>();
+            when(callback.call).thenAnswer(
+              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
+            );
 
-        when(() => account.client).thenReturn(
-          NextcloudClient(
-            Uri(),
-            loginName: '',
-            password: '',
-          ),
-        );
+            when(() => account.client).thenReturn(
+              NextcloudClient(
+                Uri(),
+                loginName: '',
+                password: '',
+              ),
+            );
 
-        await RequestManager.instance.wrapBinary(
-          account: account,
-          cacheKey: 'key',
-          subject: subject,
-          getRequest: callback.call,
-          getCacheParameters: () async => const CacheParameters(
-            etag: null,
-            expires: null,
-          ),
-          unwrap: (data) => data,
-        );
+            await RequestManager.instance.wrapBinary(
+              account: account,
+              cacheKey: 'key',
+              subject: subject,
+              getRequest: callback.call,
+              getCacheParameters: () async => const CacheParameters(
+                etag: null,
+                expires: null,
+              ),
+              unwrap: (data) => data,
+            );
 
-        verify(callback.call).called(kMaxTries);
+            verify(callback.call).called(entry.$4);
 
-        await subject.close();
-      });
+            await subject.close();
+          });
 
-      test('wrapWebDav', () async {
-        final subject = BehaviorSubject<Result<WebDavMultistatus>>();
-        final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+          test('wrapWebDav', () async {
+            final subject = BehaviorSubject<Result<WebDavMultistatus>>();
+            final callback = MockCallbackFunction<http.BaseRequest>();
+            when(callback.call).thenAnswer(
+              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
+            );
 
-        when(() => account.client).thenReturn(
-          NextcloudClient(
-            Uri(),
-            loginName: '',
-            password: '',
-          ),
-        );
+            when(() => account.client).thenReturn(
+              NextcloudClient(
+                Uri(),
+                loginName: '',
+                password: '',
+              ),
+            );
 
-        await RequestManager.instance.wrapWebDav(
-          account: account,
-          cacheKey: 'key',
-          subject: subject,
-          getRequest: callback.call,
-          unwrap: (data) => data,
-        );
+            await RequestManager.instance.wrapWebDav(
+              account: account,
+              cacheKey: 'key',
+              subject: subject,
+              getRequest: callback.call,
+              unwrap: (data) => data,
+            );
 
-        verify(callback.call).called(kMaxTries);
+            verify(callback.call).called(entry.$4);
 
-        await subject.close();
-      });
+            await subject.close();
+          });
 
-      test('wrapNextcloud', () async {
-        final subject = BehaviorSubject<Result<provisioning_api.UserDetails>>();
-        final callback = MockCallbackFunction<http.BaseRequest>();
-        when(callback.call).thenAnswer((_) => throw DynamiteStatusCodeException(500));
+          test('wrapNextcloud', () async {
+            final subject = BehaviorSubject<Result<provisioning_api.UserDetails>>();
+            final callback = MockCallbackFunction<http.BaseRequest>();
+            when(callback.call).thenAnswer(
+              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
+            );
 
-        when(() => account.client).thenReturn(
-          NextcloudClient(
-            Uri(),
-            loginName: '',
-            password: '',
-          ),
-        );
+            when(() => account.client).thenReturn(
+              NextcloudClient(
+                Uri(),
+                loginName: '',
+                password: '',
+              ),
+            );
 
-        await RequestManager.instance.wrapNextcloud(
-          account: account,
-          cacheKey: 'key',
-          subject: subject,
-          getRequest: callback.call,
-          unwrap: (data) => data.body.ocs.data,
-          serializer: account.client.provisioningApi.users.$getCurrentUser_Serializer(),
-        );
+            await RequestManager.instance.wrapNextcloud(
+              account: account,
+              cacheKey: 'key',
+              subject: subject,
+              getRequest: callback.call,
+              unwrap: (data) => data.body.ocs.data,
+              serializer: account.client.provisioningApi.users.$getCurrentUser_Serializer(),
+            );
 
-        verify(callback.call).called(kMaxTries);
+            verify(callback.call).called(entry.$4);
 
-        await subject.close();
-      });
+            await subject.close();
+          });
+        });
+      }
     });
 
     group('wrap without cache', () {
