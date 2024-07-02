@@ -563,7 +563,7 @@ class WebDavClient {
     final authentication = rootClient.authentications?.firstOrNull;
     if (authentication != null) {
       request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
   }

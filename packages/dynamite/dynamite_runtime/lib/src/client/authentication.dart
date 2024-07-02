@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 
 /// Base dynamite authentication.
@@ -18,7 +19,7 @@ sealed class DynamiteAuthentication {
   final String? scheme;
 
   /// The authentication headers added to a request.
-  Map<String, String> get headers;
+  BuiltMap<String, String> get headers;
 }
 
 /// Basic http authentication with username and password.
@@ -39,9 +40,9 @@ class DynamiteHttpBasicAuthentication extends DynamiteAuthentication {
   final String password;
 
   @override
-  Map<String, String> get headers => {
+  BuiltMap<String, String> get headers => BuiltMap({
         'Authorization': 'Basic ${base64.encode(utf8.encode('$username:$password'))}',
-      };
+      });
 }
 
 /// Http bearer authentication with a token.
@@ -58,7 +59,7 @@ class DynamiteHttpBearerAuthentication extends DynamiteAuthentication {
   final String token;
 
   @override
-  Map<String, String> get headers => {
+  BuiltMap<String, String> get headers => BuiltMap({
         'Authorization': 'Bearer $token',
-      };
+      });
 }

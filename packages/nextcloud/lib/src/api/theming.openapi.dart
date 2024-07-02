@@ -110,7 +110,7 @@ class $IconClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -191,7 +191,7 @@ class $IconClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -283,7 +283,7 @@ class $IconClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -394,7 +394,7 @@ class $ThemingClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -489,7 +489,7 @@ class $ThemingClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -575,7 +575,7 @@ class $ThemingClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -654,7 +654,7 @@ class $UserThemeClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -735,7 +735,7 @@ class $UserThemeClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -832,7 +832,7 @@ class $UserThemeClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');

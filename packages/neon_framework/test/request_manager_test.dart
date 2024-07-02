@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -793,10 +794,10 @@ void main() {
               statusCode: 200,
               body: 'Test value',
               headers: const {},
-              rawHeaders: {
+              rawHeaders: BuiltMap({
                 'etag': 'a',
                 'expires': formatHttpDate(newExpires),
-              },
+              }),
             ),
             unwrap: (rawResponse) => rawResponse.body,
             serialize: (rawResponse) => utf8.encode(rawResponse.body),

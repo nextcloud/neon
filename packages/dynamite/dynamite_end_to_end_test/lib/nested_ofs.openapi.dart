@@ -9,6 +9,7 @@
 /// nested ofs test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
@@ -415,8 +416,8 @@ typedef _$fc0451dbdd462718bd075afd2e3ce0ec = ({BaseOneOf1? baseOneOf1, double? $
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075afd2e3ce0ec {
-  List<dynamic> get _values => [baseOneOf1, $double];
-  List<String> get _names => const ['baseOneOf1', r'$double'];
+  BuiltList<dynamic> get _values => BuiltList([baseOneOf1, $double]);
+  BuiltList<String> get _names => BuiltList(const ['baseOneOf1', r'$double']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -497,8 +498,8 @@ typedef _$ce3c7b262d1c503446a436c461be5be9 = ({BaseAnyOf1? baseAnyOf1, int? $int
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436c461be5be9 {
-  List<dynamic> get _values => [baseAnyOf1, $int];
-  List<String> get _names => const ['baseAnyOf1', r'$int'];
+  BuiltList<dynamic> get _values => BuiltList([baseAnyOf1, $int]);
+  BuiltList<String> get _names => BuiltList(const ['baseAnyOf1', r'$int']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -585,8 +586,9 @@ typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d453af8ad19 {
-  List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
-  List<String> get _names => const ['baseAllOf', 'baseAnyOf', 'baseNestedOneOf3', 'baseOneOf1', r'$double'];
+  BuiltList<dynamic> get _values => BuiltList([baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['baseAllOf', 'baseAnyOf', 'baseNestedOneOf3', 'baseOneOf1', r'$double']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -713,8 +715,9 @@ typedef _$523892e2348458a2bdb28f9f942dca37 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f9f942dca37 {
-  List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
-  List<String> get _names => const ['baseAllOf', 'baseAnyOf1', 'baseNestedAnyOf3', 'baseOneOf', r'$int'];
+  BuiltList<dynamic> get _values => BuiltList([baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['baseAllOf', 'baseAnyOf1', 'baseNestedAnyOf3', 'baseOneOf', r'$int']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -835,8 +838,8 @@ typedef _$abe6d27882a5771a98ede04cd64de567 = ({BaseOneOf1? baseOneOf1, num? $num
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede04cd64de567 {
-  List<dynamic> get _values => [baseOneOf1, $num];
-  List<String> get _names => const ['baseOneOf1', r'$num'];
+  BuiltList<dynamic> get _values => BuiltList([baseOneOf1, $num]);
+  BuiltList<String> get _names => BuiltList(const ['baseOneOf1', r'$num']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(

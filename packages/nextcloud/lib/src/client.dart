@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:cookie_jar/cookie_jar.dart' as cookie_jar;
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
@@ -36,7 +37,7 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
               if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
             },
           ),
-          authentications: [
+          authentications: BuiltList([
             if (appPassword != null)
               DynamiteHttpBearerAuthentication(
                 token: appPassword,
@@ -46,7 +47,7 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
                 username: loginName,
                 password: (password ?? appPassword)!,
               ),
-          ],
+          ]),
         );
 
   @override

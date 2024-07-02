@@ -80,20 +80,20 @@ Iterable<Spec> generateSomeOf(
 
   final values = Method((b) {
     b
-      ..returns = refer('List<dynamic>')
+      ..returns = refer('BuiltList<dynamic>')
       ..type = MethodType.getter
       ..name = '_values'
       ..lambda = true
-      ..body = Code('[${fields.values.join(',')}]');
+      ..body = Code('BuiltList([${fields.values.join(',')}])');
   });
 
   final names = Method((b) {
     b
-      ..returns = refer('List<String>')
+      ..returns = refer('BuiltList<String>')
       ..type = MethodType.getter
       ..name = '_names'
       ..lambda = true
-      ..body = Code('const [${fields.values.map(escapeDartString).join(',')}]');
+      ..body = Code('BuiltList(const [${fields.values.map(escapeDartString).join(',')}])');
   });
 
   final oneOfValidator = Method((b) {

@@ -9,6 +9,7 @@
 /// any of test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
@@ -276,8 +277,8 @@ typedef _$0c9017d9a03ba2eb2f15acadeab85bbe = ({ObjectAnyOf0? objectAnyOf0, Objec
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $0c9017d9a03ba2eb2f15acadeab85bbeExtension on _$0c9017d9a03ba2eb2f15acadeab85bbe {
-  List<dynamic> get _values => [objectAnyOf0, objectAnyOf1];
-  List<String> get _names => const ['objectAnyOf0', 'objectAnyOf1'];
+  BuiltList<dynamic> get _values => BuiltList([objectAnyOf0, objectAnyOf1]);
+  BuiltList<String> get _names => BuiltList(const ['objectAnyOf0', 'objectAnyOf1']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -358,8 +359,8 @@ typedef _$fba45e085ee99d64c5141852d4323e3d = ({MixedAnyOf1? mixedAnyOf1, String?
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $fba45e085ee99d64c5141852d4323e3dExtension on _$fba45e085ee99d64c5141852d4323e3d {
-  List<dynamic> get _values => [mixedAnyOf1, string];
-  List<String> get _names => const ['mixedAnyOf1', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([mixedAnyOf1, string]);
+  BuiltList<String> get _names => BuiltList(const ['mixedAnyOf1', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -440,8 +441,8 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
-  List<dynamic> get _values => [$num, string];
-  List<String> get _names => const [r'$num', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$num, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$num', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(

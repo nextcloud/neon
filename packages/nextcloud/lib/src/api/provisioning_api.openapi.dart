@@ -106,7 +106,7 @@ class $AppConfigClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -198,7 +198,7 @@ class $AppConfigClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -308,7 +308,7 @@ class $AppConfigClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -418,7 +418,7 @@ class $AppsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -515,7 +515,7 @@ class $AppsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -612,7 +612,7 @@ class $AppsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -710,7 +710,7 @@ class $AppsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -820,7 +820,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -928,7 +928,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1033,7 +1033,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1139,7 +1139,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1245,7 +1245,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1363,7 +1363,7 @@ class $GroupsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1486,7 +1486,7 @@ class $PreferencesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1593,7 +1593,7 @@ class $PreferencesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1703,7 +1703,7 @@ class $PreferencesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1809,7 +1809,7 @@ class $PreferencesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1917,7 +1917,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2021,7 +2021,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2128,7 +2128,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2238,7 +2238,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2388,7 +2388,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2520,7 +2520,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2625,7 +2625,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2736,7 +2736,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2833,7 +2833,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2937,7 +2937,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3040,7 +3040,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3127,7 +3127,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3209,7 +3209,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3299,7 +3299,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3416,7 +3416,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3522,7 +3522,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3619,7 +3619,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3716,7 +3716,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3811,7 +3811,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3912,7 +3912,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4017,7 +4017,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4117,7 +4117,7 @@ class $UsersClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -10708,8 +10708,8 @@ typedef _$c4bc4131e74e61dae681408e87e2e2bd = ({bool? $bool, int? $int});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $c4bc4131e74e61dae681408e87e2e2bdExtension on _$c4bc4131e74e61dae681408e87e2e2bd {
-  List<dynamic> get _values => [$bool, $int];
-  List<String> get _names => const [r'$bool', r'$int'];
+  BuiltList<dynamic> get _values => BuiltList([$bool, $int]);
+  BuiltList<String> get _names => BuiltList(const [r'$bool', r'$int']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -10790,8 +10790,8 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
-  List<dynamic> get _values => [$num, string];
-  List<String> get _names => const [r'$num', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$num, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$num', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -10875,8 +10875,10 @@ typedef _$b20d370ea28764b414e70ac5df151f1b = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b20d370ea28764b414e70ac5df151f1bExtension on _$b20d370ea28764b414e70ac5df151f1b {
-  List<dynamic> get _values => [groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1, userDetails];
-  List<String> get _names => const ['groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1', 'userDetails'];
+  BuiltList<dynamic> get _values =>
+      BuiltList([groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1, userDetails]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1', 'userDetails']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -10968,8 +10970,9 @@ typedef _$1e1cd5e43e0a1022a23a294e58225d74 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $1e1cd5e43e0a1022a23a294e58225d74Extension on _$1e1cd5e43e0a1022a23a294e58225d74 {
-  List<dynamic> get _values => [userDetails, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
-  List<String> get _names => const ['userDetails', 'usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1'];
+  BuiltList<dynamic> get _values => BuiltList([userDetails, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['userDetails', 'usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -11060,8 +11063,10 @@ typedef _$f9d75e948689049b3f3e23e024d4be73 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $f9d75e948689049b3f3e23e024d4be73Extension on _$f9d75e948689049b3f3e23e024d4be73 {
-  List<dynamic> get _values => [userDetails, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
-  List<String> get _names => const ['userDetails', 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1'];
+  BuiltList<dynamic> get _values =>
+      BuiltList([userDetails, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['userDetails', 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(

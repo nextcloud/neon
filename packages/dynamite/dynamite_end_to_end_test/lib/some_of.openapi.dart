@@ -9,6 +9,7 @@
 /// oneOf and anyOf test with the same record type Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart' as _i4;
@@ -129,8 +130,8 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
-  List<dynamic> get _values => [$num, string];
-  List<String> get _names => const [r'$num', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$num, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$num', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(

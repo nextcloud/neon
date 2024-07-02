@@ -643,7 +643,7 @@ final authentication = ${allocate(collectionRef)}?.firstWhereOrNull(
 
 if(authentication != null) {
   _request.headers.addAll(
-    authentication.headers,
+    authentication.headers.toMap(),
   );
 }
 ''');

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
@@ -49,7 +50,7 @@ class DynamiteRawResponse<B, H> extends DynamiteResponse<B, H> {
   }) : super(statusCode, body, headers);
 
   /// Caches the raw headers for later serialization in [toJson].
-  final Map<String, Object?>? rawHeaders;
+  final BuiltMap<String, Object?>? rawHeaders;
 
   /// Caches the raw response body for later serialization in [toJson].
   final Object? rawBody;
@@ -131,7 +132,7 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
 
     return DynamiteRawResponse<B, H>(
       statusCode: statusCode,
-      rawHeaders: rawHeaders,
+      rawHeaders: BuiltMap(rawHeaders),
       headers: headers as H,
       rawBody: rawBody,
       body: body as B,
@@ -148,7 +149,7 @@ final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynam
   Map<String, Object?> convert(DynamiteRawResponse<dynamic, dynamic> input) => {
         'statusCode': input.statusCode,
         'body': input.rawBody,
-        'headers': input.rawHeaders,
+        'headers': input.rawHeaders?.toMap(),
       };
 }
 

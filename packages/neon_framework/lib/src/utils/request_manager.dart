@@ -186,7 +186,7 @@ class RequestManager {
       getCacheParameters: () async {
         final response = await account.client.head(
           uri,
-          headers: headers,
+          headers: headers?.toMap(),
         );
 
         return CacheParameters.parseHeaders(response.headers);
@@ -194,7 +194,7 @@ class RequestManager {
       getRequest: () {
         final request = http.Request('GET', uri);
         if (headers != null) {
-          request.headers.addAll(headers);
+          request.headers.addAll(headers.toMap());
         }
 
         return request;
@@ -320,7 +320,7 @@ class RequestManager {
         CacheParameters? cacheParameters;
         if (response case DynamiteRawResponse(:final rawHeaders) when rawHeaders != null) {
           try {
-            cacheParameters = CacheParameters.parseHeaders(rawHeaders);
+            cacheParameters = CacheParameters.parseHeaders(rawHeaders.toMap());
           } on FormatException catch (error) {
             _log.info(
               'Invalid format when parsing cache parameters.',

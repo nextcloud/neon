@@ -1038,8 +1038,8 @@ typedef _$93403da1a64cb6a7b1597c7a05e9b2be = ({bool? $bool, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c7a05e9b2be {
-  List<dynamic> get _values => [$bool, string];
-  List<String> get _names => const [r'$bool', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$bool, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$bool', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i4.validateOneOf(

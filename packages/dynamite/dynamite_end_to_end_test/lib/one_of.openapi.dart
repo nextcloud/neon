@@ -410,8 +410,8 @@ typedef _$6c828020e1dac1d58ded0a29ef8b0c41 = ({ObjectOneOf0? objectOneOf0, Objec
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $6c828020e1dac1d58ded0a29ef8b0c41Extension on _$6c828020e1dac1d58ded0a29ef8b0c41 {
-  List<dynamic> get _values => [objectOneOf0, objectOneOf1];
-  List<String> get _names => const ['objectOneOf0', 'objectOneOf1'];
+  BuiltList<dynamic> get _values => BuiltList([objectOneOf0, objectOneOf1]);
+  BuiltList<String> get _names => BuiltList(const ['objectOneOf0', 'objectOneOf1']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -492,8 +492,8 @@ typedef _$d1b40dfcebdca2dfa1f3e52ac98462a5 = ({MixedOneOf1? mixedOneOf1, String?
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $d1b40dfcebdca2dfa1f3e52ac98462a5Extension on _$d1b40dfcebdca2dfa1f3e52ac98462a5 {
-  List<dynamic> get _values => [mixedOneOf1, string];
-  List<String> get _names => const ['mixedOneOf1', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([mixedOneOf1, string]);
+  BuiltList<String> get _names => BuiltList(const ['mixedOneOf1', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -574,8 +574,8 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
-  List<dynamic> get _values => [$num, string];
-  List<String> get _names => const [r'$num', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$num, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$num', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -659,8 +659,8 @@ typedef _$00f31f9753d01398a2c3705cd335c56e = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $00f31f9753d01398a2c3705cd335c56eExtension on _$00f31f9753d01398a2c3705cd335c56e {
-  List<dynamic> get _values => [builtListJsonObject, oneOfUnspecifiedArray0];
-  List<String> get _names => const ['builtListJsonObject', 'oneOfUnspecifiedArray0'];
+  BuiltList<dynamic> get _values => BuiltList([builtListJsonObject, oneOfUnspecifiedArray0]);
+  BuiltList<String> get _names => BuiltList(const ['builtListJsonObject', 'oneOfUnspecifiedArray0']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(
@@ -744,8 +744,8 @@ typedef _$5fb8a7f8bbb305dd61a4a05d6996c58b = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $5fb8a7f8bbb305dd61a4a05d6996c58bExtension on _$5fb8a7f8bbb305dd61a4a05d6996c58b {
-  List<dynamic> get _values => [builtListString, oneOfStringArray0];
-  List<String> get _names => const ['builtListString', 'oneOfStringArray0'];
+  BuiltList<dynamic> get _values => BuiltList([builtListString, oneOfStringArray0]);
+  BuiltList<String> get _names => BuiltList(const ['builtListString', 'oneOfStringArray0']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(

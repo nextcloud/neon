@@ -192,7 +192,7 @@ class $AppPasswordClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -279,7 +279,7 @@ class $AppPasswordClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -364,7 +364,7 @@ class $AppPasswordClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -457,7 +457,7 @@ class $AppPasswordClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -588,7 +588,7 @@ class $AutoCompleteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -708,7 +708,7 @@ class $AvatarClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -799,7 +799,7 @@ class $AvatarClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -890,7 +890,7 @@ class $ClientFlowLoginV2Client {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -960,7 +960,7 @@ class $ClientFlowLoginV2Client {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -1045,7 +1045,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1149,7 +1149,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1262,7 +1262,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1378,7 +1378,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1482,7 +1482,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1584,7 +1584,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1698,7 +1698,7 @@ class $CollaborationResourcesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1822,7 +1822,7 @@ class $GuestAvatarClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -1917,7 +1917,7 @@ class $GuestAvatarClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -2012,7 +2012,7 @@ class $HoverCardClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2110,7 +2110,7 @@ class $LoginClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2207,7 +2207,7 @@ class $NavigationClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2305,7 +2305,7 @@ class $NavigationClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2398,7 +2398,7 @@ class $OcmClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -2476,7 +2476,7 @@ class $OcsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -2611,7 +2611,7 @@ class $PreviewClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2759,7 +2759,7 @@ class $PreviewClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2888,7 +2888,7 @@ class $ProfileApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2995,7 +2995,7 @@ class $ReferenceClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -3096,7 +3096,7 @@ class $ReferenceApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3195,7 +3195,7 @@ class $ReferenceApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3295,7 +3295,7 @@ class $ReferenceApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3383,7 +3383,7 @@ class $ReferenceApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3479,7 +3479,7 @@ class $ReferenceApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3583,7 +3583,7 @@ class $TeamsApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3681,7 +3681,7 @@ class $TeamsApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -3776,7 +3776,7 @@ class $TextProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -3885,7 +3885,7 @@ class $TextProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -3991,7 +3991,7 @@ class $TextProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4086,7 +4086,7 @@ class $TextProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4188,7 +4188,7 @@ class $TextProcessingApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4285,7 +4285,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4394,7 +4394,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4498,7 +4498,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4593,7 +4593,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4694,7 +4694,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4795,7 +4795,7 @@ class $TextToImageApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -4892,7 +4892,7 @@ class $TranslationApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -4994,7 +4994,7 @@ class $TranslationApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -5102,7 +5102,7 @@ class $UnifiedSearchClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -5228,7 +5228,7 @@ class $UnifiedSearchClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -5338,7 +5338,7 @@ class $WhatsNewClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -5427,7 +5427,7 @@ class $WhatsNewClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -5524,7 +5524,7 @@ class $WipeClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -5603,7 +5603,7 @@ class $WipeClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     }
 
@@ -19584,8 +19584,8 @@ typedef _$87e48e5649cd72b4d2947aaaea13ccd8 = ({AutocompleteResult_Status0? autoc
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $87e48e5649cd72b4d2947aaaea13ccd8Extension on _$87e48e5649cd72b4d2947aaaea13ccd8 {
-  List<dynamic> get _values => [autocompleteResultStatus0, string];
-  List<String> get _names => const ['autocompleteResultStatus0', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([autocompleteResultStatus0, string]);
+  BuiltList<String> get _names => BuiltList(const ['autocompleteResultStatus0', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -19666,8 +19666,8 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
-  List<dynamic> get _values => [$int, string];
-  List<String> get _names => const [r'$int', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$int, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$int', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -19751,8 +19751,8 @@ typedef _$46564992d3ed3482aa6c1162698aac99 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c1162698aac99 {
-  List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
-  List<String> get _names => const ['builtListNever', 'sharebymailCapabilities0'];
+  BuiltList<dynamic> get _values => BuiltList([builtListNever, sharebymailCapabilities0]);
+  BuiltList<String> get _names => BuiltList(const ['builtListNever', 'sharebymailCapabilities0']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -19836,8 +19836,8 @@ typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
-  List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
-  List<String> get _names => const ['builtListNever', 'spreedPublicCapabilities0'];
+  BuiltList<dynamic> get _values => BuiltList([builtListNever, spreedPublicCapabilities0]);
+  BuiltList<String> get _names => BuiltList(const ['builtListNever', 'spreedPublicCapabilities0']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
@@ -19938,7 +19938,7 @@ typedef _$f6f5edfce09cb06e8f14ce14ab1af117 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce14ab1af117 {
-  List<dynamic> get _values => [
+  BuiltList<dynamic> get _values => BuiltList([
         commentsCapabilities,
         coreCapabilities,
         corePublicCapabilities,
@@ -19958,8 +19958,8 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
         themingPublicCapabilities,
         userStatusCapabilities,
         weatherStatusCapabilities,
-      ];
-  List<String> get _names => const [
+      ]);
+  BuiltList<String> get _names => BuiltList(const [
         'commentsCapabilities',
         'coreCapabilities',
         'corePublicCapabilities',
@@ -19979,7 +19979,7 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
         'themingPublicCapabilities',
         'userStatusCapabilities',
         'weatherStatusCapabilities',
-      ];
+      ]);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(

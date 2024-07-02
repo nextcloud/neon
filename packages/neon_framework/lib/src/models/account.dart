@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -129,7 +130,7 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
   /// Get the necessary `Authorization` headers for a given [uri].
   ///
   /// This method ensures no credentials are sent to the wrong server.
-  Map<String, String>? getAuthorizationHeaders(Uri uri) {
+  BuiltMap<String, String>? getAuthorizationHeaders(Uri uri) {
     if (uri.toString().startsWith(serverURL.toString())) {
       return client.authentications?.firstOrNull?.headers;
     }

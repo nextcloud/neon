@@ -113,7 +113,7 @@ class $ApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -229,7 +229,7 @@ class $ApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -343,7 +343,7 @@ class $ApiClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');

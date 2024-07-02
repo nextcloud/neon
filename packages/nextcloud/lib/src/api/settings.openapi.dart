@@ -128,7 +128,7 @@ class $DeclarativeSettingsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -226,7 +226,7 @@ class $DeclarativeSettingsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -316,7 +316,7 @@ class $LogSettingsClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -1195,8 +1195,8 @@ typedef _$ecd8d9fe35935410da9dc2662cd86d27 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $ecd8d9fe35935410da9dc2662cd86d27Extension on _$ecd8d9fe35935410da9dc2662cd86d27 {
-  List<dynamic> get _values => [declarativeFormFieldOptions1, string];
-  List<String> get _names => const ['declarativeFormFieldOptions1', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([declarativeFormFieldOptions1, string]);
+  BuiltList<String> get _names => BuiltList(const ['declarativeFormFieldOptions1', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(
@@ -1282,8 +1282,8 @@ typedef _$bb4e9af94b69347c125c27e03a648d24 = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $bb4e9af94b69347c125c27e03a648d24Extension on _$bb4e9af94b69347c125c27e03a648d24 {
-  List<dynamic> get _values => [$bool, builtListString, $num, string];
-  List<String> get _names => const [r'$bool', 'builtListString', r'$num', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$bool, builtListString, $num, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$bool', 'builtListString', r'$num', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(

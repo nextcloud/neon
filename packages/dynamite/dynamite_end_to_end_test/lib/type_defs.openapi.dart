@@ -9,6 +9,7 @@
 /// some ofs test Version: 0.0.1.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -142,8 +143,8 @@ typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({Base? base, int? $int, JsonObject
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
-  List<dynamic> get _values => [base, $int, jsonObject];
-  List<String> get _names => const ['base', r'$int', 'jsonObject'];
+  BuiltList<dynamic> get _values => BuiltList([base, $int, jsonObject]);
+  BuiltList<String> get _names => BuiltList(const ['base', r'$int', 'jsonObject']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i1.validateOneOf(

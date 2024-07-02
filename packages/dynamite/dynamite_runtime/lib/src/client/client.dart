@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:dynamite_runtime/src/client/authentication.dart';
 import 'package:dynamite_runtime/src/client/exception.dart';
 import 'package:dynamite_runtime/src/client/response.dart';
@@ -40,5 +41,5 @@ abstract class DynamiteClient {
   /// The available authentications for this client.
   ///
   /// The first one matching the required authentication type will be used.
-  final List<DynamiteAuthentication>? authentications;
+  final BuiltList<DynamiteAuthentication>? authentications;
 }

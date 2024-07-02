@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:dynamite_end_to_end_test/authentication.openapi.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart';
@@ -20,7 +21,7 @@ void main() {
     // no registered authentications
     var client = $Client(
       uri,
-      authentications: [],
+      authentications: BuiltList(),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -33,7 +34,7 @@ void main() {
     // registered basic authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth],
+      authentications: BuiltList(const [basicAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -46,7 +47,7 @@ void main() {
     // registered bearer authentication
     client = $Client(
       uri,
-      authentications: const [bearerAuth],
+      authentications: BuiltList(const [bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -59,7 +60,7 @@ void main() {
     // multiple registered authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth, bearerAuth],
+      authentications: BuiltList(const [basicAuth, bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -74,7 +75,7 @@ void main() {
     // no registered authentications
     var client = $Client(
       uri,
-      authentications: [],
+      authentications: BuiltList(),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -87,7 +88,7 @@ void main() {
     // registered basic authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth],
+      authentications: BuiltList(const [basicAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -106,7 +107,7 @@ void main() {
     // registered bearer authentication
     client = $Client(
       uri,
-      authentications: const [bearerAuth],
+      authentications: BuiltList(const [bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -119,7 +120,7 @@ void main() {
     // multiple registered authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth, bearerAuth],
+      authentications: BuiltList(const [basicAuth, bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -140,7 +141,7 @@ void main() {
     // no registered authentications
     var client = $Client(
       uri,
-      authentications: [],
+      authentications: BuiltList(),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -153,7 +154,7 @@ void main() {
     // registered basic authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth],
+      authentications: BuiltList(const [basicAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -166,7 +167,7 @@ void main() {
     // registered bearer authentication
     client = $Client(
       uri,
-      authentications: const [bearerAuth],
+      authentications: BuiltList(const [bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -185,7 +186,7 @@ void main() {
     // multiple registered authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth, bearerAuth],
+      authentications: BuiltList(const [basicAuth, bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -206,7 +207,7 @@ void main() {
     // no registered authentications
     var client = $Client(
       uri,
-      authentications: [],
+      authentications: BuiltList(),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
@@ -219,7 +220,7 @@ void main() {
     // registered basic authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth],
+      authentications: BuiltList(const [basicAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -238,7 +239,7 @@ void main() {
     // registered bearer authentication
     client = $Client(
       uri,
-      authentications: const [bearerAuth],
+      authentications: BuiltList(const [bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(
@@ -257,7 +258,7 @@ void main() {
     // multiple registered authentication
     client = $Client(
       uri,
-      authentications: const [basicAuth, bearerAuth],
+      authentications: BuiltList(const [basicAuth, bearerAuth]),
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
         expect(

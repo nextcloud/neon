@@ -81,7 +81,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -158,7 +158,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -240,7 +240,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -320,7 +320,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -396,7 +396,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -481,7 +481,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -562,7 +562,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -636,7 +636,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -711,7 +711,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -780,7 +780,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');
@@ -848,7 +848,7 @@ class $Client extends _i1.DynamiteClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for basic_auth');

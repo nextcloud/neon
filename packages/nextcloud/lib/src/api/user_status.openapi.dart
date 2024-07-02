@@ -113,7 +113,7 @@ class $HeartbeatClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -208,7 +208,7 @@ class $PredefinedStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -309,7 +309,7 @@ class $StatusesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -405,7 +405,7 @@ class $StatusesClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -499,7 +499,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -592,7 +592,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -694,7 +694,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -805,7 +805,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -898,7 +898,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -989,7 +989,7 @@ class $UserStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2959,8 +2959,8 @@ typedef _$557344b3ba734aacc7109e5420fcb6c5 = ({ClearAtTimeType? clearAtTimeType,
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e5420fcb6c5 {
-  List<dynamic> get _values => [clearAtTimeType, $int];
-  List<String> get _names => const ['clearAtTimeType', r'$int'];
+  BuiltList<dynamic> get _values => BuiltList([clearAtTimeType, $int]);
+  BuiltList<String> get _names => BuiltList(const ['clearAtTimeType', r'$int']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(
@@ -3041,8 +3041,8 @@ typedef _$d77829de8b7590d2e16cdb714800f5be = ({BuiltList<Never>? builtListNever,
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb714800f5be {
-  List<dynamic> get _values => [builtListNever, private];
-  List<String> get _names => const ['builtListNever', 'private'];
+  BuiltList<dynamic> get _values => BuiltList([builtListNever, private]);
+  BuiltList<String> get _names => BuiltList(const ['builtListNever', 'private']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(

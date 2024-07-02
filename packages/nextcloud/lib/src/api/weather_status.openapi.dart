@@ -103,7 +103,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -188,7 +188,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -271,7 +271,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -372,7 +372,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -464,7 +464,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -547,7 +547,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -640,7 +640,7 @@ class $WeatherStatusClient {
 
     if (authentication != null) {
       _request.headers.addAll(
-        authentication.headers,
+        authentication.headers.toMap(),
       );
     } else {
       throw Exception('Missing authentication for bearer_auth or basic_auth');
@@ -2922,8 +2922,10 @@ typedef _$20fe3de793aed6fbf929c9b82b472b1a = ({
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $20fe3de793aed6fbf929c9b82b472b1aExtension on _$20fe3de793aed6fbf929c9b82b472b1a {
-  List<dynamic> get _values => [builtListForecast, weatherStatusGetForecastResponseApplicationJsonOcsData1];
-  List<String> get _names => const ['builtListForecast', 'weatherStatusGetForecastResponseApplicationJsonOcsData1'];
+  BuiltList<dynamic> get _values =>
+      BuiltList([builtListForecast, weatherStatusGetForecastResponseApplicationJsonOcsData1]);
+  BuiltList<String> get _names =>
+      BuiltList(const ['builtListForecast', 'weatherStatusGetForecastResponseApplicationJsonOcsData1']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(

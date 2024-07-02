@@ -313,8 +313,8 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
-  List<dynamic> get _values => [$int, string];
-  List<String> get _names => const [r'$int', 'string'];
+  BuiltList<dynamic> get _values => BuiltList([$int, string]);
+  BuiltList<String> get _names => BuiltList(const [r'$int', 'string']);
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(
