@@ -33,9 +33,9 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
           httpClient: CookieJarClient(
             httpClient: httpClient,
             cookieJar: cookieJar,
-            baseHeaders: {
+            baseHeaders: BuiltMap({
               if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
-            },
+            }),
           ),
           authentications: BuiltList([
             if (appPassword != null)

@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 // coverage:ignore-file
 
+import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:xml/xml.dart';
@@ -14,13 +15,13 @@ const namespaceNextcloud = 'http://nextcloud.org/ns';
 const namespaceOpenCollaborationServices = 'http://open-collaboration-services.org/ns';
 const namespaceOpenCloudMesh = 'http://open-cloud-mesh.org/ns';
 
-const Map<String, String> namespaces = {
+final BuiltMap<String, String> namespaces = BuiltMap({
   namespaceDav: 'd',
   namespaceOwncloud: 'oc',
   namespaceNextcloud: 'nc',
   namespaceOpenCollaborationServices: 'ocs',
   namespaceOpenCloudMesh: 'ocm',
-};
+});
 
 @immutable
 @annotation.XmlSerializable(createMixin: true)

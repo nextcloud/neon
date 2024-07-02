@@ -118,7 +118,7 @@ class RequestManager {
           return const WebDavResponseConverter().convert(response);
         },
         unwrap: unwrap,
-        serialize: (data) => utf8.encode(data.toXmlElement(namespaces: namespaces).toXmlString()),
+        serialize: (data) => utf8.encode(data.toXmlElement(namespaces: namespaces.toMap()).toXmlString()),
         deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(utf8.decode(data)).rootElement),
         disableTimeout: disableTimeout,
       );

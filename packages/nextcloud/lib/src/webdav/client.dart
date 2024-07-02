@@ -352,7 +352,7 @@ class WebDavClient {
     final request = http.Request('PROPFIND', _constructUri(path))
       ..encoding = utf8
       ..body = WebDavPropfind(prop: prop ?? const WebDavPropWithoutValues())
-          .toXmlElement(namespaces: namespaces)
+          .toXmlElement(namespaces: namespaces.toMap())
           .toXmlString();
 
     if (depth != null) {
@@ -399,7 +399,7 @@ class WebDavClient {
       ..body = WebDavOcFilterFiles(
         filterRules: filterRules,
         prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
-      ).toXmlElement(namespaces: namespaces).toXmlString();
+      ).toXmlElement(namespaces: namespaces.toMap()).toXmlString();
 
     _addBaseHeaders(request);
     return request;
@@ -440,7 +440,7 @@ class WebDavClient {
       ..body = WebDavPropertyupdate(
         set: set != null ? WebDavSet(prop: set) : null,
         remove: remove != null ? WebDavRemove(prop: remove) : null,
-      ).toXmlElement(namespaces: namespaces).toXmlString();
+      ).toXmlElement(namespaces: namespaces.toMap()).toXmlString();
 
     _addBaseHeaders(request);
     return request;

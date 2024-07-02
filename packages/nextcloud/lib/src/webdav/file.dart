@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/utils.dart';
@@ -7,8 +8,10 @@ import 'package:timezone/timezone.dart' as tz;
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
-  List<WebDavFile> toWebDavFiles() =>
-      responses.where((response) => response.href != null).map((response) => WebDavFile(response: response)).toList();
+  BuiltList<WebDavFile> toWebDavFiles() => responses
+      .where((response) => response.href != null)
+      .map((response) => WebDavFile(response: response))
+      .toBuiltList();
 }
 
 /// WebDavFile class

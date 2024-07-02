@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:cookie_jar/cookie_jar.dart' as cookie_jar;
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -23,7 +24,7 @@ class CookieJarClient with http.BaseClient {
   final cookie_jar.CookieJar? cookieJar;
 
   /// The base headers added to each request.
-  final Map<String, String>? baseHeaders;
+  final BuiltMap<String, String>? baseHeaders;
 
   /// Sends an HTTP request and asynchronously returns the response.
   ///
