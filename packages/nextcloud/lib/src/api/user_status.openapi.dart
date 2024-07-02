@@ -153,11 +153,12 @@ class $HeartbeatClient {
       status: status,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $heartbeat_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<HeartbeatHeartbeatResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<HeartbeatHeartbeatResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -242,11 +243,12 @@ class $PredefinedStatusClient {
     final _request = $findAll_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findAll_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -349,11 +351,12 @@ class $StatusesClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findAll_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<StatusesFindAllResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<StatusesFindAllResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -443,11 +446,12 @@ class $StatusesClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $find_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<StatusesFindResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<StatusesFindResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -534,11 +538,12 @@ class $UserStatusClient {
     final _request = $getStatus_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getStatus_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UserStatusGetStatusResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UserStatusGetStatusResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -630,11 +635,12 @@ class $UserStatusClient {
       statusType: statusType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setStatus_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UserStatusSetStatusResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UserStatusSetStatusResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -735,12 +741,12 @@ class $UserStatusClient {
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setPredefinedMessage_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -849,12 +855,12 @@ class $UserStatusClient {
       clearAt: clearAt,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setCustomMessage_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -932,11 +938,12 @@ class $UserStatusClient {
     final _request = $clearMessage_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearMessage_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1026,11 +1033,12 @@ class $UserStatusClient {
       messageId: messageId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $revertStatus_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

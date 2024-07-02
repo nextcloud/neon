@@ -138,10 +138,11 @@ class $IconClient {
     final _request = $getFavicon_Request(
       app: app,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getFavicon_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -219,10 +220,11 @@ class $IconClient {
     final _request = $getTouchIcon_Request(
       app: app,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getTouchIcon_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -316,10 +318,11 @@ class $IconClient {
       app: app,
       image: image,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThemedIcon_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -429,10 +432,11 @@ class $ThemingClient {
       plain: plain,
       withCustomCss: withCustomCss,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThemeStylesheet_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<String, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -522,10 +526,11 @@ class $ThemingClient {
       key: key,
       useSvg: useSvg,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getImage_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -602,11 +607,12 @@ class $ThemingClient {
     final _request = $getManifest_Request(
       app: app,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getManifest_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ThemingGetManifestResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ThemingGetManifestResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -678,10 +684,11 @@ class $UserThemeClient {
   ///  * [$getBackground_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getBackground() async {
     final _request = $getBackground_Request();
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBackground_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -774,11 +781,12 @@ class $UserThemeClient {
       themeId: themeId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enableTheme_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UserThemeEnableThemeResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UserThemeEnableThemeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -871,11 +879,12 @@ class $UserThemeClient {
       themeId: themeId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disableTheme_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UserThemeDisableThemeResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UserThemeDisableThemeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

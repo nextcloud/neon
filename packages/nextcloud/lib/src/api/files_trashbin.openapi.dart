@@ -163,10 +163,11 @@ class $PreviewClient {
       y: y,
       a: a,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreview_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

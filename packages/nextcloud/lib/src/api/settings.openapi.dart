@@ -176,12 +176,12 @@ class $DeclarativeSettingsClient {
       value: value,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setValue_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -261,12 +261,12 @@ class $DeclarativeSettingsClient {
     final _request = $getForms_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getForms_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -341,11 +341,12 @@ class $LogSettingsClient {
   ///  * [$download_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>> download() async {
     final _request = $download_Request();
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $download_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
+        _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

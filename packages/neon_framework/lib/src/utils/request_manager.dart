@@ -87,7 +87,8 @@ class RequestManager {
         cacheKey: cacheKey,
         subject: subject,
         request: () async {
-          final response = await account.client.send(getRequest());
+          final streamedResponse = await account.client.send(getRequest());
+          final response = await http.Response.fromStream(streamedResponse);
           return ResponseConverter<B, H>(serializer).convert(response);
         },
         unwrap: (rawResponse) => unwrap(rawResponse),
@@ -114,7 +115,8 @@ class RequestManager {
         cacheKey: cacheKey,
         subject: subject,
         request: () async {
-          final response = await account.client.webdav.csrfClient.send(getRequest());
+          final streamedResponse = await account.client.webdav.csrfClient.send(getRequest());
+          final response = await http.Response.fromStream(streamedResponse);
           return const WebDavResponseConverter().convert(response);
         },
         unwrap: unwrap,
@@ -148,8 +150,8 @@ class RequestManager {
       cacheKey: cacheKey,
       subject: subject,
       request: () async {
-        final response = await account.client.send(getRequest());
-
+        final streamedResponse = await account.client.send(getRequest());
+        final response = await http.Response.fromStream(streamedResponse);
         return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
       },
       unwrap: (rawResponse) {

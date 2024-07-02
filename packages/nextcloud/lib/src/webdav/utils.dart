@@ -38,18 +38,16 @@ Uri constructUri(Uri baseURL, [PathUri? path]) {
 /// Converter to transform a [http.StreamedResponse] into a [DynamiteResponse].
 ///
 /// Throws a [DynamiteApiException] on errors.
-final class WebDavResponseConverter with Converter<http.StreamedResponse, Future<WebDavMultistatus>> {
+final class WebDavResponseConverter with Converter<http.Response, WebDavMultistatus> {
   /// Creates a new response converter
   const WebDavResponseConverter();
 
   @override
-  Future<WebDavMultistatus> convert(http.StreamedResponse input) async {
-    final response = await http.Response.fromStream(input);
-
+  WebDavMultistatus convert(http.Response input) {
     final xml = XmlEventDecoder()
         .fuse(const XmlNormalizeEvents())
         .fuse(const XmlNodeDecoder())
-        .convert(response.body)
+        .convert(input.body)
         .firstWhere((element) => element is XmlElement) as XmlElement;
 
     return WebDavMultistatus.fromXmlElement(xml);

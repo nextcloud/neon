@@ -130,11 +130,12 @@ class $DashboardApiClient {
     final _request = $getWidgets_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgets_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -253,12 +254,12 @@ class $DashboardApiClient {
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgetItems_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DashboardApiGetWidgetItemsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<DashboardApiGetWidgetItemsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -377,12 +378,12 @@ class $DashboardApiClient {
       widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgetItemsV2_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

@@ -217,10 +217,11 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -418,10 +419,11 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getDefaults_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -626,10 +628,11 @@ class $Client extends _i1.DynamiteClient {
       anyOf: anyOf,
       enumPattern: enumPattern,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getHeaders_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -677,10 +680,11 @@ class $Client extends _i1.DynamiteClient {
     final _request = $getPathParameter_Request(
       pathParameter: pathParameter,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPathParameter_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -764,10 +768,11 @@ class $Client extends _i1.DynamiteClient {
       parameters: parameters,
       headers: headers,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNamingCollisions_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

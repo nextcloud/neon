@@ -166,10 +166,11 @@ class $ApiClient {
       y: y,
       file: file,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThumbnail_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -251,11 +252,12 @@ class $DirectEditingClient {
     final _request = $info_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $info_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -355,11 +357,12 @@ class $DirectEditingClient {
       creatorId: creatorId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $templates_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -468,11 +471,12 @@ class $DirectEditingClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $open_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -591,11 +595,12 @@ class $DirectEditingClient {
       templateId: templateId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -693,11 +698,12 @@ class $OpenLocalEditorClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -796,11 +802,12 @@ class $OpenLocalEditorClient {
       token: token,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $validate_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -882,11 +889,12 @@ class $TemplateClient {
     final _request = $list_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $list_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -996,11 +1004,12 @@ class $TemplateClient {
       templateType: templateType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1104,11 +1113,12 @@ class $TemplateClient {
       copySystemTemplates: copySystemTemplates,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $path_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1217,12 +1227,12 @@ class $TransferOwnershipClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $transfer_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1315,11 +1325,12 @@ class $TransferOwnershipClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $accept_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1412,11 +1423,12 @@ class $TransferOwnershipClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $reject_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

@@ -135,10 +135,11 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getStatus_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Status, void>> getStatus() async {
     final _request = $getStatus_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getStatus_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Status, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Status, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -229,12 +230,12 @@ class $AppPasswordClient {
     final _request = $getAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppPassword_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppPasswordGetAppPasswordResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<AppPasswordGetAppPasswordResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -314,12 +315,12 @@ class $AppPasswordClient {
     final _request = $deleteAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteAppPassword_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -399,12 +400,12 @@ class $AppPasswordClient {
     final _request = $rotateAppPassword_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $rotateAppPassword_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<AppPasswordRotateAppPasswordResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<AppPasswordRotateAppPasswordResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -495,12 +496,12 @@ class $AppPasswordClient {
       password: password,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmUserPassword_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<AppPasswordConfirmUserPasswordResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<AppPasswordConfirmUserPasswordResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -640,11 +641,12 @@ class $AutoCompleteClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AutoCompleteGetResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AutoCompleteGetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -740,11 +742,12 @@ class $AvatarClient {
       userId: userId,
       size: size,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatarDark_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<Uint8List, AvatarAvatarGetAvatarDarkHeaders>(_serializer).convert(_response);
+        _i1.ResponseConverter<Uint8List, AvatarAvatarGetAvatarDarkHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -831,11 +834,11 @@ class $AvatarClient {
       userId: userId,
       size: size,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatar_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<Uint8List, AvatarAvatarGetAvatarHeaders>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, AvatarAvatarGetAvatarHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -917,10 +920,11 @@ class $ClientFlowLoginV2Client {
     final _request = $poll_Request(
       token: token,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $poll_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<LoginFlowV2Credentials, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<LoginFlowV2Credentials, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -981,10 +985,11 @@ class $ClientFlowLoginV2Client {
   ///  * [$init_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<LoginFlowV2, void>> init() async {
     final _request = $init_Request();
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $init_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<LoginFlowV2, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<LoginFlowV2, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1084,11 +1089,12 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listCollection_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesListCollectionResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<CollaborationResourcesListCollectionResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1191,11 +1197,12 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $renameCollection_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1307,11 +1314,12 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addResource_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesAddResourceResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<CollaborationResourcesAddResourceResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1423,11 +1431,12 @@ class $CollaborationResourcesClient {
       collectionId: collectionId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeResource_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1520,11 +1529,12 @@ class $CollaborationResourcesClient {
       filter: filter,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $searchCollections_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1626,11 +1636,12 @@ class $CollaborationResourcesClient {
       resourceId: resourceId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCollectionsByResource_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
+        _i1.ResponseConverter<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
       _serializer,
     ).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
@@ -1745,11 +1756,12 @@ class $CollaborationResourcesClient {
       baseResourceId: baseResourceId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createCollectionOnResource_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
+        _i1.ResponseConverter<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
       _serializer,
     ).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
@@ -1858,10 +1870,11 @@ class $GuestAvatarClient {
       size: size,
       darkTheme: darkTheme,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatar_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1950,10 +1963,11 @@ class $GuestAvatarClient {
       guestName: guestName,
       size: size,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAvatarDark_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2050,11 +2064,12 @@ class $HoverCardClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<HoverCardGetUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<HoverCardGetUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2141,11 +2156,12 @@ class $LoginClient {
     final _request = $confirmPassword_Request(
       password: password,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmPassword_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<LoginConfirmPasswordResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<LoginConfirmPasswordResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2245,12 +2261,12 @@ class $NavigationClient {
       absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppsNavigation_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<NavigationGetAppsNavigationResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<NavigationGetAppsNavigationResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2343,11 +2359,12 @@ class $NavigationClient {
       absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSettingsNavigation_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<NavigationGetSettingsNavigationResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<NavigationGetSettingsNavigationResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -2420,12 +2437,12 @@ class $OcmClient {
   ///  * [$discovery_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>> discovery() async {
     final _request = $discovery_Request();
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $discovery_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2508,11 +2525,12 @@ class $OcsClient {
     final _request = $getCapabilities_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCapabilities_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OcsGetCapabilitiesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<OcsGetCapabilitiesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2663,10 +2681,11 @@ class $PreviewClient {
       mode: mode,
       mimeFallback: mimeFallback,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreview_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2811,10 +2830,11 @@ class $PreviewClient {
       mode: mode,
       mimeFallback: mimeFallback,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreviewByFileId_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2936,11 +2956,12 @@ class $ProfileApiClient {
       targetUserId: targetUserId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setVisibility_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<ProfileApiSetVisibilityResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<ProfileApiSetVisibilityResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -3022,10 +3043,11 @@ class $ReferenceClient {
     final _request = $preview_Request(
       referenceId: referenceId,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $preview_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -3139,11 +3161,12 @@ class $ReferenceApiClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $extract_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ReferenceApiExtractResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ReferenceApiExtractResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3232,11 +3255,12 @@ class $ReferenceApiClient {
       reference: reference,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resolveOne_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<ReferenceApiResolveOneResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<ReferenceApiResolveOneResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3335,11 +3359,12 @@ class $ReferenceApiClient {
       limit: limit,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resolve_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ReferenceApiResolveResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ReferenceApiResolveResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3417,12 +3442,12 @@ class $ReferenceApiClient {
     final _request = $getProvidersInfo_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getProvidersInfo_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3519,12 +3544,12 @@ class $ReferenceApiClient {
       timestamp: timestamp,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $touchProvider_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<ReferenceApiTouchProviderResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -3620,11 +3645,12 @@ class $TeamsApiClient {
       teamId: teamId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resolveOne_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TeamsApiResolveOneResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TeamsApiResolveOneResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3721,11 +3747,12 @@ class $TeamsApiClient {
       resourceId: resourceId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTeams_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TeamsApiListTeamsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TeamsApiListTeamsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -3808,12 +3835,12 @@ class $TextProcessingApiClient {
     final _request = $taskTypes_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $taskTypes_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextProcessingApiTaskTypesResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<TextProcessingApiTaskTypesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3932,12 +3959,12 @@ class $TextProcessingApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $schedule_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextProcessingApiScheduleResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<TextProcessingApiScheduleResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4028,11 +4055,12 @@ class $TextProcessingApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getTask_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TextProcessingApiGetTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TextProcessingApiGetTaskResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4125,12 +4153,12 @@ class $TextProcessingApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteTask_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextProcessingApiDeleteTaskResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<TextProcessingApiDeleteTaskResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4229,11 +4257,12 @@ class $TextProcessingApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasksByApp_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextProcessingApiListTasksByAppResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<TextProcessingApiListTasksByAppResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -4317,12 +4346,12 @@ class $TextToImageApiClient {
     final _request = $isAvailable_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $isAvailable_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextToImageApiIsAvailableResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<TextToImageApiIsAvailableResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4440,11 +4469,12 @@ class $TextToImageApiClient {
       numberOfImages: numberOfImages,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $schedule_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TextToImageApiScheduleResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TextToImageApiScheduleResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4535,11 +4565,12 @@ class $TextToImageApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getTask_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<TextToImageApiGetTaskResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<TextToImageApiGetTaskResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4632,11 +4663,12 @@ class $TextToImageApiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteTask_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TextToImageApiDeleteTaskResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TextToImageApiDeleteTaskResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4734,10 +4766,11 @@ class $TextToImageApiClient {
       index: index,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getImage_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4836,12 +4869,12 @@ class $TextToImageApiClient {
       identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listTasksByApp_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<TextToImageApiListTasksByAppResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<TextToImageApiListTasksByAppResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -4924,11 +4957,12 @@ class $TranslationApiClient {
     final _request = $languages_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $languages_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TranslationApiLanguagesResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TranslationApiLanguagesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -5038,11 +5072,12 @@ class $TranslationApiClient {
       fromLanguage: fromLanguage,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $translate_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<TranslationApiTranslateResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<TranslationApiTranslateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -5139,12 +5174,12 @@ class $UnifiedSearchClient {
       from: from,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getProviders_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UnifiedSearchGetProvidersResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<UnifiedSearchGetProvidersResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -5283,11 +5318,12 @@ class $UnifiedSearchClient {
       from: from,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $search_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UnifiedSearchSearchResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UnifiedSearchSearchResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -5371,11 +5407,12 @@ class $WhatsNewClient {
     final _request = $$get_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<WhatsNewGetResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<WhatsNewGetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -5465,11 +5502,12 @@ class $WhatsNewClient {
       version: version,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $dismiss_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<WhatsNewDismissResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<WhatsNewDismissResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -5551,11 +5589,12 @@ class $WipeClient {
     final _request = $checkWipe_Request(
       token: token,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $checkWipe_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<WipeCheckWipeResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<WipeCheckWipeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -5630,10 +5669,11 @@ class $WipeClient {
     final _request = $wipeDone_Request(
       token: token,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $wipeDone_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

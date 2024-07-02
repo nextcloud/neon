@@ -129,11 +129,12 @@ class $ApiClient {
     final _request = $getUserMounts_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUserMounts_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

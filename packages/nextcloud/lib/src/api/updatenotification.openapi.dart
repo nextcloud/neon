@@ -155,11 +155,12 @@ class $ApiClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppList_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -273,11 +274,12 @@ class $ApiClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppChangelogEntry_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<ApiGetAppChangelogEntryResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<ApiGetAppChangelogEntryResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

@@ -381,7 +381,8 @@ class WebDavClient {
       depth: depth,
     );
 
-    final response = await csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    final response = await http.Response.fromStream(streamedResponse);
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -422,7 +423,8 @@ class WebDavClient {
       prop: prop,
     );
 
-    final response = await csrfClient.send(request);
+    final streamedResponse = await csrfClient.send(request);
+    final response = await http.Response.fromStream(streamedResponse);
     return const WebDavResponseConverter().convert(response);
   }
 
@@ -465,8 +467,9 @@ class WebDavClient {
       remove: remove,
     );
 
-    final response = await csrfClient.send(request);
-    final data = await const WebDavResponseConverter().convert(response);
+    final streamedResponse = await csrfClient.send(request);
+    final response = await http.Response.fromStream(streamedResponse);
+    final data = const WebDavResponseConverter().convert(response);
     for (final a in data.responses) {
       for (final b in a.propstats) {
         if (!b.status.contains('200')) {

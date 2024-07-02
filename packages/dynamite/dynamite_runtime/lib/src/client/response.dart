@@ -99,10 +99,10 @@ final class DynamiteSerializer<B, H> {
   final Set<int>? validStatuses;
 }
 
-/// Converter to transform a [http.StreamedResponse] into a [DynamiteResponse].
+/// Converter to transform a [http.Response] into a [DynamiteResponse].
 ///
 /// Throws a [DynamiteApiException] on errors.
-final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future<DynamiteRawResponse<B, H>>> {
+final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRawResponse<B, H>> {
   /// Creates a new response converter
   const ResponseConverter(this.serializer);
 
@@ -110,22 +110,20 @@ final class ResponseConverter<B, H> with Converter<http.StreamedResponse, Future
   final DynamiteSerializer<B, H> serializer;
 
   @override
-  Future<DynamiteRawResponse<B, H>> convert(http.StreamedResponse input) async {
-    final response = await http.Response.fromStream(input);
-
-    final rawHeaders = response.headers;
-    final statusCode = response.statusCode;
+  DynamiteRawResponse<B, H> convert(http.Response input) {
+    final rawHeaders = input.headers;
+    final statusCode = input.statusCode;
     final validStatuses = serializer.validStatuses;
     if (validStatuses != null && !validStatuses.contains(statusCode)) {
-      throw DynamiteStatusCodeException(response);
+      throw DynamiteStatusCodeException(input);
     }
 
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
     final rawBody = switch (serializer.bodyType) {
-      const FullType(Uint8List) => response.bodyBytes,
-      const FullType(String) => response.body,
-      _ => json.decode(response.body),
+      const FullType(Uint8List) => input.bodyBytes,
+      const FullType(String) => input.body,
+      _ => json.decode(input.body),
     };
     final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 

@@ -102,10 +102,11 @@ class $Client extends _i1.DynamiteClient {
       tags: tags,
       limit: limit,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findValues_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
