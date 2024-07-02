@@ -1,9 +1,10 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
 /// Response returned by operations of a `DynamiteClient`.
@@ -70,6 +71,8 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRespon
   /// The serializer to convert the raw header and body into [B] and [H].
   final DynamiteSerializer<B, H> serializer;
 
+  static final Logger _logger = Logger('ResponseConverter');
+
   @override
   DynamiteResponse<B, H> convert(http.Response input) {
     final rawHeaders = input.headers;
@@ -81,12 +84,25 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRespon
 
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
-    final rawBody = switch (serializer.bodyType) {
-      const FullType(Uint8List) => input.bodyBytes,
-      const FullType(String) => input.body,
-      _ => json.decode(input.body),
+    final contentType = rawHeaders['content-type'];
+    MediaType? mediaType;
+    if (contentType != null) {
+      try {
+        mediaType = MediaType.parse(contentType);
+      } on FormatException catch (error, stackTrace) {
+        _logger.warning('Could not parse $contentType', error, stackTrace);
+      }
+    }
+
+    final body = switch (mediaType) {
+      MediaType(type: 'text') || MediaType(type: 'application', subtype: 'javascript') => input.body,
+      MediaType(type: 'application', subtype: 'json') => _deserialize<B>(
+          json.decode(input.body),
+          serializer.serializers,
+          serializer.bodyType,
+        ),
+      _ => input.bodyBytes,
     };
-    final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
     return DynamiteResponse<B, H>(
       statusCode,
