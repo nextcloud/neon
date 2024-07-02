@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -15,7 +14,6 @@ import 'package:nextcloud/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:xml/xml.dart' as xml;
 
 final _log = Logger('RequestManager');
 
@@ -88,16 +86,10 @@ class RequestManager {
         subject: subject,
         request: () async {
           final streamedResponse = await account.client.send(getRequest());
-          final response = await http.Response.fromStream(streamedResponse);
-          return ResponseConverter<B, H>(serializer).convert(response);
+          return http.Response.fromStream(streamedResponse);
         },
-        unwrap: (rawResponse) => unwrap(rawResponse),
-        serialize: (data) {
-          return const RawResponseEncoder().fuse(JsonUtf8Encoder()).convert(data as DynamiteRawResponse) as Uint8List;
-        },
-        deserialize: (data) {
-          return const Utf8Decoder().fuse(const JsonDecoder()).fuse(RawResponseDecoder<B, H>(serializer)).convert(data);
-        },
+        converter: ResponseConverter<B, H>(serializer),
+        unwrap: unwrap,
         disableTimeout: disableTimeout,
       );
 
@@ -116,12 +108,10 @@ class RequestManager {
         subject: subject,
         request: () async {
           final streamedResponse = await account.client.webdav.csrfClient.send(getRequest());
-          final response = await http.Response.fromStream(streamedResponse);
-          return const WebDavResponseConverter().convert(response);
+          return http.Response.fromStream(streamedResponse);
         },
+        converter: const WebDavResponseConverter(),
         unwrap: unwrap,
-        serialize: (data) => utf8.encode(data.toXmlElement(namespaces: namespaces).toXmlString()),
-        deserialize: (data) => WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(utf8.decode(data)).rootElement),
         disableTimeout: disableTimeout,
       );
 
@@ -132,46 +122,31 @@ class RequestManager {
   Future<void> wrapBinary({
     required Account account,
     required String cacheKey,
-    required AsyncValueGetter<CacheParameters> getCacheParameters,
+    required AsyncValueGetter<Map<String, String>> getCacheHeaders,
     required http.BaseRequest Function() getRequest,
     required UnwrapCallback<Uint8List, Uint8List>? unwrap,
     required BehaviorSubject<Result<Uint8List>> subject,
     bool disableTimeout = false,
-  }) async {
-    final serializer = DynamiteSerializer<Uint8List, Map<String, String>>(
-      bodyType: const FullType(Uint8List),
-      headersType: const FullType(Map, [FullType(String), FullType(String)]),
-      serializers: Serializers(),
-      validStatuses: const {200, 201},
-    );
+  }) async =>
+      wrap<Uint8List, Uint8List>(
+        account: account,
+        cacheKey: cacheKey,
+        subject: subject,
+        request: () async {
+          final streamedResponse = await account.client.send(getRequest());
+          return http.Response.fromStream(streamedResponse);
+        },
+        converter: const BinaryResponseConverter(),
+        unwrap: (data) {
+          if (unwrap != null) {
+            data = unwrap(data);
+          }
 
-    return wrap<Uint8List, DynamiteResponse<Uint8List, dynamic>>(
-      account: account,
-      cacheKey: cacheKey,
-      subject: subject,
-      request: () async {
-        final streamedResponse = await account.client.send(getRequest());
-        final response = await http.Response.fromStream(streamedResponse);
-        return ResponseConverter<Uint8List, Map<String, String>>(serializer).convert(response);
-      },
-      unwrap: (rawResponse) {
-        var data = rawResponse.body;
-        if (unwrap != null) {
-          data = unwrap(data);
-        }
-
-        return data;
-      },
-      serialize: (response) => response.body,
-      deserialize: (data) => DynamiteResponse(
-        200,
-        data,
-        null,
-      ),
-      getCacheParameters: getCacheParameters,
-      disableTimeout: disableTimeout,
-    );
-  }
+          return data;
+        },
+        getCacheHeaders: getCacheHeaders,
+        disableTimeout: disableTimeout,
+      );
 
   /// Executes a HTTP request for binary content using a simplified [uri] based approach.
   Future<void> wrapUri({
@@ -185,13 +160,13 @@ class RequestManager {
     return wrapBinary(
       account: account,
       cacheKey: uri.toString(),
-      getCacheParameters: () async {
+      getCacheHeaders: () async {
         final response = await account.client.head(
           uri,
           headers: headers,
         );
 
-        return CacheParameters.parseHeaders(response.headers);
+        return response.headers;
       },
       getRequest: () {
         final request = http.Request('GET', uri);
@@ -214,11 +189,10 @@ class RequestManager {
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required AsyncValueGetter<R> request,
+    required AsyncValueGetter<http.Response> request,
+    required Converter<http.Response, R> converter,
     required UnwrapCallback<T, R> unwrap,
-    required SerializeCallback<R> serialize,
-    required DeserializeCallback<R> deserialize,
-    AsyncValueGetter<CacheParameters>? getCacheParameters,
+    AsyncValueGetter<Map<String, String>>? getCacheHeaders,
     bool disableTimeout = false,
     Duration timeLimit = kDefaultTimeout,
   }) async {
@@ -229,18 +203,19 @@ class RequestManager {
       subject.add(Result.loading());
     }
 
-    // Fetch the cached data with the cache parameters.
-    final cached = await _cache?.get(account, cacheKey);
+    final cachedResponse = await _cache?.get(account, cacheKey);
     if (subject.isClosed) {
       return;
     }
 
-    if (cached != null) {
-      final unwrapped = unwrap(deserialize(cached.value));
+    if (cachedResponse != null) {
+      final parameters = CacheParameters.parseHeaders(cachedResponse.headers);
+
+      final unwrapped = unwrap(converter.convert(cachedResponse));
 
       // If the cached data is not expired emit it.
       // Return as the value is up to date.
-      if (cached.parameters case CacheParameters(isExpired: false)) {
+      if (parameters case CacheParameters(isExpired: false)) {
         subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
         return;
       }
@@ -258,22 +233,23 @@ class RequestManager {
       // If the cached data expired and has an etag, try to refresh the cache parameters.
       // If the etag did not change, emit the cached data in a done state.
       // Save the new cache parameters and return.
-      if (cached.parameters case CacheParameters(:final etag) when etag != null && getCacheParameters != null) {
+      if (parameters case CacheParameters(:final etag) when etag != null && getCacheHeaders != null) {
         try {
-          final newParameters = await timeout(
-            getCacheParameters.call,
+          final newHeaders = await timeout(
+            getCacheHeaders.call,
             timeLimit: timeLimit,
           );
           if (subject.isClosed) {
             return;
           }
 
+          final newParameters = CacheParameters.parseHeaders(newHeaders);
           if (newParameters.etag == etag) {
             unawaited(
-              _cache?.updateParameters(
+              _cache?.updateHeaders(
                 account,
                 cacheKey,
-                newParameters,
+                newHeaders,
               ),
             );
 
@@ -315,23 +291,13 @@ class RequestManager {
         if (subject.isClosed) {
           return;
         }
-        subject.add(Result.success(unwrap(response)));
+        subject.add(Result.success(unwrap(converter.convert(response))));
 
-        final serialized = serialize(response);
-
-        CacheParameters? cacheParameters;
-        if (response case DynamiteRawResponse(:final rawHeaders) when rawHeaders != null) {
-          try {
-            cacheParameters = CacheParameters.parseHeaders(rawHeaders);
-          } on FormatException catch (error) {
-            _log.info(
-              'Invalid format when parsing cache parameters.',
-              error,
-            );
-          }
-        }
-
-        await _cache?.set(account, cacheKey, serialized, cacheParameters);
+        await _cache?.set(
+          account,
+          cacheKey,
+          response,
+        );
         break;
       } on TimeoutException catch (error, stackTrace) {
         _log.info(
@@ -449,4 +415,13 @@ class CacheParameters {
 
   @override
   String toString() => 'CacheParameters(etag: $etag, expires: $expires)';
+}
+
+/// Converter to transform [http.Response] into it's [http.Response.bodyBytes].
+class BinaryResponseConverter with Converter<http.Response, Uint8List> {
+  /// Creates a new [BinaryResponseConverter].
+  const BinaryResponseConverter();
+
+  @override
+  Uint8List convert(http.Response input) => input.bodyBytes;
 }
