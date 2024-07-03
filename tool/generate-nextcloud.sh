@@ -10,4 +10,6 @@ cd "$(dirname "$0")/.."
   fvm dart run generate_exports.dart
   fvm dart fix --apply lib/src/api/
   melos run format
+  fvm dart fix --apply lib/src/api/
+  melos run format
 )

@@ -140,11 +140,12 @@ class $AppConfigClient {
     final _request = $getApps_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getApps_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppConfigGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppConfigGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -238,11 +239,12 @@ class $AppConfigClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getKeys_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppConfigGetKeysResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppConfigGetKeysResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -354,11 +356,12 @@ class $AppConfigClient {
       key: key,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setValue_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppConfigSetValueResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppConfigSetValueResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -457,11 +460,12 @@ class $AppsClient {
       filter: filter,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getApps_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppsGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppsGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -554,11 +558,12 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppInfo_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppsGetAppInfoResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppsGetAppInfoResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -652,11 +657,11 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enable_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<AppsEnableResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<AppsEnableResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -750,11 +755,12 @@ class $AppsClient {
       app: app,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disable_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<AppsDisableResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<AppsDisableResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -859,12 +865,12 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSubAdminsOfGroup_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -971,11 +977,12 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroups_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GroupsGetGroupsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<GroupsGetGroupsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1071,11 +1078,12 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroup_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GroupsGetGroupResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<GroupsGetGroupResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1182,11 +1190,12 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupsDetails_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<GroupsGetGroupsDetailsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<GroupsGetGroupsDetailsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1284,11 +1293,12 @@ class $GroupsClient {
       groupId: groupId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupUsers_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GroupsGetGroupUsersResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<GroupsGetGroupUsersResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1409,12 +1419,12 @@ class $GroupsClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupUsersDetails_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1530,11 +1540,12 @@ class $PreferencesClient {
       configKey: configKey,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setPreference_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<PreferencesSetPreferenceResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<PreferencesSetPreferenceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1634,12 +1645,12 @@ class $PreferencesClient {
       configKey: configKey,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deletePreference_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<PreferencesDeletePreferenceResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<PreferencesDeletePreferenceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1744,11 +1755,12 @@ class $PreferencesClient {
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setMultiplePreferences_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1851,11 +1863,12 @@ class $PreferencesClient {
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteMultiplePreference_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -1956,12 +1969,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUserSubAdminGroups_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2064,11 +2077,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addSubAdmin_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersAddSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersAddSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2171,11 +2185,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeSubAdmin_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersRemoveSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersRemoveSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2281,11 +2296,12 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsers_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetUsersResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersGetUsersResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2452,11 +2468,12 @@ class $UsersClient {
       manager: manager,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersAddUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersAddUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2563,11 +2580,12 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsersDetails_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersGetUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2665,12 +2683,12 @@ class $UsersClient {
       offset: offset,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getDisabledUsersDetails_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2777,12 +2795,12 @@ class $UsersClient {
       search: search,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $searchByPhoneNumbers_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersSearchByPhoneNumbersResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<UsersSearchByPhoneNumbersResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2870,11 +2888,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersGetUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2982,11 +3001,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersEditUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersEditUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3079,11 +3099,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersDeleteUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersDeleteUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3161,11 +3182,12 @@ class $UsersClient {
     final _request = $getCurrentUser_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCurrentUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetCurrentUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersGetCurrentUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3243,11 +3265,12 @@ class $UsersClient {
     final _request = $getEditableFields_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getEditableFields_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<UsersGetEditableFieldsResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<UsersGetEditableFieldsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3336,12 +3359,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getEditableFieldsForUser_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<UsersGetEditableFieldsForUserResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<UsersGetEditableFieldsForUserResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3464,11 +3487,12 @@ class $UsersClient {
       collectionName: collectionName,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editUserMultiValue_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<UsersEditUserMultiValueResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<UsersEditUserMultiValueResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3561,11 +3585,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $wipeUserDevices_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersWipeUserDevicesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersWipeUserDevicesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3658,11 +3683,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enableUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersEnableUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersEnableUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3755,11 +3781,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disableUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersDisableUserResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersDisableUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3848,11 +3875,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsersGroups_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersGetUsersGroupsResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersGetUsersGroupsResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -3954,11 +3982,12 @@ class $UsersClient {
       groupid: groupid,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addToGroup_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersAddToGroupResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersAddToGroupResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4059,11 +4088,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeFromGroup_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersRemoveFromGroupResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UsersRemoveFromGroupResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -4156,12 +4186,12 @@ class $UsersClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resendWelcomeMessage_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UsersResendWelcomeMessageResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<UsersResendWelcomeMessageResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

@@ -73,10 +73,11 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, GetHeaders>> $get() async {
     final _request = $$get_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<void, GetHeaders>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<void, GetHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -118,11 +119,11 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$withContentOperationId_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<void, WithContentOperationIdHeaders>> withContentOperationId() async {
     final _request = $withContentOperationId_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $withContentOperationId_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<void, WithContentOperationIdHeaders>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<void, WithContentOperationIdHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -164,10 +165,11 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$getWithContent_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, GetWithContentHeaders>> getWithContent() async {
     final _request = $getWithContent_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWithContent_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, GetWithContentHeaders>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, GetWithContentHeaders>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

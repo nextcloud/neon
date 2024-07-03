@@ -155,11 +155,12 @@ class $DirectClient {
       expirationTime: expirationTime,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUrl_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -258,11 +259,12 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCurrentOutOfOfficeData_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
+        _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
             .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
@@ -354,12 +356,12 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getOutOfOffice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -486,12 +488,12 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setOutOfOffice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -582,12 +584,12 @@ class $OutOfOfficeClient {
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearOutOfOffice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

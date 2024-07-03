@@ -154,11 +154,11 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -276,11 +276,11 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$set_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -385,11 +385,11 @@ class $ApiClient {
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $remove_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

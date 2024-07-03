@@ -186,11 +186,12 @@ class $ApiClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $generateNotification_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -293,10 +294,11 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listNotifications_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
+    final _rawResponse = _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
             EndpointEndpointListNotificationsHeaders>(_serializer)
         .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
@@ -393,12 +395,12 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteAllNotifications_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+    final _rawResponse = _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -500,11 +502,12 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNotification_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -608,12 +611,12 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteNotification_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -715,12 +718,12 @@ class $EndpointClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmIdsForUser_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -850,11 +853,12 @@ class $PushClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $registerDevice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<PushRegisterDeviceResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<PushRegisterDeviceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -951,11 +955,12 @@ class $PushClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeDevice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<PushRemoveDeviceResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<PushRemoveDeviceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1079,11 +1084,12 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $personal_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<SettingsPersonalResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<SettingsPersonalResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1202,11 +1208,12 @@ class $SettingsClient {
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $admin_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<SettingsAdminResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<SettingsAdminResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

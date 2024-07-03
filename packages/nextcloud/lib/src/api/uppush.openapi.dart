@@ -104,11 +104,11 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$check_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CheckResponseApplicationJson, void>> check() async {
     final _request = $check_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $check_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<CheckResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<CheckResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -188,11 +188,12 @@ class $Client extends _i1.DynamiteClient {
     final _request = $setKeepalive_Request(
       keepalive: keepalive,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setKeepalive_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<SetKeepaliveResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<SetKeepaliveResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -270,11 +271,12 @@ class $Client extends _i1.DynamiteClient {
     final _request = $createDevice_Request(
       deviceName: deviceName,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createDevice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<CreateDeviceResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<CreateDeviceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -347,11 +349,11 @@ class $Client extends _i1.DynamiteClient {
     final _request = $syncDevice_Request(
       deviceId: deviceId,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $syncDevice_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<SyncDeviceResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<SyncDeviceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -423,11 +425,12 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteDevice_Request(
       deviceId: deviceId,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteDevice_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DeleteDeviceResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DeleteDeviceResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -514,11 +517,11 @@ class $Client extends _i1.DynamiteClient {
       deviceId: deviceId,
       appName: appName,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createApp_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<CreateAppResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<CreateAppResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -587,11 +590,11 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteApp_Request(
       token: token,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteApp_Serializer();
-    final _rawResponse =
-        await _i1.ResponseConverter<DeleteAppResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<DeleteAppResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -663,11 +666,12 @@ class $Client extends _i1.DynamiteClient {
     final _request = $unifiedpushDiscovery_Request(
       token: token,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unifiedpushDiscovery_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<UnifiedpushDiscoveryResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<UnifiedpushDiscoveryResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -736,10 +740,11 @@ class $Client extends _i1.DynamiteClient {
     final _request = $push_Request(
       token: token,
     );
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $push_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<PushResponseApplicationJson, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<PushResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -803,11 +808,12 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$gatewayMatrixDiscovery_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>> gatewayMatrixDiscovery() async {
     final _request = $gatewayMatrixDiscovery_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $gatewayMatrixDiscovery_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<GatewayMatrixDiscoveryResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<GatewayMatrixDiscoveryResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -871,11 +877,12 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$gatewayMatrix_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GatewayMatrixResponseApplicationJson, void>> gatewayMatrix() async {
     final _request = $gatewayMatrix_Request();
-    final _response = await httpClient.send(_request);
+    final _streamedResponse = await httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $gatewayMatrix_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<GatewayMatrixResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<GatewayMatrixResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

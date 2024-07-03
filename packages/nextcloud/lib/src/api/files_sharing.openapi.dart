@@ -140,11 +140,12 @@ class $DeletedShareapiClient {
     final _request = $index_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $index_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -235,11 +236,12 @@ class $DeletedShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $undelete_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer)
-        .convert(_response);
+    final _rawResponse =
+        _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -325,10 +327,11 @@ class $PublicPreviewClient {
     final _request = $directLink_Request(
       token: token,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $directLink_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -448,10 +451,11 @@ class $PublicPreviewClient {
       y: y,
       a: a,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreview_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -534,11 +538,12 @@ class $RemoteClient {
     final _request = $getShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShares_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -616,11 +621,12 @@ class $RemoteClient {
     final _request = $getOpenShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getOpenShares_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -712,11 +718,12 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $acceptShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -808,11 +815,12 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $declineShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -902,11 +910,12 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -998,11 +1007,12 @@ class $RemoteClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unshare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1116,10 +1126,11 @@ class $ShareInfoClient {
       dir: dir,
       depth: depth,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $info_Serializer();
-    final _rawResponse = await _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
+    final _rawResponse = _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -1256,11 +1267,12 @@ class $ShareapiClient {
       includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShares_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1443,11 +1455,12 @@ class $ShareapiClient {
       attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1540,12 +1553,12 @@ class $ShareapiClient {
       path: path,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getInheritedShares_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1623,11 +1636,12 @@ class $ShareapiClient {
     final _request = $pendingShares_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $pendingShares_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1729,11 +1743,12 @@ class $ShareapiClient {
       includeTags: includeTags,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1902,11 +1917,12 @@ class $ShareapiClient {
       attributes: attributes,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -1999,11 +2015,12 @@ class $ShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -2096,11 +2113,12 @@ class $ShareapiClient {
       id: id,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $acceptShare_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
@@ -2244,11 +2262,12 @@ class $ShareesapiClient {
       lookup: lookup,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $search_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
+        _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
       _serializer,
     ).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
@@ -2349,12 +2368,12 @@ class $ShareesapiClient {
       shareType: shareType,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findRecommended_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer)
-            .convert(_response);
+        _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }

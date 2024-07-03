@@ -132,11 +132,12 @@ class $ConfigapiClient {
     final _request = $create_Request(
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ConfigapiCreateResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ConfigapiCreateResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -243,11 +244,12 @@ class $ConfigapiClient {
       showPassword: showPassword,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$show_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ConfigapiShowResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ConfigapiShowResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -357,11 +359,12 @@ class $ConfigapiClient {
       configID: configID,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $modify_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ConfigapiModifyResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ConfigapiModifyResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
@@ -455,11 +458,12 @@ class $ConfigapiClient {
       configID: configID,
       oCSAPIRequest: oCSAPIRequest,
     );
-    final _response = await _rootClient.httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $delete_Serializer();
     final _rawResponse =
-        await _i1.ResponseConverter<ConfigapiDeleteResponseApplicationJson, void>(_serializer).convert(_response);
+        _i1.ResponseConverter<ConfigapiDeleteResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
