@@ -33,7 +33,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [options] for a complete operation executing this request.
-  http.BaseRequest options_Request() {
+  http.Request options_Request() {
     final request = http.Request('OPTIONS', _constructUri());
 
     _addBaseHeaders(request);
@@ -55,7 +55,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [mkcol] for a complete operation executing this request.
-  http.BaseRequest mkcol_Request(PathUri path) {
+  http.Request mkcol_Request(PathUri path) {
     final request = http.Request('MKCOL', _constructUri(path));
 
     _addBaseHeaders(request);
@@ -77,7 +77,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [delete] for a complete operation executing this request.
-  http.BaseRequest delete_Request(PathUri path) {
+  http.Request delete_Request(PathUri path) {
     final request = http.Request('DELETE', _constructUri(path));
 
     _addBaseHeaders(request);
@@ -99,7 +99,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [put] for a complete operation executing this request.
-  http.BaseRequest put_Request(
+  http.Request put_Request(
     Uint8List localData,
     PathUri path, {
     DateTime? lastModified,
@@ -144,7 +144,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [putStream] for a complete operation executing this request.
-  http.BaseRequest putStream_Request(
+  http.StreamedRequest putStream_Request(
     Stream<List<int>> localData,
     PathUri path, {
     required int contentLength,
@@ -215,7 +215,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [putFile] for a complete operation executing this request.
-  http.BaseRequest putFile_Request(
+  http.StreamedRequest putFile_Request(
     File file,
     FileStat fileStat,
     PathUri path, {
@@ -267,7 +267,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [get], [getStream] and [getFile] for complete operations executing this request.
-  http.BaseRequest get_Request(PathUri path) {
+  http.Request get_Request(PathUri path) {
     final request = http.Request('GET', _constructUri(path));
 
     _addBaseHeaders(request);
@@ -344,7 +344,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [propfind] for a complete operation executing this request.
-  http.BaseRequest propfind_Request(
+  http.Request propfind_Request(
     PathUri path, {
     WebDavPropWithoutValues? prop,
     WebDavDepth? depth,
@@ -390,7 +390,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [report] for a complete operation executing this request.
-  http.BaseRequest report_Request(
+  http.Request report_Request(
     PathUri path,
     WebDavOcFilterRules filterRules, {
     WebDavPropWithoutValues? prop,
@@ -432,7 +432,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [proppatch] for a complete operation executing this request.
-  http.BaseRequest proppatch_Request(
+  http.Request proppatch_Request(
     PathUri path, {
     WebDavProp? set,
     WebDavPropWithoutValues? remove,
@@ -484,7 +484,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [move] for a complete operation executing this request.
-  http.BaseRequest move_Request(
+  http.Request move_Request(
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
@@ -524,7 +524,7 @@ class WebDavClient {
   ///
   /// See:
   ///   * [copy] for a complete operation executing this request.
-  http.BaseRequest copy_Request(
+  http.Request copy_Request(
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
