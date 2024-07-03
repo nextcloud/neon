@@ -172,8 +172,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNotes_Serializer();
-    final _rawResponse = _i1.ResponseConverter<BuiltList<Note>, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<BuiltList<Note>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createNote_Request].
@@ -289,8 +288,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createNote_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getNote_Request].
@@ -385,8 +383,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNote_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$updateNote_Request].
@@ -514,8 +511,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateNote_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Note, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteNote_Request].
@@ -583,8 +579,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteNote_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getSettings_Request].
@@ -646,8 +641,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSettings_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$updateSettings_Request].
@@ -713,8 +707,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateSettings_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Settings, void>(_serializer).convert(_response);
   }
 }
 

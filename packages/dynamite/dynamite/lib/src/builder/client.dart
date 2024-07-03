@@ -439,8 +439,7 @@ final _streamedResponse = await $client.httpClient.send(_request);
 final _response = await ${allocate(refer('Response', 'package:http/http.dart'))}.fromStream(_streamedResponse);
 
 final _serializer = \$${name}_Serializer();
-final _rawResponse = await ${allocate(responseConverterType)}(_serializer).convert(_response);
-return ${allocate(responseType)}.fromRawResponse(_rawResponse);
+return ${allocate(responseConverterType)}(_serializer).convert(_response);
 ''',
           );
       });

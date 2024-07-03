@@ -145,9 +145,7 @@ class $DeletedShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $index_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DeletedShareapiIndexResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$undelete_Request].
@@ -241,9 +239,7 @@ class $DeletedShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $undelete_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DeletedShareapiUndeleteResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -332,8 +328,7 @@ class $PublicPreviewClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $directLink_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getPreview_Request].
@@ -436,8 +431,7 @@ class $PublicPreviewClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPreview_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 
@@ -523,9 +517,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShares_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getOpenShares_Request].
@@ -606,9 +598,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getOpenShares_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteGetOpenSharesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$acceptShare_Request].
@@ -703,9 +693,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $acceptShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$declineShare_Request].
@@ -800,9 +788,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $declineShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteDeclineShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getShare_Request].
@@ -895,9 +881,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteGetShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$unshare_Request].
@@ -992,9 +976,7 @@ class $RemoteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unshare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<RemoteUnshareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1074,8 +1056,7 @@ class $ShareInfoClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $info_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareInfo, void>(_serializer).convert(_response);
   }
 }
 
@@ -1181,9 +1162,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShares_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiGetSharesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createShare_Request].
@@ -1289,9 +1268,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiCreateShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getInheritedShares_Request].
@@ -1388,9 +1365,8 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getInheritedShares_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiGetInheritedSharesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$pendingShares_Request].
@@ -1471,9 +1447,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $pendingShares_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiPendingSharesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getShare_Request].
@@ -1581,9 +1555,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiGetShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$updateShare_Request].
@@ -1698,9 +1670,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $updateShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiUpdateShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteShare_Request].
@@ -1796,9 +1766,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiDeleteShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$acceptShare_Request].
@@ -1894,9 +1862,7 @@ class $ShareapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $acceptShare_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareapiAcceptShareResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -2002,11 +1968,9 @@ class $ShareesapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $search_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
+    return _i1.ResponseConverter<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
       _serializer,
     ).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$findRecommended_Request].
@@ -2099,9 +2063,8 @@ class $ShareesapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findRecommended_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ShareesapiFindRecommendedResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

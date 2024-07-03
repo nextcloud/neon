@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 ///
 /// See:
 ///   * [DynamiteResponse] as the response returned by an operation.
-///   * [DynamiteRawResponse] as the raw response that can be serialized.
 ///   * [DynamiteApiException] as the exception that can be thrown in operations
 ///   * [DynamiteAuthentication] for providing authentication methods.
 abstract class DynamiteClient {

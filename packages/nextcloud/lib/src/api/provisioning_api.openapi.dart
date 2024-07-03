@@ -145,9 +145,7 @@ class $AppConfigClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getApps_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppConfigGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppConfigGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getKeys_Request].
@@ -244,9 +242,7 @@ class $AppConfigClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getKeys_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppConfigGetKeysResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppConfigGetKeysResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setValue_Request].
@@ -360,9 +356,7 @@ class $AppConfigClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setValue_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppConfigSetValueResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppConfigSetValueResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -469,9 +463,7 @@ class $AppsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getApps_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppsGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppsGetAppsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getAppInfo_Request].
@@ -567,9 +559,7 @@ class $AppsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppInfo_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppsGetAppInfoResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppsGetAppInfoResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$enable_Request].
@@ -666,8 +656,7 @@ class $AppsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enable_Serializer();
-    final _rawResponse = _i1.ResponseConverter<AppsEnableResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppsEnableResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$disable_Request].
@@ -764,9 +753,7 @@ class $AppsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disable_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<AppsDisableResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<AppsDisableResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -874,9 +861,8 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSubAdminsOfGroup_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getGroups_Request].
@@ -973,9 +959,7 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroups_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetGroupsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetGroupsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getGroup_Request].
@@ -1074,9 +1058,7 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroup_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetGroupResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetGroupResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getGroupsDetails_Request].
@@ -1176,9 +1158,7 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupsDetails_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetGroupsDetailsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetGroupsDetailsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getGroupUsers_Request].
@@ -1279,9 +1259,7 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupUsers_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetGroupUsersResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetGroupUsersResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getGroupUsersDetails_Request].
@@ -1395,9 +1373,8 @@ class $GroupsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getGroupUsersDetails_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -1517,9 +1494,7 @@ class $PreferencesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setPreference_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PreferencesSetPreferenceResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PreferencesSetPreferenceResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deletePreference_Request].
@@ -1622,9 +1597,8 @@ class $PreferencesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deletePreference_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PreferencesDeletePreferenceResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PreferencesDeletePreferenceResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setMultiplePreferences_Request].
@@ -1728,10 +1702,8 @@ class $PreferencesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setMultiplePreferences_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteMultiplePreference_Request].
@@ -1836,10 +1808,8 @@ class $PreferencesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteMultiplePreference_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -1942,9 +1912,8 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUserSubAdminGroups_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addSubAdmin_Request].
@@ -2049,9 +2018,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addSubAdmin_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersAddSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersAddSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeSubAdmin_Request].
@@ -2156,9 +2123,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeSubAdmin_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersRemoveSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersRemoveSubAdminResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getUsers_Request].
@@ -2254,9 +2219,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsers_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetUsersResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetUsersResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addUser_Request].
@@ -2350,9 +2313,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersAddUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersAddUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getUsersDetails_Request].
@@ -2452,9 +2413,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsersDetails_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetUsersDetailsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getDisabledUsersDetails_Request].
@@ -2554,9 +2513,8 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getDisabledUsersDetails_Serializer();
-    final _rawResponse = _i1.ResponseConverter<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$searchByPhoneNumbers_Request].
@@ -2651,9 +2609,8 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $searchByPhoneNumbers_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersSearchByPhoneNumbersResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersSearchByPhoneNumbersResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getUser_Request].
@@ -2744,9 +2701,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$editUser_Request].
@@ -2847,9 +2802,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersEditUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersEditUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteUser_Request].
@@ -2945,9 +2898,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersDeleteUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersDeleteUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getCurrentUser_Request].
@@ -3028,9 +2979,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCurrentUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetCurrentUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetCurrentUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getEditableFields_Request].
@@ -3111,9 +3060,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getEditableFields_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetEditableFieldsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetEditableFieldsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getEditableFieldsForUser_Request].
@@ -3205,9 +3152,8 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getEditableFieldsForUser_Serializer();
-    final _rawResponse = _i1.ResponseConverter<UsersGetEditableFieldsForUserResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<UsersGetEditableFieldsForUserResponseApplicationJson, void>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$editUserMultiValue_Request].
@@ -3326,9 +3272,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $editUserMultiValue_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersEditUserMultiValueResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersEditUserMultiValueResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$wipeUserDevices_Request].
@@ -3424,9 +3368,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $wipeUserDevices_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersWipeUserDevicesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersWipeUserDevicesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$enableUser_Request].
@@ -3522,9 +3464,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enableUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersEnableUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersEnableUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$disableUser_Request].
@@ -3620,9 +3560,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disableUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersDisableUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersDisableUserResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getUsersGroups_Request].
@@ -3714,9 +3652,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUsersGroups_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersGetUsersGroupsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersGetUsersGroupsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addToGroup_Request].
@@ -3826,9 +3762,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addToGroup_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersAddToGroupResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersAddToGroupResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeFromGroup_Request].
@@ -3931,9 +3865,7 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeFromGroup_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersRemoveFromGroupResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersRemoveFromGroupResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$resendWelcomeMessage_Request].
@@ -4029,9 +3961,8 @@ class $UsersClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $resendWelcomeMessage_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UsersResendWelcomeMessageResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UsersResendWelcomeMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

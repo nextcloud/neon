@@ -143,8 +143,7 @@ class $IconClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getFavicon_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getTouchIcon_Request].
@@ -225,8 +224,7 @@ class $IconClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getTouchIcon_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getThemedIcon_Request].
@@ -323,8 +321,7 @@ class $IconClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThemedIcon_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 
@@ -432,8 +429,7 @@ class $ThemingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThemeStylesheet_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getImage_Request].
@@ -531,8 +527,7 @@ class $ThemingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getImage_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getManifest_Request].
@@ -612,9 +607,7 @@ class $ThemingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getManifest_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ThemingGetManifestResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ThemingGetManifestResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -689,8 +682,7 @@ class $UserThemeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBackground_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$enableTheme_Request].
@@ -786,9 +778,7 @@ class $UserThemeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $enableTheme_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserThemeEnableThemeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserThemeEnableThemeResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$disableTheme_Request].
@@ -884,9 +874,7 @@ class $UserThemeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $disableTheme_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserThemeDisableThemeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserThemeDisableThemeResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

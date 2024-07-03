@@ -222,8 +222,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getDefaults_Request].
@@ -424,8 +423,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getDefaults_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getHeaders_Request].
@@ -635,8 +633,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getHeaders_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getPathParameter_Request].
@@ -687,8 +684,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getPathParameter_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getNamingCollisions_Request].
@@ -775,8 +771,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNamingCollisions_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 }
 

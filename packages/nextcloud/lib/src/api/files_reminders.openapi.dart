@@ -160,8 +160,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiGetResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$$set_Request].
@@ -279,8 +278,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$set_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiSetResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$remove_Request].
@@ -388,8 +386,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $remove_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiRemoveResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

@@ -106,8 +106,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getSupportedApiVersions_Serializer();
-    final _rawResponse = _i1.ResponseConverter<SupportedAPIVersions, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<SupportedAPIVersions, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listFolders_Request].
@@ -169,8 +168,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listFolders_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$createFolder_Request].
@@ -244,8 +242,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $createFolder_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$renameFolder_Request].
@@ -328,8 +325,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $renameFolder_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteFolder_Request].
@@ -396,8 +392,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteFolder_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$markFolderAsRead_Request].
@@ -481,8 +476,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markFolderAsRead_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listFeeds_Request].
@@ -544,8 +538,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listFeeds_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addFeed_Request].
@@ -631,8 +624,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addFeed_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListFeeds, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteFeed_Request].
@@ -699,8 +691,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteFeed_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$moveFeed_Request].
@@ -783,8 +774,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $moveFeed_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$renameFeed_Request].
@@ -868,8 +858,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $renameFeed_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$markFeedAsRead_Request].
@@ -953,8 +942,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markFeedAsRead_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listArticles_Request].
@@ -1080,8 +1068,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listArticles_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$listUpdatedArticles_Request].
@@ -1179,8 +1166,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listUpdatedArticles_Serializer();
-    final _rawResponse = _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ListArticles, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$markArticleAsRead_Request].
@@ -1247,8 +1233,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markArticleAsRead_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$markArticleAsUnread_Request].
@@ -1315,8 +1300,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markArticleAsUnread_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$starArticle_Request].
@@ -1383,8 +1367,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $starArticle_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$unstarArticle_Request].
@@ -1451,8 +1434,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unstarArticle_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

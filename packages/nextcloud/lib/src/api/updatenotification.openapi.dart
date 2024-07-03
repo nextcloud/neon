@@ -161,9 +161,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppList_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiGetAppListResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getAppChangelogEntry_Request].
@@ -289,9 +287,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getAppChangelogEntry_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ApiGetAppChangelogEntryResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiGetAppChangelogEntryResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

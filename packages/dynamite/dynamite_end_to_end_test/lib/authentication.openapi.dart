@@ -76,8 +76,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $noAuthentication_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$basicAuthentication_Request].
@@ -139,8 +138,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $basicAuthentication_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$bearerAuthentication_Request].
@@ -202,8 +200,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $bearerAuthentication_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$multipleAuthentications_Request].
@@ -265,8 +262,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $multipleAuthentications_Serializer();
-    final _rawResponse = _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<JsonObject, void>(_serializer).convert(_response);
   }
 }
 

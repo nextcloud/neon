@@ -137,9 +137,7 @@ class $ConfigapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ConfigapiCreateResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ConfigapiCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$$show_Request].
@@ -252,9 +250,7 @@ class $ConfigapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$show_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ConfigapiShowResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ConfigapiShowResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$modify_Request].
@@ -360,9 +356,7 @@ class $ConfigapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $modify_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ConfigapiModifyResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ConfigapiModifyResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$delete_Request].
@@ -459,9 +453,7 @@ class $ConfigapiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $delete_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ConfigapiDeleteResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ConfigapiDeleteResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

@@ -82,8 +82,7 @@ class $FirstClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 
@@ -133,8 +132,7 @@ class $SecondClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

@@ -134,9 +134,7 @@ class $DashboardApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgets_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DashboardApiGetWidgetsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getWidgetItems_Request].
@@ -236,9 +234,8 @@ class $DashboardApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgetItems_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DashboardApiGetWidgetItemsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DashboardApiGetWidgetItemsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getWidgetItemsV2_Request].
@@ -338,9 +335,8 @@ class $DashboardApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWidgetItemsV2_Serializer();
-    final _rawResponse = _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 }
 
