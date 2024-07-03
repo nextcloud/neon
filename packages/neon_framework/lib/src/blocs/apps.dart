@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -247,12 +248,12 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'apps-apps',
       subject: apps,
       getRequest: account.client.core.navigation.$getAppsNavigation_Request,
-      serializer: account.client.core.navigation.$getAppsNavigation_Serializer(),
+      converter: ResponseConverter(account.client.core.navigation.$getAppsNavigation_Serializer()),
       unwrap: (response) => response.body.ocs.data.rebuild(
         (b) => b..sort((a, b) => (a.getOrder()).compareTo(b.getOrder())),
       ),

@@ -2,17 +2,16 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:http/testing.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:nextcloud/utils.dart';
-import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -26,6 +25,7 @@ void main() {
   setUpAll(() {
     registerFallbackValue(Uint8List(0));
     registerFallbackValue(http.Response('', 200));
+    registerFallbackValue(http.Request('GET', Uri()));
   });
 
   setUp(() {
@@ -78,120 +78,45 @@ void main() {
         ('webdav authorization', 401, <String, String>{'content-type': 'application/xml; charset=utf-8'}, kMaxTries),
         ('webdav not found', 404, <String, String>{'content-type': 'application/xml; charset=utf-8'}, 1),
       ]) {
-        group(entry.$1, () {
-          test('wrap', () async {
-            final subject = BehaviorSubject<Result<String>>();
-            final callback = MockCallbackFunction<Future<Response>>();
-            when(callback.call).thenAnswer(
-              (_) async => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
-            );
+        test(entry.$1, () async {
+          final subject = BehaviorSubject<Result<String>>();
 
-            await RequestManager.instance.wrap<String, Uint8List>(
-              account: account,
-              cacheKey: 'key',
-              subject: subject,
-              request: () async => callback.call(),
-              converter: const BinaryResponseConverter(),
-              unwrap: (deserialized) => base64.encode(deserialized),
-            );
-
-            verify(callback.call).called(entry.$4);
-
-            await subject.close();
+          var count = 0;
+          RequestManager.instance.httpClient = MockClient((_) async {
+            count++;
+            throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3));
           });
 
-          test('wrapBinary', () async {
-            final subject = BehaviorSubject<Result<Uint8List>>();
-            final callback = MockCallbackFunction<http.BaseRequest>();
-            when(callback.call).thenAnswer(
-              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
-            );
+          await RequestManager.instance.wrap<String, Uint8List>(
+            account: account,
+            cacheKey: 'key',
+            subject: subject,
+            getRequest: () => http.Request('GET', Uri()),
+            converter: const BinaryResponseConverter(),
+            unwrap: (deserialized) => base64.encode(deserialized),
+          );
 
-            when(() => account.client).thenReturn(
-              NextcloudClient(
-                Uri(),
-                loginName: '',
-                password: '',
-              ),
-            );
+          expect(count, entry.$4);
 
-            await RequestManager.instance.wrapBinary(
-              account: account,
-              cacheKey: 'key',
-              subject: subject,
-              getRequest: callback.call,
-              getCacheHeaders: () async {
-                return {};
-              },
-              unwrap: (data) => data,
-            );
-
-            verify(callback.call).called(entry.$4);
-
-            await subject.close();
-          });
-
-          test('wrapWebDav', () async {
-            final subject = BehaviorSubject<Result<WebDavMultistatus>>();
-            final callback = MockCallbackFunction<http.BaseRequest>();
-            when(callback.call).thenAnswer(
-              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
-            );
-
-            when(() => account.client).thenReturn(
-              NextcloudClient(
-                Uri(),
-                loginName: '',
-                password: '',
-              ),
-            );
-
-            await RequestManager.instance.wrapWebDav(
-              account: account,
-              cacheKey: 'key',
-              subject: subject,
-              getRequest: callback.call,
-              unwrap: (data) => data,
-            );
-
-            verify(callback.call).called(entry.$4);
-
-            await subject.close();
-          });
-
-          test('wrapNextcloud', () async {
-            final subject = BehaviorSubject<Result<provisioning_api.UserDetails>>();
-            final callback = MockCallbackFunction<http.BaseRequest>();
-            when(callback.call).thenAnswer(
-              (_) => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
-            );
-
-            when(() => account.client).thenReturn(
-              NextcloudClient(
-                Uri(),
-                loginName: '',
-                password: '',
-              ),
-            );
-
-            await RequestManager.instance.wrapNextcloud(
-              account: account,
-              cacheKey: 'key',
-              subject: subject,
-              getRequest: callback.call,
-              unwrap: (data) => data.body.ocs.data,
-              serializer: account.client.provisioningApi.users.$getCurrentUser_Serializer(),
-            );
-
-            verify(callback.call).called(entry.$4);
-
-            await subject.close();
-          });
+          await subject.close();
         });
       }
     });
 
     group('wrap without cache', () {
+      setUp(() {
+        RequestManager.instance.httpClient = MockClient((request) async {
+          if (request.url.host == 'delay') {
+            await Future<void>.delayed(const Duration(milliseconds: 100));
+          }
+          if (request.url.host == 'error') {
+            throw ClientException('');
+          }
+
+          return http.Response('Test value', 200);
+        });
+      });
+
       test('successful request', () async {
         var subject = BehaviorSubject<Result<String>>();
 
@@ -208,7 +133,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -231,7 +156,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -263,8 +188,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async =>
-              Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          getRequest: () => http.Request('GET', Uri(host: 'delay')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           timeLimit: const Duration(milliseconds: 50),
@@ -303,8 +227,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async =>
-              Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          getRequest: () => http.Request('GET', Uri(host: 'delay')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           timeLimit: const Duration(milliseconds: 50),
@@ -329,7 +252,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => throw ClientException(''),
+          getRequest: () => http.Request('GET', Uri(host: 'error')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -352,7 +275,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => throw ClientException(''),
+          getRequest: () => http.Request('GET', Uri(host: 'error')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -384,6 +307,17 @@ void main() {
         );
 
         when(() => storage.requestCache).thenReturn(cache);
+
+        RequestManager.instance.httpClient = MockClient((request) async {
+          if (request.url.host == 'delay') {
+            await Future<void>.delayed(const Duration(milliseconds: 100));
+          }
+          if (request.url.host == 'error') {
+            throw ClientException('');
+          }
+
+          return http.Response('Test value', 200);
+        });
       });
 
       test('successful request', () async {
@@ -403,7 +337,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -439,7 +373,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -492,7 +426,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          getRequest: () => http.Request('GET', Uri(host: 'delay')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           timeLimit: const Duration(milliseconds: 50),
@@ -533,7 +467,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          getRequest: () => http.Request('GET', Uri(host: 'delay')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           timeLimit: const Duration(milliseconds: 50),
@@ -561,7 +495,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => throw ClientException(''),
+          getRequest: () => http.Request('GET', Uri(host: 'error')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -586,7 +520,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => throw ClientException(''),
+          getRequest: () => http.Request('GET', Uri(host: 'error')),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -624,7 +558,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -661,7 +595,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
         );
@@ -714,7 +648,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           getCacheHeaders: () async => callback(),
@@ -760,7 +694,7 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => http.Response('Test value', 200),
+          getRequest: () => http.Request('GET', Uri()),
           converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
           getCacheHeaders: () async => callback(),
@@ -793,6 +727,17 @@ void main() {
             ),
           );
 
+          RequestManager.instance.httpClient = MockClient(
+            (_) async => http.Response(
+              'Test value',
+              200,
+              headers: {
+                'etag': 'a',
+                'expires': newExpires,
+              },
+            ),
+          );
+
           final subject = BehaviorSubject<Result<String>>();
 
           expect(
@@ -809,14 +754,7 @@ void main() {
             account: account,
             cacheKey: 'key',
             subject: subject,
-            request: () async => http.Response(
-              'Test value',
-              200,
-              headers: {
-                'etag': 'a',
-                'expires': newExpires,
-              },
-            ),
+            getRequest: () => http.Request('GET', Uri()),
             converter: const BinaryResponseConverter(),
             unwrap: (deserialized) => base64.encode(deserialized),
           );

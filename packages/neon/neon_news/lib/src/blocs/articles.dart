@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -140,7 +141,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         }
     }
 
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'news-articles-${type.index}-$id-$getRead',
       subject: articles,
@@ -149,7 +150,7 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
-      serializer: account.client.news.$listArticles_Serializer(),
+      converter: ResponseConverter(account.client.news.$listArticles_Serializer()),
       unwrap: (response) => response.body.items,
     );
   }

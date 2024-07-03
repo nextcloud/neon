@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
@@ -78,12 +79,12 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   @override
   Future<void> refresh() async {
     if (!providers.value.hasSuccessfulData) {
-      await RequestManager.instance.wrapNextcloud(
+      await RequestManager.instance.wrap(
         account: account,
         cacheKey: 'unified-search-providers',
         subject: providers,
         getRequest: account.client.core.unifiedSearch.$getProviders_Request,
-        serializer: account.client.core.unifiedSearch.$getProviders_Serializer(),
+        converter: ResponseConverter(account.client.core.unifiedSearch.$getProviders_Serializer()),
         unwrap: (response) => response.body.ocs.data,
       );
     }

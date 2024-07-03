@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
@@ -45,12 +46,12 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'capabilities',
       subject: capabilities,
       getRequest: account.client.core.ocs.$getCapabilities_Request,
-      serializer: account.client.core.ocs.$getCapabilities_Serializer(),
+      converter: ResponseConverter(account.client.core.ocs.$getCapabilities_Serializer()),
       unwrap: (response) => response.body.ocs.data,
     );
   }

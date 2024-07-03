@@ -91,7 +91,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapWebDav(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'files-${uri.value.path}',
       subject: files,
@@ -108,6 +108,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         ),
         depth: WebDavDepth.one,
       ),
+      converter: const WebDavResponseConverter(),
       unwrap: (response) => BuiltList<WebDavFile>.build((b) {
         for (final file in response.toWebDavFiles()) {
           // Do not show files when selecting a directory

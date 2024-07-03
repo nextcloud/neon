@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
@@ -74,12 +75,12 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'talk-rooms',
       subject: rooms,
       getRequest: account.client.spreed.room.$getRooms_Request,
-      serializer: account.client.spreed.room.$getRooms_Serializer(),
+      converter: ResponseConverter(account.client.spreed.room.$getRooms_Serializer()),
       unwrap: (response) => response.body.ocs.data.rebuild(
         (b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity)),
       ),

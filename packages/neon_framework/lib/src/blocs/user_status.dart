@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
@@ -11,7 +12,6 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/timer.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
@@ -101,12 +101,12 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud(
+      RequestManager.instance.wrap(
         account: account,
         cacheKey: 'user_status-predefined-statuses',
         subject: predefinedStatuses,
         getRequest: account.client.userStatus.predefinedStatus.$findAll_Request,
-        serializer: account.client.userStatus.predefinedStatus.$findAll_Serializer(),
+        converter: ResponseConverter(account.client.userStatus.predefinedStatus.$findAll_Serializer()),
         unwrap: (response) => response.body.ocs.data,
       ),
       ...statuses.value.entries.map((entry) => load(entry.key, status: entry.value, force: true)),

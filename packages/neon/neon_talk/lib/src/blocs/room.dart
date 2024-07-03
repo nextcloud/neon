@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:collection/collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
@@ -9,7 +10,6 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/utils/helpers.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 import 'package:rxdart/subjects.dart';
@@ -195,17 +195,17 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud(
+      RequestManager.instance.wrap(
         account: account,
         cacheKey: 'spreed-room-$token',
         subject: room,
         getRequest: () => account.client.spreed.room.$joinRoom_Request(
           token: token,
         ),
-        serializer: account.client.spreed.room.$joinRoom_Serializer(),
+        converter: ResponseConverter(account.client.spreed.room.$joinRoom_Serializer()),
         unwrap: (response) => response.body.ocs.data,
       ),
-      RequestManager.instance.wrapNextcloud(
+      RequestManager.instance.wrap(
         account: account,
         cacheKey: 'spreed-room-$token-messages',
         subject: messages,
@@ -218,7 +218,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
               ..limit = 100,
           ),
         ),
-        serializer: account.client.spreed.chat.$receiveMessages_Serializer(),
+        converter: ResponseConverter(account.client.spreed.chat.$receiveMessages_Serializer()),
         unwrap: (response) {
           updateLastCommonRead(response.headers.xChatLastCommonRead);
           updateLastKnownMessageId(response.body.ocs.data.firstOrNull?.id);

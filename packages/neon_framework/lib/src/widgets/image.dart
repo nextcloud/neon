@@ -233,7 +233,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
   }
 
   Future<void> load() async {
-    await RequestManager.instance.wrapBinary(
+    await RequestManager.instance.wrap(
       account: widget.account,
       cacheKey: widget.cacheKey,
       getCacheHeaders: () async {
@@ -243,6 +243,7 @@ class _NeonApiImageState extends State<NeonApiImage> {
         };
       },
       getRequest: () => widget.getRequest(widget.account.client),
+      converter: const BinaryResponseConverter(),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
@@ -349,10 +350,28 @@ class _NeonUriImageState extends State<NeonUriImage> {
     }
 
     final completedUri = widget.account.completeUri(widget.uri);
+    final headers = widget.account.getAuthorizationHeaders(completedUri);
 
-    await RequestManager.instance.wrapUri(
+    await RequestManager.instance.wrap(
       account: widget.account,
-      uri: completedUri,
+      cacheKey: completedUri.toString(),
+      getCacheHeaders: () async {
+        final response = await widget.account.client.head(
+          completedUri,
+          headers: headers,
+        );
+
+        return response.headers;
+      },
+      getRequest: () {
+        final request = http.Request('GET', completedUri);
+        if (headers != null) {
+          request.headers.addAll(headers);
+        }
+
+        return request;
+      },
+      converter: const BinaryResponseConverter(),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));

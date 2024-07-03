@@ -67,129 +67,18 @@ class RequestManager {
 
   final RequestCache? _cache = NeonStorage().requestCache;
 
-  /// Executes a request to a Nextcloud API endpoint.
+  /// Overrides the HTTP client used for executing the requests.
   ///
-  /// Every time [getRequest] is called a new [http.Request] has to be created.
-  /// Re-using the same will not work when retrying failed requests.
-  Future<void> wrapNextcloud<T, B, H>({
-    required Account account,
-    required String cacheKey,
-    required BehaviorSubject<Result<T>> subject,
-    required http.BaseRequest Function() getRequest,
-    required DynamiteSerializer<B, H> serializer,
-    required UnwrapCallback<T, DynamiteResponse<B, H>> unwrap,
-    bool disableTimeout = false,
-  }) async =>
-      wrap<T, DynamiteResponse<B, H>>(
-        account: account,
-        cacheKey: cacheKey,
-        subject: subject,
-        request: () async {
-          final streamedResponse = await account.client.send(getRequest());
-          return http.Response.fromStream(streamedResponse);
-        },
-        converter: ResponseConverter<B, H>(serializer),
-        unwrap: unwrap,
-        disableTimeout: disableTimeout,
-      );
-
-  /// Executes a WebDAV request.
-  Future<void> wrapWebDav<T>({
-    required Account account,
-    required String cacheKey,
-    required BehaviorSubject<Result<T>> subject,
-    required http.BaseRequest Function() getRequest,
-    required UnwrapCallback<T, WebDavMultistatus> unwrap,
-    bool disableTimeout = false,
-  }) =>
-      wrap<T, WebDavMultistatus>(
-        account: account,
-        cacheKey: cacheKey,
-        subject: subject,
-        request: () async {
-          final streamedResponse = await account.client.webdav.csrfClient.send(getRequest());
-          return http.Response.fromStream(streamedResponse);
-        },
-        converter: const WebDavResponseConverter(),
-        unwrap: unwrap,
-        disableTimeout: disableTimeout,
-      );
-
-  /// Executes a HTTP request for binary content.
-  ///
-  /// Every time [getRequest] is called a new [http.Request] has to be created.
-  /// Re-using the same will not work when retrying failed requests.
-  Future<void> wrapBinary({
-    required Account account,
-    required String cacheKey,
-    required AsyncValueGetter<Map<String, String>> getCacheHeaders,
-    required http.BaseRequest Function() getRequest,
-    required UnwrapCallback<Uint8List, Uint8List>? unwrap,
-    required BehaviorSubject<Result<Uint8List>> subject,
-    bool disableTimeout = false,
-  }) async =>
-      wrap<Uint8List, Uint8List>(
-        account: account,
-        cacheKey: cacheKey,
-        subject: subject,
-        request: () async {
-          final streamedResponse = await account.client.send(getRequest());
-          return http.Response.fromStream(streamedResponse);
-        },
-        converter: const BinaryResponseConverter(),
-        unwrap: (data) {
-          if (unwrap != null) {
-            data = unwrap(data);
-          }
-
-          return data;
-        },
-        getCacheHeaders: getCacheHeaders,
-        disableTimeout: disableTimeout,
-      );
-
-  /// Executes a HTTP request for binary content using a simplified [uri] based approach.
-  Future<void> wrapUri({
-    required Account account,
-    required Uri uri,
-    required UnwrapCallback<Uint8List, Uint8List>? unwrap,
-    required BehaviorSubject<Result<Uint8List>> subject,
-  }) {
-    final headers = account.getAuthorizationHeaders(uri);
-
-    return wrapBinary(
-      account: account,
-      cacheKey: uri.toString(),
-      getCacheHeaders: () async {
-        final response = await account.client.head(
-          uri,
-          headers: headers,
-        );
-
-        return response.headers;
-      },
-      getRequest: () {
-        final request = http.Request('GET', uri);
-        if (headers != null) {
-          request.headers.addAll(headers);
-        }
-
-        return request;
-      },
-      unwrap: unwrap,
-      subject: subject,
-    );
-  }
-
-  /// Executes a generic request.
-  ///
-  /// This method is only meant to be used in testing.
+  /// Only to be used for testing.
   @visibleForTesting
+  http.Client? httpClient;
+
+  /// Executes a generic [http.Request].
   Future<void> wrap<T, R>({
     required Account account,
     required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
-    required AsyncValueGetter<http.Response> request,
+    required http.Request Function() getRequest,
     required Converter<http.Response, R> converter,
     required UnwrapCallback<T, R> unwrap,
     AsyncValueGetter<Map<String, String>>? getCacheHeaders,
@@ -284,7 +173,19 @@ class RequestManager {
     for (var i = 0; i < kMaxTries; i++) {
       try {
         final response = await timeout(
-          request,
+          () async {
+            final request = getRequest();
+            var client = httpClient;
+            // Assume the request is for WebDAV if the Content-Type is application/xml,
+            if (request.headers['content-type']?.split(';').first == 'application/xml') {
+              client ??= account.client.webdav.csrfClient;
+            } else {
+              client ??= account.client;
+            }
+
+            final streamedResponse = await client.send(request);
+            return http.Response.fromStream(streamedResponse);
+          },
           disableTimeout: disableTimeout,
           timeLimit: timeLimit,
         );
@@ -317,7 +218,7 @@ class RequestManager {
         );
         break;
       } on http.ClientException catch (error, stackTrace) {
-        // Assume the authorization header is from WebDAV if the Content-Type is application/xml,
+        // Assume the authorization error is from WebDAV if the Content-Type is application/xml,
         // so we can retry with a new CSRF token in case it expired.
         if (error case DynamiteStatusCodeException(statusCode: 401)
             when error.response.headers['content-type']?.split(';').first == 'application/xml') {
