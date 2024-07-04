@@ -1,3 +1,5 @@
-GET http://localhost/index\.php/core/preview\.png\?file=Nextcloud\.png&x=32&y=32&a=0&forceIcon=1&mode=fill&mimeFallback=0
+GET http://localhost/index\.php/core/preview\.png
 accept: \*/\*
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
+\{"file":"Nextcloud\.png","x":32,"y":32,"a":false,"forceIcon":true,"mode":"fill","mimeFallback":false\}

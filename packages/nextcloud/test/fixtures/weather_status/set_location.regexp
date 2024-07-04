@@ -1,8 +1,12 @@
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location\?address=Hamburg
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location\?lat=52\.5170365&lon=13\.3888599
+\{"address":"Hamburg"\}
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"lat":52\.5170365,"lon":13\.3888599\}

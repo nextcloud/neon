@@ -1,4 +1,3 @@
-import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
@@ -101,10 +100,13 @@ void main() {
       group('Autocomplete', () {
         test('Get', () async {
           final response = await client.core.autoComplete.$get(
-            search: '',
-            itemType: 'call',
-            itemId: 'new',
-            shareTypes: BuiltList([core.ShareType.group.index]),
+            $body: core.AutoCompleteGetRequestApplicationJson(
+              (b) => b
+                ..search = ''
+                ..itemType = 'call'
+                ..itemId = 'new'
+                ..shareTypes.replace([core.ShareType.group.index]),
+            ),
           );
           expect(response.body.ocs.data, hasLength(1));
 
@@ -121,7 +123,11 @@ void main() {
 
       group('Preview', () {
         test('Get', () async {
-          final response = await client.core.preview.getPreview(file: 'Nextcloud.png');
+          final response = await client.core.preview.getPreview(
+            $body: core.PreviewGetPreviewRequestApplicationJson(
+              (b) => b..file = 'Nextcloud.png',
+            ),
+          );
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -168,7 +174,9 @@ void main() {
         test('Search', () async {
           final response = await client.core.unifiedSearch.search(
             providerId: 'settings',
-            term: 'Personal info',
+            $body: core.UnifiedSearchSearchRequestApplicationJson(
+              (b) => b..term = 'Personal info',
+            ),
           );
 
           expect(response.statusCode, 200);
@@ -198,7 +206,11 @@ void main() {
           expect(response.body.poll.token, isNotEmpty);
 
           await expectLater(
-            () => client.core.clientFlowLoginV2.poll(token: response.body.poll.token),
+            () => client.core.clientFlowLoginV2.poll(
+              $body: core.ClientFlowLoginV2PollRequestApplicationJson(
+                (b) => b..token = response.body.poll.token,
+              ),
+            ),
             throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
           );
         });

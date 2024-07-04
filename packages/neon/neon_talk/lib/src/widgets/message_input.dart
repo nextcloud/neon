@@ -150,7 +150,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
           return [];
         }
 
-        String? matchingPart = controller.text.substring(0, cursor);
+        var matchingPart = controller.text.substring(0, cursor);
         final index = matchingPart.lastIndexOf(' ') + 1;
         matchingPart = matchingPart.substring(index);
         if (!matchingPart.startsWith('@') || matchingPart.isEmpty) {
@@ -159,15 +159,18 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
 
         final account = NeonProvider.of<Account>(context);
         final response = await account.client.spreed.chat.mentions(
-          search: matchingPart.substring(1),
           token: bloc.room.value.requireData.token,
-          limit: 5,
+          $body: spreed.ChatMentionsRequestApplicationJson(
+            (b) => b
+              ..search = matchingPart.substring(1)
+              ..limit = 5,
+          ),
         );
 
         return response.body.ocs.data
             .map(
               (mention) => _Suggestion(
-                start: cursor - matchingPart!.length,
+                start: cursor - matchingPart.length,
                 end: cursor,
                 mention: mention,
               ),

@@ -14,6 +14,9 @@ Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs>
     _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson> _$dashboardApiGetWidgetsResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
+Serializer<DashboardApiGetWidgetItemsRequestApplicationJson>
+    _$dashboardApiGetWidgetItemsRequestApplicationJsonSerializer =
+    _$DashboardApiGetWidgetItemsRequestApplicationJsonSerializer();
 Serializer<WidgetItem> _$widgetItemSerializer = _$WidgetItemSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer =
@@ -21,6 +24,9 @@ Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs>
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson>
     _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
+Serializer<DashboardApiGetWidgetItemsV2RequestApplicationJson>
+    _$dashboardApiGetWidgetItemsV2RequestApplicationJsonSerializer =
+    _$DashboardApiGetWidgetItemsV2RequestApplicationJsonSerializer();
 Serializer<WidgetItems> _$widgetItemsSerializer = _$WidgetItemsSerializer();
 Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs>
     _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer =
@@ -332,6 +338,61 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
   }
 }
 
+class _$DashboardApiGetWidgetItemsRequestApplicationJsonSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    DashboardApiGetWidgetItemsRequestApplicationJson,
+    _$DashboardApiGetWidgetItemsRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'DashboardApiGetWidgetItemsRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'sinceIds',
+      serializers.serialize(object.sinceIds,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])),
+      'limit',
+      serializers.serialize(object.limit, specifiedType: const FullType(int)),
+      'widgets',
+      serializers.serialize(object.widgets, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DashboardApiGetWidgetItemsRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'sinceIds':
+          result.sinceIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]))!);
+          break;
+        case 'limit':
+          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'widgets':
+          result.widgets.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
   @override
   final Iterable<Type> types = const [WidgetItem, _$WidgetItem];
@@ -488,6 +549,61 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs))!
               as DashboardApiGetWidgetItemsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$DashboardApiGetWidgetItemsV2RequestApplicationJsonSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsV2RequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    DashboardApiGetWidgetItemsV2RequestApplicationJson,
+    _$DashboardApiGetWidgetItemsV2RequestApplicationJson
+  ];
+  @override
+  final String wireName = 'DashboardApiGetWidgetItemsV2RequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsV2RequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'sinceIds',
+      serializers.serialize(object.sinceIds,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])),
+      'limit',
+      serializers.serialize(object.limit, specifiedType: const FullType(int)),
+      'widgets',
+      serializers.serialize(object.widgets, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsV2RequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'sinceIds':
+          result.sinceIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]))!);
+          break;
+        case 'limit':
+          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'widgets':
+          result.widgets.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1386,6 +1502,154 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsRequestApplicationJsonInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder) updates);
+  MapBuilder<String, String> get sinceIds;
+  set sinceIds(MapBuilder<String, String>? sinceIds);
+
+  int? get limit;
+  set limit(int? limit);
+
+  ListBuilder<String> get widgets;
+  set widgets(ListBuilder<String>? widgets);
+}
+
+class _$DashboardApiGetWidgetItemsRequestApplicationJson extends DashboardApiGetWidgetItemsRequestApplicationJson {
+  @override
+  final BuiltMap<String, String> sinceIds;
+  @override
+  final int limit;
+  @override
+  final BuiltList<String> widgets;
+
+  factory _$DashboardApiGetWidgetItemsRequestApplicationJson(
+          [void Function(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder)? updates]) =>
+      (DashboardApiGetWidgetItemsRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DashboardApiGetWidgetItemsRequestApplicationJson._(
+      {required this.sinceIds, required this.limit, required this.widgets})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(sinceIds, r'DashboardApiGetWidgetItemsRequestApplicationJson', 'sinceIds');
+    BuiltValueNullFieldError.checkNotNull(limit, r'DashboardApiGetWidgetItemsRequestApplicationJson', 'limit');
+    BuiltValueNullFieldError.checkNotNull(widgets, r'DashboardApiGetWidgetItemsRequestApplicationJson', 'widgets');
+  }
+
+  @override
+  DashboardApiGetWidgetItemsRequestApplicationJson rebuild(
+          void Function(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DashboardApiGetWidgetItemsRequestApplicationJsonBuilder toBuilder() =>
+      DashboardApiGetWidgetItemsRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DashboardApiGetWidgetItemsRequestApplicationJson &&
+        sinceIds == other.sinceIds &&
+        limit == other.limit &&
+        widgets == other.widgets;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sinceIds.hashCode);
+    _$hash = $jc(_$hash, limit.hashCode);
+    _$hash = $jc(_$hash, widgets.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsRequestApplicationJson')
+          ..add('sinceIds', sinceIds)
+          ..add('limit', limit)
+          ..add('widgets', widgets))
+        .toString();
+  }
+}
+
+class DashboardApiGetWidgetItemsRequestApplicationJsonBuilder
+    implements
+        Builder<DashboardApiGetWidgetItemsRequestApplicationJson,
+            DashboardApiGetWidgetItemsRequestApplicationJsonBuilder>,
+        $DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder {
+  _$DashboardApiGetWidgetItemsRequestApplicationJson? _$v;
+
+  MapBuilder<String, String>? _sinceIds;
+  MapBuilder<String, String> get sinceIds => _$this._sinceIds ??= MapBuilder<String, String>();
+  set sinceIds(covariant MapBuilder<String, String>? sinceIds) => _$this._sinceIds = sinceIds;
+
+  int? _limit;
+  int? get limit => _$this._limit;
+  set limit(covariant int? limit) => _$this._limit = limit;
+
+  ListBuilder<String>? _widgets;
+  ListBuilder<String> get widgets => _$this._widgets ??= ListBuilder<String>();
+  set widgets(covariant ListBuilder<String>? widgets) => _$this._widgets = widgets;
+
+  DashboardApiGetWidgetItemsRequestApplicationJsonBuilder() {
+    DashboardApiGetWidgetItemsRequestApplicationJson._defaults(this);
+  }
+
+  DashboardApiGetWidgetItemsRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sinceIds = $v.sinceIds.toBuilder();
+      _limit = $v.limit;
+      _widgets = $v.widgets.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DashboardApiGetWidgetItemsRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DashboardApiGetWidgetItemsRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DashboardApiGetWidgetItemsRequestApplicationJson build() => _build();
+
+  _$DashboardApiGetWidgetItemsRequestApplicationJson _build() {
+    DashboardApiGetWidgetItemsRequestApplicationJson._validate(this);
+    _$DashboardApiGetWidgetItemsRequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsRequestApplicationJson._(
+              sinceIds: sinceIds.build(),
+              limit: BuiltValueNullFieldError.checkNotNull(
+                  limit, r'DashboardApiGetWidgetItemsRequestApplicationJson', 'limit'),
+              widgets: widgets.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'sinceIds';
+        sinceIds.build();
+
+        _$failedField = 'widgets';
+        widgets.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'DashboardApiGetWidgetItemsRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $WidgetItemInterfaceBuilder {
   void replace($WidgetItemInterface other);
   void update(void Function($WidgetItemInterfaceBuilder) updates);
@@ -1785,6 +2049,154 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'DashboardApiGetWidgetItemsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder) updates);
+  MapBuilder<String, String> get sinceIds;
+  set sinceIds(MapBuilder<String, String>? sinceIds);
+
+  int? get limit;
+  set limit(int? limit);
+
+  ListBuilder<String> get widgets;
+  set widgets(ListBuilder<String>? widgets);
+}
+
+class _$DashboardApiGetWidgetItemsV2RequestApplicationJson extends DashboardApiGetWidgetItemsV2RequestApplicationJson {
+  @override
+  final BuiltMap<String, String> sinceIds;
+  @override
+  final int limit;
+  @override
+  final BuiltList<String> widgets;
+
+  factory _$DashboardApiGetWidgetItemsV2RequestApplicationJson(
+          [void Function(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder)? updates]) =>
+      (DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DashboardApiGetWidgetItemsV2RequestApplicationJson._(
+      {required this.sinceIds, required this.limit, required this.widgets})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(sinceIds, r'DashboardApiGetWidgetItemsV2RequestApplicationJson', 'sinceIds');
+    BuiltValueNullFieldError.checkNotNull(limit, r'DashboardApiGetWidgetItemsV2RequestApplicationJson', 'limit');
+    BuiltValueNullFieldError.checkNotNull(widgets, r'DashboardApiGetWidgetItemsV2RequestApplicationJson', 'widgets');
+  }
+
+  @override
+  DashboardApiGetWidgetItemsV2RequestApplicationJson rebuild(
+          void Function(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder toBuilder() =>
+      DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DashboardApiGetWidgetItemsV2RequestApplicationJson &&
+        sinceIds == other.sinceIds &&
+        limit == other.limit &&
+        widgets == other.widgets;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sinceIds.hashCode);
+    _$hash = $jc(_$hash, limit.hashCode);
+    _$hash = $jc(_$hash, widgets.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsV2RequestApplicationJson')
+          ..add('sinceIds', sinceIds)
+          ..add('limit', limit)
+          ..add('widgets', widgets))
+        .toString();
+  }
+}
+
+class DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder
+    implements
+        Builder<DashboardApiGetWidgetItemsV2RequestApplicationJson,
+            DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder>,
+        $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder {
+  _$DashboardApiGetWidgetItemsV2RequestApplicationJson? _$v;
+
+  MapBuilder<String, String>? _sinceIds;
+  MapBuilder<String, String> get sinceIds => _$this._sinceIds ??= MapBuilder<String, String>();
+  set sinceIds(covariant MapBuilder<String, String>? sinceIds) => _$this._sinceIds = sinceIds;
+
+  int? _limit;
+  int? get limit => _$this._limit;
+  set limit(covariant int? limit) => _$this._limit = limit;
+
+  ListBuilder<String>? _widgets;
+  ListBuilder<String> get widgets => _$this._widgets ??= ListBuilder<String>();
+  set widgets(covariant ListBuilder<String>? widgets) => _$this._widgets = widgets;
+
+  DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder() {
+    DashboardApiGetWidgetItemsV2RequestApplicationJson._defaults(this);
+  }
+
+  DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sinceIds = $v.sinceIds.toBuilder();
+      _limit = $v.limit;
+      _widgets = $v.widgets.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DashboardApiGetWidgetItemsV2RequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DashboardApiGetWidgetItemsV2RequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DashboardApiGetWidgetItemsV2RequestApplicationJson build() => _build();
+
+  _$DashboardApiGetWidgetItemsV2RequestApplicationJson _build() {
+    DashboardApiGetWidgetItemsV2RequestApplicationJson._validate(this);
+    _$DashboardApiGetWidgetItemsV2RequestApplicationJson _$result;
+    try {
+      _$result = _$v ??
+          _$DashboardApiGetWidgetItemsV2RequestApplicationJson._(
+              sinceIds: sinceIds.build(),
+              limit: BuiltValueNullFieldError.checkNotNull(
+                  limit, r'DashboardApiGetWidgetItemsV2RequestApplicationJson', 'limit'),
+              widgets: widgets.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'sinceIds';
+        sinceIds.build();
+
+        _$failedField = 'widgets';
+        widgets.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'DashboardApiGetWidgetItemsV2RequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

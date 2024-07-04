@@ -1,23 +1,31 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants/active\?password=&force=1
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants/active
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}\?silent=0&recordingConsent=0
+\{"password":"","force":true\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"silent":false,"recordingConsent":false\}
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
-DELETE http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}\?all=0
+DELETE http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"all":false\}
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock

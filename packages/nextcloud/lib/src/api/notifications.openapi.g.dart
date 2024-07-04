@@ -202,6 +202,8 @@ final BuiltSet<SettingsAdminApiVersion> _$settingsAdminApiVersionValues =
   _$settingsAdminApiVersionV2,
 ]);
 
+Serializer<ApiGenerateNotificationRequestApplicationJson> _$apiGenerateNotificationRequestApplicationJsonSerializer =
+    _$ApiGenerateNotificationRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
     _$apiGenerateNotificationResponseApplicationJsonOcsSerializer =
@@ -235,12 +237,17 @@ Serializer<EndpointDeleteNotificationResponseApplicationJson_Ocs>
 Serializer<EndpointDeleteNotificationResponseApplicationJson>
     _$endpointDeleteNotificationResponseApplicationJsonSerializer =
     _$EndpointDeleteNotificationResponseApplicationJsonSerializer();
+Serializer<EndpointConfirmIdsForUserRequestApplicationJson>
+    _$endpointConfirmIdsForUserRequestApplicationJsonSerializer =
+    _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs>
     _$endpointConfirmIdsForUserResponseApplicationJsonOcsSerializer =
     _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson>
     _$endpointConfirmIdsForUserResponseApplicationJsonSerializer =
     _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer();
+Serializer<PushRegisterDeviceRequestApplicationJson> _$pushRegisterDeviceRequestApplicationJsonSerializer =
+    _$PushRegisterDeviceRequestApplicationJsonSerializer();
 Serializer<PushDevice> _$pushDeviceSerializer = _$PushDeviceSerializer();
 Serializer<PushRegisterDeviceResponseApplicationJson_Ocs> _$pushRegisterDeviceResponseApplicationJsonOcsSerializer =
     _$PushRegisterDeviceResponseApplicationJson_OcsSerializer();
@@ -250,16 +257,67 @@ Serializer<PushRemoveDeviceResponseApplicationJson_Ocs> _$pushRemoveDeviceRespon
     _$PushRemoveDeviceResponseApplicationJson_OcsSerializer();
 Serializer<PushRemoveDeviceResponseApplicationJson> _$pushRemoveDeviceResponseApplicationJsonSerializer =
     _$PushRemoveDeviceResponseApplicationJsonSerializer();
+Serializer<SettingsPersonalRequestApplicationJson> _$settingsPersonalRequestApplicationJsonSerializer =
+    _$SettingsPersonalRequestApplicationJsonSerializer();
 Serializer<SettingsPersonalResponseApplicationJson_Ocs> _$settingsPersonalResponseApplicationJsonOcsSerializer =
     _$SettingsPersonalResponseApplicationJson_OcsSerializer();
 Serializer<SettingsPersonalResponseApplicationJson> _$settingsPersonalResponseApplicationJsonSerializer =
     _$SettingsPersonalResponseApplicationJsonSerializer();
+Serializer<SettingsAdminRequestApplicationJson> _$settingsAdminRequestApplicationJsonSerializer =
+    _$SettingsAdminRequestApplicationJsonSerializer();
 Serializer<SettingsAdminResponseApplicationJson_Ocs> _$settingsAdminResponseApplicationJsonOcsSerializer =
     _$SettingsAdminResponseApplicationJson_OcsSerializer();
 Serializer<SettingsAdminResponseApplicationJson> _$settingsAdminResponseApplicationJsonSerializer =
     _$SettingsAdminResponseApplicationJsonSerializer();
 Serializer<Capabilities_Notifications> _$capabilitiesNotificationsSerializer = _$Capabilities_NotificationsSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$ApiGenerateNotificationRequestApplicationJsonSerializer
+    implements StructuredSerializer<ApiGenerateNotificationRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGenerateNotificationRequestApplicationJson,
+    _$ApiGenerateNotificationRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGenerateNotificationRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGenerateNotificationRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'shortMessage',
+      serializers.serialize(object.shortMessage, specifiedType: const FullType(String)),
+      'longMessage',
+      serializers.serialize(object.longMessage, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGenerateNotificationRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGenerateNotificationRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'shortMessage':
+          result.shortMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'longMessage':
+          result.longMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -1038,6 +1096,49 @@ class _$EndpointDeleteNotificationResponseApplicationJsonSerializer
   }
 }
 
+class _$EndpointConfirmIdsForUserRequestApplicationJsonSerializer
+    implements StructuredSerializer<EndpointConfirmIdsForUserRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    EndpointConfirmIdsForUserRequestApplicationJson,
+    _$EndpointConfirmIdsForUserRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'EndpointConfirmIdsForUserRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EndpointConfirmIdsForUserRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ids',
+      serializers.serialize(object.ids, specifiedType: const FullType(BuiltList, [FullType(int)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  EndpointConfirmIdsForUserRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EndpointConfirmIdsForUserRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ids':
+          result.ids.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+              as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs> {
   @override
@@ -1124,6 +1225,58 @@ class _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson_Ocs))!
               as EndpointConfirmIdsForUserResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PushRegisterDeviceRequestApplicationJsonSerializer
+    implements StructuredSerializer<PushRegisterDeviceRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    PushRegisterDeviceRequestApplicationJson,
+    _$PushRegisterDeviceRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'PushRegisterDeviceRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PushRegisterDeviceRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'pushTokenHash',
+      serializers.serialize(object.pushTokenHash, specifiedType: const FullType(String)),
+      'devicePublicKey',
+      serializers.serialize(object.devicePublicKey, specifiedType: const FullType(String)),
+      'proxyServer',
+      serializers.serialize(object.proxyServer, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PushRegisterDeviceRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PushRegisterDeviceRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'pushTokenHash':
+          result.pushTokenHash = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'devicePublicKey':
+          result.devicePublicKey = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'proxyServer':
+          result.proxyServer = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1362,6 +1515,55 @@ class _$PushRemoveDeviceResponseApplicationJsonSerializer
   }
 }
 
+class _$SettingsPersonalRequestApplicationJsonSerializer
+    implements StructuredSerializer<SettingsPersonalRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [SettingsPersonalRequestApplicationJson, _$SettingsPersonalRequestApplicationJson];
+  @override
+  final String wireName = 'SettingsPersonalRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SettingsPersonalRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'batchSetting',
+      serializers.serialize(object.batchSetting, specifiedType: const FullType(int)),
+      'soundNotification',
+      serializers.serialize(object.soundNotification, specifiedType: const FullType(String)),
+      'soundTalk',
+      serializers.serialize(object.soundTalk, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SettingsPersonalRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SettingsPersonalRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'batchSetting':
+          result.batchSetting = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'soundNotification':
+          result.soundNotification = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'soundTalk':
+          result.soundTalk = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$SettingsPersonalResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SettingsPersonalResponseApplicationJson_Ocs> {
   @override
@@ -1445,6 +1647,55 @@ class _$SettingsPersonalResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(SettingsPersonalResponseApplicationJson_Ocs))!
               as SettingsPersonalResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SettingsAdminRequestApplicationJsonSerializer
+    implements StructuredSerializer<SettingsAdminRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [SettingsAdminRequestApplicationJson, _$SettingsAdminRequestApplicationJson];
+  @override
+  final String wireName = 'SettingsAdminRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SettingsAdminRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'batchSetting',
+      serializers.serialize(object.batchSetting, specifiedType: const FullType(int)),
+      'soundNotification',
+      serializers.serialize(object.soundNotification, specifiedType: const FullType(String)),
+      'soundTalk',
+      serializers.serialize(object.soundTalk, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SettingsAdminRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SettingsAdminRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'batchSetting':
+          result.batchSetting = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'soundNotification':
+          result.soundNotification = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'soundTalk':
+          result.soundTalk = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -1628,6 +1879,123 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder {
+  void replace($ApiGenerateNotificationRequestApplicationJsonInterface other);
+  void update(void Function($ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder) updates);
+  String? get shortMessage;
+  set shortMessage(String? shortMessage);
+
+  String? get longMessage;
+  set longMessage(String? longMessage);
+}
+
+class _$ApiGenerateNotificationRequestApplicationJson extends ApiGenerateNotificationRequestApplicationJson {
+  @override
+  final String shortMessage;
+  @override
+  final String longMessage;
+
+  factory _$ApiGenerateNotificationRequestApplicationJson(
+          [void Function(ApiGenerateNotificationRequestApplicationJsonBuilder)? updates]) =>
+      (ApiGenerateNotificationRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiGenerateNotificationRequestApplicationJson._({required this.shortMessage, required this.longMessage})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        shortMessage, r'ApiGenerateNotificationRequestApplicationJson', 'shortMessage');
+    BuiltValueNullFieldError.checkNotNull(longMessage, r'ApiGenerateNotificationRequestApplicationJson', 'longMessage');
+  }
+
+  @override
+  ApiGenerateNotificationRequestApplicationJson rebuild(
+          void Function(ApiGenerateNotificationRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGenerateNotificationRequestApplicationJsonBuilder toBuilder() =>
+      ApiGenerateNotificationRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGenerateNotificationRequestApplicationJson &&
+        shortMessage == other.shortMessage &&
+        longMessage == other.longMessage;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, shortMessage.hashCode);
+    _$hash = $jc(_$hash, longMessage.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGenerateNotificationRequestApplicationJson')
+          ..add('shortMessage', shortMessage)
+          ..add('longMessage', longMessage))
+        .toString();
+  }
+}
+
+class ApiGenerateNotificationRequestApplicationJsonBuilder
+    implements
+        Builder<ApiGenerateNotificationRequestApplicationJson, ApiGenerateNotificationRequestApplicationJsonBuilder>,
+        $ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder {
+  _$ApiGenerateNotificationRequestApplicationJson? _$v;
+
+  String? _shortMessage;
+  String? get shortMessage => _$this._shortMessage;
+  set shortMessage(covariant String? shortMessage) => _$this._shortMessage = shortMessage;
+
+  String? _longMessage;
+  String? get longMessage => _$this._longMessage;
+  set longMessage(covariant String? longMessage) => _$this._longMessage = longMessage;
+
+  ApiGenerateNotificationRequestApplicationJsonBuilder() {
+    ApiGenerateNotificationRequestApplicationJson._defaults(this);
+  }
+
+  ApiGenerateNotificationRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _shortMessage = $v.shortMessage;
+      _longMessage = $v.longMessage;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGenerateNotificationRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGenerateNotificationRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiGenerateNotificationRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGenerateNotificationRequestApplicationJson build() => _build();
+
+  _$ApiGenerateNotificationRequestApplicationJson _build() {
+    ApiGenerateNotificationRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ApiGenerateNotificationRequestApplicationJson._(
+            shortMessage: BuiltValueNullFieldError.checkNotNull(
+                shortMessage, r'ApiGenerateNotificationRequestApplicationJson', 'shortMessage'),
+            longMessage: BuiltValueNullFieldError.checkNotNull(
+                longMessage, r'ApiGenerateNotificationRequestApplicationJson', 'longMessage'));
+    replace(_$result);
+    return _$result;
   }
 }
 
@@ -3535,6 +3903,114 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder {
+  void replace($EndpointConfirmIdsForUserRequestApplicationJsonInterface other);
+  void update(void Function($EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<int> get ids;
+  set ids(ListBuilder<int>? ids);
+}
+
+class _$EndpointConfirmIdsForUserRequestApplicationJson extends EndpointConfirmIdsForUserRequestApplicationJson {
+  @override
+  final BuiltList<int> ids;
+
+  factory _$EndpointConfirmIdsForUserRequestApplicationJson(
+          [void Function(EndpointConfirmIdsForUserRequestApplicationJsonBuilder)? updates]) =>
+      (EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$EndpointConfirmIdsForUserRequestApplicationJson._({required this.ids}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ids, r'EndpointConfirmIdsForUserRequestApplicationJson', 'ids');
+  }
+
+  @override
+  EndpointConfirmIdsForUserRequestApplicationJson rebuild(
+          void Function(EndpointConfirmIdsForUserRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  EndpointConfirmIdsForUserRequestApplicationJsonBuilder toBuilder() =>
+      EndpointConfirmIdsForUserRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is EndpointConfirmIdsForUserRequestApplicationJson && ids == other.ids;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ids.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'EndpointConfirmIdsForUserRequestApplicationJson')..add('ids', ids))
+        .toString();
+  }
+}
+
+class EndpointConfirmIdsForUserRequestApplicationJsonBuilder
+    implements
+        Builder<EndpointConfirmIdsForUserRequestApplicationJson,
+            EndpointConfirmIdsForUserRequestApplicationJsonBuilder>,
+        $EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder {
+  _$EndpointConfirmIdsForUserRequestApplicationJson? _$v;
+
+  ListBuilder<int>? _ids;
+  ListBuilder<int> get ids => _$this._ids ??= ListBuilder<int>();
+  set ids(covariant ListBuilder<int>? ids) => _$this._ids = ids;
+
+  EndpointConfirmIdsForUserRequestApplicationJsonBuilder() {
+    EndpointConfirmIdsForUserRequestApplicationJson._defaults(this);
+  }
+
+  EndpointConfirmIdsForUserRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ids = $v.ids.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant EndpointConfirmIdsForUserRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$EndpointConfirmIdsForUserRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(EndpointConfirmIdsForUserRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  EndpointConfirmIdsForUserRequestApplicationJson build() => _build();
+
+  _$EndpointConfirmIdsForUserRequestApplicationJson _build() {
+    EndpointConfirmIdsForUserRequestApplicationJson._validate(this);
+    _$EndpointConfirmIdsForUserRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$EndpointConfirmIdsForUserRequestApplicationJson._(ids: ids.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ids';
+        ids.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'EndpointConfirmIdsForUserRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
   void replace($EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface other);
   void update(void Function($EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -3765,6 +4241,140 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $PushRegisterDeviceRequestApplicationJsonInterfaceBuilder {
+  void replace($PushRegisterDeviceRequestApplicationJsonInterface other);
+  void update(void Function($PushRegisterDeviceRequestApplicationJsonInterfaceBuilder) updates);
+  String? get pushTokenHash;
+  set pushTokenHash(String? pushTokenHash);
+
+  String? get devicePublicKey;
+  set devicePublicKey(String? devicePublicKey);
+
+  String? get proxyServer;
+  set proxyServer(String? proxyServer);
+}
+
+class _$PushRegisterDeviceRequestApplicationJson extends PushRegisterDeviceRequestApplicationJson {
+  @override
+  final String pushTokenHash;
+  @override
+  final String devicePublicKey;
+  @override
+  final String proxyServer;
+
+  factory _$PushRegisterDeviceRequestApplicationJson(
+          [void Function(PushRegisterDeviceRequestApplicationJsonBuilder)? updates]) =>
+      (PushRegisterDeviceRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$PushRegisterDeviceRequestApplicationJson._(
+      {required this.pushTokenHash, required this.devicePublicKey, required this.proxyServer})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(pushTokenHash, r'PushRegisterDeviceRequestApplicationJson', 'pushTokenHash');
+    BuiltValueNullFieldError.checkNotNull(
+        devicePublicKey, r'PushRegisterDeviceRequestApplicationJson', 'devicePublicKey');
+    BuiltValueNullFieldError.checkNotNull(proxyServer, r'PushRegisterDeviceRequestApplicationJson', 'proxyServer');
+  }
+
+  @override
+  PushRegisterDeviceRequestApplicationJson rebuild(
+          void Function(PushRegisterDeviceRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  PushRegisterDeviceRequestApplicationJsonBuilder toBuilder() =>
+      PushRegisterDeviceRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is PushRegisterDeviceRequestApplicationJson &&
+        pushTokenHash == other.pushTokenHash &&
+        devicePublicKey == other.devicePublicKey &&
+        proxyServer == other.proxyServer;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, pushTokenHash.hashCode);
+    _$hash = $jc(_$hash, devicePublicKey.hashCode);
+    _$hash = $jc(_$hash, proxyServer.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'PushRegisterDeviceRequestApplicationJson')
+          ..add('pushTokenHash', pushTokenHash)
+          ..add('devicePublicKey', devicePublicKey)
+          ..add('proxyServer', proxyServer))
+        .toString();
+  }
+}
+
+class PushRegisterDeviceRequestApplicationJsonBuilder
+    implements
+        Builder<PushRegisterDeviceRequestApplicationJson, PushRegisterDeviceRequestApplicationJsonBuilder>,
+        $PushRegisterDeviceRequestApplicationJsonInterfaceBuilder {
+  _$PushRegisterDeviceRequestApplicationJson? _$v;
+
+  String? _pushTokenHash;
+  String? get pushTokenHash => _$this._pushTokenHash;
+  set pushTokenHash(covariant String? pushTokenHash) => _$this._pushTokenHash = pushTokenHash;
+
+  String? _devicePublicKey;
+  String? get devicePublicKey => _$this._devicePublicKey;
+  set devicePublicKey(covariant String? devicePublicKey) => _$this._devicePublicKey = devicePublicKey;
+
+  String? _proxyServer;
+  String? get proxyServer => _$this._proxyServer;
+  set proxyServer(covariant String? proxyServer) => _$this._proxyServer = proxyServer;
+
+  PushRegisterDeviceRequestApplicationJsonBuilder() {
+    PushRegisterDeviceRequestApplicationJson._defaults(this);
+  }
+
+  PushRegisterDeviceRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _pushTokenHash = $v.pushTokenHash;
+      _devicePublicKey = $v.devicePublicKey;
+      _proxyServer = $v.proxyServer;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant PushRegisterDeviceRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$PushRegisterDeviceRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(PushRegisterDeviceRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  PushRegisterDeviceRequestApplicationJson build() => _build();
+
+  _$PushRegisterDeviceRequestApplicationJson _build() {
+    PushRegisterDeviceRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$PushRegisterDeviceRequestApplicationJson._(
+            pushTokenHash: BuiltValueNullFieldError.checkNotNull(
+                pushTokenHash, r'PushRegisterDeviceRequestApplicationJson', 'pushTokenHash'),
+            devicePublicKey: BuiltValueNullFieldError.checkNotNull(
+                devicePublicKey, r'PushRegisterDeviceRequestApplicationJson', 'devicePublicKey'),
+            proxyServer: BuiltValueNullFieldError.checkNotNull(
+                proxyServer, r'PushRegisterDeviceRequestApplicationJson', 'proxyServer'));
     replace(_$result);
     return _$result;
   }
@@ -4349,6 +4959,140 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $SettingsPersonalRequestApplicationJsonInterfaceBuilder {
+  void replace($SettingsPersonalRequestApplicationJsonInterface other);
+  void update(void Function($SettingsPersonalRequestApplicationJsonInterfaceBuilder) updates);
+  int? get batchSetting;
+  set batchSetting(int? batchSetting);
+
+  String? get soundNotification;
+  set soundNotification(String? soundNotification);
+
+  String? get soundTalk;
+  set soundTalk(String? soundTalk);
+}
+
+class _$SettingsPersonalRequestApplicationJson extends SettingsPersonalRequestApplicationJson {
+  @override
+  final int batchSetting;
+  @override
+  final String soundNotification;
+  @override
+  final String soundTalk;
+
+  factory _$SettingsPersonalRequestApplicationJson(
+          [void Function(SettingsPersonalRequestApplicationJsonBuilder)? updates]) =>
+      (SettingsPersonalRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$SettingsPersonalRequestApplicationJson._(
+      {required this.batchSetting, required this.soundNotification, required this.soundTalk})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(batchSetting, r'SettingsPersonalRequestApplicationJson', 'batchSetting');
+    BuiltValueNullFieldError.checkNotNull(
+        soundNotification, r'SettingsPersonalRequestApplicationJson', 'soundNotification');
+    BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsPersonalRequestApplicationJson', 'soundTalk');
+  }
+
+  @override
+  SettingsPersonalRequestApplicationJson rebuild(
+          void Function(SettingsPersonalRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SettingsPersonalRequestApplicationJsonBuilder toBuilder() =>
+      SettingsPersonalRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SettingsPersonalRequestApplicationJson &&
+        batchSetting == other.batchSetting &&
+        soundNotification == other.soundNotification &&
+        soundTalk == other.soundTalk;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, batchSetting.hashCode);
+    _$hash = $jc(_$hash, soundNotification.hashCode);
+    _$hash = $jc(_$hash, soundTalk.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SettingsPersonalRequestApplicationJson')
+          ..add('batchSetting', batchSetting)
+          ..add('soundNotification', soundNotification)
+          ..add('soundTalk', soundTalk))
+        .toString();
+  }
+}
+
+class SettingsPersonalRequestApplicationJsonBuilder
+    implements
+        Builder<SettingsPersonalRequestApplicationJson, SettingsPersonalRequestApplicationJsonBuilder>,
+        $SettingsPersonalRequestApplicationJsonInterfaceBuilder {
+  _$SettingsPersonalRequestApplicationJson? _$v;
+
+  int? _batchSetting;
+  int? get batchSetting => _$this._batchSetting;
+  set batchSetting(covariant int? batchSetting) => _$this._batchSetting = batchSetting;
+
+  String? _soundNotification;
+  String? get soundNotification => _$this._soundNotification;
+  set soundNotification(covariant String? soundNotification) => _$this._soundNotification = soundNotification;
+
+  String? _soundTalk;
+  String? get soundTalk => _$this._soundTalk;
+  set soundTalk(covariant String? soundTalk) => _$this._soundTalk = soundTalk;
+
+  SettingsPersonalRequestApplicationJsonBuilder() {
+    SettingsPersonalRequestApplicationJson._defaults(this);
+  }
+
+  SettingsPersonalRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _batchSetting = $v.batchSetting;
+      _soundNotification = $v.soundNotification;
+      _soundTalk = $v.soundTalk;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SettingsPersonalRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SettingsPersonalRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(SettingsPersonalRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SettingsPersonalRequestApplicationJson build() => _build();
+
+  _$SettingsPersonalRequestApplicationJson _build() {
+    SettingsPersonalRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$SettingsPersonalRequestApplicationJson._(
+            batchSetting: BuiltValueNullFieldError.checkNotNull(
+                batchSetting, r'SettingsPersonalRequestApplicationJson', 'batchSetting'),
+            soundNotification: BuiltValueNullFieldError.checkNotNull(
+                soundNotification, r'SettingsPersonalRequestApplicationJson', 'soundNotification'),
+            soundTalk: BuiltValueNullFieldError.checkNotNull(
+                soundTalk, r'SettingsPersonalRequestApplicationJson', 'soundTalk'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
   void replace($SettingsPersonalResponseApplicationJson_OcsInterface other);
   void update(void Function($SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -4574,6 +5318,137 @@ class SettingsPersonalResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $SettingsAdminRequestApplicationJsonInterfaceBuilder {
+  void replace($SettingsAdminRequestApplicationJsonInterface other);
+  void update(void Function($SettingsAdminRequestApplicationJsonInterfaceBuilder) updates);
+  int? get batchSetting;
+  set batchSetting(int? batchSetting);
+
+  String? get soundNotification;
+  set soundNotification(String? soundNotification);
+
+  String? get soundTalk;
+  set soundTalk(String? soundTalk);
+}
+
+class _$SettingsAdminRequestApplicationJson extends SettingsAdminRequestApplicationJson {
+  @override
+  final int batchSetting;
+  @override
+  final String soundNotification;
+  @override
+  final String soundTalk;
+
+  factory _$SettingsAdminRequestApplicationJson([void Function(SettingsAdminRequestApplicationJsonBuilder)? updates]) =>
+      (SettingsAdminRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$SettingsAdminRequestApplicationJson._(
+      {required this.batchSetting, required this.soundNotification, required this.soundTalk})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(batchSetting, r'SettingsAdminRequestApplicationJson', 'batchSetting');
+    BuiltValueNullFieldError.checkNotNull(
+        soundNotification, r'SettingsAdminRequestApplicationJson', 'soundNotification');
+    BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsAdminRequestApplicationJson', 'soundTalk');
+  }
+
+  @override
+  SettingsAdminRequestApplicationJson rebuild(void Function(SettingsAdminRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SettingsAdminRequestApplicationJsonBuilder toBuilder() => SettingsAdminRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SettingsAdminRequestApplicationJson &&
+        batchSetting == other.batchSetting &&
+        soundNotification == other.soundNotification &&
+        soundTalk == other.soundTalk;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, batchSetting.hashCode);
+    _$hash = $jc(_$hash, soundNotification.hashCode);
+    _$hash = $jc(_$hash, soundTalk.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SettingsAdminRequestApplicationJson')
+          ..add('batchSetting', batchSetting)
+          ..add('soundNotification', soundNotification)
+          ..add('soundTalk', soundTalk))
+        .toString();
+  }
+}
+
+class SettingsAdminRequestApplicationJsonBuilder
+    implements
+        Builder<SettingsAdminRequestApplicationJson, SettingsAdminRequestApplicationJsonBuilder>,
+        $SettingsAdminRequestApplicationJsonInterfaceBuilder {
+  _$SettingsAdminRequestApplicationJson? _$v;
+
+  int? _batchSetting;
+  int? get batchSetting => _$this._batchSetting;
+  set batchSetting(covariant int? batchSetting) => _$this._batchSetting = batchSetting;
+
+  String? _soundNotification;
+  String? get soundNotification => _$this._soundNotification;
+  set soundNotification(covariant String? soundNotification) => _$this._soundNotification = soundNotification;
+
+  String? _soundTalk;
+  String? get soundTalk => _$this._soundTalk;
+  set soundTalk(covariant String? soundTalk) => _$this._soundTalk = soundTalk;
+
+  SettingsAdminRequestApplicationJsonBuilder() {
+    SettingsAdminRequestApplicationJson._defaults(this);
+  }
+
+  SettingsAdminRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _batchSetting = $v.batchSetting;
+      _soundNotification = $v.soundNotification;
+      _soundTalk = $v.soundTalk;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SettingsAdminRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SettingsAdminRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(SettingsAdminRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SettingsAdminRequestApplicationJson build() => _build();
+
+  _$SettingsAdminRequestApplicationJson _build() {
+    SettingsAdminRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$SettingsAdminRequestApplicationJson._(
+            batchSetting: BuiltValueNullFieldError.checkNotNull(
+                batchSetting, r'SettingsAdminRequestApplicationJson', 'batchSetting'),
+            soundNotification: BuiltValueNullFieldError.checkNotNull(
+                soundNotification, r'SettingsAdminRequestApplicationJson', 'soundNotification'),
+            soundTalk:
+                BuiltValueNullFieldError.checkNotNull(soundTalk, r'SettingsAdminRequestApplicationJson', 'soundTalk'));
     replace(_$result);
     return _$result;
   }

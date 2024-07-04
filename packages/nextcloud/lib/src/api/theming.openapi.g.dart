@@ -6,68 +6,11 @@ part of 'theming.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$0 = ThemingGetThemeStylesheetPlain._('\$0');
-const ThemingGetThemeStylesheetPlain _$themingGetThemeStylesheetPlain$1 = ThemingGetThemeStylesheetPlain._('\$1');
-
-ThemingGetThemeStylesheetPlain _$valueOfThemingGetThemeStylesheetPlain(String name) {
-  switch (name) {
-    case '\$0':
-      return _$themingGetThemeStylesheetPlain$0;
-    case '\$1':
-      return _$themingGetThemeStylesheetPlain$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<ThemingGetThemeStylesheetPlain> _$themingGetThemeStylesheetPlainValues =
-    BuiltSet<ThemingGetThemeStylesheetPlain>(const <ThemingGetThemeStylesheetPlain>[
-  _$themingGetThemeStylesheetPlain$0,
-  _$themingGetThemeStylesheetPlain$1,
-]);
-
-const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$0 =
-    ThemingGetThemeStylesheetWithCustomCss._('\$0');
-const ThemingGetThemeStylesheetWithCustomCss _$themingGetThemeStylesheetWithCustomCss$1 =
-    ThemingGetThemeStylesheetWithCustomCss._('\$1');
-
-ThemingGetThemeStylesheetWithCustomCss _$valueOfThemingGetThemeStylesheetWithCustomCss(String name) {
-  switch (name) {
-    case '\$0':
-      return _$themingGetThemeStylesheetWithCustomCss$0;
-    case '\$1':
-      return _$themingGetThemeStylesheetWithCustomCss$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<ThemingGetThemeStylesheetWithCustomCss> _$themingGetThemeStylesheetWithCustomCssValues =
-    BuiltSet<ThemingGetThemeStylesheetWithCustomCss>(const <ThemingGetThemeStylesheetWithCustomCss>[
-  _$themingGetThemeStylesheetWithCustomCss$0,
-  _$themingGetThemeStylesheetWithCustomCss$1,
-]);
-
-const ThemingGetImageUseSvg _$themingGetImageUseSvg$0 = ThemingGetImageUseSvg._('\$0');
-const ThemingGetImageUseSvg _$themingGetImageUseSvg$1 = ThemingGetImageUseSvg._('\$1');
-
-ThemingGetImageUseSvg _$valueOfThemingGetImageUseSvg(String name) {
-  switch (name) {
-    case '\$0':
-      return _$themingGetImageUseSvg$0;
-    case '\$1':
-      return _$themingGetImageUseSvg$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<ThemingGetImageUseSvg> _$themingGetImageUseSvgValues =
-    BuiltSet<ThemingGetImageUseSvg>(const <ThemingGetImageUseSvg>[
-  _$themingGetImageUseSvg$0,
-  _$themingGetImageUseSvg$1,
-]);
-
+Serializer<ThemingGetThemeStylesheetRequestApplicationJson>
+    _$themingGetThemeStylesheetRequestApplicationJsonSerializer =
+    _$ThemingGetThemeStylesheetRequestApplicationJsonSerializer();
+Serializer<ThemingGetImageRequestApplicationJson> _$themingGetImageRequestApplicationJsonSerializer =
+    _$ThemingGetImageRequestApplicationJsonSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson_Icons> _$themingGetManifestResponseApplicationJsonIconsSerializer =
     _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
 Serializer<ThemingGetManifestResponseApplicationJson> _$themingGetManifestResponseApplicationJsonSerializer =
@@ -84,6 +27,92 @@ Serializer<UserThemeDisableThemeResponseApplicationJson> _$userThemeDisableTheme
     _$UserThemeDisableThemeResponseApplicationJsonSerializer();
 Serializer<PublicCapabilities_Theming> _$publicCapabilitiesThemingSerializer = _$PublicCapabilities_ThemingSerializer();
 Serializer<PublicCapabilities> _$publicCapabilitiesSerializer = _$PublicCapabilitiesSerializer();
+
+class _$ThemingGetThemeStylesheetRequestApplicationJsonSerializer
+    implements StructuredSerializer<ThemingGetThemeStylesheetRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ThemingGetThemeStylesheetRequestApplicationJson,
+    _$ThemingGetThemeStylesheetRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ThemingGetThemeStylesheetRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ThemingGetThemeStylesheetRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'plain',
+      serializers.serialize(object.plain, specifiedType: const FullType(bool)),
+      'withCustomCss',
+      serializers.serialize(object.withCustomCss, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ThemingGetThemeStylesheetRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ThemingGetThemeStylesheetRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'plain':
+          result.plain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'withCustomCss':
+          result.withCustomCss = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ThemingGetImageRequestApplicationJsonSerializer
+    implements StructuredSerializer<ThemingGetImageRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ThemingGetImageRequestApplicationJson, _$ThemingGetImageRequestApplicationJson];
+  @override
+  final String wireName = 'ThemingGetImageRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ThemingGetImageRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'useSvg',
+      serializers.serialize(object.useSvg, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ThemingGetImageRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ThemingGetImageRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'useSvg':
+          result.useSvg = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
     implements StructuredSerializer<ThemingGetManifestResponseApplicationJson_Icons> {
@@ -610,6 +639,217 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $ThemingGetThemeStylesheetRequestApplicationJsonInterfaceBuilder {
+  void replace($ThemingGetThemeStylesheetRequestApplicationJsonInterface other);
+  void update(void Function($ThemingGetThemeStylesheetRequestApplicationJsonInterfaceBuilder) updates);
+  bool? get plain;
+  set plain(bool? plain);
+
+  bool? get withCustomCss;
+  set withCustomCss(bool? withCustomCss);
+}
+
+class _$ThemingGetThemeStylesheetRequestApplicationJson extends ThemingGetThemeStylesheetRequestApplicationJson {
+  @override
+  final bool plain;
+  @override
+  final bool withCustomCss;
+
+  factory _$ThemingGetThemeStylesheetRequestApplicationJson(
+          [void Function(ThemingGetThemeStylesheetRequestApplicationJsonBuilder)? updates]) =>
+      (ThemingGetThemeStylesheetRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ThemingGetThemeStylesheetRequestApplicationJson._({required this.plain, required this.withCustomCss}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(plain, r'ThemingGetThemeStylesheetRequestApplicationJson', 'plain');
+    BuiltValueNullFieldError.checkNotNull(
+        withCustomCss, r'ThemingGetThemeStylesheetRequestApplicationJson', 'withCustomCss');
+  }
+
+  @override
+  ThemingGetThemeStylesheetRequestApplicationJson rebuild(
+          void Function(ThemingGetThemeStylesheetRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ThemingGetThemeStylesheetRequestApplicationJsonBuilder toBuilder() =>
+      ThemingGetThemeStylesheetRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ThemingGetThemeStylesheetRequestApplicationJson &&
+        plain == other.plain &&
+        withCustomCss == other.withCustomCss;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, plain.hashCode);
+    _$hash = $jc(_$hash, withCustomCss.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ThemingGetThemeStylesheetRequestApplicationJson')
+          ..add('plain', plain)
+          ..add('withCustomCss', withCustomCss))
+        .toString();
+  }
+}
+
+class ThemingGetThemeStylesheetRequestApplicationJsonBuilder
+    implements
+        Builder<ThemingGetThemeStylesheetRequestApplicationJson,
+            ThemingGetThemeStylesheetRequestApplicationJsonBuilder>,
+        $ThemingGetThemeStylesheetRequestApplicationJsonInterfaceBuilder {
+  _$ThemingGetThemeStylesheetRequestApplicationJson? _$v;
+
+  bool? _plain;
+  bool? get plain => _$this._plain;
+  set plain(covariant bool? plain) => _$this._plain = plain;
+
+  bool? _withCustomCss;
+  bool? get withCustomCss => _$this._withCustomCss;
+  set withCustomCss(covariant bool? withCustomCss) => _$this._withCustomCss = withCustomCss;
+
+  ThemingGetThemeStylesheetRequestApplicationJsonBuilder() {
+    ThemingGetThemeStylesheetRequestApplicationJson._defaults(this);
+  }
+
+  ThemingGetThemeStylesheetRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _plain = $v.plain;
+      _withCustomCss = $v.withCustomCss;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ThemingGetThemeStylesheetRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ThemingGetThemeStylesheetRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ThemingGetThemeStylesheetRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ThemingGetThemeStylesheetRequestApplicationJson build() => _build();
+
+  _$ThemingGetThemeStylesheetRequestApplicationJson _build() {
+    ThemingGetThemeStylesheetRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ThemingGetThemeStylesheetRequestApplicationJson._(
+            plain: BuiltValueNullFieldError.checkNotNull(
+                plain, r'ThemingGetThemeStylesheetRequestApplicationJson', 'plain'),
+            withCustomCss: BuiltValueNullFieldError.checkNotNull(
+                withCustomCss, r'ThemingGetThemeStylesheetRequestApplicationJson', 'withCustomCss'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ThemingGetImageRequestApplicationJsonInterfaceBuilder {
+  void replace($ThemingGetImageRequestApplicationJsonInterface other);
+  void update(void Function($ThemingGetImageRequestApplicationJsonInterfaceBuilder) updates);
+  bool? get useSvg;
+  set useSvg(bool? useSvg);
+}
+
+class _$ThemingGetImageRequestApplicationJson extends ThemingGetImageRequestApplicationJson {
+  @override
+  final bool useSvg;
+
+  factory _$ThemingGetImageRequestApplicationJson(
+          [void Function(ThemingGetImageRequestApplicationJsonBuilder)? updates]) =>
+      (ThemingGetImageRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ThemingGetImageRequestApplicationJson._({required this.useSvg}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(useSvg, r'ThemingGetImageRequestApplicationJson', 'useSvg');
+  }
+
+  @override
+  ThemingGetImageRequestApplicationJson rebuild(void Function(ThemingGetImageRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ThemingGetImageRequestApplicationJsonBuilder toBuilder() =>
+      ThemingGetImageRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ThemingGetImageRequestApplicationJson && useSvg == other.useSvg;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, useSvg.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ThemingGetImageRequestApplicationJson')..add('useSvg', useSvg)).toString();
+  }
+}
+
+class ThemingGetImageRequestApplicationJsonBuilder
+    implements
+        Builder<ThemingGetImageRequestApplicationJson, ThemingGetImageRequestApplicationJsonBuilder>,
+        $ThemingGetImageRequestApplicationJsonInterfaceBuilder {
+  _$ThemingGetImageRequestApplicationJson? _$v;
+
+  bool? _useSvg;
+  bool? get useSvg => _$this._useSvg;
+  set useSvg(covariant bool? useSvg) => _$this._useSvg = useSvg;
+
+  ThemingGetImageRequestApplicationJsonBuilder() {
+    ThemingGetImageRequestApplicationJson._defaults(this);
+  }
+
+  ThemingGetImageRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _useSvg = $v.useSvg;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ThemingGetImageRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ThemingGetImageRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ThemingGetImageRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ThemingGetImageRequestApplicationJson build() => _build();
+
+  _$ThemingGetImageRequestApplicationJson _build() {
+    ThemingGetImageRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ThemingGetImageRequestApplicationJson._(
+            useSvg: BuiltValueNullFieldError.checkNotNull(useSvg, r'ThemingGetImageRequestApplicationJson', 'useSvg'));
+    replace(_$result);
+    return _$result;
   }
 }
 

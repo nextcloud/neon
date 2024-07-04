@@ -197,8 +197,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $createFolder_Request({required String name}) {
     final _parameters = <String, Object?>{};
-    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    _parameters['name'] = $name;
+    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    _parameters['name'] = __name;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -275,11 +275,11 @@ class $Client extends _i1.DynamiteClient {
     required String name,
   }) {
     final _parameters = <String, Object?>{};
-    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = $folderId;
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
 
-    final $name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    _parameters['name'] = $name;
+    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    _parameters['name'] = __name;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -353,8 +353,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteFolder_Request({required int folderId}) {
     final _parameters = <String, Object?>{};
-    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = $folderId;
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -427,11 +427,11 @@ class $Client extends _i1.DynamiteClient {
     required int newestItemId,
   }) {
     final _parameters = <String, Object?>{};
-    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = $folderId;
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
 
-    final $newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
-    _parameters['newestItemId'] = $newestItemId;
+    final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
+    _parameters['newestItemId'] = __newestItemId;
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
@@ -576,11 +576,11 @@ class $Client extends _i1.DynamiteClient {
     int? folderId,
   }) {
     final _parameters = <String, Object?>{};
-    final $url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
-    _parameters['url'] = $url;
+    final __url = _$jsonSerializers.serialize(url, specifiedType: const FullType(String));
+    _parameters['url'] = __url;
 
-    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = $folderId;
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -656,8 +656,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteFeed_Request({required int feedId}) {
     final _parameters = <String, Object?>{};
-    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    _parameters['feedId'] = $feedId;
+    final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    _parameters['feedId'] = __feedId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -730,11 +730,11 @@ class $Client extends _i1.DynamiteClient {
     int? folderId,
   }) {
     final _parameters = <String, Object?>{};
-    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    _parameters['feedId'] = $feedId;
+    final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    _parameters['feedId'] = __feedId;
 
-    final $folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = $folderId;
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -814,11 +814,11 @@ class $Client extends _i1.DynamiteClient {
     required String feedTitle,
   }) {
     final _parameters = <String, Object?>{};
-    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    _parameters['feedId'] = $feedId;
+    final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    _parameters['feedId'] = __feedId;
 
-    final $feedTitle = _$jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
-    _parameters['feedTitle'] = $feedTitle;
+    final __feedTitle = _$jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
+    _parameters['feedTitle'] = __feedTitle;
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
@@ -899,11 +899,11 @@ class $Client extends _i1.DynamiteClient {
     required int newestItemId,
   }) {
     final _parameters = <String, Object?>{};
-    final $feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    _parameters['feedId'] = $feedId;
+    final __feedId = _$jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
+    _parameters['feedId'] = __feedId;
 
-    final $newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
-    _parameters['newestItemId'] = $newestItemId;
+    final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
+    _parameters['newestItemId'] = __newestItemId;
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
@@ -993,29 +993,29 @@ class $Client extends _i1.DynamiteClient {
     int? oldestFirst,
   }) {
     final _parameters = <String, Object?>{};
-    var $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
-    $type ??= 3;
-    _parameters['type'] = $type;
+    var __type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
+    __type ??= 3;
+    _parameters['type'] = __type;
 
-    var $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    $id ??= 0;
-    _parameters['id'] = $id;
+    var __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    __id ??= 0;
+    _parameters['id'] = __id;
 
-    var $getRead = _$jsonSerializers.serialize(getRead, specifiedType: const FullType(int));
-    $getRead ??= 1;
-    _parameters['getRead'] = $getRead;
+    var __getRead = _$jsonSerializers.serialize(getRead, specifiedType: const FullType(int));
+    __getRead ??= 1;
+    _parameters['getRead'] = __getRead;
 
-    var $batchSize = _$jsonSerializers.serialize(batchSize, specifiedType: const FullType(int));
-    $batchSize ??= -1;
-    _parameters['batchSize'] = $batchSize;
+    var __batchSize = _$jsonSerializers.serialize(batchSize, specifiedType: const FullType(int));
+    __batchSize ??= -1;
+    _parameters['batchSize'] = __batchSize;
 
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
+    var __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    __offset ??= 0;
+    _parameters['offset'] = __offset;
 
-    var $oldestFirst = _$jsonSerializers.serialize(oldestFirst, specifiedType: const FullType(int));
-    $oldestFirst ??= 0;
-    _parameters['oldestFirst'] = $oldestFirst;
+    var __oldestFirst = _$jsonSerializers.serialize(oldestFirst, specifiedType: const FullType(int));
+    __oldestFirst ??= 0;
+    _parameters['oldestFirst'] = __oldestFirst;
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
@@ -1114,17 +1114,17 @@ class $Client extends _i1.DynamiteClient {
     int? lastModified,
   }) {
     final _parameters = <String, Object?>{};
-    var $type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
-    $type ??= 3;
-    _parameters['type'] = $type;
+    var __type = _$jsonSerializers.serialize(type, specifiedType: const FullType(int));
+    __type ??= 3;
+    _parameters['type'] = __type;
 
-    var $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    $id ??= 0;
-    _parameters['id'] = $id;
+    var __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    __id ??= 0;
+    _parameters['id'] = __id;
 
-    var $lastModified = _$jsonSerializers.serialize(lastModified, specifiedType: const FullType(int));
-    $lastModified ??= 0;
-    _parameters['lastModified'] = $lastModified;
+    var __lastModified = _$jsonSerializers.serialize(lastModified, specifiedType: const FullType(int));
+    __lastModified ??= 0;
+    _parameters['lastModified'] = __lastModified;
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
@@ -1204,8 +1204,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $markArticleAsRead_Request({required int itemId}) {
     final _parameters = <String, Object?>{};
-    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    _parameters['itemId'] = $itemId;
+    final __itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -1272,8 +1272,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $markArticleAsUnread_Request({required int itemId}) {
     final _parameters = <String, Object?>{};
-    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    _parameters['itemId'] = $itemId;
+    final __itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -1340,8 +1340,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $starArticle_Request({required int itemId}) {
     final _parameters = <String, Object?>{};
-    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    _parameters['itemId'] = $itemId;
+    final __itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -1408,8 +1408,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $unstarArticle_Request({required int itemId}) {
     final _parameters = <String, Object?>{};
-    final $itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    _parameters['itemId'] = $itemId;
+    final __itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
+    _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');

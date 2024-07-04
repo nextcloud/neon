@@ -86,23 +86,23 @@ class $Client extends _i1.DynamiteClient {
     String? ifNoneMatch,
   }) {
     final _parameters = <String, Object?>{};
-    final $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
-    _parameters['category'] = $category;
+    final __category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    _parameters['category'] = __category;
 
-    var $exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
-    $exclude ??= '';
-    _parameters['exclude'] = $exclude;
+    var __exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    __exclude ??= '';
+    _parameters['exclude'] = __exclude;
 
-    var $pruneBefore = _$jsonSerializers.serialize(pruneBefore, specifiedType: const FullType(int));
-    $pruneBefore ??= 0;
-    _parameters['pruneBefore'] = $pruneBefore;
+    var __pruneBefore = _$jsonSerializers.serialize(pruneBefore, specifiedType: const FullType(int));
+    __pruneBefore ??= 0;
+    _parameters['pruneBefore'] = __pruneBefore;
 
-    var $chunkSize = _$jsonSerializers.serialize(chunkSize, specifiedType: const FullType(int));
-    $chunkSize ??= 0;
-    _parameters['chunkSize'] = $chunkSize;
+    var __chunkSize = _$jsonSerializers.serialize(chunkSize, specifiedType: const FullType(int));
+    __chunkSize ??= 0;
+    _parameters['chunkSize'] = __chunkSize;
 
-    final $chunkCursor = _$jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
-    _parameters['chunkCursor'] = $chunkCursor;
+    final __chunkCursor = _$jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
+    _parameters['chunkCursor'] = __chunkCursor;
 
     final _path =
         _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
@@ -127,9 +127,9 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
-    if ($ifNoneMatch != null) {
-      _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert($ifNoneMatch);
+    final __ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    if (__ifNoneMatch != null) {
+      _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert(__ifNoneMatch);
     }
 
     return _request;
@@ -210,25 +210,25 @@ class $Client extends _i1.DynamiteClient {
     int? favorite,
   }) {
     final _parameters = <String, Object?>{};
-    var $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
-    $category ??= '';
-    _parameters['category'] = $category;
+    var __category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    __category ??= '';
+    _parameters['category'] = __category;
 
-    var $title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
-    $title ??= '';
-    _parameters['title'] = $title;
+    var __title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    __title ??= '';
+    _parameters['title'] = __title;
 
-    var $content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
-    $content ??= '';
-    _parameters['content'] = $content;
+    var __content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    __content ??= '';
+    _parameters['content'] = __content;
 
-    var $modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
-    $modified ??= 0;
-    _parameters['modified'] = $modified;
+    var __modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    __modified ??= 0;
+    _parameters['modified'] = __modified;
 
-    var $favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
-    $favorite ??= 0;
-    _parameters['favorite'] = $favorite;
+    var __favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    __favorite ??= 0;
+    _parameters['favorite'] = __favorite;
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
         .expand(_parameters);
@@ -322,12 +322,12 @@ class $Client extends _i1.DynamiteClient {
     String? ifNoneMatch,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    var $exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
-    $exclude ??= '';
-    _parameters['exclude'] = $exclude;
+    var __exclude = _$jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    __exclude ??= '';
+    _parameters['exclude'] = __exclude;
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -350,9 +350,9 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
-    if ($ifNoneMatch != null) {
-      _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert($ifNoneMatch);
+    final __ifNoneMatch = _$jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    if (__ifNoneMatch != null) {
+      _request.headers['If-None-Match'] = const _i6.HeaderEncoder().convert(__ifNoneMatch);
     }
 
     return _request;
@@ -426,23 +426,23 @@ class $Client extends _i1.DynamiteClient {
     String? ifMatch,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    final $content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
-    _parameters['content'] = $content;
+    final __content = _$jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    _parameters['content'] = __content;
 
-    final $modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
-    _parameters['modified'] = $modified;
+    final __modified = _$jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    _parameters['modified'] = __modified;
 
-    final $title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
-    _parameters['title'] = $title;
+    final __title = _$jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    _parameters['title'] = __title;
 
-    final $category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
-    _parameters['category'] = $category;
+    final __category = _$jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    _parameters['category'] = __category;
 
-    final $favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
-    _parameters['favorite'] = $favorite;
+    final __favorite = _$jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    _parameters['favorite'] = __favorite;
 
     final _path =
         _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
@@ -467,9 +467,9 @@ class $Client extends _i1.DynamiteClient {
     }
 
 // coverage:ignore-end
-    final $ifMatch = _$jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
-    if ($ifMatch != null) {
-      _request.headers['If-Match'] = const _i6.HeaderEncoder().convert($ifMatch);
+    final __ifMatch = _$jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
+    if (__ifMatch != null) {
+      _request.headers['If-Match'] = const _i6.HeaderEncoder().convert(__ifMatch);
     }
 
     return _request;
@@ -539,8 +539,8 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $deleteNote_Request({required int id}) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
     final _path = _i4.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
     final _uri = Uri.parse('$baseURL$_path');
@@ -669,7 +669,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [updateSettings] for a method executing this request and parsing the response.
   ///  * [$updateSettings_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $updateSettings_Request({required Settings settings}) {
+  _i3.Request $updateSettings_Request({required Settings $body}) {
     const _path = '/index.php/apps/notes/api/v1/settings';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
@@ -692,7 +692,7 @@ class $Client extends _i1.DynamiteClient {
 
 // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(_$jsonSerializers.serialize(settings, specifiedType: const FullType(Settings)));
+    _request.body = json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(Settings)));
     return _request;
   }
 
@@ -705,9 +705,9 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$updateSettings_Request] for the request send by this method.
   ///  * [$updateSettings_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Settings, void>> updateSettings({required Settings settings}) async {
+  Future<_i1.DynamiteResponse<Settings, void>> updateSettings({required Settings $body}) async {
     final _request = $updateSettings_Request(
-      settings: settings,
+      $body: $body,
     );
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);

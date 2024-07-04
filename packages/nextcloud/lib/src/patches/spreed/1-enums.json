@@ -94,14 +94,14 @@
   },
   {
     "op": "replace",
-    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room~1{token}~1verify-dialout/post/parameters/1/schema/contentSchema/properties/actorType",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room~1{token}~1verify-dialout/post/requestBody/content/application~1json/schema/properties/options/properties/actorType",
     "value": {
       "$ref": "#/components/schemas/ActorType"
     }
   },
   {
     "op": "replace",
-    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room~1{token}~1rejected-dialout/delete/parameters/1/schema/contentSchema/properties/actorType",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1room~1{token}~1rejected-dialout/delete/requestBody/content/application~1json/schema/properties/options/properties/actorType",
     "value": {
       "$ref": "#/components/schemas/ActorType"
     }

@@ -16,17 +16,17 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i7;
-import 'package:collection/collection.dart' as _i5;
-import 'package:dynamite_runtime/built_value.dart' as _i6;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
 
 part 'files_versions.openapi.g.dart';
 
@@ -69,12 +69,6 @@ class $PreviewClient {
   /// Returns a `DynamiteRequest` backing the [getPreview] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
-  /// Parameters:
-  ///   * [file] Path of the file. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `44`.
-  ///   * [y] Height of the preview. Defaults to `44`.
-  ///   * [version] Version of the file to get the preview for. Defaults to `""`.
-  ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
@@ -84,35 +78,13 @@ class $PreviewClient {
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({
-    String? file,
-    int? x,
-    int? y,
-    String? version,
-  }) {
-    final _parameters = <String, Object?>{};
-    var $file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
-    $file ??= '';
-    _parameters['file'] = $file;
-
-    var $x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    $x ??= 44;
-    _parameters['x'] = $x;
-
-    var $y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    $y ??= 44;
-    _parameters['y'] = $y;
-
-    var $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
-    $version ??= '';
-    _parameters['version'] = $version;
-
-    final _path = _i4.UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
+  _i3.Request $getPreview_Request({PreviewGetPreviewRequestApplicationJson? $body}) {
+    const _path = '/index.php/apps/files_versions/preview';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -128,6 +100,17 @@ class $PreviewClient {
     }
 
 // coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(PreviewGetPreviewRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              PreviewGetPreviewRequestApplicationJson(),
+              specifiedType: const FullType(PreviewGetPreviewRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -135,12 +118,6 @@ class $PreviewClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [file] Path of the file. Defaults to `""`.
-  ///   * [x] Width of the preview. Defaults to `44`.
-  ///   * [y] Height of the preview. Defaults to `44`.
-  ///   * [version] Version of the file to get the preview for. Defaults to `""`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -150,17 +127,9 @@ class $PreviewClient {
   /// See:
   ///  * [$getPreview_Request] for the request send by this method.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
-    String? file,
-    int? x,
-    int? y,
-    String? version,
-  }) async {
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({PreviewGetPreviewRequestApplicationJson? $body}) async {
     final _request = $getPreview_Request(
-      file: file,
-      x: x,
-      y: y,
-      version: version,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -168,6 +137,104 @@ class $PreviewClient {
     final _serializer = $getPreview_Serializer();
     final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PreviewGetPreviewRequestApplicationJsonInterface {
+  static final _$file = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$x = _$jsonSerializers.deserialize(
+    44,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$y = _$jsonSerializers.deserialize(
+    44,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$version = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Path of the file.
+  String get file;
+
+  /// Width of the preview.
+  int get x;
+
+  /// Height of the preview.
+  int get y;
+
+  /// Version of the file to get the preview for.
+  String get version;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
+  $PreviewGetPreviewRequestApplicationJsonInterface rebuild(
+    void Function($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
+  $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {
+    b.file = _$file;
+    b.x = _$x;
+    b.y = _$y;
+    b.version = _$version;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PreviewGetPreviewRequestApplicationJson
+    implements
+        $PreviewGetPreviewRequestApplicationJsonInterface,
+        Built<PreviewGetPreviewRequestApplicationJson, PreviewGetPreviewRequestApplicationJsonBuilder> {
+  /// Creates a new PreviewGetPreviewRequestApplicationJson object using the builder pattern.
+  factory PreviewGetPreviewRequestApplicationJson([void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? b]) =
+      _$PreviewGetPreviewRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PreviewGetPreviewRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreviewGetPreviewRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreviewGetPreviewRequestApplicationJson.
+  static Serializer<PreviewGetPreviewRequestApplicationJson> get serializer =>
+      _$previewGetPreviewRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreviewGetPreviewRequestApplicationJsonBuilder b) {
+    $PreviewGetPreviewRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreviewGetPreviewRequestApplicationJsonBuilder b) {
+    $PreviewGetPreviewRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -293,6 +360,11 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(
+        const FullType(PreviewGetPreviewRequestApplicationJson),
+        PreviewGetPreviewRequestApplicationJsonBuilder.new,
+      )
+      ..add(PreviewGetPreviewRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
@@ -306,9 +378,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

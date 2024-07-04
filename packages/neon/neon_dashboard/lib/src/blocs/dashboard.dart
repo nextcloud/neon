@@ -102,8 +102,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           cacheKey: 'dashboard-widgets-v1',
           subject: itemsV1,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
-            widgets: v1WidgetIDs.build(),
-            limit: maxItems,
+            $body: dashboard.DashboardApiGetWidgetItemsRequestApplicationJson(
+              (b) => b
+                ..widgets.replace(v1WidgetIDs.build())
+                ..limit = maxItems,
+            ),
           ),
           serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
           unwrap: (response) => response.body.ocs.data,
@@ -114,8 +117,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           cacheKey: 'dashboard-widgets-v2',
           subject: itemsV2,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
-            widgets: v2WidgetIDs.build(),
-            limit: maxItems,
+            $body: dashboard.DashboardApiGetWidgetItemsV2RequestApplicationJson(
+              (b) => b
+                ..widgets.replace(v2WidgetIDs.build())
+                ..limit = maxItems,
+            ),
           ),
           serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
           unwrap: (response) => response.body.ocs.data,

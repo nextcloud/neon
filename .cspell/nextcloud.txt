@@ -15,6 +15,7 @@ displayname
 etag
 federatedfilesharing
 fediverse
+groupid
 heavyrain
 heavyrainshowers
 iscustomavatar
@@ -40,6 +41,7 @@ productname
 rainshowers
 replyable
 requesttoken
+reshares
 resharing
 rgdnvw
 roomid
@@ -54,6 +56,7 @@ stime
 stunservers
 stylesheet
 subadmin
+subfiles
 subline
 systemtags
 totalitems

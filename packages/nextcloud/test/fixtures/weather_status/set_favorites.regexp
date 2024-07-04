@@ -1,4 +1,6 @@
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/favorites\?favorites%5B%5D=a&favorites%5B%5D=b
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/favorites
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"favorites":\["a","b"\]\}

@@ -1,15 +1,21 @@
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location\?address=Hamburg
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/location
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-PUT http://localhost/ocs/v2\.php/core/apppassword/confirm\?password=user1
+\{"address":"Hamburg"\}
+PUT http://localhost/ocs/v2\.php/core/apppassword/confirm
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
-PUT http://localhost/ocs/v2\.php/cloud/users/user1\?key=address&value=Berlin
+\{"password":"user1"\}
+PUT http://localhost/ocs/v2\.php/cloud/users/user1
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"key":"address","value":"Berlin"\}
 PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/use-personal
 accept: application/json
 authorization: Bearer mock

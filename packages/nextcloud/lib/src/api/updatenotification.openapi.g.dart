@@ -47,6 +47,8 @@ Serializer<ApiGetAppListResponseApplicationJson_Ocs> _$apiGetAppListResponseAppl
     _$ApiGetAppListResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetAppListResponseApplicationJson> _$apiGetAppListResponseApplicationJsonSerializer =
     _$ApiGetAppListResponseApplicationJsonSerializer();
+Serializer<ApiGetAppChangelogEntryRequestApplicationJson> _$apiGetAppChangelogEntryRequestApplicationJsonSerializer =
+    _$ApiGetAppChangelogEntryRequestApplicationJsonSerializer();
 Serializer<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data>
     _$apiGetAppChangelogEntryResponseApplicationJsonOcsDataSerializer =
     _$ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataSerializer();
@@ -299,6 +301,51 @@ class _$ApiGetAppListResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ApiGetAppListResponseApplicationJson_Ocs))!
                   as ApiGetAppListResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetAppChangelogEntryRequestApplicationJsonSerializer
+    implements StructuredSerializer<ApiGetAppChangelogEntryRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetAppChangelogEntryRequestApplicationJson,
+    _$ApiGetAppChangelogEntryRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGetAppChangelogEntryRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetAppChangelogEntryRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.version;
+    if (value != null) {
+      result
+        ..add('version')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ApiGetAppChangelogEntryRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetAppChangelogEntryRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -1054,6 +1101,98 @@ class ApiGetAppListResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder {
+  void replace($ApiGetAppChangelogEntryRequestApplicationJsonInterface other);
+  void update(void Function($ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder) updates);
+  String? get version;
+  set version(String? version);
+}
+
+class _$ApiGetAppChangelogEntryRequestApplicationJson extends ApiGetAppChangelogEntryRequestApplicationJson {
+  @override
+  final String? version;
+
+  factory _$ApiGetAppChangelogEntryRequestApplicationJson(
+          [void Function(ApiGetAppChangelogEntryRequestApplicationJsonBuilder)? updates]) =>
+      (ApiGetAppChangelogEntryRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiGetAppChangelogEntryRequestApplicationJson._({this.version}) : super._();
+
+  @override
+  ApiGetAppChangelogEntryRequestApplicationJson rebuild(
+          void Function(ApiGetAppChangelogEntryRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiGetAppChangelogEntryRequestApplicationJsonBuilder toBuilder() =>
+      ApiGetAppChangelogEntryRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiGetAppChangelogEntryRequestApplicationJson && version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiGetAppChangelogEntryRequestApplicationJson')..add('version', version))
+        .toString();
+  }
+}
+
+class ApiGetAppChangelogEntryRequestApplicationJsonBuilder
+    implements
+        Builder<ApiGetAppChangelogEntryRequestApplicationJson, ApiGetAppChangelogEntryRequestApplicationJsonBuilder>,
+        $ApiGetAppChangelogEntryRequestApplicationJsonInterfaceBuilder {
+  _$ApiGetAppChangelogEntryRequestApplicationJson? _$v;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  ApiGetAppChangelogEntryRequestApplicationJsonBuilder() {
+    ApiGetAppChangelogEntryRequestApplicationJson._defaults(this);
+  }
+
+  ApiGetAppChangelogEntryRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiGetAppChangelogEntryRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiGetAppChangelogEntryRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiGetAppChangelogEntryRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiGetAppChangelogEntryRequestApplicationJson build() => _build();
+
+  _$ApiGetAppChangelogEntryRequestApplicationJson _build() {
+    ApiGetAppChangelogEntryRequestApplicationJson._validate(this);
+    final _$result = _$v ?? _$ApiGetAppChangelogEntryRequestApplicationJson._(version: version);
     replace(_$result);
     return _$result;
   }

@@ -45,26 +45,32 @@ TypeResult? resolveMimeTypeDecode(
 void resolveMimeTypeEncode(
   String mimeType,
   TypeResult result,
+  // ignore: avoid_positional_boolean_parameters
+  bool dartParameterNullable,
+  String? $default,
   StringSink output,
 ) {
   output.writeln("_request.headers['Content-Type'] = '$mimeType';");
-  final parameterName = toDartName(result.name);
-
-  if (result.nullable) {
-    output.writeln('if ($parameterName != null) {');
-  }
 
   switch (mimeType) {
     case 'application/json':
     case 'application/x-www-form-urlencoded':
-      output.writeln('_request.body = ${result.encode(parameterName, mimeType: mimeType)};');
+      if (dartParameterNullable) {
+        output.writeln(
+          '_request.body = \$body != null ? ${result.encode(result.serialize(r'$body'), mimeType: mimeType)} : ${$default != null ? result.encode($default, mimeType: mimeType) : result.encode(result.serialize('${result.name}()'), mimeType: mimeType)};',
+        );
+      } else {
+        output.writeln('_request.body = ${result.encode(result.serialize(r'$body'), mimeType: mimeType)};');
+      }
     case 'application/octet-stream':
-      output.writeln('_request.bodyBytes = ${result.encode(parameterName, mimeType: mimeType)};');
+      if (dartParameterNullable) {
+        output.writeln(
+          '_request.bodyBytes = \$body != null ? ${result.encode(r'$body', mimeType: mimeType)} : ${$default != null ? result.encode($default, mimeType: mimeType) : 'Uint8List(0)'};',
+        );
+      } else {
+        output.writeln('_request.bodyBytes = ${result.encode(r'$body', mimeType: mimeType)};');
+      }
     case _:
       throw Exception('Can not parse any mime type of the Operation.');
-  }
-
-  if (result.nullable) {
-    output.writeln('}');
   }
 }

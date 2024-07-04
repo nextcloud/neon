@@ -17,7 +17,7 @@ import 'package:version/version.dart';
 Account mockAppsAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/core/navigation/apps'): {
-      'get': (match, queryParameters) {
+      'get': (match, bodyBytes) {
         return Response(
           json.encode(
             {

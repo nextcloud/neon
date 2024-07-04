@@ -1,4 +1,6 @@
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/mode\?mode=1
+PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/mode
 accept: application/json
 authorization: Bearer mock
+content-type: application/json; charset=utf-8
 ocs-apirequest: true
+\{"mode":1\}

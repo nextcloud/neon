@@ -16,6 +16,8 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -80,8 +82,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [shortMessage] Subject of the notification.
-  ///   * [longMessage] Message of the notification. Defaults to `""`.
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -97,31 +97,22 @@ class $ApiClient {
   ///  * [$generateNotification_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $generateNotification_Request({
-    required String shortMessage,
     required String userId,
-    String? longMessage,
+    required ApiGenerateNotificationRequestApplicationJson $body,
     ApiGenerateNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $shortMessage = _$jsonSerializers.serialize(shortMessage, specifiedType: const FullType(String));
-    _parameters['shortMessage'] = $shortMessage;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    var $longMessage = _$jsonSerializers.serialize(longMessage, specifiedType: const FullType(String));
-    $longMessage ??= '';
-    _parameters['longMessage'] = $longMessage;
-
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGenerateNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate(
-      '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
-    ).expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -142,10 +133,17 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(ApiGenerateNotificationRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -157,8 +155,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [shortMessage] Subject of the notification.
-  ///   * [longMessage] Message of the notification. Defaults to `""`.
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -173,18 +169,16 @@ class $ApiClient {
   ///  * [$generateNotification_Request] for the request send by this method.
   ///  * [$generateNotification_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
-    required String shortMessage,
     required String userId,
-    String? longMessage,
+    required ApiGenerateNotificationRequestApplicationJson $body,
     ApiGenerateNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $generateNotification_Request(
-      shortMessage: shortMessage,
       userId: userId,
-      longMessage: longMessage,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -234,10 +228,10 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointListNotificationsApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -260,9 +254,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -336,12 +330,12 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion = _$jsonSerializers.serialize(
+    var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(EndpointDeleteAllNotificationsApiVersion),
     );
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -364,9 +358,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -438,13 +432,13 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointGetNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
@@ -468,9 +462,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -546,13 +540,13 @@ class $EndpointClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
+    final __id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = __id;
 
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointDeleteNotificationApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path =
         _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
@@ -576,9 +570,9 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -636,7 +630,6 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [ids] IDs of the notifications to check.
   ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -649,21 +642,18 @@ class $EndpointClient {
   ///  * [$confirmIdsForUser_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $confirmIdsForUser_Request({
-    required BuiltList<int> ids,
+    required EndpointConfirmIdsForUserRequestApplicationJson $body,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $ids = _$jsonSerializers.serialize(ids, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    _parameters['ids%5B%5D'] = $ids;
-
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointConfirmIdsForUserApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
-        .expand(_parameters);
+    final _path =
+        _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -684,10 +674,17 @@ class $EndpointClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(EndpointConfirmIdsForUserRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -697,7 +694,6 @@ class $EndpointClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [ids] IDs of the notifications to check.
   ///   * [apiVersion] Version of the API to use. Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -709,14 +705,14 @@ class $EndpointClient {
   ///  * [$confirmIdsForUser_Request] for the request send by this method.
   ///  * [$confirmIdsForUser_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
-    required BuiltList<int> ids,
+    required EndpointConfirmIdsForUserRequestApplicationJson $body,
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $confirmIdsForUser_Request(
-      ids: ids,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -750,9 +746,6 @@ class $PushClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [pushTokenHash] Hash of the push token.
-  ///   * [devicePublicKey] Public key of the device.
-  ///   * [proxyServer] Proxy server to be used.
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -767,30 +760,17 @@ class $PushClient {
   ///  * [$registerDevice_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $registerDevice_Request({
-    required String pushTokenHash,
-    required String devicePublicKey,
-    required String proxyServer,
+    required PushRegisterDeviceRequestApplicationJson $body,
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $pushTokenHash = _$jsonSerializers.serialize(pushTokenHash, specifiedType: const FullType(String));
-    _parameters['pushTokenHash'] = $pushTokenHash;
-
-    final $devicePublicKey = _$jsonSerializers.serialize(devicePublicKey, specifiedType: const FullType(String));
-    _parameters['devicePublicKey'] = $devicePublicKey;
-
-    final $proxyServer = _$jsonSerializers.serialize(proxyServer, specifiedType: const FullType(String));
-    _parameters['proxyServer'] = $proxyServer;
-
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRegisterDeviceApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate(
-      '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
-    ).expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -811,10 +791,14 @@ class $PushClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(PushRegisterDeviceRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -824,9 +808,6 @@ class $PushClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [pushTokenHash] Hash of the push token.
-  ///   * [devicePublicKey] Public key of the device.
-  ///   * [proxyServer] Proxy server to be used.
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -840,18 +821,14 @@ class $PushClient {
   ///  * [$registerDevice_Request] for the request send by this method.
   ///  * [$registerDevice_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<PushRegisterDeviceResponseApplicationJson, void>> registerDevice({
-    required String pushTokenHash,
-    required String devicePublicKey,
-    required String proxyServer,
+    required PushRegisterDeviceRequestApplicationJson $body,
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $registerDevice_Request(
-      pushTokenHash: pushTokenHash,
-      devicePublicKey: devicePublicKey,
-      proxyServer: proxyServer,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -896,10 +873,10 @@ class $PushClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRemoveDeviceApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
     final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -922,9 +899,9 @@ class $PushClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -987,9 +964,6 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1001,30 +975,17 @@ class $SettingsClient {
   ///  * [$personal_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $personal_Request({
-    required int batchSetting,
-    required String soundNotification,
-    required String soundTalk,
+    required SettingsPersonalRequestApplicationJson $body,
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    _parameters['batchSetting'] = $batchSetting;
-
-    final $soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    _parameters['soundNotification'] = $soundNotification;
-
-    final $soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    _parameters['soundTalk'] = $soundTalk;
-
-    var $apiVersion =
+    var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsPersonalApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i4.UriTemplate(
-      '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
-    ).expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/settings').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1045,10 +1006,14 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(SettingsPersonalRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -1058,9 +1023,6 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1071,18 +1033,14 @@ class $SettingsClient {
   ///  * [$personal_Request] for the request send by this method.
   ///  * [$personal_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SettingsPersonalResponseApplicationJson, void>> personal({
-    required int batchSetting,
-    required String soundNotification,
-    required String soundTalk,
+    required SettingsPersonalRequestApplicationJson $body,
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $personal_Request(
-      batchSetting: batchSetting,
-      soundNotification: soundNotification,
-      soundTalk: soundTalk,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1110,9 +1068,6 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1124,29 +1079,16 @@ class $SettingsClient {
   ///  * [$admin_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $admin_Request({
-    required int batchSetting,
-    required String soundNotification,
-    required String soundTalk,
+    required SettingsAdminRequestApplicationJson $body,
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $batchSetting = _$jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    _parameters['batchSetting'] = $batchSetting;
+    var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsAdminApiVersion));
+    __apiVersion ??= 'v2';
+    _parameters['apiVersion'] = __apiVersion;
 
-    final $soundNotification = _$jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    _parameters['soundNotification'] = $soundNotification;
-
-    final $soundTalk = _$jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    _parameters['soundTalk'] = $soundTalk;
-
-    var $apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsAdminApiVersion));
-    $apiVersion ??= 'v2';
-    _parameters['apiVersion'] = $apiVersion;
-
-    final _path = _i4.UriTemplate(
-      '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
-    ).expand(_parameters);
+    final _path = _i4.UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1167,10 +1109,13 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json
+        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(SettingsAdminRequestApplicationJson)));
     return _request;
   }
 
@@ -1182,9 +1127,6 @@ class $SettingsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
   ///   * [apiVersion] Defaults to `"v2"`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1195,18 +1137,14 @@ class $SettingsClient {
   ///  * [$admin_Request] for the request send by this method.
   ///  * [$admin_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SettingsAdminResponseApplicationJson, void>> admin({
-    required int batchSetting,
-    required String soundNotification,
-    required String soundTalk,
+    required SettingsAdminRequestApplicationJson $body,
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $admin_Request(
-      batchSetting: batchSetting,
-      soundNotification: soundNotification,
-      soundTalk: soundTalk,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1278,6 +1216,81 @@ class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializ
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ApiGenerateNotificationRequestApplicationJsonInterface {
+  static final _$longMessage = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// Subject of the notification.
+  String get shortMessage;
+
+  /// Message of the notification.
+  String get longMessage;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationRequestApplicationJsonInterface rebuild(
+    void Function($ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder].
+  $ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder b) {
+    b.longMessage = _$longMessage;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiGenerateNotificationRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiGenerateNotificationRequestApplicationJson
+    implements
+        $ApiGenerateNotificationRequestApplicationJsonInterface,
+        Built<ApiGenerateNotificationRequestApplicationJson, ApiGenerateNotificationRequestApplicationJsonBuilder> {
+  /// Creates a new ApiGenerateNotificationRequestApplicationJson object using the builder pattern.
+  factory ApiGenerateNotificationRequestApplicationJson([
+    void Function(ApiGenerateNotificationRequestApplicationJsonBuilder)? b,
+  ]) = _$ApiGenerateNotificationRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiGenerateNotificationRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiGenerateNotificationRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiGenerateNotificationRequestApplicationJson.
+  static Serializer<ApiGenerateNotificationRequestApplicationJson> get serializer =>
+      _$apiGenerateNotificationRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiGenerateNotificationRequestApplicationJsonBuilder b) {
+    $ApiGenerateNotificationRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiGenerateNotificationRequestApplicationJsonBuilder b) {
+    $ApiGenerateNotificationRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -2500,6 +2513,70 @@ class _$EndpointConfirmIdsForUserApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
+sealed class $EndpointConfirmIdsForUserRequestApplicationJsonInterface {
+  /// IDs of the notifications to check.
+  BuiltList<int> get ids;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder].
+  $EndpointConfirmIdsForUserRequestApplicationJsonInterface rebuild(
+    void Function($EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder].
+  $EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($EndpointConfirmIdsForUserRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class EndpointConfirmIdsForUserRequestApplicationJson
+    implements
+        $EndpointConfirmIdsForUserRequestApplicationJsonInterface,
+        Built<EndpointConfirmIdsForUserRequestApplicationJson, EndpointConfirmIdsForUserRequestApplicationJsonBuilder> {
+  /// Creates a new EndpointConfirmIdsForUserRequestApplicationJson object using the builder pattern.
+  factory EndpointConfirmIdsForUserRequestApplicationJson([
+    void Function(EndpointConfirmIdsForUserRequestApplicationJsonBuilder)? b,
+  ]) = _$EndpointConfirmIdsForUserRequestApplicationJson;
+
+  // coverage:ignore-start
+  const EndpointConfirmIdsForUserRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory EndpointConfirmIdsForUserRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for EndpointConfirmIdsForUserRequestApplicationJson.
+  static Serializer<EndpointConfirmIdsForUserRequestApplicationJson> get serializer =>
+      _$endpointConfirmIdsForUserRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(EndpointConfirmIdsForUserRequestApplicationJsonBuilder b) {
+    $EndpointConfirmIdsForUserRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(EndpointConfirmIdsForUserRequestApplicationJsonBuilder b) {
+    $EndpointConfirmIdsForUserRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<int> get data;
@@ -2682,6 +2759,76 @@ class _$PushRegisterDeviceApiVersionSerializer implements PrimitiveSerializer<Pu
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PushRegisterDeviceRequestApplicationJsonInterface {
+  /// Hash of the push token.
+  String get pushTokenHash;
+
+  /// Public key of the device.
+  String get devicePublicKey;
+
+  /// Proxy server to be used.
+  String get proxyServer;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PushRegisterDeviceRequestApplicationJsonInterfaceBuilder].
+  $PushRegisterDeviceRequestApplicationJsonInterface rebuild(
+    void Function($PushRegisterDeviceRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PushRegisterDeviceRequestApplicationJsonInterfaceBuilder].
+  $PushRegisterDeviceRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PushRegisterDeviceRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PushRegisterDeviceRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PushRegisterDeviceRequestApplicationJson
+    implements
+        $PushRegisterDeviceRequestApplicationJsonInterface,
+        Built<PushRegisterDeviceRequestApplicationJson, PushRegisterDeviceRequestApplicationJsonBuilder> {
+  /// Creates a new PushRegisterDeviceRequestApplicationJson object using the builder pattern.
+  factory PushRegisterDeviceRequestApplicationJson([
+    void Function(PushRegisterDeviceRequestApplicationJsonBuilder)? b,
+  ]) = _$PushRegisterDeviceRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PushRegisterDeviceRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PushRegisterDeviceRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PushRegisterDeviceRequestApplicationJson.
+  static Serializer<PushRegisterDeviceRequestApplicationJson> get serializer =>
+      _$pushRegisterDeviceRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PushRegisterDeviceRequestApplicationJsonBuilder b) {
+    $PushRegisterDeviceRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PushRegisterDeviceRequestApplicationJsonBuilder b) {
+    $PushRegisterDeviceRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3106,6 +3253,75 @@ class _$SettingsPersonalApiVersionSerializer implements PrimitiveSerializer<Sett
 }
 
 @BuiltValue(instantiable: false)
+sealed class $SettingsPersonalRequestApplicationJsonInterface {
+  /// How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  int get batchSetting;
+
+  /// Enable sound for notifications ('yes' or 'no').
+  String get soundNotification;
+
+  /// Enable sound for Talk notifications ('yes' or 'no').
+  String get soundTalk;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SettingsPersonalRequestApplicationJsonInterfaceBuilder].
+  $SettingsPersonalRequestApplicationJsonInterface rebuild(
+    void Function($SettingsPersonalRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SettingsPersonalRequestApplicationJsonInterfaceBuilder].
+  $SettingsPersonalRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SettingsPersonalRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SettingsPersonalRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class SettingsPersonalRequestApplicationJson
+    implements
+        $SettingsPersonalRequestApplicationJsonInterface,
+        Built<SettingsPersonalRequestApplicationJson, SettingsPersonalRequestApplicationJsonBuilder> {
+  /// Creates a new SettingsPersonalRequestApplicationJson object using the builder pattern.
+  factory SettingsPersonalRequestApplicationJson([void Function(SettingsPersonalRequestApplicationJsonBuilder)? b]) =
+      _$SettingsPersonalRequestApplicationJson;
+
+  // coverage:ignore-start
+  const SettingsPersonalRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SettingsPersonalRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SettingsPersonalRequestApplicationJson.
+  static Serializer<SettingsPersonalRequestApplicationJson> get serializer =>
+      _$settingsPersonalRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SettingsPersonalRequestApplicationJsonBuilder b) {
+    $SettingsPersonalRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SettingsPersonalRequestApplicationJsonBuilder b) {
+    $SettingsPersonalRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $SettingsPersonalResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -3285,6 +3501,75 @@ class _$SettingsAdminApiVersionSerializer implements PrimitiveSerializer<Setting
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $SettingsAdminRequestApplicationJsonInterface {
+  /// How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  int get batchSetting;
+
+  /// Enable sound for notifications ('yes' or 'no').
+  String get soundNotification;
+
+  /// Enable sound for Talk notifications ('yes' or 'no').
+  String get soundTalk;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$SettingsAdminRequestApplicationJsonInterfaceBuilder].
+  $SettingsAdminRequestApplicationJsonInterface rebuild(
+    void Function($SettingsAdminRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$SettingsAdminRequestApplicationJsonInterfaceBuilder].
+  $SettingsAdminRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SettingsAdminRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($SettingsAdminRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class SettingsAdminRequestApplicationJson
+    implements
+        $SettingsAdminRequestApplicationJsonInterface,
+        Built<SettingsAdminRequestApplicationJson, SettingsAdminRequestApplicationJsonBuilder> {
+  /// Creates a new SettingsAdminRequestApplicationJson object using the builder pattern.
+  factory SettingsAdminRequestApplicationJson([void Function(SettingsAdminRequestApplicationJsonBuilder)? b]) =
+      _$SettingsAdminRequestApplicationJson;
+
+  // coverage:ignore-start
+  const SettingsAdminRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory SettingsAdminRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for SettingsAdminRequestApplicationJson.
+  static Serializer<SettingsAdminRequestApplicationJson> get serializer =>
+      _$settingsAdminRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SettingsAdminRequestApplicationJsonBuilder b) {
+    $SettingsAdminRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(SettingsAdminRequestApplicationJsonBuilder b) {
+    $SettingsAdminRequestApplicationJsonInterface._validate(b);
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3540,6 +3825,11 @@ final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ApiGenerateNotificationApiVersion.serializer)
       ..addBuilderFactory(
+        const FullType(ApiGenerateNotificationRequestApplicationJson),
+        ApiGenerateNotificationRequestApplicationJsonBuilder.new,
+      )
+      ..add(ApiGenerateNotificationRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(ApiGenerateNotificationResponseApplicationJson),
         ApiGenerateNotificationResponseApplicationJsonBuilder.new,
       )
@@ -3613,8 +3903,13 @@ final Serializers _$serializers = (Serializers().toBuilder()
         EndpointDeleteNotificationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointDeleteNotificationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add(EndpointConfirmIdsForUserApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(EndpointConfirmIdsForUserRequestApplicationJson),
+        EndpointConfirmIdsForUserRequestApplicationJsonBuilder.new,
+      )
+      ..add(EndpointConfirmIdsForUserRequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
         EndpointConfirmIdsForUserResponseApplicationJsonBuilder.new,
@@ -3626,6 +3921,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(EndpointConfirmIdsForUserResponseApplicationJson_Ocs.serializer)
       ..add(PushRegisterDeviceApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(PushRegisterDeviceRequestApplicationJson),
+        PushRegisterDeviceRequestApplicationJsonBuilder.new,
+      )
+      ..add(PushRegisterDeviceRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PushRegisterDeviceResponseApplicationJson),
         PushRegisterDeviceResponseApplicationJsonBuilder.new,
@@ -3651,6 +3951,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(PushRemoveDeviceResponseApplicationJson_Ocs.serializer)
       ..add(SettingsPersonalApiVersion.serializer)
       ..addBuilderFactory(
+        const FullType(SettingsPersonalRequestApplicationJson),
+        SettingsPersonalRequestApplicationJsonBuilder.new,
+      )
+      ..add(SettingsPersonalRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(SettingsPersonalResponseApplicationJson),
         SettingsPersonalResponseApplicationJsonBuilder.new,
       )
@@ -3661,6 +3966,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(SettingsPersonalResponseApplicationJson_Ocs.serializer)
       ..add(SettingsAdminApiVersion.serializer)
+      ..addBuilderFactory(
+        const FullType(SettingsAdminRequestApplicationJson),
+        SettingsAdminRequestApplicationJsonBuilder.new,
+      )
+      ..add(SettingsAdminRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SettingsAdminResponseApplicationJson),
         SettingsAdminResponseApplicationJsonBuilder.new,

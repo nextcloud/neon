@@ -63,9 +63,12 @@ class TalkRichObjectFilePreview extends StatelessWidget {
             etag: parameter.etag,
             expires: null,
             getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
-              fileId: int.parse(parameter.id),
-              x: deviceSize.width.toInt(),
-              y: deviceSize.height.toInt(),
+              $body: PreviewGetPreviewByFileIdRequestApplicationJson(
+                (b) => b
+                  ..fileId = int.parse(parameter.id)
+                  ..x = deviceSize.width.toInt()
+                  ..y = deviceSize.height.toInt(),
+              ),
             ),
           );
         }

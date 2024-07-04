@@ -136,13 +136,11 @@ sealed class TypeResult {
     String object, {
     required String mimeType,
   }) {
-    final serialized = serialize(object);
-
     switch (mimeType) {
       case 'application/json':
-        return 'json.encode($serialized)';
+        return 'json.encode($object)';
       case 'application/x-www-form-urlencoded':
-        return 'Uri(queryParameters: $serialized! as Map<String, dynamic>).query';
+        return 'Uri(queryParameters: $object! as Map<String, dynamic>).query';
       case 'application/octet-stream':
         if (className != 'Uint8List') {
           throw Exception('octet-stream can only be applied to binary data. Expected Uint8List but got $className');

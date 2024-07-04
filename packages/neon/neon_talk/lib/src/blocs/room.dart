@@ -123,11 +123,14 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
         try {
           final response = await account.client.spreed.chat.receiveMessages(
-            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$1,
             token: token,
-            includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
-            lastKnownMessageId: lastKnownMessageId,
-            limit: 100,
+            $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+              (b) => b
+                ..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$1
+                ..includeLastKnown = spreed.ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0
+                ..lastKnownMessageId = lastKnownMessageId
+                ..limit = 100,
+            ),
           );
 
           updateLastCommonRead(response.headers.xChatLastCommonRead);
@@ -208,9 +211,12 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         subject: messages,
         getRequest: () => account.client.spreed.chat.$receiveMessages_Request(
           token: token,
-          lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
-          includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
-          limit: 100,
+          $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+            (b) => b
+              ..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0
+              ..includeLastKnown = spreed.ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0
+              ..limit = 100,
+          ),
         ),
         serializer: account.client.spreed.chat.$receiveMessages_Serializer(),
         unwrap: (response) {
@@ -233,9 +239,15 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     await wrapAction(
       () async {
         final response = await account.client.spreed.chat.sendMessage(
-          message: message,
-          replyTo: replyToId,
           token: token,
+          $body: spreed.ChatSendMessageRequestApplicationJson(
+            (b) {
+              b.message = message;
+              if (replyToId != null) {
+                b.replyTo = replyToId;
+              }
+            },
+          ),
         );
 
         updateLastCommonRead(response.headers.xChatLastCommonRead);
@@ -256,9 +268,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     await wrapAction(
       () async {
         final response = await account.client.spreed.reaction.react(
-          reaction: reaction,
           token: token,
           messageId: message.id,
+          $body: spreed.ReactionReactRequestApplicationJson(
+            (b) => b..reaction = reaction,
+          ),
         );
 
         updateReactions(
@@ -275,9 +289,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     await wrapAction(
       () async {
         final response = await account.client.spreed.reaction.delete(
-          reaction: reaction,
           token: token,
           messageId: message.id,
+          $body: spreed.ReactionDeleteRequestApplicationJson(
+            (b) => b..reaction = reaction,
+          ),
         );
 
         updateReactions(

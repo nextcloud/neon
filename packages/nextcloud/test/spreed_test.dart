@@ -26,8 +26,11 @@ void main() {
       });
 
       Future<spreed.Room> createTestRoom() async => (await client1.spreed.room.createRoom(
-            roomType: spreed.RoomType.public.value,
-            roomName: 'Test',
+            $body: spreed.RoomCreateRoomRequestApplicationJson(
+              (b) => b
+                ..roomType = spreed.RoomType.public.value
+                ..roomName = 'Test',
+            ),
           ))
               .body
               .ocs
@@ -106,8 +109,11 @@ void main() {
         group('Create room', () {
           test('One-to-One', () async {
             final response = await client1.spreed.room.createRoom(
-              roomType: spreed.RoomType.oneToOne.value,
-              invite: 'user2',
+              $body: spreed.RoomCreateRoomRequestApplicationJson(
+                (b) => b
+                  ..roomType = spreed.RoomType.oneToOne.value
+                  ..invite = 'user2',
+              ),
             );
             expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
@@ -128,8 +134,11 @@ void main() {
 
           test('Group', () async {
             final response = await client1.spreed.room.createRoom(
-              roomType: spreed.RoomType.group.value,
-              invite: 'admin',
+              $body: spreed.RoomCreateRoomRequestApplicationJson(
+                (b) => b
+                  ..roomType = spreed.RoomType.group.value
+                  ..invite = 'admin',
+              ),
             );
             expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
@@ -150,8 +159,11 @@ void main() {
 
           test('Public', () async {
             final response = await client1.spreed.room.createRoom(
-              roomType: spreed.RoomType.public.value,
-              roomName: 'abc',
+              $body: spreed.RoomCreateRoomRequestApplicationJson(
+                (b) => b
+                  ..roomType = spreed.RoomType.public.value
+                  ..roomName = 'abc',
+              ),
             );
             expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
@@ -177,8 +189,10 @@ void main() {
           final room = await createTestRoom();
 
           final response = await client1.spreed.avatar.emojiAvatar(
-            emoji: '😀',
             token: room.token,
+            $body: spreed.AvatarEmojiAvatarRequestApplicationJson(
+              (b) => b..emoji = '😀',
+            ),
           );
           expect(response.statusCode, 200);
           expect(response.body.ocs.data.isCustomAvatar, true);
@@ -187,8 +201,10 @@ void main() {
         test('Get avatar', () async {
           final room = await createTestRoom();
           await client1.spreed.avatar.emojiAvatar(
-            emoji: '😀',
             token: room.token,
+            $body: spreed.AvatarEmojiAvatarRequestApplicationJson(
+              (b) => b..emoji = '😀',
+            ),
           );
 
           final response = await client1.spreed.avatar.getAvatar(
@@ -201,8 +217,10 @@ void main() {
         test('Get avatar dark', () async {
           final room = await createTestRoom();
           await client1.spreed.avatar.emojiAvatar(
-            emoji: '😀',
             token: room.token,
+            $body: spreed.AvatarEmojiAvatarRequestApplicationJson(
+              (b) => b..emoji = '😀',
+            ),
           );
 
           final response = await client1.spreed.avatar.getAvatarDark(
@@ -215,8 +233,10 @@ void main() {
         test('Delete avatar', () async {
           final room = await createTestRoom();
           await client1.spreed.avatar.emojiAvatar(
-            emoji: '😀',
             token: room.token,
+            $body: spreed.AvatarEmojiAvatarRequestApplicationJson(
+              (b) => b..emoji = '😀',
+            ),
           );
 
           final response = await client1.spreed.avatar.deleteAvatar(
@@ -234,7 +254,9 @@ void main() {
 
           final response = await client1.spreed.chat.sendMessage(
             token: room.token,
-            message: 'bla',
+            $body: spreed.ChatSendMessageRequestApplicationJson(
+              (b) => b..message = 'bla',
+            ),
           );
           expect(response.body.ocs.data!.id, isPositive);
           expect(response.body.ocs.data!.actorType, spreed.ActorType.users);
@@ -249,22 +271,31 @@ void main() {
           test('Directly', () async {
             final startTime = DateTime.timestamp();
             final room = await createTestRoom();
+
+            final message = (await client1.spreed.chat.sendMessage(
+              token: room.token,
+              $body: spreed.ChatSendMessageRequestApplicationJson(
+                (b) => b..message = 'bla',
+              ),
+            ))
+                .body
+                .ocs
+                .data!;
+
             await client1.spreed.chat.sendMessage(
               token: room.token,
-              message: '123',
-              replyTo: (await client1.spreed.chat.sendMessage(
-                token: room.token,
-                message: 'bla',
-              ))
-                  .body
-                  .ocs
-                  .data!
-                  .id,
+              $body: spreed.ChatSendMessageRequestApplicationJson(
+                (b) => b
+                  ..message = '123'
+                  ..replyTo = message.id,
+              ),
             );
 
             final response = await client1.spreed.chat.receiveMessages(
               token: room.token,
-              lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+              $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+                (b) => b..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0,
+              ),
             );
             expect(response.headers.xChatLastGiven, isNotEmpty);
             expect(response.headers.xChatLastCommonRead, isNotEmpty);
@@ -314,7 +345,9 @@ void main() {
             final room = await createTestRoom();
             final message = (await client1.spreed.chat.sendMessage(
               token: room.token,
-              message: 'bla',
+              $body: spreed.ChatSendMessageRequestApplicationJson(
+                (b) => b..message = 'bla',
+              ),
             ))
                 .body
                 .ocs
@@ -323,16 +356,21 @@ void main() {
               Future<void>.delayed(const Duration(seconds: 1)).then((_) async {
                 await client1.spreed.chat.sendMessage(
                   token: room.token,
-                  message: '123',
+                  $body: spreed.ChatSendMessageRequestApplicationJson(
+                    (b) => b..message = '123',
+                  ),
                 );
               }),
             );
 
             final response = await client1.spreed.chat.receiveMessages(
               token: room.token,
-              lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$1,
-              timeout: 3,
-              lastKnownMessageId: message.id,
+              $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+                (b) => b
+                  ..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$1
+                  ..timeout = 3
+                  ..lastKnownMessageId = message.id,
+              ),
             );
             expect(response.body.ocs.data, hasLength(1));
             expect(response.body.ocs.data[0].id, isPositive);
@@ -349,13 +387,17 @@ void main() {
           final room = await createTestRoom();
 
           await client1.spreed.room.addParticipantToRoom(
-            newParticipant: 'user2',
             token: room.token,
+            $body: spreed.RoomAddParticipantToRoomRequestApplicationJson(
+              (b) => b..newParticipant = 'user2',
+            ),
           );
 
           final response = await client1.spreed.chat.mentions(
-            search: 'user',
             token: room.token,
+            $body: spreed.ChatMentionsRequestApplicationJson(
+              (b) => b..search = 'user',
+            ),
           );
           expect(response.body.ocs.data, hasLength(1));
           expect(response.body.ocs.data[0].id, 'user2');
@@ -389,7 +431,11 @@ void main() {
         test('Get settings', () async {
           final room = await createTestRoom();
 
-          final response = await client1.spreed.internalSignaling.signalingGetSettings(token: room.token);
+          final response = await client1.spreed.internalSignaling.signalingGetSettings(
+            $body: spreed.SignalingGetSettingsRequestApplicationJson(
+              (b) => b..token = room.token,
+            ),
+          );
           expect(response.body.ocs.data.signalingMode, 'internal');
           expect(response.body.ocs.data.userId, 'user1');
           expect(response.body.ocs.data.hideWarning, false);
@@ -443,15 +489,18 @@ void main() {
 
           await client1.spreed.internalSignaling.signalingSendMessages(
             token: room.token,
-            messages: json.encode([
-              {
-                'ev': 'message',
-                'sessionId': room1.sessionId,
-                'fn': json.encode({
-                  'to': room2.sessionId,
-                }),
-              },
-            ]),
+            $body: spreed.SignalingSendMessagesRequestApplicationJson(
+              (b) => b
+                ..messages = json.encode([
+                  {
+                    'ev': 'message',
+                    'sessionId': room1.sessionId,
+                    'fn': json.encode({
+                      'to': room2.sessionId,
+                    }),
+                  },
+                ]),
+            ),
           );
 
           await Future<void>.delayed(const Duration(seconds: 1));
@@ -474,14 +523,18 @@ void main() {
 
           final sendMessageResponse = await client1.spreed.chat.sendMessage(
             token: room.token,
-            message: 'bla',
+            $body: spreed.ChatSendMessageRequestApplicationJson(
+              (b) => b..message = 'bla',
+            ),
           );
           expect(sendMessageResponse.body.ocs.data!.reactions, isEmpty);
           expect(sendMessageResponse.body.ocs.data!.reactionsSelf, isNull);
 
           var receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
             token: room.token,
-            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+            $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+              (b) => b..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0,
+            ),
           );
           var message = receiveMessagesResponse.body.ocs.data[0];
           expect(message.message, 'bla');
@@ -489,16 +542,20 @@ void main() {
           expect(message.reactionsSelf, isNull);
 
           final addResponse = await client1.spreed.reaction.react(
-            reaction: '😀',
             token: room.token,
             messageId: message.id,
+            $body: spreed.ReactionReactRequestApplicationJson(
+              (b) => b..reaction = '😀',
+            ),
           );
           expect(addResponse.body.ocs.data, hasLength(1));
           expect(addResponse.body.ocs.data['😀'], isNotNull);
 
           receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
             token: room.token,
-            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+            $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+              (b) => b..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0,
+            ),
           );
           message = receiveMessagesResponse.body.ocs.data[1];
           expect(message.message, 'bla');
@@ -508,15 +565,19 @@ void main() {
           expect(message.reactionsSelf, contains('😀'));
 
           final removeResponse = await client1.spreed.reaction.delete(
-            reaction: '😀',
             token: room.token,
             messageId: message.id,
+            $body: spreed.ReactionDeleteRequestApplicationJson(
+              (b) => b..reaction = '😀',
+            ),
           );
           expect(removeResponse.body.ocs.data, isEmpty);
 
           receiveMessagesResponse = await client1.spreed.chat.receiveMessages(
             token: room.token,
-            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+            $body: spreed.ChatReceiveMessagesRequestApplicationJson(
+              (b) => b..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0,
+            ),
           );
           message = receiveMessagesResponse.body.ocs.data[2];
           expect(message.message, 'bla');
@@ -529,13 +590,17 @@ void main() {
 
           final sendMessageResponse = await client1.spreed.chat.sendMessage(
             token: room.token,
-            message: 'bla',
+            $body: spreed.ChatSendMessageRequestApplicationJson(
+              (b) => b..message = 'bla',
+            ),
           );
 
           final addResponse = await client1.spreed.reaction.react(
-            reaction: '😀',
             token: room.token,
             messageId: sendMessageResponse.body.ocs.data!.id,
+            $body: spreed.ReactionReactRequestApplicationJson(
+              (b) => b..reaction = '😀',
+            ),
           );
           expect(addResponse.body.ocs.data, hasLength(1));
           expect(addResponse.body.ocs.data['😀'], isNotNull);

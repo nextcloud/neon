@@ -18,7 +18,7 @@ Account mockTalkAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room'): {
-      'get': (match, queryParameters) => Response(
+      'get': (match, bodyBytes) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -33,7 +33,7 @@ Account mockTalkAccount() {
             }),
             200,
           ),
-      'post': (match, queryParameters) {
+      'post': (match, bodyBytes) {
         roomCount++;
 
         return Response(

@@ -16,6 +16,8 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
@@ -88,16 +90,16 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -120,9 +122,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -177,7 +179,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
   ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -194,28 +195,24 @@ class $ApiClient {
   ///  * [$$set_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $$set_Request({
-    required String dueDate,
     required String version,
     required int fileId,
+    required ApiSetRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $dueDate = _$jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
-    _parameters['dueDate'] = $dueDate;
-
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -236,10 +233,13 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body =
+        json.encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ApiSetRequestApplicationJson)));
     return _request;
   }
 
@@ -249,7 +249,6 @@ class $ApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [dueDate] ISO 8601 formatted date time string.
   ///   * [version]
   ///   * [fileId] ID of the file.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -265,16 +264,16 @@ class $ApiClient {
   ///  * [$$set_Request] for the request send by this method.
   ///  * [$$set_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ApiSetResponseApplicationJson, void>> $set({
-    required String dueDate,
     required String version,
     required int fileId,
+    required ApiSetRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $$set_Request(
-      dueDate: dueDate,
       version: version,
       fileId: fileId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -318,16 +317,16 @@ class $ApiClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    final __version = _$jsonSerializers.serialize(version, specifiedType: const FullType(String));
     _i4.checkString(
-      $version,
+      __version,
       'version',
       pattern: RegExp(r'^1$'),
     );
-    _parameters['version'] = $version;
+    _parameters['version'] = __version;
 
-    final $fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    _parameters['fileId'] = $fileId;
+    final __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    _parameters['fileId'] = __fileId;
 
     final _path = _i5.UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -350,9 +349,9 @@ class $ApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -638,6 +637,66 @@ abstract class ApiGetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ApiSetRequestApplicationJsonInterface {
+  /// ISO 8601 formatted date time string.
+  String get dueDate;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ApiSetRequestApplicationJsonInterfaceBuilder].
+  $ApiSetRequestApplicationJsonInterface rebuild(void Function($ApiSetRequestApplicationJsonInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ApiSetRequestApplicationJsonInterfaceBuilder].
+  $ApiSetRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ApiSetRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ApiSetRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ApiSetRequestApplicationJson
+    implements
+        $ApiSetRequestApplicationJsonInterface,
+        Built<ApiSetRequestApplicationJson, ApiSetRequestApplicationJsonBuilder> {
+  /// Creates a new ApiSetRequestApplicationJson object using the builder pattern.
+  factory ApiSetRequestApplicationJson([void Function(ApiSetRequestApplicationJsonBuilder)? b]) =
+      _$ApiSetRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ApiSetRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ApiSetRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ApiSetRequestApplicationJson.
+  static Serializer<ApiSetRequestApplicationJson> get serializer => _$apiSetRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ApiSetRequestApplicationJsonBuilder b) {
+    $ApiSetRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ApiSetRequestApplicationJsonBuilder b) {
+    $ApiSetRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ApiSetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -906,6 +965,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ApiGetResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ApiGetResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(ApiSetRequestApplicationJson), ApiSetRequestApplicationJsonBuilder.new)
+      ..add(ApiSetRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJsonBuilder.new)
       ..add(ApiSetResponseApplicationJson.serializer)
       ..addBuilderFactory(

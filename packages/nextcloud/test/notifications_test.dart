@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:crypton/crypton.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/notifications.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
@@ -28,8 +28,11 @@ void main() {
       Future<void> sendTestNotification() async {
         await client.notifications.api.generateNotification(
           userId: 'admin',
-          shortMessage: '123',
-          longMessage: '456',
+          $body: notifications.ApiGenerateNotificationRequestApplicationJson(
+            (b) => b
+              ..shortMessage = '123'
+              ..longMessage = '456',
+          ),
         );
       }
 
@@ -132,9 +135,12 @@ void main() {
           final keypair = generateKeypair();
 
           final subscription = (await client.notifications.push.registerDevice(
-            pushTokenHash: generatePushTokenHash(pushToken),
-            devicePublicKey: keypair.publicKey.toFormattedPEM(),
-            proxyServer: 'https://example.com/',
+            $body: notifications.PushRegisterDeviceRequestApplicationJson(
+              (b) => b
+                ..pushTokenHash = notifications.generatePushTokenHash(pushToken)
+                ..devicePublicKey = keypair.publicKey.toFormattedPEM()
+                ..proxyServer = 'https://example.com/',
+            ),
           ))
               .body
               .ocs

@@ -16,18 +16,18 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i8;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
 import 'package:collection/collection.dart' as _i4;
-import 'package:dynamite_runtime/built_value.dart' as _i7;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i6;
 
 part 'dashboard.openapi.g.dart';
 
@@ -103,9 +103,9 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -155,9 +155,6 @@ class $DashboardApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
-  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -168,36 +165,10 @@ class $DashboardApiClient {
   ///  * [$getWidgetItems_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getWidgetItems_Request({
-    ContentString<BuiltMap<String, String>>? sinceIds,
-    int? limit,
-    BuiltList<String>? widgets,
     bool? oCSAPIRequest,
+    DashboardApiGetWidgetItemsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final $sinceIds = _$jsonSerializers.serialize(
-      sinceIds,
-      specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [FullType(String), FullType(String)]),
-      ]),
-    );
-    _parameters['sinceIds'] = $sinceIds;
-
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 7;
-    _i5.checkNumber(
-      $limit,
-      'limit',
-      maximum: 30,
-      minimum: 1,
-    );
-    _parameters['limit'] = $limit;
-
-    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= const [];
-    _parameters['widgets%5B%5D'] = $widgets;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -218,10 +189,24 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(DashboardApiGetWidgetItemsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              DashboardApiGetWidgetItemsRequestApplicationJson(),
+              specifiedType: const FullType(DashboardApiGetWidgetItemsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -231,9 +216,6 @@ class $DashboardApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget. Defaults to `7`.
-  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -243,16 +225,12 @@ class $DashboardApiClient {
   ///  * [$getWidgetItems_Request] for the request send by this method.
   ///  * [$getWidgetItems_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
-    ContentString<BuiltMap<String, String>>? sinceIds,
-    int? limit,
-    BuiltList<String>? widgets,
     bool? oCSAPIRequest,
+    DashboardApiGetWidgetItemsRequestApplicationJson? $body,
   }) async {
     final _request = $getWidgetItems_Request(
-      sinceIds: sinceIds,
-      limit: limit,
-      widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -279,9 +257,6 @@ class $DashboardApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget, not more than 30 are allowed. Defaults to `7`.
-  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -292,36 +267,10 @@ class $DashboardApiClient {
   ///  * [$getWidgetItemsV2_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getWidgetItemsV2_Request({
-    ContentString<BuiltMap<String, String>>? sinceIds,
-    int? limit,
-    BuiltList<String>? widgets,
     bool? oCSAPIRequest,
+    DashboardApiGetWidgetItemsV2RequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final $sinceIds = _$jsonSerializers.serialize(
-      sinceIds,
-      specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [FullType(String), FullType(String)]),
-      ]),
-    );
-    _parameters['sinceIds'] = $sinceIds;
-
-    var $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    $limit ??= 7;
-    _i5.checkNumber(
-      $limit,
-      'limit',
-      maximum: 30,
-      minimum: 1,
-    );
-    _parameters['limit'] = $limit;
-
-    var $widgets = _$jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $widgets ??= const [];
-    _parameters['widgets%5B%5D'] = $widgets;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-        .expand(_parameters);
+    const _path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -342,10 +291,24 @@ class $DashboardApiClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(DashboardApiGetWidgetItemsV2RequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              DashboardApiGetWidgetItemsV2RequestApplicationJson(),
+              specifiedType: const FullType(DashboardApiGetWidgetItemsV2RequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -355,9 +318,6 @@ class $DashboardApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [sinceIds] Array indexed by widget Ids, contains date/id from which we want the new items.
-  ///   * [limit] Limit number of result items per widget, not more than 30 are allowed. Defaults to `7`.
-  ///   * [widgets] Limit results to specific widgets. Defaults to `[]`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -367,16 +327,12 @@ class $DashboardApiClient {
   ///  * [$getWidgetItemsV2_Request] for the request send by this method.
   ///  * [$getWidgetItemsV2_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
-    ContentString<BuiltMap<String, String>>? sinceIds,
-    int? limit,
-    BuiltList<String>? widgets,
     bool? oCSAPIRequest,
+    DashboardApiGetWidgetItemsV2RequestApplicationJson? $body,
   }) async {
     final _request = $getWidgetItemsV2_Request(
-      sinceIds: sinceIds,
-      limit: limit,
-      widgets: widgets,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -700,6 +656,104 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $DashboardApiGetWidgetItemsRequestApplicationJsonInterface {
+  static final _$sinceIds = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+  )! as BuiltMap<String, String>;
+
+  static final _$limit = _$jsonSerializers.deserialize(
+    7,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$widgets = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  /// Array indexed by widget Ids, contains date/id from which we want the new items.
+  BuiltMap<String, String> get sinceIds;
+
+  /// Limit number of result items per widget.
+  int get limit;
+
+  /// Limit results to specific widgets.
+  BuiltList<String> get widgets;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsRequestApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder b) {
+    b.sinceIds.replace(_$sinceIds);
+    b.limit = _$limit;
+    b.widgets.replace(_$widgets);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsRequestApplicationJsonInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.limit,
+      'limit',
+      maximum: 30,
+      minimum: 1,
+    );
+  }
+}
+
+abstract class DashboardApiGetWidgetItemsRequestApplicationJson
+    implements
+        $DashboardApiGetWidgetItemsRequestApplicationJsonInterface,
+        Built<DashboardApiGetWidgetItemsRequestApplicationJson,
+            DashboardApiGetWidgetItemsRequestApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsRequestApplicationJson object using the builder pattern.
+  factory DashboardApiGetWidgetItemsRequestApplicationJson([
+    void Function(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiGetWidgetItemsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetWidgetItemsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetWidgetItemsRequestApplicationJson.
+  static Serializer<DashboardApiGetWidgetItemsRequestApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetItemsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsRequestApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $WidgetItemInterface {
   String get subtitle;
   String get title;
@@ -884,6 +938,104 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder b) {
     $DashboardApiGetWidgetItemsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface {
+  static final _$sinceIds = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+  )! as BuiltMap<String, String>;
+
+  static final _$limit = _$jsonSerializers.deserialize(
+    7,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  static final _$widgets = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  /// Array indexed by widget Ids, contains date/id from which we want the new items.
+  BuiltMap<String, String> get sinceIds;
+
+  /// Limit number of result items per widget, not more than 30 are allowed.
+  int get limit;
+
+  /// Limit results to specific widgets.
+  BuiltList<String> get widgets;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface rebuild(
+    void Function($DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder].
+  $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder b) {
+    b.sinceIds.replace(_$sinceIds);
+    b.limit = _$limit;
+    b.widgets.replace(_$widgets);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DashboardApiGetWidgetItemsV2RequestApplicationJsonInterfaceBuilder b) {
+    _i5.checkNumber(
+      b.limit,
+      'limit',
+      maximum: 30,
+      minimum: 1,
+    );
+  }
+}
+
+abstract class DashboardApiGetWidgetItemsV2RequestApplicationJson
+    implements
+        $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface,
+        Built<DashboardApiGetWidgetItemsV2RequestApplicationJson,
+            DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder> {
+  /// Creates a new DashboardApiGetWidgetItemsV2RequestApplicationJson object using the builder pattern.
+  factory DashboardApiGetWidgetItemsV2RequestApplicationJson([
+    void Function(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder)? b,
+  ]) = _$DashboardApiGetWidgetItemsV2RequestApplicationJson;
+
+  // coverage:ignore-start
+  const DashboardApiGetWidgetItemsV2RequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DashboardApiGetWidgetItemsV2RequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DashboardApiGetWidgetItemsV2RequestApplicationJson.
+  static Serializer<DashboardApiGetWidgetItemsV2RequestApplicationJson> get serializer =>
+      _$dashboardApiGetWidgetItemsV2RequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder b) {
+    $DashboardApiGetWidgetItemsV2RequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1103,16 +1255,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, Widget>.new,
       )
       ..addBuilderFactory(
+        const FullType(DashboardApiGetWidgetItemsRequestApplicationJson),
+        DashboardApiGetWidgetItemsRequestApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiGetWidgetItemsRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(String)]),
         MapBuilder<String, String>.new,
       )
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(String)]),
-        ]),
-        ContentStringBuilder<BuiltMap<String, String>>.new,
-      )
-      ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
@@ -1134,6 +1284,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<WidgetItem>>.new,
       )
+      ..addBuilderFactory(
+        const FullType(DashboardApiGetWidgetItemsV2RequestApplicationJson),
+        DashboardApiGetWidgetItemsV2RequestApplicationJsonBuilder.new,
+      )
+      ..add(DashboardApiGetWidgetItemsV2RequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
         DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder.new,
@@ -1159,9 +1314,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin())
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

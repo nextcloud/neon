@@ -86,9 +86,12 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
         log.fine('Registering account $instance for push notifications on $endpoint');
 
         final subscription = await account.client.notifications.push.registerDevice(
-          pushTokenHash: notifications.generatePushTokenHash(endpoint),
-          devicePublicKey: keypair.publicKey.toFormattedPEM(),
-          proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
+          $body: notifications.PushRegisterDeviceRequestApplicationJson(
+            (b) => b
+              ..pushTokenHash = notifications.generatePushTokenHash(endpoint)
+              ..devicePublicKey = keypair.publicKey.toFormattedPEM()
+              ..proxyServer = '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
+          ),
         );
 
         await storage.setString(account.id, endpoint);

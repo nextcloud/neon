@@ -6,6 +6,8 @@ part of 'dav.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<DirectGetUrlRequestApplicationJson> _$directGetUrlRequestApplicationJsonSerializer =
+    _$DirectGetUrlRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> _$directGetUrlResponseApplicationJsonOcsDataSerializer =
     _$DirectGetUrlResponseApplicationJson_Ocs_DataSerializer();
@@ -28,6 +30,9 @@ Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs>
 Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson>
     _$outOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer =
     _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeSetOutOfOfficeRequestApplicationJson>
+    _$outOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer =
+    _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer();
 Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs>
     _$outOfOfficeSetOutOfOfficeResponseApplicationJsonOcsSerializer =
     _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer();
@@ -42,6 +47,50 @@ Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson>
     _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
 Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = _$Capabilities_DavSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$DirectGetUrlRequestApplicationJsonSerializer
+    implements StructuredSerializer<DirectGetUrlRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [DirectGetUrlRequestApplicationJson, _$DirectGetUrlRequestApplicationJson];
+  @override
+  final String wireName = 'DirectGetUrlRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DirectGetUrlRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'fileId',
+      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
+      'expirationTime',
+      serializers.serialize(object.expirationTime, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  DirectGetUrlRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DirectGetUrlRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'fileId':
+          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'expirationTime':
+          result.expirationTime = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -605,6 +654,63 @@ class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
   }
 }
 
+class _$OutOfOfficeSetOutOfOfficeRequestApplicationJsonSerializer
+    implements StructuredSerializer<OutOfOfficeSetOutOfOfficeRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeSetOutOfOfficeRequestApplicationJson,
+    _$OutOfOfficeSetOutOfOfficeRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'OutOfOfficeSetOutOfOfficeRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeSetOutOfOfficeRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'firstDay',
+      serializers.serialize(object.firstDay, specifiedType: const FullType(String)),
+      'lastDay',
+      serializers.serialize(object.lastDay, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'firstDay':
+          result.firstDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'lastDay':
+          result.lastDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> {
   @override
@@ -879,6 +985,117 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $DirectGetUrlRequestApplicationJsonInterfaceBuilder {
+  void replace($DirectGetUrlRequestApplicationJsonInterface other);
+  void update(void Function($DirectGetUrlRequestApplicationJsonInterfaceBuilder) updates);
+  int? get fileId;
+  set fileId(int? fileId);
+
+  int? get expirationTime;
+  set expirationTime(int? expirationTime);
+}
+
+class _$DirectGetUrlRequestApplicationJson extends DirectGetUrlRequestApplicationJson {
+  @override
+  final int fileId;
+  @override
+  final int expirationTime;
+
+  factory _$DirectGetUrlRequestApplicationJson([void Function(DirectGetUrlRequestApplicationJsonBuilder)? updates]) =>
+      (DirectGetUrlRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$DirectGetUrlRequestApplicationJson._({required this.fileId, required this.expirationTime}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId');
+    BuiltValueNullFieldError.checkNotNull(expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime');
+  }
+
+  @override
+  DirectGetUrlRequestApplicationJson rebuild(void Function(DirectGetUrlRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DirectGetUrlRequestApplicationJsonBuilder toBuilder() => DirectGetUrlRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DirectGetUrlRequestApplicationJson &&
+        fileId == other.fileId &&
+        expirationTime == other.expirationTime;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, fileId.hashCode);
+    _$hash = $jc(_$hash, expirationTime.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DirectGetUrlRequestApplicationJson')
+          ..add('fileId', fileId)
+          ..add('expirationTime', expirationTime))
+        .toString();
+  }
+}
+
+class DirectGetUrlRequestApplicationJsonBuilder
+    implements
+        Builder<DirectGetUrlRequestApplicationJson, DirectGetUrlRequestApplicationJsonBuilder>,
+        $DirectGetUrlRequestApplicationJsonInterfaceBuilder {
+  _$DirectGetUrlRequestApplicationJson? _$v;
+
+  int? _fileId;
+  int? get fileId => _$this._fileId;
+  set fileId(covariant int? fileId) => _$this._fileId = fileId;
+
+  int? _expirationTime;
+  int? get expirationTime => _$this._expirationTime;
+  set expirationTime(covariant int? expirationTime) => _$this._expirationTime = expirationTime;
+
+  DirectGetUrlRequestApplicationJsonBuilder() {
+    DirectGetUrlRequestApplicationJson._defaults(this);
+  }
+
+  DirectGetUrlRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _fileId = $v.fileId;
+      _expirationTime = $v.expirationTime;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DirectGetUrlRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DirectGetUrlRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(DirectGetUrlRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DirectGetUrlRequestApplicationJson build() => _build();
+
+  _$DirectGetUrlRequestApplicationJson _build() {
+    DirectGetUrlRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$DirectGetUrlRequestApplicationJson._(
+            fileId: BuiltValueNullFieldError.checkNotNull(fileId, r'DirectGetUrlRequestApplicationJson', 'fileId'),
+            expirationTime: BuiltValueNullFieldError.checkNotNull(
+                expirationTime, r'DirectGetUrlRequestApplicationJson', 'expirationTime'));
+    replace(_$result);
+    return _$result;
   }
 }
 
@@ -2279,6 +2496,156 @@ class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder {
+  void replace($OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterface other);
+  void update(void Function($OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder) updates);
+  String? get firstDay;
+  set firstDay(String? firstDay);
+
+  String? get lastDay;
+  set lastDay(String? lastDay);
+
+  String? get status;
+  set status(String? status);
+
+  String? get message;
+  set message(String? message);
+}
+
+class _$OutOfOfficeSetOutOfOfficeRequestApplicationJson extends OutOfOfficeSetOutOfOfficeRequestApplicationJson {
+  @override
+  final String firstDay;
+  @override
+  final String lastDay;
+  @override
+  final String status;
+  @override
+  final String message;
+
+  factory _$OutOfOfficeSetOutOfOfficeRequestApplicationJson(
+          [void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? updates]) =>
+      (OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
+      {required this.firstDay, required this.lastDay, required this.status, required this.message})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay');
+    BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay');
+    BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status');
+    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message');
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeRequestApplicationJson rebuild(
+          void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder toBuilder() =>
+      OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeSetOutOfOfficeRequestApplicationJson &&
+        firstDay == other.firstDay &&
+        lastDay == other.lastDay &&
+        status == other.status &&
+        message == other.message;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, firstDay.hashCode);
+    _$hash = $jc(_$hash, lastDay.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeSetOutOfOfficeRequestApplicationJson')
+          ..add('firstDay', firstDay)
+          ..add('lastDay', lastDay)
+          ..add('status', status)
+          ..add('message', message))
+        .toString();
+  }
+}
+
+class OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder
+    implements
+        Builder<OutOfOfficeSetOutOfOfficeRequestApplicationJson,
+            OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder>,
+        $OutOfOfficeSetOutOfOfficeRequestApplicationJsonInterfaceBuilder {
+  _$OutOfOfficeSetOutOfOfficeRequestApplicationJson? _$v;
+
+  String? _firstDay;
+  String? get firstDay => _$this._firstDay;
+  set firstDay(covariant String? firstDay) => _$this._firstDay = firstDay;
+
+  String? _lastDay;
+  String? get lastDay => _$this._lastDay;
+  set lastDay(covariant String? lastDay) => _$this._lastDay = lastDay;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder() {
+    OutOfOfficeSetOutOfOfficeRequestApplicationJson._defaults(this);
+  }
+
+  OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _firstDay = $v.firstDay;
+      _lastDay = $v.lastDay;
+      _status = $v.status;
+      _message = $v.message;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeSetOutOfOfficeRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeSetOutOfOfficeRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeRequestApplicationJson build() => _build();
+
+  _$OutOfOfficeSetOutOfOfficeRequestApplicationJson _build() {
+    OutOfOfficeSetOutOfOfficeRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$OutOfOfficeSetOutOfOfficeRequestApplicationJson._(
+            firstDay: BuiltValueNullFieldError.checkNotNull(
+                firstDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'firstDay'),
+            lastDay: BuiltValueNullFieldError.checkNotNull(
+                lastDay, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'lastDay'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'status'),
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'OutOfOfficeSetOutOfOfficeRequestApplicationJson', 'message'));
     replace(_$result);
     return _$result;
   }

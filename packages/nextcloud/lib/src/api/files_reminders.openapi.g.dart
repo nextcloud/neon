@@ -13,6 +13,8 @@ Serializer<ApiGetResponseApplicationJson_Ocs> _$apiGetResponseApplicationJsonOcs
     _$ApiGetResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetResponseApplicationJson> _$apiGetResponseApplicationJsonSerializer =
     _$ApiGetResponseApplicationJsonSerializer();
+Serializer<ApiSetRequestApplicationJson> _$apiSetRequestApplicationJsonSerializer =
+    _$ApiSetRequestApplicationJsonSerializer();
 Serializer<ApiSetResponseApplicationJson_Ocs> _$apiSetResponseApplicationJsonOcsSerializer =
     _$ApiSetResponseApplicationJson_OcsSerializer();
 Serializer<ApiSetResponseApplicationJson> _$apiSetResponseApplicationJsonSerializer =
@@ -210,6 +212,44 @@ class _$ApiGetResponseApplicationJsonSerializer implements StructuredSerializer<
         case 'ocs':
           result.ocs.replace(serializers.deserialize(value,
               specifiedType: const FullType(ApiGetResponseApplicationJson_Ocs))! as ApiGetResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiSetRequestApplicationJsonSerializer implements StructuredSerializer<ApiSetRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ApiSetRequestApplicationJson, _$ApiSetRequestApplicationJson];
+  @override
+  final String wireName = 'ApiSetRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiSetRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'dueDate',
+      serializers.serialize(object.dueDate, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiSetRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiSetRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'dueDate':
+          result.dueDate = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -840,6 +880,98 @@ class ApiGetResponseApplicationJsonBuilder
       }
       rethrow;
     }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiSetRequestApplicationJsonInterfaceBuilder {
+  void replace($ApiSetRequestApplicationJsonInterface other);
+  void update(void Function($ApiSetRequestApplicationJsonInterfaceBuilder) updates);
+  String? get dueDate;
+  set dueDate(String? dueDate);
+}
+
+class _$ApiSetRequestApplicationJson extends ApiSetRequestApplicationJson {
+  @override
+  final String dueDate;
+
+  factory _$ApiSetRequestApplicationJson([void Function(ApiSetRequestApplicationJsonBuilder)? updates]) =>
+      (ApiSetRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiSetRequestApplicationJson._({required this.dueDate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(dueDate, r'ApiSetRequestApplicationJson', 'dueDate');
+  }
+
+  @override
+  ApiSetRequestApplicationJson rebuild(void Function(ApiSetRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiSetRequestApplicationJsonBuilder toBuilder() => ApiSetRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiSetRequestApplicationJson && dueDate == other.dueDate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, dueDate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiSetRequestApplicationJson')..add('dueDate', dueDate)).toString();
+  }
+}
+
+class ApiSetRequestApplicationJsonBuilder
+    implements
+        Builder<ApiSetRequestApplicationJson, ApiSetRequestApplicationJsonBuilder>,
+        $ApiSetRequestApplicationJsonInterfaceBuilder {
+  _$ApiSetRequestApplicationJson? _$v;
+
+  String? _dueDate;
+  String? get dueDate => _$this._dueDate;
+  set dueDate(covariant String? dueDate) => _$this._dueDate = dueDate;
+
+  ApiSetRequestApplicationJsonBuilder() {
+    ApiSetRequestApplicationJson._defaults(this);
+  }
+
+  ApiSetRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _dueDate = $v.dueDate;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiSetRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiSetRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiSetRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiSetRequestApplicationJson build() => _build();
+
+  _$ApiSetRequestApplicationJson _build() {
+    ApiSetRequestApplicationJson._validate(this);
+    final _$result = _$v ??
+        _$ApiSetRequestApplicationJson._(
+            dueDate: BuiltValueNullFieldError.checkNotNull(dueDate, r'ApiSetRequestApplicationJson', 'dueDate'));
     replace(_$result);
     return _$result;
   }

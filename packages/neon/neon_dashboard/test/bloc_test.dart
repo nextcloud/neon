@@ -10,7 +10,7 @@ import 'package:neon_framework/testing.dart';
 
 Account mockDashboardAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widgets'): {
-        'get': (match, queryParameters) => Response(
+        'get': (match, bodyBytes) => Response(
               json.encode({
                 'ocs': {
                   'meta': {'status': '', 'statuscode': 0},
@@ -38,13 +38,55 @@ Account mockDashboardAccount() => mockServer({
             ),
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widget-items'): {
-        'get': (match, queryParameters) => Response(
-              json.encode({
-                'ocs': {
-                  'meta': {'status': '', 'statuscode': 0},
-                  'data': {
-                    for (final key in queryParameters['widgets[]']!)
-                      key: [
+        'get': (match, bodyBytes) {
+          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+          return Response(
+            json.encode({
+              'ocs': {
+                'meta': {'status': '', 'statuscode': 0},
+                'data': {
+                  for (final key in (data['widgets'] as List).cast<String>())
+                    key: [
+                      {
+                        'subtitle': '',
+                        'title': key,
+                        'link': '',
+                        'iconUrl': '',
+                        'overlayIconUrl': '',
+                        'sinceId': '',
+                      },
+                    ],
+                  'tooMany1': [
+                    for (var i = 0; i < 8; i++)
+                      {
+                        'subtitle': '',
+                        'title': '$i',
+                        'link': '',
+                        'iconUrl': '',
+                        'overlayIconUrl': '',
+                        'sinceId': '',
+                      },
+                  ],
+                },
+              },
+            }),
+            200,
+          );
+        },
+      },
+      RegExp(r'/ocs/v2\.php/apps/dashboard/api/v2/widget-items'): {
+        'get': (match, bodyBytes) {
+          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+
+          return Response(
+            json.encode({
+              'ocs': {
+                'meta': {'status': '', 'statuscode': 0},
+                'data': {
+                  for (final key in (data['widgets'] as List).cast<String>())
+                    key: {
+                      'items': [
                         {
                           'subtitle': '',
                           'title': key,
@@ -54,7 +96,11 @@ Account mockDashboardAccount() => mockServer({
                           'sinceId': '',
                         },
                       ],
-                    'tooMany1': [
+                      'emptyContentMessage': '',
+                      'halfEmptyContentMessage': '',
+                    },
+                  'tooMany2': {
+                    'items': [
                       for (var i = 0; i < 8; i++)
                         {
                           'subtitle': '',
@@ -65,53 +111,15 @@ Account mockDashboardAccount() => mockServer({
                           'sinceId': '',
                         },
                     ],
+                    'emptyContentMessage': '',
+                    'halfEmptyContentMessage': '',
                   },
                 },
-              }),
-              200,
-            ),
-      },
-      RegExp(r'/ocs/v2\.php/apps/dashboard/api/v2/widget-items'): {
-        'get': (match, queryParameters) => Response(
-              json.encode({
-                'ocs': {
-                  'meta': {'status': '', 'statuscode': 0},
-                  'data': {
-                    for (final key in queryParameters['widgets[]']!)
-                      key: {
-                        'items': [
-                          {
-                            'subtitle': '',
-                            'title': key,
-                            'link': '',
-                            'iconUrl': '',
-                            'overlayIconUrl': '',
-                            'sinceId': '',
-                          },
-                        ],
-                        'emptyContentMessage': '',
-                        'halfEmptyContentMessage': '',
-                      },
-                    'tooMany2': {
-                      'items': [
-                        for (var i = 0; i < 8; i++)
-                          {
-                            'subtitle': '',
-                            'title': '$i',
-                            'link': '',
-                            'iconUrl': '',
-                            'overlayIconUrl': '',
-                            'sinceId': '',
-                          },
-                      ],
-                      'emptyContentMessage': '',
-                      'halfEmptyContentMessage': '',
-                    },
-                  },
-                },
-              }),
-              200,
-            ),
+              },
+            }),
+            200,
+          );
+        },
       },
     });
 

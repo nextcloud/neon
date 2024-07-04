@@ -16,17 +16,18 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i8;
-import 'package:collection/collection.dart' as _i5;
-import 'package:dynamite_runtime/built_value.dart' as _i7;
+import 'package:built_value/standard_json_plugin.dart' as _i7;
+import 'package:collection/collection.dart' as _i4;
+import 'package:dynamite_runtime/built_value.dart' as _i6;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/utils.dart' as _i6;
+import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
-import 'package:uri/uri.dart' as _i4;
 
 part 'weather_status.openapi.g.dart';
 
@@ -71,7 +72,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -82,19 +82,15 @@ class $WeatherStatusClient {
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setMode_Request({
-    required int mode,
+    required WeatherStatusSetModeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final $mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(int));
-    _parameters['mode'] = $mode;
-
-    final _path = _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -110,10 +106,14 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(WeatherStatusSetModeRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -123,7 +123,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [mode] New mode.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -133,12 +132,12 @@ class $WeatherStatusClient {
   ///  * [$setMode_Request] for the request send by this method.
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<WeatherStatusSetModeResponseApplicationJson, void>> setMode({
-    required int mode,
+    required WeatherStatusSetModeRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setMode_Request(
-      mode: mode,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -180,7 +179,7 @@ class $WeatherStatusClient {
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -196,9 +195,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -264,7 +263,7 @@ class $WeatherStatusClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -280,9 +279,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -332,9 +331,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address.
-  ///   * [lat] Latitude in decimal degree format.
-  ///   * [lon] Longitude in decimal degree format.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -345,28 +341,15 @@ class $WeatherStatusClient {
   ///  * [$setLocation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setLocation_Request({
-    String? address,
-    double? lat,
-    double? lon,
     bool? oCSAPIRequest,
+    WeatherStatusSetLocationRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final $address = _$jsonSerializers.serialize(address, specifiedType: const FullType(String));
-    _parameters['address'] = $address;
-
-    final $lat = _$jsonSerializers.serialize(lat, specifiedType: const FullType(double));
-    _parameters['lat'] = $lat;
-
-    final $lon = _$jsonSerializers.serialize(lon, specifiedType: const FullType(double));
-    _parameters['lon'] = $lon;
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -382,10 +365,24 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              WeatherStatusSetLocationRequestApplicationJson(),
+              specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -395,9 +392,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [address] Any approximative or exact address.
-  ///   * [lat] Latitude in decimal degree format.
-  ///   * [lon] Longitude in decimal degree format.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -407,16 +401,12 @@ class $WeatherStatusClient {
   ///  * [$setLocation_Request] for the request send by this method.
   ///  * [$setLocation_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
-    String? address,
-    double? lat,
-    double? lon,
     bool? oCSAPIRequest,
+    WeatherStatusSetLocationRequestApplicationJson? $body,
   }) async {
     final _request = $setLocation_Request(
-      address: address,
-      lat: lat,
-      lon: lon,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -459,7 +449,7 @@ class $WeatherStatusClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -475,9 +465,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -543,7 +533,7 @@ class $WeatherStatusClient {
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -559,9 +549,9 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -611,7 +601,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -622,21 +611,15 @@ class $WeatherStatusClient {
   ///  * [$setFavorites_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setFavorites_Request({
-    required BuiltList<String> favorites,
+    required WeatherStatusSetFavoritesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final $favorites =
-        _$jsonSerializers.serialize(favorites, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['favorites%5B%5D'] = $favorites;
-
-    final _path =
-        _i4.UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i5.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBearerAuthentication() || _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -652,10 +635,17 @@ class $WeatherStatusClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(WeatherStatusSetFavoritesRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -665,7 +655,6 @@ class $WeatherStatusClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [favorites] Favorite addresses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -675,12 +664,12 @@ class $WeatherStatusClient {
   ///  * [$setFavorites_Request] for the request send by this method.
   ///  * [$setFavorites_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
-    required BuiltList<String> favorites,
+    required WeatherStatusSetFavoritesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setFavorites_Request(
-      favorites: favorites,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -689,6 +678,70 @@ class $WeatherStatusClient {
     final _rawResponse =
         _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(_serializer).convert(_response);
     return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $WeatherStatusSetModeRequestApplicationJsonInterface {
+  /// New mode.
+  int get mode;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetModeRequestApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetModeRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class WeatherStatusSetModeRequestApplicationJson
+    implements
+        $WeatherStatusSetModeRequestApplicationJsonInterface,
+        Built<WeatherStatusSetModeRequestApplicationJson, WeatherStatusSetModeRequestApplicationJsonBuilder> {
+  /// Creates a new WeatherStatusSetModeRequestApplicationJson object using the builder pattern.
+  factory WeatherStatusSetModeRequestApplicationJson([
+    void Function(WeatherStatusSetModeRequestApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusSetModeRequestApplicationJson;
+
+  // coverage:ignore-start
+  const WeatherStatusSetModeRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory WeatherStatusSetModeRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for WeatherStatusSetModeRequestApplicationJson.
+  static Serializer<WeatherStatusSetModeRequestApplicationJson> get serializer =>
+      _$weatherStatusSetModeRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetModeRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetModeRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetModeRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetModeRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -1416,6 +1469,76 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(WeatherStatusGetLocationResponseApplicationJsonBuilder b) {
     $WeatherStatusGetLocationResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $WeatherStatusSetLocationRequestApplicationJsonInterface {
+  /// Any approximative or exact address.
+  String? get address;
+
+  /// Latitude in decimal degree format.
+  double? get lat;
+
+  /// Longitude in decimal degree format.
+  double? get lon;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetLocationRequestApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetLocationRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class WeatherStatusSetLocationRequestApplicationJson
+    implements
+        $WeatherStatusSetLocationRequestApplicationJsonInterface,
+        Built<WeatherStatusSetLocationRequestApplicationJson, WeatherStatusSetLocationRequestApplicationJsonBuilder> {
+  /// Creates a new WeatherStatusSetLocationRequestApplicationJson object using the builder pattern.
+  factory WeatherStatusSetLocationRequestApplicationJson([
+    void Function(WeatherStatusSetLocationRequestApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusSetLocationRequestApplicationJson;
+
+  // coverage:ignore-start
+  const WeatherStatusSetLocationRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory WeatherStatusSetLocationRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for WeatherStatusSetLocationRequestApplicationJson.
+  static Serializer<WeatherStatusSetLocationRequestApplicationJson> get serializer =>
+      _$weatherStatusSetLocationRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetLocationRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetLocationRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetLocationRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetLocationRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -2662,6 +2785,70 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $WeatherStatusSetFavoritesRequestApplicationJsonInterface {
+  /// Favorite addresses.
+  BuiltList<String> get favorites;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetFavoritesRequestApplicationJsonInterface rebuild(
+    void Function($WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder].
+  $WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($WeatherStatusSetFavoritesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class WeatherStatusSetFavoritesRequestApplicationJson
+    implements
+        $WeatherStatusSetFavoritesRequestApplicationJsonInterface,
+        Built<WeatherStatusSetFavoritesRequestApplicationJson, WeatherStatusSetFavoritesRequestApplicationJsonBuilder> {
+  /// Creates a new WeatherStatusSetFavoritesRequestApplicationJson object using the builder pattern.
+  factory WeatherStatusSetFavoritesRequestApplicationJson([
+    void Function(WeatherStatusSetFavoritesRequestApplicationJsonBuilder)? b,
+  ]) = _$WeatherStatusSetFavoritesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const WeatherStatusSetFavoritesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory WeatherStatusSetFavoritesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for WeatherStatusSetFavoritesRequestApplicationJson.
+  static Serializer<WeatherStatusSetFavoritesRequestApplicationJson> get serializer =>
+      _$weatherStatusSetFavoritesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(WeatherStatusSetFavoritesRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetFavoritesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(WeatherStatusSetFavoritesRequestApplicationJsonBuilder b) {
+    $WeatherStatusSetFavoritesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Success get data;
@@ -2931,13 +3118,13 @@ extension $20fe3de793aed6fbf929c9b82b472b1aExtension on _$20fe3de793aed6fbf929c9
   List<String> get _names => const ['builtListForecast', 'weatherStatusGetForecastResponseApplicationJsonOcsData1'];
 
   /// {@macro Dynamite.validateOneOf}
-  void validateOneOf() => _i6.validateOneOf(
+  void validateOneOf() => _i5.validateOneOf(
         _values,
         _names,
       );
 
   /// {@macro Dynamite.validateAnyOf}
-  void validateAnyOf() => _i6.validateAnyOf(
+  void validateAnyOf() => _i5.validateAnyOf(
         _values,
         _names,
       );
@@ -3019,6 +3206,11 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
+        const FullType(WeatherStatusSetModeRequestApplicationJson),
+        WeatherStatusSetModeRequestApplicationJsonBuilder.new,
+      )
+      ..add(WeatherStatusSetModeRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(WeatherStatusSetModeResponseApplicationJson),
         WeatherStatusSetModeResponseApplicationJsonBuilder.new,
       )
@@ -3060,6 +3252,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(LocationWithMode.serializer)
       ..addBuilderFactory(const FullType(Mode), ModeBuilder.new)
       ..add(Mode.serializer)
+      ..addBuilderFactory(
+        const FullType(WeatherStatusSetLocationRequestApplicationJson),
+        WeatherStatusSetLocationRequestApplicationJsonBuilder.new,
+      )
+      ..add(WeatherStatusSetLocationRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetLocationResponseApplicationJson),
         WeatherStatusSetLocationResponseApplicationJsonBuilder.new,
@@ -3131,6 +3328,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(WeatherStatusGetFavoritesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
+        const FullType(WeatherStatusSetFavoritesRequestApplicationJson),
+        WeatherStatusSetFavoritesRequestApplicationJsonBuilder.new,
+      )
+      ..add(WeatherStatusSetFavoritesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
         WeatherStatusSetFavoritesResponseApplicationJsonBuilder.new,
       )
@@ -3153,9 +3355,9 @@ final Serializers _$serializers = (Serializers().toBuilder()
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin(typesToLeaveAsList: const {_$20fe3de793aed6fbf929c9b82b472b1a}))
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
+      ..add(_i6.DynamiteDoubleSerializer())
+      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$20fe3de793aed6fbf929c9b82b472b1a}))
+      ..addPlugin(const _i6.HeaderPlugin())
+      ..addPlugin(const _i6.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -16,6 +16,8 @@
 /// It can be obtained at `https://spdx.org/licenses/AGPL-3.0-only.html`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -24,7 +26,6 @@ import 'package:built_value/standard_json_plugin.dart' as _i8;
 import 'package:collection/collection.dart' as _i4;
 import 'package:dynamite_runtime/built_value.dart' as _i7;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i5;
 import 'package:http/http.dart' as _i3;
 import 'package:meta/meta.dart' as _i2;
@@ -113,9 +114,9 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -182,8 +183,8 @@ class $AppConfigClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -206,9 +207,9 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -266,7 +267,6 @@ class $AppConfigClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] New value for the key.
   ///   * [app] ID of the app.
   ///   * [key] Key to update.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -280,23 +280,20 @@ class $AppConfigClient {
   ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setValue_Request({
-    required String value,
     required String app,
     required String key,
+    required AppConfigSetValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    _parameters['key'] = __key;
 
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}')
-        .expand(_parameters);
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -317,10 +314,14 @@ class $AppConfigClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(AppConfigSetValueRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -332,7 +333,6 @@ class $AppConfigClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] New value for the key.
   ///   * [app] ID of the app.
   ///   * [key] Key to update.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -345,16 +345,16 @@ class $AppConfigClient {
   ///  * [$setValue_Request] for the request send by this method.
   ///  * [$setValue_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<AppConfigSetValueResponseApplicationJson, void>> setValue({
-    required String value,
     required String app,
     required String key,
+    required AppConfigSetValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setValue_Request(
-      value: value,
       app: app,
       key: key,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -389,7 +389,6 @@ class $AppsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter for enabled or disabled apps.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -400,14 +399,10 @@ class $AppsClient {
   ///  * [$getApps_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getApps_Request({
-    String? filter,
     bool? oCSAPIRequest,
+    AppsGetAppsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final $filter = _$jsonSerializers.serialize(filter, specifiedType: const FullType(String));
-    _parameters['filter'] = $filter;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/apps';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -428,10 +423,21 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(AppsGetAppsRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              AppsGetAppsRequestApplicationJson(),
+              specifiedType: const FullType(AppsGetAppsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -443,7 +449,6 @@ class $AppsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter for enabled or disabled apps.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -453,12 +458,12 @@ class $AppsClient {
   ///  * [$getApps_Request] for the request send by this method.
   ///  * [$getApps_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<AppsGetAppsResponseApplicationJson, void>> getApps({
-    String? filter,
     bool? oCSAPIRequest,
+    AppsGetAppsRequestApplicationJson? $body,
   }) async {
     final _request = $getApps_Request(
-      filter: filter,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -502,8 +507,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -526,9 +531,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -600,8 +605,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -624,9 +629,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -698,8 +703,8 @@ class $AppsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
-    _parameters['app'] = $app;
+    final __app = _$jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    _parameters['app'] = __app;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -722,9 +727,9 @@ class $AppsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -804,13 +809,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -833,9 +838,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -890,9 +895,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -903,24 +905,10 @@ class $GroupsClient {
   ///  * [$getGroups_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getGroups_Request({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/groups';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -941,10 +929,21 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(GroupsGetGroupsRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              GroupsGetGroupsRequestApplicationJson(),
+              specifiedType: const FullType(GroupsGetGroupsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -954,9 +953,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -966,16 +962,12 @@ class $GroupsClient {
   ///  * [$getGroups_Request] for the request send by this method.
   ///  * [$getGroups_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GroupsGetGroupsResponseApplicationJson, void>> getGroups({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupsRequestApplicationJson? $body,
   }) async {
     final _request = $getGroups_Request(
-      search: search,
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1018,13 +1010,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1047,9 +1039,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1103,9 +1095,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1116,24 +1105,10 @@ class $GroupsClient {
   ///  * [$getGroupsDetails_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getGroupsDetails_Request({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupsDetailsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/groups/details';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1154,10 +1129,24 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(GroupsGetGroupsDetailsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              GroupsGetGroupsDetailsRequestApplicationJson(),
+              specifiedType: const FullType(GroupsGetGroupsDetailsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1167,9 +1156,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1179,16 +1165,12 @@ class $GroupsClient {
   ///  * [$getGroupsDetails_Request] for the request send by this method.
   ///  * [$getGroupsDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupsDetailsRequestApplicationJson? $body,
   }) async {
     final _request = $getGroupsDetails_Request(
-      search: search,
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1232,13 +1214,13 @@ class $GroupsClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1261,9 +1243,9 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1318,9 +1300,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [groupId] ID of the group.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1333,33 +1312,19 @@ class $GroupsClient {
   @_i2.experimental
   _i3.Request $getGroupUsersDetails_Request({
     required String groupId,
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupUsersDetailsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    final __groupId = _$jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
     _i5.checkString(
-      $groupId,
+      __groupId,
       'groupId',
       pattern: RegExp(r'^.+$'),
     );
-    _parameters['groupId'] = $groupId;
+    _parameters['groupId'] = __groupId;
 
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}')
-        .expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1380,10 +1345,24 @@ class $GroupsClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(GroupsGetGroupUsersDetailsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              GroupsGetGroupUsersDetailsRequestApplicationJson(),
+              specifiedType: const FullType(GroupsGetGroupUsersDetailsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -1393,9 +1372,6 @@ class $GroupsClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [groupId] ID of the group.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1407,17 +1383,13 @@ class $GroupsClient {
   ///  * [$getGroupUsersDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>> getGroupUsersDetails({
     required String groupId,
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    GroupsGetGroupUsersDetailsRequestApplicationJson? $body,
   }) async {
     final _request = $getGroupUsersDetails_Request(
       groupId: groupId,
-      search: search,
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1451,7 +1423,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configValue] New value.
   ///   * [appId] ID of the app.
   ///   * [configKey] Key of the preference.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1465,24 +1436,20 @@ class $PreferencesClient {
   ///  * [$setPreference_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setPreference_Request({
-    required String configValue,
     required String appId,
     required String configKey,
+    required PreferencesSetPreferenceRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configValue = _$jsonSerializers.serialize(configValue, specifiedType: const FullType(String));
-    _parameters['configValue'] = $configValue;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
+    _parameters['configKey'] = __configKey;
 
-    final $configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
-    _parameters['configKey'] = $configKey;
-
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
-            .expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1503,10 +1470,17 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(PreferencesSetPreferenceRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -1516,7 +1490,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configValue] New value.
   ///   * [appId] ID of the app.
   ///   * [configKey] Key of the preference.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -1529,16 +1502,16 @@ class $PreferencesClient {
   ///  * [$setPreference_Request] for the request send by this method.
   ///  * [$setPreference_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<PreferencesSetPreferenceResponseApplicationJson, void>> setPreference({
-    required String configValue,
     required String appId,
     required String configKey,
+    required PreferencesSetPreferenceRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setPreference_Request(
-      configValue: configValue,
       appId: appId,
       configKey: configKey,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1583,11 +1556,11 @@ class $PreferencesClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
-    _parameters['configKey'] = $configKey;
+    final __configKey = _$jsonSerializers.serialize(configKey, specifiedType: const FullType(String));
+    _parameters['configKey'] = __configKey;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}')
         .expand(_parameters);
@@ -1611,9 +1584,9 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1670,7 +1643,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configs] Key-value pairs of the preferences.
   ///   * [appId] ID of the app.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1683,24 +1655,15 @@ class $PreferencesClient {
   ///  * [$setMultiplePreferences_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $setMultiplePreferences_Request({
-    required ContentString<BuiltMap<String, String>> configs,
     required String appId,
+    required PreferencesSetMultiplePreferencesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configs = _$jsonSerializers.serialize(
-      configs,
-      specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [FullType(String), FullType(String)]),
-      ]),
-    );
-    _parameters['configs'] = $configs;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
-
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1721,10 +1684,17 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(PreferencesSetMultiplePreferencesRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -1734,7 +1704,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configs] Key-value pairs of the preferences.
   ///   * [appId] ID of the app.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1746,14 +1715,14 @@ class $PreferencesClient {
   ///  * [$setMultiplePreferences_Request] for the request send by this method.
   ///  * [$setMultiplePreferences_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>> setMultiplePreferences({
-    required ContentString<BuiltMap<String, String>> configs,
     required String appId,
+    required PreferencesSetMultiplePreferencesRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $setMultiplePreferences_Request(
-      configs: configs,
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1781,7 +1750,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configKeys] Keys to delete.
   ///   * [appId] ID of the app.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1794,20 +1762,15 @@ class $PreferencesClient {
   ///  * [$deleteMultiplePreference_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $deleteMultiplePreference_Request({
-    required BuiltList<String> configKeys,
     required String appId,
+    required PreferencesDeleteMultiplePreferenceRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $configKeys =
-        _$jsonSerializers.serialize(configKeys, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    _parameters['configKeys%5B%5D'] = $configKeys;
+    final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
+    _parameters['appId'] = __appId;
 
-    final $appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
-    _parameters['appId'] = $appId;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
-        .expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1828,10 +1791,17 @@ class $PreferencesClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(PreferencesDeleteMultiplePreferenceRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -1841,7 +1811,6 @@ class $PreferencesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configKeys] Keys to delete.
   ///   * [appId] ID of the app.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -1854,14 +1823,14 @@ class $PreferencesClient {
   ///  * [$deleteMultiplePreference_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>>
       deleteMultiplePreference({
-    required BuiltList<String> configKeys,
     required String appId,
+    required PreferencesDeleteMultiplePreferenceRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $deleteMultiplePreference_Request(
-      configKeys: configKeys,
       appId: appId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1913,8 +1882,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -1937,9 +1906,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -1997,7 +1966,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2009,18 +1977,15 @@ class $UsersClient {
   ///  * [$addSubAdmin_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $addSubAdmin_Request({
-    required String groupid,
     required String userId,
+    required UsersAddSubAdminRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2041,10 +2006,14 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UsersAddSubAdminRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -2057,7 +2026,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2068,14 +2036,14 @@ class $UsersClient {
   ///  * [$addSubAdmin_Request] for the request send by this method.
   ///  * [$addSubAdmin_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
-    required String groupid,
     required String userId,
+    required UsersAddSubAdminRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $addSubAdmin_Request(
-      groupid: groupid,
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2105,7 +2073,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2117,18 +2084,15 @@ class $UsersClient {
   ///  * [$removeSubAdmin_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $removeSubAdmin_Request({
-    required String groupid,
     required String userId,
+    required UsersRemoveSubAdminRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2149,10 +2113,14 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UsersRemoveSubAdminRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -2165,7 +2133,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2176,14 +2143,14 @@ class $UsersClient {
   ///  * [$removeSubAdmin_Request] for the request send by this method.
   ///  * [$removeSubAdmin_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
-    required String groupid,
     required String userId,
+    required UsersRemoveSubAdminRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $removeSubAdmin_Request(
-      groupid: groupid,
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2209,9 +2176,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2222,24 +2186,10 @@ class $UsersClient {
   ///  * [$getUsers_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getUsers_Request({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetUsersRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/users';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2260,10 +2210,21 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(UsersGetUsersRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              UsersGetUsersRequestApplicationJson(),
+              specifiedType: const FullType(UsersGetUsersRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -2273,9 +2234,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2285,16 +2243,12 @@ class $UsersClient {
   ///  * [$getUsers_Request] for the request send by this method.
   ///  * [$getUsers_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersGetUsersResponseApplicationJson, void>> getUsers({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetUsersRequestApplicationJson? $body,
   }) async {
     final _request = $getUsers_Request(
-      search: search,
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2322,15 +2276,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userid] ID of the user.
-  ///   * [password] Password of the user. Defaults to `""`.
-  ///   * [displayName] Display name of the user. Defaults to `""`.
-  ///   * [email] Email of the user. Defaults to `""`.
-  ///   * [groups] Groups of the user. Defaults to `[]`.
-  ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
-  ///   * [quota] Quota of the user. Defaults to `""`.
-  ///   * [language] Language of the user. Defaults to `""`.
-  ///   * [manager] Manager of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2342,55 +2287,10 @@ class $UsersClient {
   ///  * [$addUser_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $addUser_Request({
-    required String userid,
-    String? password,
-    String? displayName,
-    String? email,
-    BuiltList<String>? groups,
-    BuiltList<String>? subadmin,
-    String? quota,
-    String? language,
-    String? manager,
+    required UsersAddUserRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final $userid = _$jsonSerializers.serialize(userid, specifiedType: const FullType(String));
-    _parameters['userid'] = $userid;
-
-    var $password = _$jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    $password ??= '';
-    _parameters['password'] = $password;
-
-    var $displayName = _$jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
-    $displayName ??= '';
-    _parameters['displayName'] = $displayName;
-
-    var $email = _$jsonSerializers.serialize(email, specifiedType: const FullType(String));
-    $email ??= '';
-    _parameters['email'] = $email;
-
-    var $groups = _$jsonSerializers.serialize(groups, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $groups ??= const [];
-    _parameters['groups%5B%5D'] = $groups;
-
-    var $subadmin = _$jsonSerializers.serialize(subadmin, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    $subadmin ??= const [];
-    _parameters['subadmin%5B%5D'] = $subadmin;
-
-    var $quota = _$jsonSerializers.serialize(quota, specifiedType: const FullType(String));
-    $quota ??= '';
-    _parameters['quota'] = $quota;
-
-    var $language = _$jsonSerializers.serialize(language, specifiedType: const FullType(String));
-    $language ??= '';
-    _parameters['language'] = $language;
-
-    final $manager = _$jsonSerializers.serialize(manager, specifiedType: const FullType(String));
-    _parameters['manager'] = $manager;
-
-    final _path = _i6.UriTemplate(
-      '/ocs/v2.php/cloud/users{?userid*,password*,displayName*,email*,groups%5B%5D*,subadmin%5B%5D*,quota*,language*,manager*}',
-    ).expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/users';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2411,10 +2311,13 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json
+        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(UsersAddUserRequestApplicationJson)));
     return _request;
   }
 
@@ -2426,15 +2329,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userid] ID of the user.
-  ///   * [password] Password of the user. Defaults to `""`.
-  ///   * [displayName] Display name of the user. Defaults to `""`.
-  ///   * [email] Email of the user. Defaults to `""`.
-  ///   * [groups] Groups of the user. Defaults to `[]`.
-  ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
-  ///   * [quota] Quota of the user. Defaults to `""`.
-  ///   * [language] Language of the user. Defaults to `""`.
-  ///   * [manager] Manager of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2445,28 +2339,12 @@ class $UsersClient {
   ///  * [$addUser_Request] for the request send by this method.
   ///  * [$addUser_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersAddUserResponseApplicationJson, void>> addUser({
-    required String userid,
-    String? password,
-    String? displayName,
-    String? email,
-    BuiltList<String>? groups,
-    BuiltList<String>? subadmin,
-    String? quota,
-    String? language,
-    String? manager,
+    required UsersAddUserRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $addUser_Request(
-      userid: userid,
-      password: password,
-      displayName: displayName,
-      email: email,
-      groups: groups,
-      subadmin: subadmin,
-      quota: quota,
-      language: language,
-      manager: manager,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2493,9 +2371,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2506,24 +2381,10 @@ class $UsersClient {
   ///  * [$getUsersDetails_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getUsersDetails_Request({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetUsersDetailsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    var $search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
-    $search ??= '';
-    _parameters['search'] = $search;
-
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/users/details';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2544,10 +2405,24 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(UsersGetUsersDetailsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              UsersGetUsersDetailsRequestApplicationJson(),
+              specifiedType: const FullType(UsersGetUsersDetailsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -2557,9 +2432,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for. Defaults to `""`.
-  ///   * [limit] Limit the amount of groups returned.
-  ///   * [offset] Offset for searching for groups. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2569,16 +2441,12 @@ class $UsersClient {
   ///  * [$getUsersDetails_Request] for the request send by this method.
   ///  * [$getUsersDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
-    String? search,
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetUsersDetailsRequestApplicationJson? $body,
   }) async {
     final _request = $getUsersDetails_Request(
-      search: search,
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2605,8 +2473,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Limit the amount of users returned.
-  ///   * [offset] Offset. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2617,19 +2483,10 @@ class $UsersClient {
   ///  * [$getDisabledUsersDetails_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getDisabledUsersDetails_Request({
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetDisabledUsersDetailsRequestApplicationJson? $body,
   }) {
-    final _parameters = <String, Object?>{};
-    final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    _parameters['limit'] = $limit;
-
-    var $offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    $offset ??= 0;
-    _parameters['offset'] = $offset;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/users/disabled';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2650,10 +2507,24 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(UsersGetDisabledUsersDetailsRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              UsersGetDisabledUsersDetailsRequestApplicationJson(),
+              specifiedType: const FullType(UsersGetDisabledUsersDetailsRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -2663,8 +2534,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [limit] Limit the amount of users returned.
-  ///   * [offset] Offset. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2674,14 +2543,12 @@ class $UsersClient {
   ///  * [$getDisabledUsersDetails_Request] for the request send by this method.
   ///  * [$getDisabledUsersDetails_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
-    int? limit,
-    int? offset,
     bool? oCSAPIRequest,
+    UsersGetDisabledUsersDetailsRequestApplicationJson? $body,
   }) async {
     final _request = $getDisabledUsersDetails_Request(
-      limit: limit,
-      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2708,8 +2575,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [location] Location of the phone number (for country code).
-  ///   * [search] Phone numbers to search for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2721,26 +2586,10 @@ class $UsersClient {
   ///  * [$searchByPhoneNumbers_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $searchByPhoneNumbers_Request({
-    required String location,
-    required ContentString<BuiltMap<String, BuiltList<String>>> search,
+    required UsersSearchByPhoneNumbersRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, Object?>{};
-    final $location = _$jsonSerializers.serialize(location, specifiedType: const FullType(String));
-    _parameters['location'] = $location;
-
-    final $search = _$jsonSerializers.serialize(
-      search,
-      specifiedType: const FullType(ContentString, [
-        FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-      ]),
-    );
-    _parameters['search'] = $search;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/users/search/by-phone';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2761,10 +2610,17 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UsersSearchByPhoneNumbersRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -2774,8 +2630,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [location] Location of the phone number (for country code).
-  ///   * [search] Phone numbers to search for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2786,14 +2640,12 @@ class $UsersClient {
   ///  * [$searchByPhoneNumbers_Request] for the request send by this method.
   ///  * [$searchByPhoneNumbers_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
-    required String location,
-    required ContentString<BuiltMap<String, BuiltList<String>>> search,
+    required UsersSearchByPhoneNumbersRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $searchByPhoneNumbers_Request(
-      location: location,
-      search: search,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2834,8 +2686,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -2858,9 +2710,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -2914,8 +2766,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated.
-  ///   * [value] New value for the key.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2927,22 +2777,15 @@ class $UsersClient {
   ///  * [$editUser_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $editUser_Request({
-    required String key,
-    required String value,
     required String userId,
+    required UsersEditUserRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
-
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2963,10 +2806,13 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json
+        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(UsersEditUserRequestApplicationJson)));
     return _request;
   }
 
@@ -2978,8 +2824,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated.
-  ///   * [value] New value for the key.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -2990,16 +2834,14 @@ class $UsersClient {
   ///  * [$editUser_Request] for the request send by this method.
   ///  * [$editUser_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersEditUserResponseApplicationJson, void>> editUser({
-    required String key,
-    required String value,
     required String userId,
+    required UsersEditUserRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $editUser_Request(
-      key: key,
-      value: value,
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -3043,8 +2885,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3067,9 +2909,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3155,9 +2997,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3238,9 +3080,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3305,8 +3147,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3329,9 +3171,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3386,8 +3228,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated.
-  ///   * [value] New value for the key.
   ///   * [userId] ID of the user.
   ///   * [collectionName] Collection to update.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3400,32 +3240,24 @@ class $UsersClient {
   ///  * [$editUserMultiValue_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $editUserMultiValue_Request({
-    required String key,
-    required String value,
     required String userId,
     required String collectionName,
+    required UsersEditUserMultiValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $key = _$jsonSerializers.serialize(key, specifiedType: const FullType(String));
-    _parameters['key'] = $key;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $value = _$jsonSerializers.serialize(value, specifiedType: const FullType(String));
-    _parameters['value'] = $value;
-
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    final $collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
+    final __collectionName = _$jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
     _i5.checkString(
-      $collectionName,
+      __collectionName,
       'collectionName',
       pattern: RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
     );
-    _parameters['collectionName'] = $collectionName;
+    _parameters['collectionName'] = __collectionName;
 
-    final _path =
-        _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -3446,10 +3278,17 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UsersEditUserMultiValueRequestApplicationJson),
+      ),
+    );
     return _request;
   }
 
@@ -3461,8 +3300,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated.
-  ///   * [value] New value for the key.
   ///   * [userId] ID of the user.
   ///   * [collectionName] Collection to update.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
@@ -3474,18 +3311,16 @@ class $UsersClient {
   ///  * [$editUserMultiValue_Request] for the request send by this method.
   ///  * [$editUserMultiValue_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersEditUserMultiValueResponseApplicationJson, void>> editUserMultiValue({
-    required String key,
-    required String value,
     required String userId,
     required String collectionName,
+    required UsersEditUserMultiValueRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $editUserMultiValue_Request(
-      key: key,
-      value: value,
       userId: userId,
       collectionName: collectionName,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -3529,8 +3364,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3553,9 +3388,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3627,8 +3462,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3651,9 +3486,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3725,8 +3560,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3749,9 +3584,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3821,8 +3656,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -3845,9 +3680,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -3902,7 +3737,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group. Defaults to `""`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3915,18 +3749,14 @@ class $UsersClient {
   @_i2.experimental
   _i3.Request $addToGroup_Request({
     required String userId,
-    String? groupid,
     bool? oCSAPIRequest,
+    UsersAddToGroupRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    var $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    $groupid ??= '';
-    _parameters['groupid'] = $groupid;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -3947,10 +3777,21 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize($body, specifiedType: const FullType(UsersAddToGroupRequestApplicationJson)),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              UsersAddToGroupRequestApplicationJson(),
+              specifiedType: const FullType(UsersAddToGroupRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -3962,7 +3803,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group. Defaults to `""`.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -3974,13 +3814,13 @@ class $UsersClient {
   ///  * [$addToGroup_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required String userId,
-    String? groupid,
     bool? oCSAPIRequest,
+    UsersAddToGroupRequestApplicationJson? $body,
   }) async {
     final _request = $addToGroup_Request(
       userId: userId,
-      groupid: groupid,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4009,7 +3849,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4021,18 +3860,15 @@ class $UsersClient {
   ///  * [$removeFromGroup_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $removeFromGroup_Request({
-    required String groupid,
     required String userId,
+    required UsersRemoveFromGroupRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $groupid = _$jsonSerializers.serialize(groupid, specifiedType: const FullType(String));
-    _parameters['groupid'] = $groupid;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
-
-    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -4053,10 +3889,14 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(UsersRemoveFromGroupRequestApplicationJson)),
+    );
     return _request;
   }
 
@@ -4068,7 +3908,6 @@ class $UsersClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group.
   ///   * [userId] ID of the user.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
@@ -4079,14 +3918,14 @@ class $UsersClient {
   ///  * [$removeFromGroup_Request] for the request send by this method.
   ///  * [$removeFromGroup_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
-    required String groupid,
     required String userId,
+    required UsersRemoveFromGroupRequestApplicationJson $body,
     bool? oCSAPIRequest,
   }) async {
     final _request = $removeFromGroup_Request(
-      groupid: groupid,
       userId: userId,
       oCSAPIRequest: oCSAPIRequest,
+      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4130,8 +3969,8 @@ class $UsersClient {
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
-    final $userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    _parameters['userId'] = $userId;
+    final __userId = _$jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    _parameters['userId'] = __userId;
 
     final _path = _i6.UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
@@ -4154,9 +3993,9 @@ class $UsersClient {
     }
 
 // coverage:ignore-end
-    var $oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert($oCSAPIRequest);
+    var __oCSAPIRequest = _$jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    __oCSAPIRequest ??= true;
+    _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     return _request;
   }
@@ -4635,6 +4474,69 @@ abstract class AppConfigGetKeysResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $AppConfigSetValueRequestApplicationJsonInterface {
+  /// New value for the key.
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$AppConfigSetValueRequestApplicationJsonInterfaceBuilder].
+  $AppConfigSetValueRequestApplicationJsonInterface rebuild(
+    void Function($AppConfigSetValueRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$AppConfigSetValueRequestApplicationJsonInterfaceBuilder].
+  $AppConfigSetValueRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppConfigSetValueRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppConfigSetValueRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class AppConfigSetValueRequestApplicationJson
+    implements
+        $AppConfigSetValueRequestApplicationJsonInterface,
+        Built<AppConfigSetValueRequestApplicationJson, AppConfigSetValueRequestApplicationJsonBuilder> {
+  /// Creates a new AppConfigSetValueRequestApplicationJson object using the builder pattern.
+  factory AppConfigSetValueRequestApplicationJson([void Function(AppConfigSetValueRequestApplicationJsonBuilder)? b]) =
+      _$AppConfigSetValueRequestApplicationJson;
+
+  // coverage:ignore-start
+  const AppConfigSetValueRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory AppConfigSetValueRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for AppConfigSetValueRequestApplicationJson.
+  static Serializer<AppConfigSetValueRequestApplicationJson> get serializer =>
+      _$appConfigSetValueRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppConfigSetValueRequestApplicationJsonBuilder b) {
+    $AppConfigSetValueRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppConfigSetValueRequestApplicationJsonBuilder b) {
+    $AppConfigSetValueRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $AppConfigSetValueResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -4758,6 +4660,68 @@ abstract class AppConfigSetValueResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(AppConfigSetValueResponseApplicationJsonBuilder b) {
     $AppConfigSetValueResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $AppsGetAppsRequestApplicationJsonInterface {
+  /// Filter for enabled or disabled apps.
+  String? get filter;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$AppsGetAppsRequestApplicationJsonInterfaceBuilder].
+  $AppsGetAppsRequestApplicationJsonInterface rebuild(
+    void Function($AppsGetAppsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$AppsGetAppsRequestApplicationJsonInterfaceBuilder].
+  $AppsGetAppsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($AppsGetAppsRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($AppsGetAppsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class AppsGetAppsRequestApplicationJson
+    implements
+        $AppsGetAppsRequestApplicationJsonInterface,
+        Built<AppsGetAppsRequestApplicationJson, AppsGetAppsRequestApplicationJsonBuilder> {
+  /// Creates a new AppsGetAppsRequestApplicationJson object using the builder pattern.
+  factory AppsGetAppsRequestApplicationJson([void Function(AppsGetAppsRequestApplicationJsonBuilder)? b]) =
+      _$AppsGetAppsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const AppsGetAppsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory AppsGetAppsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for AppsGetAppsRequestApplicationJson.
+  static Serializer<AppsGetAppsRequestApplicationJson> get serializer => _$appsGetAppsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AppsGetAppsRequestApplicationJsonBuilder b) {
+    $AppsGetAppsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(AppsGetAppsRequestApplicationJsonBuilder b) {
+    $AppsGetAppsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -5454,6 +5418,89 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $GroupsGetGroupsRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to search for.
+  String get search;
+
+  /// Limit the amount of groups returned.
+  int? get limit;
+
+  /// Offset for searching for groups.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GroupsGetGroupsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupsRequestApplicationJsonInterface rebuild(
+    void Function($GroupsGetGroupsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GroupsGetGroupsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class GroupsGetGroupsRequestApplicationJson
+    implements
+        $GroupsGetGroupsRequestApplicationJsonInterface,
+        Built<GroupsGetGroupsRequestApplicationJson, GroupsGetGroupsRequestApplicationJsonBuilder> {
+  /// Creates a new GroupsGetGroupsRequestApplicationJson object using the builder pattern.
+  factory GroupsGetGroupsRequestApplicationJson([void Function(GroupsGetGroupsRequestApplicationJsonBuilder)? b]) =
+      _$GroupsGetGroupsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const GroupsGetGroupsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetGroupsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetGroupsRequestApplicationJson.
+  static Serializer<GroupsGetGroupsRequestApplicationJson> get serializer =>
+      _$groupsGetGroupsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupsRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface {
   BuiltList<String> get groups;
 
@@ -5828,6 +5875,90 @@ abstract class GroupsGetGroupResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(GroupsGetGroupResponseApplicationJsonBuilder b) {
     $GroupsGetGroupResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $GroupsGetGroupsDetailsRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to search for.
+  String get search;
+
+  /// Limit the amount of groups returned.
+  int? get limit;
+
+  /// Offset for searching for groups.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupsDetailsRequestApplicationJsonInterface rebuild(
+    void Function($GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class GroupsGetGroupsDetailsRequestApplicationJson
+    implements
+        $GroupsGetGroupsDetailsRequestApplicationJsonInterface,
+        Built<GroupsGetGroupsDetailsRequestApplicationJson, GroupsGetGroupsDetailsRequestApplicationJsonBuilder> {
+  /// Creates a new GroupsGetGroupsDetailsRequestApplicationJson object using the builder pattern.
+  factory GroupsGetGroupsDetailsRequestApplicationJson([
+    void Function(GroupsGetGroupsDetailsRequestApplicationJsonBuilder)? b,
+  ]) = _$GroupsGetGroupsDetailsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const GroupsGetGroupsDetailsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetGroupsDetailsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetGroupsDetailsRequestApplicationJson.
+  static Serializer<GroupsGetGroupsDetailsRequestApplicationJson> get serializer =>
+      _$groupsGetGroupsDetailsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupsDetailsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupsDetailsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupsDetailsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupsDetailsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -6276,6 +6407,91 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(GroupsGetGroupUsersResponseApplicationJsonBuilder b) {
     $GroupsGetGroupUsersResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $GroupsGetGroupUsersDetailsRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to search for.
+  String get search;
+
+  /// Limit the amount of groups returned.
+  int? get limit;
+
+  /// Offset for searching for groups.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupUsersDetailsRequestApplicationJsonInterface rebuild(
+    void Function($GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class GroupsGetGroupUsersDetailsRequestApplicationJson
+    implements
+        $GroupsGetGroupUsersDetailsRequestApplicationJsonInterface,
+        Built<GroupsGetGroupUsersDetailsRequestApplicationJson,
+            GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder> {
+  /// Creates a new GroupsGetGroupUsersDetailsRequestApplicationJson object using the builder pattern.
+  factory GroupsGetGroupUsersDetailsRequestApplicationJson([
+    void Function(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder)? b,
+  ]) = _$GroupsGetGroupUsersDetailsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const GroupsGetGroupUsersDetailsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory GroupsGetGroupUsersDetailsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for GroupsGetGroupUsersDetailsRequestApplicationJson.
+  static Serializer<GroupsGetGroupUsersDetailsRequestApplicationJson> get serializer =>
+      _$groupsGetGroupUsersDetailsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersDetailsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder b) {
+    $GroupsGetGroupUsersDetailsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -6767,6 +6983,70 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $PreferencesSetPreferenceRequestApplicationJsonInterface {
+  /// New value.
+  String get configValue;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder].
+  $PreferencesSetPreferenceRequestApplicationJsonInterface rebuild(
+    void Function($PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder].
+  $PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetPreferenceRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PreferencesSetPreferenceRequestApplicationJson
+    implements
+        $PreferencesSetPreferenceRequestApplicationJsonInterface,
+        Built<PreferencesSetPreferenceRequestApplicationJson, PreferencesSetPreferenceRequestApplicationJsonBuilder> {
+  /// Creates a new PreferencesSetPreferenceRequestApplicationJson object using the builder pattern.
+  factory PreferencesSetPreferenceRequestApplicationJson([
+    void Function(PreferencesSetPreferenceRequestApplicationJsonBuilder)? b,
+  ]) = _$PreferencesSetPreferenceRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PreferencesSetPreferenceRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreferencesSetPreferenceRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreferencesSetPreferenceRequestApplicationJson.
+  static Serializer<PreferencesSetPreferenceRequestApplicationJson> get serializer =>
+      _$preferencesSetPreferenceRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetPreferenceRequestApplicationJsonBuilder b) {
+    $PreferencesSetPreferenceRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetPreferenceRequestApplicationJsonBuilder b) {
+    $PreferencesSetPreferenceRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $PreferencesSetPreferenceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -7024,6 +7304,71 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $PreferencesSetMultiplePreferencesRequestApplicationJsonInterface {
+  /// Key-value pairs of the preferences.
+  BuiltMap<String, String> get configs;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder].
+  $PreferencesSetMultiplePreferencesRequestApplicationJsonInterface rebuild(
+    void Function($PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder].
+  $PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesSetMultiplePreferencesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PreferencesSetMultiplePreferencesRequestApplicationJson
+    implements
+        $PreferencesSetMultiplePreferencesRequestApplicationJsonInterface,
+        Built<PreferencesSetMultiplePreferencesRequestApplicationJson,
+            PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder> {
+  /// Creates a new PreferencesSetMultiplePreferencesRequestApplicationJson object using the builder pattern.
+  factory PreferencesSetMultiplePreferencesRequestApplicationJson([
+    void Function(PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder)? b,
+  ]) = _$PreferencesSetMultiplePreferencesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PreferencesSetMultiplePreferencesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreferencesSetMultiplePreferencesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreferencesSetMultiplePreferencesRequestApplicationJson.
+  static Serializer<PreferencesSetMultiplePreferencesRequestApplicationJson> get serializer =>
+      _$preferencesSetMultiplePreferencesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder b) {
+    $PreferencesSetMultiplePreferencesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder b) {
+    $PreferencesSetMultiplePreferencesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $PreferencesSetMultiplePreferencesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -7149,6 +7494,71 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder b) {
     $PreferencesSetMultiplePreferencesResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface {
+  /// Keys to delete.
+  BuiltList<String> get configKeys;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder].
+  $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface rebuild(
+    void Function($PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder].
+  $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class PreferencesDeleteMultiplePreferenceRequestApplicationJson
+    implements
+        $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface,
+        Built<PreferencesDeleteMultiplePreferenceRequestApplicationJson,
+            PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder> {
+  /// Creates a new PreferencesDeleteMultiplePreferenceRequestApplicationJson object using the builder pattern.
+  factory PreferencesDeleteMultiplePreferenceRequestApplicationJson([
+    void Function(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder)? b,
+  ]) = _$PreferencesDeleteMultiplePreferenceRequestApplicationJson;
+
+  // coverage:ignore-start
+  const PreferencesDeleteMultiplePreferenceRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory PreferencesDeleteMultiplePreferenceRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for PreferencesDeleteMultiplePreferenceRequestApplicationJson.
+  static Serializer<PreferencesDeleteMultiplePreferenceRequestApplicationJson> get serializer =>
+      _$preferencesDeleteMultiplePreferenceRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder b) {
+    $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder b) {
+    $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -7411,6 +7821,69 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UsersAddSubAdminRequestApplicationJsonInterface {
+  /// ID of the group.
+  String get groupid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersAddSubAdminRequestApplicationJsonInterfaceBuilder].
+  $UsersAddSubAdminRequestApplicationJsonInterface rebuild(
+    void Function($UsersAddSubAdminRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersAddSubAdminRequestApplicationJsonInterfaceBuilder].
+  $UsersAddSubAdminRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddSubAdminRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddSubAdminRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersAddSubAdminRequestApplicationJson
+    implements
+        $UsersAddSubAdminRequestApplicationJsonInterface,
+        Built<UsersAddSubAdminRequestApplicationJson, UsersAddSubAdminRequestApplicationJsonBuilder> {
+  /// Creates a new UsersAddSubAdminRequestApplicationJson object using the builder pattern.
+  factory UsersAddSubAdminRequestApplicationJson([void Function(UsersAddSubAdminRequestApplicationJsonBuilder)? b]) =
+      _$UsersAddSubAdminRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersAddSubAdminRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersAddSubAdminRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersAddSubAdminRequestApplicationJson.
+  static Serializer<UsersAddSubAdminRequestApplicationJson> get serializer =>
+      _$usersAddSubAdminRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddSubAdminRequestApplicationJsonBuilder b) {
+    $UsersAddSubAdminRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddSubAdminRequestApplicationJsonBuilder b) {
+    $UsersAddSubAdminRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UsersAddSubAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -7533,6 +8006,70 @@ abstract class UsersAddSubAdminResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersAddSubAdminResponseApplicationJsonBuilder b) {
     $UsersAddSubAdminResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersRemoveSubAdminRequestApplicationJsonInterface {
+  /// ID of the group.
+  String get groupid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder].
+  $UsersRemoveSubAdminRequestApplicationJsonInterface rebuild(
+    void Function($UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder].
+  $UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersRemoveSubAdminRequestApplicationJson
+    implements
+        $UsersRemoveSubAdminRequestApplicationJsonInterface,
+        Built<UsersRemoveSubAdminRequestApplicationJson, UsersRemoveSubAdminRequestApplicationJsonBuilder> {
+  /// Creates a new UsersRemoveSubAdminRequestApplicationJson object using the builder pattern.
+  factory UsersRemoveSubAdminRequestApplicationJson([
+    void Function(UsersRemoveSubAdminRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersRemoveSubAdminRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersRemoveSubAdminRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersRemoveSubAdminRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersRemoveSubAdminRequestApplicationJson.
+  static Serializer<UsersRemoveSubAdminRequestApplicationJson> get serializer =>
+      _$usersRemoveSubAdminRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveSubAdminRequestApplicationJsonBuilder b) {
+    $UsersRemoveSubAdminRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveSubAdminRequestApplicationJsonBuilder b) {
+    $UsersRemoveSubAdminRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -7660,6 +8197,89 @@ abstract class UsersRemoveSubAdminResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersRemoveSubAdminResponseApplicationJsonBuilder b) {
     $UsersRemoveSubAdminResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetUsersRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to search for.
+  String get search;
+
+  /// Limit the amount of groups returned.
+  int? get limit;
+
+  /// Offset for searching for groups.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetUsersRequestApplicationJsonInterfaceBuilder].
+  $UsersGetUsersRequestApplicationJsonInterface rebuild(
+    void Function($UsersGetUsersRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetUsersRequestApplicationJsonInterfaceBuilder].
+  $UsersGetUsersRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersGetUsersRequestApplicationJson
+    implements
+        $UsersGetUsersRequestApplicationJsonInterface,
+        Built<UsersGetUsersRequestApplicationJson, UsersGetUsersRequestApplicationJsonBuilder> {
+  /// Creates a new UsersGetUsersRequestApplicationJson object using the builder pattern.
+  factory UsersGetUsersRequestApplicationJson([void Function(UsersGetUsersRequestApplicationJsonBuilder)? b]) =
+      _$UsersGetUsersRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetUsersRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetUsersRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetUsersRequestApplicationJson.
+  static Serializer<UsersGetUsersRequestApplicationJson> get serializer =>
+      _$usersGetUsersRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersRequestApplicationJsonBuilder b) {
+    $UsersGetUsersRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersRequestApplicationJsonBuilder b) {
+    $UsersGetUsersRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -7853,6 +8473,137 @@ abstract class UsersGetUsersResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UsersAddUserRequestApplicationJsonInterface {
+  static final _$password = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$displayName = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$email = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$groups = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  static final _$subadmin = _$jsonSerializers.deserialize(
+    const [],
+    specifiedType: const FullType(BuiltList, [FullType(String)]),
+  )! as BuiltList<String>;
+
+  static final _$quota = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$language = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// ID of the user.
+  String get userid;
+
+  /// Password of the user.
+  String get password;
+
+  /// Display name of the user.
+  String get displayName;
+
+  /// Email of the user.
+  String get email;
+
+  /// Groups of the user.
+  BuiltList<String> get groups;
+
+  /// Groups where the user is subadmin.
+  BuiltList<String> get subadmin;
+
+  /// Quota of the user.
+  String get quota;
+
+  /// Language of the user.
+  String get language;
+
+  /// Manager of the user.
+  String? get manager;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersAddUserRequestApplicationJsonInterfaceBuilder].
+  $UsersAddUserRequestApplicationJsonInterface rebuild(
+    void Function($UsersAddUserRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersAddUserRequestApplicationJsonInterfaceBuilder].
+  $UsersAddUserRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddUserRequestApplicationJsonInterfaceBuilder b) {
+    b.password = _$password;
+    b.displayName = _$displayName;
+    b.email = _$email;
+    b.groups.replace(_$groups);
+    b.subadmin.replace(_$subadmin);
+    b.quota = _$quota;
+    b.language = _$language;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddUserRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersAddUserRequestApplicationJson
+    implements
+        $UsersAddUserRequestApplicationJsonInterface,
+        Built<UsersAddUserRequestApplicationJson, UsersAddUserRequestApplicationJsonBuilder> {
+  /// Creates a new UsersAddUserRequestApplicationJson object using the builder pattern.
+  factory UsersAddUserRequestApplicationJson([void Function(UsersAddUserRequestApplicationJsonBuilder)? b]) =
+      _$UsersAddUserRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersAddUserRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersAddUserRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersAddUserRequestApplicationJson.
+  static Serializer<UsersAddUserRequestApplicationJson> get serializer =>
+      _$usersAddUserRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddUserRequestApplicationJsonBuilder b) {
+    $UsersAddUserRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddUserRequestApplicationJsonBuilder b) {
+    $UsersAddUserRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UsersAddUserResponseApplicationJson_Ocs_DataInterface {
   String get id;
 
@@ -8037,6 +8788,90 @@ abstract class UsersAddUserResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersAddUserResponseApplicationJsonBuilder b) {
     $UsersAddUserResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetUsersDetailsRequestApplicationJsonInterface {
+  static final _$search = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Text to search for.
+  String get search;
+
+  /// Limit the amount of groups returned.
+  int? get limit;
+
+  /// Offset for searching for groups.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $UsersGetUsersDetailsRequestApplicationJsonInterface rebuild(
+    void Function($UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder b) {
+    b.search = _$search;
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersGetUsersDetailsRequestApplicationJson
+    implements
+        $UsersGetUsersDetailsRequestApplicationJsonInterface,
+        Built<UsersGetUsersDetailsRequestApplicationJson, UsersGetUsersDetailsRequestApplicationJsonBuilder> {
+  /// Creates a new UsersGetUsersDetailsRequestApplicationJson object using the builder pattern.
+  factory UsersGetUsersDetailsRequestApplicationJson([
+    void Function(UsersGetUsersDetailsRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersGetUsersDetailsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetUsersDetailsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetUsersDetailsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetUsersDetailsRequestApplicationJson.
+  static Serializer<UsersGetUsersDetailsRequestApplicationJson> get serializer =>
+      _$usersGetUsersDetailsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetUsersDetailsRequestApplicationJsonBuilder b) {
+    $UsersGetUsersDetailsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetUsersDetailsRequestApplicationJsonBuilder b) {
+    $UsersGetUsersDetailsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -8297,6 +9132,82 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersGetUsersDetailsResponseApplicationJsonBuilder b) {
     $UsersGetUsersDetailsResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersGetDisabledUsersDetailsRequestApplicationJsonInterface {
+  static final _$offset = _$jsonSerializers.deserialize(
+    0,
+    specifiedType: const FullType(int),
+  )! as int;
+
+  /// Limit the amount of users returned.
+  int? get limit;
+
+  /// Offset.
+  int get offset;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $UsersGetDisabledUsersDetailsRequestApplicationJsonInterface rebuild(
+    void Function($UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder].
+  $UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder b) {
+    b.offset = _$offset;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersGetDisabledUsersDetailsRequestApplicationJson
+    implements
+        $UsersGetDisabledUsersDetailsRequestApplicationJsonInterface,
+        Built<UsersGetDisabledUsersDetailsRequestApplicationJson,
+            UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder> {
+  /// Creates a new UsersGetDisabledUsersDetailsRequestApplicationJson object using the builder pattern.
+  factory UsersGetDisabledUsersDetailsRequestApplicationJson([
+    void Function(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersGetDisabledUsersDetailsRequestApplicationJson.
+  static Serializer<UsersGetDisabledUsersDetailsRequestApplicationJson> get serializer =>
+      _$usersGetDisabledUsersDetailsRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder b) {
+    $UsersGetDisabledUsersDetailsRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder b) {
+    $UsersGetDisabledUsersDetailsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -8563,6 +9474,73 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UsersSearchByPhoneNumbersRequestApplicationJsonInterface {
+  /// Location of the phone number (for country code).
+  String get location;
+
+  /// Phone numbers to search for.
+  BuiltMap<String, BuiltList<String>> get search;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder].
+  $UsersSearchByPhoneNumbersRequestApplicationJsonInterface rebuild(
+    void Function($UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder].
+  $UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersSearchByPhoneNumbersRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersSearchByPhoneNumbersRequestApplicationJson
+    implements
+        $UsersSearchByPhoneNumbersRequestApplicationJsonInterface,
+        Built<UsersSearchByPhoneNumbersRequestApplicationJson, UsersSearchByPhoneNumbersRequestApplicationJsonBuilder> {
+  /// Creates a new UsersSearchByPhoneNumbersRequestApplicationJson object using the builder pattern.
+  factory UsersSearchByPhoneNumbersRequestApplicationJson([
+    void Function(UsersSearchByPhoneNumbersRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersSearchByPhoneNumbersRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersSearchByPhoneNumbersRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersSearchByPhoneNumbersRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersSearchByPhoneNumbersRequestApplicationJson.
+  static Serializer<UsersSearchByPhoneNumbersRequestApplicationJson> get serializer =>
+      _$usersSearchByPhoneNumbersRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersSearchByPhoneNumbersRequestApplicationJsonBuilder b) {
+    $UsersSearchByPhoneNumbersRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersSearchByPhoneNumbersRequestApplicationJsonBuilder b) {
+    $UsersSearchByPhoneNumbersRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UsersSearchByPhoneNumbersResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, String> get data;
@@ -8813,6 +9791,72 @@ abstract class UsersGetUserResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersGetUserResponseApplicationJsonBuilder b) {
     $UsersGetUserResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersEditUserRequestApplicationJsonInterface {
+  /// Key that will be updated.
+  String get key;
+
+  /// New value for the key.
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersEditUserRequestApplicationJsonInterfaceBuilder].
+  $UsersEditUserRequestApplicationJsonInterface rebuild(
+    void Function($UsersEditUserRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersEditUserRequestApplicationJsonInterfaceBuilder].
+  $UsersEditUserRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersEditUserRequestApplicationJson
+    implements
+        $UsersEditUserRequestApplicationJsonInterface,
+        Built<UsersEditUserRequestApplicationJson, UsersEditUserRequestApplicationJsonBuilder> {
+  /// Creates a new UsersEditUserRequestApplicationJson object using the builder pattern.
+  factory UsersEditUserRequestApplicationJson([void Function(UsersEditUserRequestApplicationJsonBuilder)? b]) =
+      _$UsersEditUserRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersEditUserRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersEditUserRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersEditUserRequestApplicationJson.
+  static Serializer<UsersEditUserRequestApplicationJson> get serializer =>
+      _$usersEditUserRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserRequestApplicationJsonBuilder b) {
+    $UsersEditUserRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserRequestApplicationJsonBuilder b) {
+    $UsersEditUserRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -9449,6 +10493,73 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersGetEditableFieldsForUserResponseApplicationJsonBuilder b) {
     $UsersGetEditableFieldsForUserResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersEditUserMultiValueRequestApplicationJsonInterface {
+  /// Key that will be updated.
+  String get key;
+
+  /// New value for the key.
+  String get value;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder].
+  $UsersEditUserMultiValueRequestApplicationJsonInterface rebuild(
+    void Function($UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder].
+  $UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersEditUserMultiValueRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersEditUserMultiValueRequestApplicationJson
+    implements
+        $UsersEditUserMultiValueRequestApplicationJsonInterface,
+        Built<UsersEditUserMultiValueRequestApplicationJson, UsersEditUserMultiValueRequestApplicationJsonBuilder> {
+  /// Creates a new UsersEditUserMultiValueRequestApplicationJson object using the builder pattern.
+  factory UsersEditUserMultiValueRequestApplicationJson([
+    void Function(UsersEditUserMultiValueRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersEditUserMultiValueRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersEditUserMultiValueRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersEditUserMultiValueRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersEditUserMultiValueRequestApplicationJson.
+  static Serializer<UsersEditUserMultiValueRequestApplicationJson> get serializer =>
+      _$usersEditUserMultiValueRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersEditUserMultiValueRequestApplicationJsonBuilder b) {
+    $UsersEditUserMultiValueRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersEditUserMultiValueRequestApplicationJsonBuilder b) {
+    $UsersEditUserMultiValueRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -10151,6 +11262,77 @@ abstract class UsersGetUsersGroupsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+sealed class $UsersAddToGroupRequestApplicationJsonInterface {
+  static final _$groupid = _$jsonSerializers.deserialize(
+    '',
+    specifiedType: const FullType(String),
+  )! as String;
+
+  /// ID of the group.
+  String get groupid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersAddToGroupRequestApplicationJsonInterfaceBuilder].
+  $UsersAddToGroupRequestApplicationJsonInterface rebuild(
+    void Function($UsersAddToGroupRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersAddToGroupRequestApplicationJsonInterfaceBuilder].
+  $UsersAddToGroupRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersAddToGroupRequestApplicationJsonInterfaceBuilder b) {
+    b.groupid = _$groupid;
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersAddToGroupRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersAddToGroupRequestApplicationJson
+    implements
+        $UsersAddToGroupRequestApplicationJsonInterface,
+        Built<UsersAddToGroupRequestApplicationJson, UsersAddToGroupRequestApplicationJsonBuilder> {
+  /// Creates a new UsersAddToGroupRequestApplicationJson object using the builder pattern.
+  factory UsersAddToGroupRequestApplicationJson([void Function(UsersAddToGroupRequestApplicationJsonBuilder)? b]) =
+      _$UsersAddToGroupRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersAddToGroupRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersAddToGroupRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersAddToGroupRequestApplicationJson.
+  static Serializer<UsersAddToGroupRequestApplicationJson> get serializer =>
+      _$usersAddToGroupRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersAddToGroupRequestApplicationJsonBuilder b) {
+    $UsersAddToGroupRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersAddToGroupRequestApplicationJsonBuilder b) {
+    $UsersAddToGroupRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $UsersAddToGroupResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
@@ -10273,6 +11455,70 @@ abstract class UsersAddToGroupResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(UsersAddToGroupResponseApplicationJsonBuilder b) {
     $UsersAddToGroupResponseApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UsersRemoveFromGroupRequestApplicationJsonInterface {
+  /// ID of the group.
+  String get groupid;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder].
+  $UsersRemoveFromGroupRequestApplicationJsonInterface rebuild(
+    void Function($UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder].
+  $UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UsersRemoveFromGroupRequestApplicationJson
+    implements
+        $UsersRemoveFromGroupRequestApplicationJsonInterface,
+        Built<UsersRemoveFromGroupRequestApplicationJson, UsersRemoveFromGroupRequestApplicationJsonBuilder> {
+  /// Creates a new UsersRemoveFromGroupRequestApplicationJson object using the builder pattern.
+  factory UsersRemoveFromGroupRequestApplicationJson([
+    void Function(UsersRemoveFromGroupRequestApplicationJsonBuilder)? b,
+  ]) = _$UsersRemoveFromGroupRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UsersRemoveFromGroupRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UsersRemoveFromGroupRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UsersRemoveFromGroupRequestApplicationJson.
+  static Serializer<UsersRemoveFromGroupRequestApplicationJson> get serializer =>
+      _$usersRemoveFromGroupRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UsersRemoveFromGroupRequestApplicationJsonBuilder b) {
+    $UsersRemoveFromGroupRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UsersRemoveFromGroupRequestApplicationJsonBuilder b) {
+    $UsersRemoveFromGroupRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -11217,6 +12463,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(AppConfigGetKeysResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(AppConfigSetValueRequestApplicationJson),
+        AppConfigSetValueRequestApplicationJsonBuilder.new,
+      )
+      ..add(AppConfigSetValueRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(AppConfigSetValueResponseApplicationJson),
         AppConfigSetValueResponseApplicationJsonBuilder.new,
       )
@@ -11226,6 +12477,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         AppConfigSetValueResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigSetValueResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(AppsGetAppsRequestApplicationJson),
+        AppsGetAppsRequestApplicationJsonBuilder.new,
+      )
+      ..add(AppsGetAppsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppsResponseApplicationJson),
         AppsGetAppsResponseApplicationJsonBuilder.new,
@@ -11286,6 +12542,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(GroupsGetGroupsRequestApplicationJson),
+        GroupsGetGroupsRequestApplicationJsonBuilder.new,
+      )
+      ..add(GroupsGetGroupsRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(GroupsGetGroupsResponseApplicationJson),
         GroupsGetGroupsResponseApplicationJsonBuilder.new,
       )
@@ -11315,6 +12576,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(GroupsGetGroupsDetailsRequestApplicationJson),
+        GroupsGetGroupsDetailsRequestApplicationJsonBuilder.new,
+      )
+      ..add(GroupsGetGroupsDetailsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
         GroupsGetGroupsDetailsResponseApplicationJsonBuilder.new,
@@ -11349,6 +12615,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         GroupsGetGroupUsersResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupUsersResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(GroupsGetGroupUsersDetailsRequestApplicationJson),
+        GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder.new,
+      )
+      ..add(GroupsGetGroupUsersDetailsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
         GroupsGetGroupUsersDetailsResponseApplicationJsonBuilder.new,
@@ -11385,6 +12656,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
+        const FullType(PreferencesSetPreferenceRequestApplicationJson),
+        PreferencesSetPreferenceRequestApplicationJsonBuilder.new,
+      )
+      ..add(PreferencesSetPreferenceRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(PreferencesSetPreferenceResponseApplicationJson),
         PreferencesSetPreferenceResponseApplicationJsonBuilder.new,
       )
@@ -11405,16 +12681,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(PreferencesDeletePreferenceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(PreferencesSetMultiplePreferencesRequestApplicationJson),
+        PreferencesSetMultiplePreferencesRequestApplicationJsonBuilder.new,
+      )
+      ..add(PreferencesSetMultiplePreferencesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(String)]),
         MapBuilder<String, String>.new,
       )
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(String)]),
-        ]),
-        ContentStringBuilder<BuiltMap<String, String>>.new,
-      )
-      ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
         PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder.new,
@@ -11425,6 +12699,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         PreferencesSetMultiplePreferencesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(PreferencesDeleteMultiplePreferenceRequestApplicationJson),
+        PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder.new,
+      )
+      ..add(PreferencesDeleteMultiplePreferenceRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
         PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder.new,
@@ -11446,6 +12725,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(UsersAddSubAdminRequestApplicationJson),
+        UsersAddSubAdminRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersAddSubAdminRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UsersAddSubAdminResponseApplicationJson),
         UsersAddSubAdminResponseApplicationJsonBuilder.new,
       )
@@ -11456,6 +12740,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UsersAddSubAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
+        const FullType(UsersRemoveSubAdminRequestApplicationJson),
+        UsersRemoveSubAdminRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersRemoveSubAdminRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UsersRemoveSubAdminResponseApplicationJson),
         UsersRemoveSubAdminResponseApplicationJsonBuilder.new,
       )
@@ -11465,6 +12754,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersRemoveSubAdminResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersRemoveSubAdminResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetUsersRequestApplicationJson),
+        UsersGetUsersRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetUsersRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersResponseApplicationJson),
         UsersGetUsersResponseApplicationJsonBuilder.new,
@@ -11481,6 +12775,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UsersGetUsersResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(UsersAddUserRequestApplicationJson),
+        UsersAddUserRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersAddUserRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UsersAddUserResponseApplicationJson),
         UsersAddUserResponseApplicationJsonBuilder.new,
       )
@@ -11495,6 +12794,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersAddUserResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersAddUserResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetUsersDetailsRequestApplicationJson),
+        UsersGetUsersDetailsRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetUsersDetailsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson),
         UsersGetUsersDetailsResponseApplicationJsonBuilder.new,
@@ -11524,6 +12828,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsRequestApplicationJson),
+        UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
         UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder.new,
       )
@@ -11552,20 +12861,16 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
+        const FullType(UsersSearchByPhoneNumbersRequestApplicationJson),
+        UsersSearchByPhoneNumbersRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersSearchByPhoneNumbersRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(BuiltMap, [
           FullType(String),
           FullType(BuiltList, [FullType(String)]),
         ]),
         MapBuilder<String, BuiltList<String>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltMap, [
-            FullType(String),
-            FullType(BuiltList, [FullType(String)]),
-          ]),
-        ]),
-        ContentStringBuilder<BuiltMap<String, BuiltList<String>>>.new,
       )
       ..addBuilderFactory(
         const FullType(UsersSearchByPhoneNumbersResponseApplicationJson),
@@ -11587,6 +12892,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersGetUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUserResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersEditUserRequestApplicationJson),
+        UsersEditUserRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersEditUserRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserResponseApplicationJson),
         UsersEditUserResponseApplicationJsonBuilder.new,
@@ -11637,6 +12947,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersEditUserMultiValueRequestApplicationJson),
+        UsersEditUserMultiValueRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersEditUserMultiValueRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserMultiValueResponseApplicationJson),
         UsersEditUserMultiValueResponseApplicationJsonBuilder.new,
@@ -11693,6 +13008,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(UsersGetUsersGroupsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
+        const FullType(UsersAddToGroupRequestApplicationJson),
+        UsersAddToGroupRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersAddToGroupRequestApplicationJson.serializer)
+      ..addBuilderFactory(
         const FullType(UsersAddToGroupResponseApplicationJson),
         UsersAddToGroupResponseApplicationJsonBuilder.new,
       )
@@ -11702,6 +13022,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
         UsersAddToGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersAddToGroupResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersRemoveFromGroupRequestApplicationJson),
+        UsersRemoveFromGroupRequestApplicationJsonBuilder.new,
+      )
+      ..add(UsersRemoveFromGroupRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersRemoveFromGroupResponseApplicationJson),
         UsersRemoveFromGroupResponseApplicationJsonBuilder.new,

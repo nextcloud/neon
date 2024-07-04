@@ -8,7 +8,7 @@ import 'package:neon_framework/testing.dart';
 
 Account mockUserDetailsAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/cloud/user'): {
-        'get': (match, queryParameters) => Response(
+        'get': (match, bodyBytes) => Response(
               json.encode(
                 {
                   'ocs': {

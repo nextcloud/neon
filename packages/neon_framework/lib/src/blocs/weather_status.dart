@@ -127,7 +127,9 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
     await wrapAction(
       () async {
         final response = await account.client.weatherStatus.weatherStatus.setLocation(
-          address: address,
+          $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
+            (b) => b..address = address,
+          ),
         );
         location.add(Result.success(response.body.ocs.data));
       },
