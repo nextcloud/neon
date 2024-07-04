@@ -184,9 +184,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $generateNotification_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiGenerateNotificationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -292,10 +290,9 @@ class $EndpointClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listNotifications_Serializer();
-    final _rawResponse = _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
+    return _i1.ResponseConverter<EndpointListNotificationsResponseApplicationJson,
             EndpointEndpointListNotificationsHeaders>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$deleteAllNotifications_Request].
@@ -393,9 +390,8 @@ class $EndpointClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteAllNotifications_Serializer();
-    final _rawResponse = _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<EndpointDeleteAllNotificationsResponseApplicationJson, void>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$getNotification_Request].
@@ -500,9 +496,7 @@ class $EndpointClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNotification_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<EndpointGetNotificationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteNotification_Request].
@@ -609,9 +603,8 @@ class $EndpointClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteNotification_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<EndpointDeleteNotificationResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$confirmIdsForUser_Request].
@@ -718,9 +711,8 @@ class $EndpointClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $confirmIdsForUser_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<EndpointConfirmIdsForUserResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -834,9 +826,7 @@ class $PushClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $registerDevice_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PushRegisterDeviceResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PushRegisterDeviceResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeDevice_Request].
@@ -936,9 +926,7 @@ class $PushClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $removeDevice_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PushRemoveDeviceResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PushRemoveDeviceResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1046,9 +1034,7 @@ class $SettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $personal_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<SettingsPersonalResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<SettingsPersonalResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$admin_Request].
@@ -1150,9 +1136,7 @@ class $SettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $admin_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<SettingsAdminResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<SettingsAdminResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

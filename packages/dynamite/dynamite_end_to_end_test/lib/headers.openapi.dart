@@ -77,8 +77,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, GetHeaders>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, GetHeaders>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$withContentOperationId_Request].
@@ -123,8 +122,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $withContentOperationId_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, WithContentOperationIdHeaders>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, WithContentOperationIdHeaders>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getWithContent_Request].
@@ -169,8 +167,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getWithContent_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, GetWithContentHeaders>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, GetWithContentHeaders>(_serializer).convert(_response);
   }
 }
 

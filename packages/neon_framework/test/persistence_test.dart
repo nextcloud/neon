@@ -1,20 +1,16 @@
 // ignore_for_file: inference_failure_on_instance_creation, strict_raw_type, inference_failure_on_collection_literal
 
-import 'dart:convert';
-
 import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:cookie_store_conformance_tests/cookie_store_conformance_tests.dart' as cookie_jar_conformance;
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/sqlite_cookie_persistence.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
-import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:nextcloud/utils.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
-import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart' show Cookie;
 
 void main() {
@@ -48,32 +44,29 @@ void main() {
         var result = await cache.get(account, 'key');
         expect(result, isNull);
 
-        await cache.set(account, 'key', utf8.encode('value'), null);
+        await cache.set(account, 'key', http.Response('value', 200, headers: {'key': 'value'}));
         result = await cache.get(account, 'key');
-        expect(result?.value, equals(utf8.encode('value')));
+        expect(result?.statusCode, 200);
+        expect(result?.body, 'value');
+        expect(result?.headers, {'key': 'value'});
 
-        await cache.set(account, 'key', utf8.encode('upsert'), null);
+        await cache.set(account, 'key', http.Response('upsert', 201, headers: {'key': 'updated'}));
         result = await cache.get(account, 'key');
-        expect(result?.value, equals(utf8.encode('upsert')));
+        expect(result?.statusCode, 201);
+        expect(result?.body, 'upsert');
+        expect(result?.headers, {'key': 'updated'});
 
-        var parameters = const CacheParameters(etag: null, expires: null);
-        result = await cache.get(account, 'newKey');
-        expect(result?.parameters, isNull);
-
-        await cache.set(account, 'key', utf8.encode('value'), parameters);
+        await cache.set(account, 'key', http.Response('value', 200, headers: {'key': 'value'}));
         result = await cache.get(account, 'key');
-        expect(result?.parameters, equals(parameters));
+        expect(result?.statusCode, 200);
+        expect(result?.body, 'value');
+        expect(result?.headers, {'key': 'value'});
 
-        final now = tz.TZDateTime.now(tz.UTC);
-        parameters = CacheParameters(
-          etag: 'etag',
-          expires: now,
-        );
-
-        await cache.updateParameters(account, 'key', parameters);
+        await cache.updateHeaders(account, 'key', {'key': 'updated'});
         result = await cache.get(account, 'key');
-        expect(result?.parameters?.etag, 'etag');
-        expect(result?.parameters?.expires?.secondsSinceEpoch, now.secondsSinceEpoch);
+        expect(result?.statusCode, 200);
+        expect(result?.body, 'value');
+        expect(result?.headers, {'key': 'updated'});
       });
     });
 

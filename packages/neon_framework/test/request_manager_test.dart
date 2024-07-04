@@ -2,8 +2,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:built_value/serializer.dart';
-import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -27,6 +25,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(Uint8List(0));
+    registerFallbackValue(http.Response('', 200));
   });
 
   setUp(() {
@@ -82,7 +81,7 @@ void main() {
         group(entry.$1, () {
           test('wrap', () async {
             final subject = BehaviorSubject<Result<String>>();
-            final callback = MockCallbackFunction<Future<Uint8List>>();
+            final callback = MockCallbackFunction<Future<Response>>();
             when(callback.call).thenAnswer(
               (_) async => throw DynamiteStatusCodeException(http.Response('', entry.$2, headers: entry.$3)),
             );
@@ -92,9 +91,8 @@ void main() {
               cacheKey: 'key',
               subject: subject,
               request: () async => callback.call(),
+              converter: const BinaryResponseConverter(),
               unwrap: (deserialized) => base64.encode(deserialized),
-              serialize: (deserialized) => deserialized,
-              deserialize: (serialized) => serialized,
             );
 
             verify(callback.call).called(entry.$4);
@@ -122,10 +120,9 @@ void main() {
               cacheKey: 'key',
               subject: subject,
               getRequest: callback.call,
-              getCacheParameters: () async => const CacheParameters(
-                etag: null,
-                expires: null,
-              ),
+              getCacheHeaders: () async {
+                return {};
+              },
               unwrap: (data) => data,
             );
 
@@ -211,10 +208,9 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => utf8.encode('Test value'),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -235,10 +231,9 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () async => utf8.encode('Test value'),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -268,10 +263,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () async =>
+              Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -308,10 +303,10 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () async =>
+              Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
@@ -335,9 +330,8 @@ void main() {
           cacheKey: 'key',
           subject: subject,
           request: () async => throw ClientException(''),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -359,9 +353,8 @@ void main() {
           cacheKey: 'key',
           subject: subject,
           request: () async => throw ClientException(''),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
@@ -379,14 +372,14 @@ void main() {
         cache = MockRequestCache();
 
         when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value((value: utf8.encode('Cached value'), parameters: null)),
+          (_) => Future.value(http.Response('Cached value', 200)),
         );
 
-        when(() => cache.set(any(), any(), any(), any())).thenAnswer(
+        when(() => cache.set(any(), any(), any())).thenAnswer(
           (_) => Future.value(),
         );
 
-        when(() => cache.updateParameters(any(), any(), any())).thenAnswer(
+        when(() => cache.updateHeaders(any(), any(), any())).thenAnswer(
           (_) => Future.value(),
         );
 
@@ -410,15 +403,25 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null)).called(1);
+        verify(
+          () => cache.set(
+            account,
+            'key',
+            any(
+              that: isA<http.Response>()
+                  .having((response) => response.statusCode, 'statusCode', 200)
+                  .having((response) => response.body, 'body', 'Test value')
+                  .having((response) => response.headers, 'headers', <String, String>{}),
+            ),
+          ),
+        ).called(1);
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -436,15 +439,25 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null)).called(1);
+        verify(
+          () => cache.set(
+            account,
+            'key',
+            any(
+              that: isA<http.Response>()
+                  .having((response) => response.statusCode, 'statusCode', 200)
+                  .having((response) => response.body, 'body', 'Test value')
+                  .having((response) => response.headers, 'headers', <String, String>{}),
+            ),
+          ),
+        ).called(1);
       });
 
       test('timeout request', () async {
@@ -479,16 +492,15 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verifyNever(() => cache.set(any(), any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -521,16 +533,15 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.delayed(const Duration(milliseconds: 100), () => utf8.encode('Test value')),
+          request: () => Future.delayed(const Duration(milliseconds: 100), () => http.Response('Test value', 200)),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
           timeLimit: const Duration(milliseconds: 50),
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verifyNever(() => cache.set(any(), any(), any()));
       });
 
       test('throwing request', () async {
@@ -551,14 +562,13 @@ void main() {
           cacheKey: 'key',
           subject: subject,
           request: () async => throw ClientException(''),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verifyNever(() => cache.set(any(), any(), any()));
 
         subject = BehaviorSubject<Result<String>>.seeded(Result.success('Seed value'));
 
@@ -577,25 +587,24 @@ void main() {
           cacheKey: 'key',
           subject: subject,
           request: () async => throw ClientException(''),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verifyNever(() => cache.set(any(), any(), any()));
       });
 
       test('cached Expires', () async {
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            (
-              value: utf8.encode('Cached value'),
-              parameters: CacheParameters(
-                etag: null,
-                expires: tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)),
-              )
+            http.Response(
+              'Cached value',
+              200,
+              headers: {
+                'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1))),
+              },
             ),
           ),
         );
@@ -615,24 +624,23 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verifyNever(() => cache.set(any(), any(), any()));
 
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            (
-              value: utf8.encode('Cached value'),
-              parameters: CacheParameters(
-                etag: null,
-                expires: tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)),
-              )
+            http.Response(
+              'Cached value',
+              200,
+              headers: {
+                'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1))),
+              },
             ),
           ),
         );
@@ -653,40 +661,41 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
-        verify(() => cache.set(any(), any(), any(), any())).called(1);
+        verify(() => cache.set(any(), any(), any())).called(1);
       });
 
       test('cached ETag', () async {
-        final callback = MockCallbackFunction<Future<CacheParameters>>();
-        final newExpires = tz.TZDateTime.from(
-          DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
-          tz.UTC,
+        final callback = MockCallbackFunction<Future<Map<String, String>>>();
+        final newExpires = formatHttpDate(
+          tz.TZDateTime.from(
+            DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
+            tz.UTC,
+          ),
         );
 
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            (
-              value: utf8.encode('Cached value'),
-              parameters: const CacheParameters(
-                etag: 'a',
-                expires: null,
-              ),
+            http.Response(
+              'Cached value',
+              200,
+              headers: {
+                'etag': 'a',
+              },
             ),
           ),
         );
         when(callback.call).thenAnswer(
-          (_) async => CacheParameters(
-            etag: 'a',
-            expires: newExpires,
-          ),
+          (_) async => {
+            'etag': 'a',
+            'expires': newExpires,
+          },
         );
 
         var subject = BehaviorSubject<Result<String>>();
@@ -705,35 +714,34 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
-          getCacheParameters: () async => callback(),
+          getCacheHeaders: () async => callback(),
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.updateParameters(account, 'key', CacheParameters(etag: 'a', expires: newExpires))).called(1);
-        verifyNever(() => cache.set(any(), any(), any(), any()));
+        verify(() => cache.updateHeaders(account, 'key', {'etag': 'a', 'expires': newExpires})).called(1);
+        verifyNever(() => cache.set(any(), any(), any()));
 
         when(() => cache.get(any(), any())).thenAnswer(
           (_) => Future.value(
-            (
-              value: utf8.encode('Cached value'),
-              parameters: const CacheParameters(
-                etag: 'a',
-                expires: null,
-              ),
+            http.Response(
+              'Cached value',
+              200,
+              headers: {
+                'etag': 'a',
+              },
             ),
           ),
         );
         when(callback.call).thenAnswer(
-          (_) async => CacheParameters(
-            etag: 'b',
-            expires: newExpires,
-          ),
+          (_) async => {
+            'etag': 'b',
+            'expires': newExpires,
+          },
         );
 
         subject = BehaviorSubject<Result<String>>();
@@ -752,25 +760,37 @@ void main() {
           account: account,
           cacheKey: 'key',
           subject: subject,
-          request: () => Future.value(utf8.encode('Test value')),
+          request: () async => http.Response('Test value', 200),
+          converter: const BinaryResponseConverter(),
           unwrap: (deserialized) => base64.encode(deserialized),
-          serialize: (deserialized) => deserialized,
-          deserialize: (serialized) => serialized,
-          getCacheParameters: () async => callback(),
+          getCacheHeaders: () async => callback(),
         );
 
         await subject.close();
         verify(() => cache.get(account, 'key')).called(1);
         verify(callback.call).called(1);
-        verify(() => cache.set(account, 'key', utf8.encode('Test value'), null));
-        verifyNever(() => cache.updateParameters(any(), any(), any()));
+        verify(
+          () => cache.set(
+            account,
+            'key',
+            any(
+              that: isA<http.Response>()
+                  .having((response) => response.statusCode, 'statusCode', 200)
+                  .having((response) => response.body, 'body', 'Test value')
+                  .having((response) => response.headers, 'headers', <String, String>{}),
+            ),
+          ),
+        );
+        verifyNever(() => cache.updateHeaders(any(), any(), any()));
       });
 
       test('cache ETag and Expires', () async {
-        for (final (hours, isSet) in [(1, true), (-1, false)]) {
-          final newExpires = tz.TZDateTime.from(
-            DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(Duration(hours: hours)),
-            tz.UTC,
+        for (final offset in [1, -1]) {
+          final newExpires = formatHttpDate(
+            tz.TZDateTime.from(
+              DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(Duration(hours: offset)),
+              tz.UTC,
+            ),
           );
 
           final subject = BehaviorSubject<Result<String>>();
@@ -779,42 +799,26 @@ void main() {
             subject.stream,
             emitsInOrder([
               equals(Result<String>.loading()),
-              equals(Result('Cached value', null, isLoading: true, isCached: true)),
-              equals(Result.success('Test value')),
+              equals(Result(base64String('Cached value'), null, isLoading: true, isCached: true)),
+              equals(Result.success(base64String('Test value'))),
               emitsDone,
             ]),
           );
 
-          await RequestManager.instance.wrap<String, DynamiteResponse<String, Map<String, String>>>(
+          await RequestManager.instance.wrap<String, Uint8List>(
             account: account,
             cacheKey: 'key',
             subject: subject,
-            request: () async => DynamiteRawResponse<String, Map<String, String>>(
-              statusCode: 200,
-              body: 'Test value',
-              headers: const {},
-              rawHeaders: {
+            request: () async => http.Response(
+              'Test value',
+              200,
+              headers: {
                 'etag': 'a',
-                'expires': formatHttpDate(newExpires),
+                'expires': newExpires,
               },
             ),
-            unwrap: (rawResponse) => rawResponse.body,
-            serialize: (rawResponse) => utf8.encode(rawResponse.body),
-            deserialize: (data) {
-              final json = {
-                'statusCode': 200,
-                'body': utf8.decode(data),
-                'headers': <String, String>{},
-              };
-
-              final serializer = DynamiteSerializer<String, Map<String, String>>(
-                bodyType: const FullType(String),
-                headersType: const FullType(Map, [FullType(String), FullType(String)]),
-                serializers: Serializers(),
-              );
-
-              return RawResponseDecoder<String, Map<String, String>>(serializer).convert(json);
-            },
+            converter: const BinaryResponseConverter(),
+            unwrap: (deserialized) => base64.encode(deserialized),
           );
 
           await subject.close();
@@ -823,8 +827,15 @@ void main() {
             () => cache.set(
               account,
               'key',
-              utf8.encode('Test value'),
-              CacheParameters(etag: 'a', expires: isSet ? newExpires : null),
+              any(
+                that: isA<http.Response>()
+                    .having((response) => response.statusCode, 'statusCode', 200)
+                    .having((response) => response.body, 'body', 'Test value')
+                    .having((response) => response.headers, 'headers', <String, String>{
+                  'etag': 'a',
+                  'expires': newExpires,
+                }),
+              ),
             ),
           ).called(1);
         }

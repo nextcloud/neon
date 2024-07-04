@@ -154,9 +154,8 @@ class $DeclarativeSettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setValue_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DeclarativeSettingsSetValueResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getForms_Request].
@@ -239,9 +238,8 @@ class $DeclarativeSettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getForms_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DeclarativeSettingsGetFormsResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 
@@ -319,9 +317,7 @@ class $LogSettingsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $download_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, LogSettingsLogSettingsDownloadHeaders>(_serializer).convert(_response);
   }
 }
 

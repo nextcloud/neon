@@ -143,9 +143,7 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setMode_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusSetModeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusSetModeResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$usePersonalAddress_Request].
@@ -226,10 +224,8 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $usePersonalAddress_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getLocation_Request].
@@ -310,9 +306,7 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getLocation_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusGetLocationResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusGetLocationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setLocation_Request].
@@ -412,9 +406,7 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setLocation_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusSetLocationResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusSetLocationResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getForecast_Request].
@@ -497,9 +489,7 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getForecast_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusGetForecastResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusGetForecastResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getFavorites_Request].
@@ -580,9 +570,8 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getFavorites_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusGetFavoritesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusGetFavoritesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setFavorites_Request].
@@ -675,9 +664,8 @@ class $WeatherStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setFavorites_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<WeatherStatusSetFavoritesResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

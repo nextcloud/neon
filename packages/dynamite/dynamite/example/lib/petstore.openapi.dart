@@ -130,8 +130,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findPets_Serializer();
-    final _rawResponse = _i1.ResponseConverter<BuiltList<Pet>, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<BuiltList<Pet>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$addPet_Request].
@@ -186,8 +185,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addPet_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$findPetById_Request].
@@ -250,8 +248,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findPetById_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Pet, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deletePet_Request].
@@ -313,8 +310,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deletePet_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

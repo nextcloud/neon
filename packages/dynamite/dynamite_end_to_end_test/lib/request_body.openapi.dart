@@ -99,8 +99,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $post_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getObject_Request].
@@ -155,8 +154,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getObject_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$putObject_Request].
@@ -211,8 +209,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $putObject_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$postObject_Request].
@@ -260,8 +257,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $postObject_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$deleteObject_Request].
@@ -312,8 +308,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteObject_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getBinary_Request].
@@ -360,8 +355,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBinary_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$putBinary_Request].
@@ -408,8 +402,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $putBinary_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$postBinary_Request].
@@ -456,8 +449,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $postBinary_Serializer();
-    final _rawResponse = _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
 

@@ -72,8 +72,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $$get_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$put_Request].
@@ -120,8 +119,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $put_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$post_Request].
@@ -169,8 +167,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $post_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$patch_Request].
@@ -217,8 +214,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $patch_Serializer();
-    final _rawResponse = _i1.ResponseConverter<String, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
   }
 }
 

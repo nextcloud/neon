@@ -16,14 +16,6 @@ class DynamiteResponse<B, H> {
     this.headers,
   );
 
-  /// Converts the [rawResponse] to a generic dynamite response to free the
-  /// resources taken by the raw parameters.
-  factory DynamiteResponse.fromRawResponse(DynamiteRawResponse<B, H> rawResponse) => DynamiteResponse(
-        rawResponse.statusCode,
-        rawResponse.body,
-        rawResponse.headers,
-      );
-
   /// The status code of the response.
   final int statusCode;
 
@@ -35,37 +27,6 @@ class DynamiteResponse<B, H> {
 
   @override
   String toString() => 'DynamiteResponse(data: $body, headers: $headers, statusCode: $statusCode)';
-}
-
-/// Raw response that can be efficiently serialized into a json Map.
-class DynamiteRawResponse<B, H> extends DynamiteResponse<B, H> {
-  /// Creates a new raw dynamite response.
-  const DynamiteRawResponse({
-    required int statusCode,
-    required B body,
-    required H headers,
-    this.rawHeaders,
-    this.rawBody,
-  }) : super(statusCode, body, headers);
-
-  /// Caches the raw headers for later serialization in [toJson].
-  final Map<String, Object?>? rawHeaders;
-
-  /// Caches the raw response body for later serialization in [toJson].
-  final Object? rawBody;
-
-  /// Serializes this response into json.
-  ///
-  /// To revive it again use `DynamiteRawResponse.fromJson` with the same
-  /// serializer and `FullType`s as this.
-  Map<String, Object?> toJson() => {
-        'statusCode': statusCode,
-        'body': rawBody,
-        'headers': rawHeaders,
-      };
-
-  @override
-  String toString() => 'DynamiteRawResponse(data: $body, headers: $headers, statusCode: $statusCode)';
 }
 
 /// The serializer to convert the raw headers and body from a [http.BaseResponse].
@@ -102,7 +63,7 @@ final class DynamiteSerializer<B, H> {
 /// Converter to transform a [http.Response] into a [DynamiteResponse].
 ///
 /// Throws a [DynamiteApiException] on errors.
-final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRawResponse<B, H>> {
+final class ResponseConverter<B, H> with Converter<http.Response, DynamiteResponse<B, H>> {
   /// Creates a new response converter
   const ResponseConverter(this.serializer);
 
@@ -110,7 +71,7 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRawRes
   final DynamiteSerializer<B, H> serializer;
 
   @override
-  DynamiteRawResponse<B, H> convert(http.Response input) {
+  DynamiteResponse<B, H> convert(http.Response input) {
     final rawHeaders = input.headers;
     final statusCode = input.statusCode;
     final validStatuses = serializer.validStatuses;
@@ -127,51 +88,8 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRawRes
     };
     final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
 
-    return DynamiteRawResponse<B, H>(
-      statusCode: statusCode,
-      rawHeaders: rawHeaders,
-      headers: headers as H,
-      rawBody: rawBody,
-      body: body as B,
-    );
-  }
-}
-
-/// Encoder to efficiently convert a raw response to json.
-final class RawResponseEncoder with Converter<DynamiteRawResponse<dynamic, dynamic>, Object?> {
-  /// Creates a new raw response encoder.
-  const RawResponseEncoder();
-
-  @override
-  Map<String, Object?> convert(DynamiteRawResponse<dynamic, dynamic> input) => {
-        'statusCode': input.statusCode,
-        'body': input.rawBody,
-        'headers': input.rawHeaders,
-      };
-}
-
-/// Encoder to revive the json from a raw response.
-final class RawResponseDecoder<B, H> with Converter<Object?, DynamiteResponse<B, H>> {
-  /// Creates a new raw response decoder.
-  const RawResponseDecoder(this.serializer);
-
-  /// The serializer to convert the raw header and body into [B] and [H].
-  final DynamiteSerializer<B, H> serializer;
-
-  @override
-  DynamiteResponse<B, H> convert(Object? input) {
-    if (input is! Map<String, Object?>) {
-      throw ArgumentError('Expected Map<String, Object?>, got ${input.runtimeType} instead');
-    }
-
-    final rawHeaders = input['headers'];
-    final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
-
-    final rawBody = input['body'];
-    final body = _deserialize<B>(rawBody, serializer.serializers, serializer.bodyType);
-
     return DynamiteResponse<B, H>(
-      input['statusCode']! as int,
+      statusCode,
       body as B,
       headers as H,
     );

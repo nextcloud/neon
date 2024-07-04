@@ -106,8 +106,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findValues_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Object1, void>(_serializer).convert(_response);
   }
 }
 

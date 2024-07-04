@@ -79,7 +79,7 @@ void main() {
       () => mockRequestManager.wrapBinary(
         account: any(named: 'account'),
         cacheKey: any(named: 'cacheKey'),
-        getCacheParameters: any(named: 'getCacheParameters'),
+        getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         unwrap: any(named: 'unwrap'),
         subject: any(named: 'subject'),
@@ -110,7 +110,7 @@ void main() {
       () => mockRequestManager.wrapBinary(
         account: mockAccount,
         cacheKey: 'key',
-        getCacheParameters: any(named: 'getCacheParameters'),
+        getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         unwrap: any(named: 'unwrap', that: isNotNull),
         subject: any(named: 'subject'),

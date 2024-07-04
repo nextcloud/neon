@@ -171,8 +171,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getThumbnail_Serializer();
-    final _rawResponse = _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<Uint8List, void>(_serializer).convert(_response);
   }
 }
 
@@ -257,9 +256,7 @@ class $DirectEditingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $info_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DirectEditingInfoResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$templates_Request].
@@ -362,9 +359,7 @@ class $DirectEditingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $templates_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DirectEditingTemplatesResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$open_Request].
@@ -457,9 +452,7 @@ class $DirectEditingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $open_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DirectEditingOpenResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$create_Request].
@@ -553,9 +546,7 @@ class $DirectEditingClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DirectEditingCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -654,9 +645,7 @@ class $OpenLocalEditorClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OpenLocalEditorCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$validate_Request].
@@ -760,9 +749,7 @@ class $OpenLocalEditorClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $validate_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OpenLocalEditorValidateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -847,9 +834,7 @@ class $TemplateClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $list_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TemplateListResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$create_Request].
@@ -940,9 +925,7 @@ class $TemplateClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $create_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TemplateCreateResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$path_Request].
@@ -1040,9 +1023,7 @@ class $TemplateClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $path_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TemplatePathResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -1146,9 +1127,8 @@ class $TransferOwnershipClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $transfer_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TransferOwnershipTransferResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$accept_Request].
@@ -1244,9 +1224,7 @@ class $TransferOwnershipClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $accept_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TransferOwnershipAcceptResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$reject_Request].
@@ -1342,9 +1320,7 @@ class $TransferOwnershipClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $reject_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<TransferOwnershipRejectResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

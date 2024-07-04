@@ -133,9 +133,7 @@ class $ApiClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUserMounts_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<ApiGetUserMountsResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

@@ -150,9 +150,7 @@ class $DirectClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getUrl_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<DirectGetUrlResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -254,10 +252,8 @@ class $OutOfOfficeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getCurrentOutOfOfficeData_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
-            .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getOutOfOffice_Request].
@@ -351,9 +347,8 @@ class $OutOfOfficeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getOutOfOffice_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OutOfOfficeGetOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setOutOfOffice_Request].
@@ -459,9 +454,8 @@ class $OutOfOfficeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setOutOfOffice_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OutOfOfficeSetOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$clearOutOfOffice_Request].
@@ -555,9 +549,8 @@ class $OutOfOfficeClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearOutOfOffice_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<OutOfOfficeClearOutOfOfficeResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 }
 

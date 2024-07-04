@@ -157,9 +157,7 @@ class $HeartbeatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $heartbeat_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<HeartbeatHeartbeatResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<HeartbeatHeartbeatResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -247,9 +245,7 @@ class $PredefinedStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findAll_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<PredefinedStatusFindAllResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -352,9 +348,7 @@ class $StatusesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $findAll_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<StatusesFindAllResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<StatusesFindAllResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$find_Request].
@@ -447,9 +441,7 @@ class $StatusesClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $find_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<StatusesFindResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<StatusesFindResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 
@@ -539,9 +531,7 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getStatus_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserStatusGetStatusResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserStatusGetStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setStatus_Request].
@@ -633,9 +623,7 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setStatus_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserStatusSetStatusResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserStatusSetStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setPredefinedMessage_Request].
@@ -730,9 +718,8 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setPredefinedMessage_Serializer();
-    final _rawResponse = _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
+    return _i1.ResponseConverter<UserStatusSetPredefinedMessageResponseApplicationJson, void>(_serializer)
         .convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
   }
 
   /// Builds a serializer to parse the response of [$setCustomMessage_Request].
@@ -834,9 +821,8 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setCustomMessage_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserStatusSetCustomMessageResponseApplicationJson, void>(_serializer)
+        .convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$clearMessage_Request].
@@ -917,9 +903,7 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $clearMessage_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserStatusClearMessageResponseApplicationJson, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$revertStatus_Request].
@@ -1012,9 +996,7 @@ class $UserStatusClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $revertStatus_Serializer();
-    final _rawResponse =
-        _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer).convert(_response);
-    return _i1.DynamiteResponse.fromRawResponse(_rawResponse);
+    return _i1.ResponseConverter<UserStatusRevertStatusResponseApplicationJson, void>(_serializer).convert(_response);
   }
 }
 

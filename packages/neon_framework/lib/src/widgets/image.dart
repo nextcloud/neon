@@ -14,6 +14,7 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/utils.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -235,10 +236,12 @@ class _NeonApiImageState extends State<NeonApiImage> {
     await RequestManager.instance.wrapBinary(
       account: widget.account,
       cacheKey: widget.cacheKey,
-      getCacheParameters: () async => CacheParameters(
-        etag: widget.etag,
-        expires: widget.expires,
-      ),
+      getCacheHeaders: () async {
+        return {
+          if (widget.etag != null) 'etag': widget.etag!,
+          if (widget.expires != null) 'expires': formatHttpDate(widget.expires!),
+        };
+      },
       getRequest: () => widget.getRequest(widget.account.client),
       unwrap: (data) {
         try {
