@@ -191,16 +191,19 @@ void main() {
     });
   });
 
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'server',
     'webdav',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
 
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
 
         await client.webdav.mkcol(PathUri.parse('test'));
         resetFixture();
@@ -209,7 +212,7 @@ void main() {
         closeFixture();
         await client.webdav.delete(PathUri.parse('test'));
 
-        await container.destroy();
+        await target.destroy();
       });
 
       test('List directory', () async {

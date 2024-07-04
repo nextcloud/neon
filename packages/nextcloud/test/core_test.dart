@@ -7,18 +7,21 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'server',
     'core',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
 
       test('Is supported from capabilities', () async {
@@ -166,7 +169,7 @@ void main() {
       group('App password', () {
         test('Delete', () async {
           // Separate client to not break other tests
-          final client = await TestNextcloudClient.create(container);
+          final client = await target.createClient();
 
           await client.core.appPassword.deleteAppPassword();
           await expectLater(

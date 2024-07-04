@@ -6,18 +6,21 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'news',
     'news',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
       tearDown(() async {
         closeFixture();
@@ -34,12 +37,12 @@ void main() {
       });
 
       Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([int? folderID]) async => client.news.addFeed(
-            url: 'http://localhost/static/wikipedia.xml',
+            url: '${target.targetURL}/static/wikipedia.xml',
             folderId: folderID,
           );
 
       Future<DynamiteResponse<news.ListFeeds, void>> addNasaFeed() async => client.news.addFeed(
-            url: 'http://localhost/static/nasa.xml',
+            url: '${target.targetURL}/static/nasa.xml',
           );
 
       test('Is supported', () async {
@@ -65,7 +68,7 @@ void main() {
         expect(response.body.starredCount, null);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${target.targetURL}/static/wikipedia.xml');
 
         response = await client.news.listFeeds();
         expect(response.statusCode, 200);
@@ -74,7 +77,7 @@ void main() {
         expect(response.body.starredCount, 0);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${target.targetURL}/static/wikipedia.xml');
       });
 
       test('Delete feed', () async {
@@ -423,7 +426,7 @@ void main() {
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
         expect(response.body.feeds[0].folderId, isPositive);
-        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
+        expect(response.body.feeds[0].url, '${target.targetURL}/static/wikipedia.xml');
       });
 
       test('Mark folder as read', () async {

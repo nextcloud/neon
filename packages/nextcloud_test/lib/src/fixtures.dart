@@ -30,7 +30,7 @@ void resetFixture() {
 /// Validates that the requests match the stored fixtures.
 ///
 /// If there is no stored fixture a new one is created.
-void validateFixture(Preset preset) {
+void validateFixture(Preset? preset) {
   if (_fixture.isEmpty) {
     return;
   }
@@ -46,20 +46,17 @@ void validateFixture(Preset preset) {
     groups.add(group.name.replaceFirst('${groups.join(' ')} ', ''));
   }
 
-  // Remove the groups that are the preset name and the preset version and the app is kept.
-  for (var i = 0; i <= 2; i++) {
-    if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
-      if (i == 1) {
-        // Remove preset version
-        groups.removeAt(1);
-      } else {
-        groups
-          // Remove preset version
-          ..removeAt(2)
-          // Remove preset group
-          ..removeAt(0);
+  if (groups.isNotEmpty && groups[0] == 'server') {
+    groups.removeAt(0);
+  }
+
+  if (preset != null) {
+    // Remove the groups that are the preset name and the preset version and the app is kept.
+    for (var i = 0; i <= 2; i++) {
+      if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
+        groups.removeAt(i);
+        break;
       }
-      break;
     }
   }
 
