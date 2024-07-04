@@ -3,7 +3,6 @@ import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets(
@@ -17,9 +16,6 @@ void main() {
         client = await TestNextcloudClient.create(container);
       });
       tearDownAll(() async {
-        if (Invoker.current!.liveTest.errors.isNotEmpty) {
-          print(await container.allLogs());
-        }
         await container.destroy();
       });
 

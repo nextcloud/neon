@@ -8,7 +8,6 @@ import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:test_api/src/backend/invoker.dart';
 import 'package:version/version.dart';
 
 void main() {
@@ -23,9 +22,6 @@ void main() {
         client1 = await TestNextcloudClient.create(container);
       });
       tearDownAll(() async {
-        if (Invoker.current!.liveTest.errors.isNotEmpty) {
-          print(await container.allLogs());
-        }
         await container.destroy();
       });
 
