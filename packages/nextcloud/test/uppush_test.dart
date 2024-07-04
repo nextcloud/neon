@@ -22,7 +22,7 @@ void main() {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
-        container.destroy();
+        await container.destroy();
       });
 
       test('Is installed', () async {

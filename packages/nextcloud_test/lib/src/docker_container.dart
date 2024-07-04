@@ -72,14 +72,12 @@ class DockerContainer {
   final int port;
 
   /// Removes the docker container from the system.
-  void destroy() => unawaited(
-        runExecutableArguments(
-          'docker',
-          [
-            'kill',
-            id,
-          ],
-        ),
+  Future<void> destroy() => runExecutableArguments(
+        'docker',
+        [
+          'kill',
+          id,
+        ],
       );
 
   /// Reads the web server logs.

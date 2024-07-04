@@ -21,7 +21,7 @@ void main() {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
-        container.destroy();
+        await container.destroy();
       });
 
       Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([int? folderID]) async => client.news.addFeed(

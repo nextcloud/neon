@@ -20,7 +20,7 @@ void main() {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
-        container.destroy();
+        await container.destroy();
       });
 
       Future<void> deleteAllNotes() async {
