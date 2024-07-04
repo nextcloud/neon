@@ -5,11 +5,19 @@ import 'package:nextcloud_test/src/presets.dart';
 import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
 
+var _closed = false;
 final _fixture = <String>[];
 
 /// Appends some [data] to the current fixture.
 void appendFixture(String data) {
-  _fixture.add(data);
+  if (!_closed) {
+    _fixture.add(data);
+  }
+}
+
+/// Closes the fixture so no new data can be appended.
+void closeFixture() {
+  _closed = true;
 }
 
 /// Validates that the requests match the stored fixtures.
@@ -73,6 +81,8 @@ void validateFixture(Preset preset) {
   } else {
     fixtureFile.writeAsStringSync(RegExp.escape(data));
   }
+
+  _closed = false;
 }
 
 String _formatName(String name) => name.toLowerCase().replaceAll(' ', '_');
