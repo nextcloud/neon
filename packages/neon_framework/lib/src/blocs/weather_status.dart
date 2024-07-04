@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
@@ -84,12 +85,12 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       return;
     }
 
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'weather_status-location',
       subject: location,
       getRequest: account.client.weatherStatus.weatherStatus.$getLocation_Request,
-      serializer: account.client.weatherStatus.weatherStatus.$getLocation_Serializer(),
+      converter: ResponseConverter(account.client.weatherStatus.weatherStatus.$getLocation_Serializer()),
       unwrap: (response) => response.body.ocs.data,
     );
 
@@ -112,12 +113,12 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
       return;
     }
 
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'weather_status-forecast',
       subject: forecasts,
       getRequest: account.client.weatherStatus.weatherStatus.$getForecast_Request,
-      serializer: account.client.weatherStatus.weatherStatus.$getForecast_Serializer(),
+      converter: ResponseConverter(account.client.weatherStatus.weatherStatus.$getForecast_Serializer()),
       unwrap: (response) => response.body.ocs.data.builtListForecast ?? BuiltList(),
     );
   }

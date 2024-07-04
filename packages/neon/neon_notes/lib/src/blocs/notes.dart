@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -62,12 +63,12 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
 
   @override
   Future<void> refresh() async {
-    await RequestManager.instance.wrapNextcloud(
+    await RequestManager.instance.wrap(
       account: account,
       cacheKey: 'notes-notes',
       subject: notes,
       getRequest: account.client.notes.$getNotes_Request,
-      serializer: account.client.notes.$getNotes_Serializer(),
+      converter: ResponseConverter(account.client.notes.$getNotes_Serializer()),
       unwrap: (response) => response.body,
     );
   }

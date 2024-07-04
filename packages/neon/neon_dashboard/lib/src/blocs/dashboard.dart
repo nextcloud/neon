@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -66,12 +67,12 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
   @override
   Future<void> refresh() async {
     if (!widgets.hasValue || !widgets.value.hasSuccessfulData) {
-      await RequestManager.instance.wrapNextcloud(
+      await RequestManager.instance.wrap(
         account: account,
         cacheKey: 'dashboard-widgets',
         subject: widgets,
         getRequest: account.client.dashboard.dashboardApi.$getWidgets_Request,
-        serializer: account.client.dashboard.dashboardApi.$getWidgets_Serializer(),
+        converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgets_Serializer()),
         // Filter all widgets that don't support v1 nor v2
         unwrap: (response) => BuiltList(
           response.body.ocs.data.values.where((widget) => widget.itemApiVersions.isNotEmpty),
@@ -97,7 +98,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
 
     await Future.wait([
       if (v1WidgetIDs.isNotEmpty)
-        RequestManager.instance.wrapNextcloud(
+        RequestManager.instance.wrap(
           account: account,
           cacheKey: 'dashboard-widgets-v1',
           subject: itemsV1,
@@ -108,11 +109,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
                 ..limit = maxItems,
             ),
           ),
-          serializer: account.client.dashboard.dashboardApi.$getWidgetItems_Serializer(),
+          converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItems_Serializer()),
           unwrap: (response) => response.body.ocs.data,
         ),
       if (v2WidgetIDs.isNotEmpty)
-        RequestManager.instance.wrapNextcloud(
+        RequestManager.instance.wrap(
           account: account,
           cacheKey: 'dashboard-widgets-v2',
           subject: itemsV2,
@@ -123,7 +124,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
                 ..limit = maxItems,
             ),
           ),
-          serializer: account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer(),
+          converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer()),
           unwrap: (response) => response.body.ocs.data,
         ),
     ]);

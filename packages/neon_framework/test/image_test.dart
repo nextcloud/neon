@@ -26,6 +26,7 @@ void main() {
     registerFallbackValue(MockNextcloudClient());
     registerFallbackValue(http.Request('GET', Uri()));
     registerFallbackValue(Uri());
+    registerFallbackValue(const BinaryResponseConverter());
   });
 
   testWidgets('NeonImage', (tester) async {
@@ -74,23 +75,24 @@ void main() {
   });
 
   testWidgets('NeonApiImage', (tester) async {
-    final mockRequestManager = MockRequestManager();
-    when(
-      () => mockRequestManager.wrapBinary(
-        account: any(named: 'account'),
-        cacheKey: any(named: 'cacheKey'),
-        getCacheHeaders: any(named: 'getCacheHeaders'),
-        getRequest: any(named: 'getRequest'),
-        unwrap: any(named: 'unwrap'),
-        subject: any(named: 'subject'),
-      ),
-    ).thenAnswer((_) => Future.value());
-    RequestManager.instance = mockRequestManager;
-
     final mockNextcloudClient = MockNextcloudClient();
 
     final mockAccount = MockAccount();
     when(() => mockAccount.client).thenReturn(mockNextcloudClient);
+
+    final mockRequestManager = MockRequestManager();
+    when(
+      () => mockRequestManager.wrap<Uint8List, Uint8List>(
+        account: mockAccount,
+        cacheKey: 'key',
+        getCacheHeaders: any(named: 'getCacheHeaders'),
+        getRequest: any(named: 'getRequest'),
+        converter: any(named: 'converter'),
+        unwrap: any<Uint8List Function(Uint8List)>(named: 'unwrap'),
+        subject: any(named: 'subject'),
+      ),
+    ).thenAnswer((_) => Future.value());
+    RequestManager.instance = mockRequestManager;
 
     final mockRequest = http.Request('GET', Uri());
 
@@ -107,33 +109,38 @@ void main() {
     );
 
     verify(
-      () => mockRequestManager.wrapBinary(
+      () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
         cacheKey: 'key',
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
-        unwrap: any(named: 'unwrap', that: isNotNull),
+        converter: any(named: 'converter'),
+        unwrap: any<Uint8List Function(Uint8List)>(named: 'unwrap'),
         subject: any(named: 'subject'),
       ),
     ).called(1);
   });
 
   testWidgets('NeonUriImage', (tester) async {
-    final mockRequestManager = MockRequestManager();
-    when(
-      () => mockRequestManager.wrapUri(
-        account: any(named: 'account'),
-        uri: any(named: 'uri'),
-        unwrap: any(named: 'unwrap'),
-        subject: any(named: 'subject'),
-      ),
-    ).thenAnswer((_) => Future.value());
-    RequestManager.instance = mockRequestManager;
-
     final mockNextcloudClient = MockNextcloudClient();
 
     final mockAccount = MockAccount();
     when(() => mockAccount.client).thenReturn(mockNextcloudClient);
+
+    final mockRequestManager = MockRequestManager();
+
+    when(
+      () => mockRequestManager.wrap<Uint8List, Uint8List>(
+        account: mockAccount,
+        cacheKey: 'https://example.com',
+        getCacheHeaders: any(named: 'getCacheHeaders'),
+        getRequest: any(named: 'getRequest'),
+        converter: any(named: 'converter'),
+        unwrap: any<Uint8List Function(Uint8List)>(named: 'unwrap'),
+        subject: any(named: 'subject'),
+      ),
+    ).thenAnswer((_) => Future.value());
+    RequestManager.instance = mockRequestManager;
 
     final uri = Uri.parse('https://example.com');
     await tester.pumpWidgetWithAccessibility(
@@ -146,10 +153,13 @@ void main() {
     );
 
     verify(
-      () => mockRequestManager.wrapUri(
+      () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
-        uri: uri,
-        unwrap: any(named: 'unwrap', that: isNotNull),
+        cacheKey: 'https://example.com',
+        getCacheHeaders: any(named: 'getCacheHeaders'),
+        getRequest: any(named: 'getRequest'),
+        converter: any(named: 'converter'),
+        unwrap: any<Uint8List Function(Uint8List)>(named: 'unwrap'),
         subject: any(named: 'subject'),
       ),
     ).called(1);

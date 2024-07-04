@@ -408,6 +408,9 @@ void main() {
       ]),
     );
 
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
     final message = MockChatMessage();
     when(() => message.id).thenReturn(0);
 
@@ -467,6 +470,9 @@ void main() {
       ]),
     );
 
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
     final message = MockChatMessage();
     when(() => message.id).thenReturn(2);
 
@@ -525,6 +531,9 @@ void main() {
         }),
       ]),
     );
+
+    // Wait for all events to be processed
+    await Future<void>.delayed(const Duration(milliseconds: 1));
 
     final message = MockChatMessage();
     when(() => message.id).thenReturn(1);

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:dynamite_runtime/http_client.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -109,20 +110,20 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
   @override
   Future<void> refresh() async {
     await Future.wait([
-      RequestManager.instance.wrapNextcloud(
+      RequestManager.instance.wrap(
         account: account,
         cacheKey: 'news-folders',
         subject: folders,
         getRequest: account.client.news.$listFolders_Request,
-        serializer: account.client.news.$listFolders_Serializer(),
+        converter: ResponseConverter(account.client.news.$listFolders_Serializer()),
         unwrap: (response) => response.body.folders,
       ),
-      RequestManager.instance.wrapNextcloud(
+      RequestManager.instance.wrap(
         account: account,
         cacheKey: 'news-feeds',
         subject: feeds,
         getRequest: account.client.news.$listFeeds_Request,
-        serializer: account.client.news.$listFeeds_Serializer(),
+        converter: ResponseConverter(account.client.news.$listFeeds_Serializer()),
         unwrap: (response) {
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;

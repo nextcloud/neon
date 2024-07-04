@@ -187,9 +187,28 @@ class PushUtils {
 
   static Future<Uint8List?> _fetchIcon(Account account, Uri uri) async {
     final subject = BehaviorSubject<Result<Uint8List>>();
-    await RequestManager.instance.wrapUri(
+
+    final headers = account.getAuthorizationHeaders(uri);
+    await RequestManager.instance.wrap(
       account: account,
-      uri: uri,
+      cacheKey: uri.toString(),
+      getCacheHeaders: () async {
+        final response = await account.client.head(
+          uri,
+          headers: headers,
+        );
+
+        return response.headers;
+      },
+      getRequest: () {
+        final request = http.Request('GET', uri);
+        if (headers != null) {
+          request.headers.addAll(headers);
+        }
+
+        return request;
+      },
+      converter: const BinaryResponseConverter(),
       unwrap: (data) {
         try {
           return utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
