@@ -332,11 +332,6 @@ void main() {
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,
       );
-      const expectedCacheKey = 'preview-path--1--1';
-      expect(
-        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
-        findsOne,
-      );
       expect(find.byTooltip('name'), findsOne);
     });
 
@@ -368,11 +363,6 @@ void main() {
       final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-        findsOne,
-      );
-      const expectedCacheKey = 'preview-path-$width-$height';
-      expect(
-        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
         findsOne,
       );
       expect(find.byTooltip('name'), findsOne);
@@ -410,12 +400,6 @@ void main() {
       final expectedConstraints = BoxConstraints.tight(size);
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-        findsOne,
-      );
-      final expectedCacheKey =
-          'preview-path-${(size.width * pixelRatio).toInt()}-${(size.height * pixelRatio).toInt()}';
-      expect(
-        find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.cacheKey == expectedCacheKey),
         findsOne,
       );
       expect(find.byTooltip('name'), findsOne);

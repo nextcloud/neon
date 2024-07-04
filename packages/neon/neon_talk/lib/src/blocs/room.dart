@@ -197,7 +197,6 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     await Future.wait([
       RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'spreed-room-$token',
         subject: room,
         getRequest: () => account.client.spreed.room.$joinRoom_Request(
           token: token,
@@ -207,7 +206,6 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       ),
       RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'spreed-room-$token-messages',
         subject: messages,
         getRequest: () => account.client.spreed.chat.$receiveMessages_Request(
           token: token,

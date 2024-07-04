@@ -81,7 +81,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     if (!providers.value.hasSuccessfulData) {
       await RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'unified-search-providers',
         subject: providers,
         getRequest: account.client.core.unifiedSearch.$getProviders_Request,
         converter: ResponseConverter(account.client.core.unifiedSearch.$getProviders_Serializer()),

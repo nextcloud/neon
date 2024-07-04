@@ -37,33 +37,55 @@ void main() {
 
       test('init', () {
         cache.database = null;
-        expect(() async => cache.get(account, 'key'), throwsA(isA<StateError>()));
+        expect(() async => cache.get(account, http.Request('GET', Uri())), throwsA(isA<StateError>()));
       });
 
       test('RequestCache', () async {
-        var result = await cache.get(account, 'key');
+        final request = http.Request('GET', Uri(host: 'example.com'))
+          ..headers.addAll({'a': 'b'})
+          ..body = 'c';
+
+        var result = await cache.get(account, request);
         expect(result, isNull);
 
-        await cache.set(account, 'key', http.Response('value', 200, headers: {'key': 'value'}));
-        result = await cache.get(account, 'key');
+        await cache.set(account, request, http.Response('value', 200, headers: {'key': 'value'}));
+        result = await cache.get(account, request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'value'});
 
-        await cache.set(account, 'key', http.Response('upsert', 201, headers: {'key': 'updated'}));
-        result = await cache.get(account, 'key');
+        for (final modifiedRequest in [
+          http.Request('POST', Uri(host: 'example.com'))
+            ..headers.addAll({'a': 'b'})
+            ..body = 'c',
+          http.Request('GET', Uri(host: 'example.org'))
+            ..headers.addAll({'a': 'b'})
+            ..body = 'c',
+          http.Request('GET', Uri(host: 'example.com'))
+            ..headers.addAll({'a': 'd'})
+            ..body = 'c',
+          http.Request('GET', Uri(host: 'example.com'))
+            ..headers.addAll({'a': 'b'})
+            ..body = 'e',
+        ]) {
+          result = await cache.get(account, modifiedRequest);
+          expect(result, isNull);
+        }
+
+        await cache.set(account, request, http.Response('upsert', 201, headers: {'key': 'updated'}));
+        result = await cache.get(account, request);
         expect(result?.statusCode, 201);
         expect(result?.body, 'upsert');
         expect(result?.headers, {'key': 'updated'});
 
-        await cache.set(account, 'key', http.Response('value', 200, headers: {'key': 'value'}));
-        result = await cache.get(account, 'key');
+        await cache.set(account, request, http.Response('value', 200, headers: {'key': 'value'}));
+        result = await cache.get(account, request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'value'});
 
-        await cache.updateHeaders(account, 'key', {'key': 'updated'});
-        result = await cache.get(account, 'key');
+        await cache.updateHeaders(account, request, {'key': 'updated'});
+        result = await cache.get(account, request);
         expect(result?.statusCode, 200);
         expect(result?.body, 'value');
         expect(result?.headers, {'key': 'updated'});

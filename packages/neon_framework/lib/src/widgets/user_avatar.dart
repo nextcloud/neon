@@ -69,7 +69,6 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           child: ClipOval(
             child: NeonApiImage(
               account: widget.account,
-              cacheKey: 'avatar-$username-$brightness-$pixelSize',
               etag: null,
               expires: null,
               getRequest: (client) => switch (brightness) {

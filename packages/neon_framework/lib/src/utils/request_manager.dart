@@ -76,7 +76,6 @@ class RequestManager {
   /// Executes a generic [http.Request].
   Future<void> wrap<T, R>({
     required Account account,
-    required String cacheKey,
     required BehaviorSubject<Result<T>> subject,
     required http.Request Function() getRequest,
     required Converter<http.Response, R> converter,
@@ -92,7 +91,9 @@ class RequestManager {
       subject.add(Result.loading());
     }
 
-    final cachedResponse = await _cache?.get(account, cacheKey);
+    var request = getRequest();
+
+    final cachedResponse = await _cache?.get(account, request);
     if (subject.isClosed) {
       return;
     }
@@ -137,7 +138,7 @@ class RequestManager {
             unawaited(
               _cache?.updateHeaders(
                 account,
-                cacheKey,
+                request,
                 newHeaders,
               ),
             );
@@ -174,7 +175,6 @@ class RequestManager {
       try {
         final response = await timeout(
           () async {
-            final request = getRequest();
             var client = httpClient;
             // Assume the request is for WebDAV if the Content-Type is application/xml,
             if (request.headers['content-type']?.split(';').first == 'application/xml') {
@@ -196,7 +196,7 @@ class RequestManager {
 
         await _cache?.set(
           account,
-          cacheKey,
+          request,
           response,
         );
         break;
@@ -223,10 +223,7 @@ class RequestManager {
         if (error case DynamiteStatusCodeException(statusCode: 401)
             when error.response.headers['content-type']?.split(';').first == 'application/xml') {
           _log.fine('WebDAV authorization error, retrying request with new CSRF token');
-          continue;
-        }
-
-        if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
+        } else if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
           _log.warning(
             'Unexpected status code. The request will not be retried.',
             error,
@@ -244,6 +241,8 @@ class RequestManager {
           );
           break;
         }
+
+        request = getRequest();
 
         _log.info(
           'Error while executing the request. Retrying ...',

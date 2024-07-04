@@ -191,7 +191,6 @@ class PushUtils {
     final headers = account.getAuthorizationHeaders(uri);
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: uri.toString(),
       getCacheHeaders: () async {
         final response = await account.client.head(
           uri,

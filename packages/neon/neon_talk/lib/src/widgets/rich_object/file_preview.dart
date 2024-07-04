@@ -59,7 +59,6 @@ class TalkRichObjectFilePreview extends StatelessWidget {
         } else {
           image = NeonApiImage(
             account: account,
-            cacheKey: 'preview-${parameter.path!}-${deviceSize.width.toInt()}-${deviceSize.height.toInt()}',
             etag: parameter.etag,
             expires: null,
             getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(

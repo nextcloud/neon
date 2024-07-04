@@ -87,7 +87,6 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
 
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'weather_status-location',
       subject: location,
       getRequest: account.client.weatherStatus.weatherStatus.$getLocation_Request,
       converter: ResponseConverter(account.client.weatherStatus.weatherStatus.$getLocation_Serializer()),
@@ -115,7 +114,6 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
 
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'weather_status-forecast',
       subject: forecasts,
       getRequest: account.client.weatherStatus.weatherStatus.$getForecast_Request,
       converter: ResponseConverter(account.client.weatherStatus.weatherStatus.$getForecast_Serializer()),

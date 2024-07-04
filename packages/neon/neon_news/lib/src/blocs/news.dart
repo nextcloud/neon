@@ -112,7 +112,6 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
     await Future.wait([
       RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'news-folders',
         subject: folders,
         getRequest: account.client.news.$listFolders_Request,
         converter: ResponseConverter(account.client.news.$listFolders_Serializer()),
@@ -120,7 +119,6 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
       ),
       RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'news-feeds',
         subject: feeds,
         getRequest: account.client.news.$listFeeds_Request,
         converter: ResponseConverter(account.client.news.$listFeeds_Serializer()),
