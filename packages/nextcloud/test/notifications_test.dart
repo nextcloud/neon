@@ -6,7 +6,6 @@ import 'package:nextcloud/notifications.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets(
@@ -23,10 +22,7 @@ void main() {
         );
       });
       tearDownAll(() async {
-        if (Invoker.current!.liveTest.errors.isNotEmpty) {
-          print(await container.allLogs());
-        }
-        container.destroy();
+        await container.destroy();
       });
 
       Future<void> sendTestNotification() async {

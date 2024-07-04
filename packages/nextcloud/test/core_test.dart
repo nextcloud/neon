@@ -3,7 +3,6 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets(
@@ -17,10 +16,7 @@ void main() {
         client = await TestNextcloudClient.create(container);
       });
       tearDownAll(() async {
-        if (Invoker.current!.liveTest.errors.isNotEmpty) {
-          print(await container.allLogs());
-        }
-        container.destroy();
+        await container.destroy();
       });
 
       test('Is supported from capabilities', () async {

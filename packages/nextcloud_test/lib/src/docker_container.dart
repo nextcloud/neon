@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:nextcloud_test/src/presets.dart';
@@ -72,48 +71,11 @@ class DockerContainer {
   final int port;
 
   /// Removes the docker container from the system.
-  void destroy() => unawaited(
-        runExecutableArguments(
-          'docker',
-          [
-            'kill',
-            id,
-          ],
-        ),
+  Future<void> destroy() => runExecutableArguments(
+        'docker',
+        [
+          'kill',
+          id,
+        ],
       );
-
-  /// Reads the web server logs.
-  Future<String> webServerLogs() async {
-    final result = await runExecutableArguments(
-      'docker',
-      [
-        'logs',
-        id,
-      ],
-      stderrEncoding: utf8,
-    );
-
-    return result.stderr as String;
-  }
-
-  /// Reads the Nextcloud logs.
-  Future<String> nextcloudLogs() async {
-    final result = await runExecutableArguments(
-      'docker',
-      [
-        'exec',
-        id,
-        'cat',
-        'data/nextcloud.log',
-      ],
-      stdoutEncoding: utf8,
-    );
-
-    return result.stdout as String;
-  }
-
-  /// Reads all logs.
-  ///
-  /// Combines the output of [webServerLogs] and [nextcloudLogs].
-  Future<String> allLogs() async => 'Web server:\n${await webServerLogs()}\nNextcloud:\n${await nextcloudLogs()}';
 }

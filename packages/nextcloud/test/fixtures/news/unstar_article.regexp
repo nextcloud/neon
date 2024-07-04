@@ -4,12 +4,12 @@ authorization: Basic mock
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept: application/json
 authorization: Basic mock
-POST http://localhost/index\.php/apps/news/api/v1-3/items/10/star
+POST http://localhost/index\.php/apps/news/api/v1-3/items/[0-9]+/star
 authorization: Basic mock
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=2&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept: application/json
 authorization: Basic mock
-POST http://localhost/index\.php/apps/news/api/v1-3/items/10/unstar
+POST http://localhost/index\.php/apps/news/api/v1-3/items/[0-9]+/unstar
 authorization: Basic mock
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=2&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept: application/json

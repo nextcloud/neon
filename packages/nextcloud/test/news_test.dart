@@ -4,7 +4,6 @@ import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets(
@@ -13,15 +12,25 @@ void main() {
     (preset) {
       late DockerContainer container;
       late NextcloudClient client;
-      setUp(() async {
+      setUpAll(() async {
         container = await DockerContainer.create(preset);
         client = await TestNextcloudClient.create(container);
       });
+      tearDownAll(() async {
+        await container.destroy();
+      });
       tearDown(() async {
-        if (Invoker.current!.liveTest.errors.isNotEmpty) {
-          print(await container.allLogs());
+        closeFixture();
+
+        final feedsResponse = await client.news.listFeeds();
+        for (final feed in feedsResponse.body.feeds) {
+          await client.news.deleteFeed(feedId: feed.id);
         }
-        container.destroy();
+
+        final foldersResponse = await client.news.listFolders();
+        for (final folder in foldersResponse.body.folders) {
+          await client.news.deleteFolder(folderId: folder.id);
+        }
       });
 
       Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([int? folderID]) async => client.news.addFeed(
@@ -95,7 +104,7 @@ void main() {
         expect(response.body.feeds[0].title, 'Wikipedia featured articles feed');
 
         await client.news.renameFeed(
-          feedId: 1,
+          feedId: response.body.feeds[0].id,
           feedTitle: 'test1',
         );
 
@@ -107,19 +116,26 @@ void main() {
       });
 
       test('Move feed to folder', () async {
-        await client.news.createFolder(name: 'test1');
-        await addWikipediaFeed();
+        var response = await client.news.createFolder(name: 'test1');
+        expect(response.body.folders, hasLength(1));
+        expect(response.body.folders[0].id, isPositive);
+        expect(response.body.folders[0].name, 'test1');
+        expect(response.body.folders[0].opened, true);
+        // ignore: deprecated_member_use_from_same_package
+        expect(response.body.folders[0].feeds, hasLength(0));
+
+        final feedsResponse = await addWikipediaFeed();
         await client.news.moveFeed(
-          feedId: 1,
-          folderId: 1,
+          feedId: feedsResponse.body.feeds[0].id,
+          folderId: response.body.folders[0].id,
         );
 
-        final response = await client.news.listFolders();
+        response = await client.news.listFolders();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
         expect(response.body.folders, hasLength(1));
-        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].id, isPositive);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
         // ignore: deprecated_member_use_from_same_package
@@ -164,7 +180,7 @@ void main() {
 
         expect(response.body.items.length, greaterThan(0));
         expect(response.body.items[0].body, isNotNull);
-        expect(response.body.items[0].feedId, 1);
+        expect(response.body.items[0].feedId, isPositive);
         expect(response.body.items[0].unread, true);
         expect(response.body.items[0].starred, false);
       });
@@ -310,7 +326,7 @@ void main() {
         expect(() => response.headers, isA<void>());
 
         expect(response.body.folders, hasLength(1));
-        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].id, isPositive);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
         // ignore: deprecated_member_use_from_same_package
@@ -321,7 +337,7 @@ void main() {
         expect(() => response.headers, isA<void>());
 
         expect(response.body.folders, hasLength(1));
-        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].id, isPositive);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
         // ignore: deprecated_member_use_from_same_package
@@ -385,12 +401,12 @@ void main() {
         expect(() => response.headers, isA<void>());
 
         expect(response.body.folders, hasLength(2));
-        expect(response.body.folders[0].id, 1);
+        expect(response.body.folders[0].id, isPositive);
         expect(response.body.folders[0].name, 'test1');
         expect(response.body.folders[0].opened, true);
         // ignore: deprecated_member_use_from_same_package
         expect(response.body.folders[0].feeds, hasLength(0));
-        expect(response.body.folders[1].id, 2);
+        expect(response.body.folders[1].id, isPositive);
         expect(response.body.folders[1].name, 'test2');
         expect(response.body.folders[1].opened, true);
         // ignore: deprecated_member_use_from_same_package
@@ -398,21 +414,21 @@ void main() {
       });
 
       test('Add feed to folder', () async {
-        await client.news.createFolder(name: 'test1');
-        final response = await addWikipediaFeed(1);
+        final foldersResponse = await client.news.createFolder(name: 'test1');
+        final response = await addWikipediaFeed(foldersResponse.body.folders[0].id);
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
         expect(response.body.starredCount, null);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].folderId, 1);
+        expect(response.body.feeds[0].folderId, isPositive);
         expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
       });
 
       test('Mark folder as read', () async {
         final foldersResponse = await client.news.createFolder(name: 'test1');
-        final feedsResponse = await addWikipediaFeed(1);
+        final feedsResponse = await addWikipediaFeed(foldersResponse.body.folders[0].id);
 
         var response = await client.news.listArticles(type: news.ListType.unread.index);
         expect(response.statusCode, 200);
