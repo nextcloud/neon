@@ -65,7 +65,6 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'notes-notes',
       subject: notes,
       getRequest: account.client.notes.$getNotes_Request,
       converter: ResponseConverter(account.client.notes.$getNotes_Serializer()),

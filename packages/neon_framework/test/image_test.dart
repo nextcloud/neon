@@ -84,7 +84,6 @@ void main() {
     when(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
-        cacheKey: 'key',
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -100,7 +99,6 @@ void main() {
       TestApp(
         child: NeonApiImage(
           getRequest: (_) => mockRequest,
-          cacheKey: 'key',
           etag: null,
           expires: null,
           account: mockAccount,
@@ -111,7 +109,6 @@ void main() {
     verify(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
-        cacheKey: 'key',
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -132,7 +129,6 @@ void main() {
     when(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
-        cacheKey: 'https://example.com',
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -155,7 +151,6 @@ void main() {
     verify(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
         account: mockAccount,
-        cacheKey: 'https://example.com',
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),

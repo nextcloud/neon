@@ -64,7 +64,6 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'notifications-notifications',
       subject: notifications,
       getRequest: account.client.notifications.endpoint.$listNotifications_Request,
       converter: ResponseConverter(account.client.notifications.endpoint.$listNotifications_Serializer()),

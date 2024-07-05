@@ -77,7 +77,6 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'talk-rooms',
       subject: rooms,
       getRequest: account.client.spreed.room.$getRooms_Request,
       converter: ResponseConverter(account.client.spreed.room.$getRooms_Serializer()),

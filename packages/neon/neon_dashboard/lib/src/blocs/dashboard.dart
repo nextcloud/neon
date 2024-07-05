@@ -69,7 +69,6 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
     if (!widgets.hasValue || !widgets.value.hasSuccessfulData) {
       await RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'dashboard-widgets',
         subject: widgets,
         getRequest: account.client.dashboard.dashboardApi.$getWidgets_Request,
         converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgets_Serializer()),
@@ -100,7 +99,6 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       if (v1WidgetIDs.isNotEmpty)
         RequestManager.instance.wrap(
           account: account,
-          cacheKey: 'dashboard-widgets-v1',
           subject: itemsV1,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
             $body: dashboard.DashboardApiGetWidgetItemsRequestApplicationJson(
@@ -115,7 +113,6 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       if (v2WidgetIDs.isNotEmpty)
         RequestManager.instance.wrap(
           account: account,
-          cacheKey: 'dashboard-widgets-v2',
           subject: itemsV2,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
             $body: dashboard.DashboardApiGetWidgetItemsV2RequestApplicationJson(

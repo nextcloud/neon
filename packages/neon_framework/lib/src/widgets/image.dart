@@ -162,7 +162,6 @@ class NeonApiImage extends StatefulWidget {
   /// Creates a new Neon API image fetching the image with the currently active account.
   const NeonApiImage({
     required this.getRequest,
-    required this.cacheKey,
     required this.etag,
     required this.expires,
     required this.account,
@@ -183,9 +182,6 @@ class NeonApiImage extends StatefulWidget {
   /// Every time it is called a new [http.Request] has to be created.
   /// Re-using the same will not work when retrying failed requests.
   final http.Request Function(NextcloudClient) getRequest;
-
-  /// The unique key used for caching the image.
-  final String cacheKey;
 
   /// The ETag used for invalidating the cache.
   final String? etag;
@@ -235,7 +231,6 @@ class _NeonApiImageState extends State<NeonApiImage> {
   Future<void> load() async {
     await RequestManager.instance.wrap(
       account: widget.account,
-      cacheKey: widget.cacheKey,
       getCacheHeaders: () async {
         return {
           if (widget.etag != null) 'etag': widget.etag!,
@@ -354,7 +349,6 @@ class _NeonUriImageState extends State<NeonUriImage> {
 
     await RequestManager.instance.wrap(
       account: widget.account,
-      cacheKey: completedUri.toString(),
       getCacheHeaders: () async {
         final response = await widget.account.client.head(
           completedUri,

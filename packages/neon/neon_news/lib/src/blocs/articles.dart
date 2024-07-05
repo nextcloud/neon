@@ -143,7 +143,6 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
 
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'news-articles-${type.index}-$id-$getRead',
       subject: articles,
       getRequest: () => account.client.news.$listArticles_Request(
         type: type.index,

@@ -250,7 +250,6 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'apps-apps',
       subject: apps,
       getRequest: account.client.core.navigation.$getAppsNavigation_Request,
       converter: ResponseConverter(account.client.core.navigation.$getAppsNavigation_Serializer()),

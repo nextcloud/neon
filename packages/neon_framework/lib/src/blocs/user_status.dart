@@ -103,7 +103,6 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     await Future.wait([
       RequestManager.instance.wrap(
         account: account,
-        cacheKey: 'user_status-predefined-statuses',
         subject: predefinedStatuses,
         getRequest: account.client.userStatus.predefinedStatus.$findAll_Request,
         converter: ResponseConverter(account.client.userStatus.predefinedStatus.$findAll_Serializer()),

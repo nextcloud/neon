@@ -48,7 +48,6 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'capabilities',
       subject: capabilities,
       getRequest: account.client.core.ocs.$getCapabilities_Request,
       converter: ResponseConverter(account.client.core.ocs.$getCapabilities_Serializer()),

@@ -32,7 +32,6 @@ class TalkRoomAvatar extends StatelessWidget {
               Brightness.dark => client.spreed.avatar.$getAvatarDark_Request(token: room.token),
               Brightness.light => client.spreed.avatar.$getAvatar_Request(token: room.token),
             },
-            cacheKey: 'talk-room-${room.token}-avatar-$brightness',
             etag: room.avatarVersion,
             expires: null,
             account: NeonProvider.of<Account>(context),

@@ -48,7 +48,6 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'user-details',
       subject: userDetails,
       getRequest: account.client.provisioningApi.users.$getCurrentUser_Request,
       converter: ResponseConverter(account.client.provisioningApi.users.$getCurrentUser_Serializer()),

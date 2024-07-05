@@ -93,7 +93,6 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
-      cacheKey: 'files-${uri.value.path}',
       subject: files,
       getRequest: () => account.client.webdav.propfind_Request(
         uri.value,
