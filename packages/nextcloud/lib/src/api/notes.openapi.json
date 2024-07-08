@@ -32,7 +32,9 @@
     "schemas": {
       "Capabilities": {
         "type": "object",
-        "required": ["notes"],
+        "required": [
+          "notes"
+        ],
         "properties": {
           "notes": {
             "type": "object",
@@ -427,7 +429,8 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "type": "array",
+                  "maxItems": 0
                 }
               }
             }
