@@ -1,7 +1,10 @@
 {
     "recommendations": [
+        "codecov.codecov",
         "dart-code.dart-code",
         "dart-code.flutter",
+        "giancarlocode.built-value-snippets",
+        "google.arb-editor",
         "jebbs.plantuml",
         "redhat.vscode-yaml",
         "streetsidesoftware.code-spell-checker"

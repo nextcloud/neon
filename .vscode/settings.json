@@ -11,8 +11,5 @@
   "files.watcherExclude": {
     "**/.fvm": true,
     "external/": true
-  },
-  "files.associations": {
-    "*.arb": "json",
   }
 }
