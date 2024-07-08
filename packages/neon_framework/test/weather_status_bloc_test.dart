@@ -27,6 +27,7 @@ Account mockWeatherStatusAccount() {
           },
         }),
         200,
+        headers: {'content-type': 'application/json'},
       );
 
   return mockServer({
@@ -90,6 +91,7 @@ Account mockWeatherStatusAccount() {
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           ),
     },
   });

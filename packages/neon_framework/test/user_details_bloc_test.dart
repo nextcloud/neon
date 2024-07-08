@@ -50,6 +50,7 @@ Account mockUserDetailsAccount() => mockServer({
                 },
               ),
               200,
+              headers: {'content-type': 'application/json'},
             ),
       },
     });

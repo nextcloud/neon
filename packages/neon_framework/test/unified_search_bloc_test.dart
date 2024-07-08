@@ -50,6 +50,7 @@ Account mockUnifiedSearchAccount() => mockServer({
               },
             ),
             200,
+            headers: {'content-type': 'application/json'},
           );
         },
       },
@@ -74,6 +75,7 @@ Account mockUnifiedSearchAccount() => mockServer({
                 },
               ),
               200,
+              headers: {'content-type': 'application/json'},
             ),
       },
     });

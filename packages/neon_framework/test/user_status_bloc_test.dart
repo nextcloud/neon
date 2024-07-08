@@ -36,6 +36,7 @@ Account mockUserStatusAccount() {
           },
         }),
         200,
+        headers: {'content-type': 'application/json'},
       );
 
   Response statusResponse() => Response(
@@ -57,6 +58,7 @@ Account mockUserStatusAccount() {
           },
         ),
         200,
+        headers: {'content-type': 'application/json'},
       );
 
   Response emptyResponse() => Response(
@@ -69,6 +71,7 @@ Account mockUserStatusAccount() {
           },
         ),
         200,
+        headers: {'content-type': 'application/json'},
       );
 
   return mockServer({
