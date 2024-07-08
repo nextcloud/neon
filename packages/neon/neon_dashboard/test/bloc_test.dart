@@ -35,6 +35,7 @@ Account mockDashboardAccount() => mockServer({
                 },
               }),
               200,
+              headers: {'content-type': 'application/json'},
             ),
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widget-items'): {
@@ -72,6 +73,7 @@ Account mockDashboardAccount() => mockServer({
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           );
         },
       },
@@ -118,6 +120,7 @@ Account mockDashboardAccount() => mockServer({
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           );
         },
       },

@@ -38,6 +38,7 @@ Account mockNotificationsAccount() {
             },
           }),
           200,
+          headers: {'content-type': 'application/json'},
         );
       },
     },
@@ -50,6 +51,7 @@ Account mockNotificationsAccount() {
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           ),
       'delete': (match, bodyBytes) {
         notifications.clear();
@@ -62,6 +64,7 @@ Account mockNotificationsAccount() {
             },
           }),
           200,
+          headers: {'content-type': 'application/json'},
         );
       },
     },

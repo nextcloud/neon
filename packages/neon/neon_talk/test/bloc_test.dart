@@ -32,6 +32,7 @@ Account mockTalkAccount() {
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           ),
       'post': (match, bodyBytes) {
         roomCount++;
@@ -47,6 +48,7 @@ Account mockTalkAccount() {
             },
           }),
           200,
+          headers: {'content-type': 'application/json'},
         );
       },
     },

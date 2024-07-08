@@ -27,6 +27,7 @@ Account mockTalkAccount() {
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           ),
       'delete': (match, bodyBytes) => Response(
             json.encode({
@@ -36,6 +37,7 @@ Account mockTalkAccount() {
               },
             }),
             200,
+            headers: {'content-type': 'application/json'},
           ),
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd'): {
@@ -94,6 +96,7 @@ Account mockTalkAccount() {
             }),
             200,
             headers: {
+              'content-type': 'application/json',
               'x-chat-last-common-read': '0',
             },
           );
@@ -119,6 +122,7 @@ Account mockTalkAccount() {
           }),
           201,
           headers: {
+            'content-type': 'application/json',
             'x-chat-last-common-read': '1',
           },
         );

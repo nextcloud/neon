@@ -25,7 +25,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -38,7 +38,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -51,7 +51,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -64,7 +64,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.noAuthentication();
@@ -79,7 +79,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
@@ -98,7 +98,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.basicAuthentication();
@@ -111,7 +111,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.basicAuthentication(), throwsA(isA<Exception>()));
@@ -130,7 +130,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.basicAuthentication();
@@ -145,7 +145,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
@@ -158,7 +158,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.bearerAuthentication(), throwsA(isA<Exception>()));
@@ -177,7 +177,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.bearerAuthentication();
@@ -196,7 +196,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.bearerAuthentication();
@@ -211,7 +211,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(request.headers, equals({'Accept': 'application/json'}));
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     expect(() => client.multipleAuthentications(), throwsA(isA<Exception>()));
@@ -230,7 +230,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();
@@ -249,7 +249,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();
@@ -268,7 +268,7 @@ void main() {
           }),
         );
 
-        return Response('{}', 200);
+        return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
     await client.multipleAuthentications();

@@ -62,6 +62,7 @@ Account mockAppsAccount() {
             },
           ),
           200,
+          headers: {'content-type': 'application/json'},
         );
       },
     },
