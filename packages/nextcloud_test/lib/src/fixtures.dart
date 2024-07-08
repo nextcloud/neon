@@ -20,6 +20,13 @@ void closeFixture() {
   _closed = true;
 }
 
+/// Resets all recorded fixtures.
+///
+/// Needed when network requests are made in the setup part of a test.
+void resetFixture() {
+  _fixture.clear();
+}
+
 /// Validates that the requests match the stored fixtures.
 ///
 /// If there is no stored fixture a new one is created.
