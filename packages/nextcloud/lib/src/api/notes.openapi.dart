@@ -516,8 +516,8 @@ class $Client extends _i1.DynamiteClient {
 
   /// Builds a serializer to parse the response of [$deleteNote_Request].
   @_i2.experimental
-  _i1.DynamiteSerializer<String, void> $deleteNote_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
+  _i1.DynamiteSerializer<BuiltList<Never>, void> $deleteNote_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(BuiltList, [FullType(Never)]),
         headersType: null,
         serializers: _$jsonSerializers,
         validStatuses: const {200},
@@ -571,7 +571,7 @@ class $Client extends _i1.DynamiteClient {
   /// See:
   ///  * [$deleteNote_Request] for the request send by this method.
   ///  * [$deleteNote_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<String, void>> deleteNote({required int id}) async {
+  Future<_i1.DynamiteResponse<BuiltList<Never>, void>> deleteNote({required int id}) async {
     final _request = $deleteNote_Request(
       id: id,
     );
@@ -579,7 +579,7 @@ class $Client extends _i1.DynamiteClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteNote_Serializer();
-    return _i1.ResponseConverter<String, void>(_serializer).convert(_response);
+    return _i1.ResponseConverter<BuiltList<Never>, void>(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getSettings_Request].
@@ -1186,6 +1186,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
       ..add(Note.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Note)]), ListBuilder<Note>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..addBuilderFactory(const FullType(Settings), SettingsBuilder.new)
       ..add(Settings.serializer)
       ..add(Settings_NoteMode.serializer)
