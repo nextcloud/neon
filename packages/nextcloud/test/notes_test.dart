@@ -18,13 +18,14 @@ void main() {
       tearDownAll(() async {
         await container.destroy();
       });
+      tearDown(() async {
+        closeFixture();
 
-      Future<void> deleteAllNotes() async {
         final response = await client.notes.getNotes();
         for (final note in response.body) {
           await client.notes.deleteNote(id: note.id);
         }
-      }
+      });
 
       test('Is supported', () async {
         final response = await client.core.ocs.getCapabilities();
@@ -38,7 +39,6 @@ void main() {
       });
 
       test('Create note favorite', () async {
-        await deleteAllNotes();
         final response = await client.notes.createNote(
           title: 'a',
           content: 'b',
@@ -59,7 +59,6 @@ void main() {
       });
 
       test('Create note not favorite', () async {
-        await deleteAllNotes();
         final response = await client.notes.createNote(
           title: 'a',
           content: 'b',
@@ -79,7 +78,6 @@ void main() {
       });
 
       test('Get notes', () async {
-        await deleteAllNotes();
         await client.notes.createNote(title: 'a');
         await client.notes.createNote(title: 'b');
 
@@ -93,7 +91,6 @@ void main() {
       });
 
       test('Get note', () async {
-        await deleteAllNotes();
         final response = await client.notes.getNote(
           id: (await client.notes.createNote(title: 'a')).body.id,
         );
@@ -104,7 +101,6 @@ void main() {
       });
 
       test('Update note', () async {
-        await deleteAllNotes();
         final id = (await client.notes.createNote(title: 'a')).body.id;
         await client.notes.updateNote(
           id: id,
@@ -119,7 +115,6 @@ void main() {
       });
 
       test('Update note fail changed on server', () async {
-        await deleteAllNotes();
         final response = await client.notes.createNote(title: 'a');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
@@ -140,7 +135,6 @@ void main() {
       });
 
       test('Delete note', () async {
-        await deleteAllNotes();
         final id = (await client.notes.createNote(title: 'a')).body.id;
 
         var response = await client.notes.getNotes();

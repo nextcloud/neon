@@ -19,14 +19,16 @@ void main() {
         await container.destroy();
       });
 
-      Future<void> resetStatus() async {
+      tearDown(() async {
+        closeFixture();
+
         await client.userStatus.userStatus.setStatus(
           $body: user_status.UserStatusSetStatusRequestApplicationJson(
             (b) => b..statusType = user_status.$Type.online.value,
           ),
         );
         await client.userStatus.userStatus.clearMessage();
-      }
+      });
 
       group('Predefined status', () {
         test('Find all', () async {
@@ -66,8 +68,6 @@ void main() {
 
       group('User status', () {
         test('Set', () async {
-          await resetStatus();
-
           final response = await client.userStatus.userStatus.setStatus(
             $body: user_status.UserStatusSetStatusRequestApplicationJson(
               (b) => b..statusType = user_status.$Type.online.value,
@@ -87,8 +87,6 @@ void main() {
         });
 
         test('Get', () async {
-          await resetStatus();
-
           final response = await client.userStatus.userStatus.getStatus();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -104,8 +102,6 @@ void main() {
         });
 
         test('Find', () async {
-          await resetStatus();
-
           final response = await client.userStatus.statuses.find(userId: 'user1');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -118,8 +114,6 @@ void main() {
         });
 
         test('Set predefined message', () async {
-          await resetStatus();
-
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setPredefinedMessage(
             $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
@@ -142,8 +136,6 @@ void main() {
         });
 
         test('Set custom message', () async {
-          await resetStatus();
-
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           final response = await client.userStatus.userStatus.setCustomMessage(
             $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
@@ -167,8 +159,6 @@ void main() {
         });
 
         test('Clear message', () async {
-          await resetStatus();
-
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
           await client.userStatus.userStatus.setCustomMessage(
             $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
@@ -197,8 +187,6 @@ void main() {
 
       group('Statuses', () {
         test('Find all', () async {
-          await resetStatus();
-
           final response = await client.userStatus.statuses.findAll();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -213,8 +201,6 @@ void main() {
 
       group('Heartbeat', () {
         test('Heartbeat', () async {
-          await resetStatus();
-
           final response = await client.userStatus.heartbeat.heartbeat(
             $body: user_status.HeartbeatHeartbeatRequestApplicationJson(
               (b) => b..status = user_status.$Type.online.value,
