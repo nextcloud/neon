@@ -61,6 +61,9 @@ Account mockTalkAccount() {
             },
           }),
           200,
+          headers: {
+            'content-type': 'application/json',
+          },
         );
       },
     },
