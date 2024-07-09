@@ -392,9 +392,14 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
           // If there are multiple messages updating the same parent message only the newest is applied because it already contains all values
           for (final newHiddenMessage in newHiddenMessages) {
             final parent = newHiddenMessage.parent!;
+
             if (message.id == parent.id) {
               // Conversion from ChatMessage to ChatMessageWithParent is necessary because parent messages can't have parents of their own
               return spreed.ChatMessageWithParent.fromJson(parent.toJson());
+            }
+
+            if (message.parent?.id == parent.id) {
+              return message.rebuild((b) => b.parent.replace(parent));
             }
           }
 

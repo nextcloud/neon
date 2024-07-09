@@ -415,7 +415,9 @@ void main() {
 
           final messageResponse = await client1.spreed.chat.sendMessage(
             token: room.token,
-            message: 'bla',
+            $body: spreed.ChatSendMessageRequestApplicationJson(
+              (b) => b..message = 'bla',
+            ),
           );
 
           final response = await client1.spreed.chat.deleteMessage(
