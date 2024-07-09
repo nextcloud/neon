@@ -15,8 +15,12 @@ import 'package:nextcloud/spreed.dart' as spreed;
 class TalkMessageInput extends StatefulWidget {
   /// Creates a new Talk message input.
   const TalkMessageInput({
+    required this.room,
     super.key,
   });
+
+  /// The room to which the messages will be sent to.
+  final spreed.Room room;
 
   @override
   State<TalkMessageInput> createState() => _TalkMessageInputState();
@@ -122,6 +126,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
               ),
               Expanded(
                 child: TalkParentMessage(
+                  room: widget.room,
                   parentChatMessage: replyToSnapshot.requireData!,
                   lastCommonRead: null,
                 ),

@@ -17,6 +17,7 @@
   "roomMessageSend": "Send message",
   "roomMessageReply": "Reply",
   "roomMessageReaction": "Add reaction",
+  "roomMessageDelete": "Delete",
   "reactionsAddNew": "Add a new reaction",
   "reactionsLoading": "Loading reactions",
   "roomsCreateNew": "Create new room"

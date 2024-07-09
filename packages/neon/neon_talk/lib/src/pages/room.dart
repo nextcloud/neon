@@ -112,6 +112,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                       messagesResult.requireData.length > index + 1 ? messagesResult.requireData[index + 1] : null;
 
                   Widget child = TalkMessage(
+                    room: room,
                     chatMessage: message,
                     lastCommonRead: lastCommonReadSnapshot.data,
                     previousChatMessage: previousMessage,
@@ -184,7 +185,9 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                 child: Center(
                   child: ConstrainedBox(
                     constraints: Theme.of(context).extension<TalkTheme>()!.messageConstraints,
-                    child: const TalkMessageInput(),
+                    child: TalkMessageInput(
+                      room: room,
+                    ),
                   ),
                 ),
               ),

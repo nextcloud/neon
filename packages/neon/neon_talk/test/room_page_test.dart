@@ -46,6 +46,7 @@ void main() {
     when(() => room.readOnly).thenReturn(0);
     when(() => room.isCustomAvatar).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
+    when(() => room.actorId).thenReturn('');
 
     bloc = MockRoomBloc();
     when(() => bloc.errors).thenAnswer((_) => StreamController<Object>().stream);

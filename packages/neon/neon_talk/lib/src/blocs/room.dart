@@ -42,6 +42,9 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// Removes the current [replyTo] chat message.
   void removeReplyChatMessage();
 
+  /// Deletes a chat messages.
+  void deleteMessage(spreed.$ChatMessageInterface chatMessage);
+
   /// The current room data.
   BehaviorSubject<Result<spreed.Room>> get room;
 
@@ -335,6 +338,26 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     replyTo.add(null);
   }
 
+  @override
+  Future<void> deleteMessage(spreed.$ChatMessageInterface chatMessage) async {
+    await wrapAction(
+      () async {
+        final response = await account.client.spreed.chat.deleteMessage(
+          token: token,
+          messageId: chatMessage.id,
+        );
+
+        updateLastCommonRead(response.headers.xChatLastCommonRead);
+
+        final m = response.body.ocs.data;
+        updateLastKnownMessageId(m.id);
+
+        prependMessages([m]);
+      },
+      refresh: () async {},
+    );
+  }
+
   void updateLastCommonRead(String? header) {
     if (header != null) {
       final id = int.parse(header);
@@ -356,13 +379,8 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     if (messages.hasValue) {
       final result = messages.value;
       if (result.hasData) {
-        final lastMessageID = newMessages.lastOrNull?.id;
-
-        if (lastMessageID == null) {
-          builder.addAll(result.requireData);
-        } else {
-          builder.addAll(result.requireData.where((message) => message.id < lastMessageID));
-        }
+        final lastMessageID = newMessages.last.id;
+        builder.addAll(result.requireData.where((message) => message.id < lastMessageID));
       }
 
       // Skip messages without parents as we can't know which message should be updated

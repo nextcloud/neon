@@ -9,6 +9,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
 
 import 'testing.dart';
 
@@ -39,6 +40,29 @@ Account mockTalkAccount() {
             200,
             headers: {'content-type': 'application/json'},
           ),
+    },
+    RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd/([0-9]+)'): {
+      'delete': (match, queryParameters) {
+        final id = int.parse(match.group(1)!);
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': getChatMessage(
+                id: messageCount++,
+                systemMessage: 'message_deleted',
+                messageType: spreed.MessageType.system,
+                parent: getChatMessage(
+                  id: id,
+                  messageType: spreed.MessageType.commentDeleted,
+                ),
+              ),
+            },
+          }),
+          200,
+        );
+      },
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd'): {
       'get': (match, bodyBytes) async {
@@ -543,6 +567,33 @@ void main() {
     when(() => message.id).thenReturn(1);
 
     roomBloc.loadReactions(message);
+  });
+
+  test('deleteMessage', () async {
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<spreed.MessageType>(e.map((m) => m.messageType))),
+      emitsInOrder([
+        Result<BuiltList<spreed.MessageType>>.loading(),
+        Result.success(
+          BuiltList<spreed.MessageType>([
+            spreed.MessageType.comment,
+            spreed.MessageType.comment,
+            spreed.MessageType.comment,
+          ]),
+        ),
+        Result.success(
+          BuiltList<spreed.MessageType>([
+            spreed.MessageType.comment,
+            spreed.MessageType.commentDeleted,
+            spreed.MessageType.comment,
+          ]),
+        ),
+      ]),
+    );
+
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(1);
+    roomBloc.deleteMessage(message);
   });
 
   test('polling', () async {

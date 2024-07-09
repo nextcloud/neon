@@ -42,6 +42,8 @@ Widget wrapWidget({
     );
 
 void main() {
+  late spreed.Room room;
+
   setUpAll(() {
     FakeNeonStorage.setup();
 
@@ -49,6 +51,10 @@ void main() {
 
     tzdata.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
+  });
+
+  setUp(() {
+    room = MockRoom();
   });
 
   group('getActorDisplayName', () {
@@ -198,6 +204,7 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           child: TalkMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: null,
           ),
@@ -231,6 +238,7 @@ void main() {
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
           ],
           child: TalkMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: null,
           ),
@@ -307,6 +315,7 @@ void main() {
           Provider<Account>.value(value: account),
         ],
         child: TalkParentMessage(
+          room: room,
           parentChatMessage: chatMessage,
           lastCommonRead: null,
         ),
@@ -350,6 +359,7 @@ void main() {
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
           ],
           child: TalkCommentMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: 0,
             previousChatMessage: previousChatMessage,
@@ -402,6 +412,7 @@ void main() {
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
           ],
           child: TalkCommentMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: 0,
             previousChatMessage: previousChatMessage,
@@ -448,6 +459,7 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkCommentMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: null,
             previousChatMessage: previousChatMessage,
@@ -483,6 +495,7 @@ void main() {
             Provider<Account>.value(value: account),
           ],
           child: TalkCommentMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: null,
             isParent: true,
@@ -541,6 +554,7 @@ void main() {
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
           ],
           child: TalkCommentMessage(
+            room: room,
             chatMessage: chatMessage,
             lastCommonRead: null,
             previousChatMessage: previousChatMessage,
@@ -587,6 +601,7 @@ void main() {
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
             ],
             child: TalkCommentMessage(
+              room: room,
               chatMessage: chatMessage,
               lastCommonRead: null,
               previousChatMessage: previousChatMessage,
@@ -636,6 +651,7 @@ void main() {
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
             ],
             child: TalkCommentMessage(
+              room: room,
               chatMessage: chatMessage,
               lastCommonRead: null,
               previousChatMessage: previousChatMessage,
@@ -684,6 +700,7 @@ void main() {
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
             ],
             child: TalkCommentMessage(
+              room: room,
               chatMessage: chatMessage,
               lastCommonRead: null,
               previousChatMessage: previousChatMessage,
@@ -731,73 +748,316 @@ void main() {
         when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
       });
 
-      testWidgets('Add reaction', (tester) async {
-        SharedPreferences.setMockInitialValues({});
+      group('Add reaction', () {
+        testWidgets('Allowed', (tester) async {
+          SharedPreferences.setMockInitialValues({});
 
-        await tester.pumpWidgetWithAccessibility(
-          wrapWidget(
-            providers: [
-              Provider<Account>.value(value: account),
-              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
-            ],
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: 0,
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
             ),
-          ),
-        );
+          );
 
-        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
-        await gesture.addPointer(location: Offset.zero);
-        addTearDown(gesture.removePointer);
-        await tester.pump();
-        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.byIcon(Icons.more_vert));
-        await tester.pumpAndSettle();
-
-        await tester.runAsync(() async {
-          await tester.tap(find.byIcon(Icons.add_reaction_outlined));
-          await tester.pumpAndSettle();
-          await tester.tap(find.byIcon(Icons.tag_faces));
-          await tester.pumpAndSettle();
-          await tester.tap(find.text('😂'));
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
           await tester.pumpAndSettle();
 
-          verify(() => roomBloc.addReaction(chatMessage, '😂')).called(1);
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+
+          await tester.runAsync(() async {
+            await tester.tap(find.byIcon(Icons.add_reaction_outlined));
+            await tester.pumpAndSettle();
+            await tester.tap(find.byIcon(Icons.tag_faces));
+            await tester.pumpAndSettle();
+            await tester.tap(find.text('😂'));
+            await tester.pumpAndSettle();
+
+            verify(() => roomBloc.addReaction(chatMessage, '😂')).called(1);
+          });
+        });
+
+        testWidgets('Read-only', (tester) async {
+          SharedPreferences.setMockInitialValues({});
+
+          when(() => room.readOnly).thenReturn(1);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+          expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
+        });
+
+        testWidgets('No permission', (tester) async {
+          SharedPreferences.setMockInitialValues({});
+
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(0);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+          expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
         });
       });
 
-      testWidgets('Reply', (tester) async {
-        await tester.pumpWidgetWithAccessibility(
-          wrapWidget(
-            providers: [
-              Provider<Account>.value(value: account),
-              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
-            ],
-            child: TalkCommentMessage(
-              chatMessage: chatMessage,
-              lastCommonRead: 0,
+      group('Reply', () {
+        testWidgets('Allowed', (tester) async {
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
             ),
-          ),
-        );
+          );
 
-        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
-        await gesture.addPointer(location: Offset.zero);
-        addTearDown(gesture.removePointer);
-        await tester.pump();
-        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
-        await tester.pumpAndSettle();
-
-        await tester.tap(find.byIcon(Icons.more_vert));
-        await tester.pumpAndSettle();
-
-        await tester.runAsync(() async {
-          await tester.tap(find.byIcon(Icons.reply));
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
           await tester.pumpAndSettle();
 
-          verify(() => roomBloc.setReplyChatMessage(chatMessage)).called(1);
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+
+          await tester.runAsync(() async {
+            await tester.tap(find.byIcon(Icons.reply));
+            await tester.pumpAndSettle();
+
+            verify(() => roomBloc.setReplyChatMessage(chatMessage)).called(1);
+          });
+        });
+
+        testWidgets('Read-only', (tester) async {
+          when(() => room.readOnly).thenReturn(1);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+          expect(find.byIcon(Icons.reply), findsNothing);
+        });
+
+        testWidgets('No permission', (tester) async {
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(0);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+          expect(find.byIcon(Icons.reply), findsNothing);
+        });
+      });
+
+      group('Delete', () {
+        testWidgets('Comment self', (tester) async {
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('test');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+
+          await tester.runAsync(() async {
+            await tester.tap(find.byIcon(Icons.delete_forever));
+            await tester.pumpAndSettle();
+
+            verify(() => roomBloc.deleteMessage(chatMessage)).called(1);
+          });
+        });
+
+        testWidgets('Comment other', (tester) async {
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+          when(() => room.actorId).thenReturn('other');
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          await tester.tap(find.byIcon(Icons.more_vert));
+          await tester.pumpAndSettle();
+
+          expect(find.byIcon(Icons.delete_forever), findsNothing);
+        });
+
+        testWidgets('Deleted', (tester) async {
+          when(() => room.readOnly).thenReturn(0);
+          when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+
+          when(() => chatMessage.messageType).thenReturn(spreed.MessageType.commentDeleted);
+
+          await tester.pumpWidgetWithAccessibility(
+            wrapWidget(
+              providers: [
+                Provider<Account>.value(value: account),
+                NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              ],
+              child: TalkCommentMessage(
+                room: room,
+                chatMessage: chatMessage,
+                lastCommonRead: 0,
+              ),
+            ),
+          );
+
+          final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+          await gesture.addPointer(location: Offset.zero);
+          addTearDown(gesture.removePointer);
+          await tester.pump();
+          await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+          await tester.pumpAndSettle();
+
+          expect(find.byIcon(Icons.more_vert), findsNothing);
         });
       });
     });
