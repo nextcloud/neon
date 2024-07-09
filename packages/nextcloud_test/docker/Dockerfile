@@ -1,5 +1,5 @@
 ARG SERVER_VERSION
-FROM nextcloud:${SERVER_VERSION}-fpm-alpine as nextcloud
+FROM nextcloud:${SERVER_VERSION}-fpm-alpine AS nextcloud
 
 WORKDIR /usr/src/nextcloud
 
@@ -25,26 +25,26 @@ COPY static /usr/src/nextcloud/static
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
-FROM alpine:latest@sha256:b89d9c93e9ed3597455c90a0b88a8bbb5cb7188438f70953fede212a0c4394e0 as apps
+FROM alpine:latest@sha256:b89d9c93e9ed3597455c90a0b88a8bbb5cb7188438f70953fede212a0c4394e0 AS apps
 RUN apk add curl
 
-FROM apps as news
+FROM apps AS news
 ARG NEWS_URL
 RUN curl -L "$NEWS_URL" | tar -xz -C /
 
-FROM apps as notes
+FROM apps AS notes
 ARG NOTES_URL
 RUN curl -L "$NOTES_URL" | tar -xz -C /
 
-FROM apps as uppush
+FROM apps AS uppush
 ARG UPPUSH_URL
 RUN curl -L "$UPPUSH_URL" | tar -xz -C /
 
-FROM apps as spreed
+FROM apps AS spreed
 ARG SPREED_URL
 RUN curl -L "$SPREED_URL" | tar -xz -C /
 
-FROM apps as drop_account
+FROM apps AS drop_account
 ARG DROP_ACCOUNT_URL
 RUN curl -L "$DROP_ACCOUNT_URL" | tar -xz -C /
 
