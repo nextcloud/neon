@@ -1318,6 +1318,14 @@ const iconSetMap = {
     ),
     _red,
   ),
+  'pom.xml': SetiMeta(
+    IconData(
+      _maven,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
   '.mustache': SetiMeta(
     IconData(
       _mustache,
@@ -1638,6 +1646,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  '.tsx': SetiMeta(
+    IconData(
+      _react,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   '.spec.tsx': SetiMeta(
     IconData(
       _react,
@@ -1950,14 +1966,6 @@ const iconSetMap = {
     ),
     _blue,
   ),
-  '.tsx': SetiMeta(
-    IconData(
-      _typescript,
-      fontFamily: _fontFamily,
-      fontPackage: _fontPackage,
-    ),
-    _blue,
-  ),
   '.spec.ts': SetiMeta(
     IconData(
       _typescript,
@@ -2167,6 +2175,14 @@ const iconSetMap = {
     _red,
   ),
   '.woff2': SetiMeta(
+    IconData(
+      _font,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _red,
+  ),
+  '.otf': SetiMeta(
     IconData(
       _font,
       fontFamily: _fontFamily,
