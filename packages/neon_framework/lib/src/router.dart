@@ -69,7 +69,7 @@ GoRouter buildAppRouter({
 
         final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
         if (loginQRcode != null) {
-          return LoginCheckServerStatusRoute.withCredentials(
+          return LoginCheckServerStatusWithCredentialsRoute(
             serverUrl: loginQRcode.serverURL,
             loginName: loginQRcode.username,
             password: loginQRcode.password,
@@ -229,6 +229,9 @@ class HomeRoute extends GoRouteData {
     TypedGoRoute<LoginCheckServerStatusRoute>(
       path: 'check/server',
     ),
+    TypedGoRoute<LoginCheckServerStatusWithCredentialsRoute>(
+      path: 'check/server/:loginName/:password',
+    ),
     TypedGoRoute<LoginCheckAccountRoute>(
       path: 'check/account',
     ),
@@ -327,49 +330,16 @@ class LoginQRcodeRoute extends GoRouteData {
 class LoginCheckServerStatusRoute extends GoRouteData {
   /// {@macro AppRoutes.LoginCheckServerStatusRoute}
   ///
-  /// [loginName] and [password] must both be null.
-  /// Use [LoginCheckServerStatusRoute.withCredentials] to specify credentials.
+  /// Use [LoginCheckServerStatusWithCredentialsRoute] to specify credentials.
   const LoginCheckServerStatusRoute({
     required this.serverUrl,
-    this.loginName,
-    this.password,
-  }) : assert(
-          loginName == null && password == null,
-          'loginName and password must be null. Use LoginCheckServerStatusRoute.withCredentials instead.',
-        );
-
-  /// {@macro AppRoutes.LoginCheckServerStatusRoute}
-  ///
-  /// See [LoginCheckServerStatusRoute] for a route without initial credentials.
-  const LoginCheckServerStatusRoute.withCredentials({
-    required this.serverUrl,
-    required String this.loginName,
-    required String this.password,
   });
 
   /// {@macro AppRoutes.LoginFlow.serverUrl}
   final Uri serverUrl;
 
-  /// {@template AppRoutes.LoginFlow.loginName}
-  /// The login name of the credentials.
-  /// {@endtemplate}
-  final String? loginName;
-
-  /// {@template AppRoutes.LoginFlow.password}
-  /// The password of the credentials.
-  /// {@endtemplate}
-  final String? password;
-
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    if (loginName != null && password != null) {
-      return LoginCheckServerStatusPage.withCredentials(
-        serverURL: serverUrl,
-        loginName: loginName!,
-        password: password!,
-      );
-    }
-
     return LoginCheckServerStatusPage(
       serverURL: serverUrl,
     );
@@ -380,16 +350,62 @@ class LoginCheckServerStatusRoute extends GoRouteData {
     final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
 
     if (state.fullPath == location && hasAccounts) {
-      if (loginName != null && password != null) {
-        return _AddAccountCheckServerStatusRoute.withCredentials(
-          serverUrl: serverUrl,
-          loginName: loginName!,
-          password: password!,
-        ).location;
-      }
-
       return _AddAccountCheckServerStatusRoute(
         serverUrl: serverUrl,
+      ).location;
+    }
+
+    return null;
+  }
+}
+
+/// {@template AppRoutes.LoginCheckServerStatusWithCredentialsRoute}
+/// Route for the [LoginCheckServerStatusPage].
+///
+/// Redirects to [_AddAccountCheckServerStatusWithCredentialsRoute] when at least one account
+/// is already logged in.
+/// {@endtemplate}
+@immutable
+class LoginCheckServerStatusWithCredentialsRoute extends LoginCheckServerStatusRoute {
+  /// {@macro AppRoutes.LoginCheckServerStatusWithCredentialsRoute}
+  const LoginCheckServerStatusWithCredentialsRoute({
+    required super.serverUrl,
+    required this.loginName,
+    required this.password,
+  });
+
+  /// {@macro AppRoutes.LoginFlow.serverUrl}
+  @override
+  Uri get serverUrl => super.serverUrl;
+
+  /// {@template AppRoutes.LoginFlow.loginName}
+  /// The login name of the credentials.
+  /// {@endtemplate}
+  final String loginName;
+
+  /// {@template AppRoutes.LoginFlow.password}
+  /// The password of the credentials.
+  /// {@endtemplate}
+  final String password;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return LoginCheckServerStatusPage.withCredentials(
+      serverURL: serverUrl,
+      loginName: loginName,
+      password: password,
+    );
+  }
+
+  @override
+  FutureOr<String?> redirect(BuildContext context, GoRouterState state) {
+    final hasAccounts = NeonProvider.of<AccountsBloc>(context).hasAccounts;
+
+    if (state.fullPath == location && hasAccounts) {
+      return _AddAccountCheckServerStatusWithCredentialsRoute(
+        serverUrl: serverUrl,
+        loginName: loginName,
+        password: password,
       ).location;
     }
 
@@ -472,20 +488,17 @@ class _AddAccountCheckServerStatusRoute extends LoginCheckServerStatusRoute {
     required super.serverUrl,
   });
 
-  const _AddAccountCheckServerStatusRoute.withCredentials({
+  @override
+  Uri get serverUrl => super.serverUrl;
+}
+
+@immutable
+class _AddAccountCheckServerStatusWithCredentialsRoute extends LoginCheckServerStatusWithCredentialsRoute {
+  const _AddAccountCheckServerStatusWithCredentialsRoute({
     required super.serverUrl,
     required super.loginName,
     required super.password,
-  }) : super.withCredentials();
-
-  @override
-  Uri get serverUrl => super.serverUrl;
-
-  @override
-  String? get loginName => super.loginName;
-
-  @override
-  String? get password => super.password;
+  });
 }
 
 @immutable
