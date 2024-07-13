@@ -297,6 +297,10 @@ RouteBase get $loginRoute => GoRouteData.$route(
           factory: $LoginCheckServerStatusRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'check/server/:loginName/:password',
+          factory: $LoginCheckServerStatusWithCredentialsRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'check/account',
           factory: $LoginCheckAccountRouteExtension._fromState,
         ),
@@ -359,16 +363,36 @@ extension $LoginQRcodeRouteExtension on LoginQRcodeRoute {
 extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
   static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
         serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-        loginName: state.uri.queryParameters['login-name'],
-        password: state.uri.queryParameters['password'],
       );
 
   String get location => GoRouteData.$location(
         '/login/check/server',
         queryParams: {
           'server-url': serverUrl.toString(),
-          if (loginName != null) 'login-name': loginName,
-          if (password != null) 'password': password,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) => context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $LoginCheckServerStatusWithCredentialsRouteExtension on LoginCheckServerStatusWithCredentialsRoute {
+  static LoginCheckServerStatusWithCredentialsRoute _fromState(GoRouterState state) =>
+      LoginCheckServerStatusWithCredentialsRoute(
+        loginName: state.pathParameters['loginName']!,
+        password: state.pathParameters['password']!,
+        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/login/check/server/${Uri.encodeComponent(loginName)}/${Uri.encodeComponent(password)}',
+        queryParams: {
+          'server-url': serverUrl.toString(),
         },
       );
 
