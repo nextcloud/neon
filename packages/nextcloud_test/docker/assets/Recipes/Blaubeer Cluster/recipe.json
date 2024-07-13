@@ -1,0 +1,25 @@
+{
+    "name": "Blaubeer Cluster",
+    "image": "https:\/\/recipecontent.fooby.ch\/16683_3-2_480-320.jpg",
+    "recipeYield": 20,
+    "keywords": "Desserts,Sommer,Herbst",
+    "recipeIngredient": [
+        "  120   vegane, helle Schokolade (70 % Kakao), fein gehackt",
+        "  1 EL  Kokos\u00f6l",
+        "  1 Prise  Meersalz",
+        "  250 g  Heidelbeeren (oder Blaubeeren)",
+        "  2 TL  Kokosraspel"
+    ],
+    "recipeInstructions": [
+        "\n                    \n                        \n                        \n                            Schokolade in einer d\u00fcnnwandigen Sch\u00fcssel \u00fcber dem nur leicht siedenden Wasserbad schmelzen, glatt r\u00fchren, Kokos\u00f6l und Salz darunterr\u00fchren. Mit einem Teel\u00f6ffel wenig Schokolade auf die Beeren geben, je 3-5 Beeren zusammenkleben, auf ein Blech legen, ca. 10 Min. gefrieren. Die einzelnen Cluster mit einer Gabel in die restliche Schokolade tauchen, nebeneinander auf ein Backpapier legen, Kokosraspel dar\u00fcber streuen, bis zum Naschen ca. 15 Min. k\u00fchl stellen.\n                        \n                    \n                "
+    ],
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "recipeCategory": "",
+    "tool": [],
+    "description": "",
+    "url": "https:\/\/fooby.ch\/de\/rezepte\/16683\/blaubeer-cluster",
+    "nutrition": [],
+    "dateModified": "2021-04-17T12:51:51+0000",
+    "dateCreated": "2021-04-17T12:51:51+0000"
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "op": "add",
+        "path": "/components/schemas/RecipeStub/allOf/1/required/1",
+        "value": "id"
+    }
+]

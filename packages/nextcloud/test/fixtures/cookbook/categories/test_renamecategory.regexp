@@ -1,0 +1,5 @@
+PUT http://localhost/index\.php/apps/cookbook/api/v1/category/Soup
+accept: application/json
+authorization: Basic mock
+content-type: application/json; charset=utf-8
+\{"name":"Delicious Soup"\}

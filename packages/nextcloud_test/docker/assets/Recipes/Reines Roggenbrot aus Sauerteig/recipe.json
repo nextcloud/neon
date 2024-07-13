@@ -1,0 +1,125 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "image": "https:\/\/img.chefkoch-cdn.de\/rezepte\/2949131447162709\/bilder\/1362373\/crop-960x540\/reines-roggenbrot-aus-sauerteig.jpg",
+    "recipeCategory": "Backen",
+    "recipeIngredient": [
+        "210 g Roggenvollkornmehl",
+        "230 g Wasser",
+        "4 g Salz",
+        "40 g Anstellgut",
+        "60 g Altbrot",
+        "240 g Wasser",
+        "8 g Salz",
+        "370 g Roggenmehl Type 1370",
+        "120 g Wasser Wasser"
+    ],
+    "name": "Reines Roggenbrot aus Sauerteig",
+    "description": "Reines Roggenbrot aus Sauerteig - Roggenbrot aus Sauerteig mit Br\u00fchst\u00fcck und Anstellgut. \u00dcber 28 Bewertungen und f\u00fcr sehr lecker befunden. Mit \u25ba Portionsrechner \u25ba Kochbuch \u25ba Video-Tipps!",
+    "recipeInstructions": [
+        "Sauerteig",
+        "Die Zutaten f\u00fcr den Sauerteig (210 g Roggenvollkornmehl, 230 g Wasser (45 Grad Celsius), 4 g Salz und 40 g Anstellgut) verr\u00fchren und 12-16 Stunden bei Raumtemperatur reifen lassen.",
+        "Br\u00fchst\u00fcck",
+        "F\u00fcr das Br\u00fchst\u00fcck kochendes Wasser (240 g) mit dem Salz und dem Altbrot verr\u00fchren und abgedeckt auf Raumtemperatur ausk\u00fchlen lassen. Lagerf\u00e4hig bis zu 12 Stunden.",
+        "Hauptteig",
+        "F\u00fcr den Hauptteig den gesamten Sauerteig, das Br\u00fchst\u00fcck, 370 g Roggenmehl (Type 1370) und 120 g Wasser (70 Grad Celsius) von Hand oder auf niedrigster Stufe 5-8 Minuten mischen bis eine glatte, geschmeidige Masse entstanden ist (Teigtemperatur zirka 28 Grad Celsius). Bei Bedarf noch Wasser nachsch\u00fctten.",
+        "Den Teig 30 Minuten bei Raumtemperatur ruhen lassen.",
+        "Den Teig rundwirken und mit Schluss nach unten in den bemehlten G\u00e4rkorb setzen.",
+        "80 Minuten bei Raumtemperatur reifen lassen.",
+        "Brot backen",
+        "Mit knapper Gare und Schluss nach oben bei 250 Grad Celsius fallend auf 200 Grad Celsius 50 Minuten ohne Dampf backen."
+    ],
+    "author": {
+        "@type": "Person",
+        "name": "Gel\u00f6schter Benutzer"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Chefkoch.de"
+    },
+    "datePublished": "2016-10-05",
+    "prepTime": "PT1H0M",
+    "cookTime": "PT0H50M",
+    "totalTime": "PT15H50M",
+    "recipeYield": 4,
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingCount": 28,
+        "ratingValue": 4.57,
+        "reviewCount": 21,
+        "worstRating": 0,
+        "bestRating": 5
+    },
+    "video": [
+        {
+            "@type": "VideoObject",
+            "name": "Video zu Reines Roggenbrot aus Sauerteig",
+            "description": "Video zu Reines Roggenbrot aus Sauerteig",
+            "thumbnailUrl": "https:\/\/api.chefkoch.de\/v2\/images\/crop-960x540\/videos\/1071\/preview\/org",
+            "contentUrl": "https:\/\/www.chefkoch.de\/rezepte\/2949131447162709\/Reines-Roggenbrot-aus-Sauerteig.html",
+            "embedUrl": "https:\/\/video.chefkoch-cdn.de\/ck.de\/videos\/1071-video.mp4",
+            "uploadDate": "2016-10-05"
+        }
+    ],
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "servingSize": "1",
+        "calories": "511 kcal",
+        "proteinContent": "12,49g",
+        "fatContent": "2,07g",
+        "carbohydrateContent": "107,77g"
+    },
+    "keywords": "Backen,Vegetarisch,Vegan,Backen oder S\u00fc\u00dfspeise,Brot oder Br\u00f6tchen",
+    "reviews": [
+        {
+            "@type": "Review",
+            "reviewBody": "Das Brot ist der Hammer!!! Wie soll ich je wieder Brot vom Discounter essen k\u00f6nnen, jetzt wo ich wei\u00df, wie es schmecken muss? :)",
+            "datePublished": "2021-08-16",
+            "author": {
+                "@type": "Person",
+                "name": "juli481"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Was macht man denn, wenn man noch nie ein Brot gebacken hat und kein Anstellgut hat?! WIe macht man Anstellgut?",
+            "datePublished": "2021-06-17",
+            "author": {
+                "@type": "Person",
+                "name": "mettkoenig"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Hallo!\r\n\r\nDie Kommentare hatten mich etwas verwirrt, ebenso der Hinweis auf ein Video(?).\r\nIch habe unsere zwei Brote trotzdem nach diesem Rezept fabriziert. Gr\u00f6\u00dfere Probleme gab es nicht, nur die Gare dauerte wesentlich l\u00e4nger als angegeben. Das passiert mir allerdings \u00f6fter beim Ausprobieren neuer Rezepte. Geschmacklich gef\u00e4llt das Brot sehr gut.\r\n\r\nVG Tiiine",
+            "datePublished": "2021-06-14",
+            "author": {
+                "@type": "Person",
+                "name": "gourmettine"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Und wenn man kein 1370 Mehl hat???",
+            "datePublished": "2019-09-28",
+            "author": {
+                "@type": "Person",
+                "name": "hobbykochgeselle"
+            }
+        },
+        {
+            "@type": "Review",
+            "reviewBody": "Super tolles Rezept! Ist mir gut gelungen, auch wegen dem hervorragenden Video! Danke!!",
+            "datePublished": "2017-11-17",
+            "author": {
+                "@type": "Person",
+                "name": "MariSaKi"
+            }
+        }
+    ],
+    "tool": [],
+    "url": "https:\/\/www.chefkoch.de\/rezepte\/2949131447162709\/Reines-Roggenbrot-aus-Sauerteig.html",
+    "dateModified": "2021-12-19T01:18:11+0000",
+    "dateCreated": "2021-12-19T01:18:11+0000",
+    "id": 3
+}

@@ -1,0 +1,266 @@
+{
+    "@context": "http:\/\/schema.org",
+    "@type": "Recipe",
+    "mainEntityOfPage": "https:\/\/www.allrecipes.com\/recipe\/13183\/restaurant-style-zuppa-toscana\/",
+    "datePublished": "1999-03-14T09:49:38.000Z",
+    "recipeCuisine": [],
+    "author": [
+        {
+            "@type": "Person",
+            "name": "Nancy"
+        }
+    ],
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": 4.717329545454546,
+        "ratingCount": 704,
+        "itemReviewed": "Restaurant-Style Zuppa Toscana",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "380.4 calories",
+        "carbohydrateContent": "21.1 g",
+        "cholesterolContent": "77.9 mg",
+        "fatContent": "25.4 g",
+        "fiberContent": "2.4 g",
+        "proteinContent": "17.3 g",
+        "saturatedFatContent": "10.3 g",
+        "sodiumContent": "1904 mg",
+        "sugarContent": "4.2 g"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "datePublished": "2003-12-17T16:27:24.043Z",
+            "reviewBody": "As a retired test kitchen chef, I am bound to dabble. So after reading all the reviews, I set to work to make a lower fat version and still maintain taste. I had researched the Top Secret version and felt I could even drop fat content on that one too.\r\n\r\n1. I used hot italian turkey sausage. Yes it came in links, but I squeezed out the meat and cooked it. Then roll in paper towels to get out any remaining fat. \r\n\r\n2. Bacon and Onion should be cooked separately, then blended in at the last minute to meld flavors.\r\n3. I dropped the water content, got rid of the cream and used entirely fat free half and half from the dairy section. Brilliant stuff and works well in this recipe. Smooth, rich, not too thin consistency\r\n\r\n4. Some brave souls prefer to add pepper at this point, but I say \"to taste\"\r\n\r\n5. I prefer the texture of Youkon Gold potatoes, but any young new potato with the skins on is great. If you like earthy, you can use russets. I have never been a fan of dirt so I stick with thin skins.\r\n\r\nSo play, enjoy! And don't forget the Romano!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 4
+            },
+            "author": {
+                "@type": "Person",
+                "name": "SUDIEMARIE",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/888457\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2005-10-10T01:59:17.907Z",
+            "reviewBody": "Excellent recipe. I have made this so many times here is what I have changed:\r\n\r\nCook the bacon separately from the onions to avoid burning. Use six chicken bullion cubes. Use 1\/2 cup of cream. Increase the water to 1 1\/2 quarts. Use 1\/2 pound of mild ground italian sausage and 1\/2 pound of spicy ground sausage instead of the sausage links.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 4
+            },
+            "author": {
+                "@type": "Person",
+                "name": "RogueOnion8",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/185024\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2003-12-17T16:29:28.043Z",
+            "reviewBody": "This is a fantastic recipe...and it's even tastier and easier made in a crock-pot! Thought I would share with you haw I did it. I baked 4 Italian Sausages in the oven until the were done. Meanwhile, I cooked the bacon pieces and removed them from the skillet along with most of the grease. I sauteed the onion and garlic in the remaining Tbs or so of bacon fat. I also added one carrot, diced. I added the sauteed vegetables along with the diced potatoes to a 3 and 1\/2 quart crock-pot and covered with two cans of chicken broth and one can of beef broth, some of which I used to deglaze the skillet. When the sausages were done, I sliced them and added them to the pot. I let the pot simmer on low for about 6 hours. When we got home, I turned the pot to high and added the chopped kale and cooked bacon and let them cook for about 15 minutes while I made some garlic bread. When we were ready to serve, I poured a Tbs or so of cream into each bowl and ladled in the soup. Fantastic and so easy!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "OMAHA",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/45814\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2003-09-10T23:56:51.543Z",
+            "reviewBody": "When I make this soup I have my hubby in mind. He loves the Zuppa Toscana soup at a popular italian restaurant..(yeah..I'm sure you know which one I'm talking about). I like to use the \"hot\" italian sausage and fresh spinach instead of kale. I cut my bacon with scissors and fry it by itself. Then I use the bacon grease to saute the onions. There have been occasions when I didn't have any cream on hand and so I used either half and half or whole milk with a little butter. I also have replaced half of the water called for with chicken broth..and it's great. Thanks Nancy.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "JOSIE",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/15350275\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2003-01-26T14:53:38.593Z",
+            "reviewBody": "i used to work for the olive garden and i thought their soup was good. but i have been proven wrong. this is AMAZING. i LOVE IT!!! i will make this again and again.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "WNORTH",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/719269\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2004-02-02T13:39:49.513Z",
+            "reviewBody": "I make this soup often & my children LOVE it! I use ground Italian sausage (so that there is no need to deal with the casing) and I just brown it along with some cayenne pepper (for a kick) and then drain it. I also drain all but 1 tbsp. of the bacon grease and add a pinch of crushed red pepper. I used to frequent Olive Garden to get this soup but it is just so much better homemade not to mention fresher (you know how sometimes you get that bad waiter\/waitress that gives you a bowl of kale)! YUM!! Thanks Nancy!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "I'm nuts too",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/610376\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2002-11-01T08:09:57.28Z",
+            "reviewBody": "I love this soup! I make it every year upon request from the family. I would suggest cooking the bacon first remove then cook chopped onions in bacon grease. Otherwise onions burn before bacon is cooked. Great recipe!!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "BILLIAME",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/648398\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2002-10-19T22:52:59.233Z",
+            "reviewBody": "Okay I had to rate this recipe again just to say that I had to give the recipe to my son-in-law who went nuts over this soup after I sent home with him and my daughter. Any time I offer a frozen container he is thrilled. I do find I like the texture better after the soup is cooled and then reheated. Also I always use the entire bunch of kale and mild italian sausage which I think is wonderful. Family or entertaining this is fabulous!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "DIANEM527",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/52535\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2003-01-30T06:25:32.293Z",
+            "reviewBody": "DELISH! I was so excited to try this soup and it exceeded all my expectations! It is a wonderful copy of the restaurant soup which is one of my all time faves! I omitted the sausage since i'm not a sausage fan and increased the bacon. I also used spinach instead of kale since for some odd reason my grocery store doesn't carry kale but it didn't really change the taste at all. I highly recommend this soup it was wonderful!",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 5
+            },
+            "author": {
+                "@type": "Person",
+                "name": "RENA21",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/156307\/"
+            }
+        },
+        {
+            "@type": "Review",
+            "datePublished": "2008-06-16T12:49:28.3Z",
+            "reviewBody": "My family weren't fans but it had good flavor. I don't discourage people from trying it. I just think that it didn't meet my family's taste.",
+            "reviewRating": {
+                "@type": "Rating",
+                "worstRating": "1",
+                "bestRating": "5",
+                "ratingValue": 3
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Bakingdom",
+                "image": null,
+                "sameAs": "https:\/\/www.allrecipes.com\/cook\/2534652\/"
+            }
+        }
+    ],
+    "video": {
+        "@context": "http:\/\/schema.org",
+        "@type": "VideoObject",
+        "name": "Restaurant-Style Zuppa Toscana",
+        "description": "See how to make a healthy Tuscan-style soup.",
+        "uploadDate": "2013-01-04T22:32:45.295Z",
+        "duration": "PT4M34.691S",
+        "thumbnailUrl": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fcf-images.us-east-1.prod.boltdns.net%2Fv1%2Fstatic%2F1033249144001%2Fa665f26e-0c96-49dc-81d9-6de80f92349f%2F8f5e9839-8e88-4525-88e1-8b4cb8a66bc9%2F160x90%2Fmatch%2Fimage.jpg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Allrecipes",
+            "url": "https:\/\/www.allrecipes.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/www.allrecipes.com\/img\/logo.png",
+                "width": 209,
+                "height": 60
+            },
+            "sameAs": [
+                "https:\/\/www.facebook.com\/allrecipes",
+                "https:\/\/twitter.com\/Allrecipes",
+                "https:\/\/www.pinterest.com\/allrecipes\/",
+                "https:\/\/www.instagram.com\/allrecipes\/"
+            ]
+        },
+        "embedUrl": "https:\/\/players.brightcove.net\/1033249144001\/default_default\/index.html?videoId=2073395161001"
+    },
+    "dateCreated": "2021-01-30T14:58:40+0000",
+    "printImage": false,
+    "id": 908730,
+    "name": "Restaurant-Style Zuppa Toscana",
+    "imageUrl": "\/apps\/cookbook\/recipes\/908730\/image?size=full",
+    "recipeCategory": "Soup",
+    "description": "Creamy sausage and potato soup. This recipe is very similar to the one served in a well known restaurant.",
+    "recipeIngredient": [
+        "1 (16 ounce) package smoked sausage",
+        "2 potatoes, cut into 1\/4-inch slices",
+        "\u00be cup chopped onion",
+        "6 slices bacon",
+        "1\u2009\u00bd teaspoons minced garlic",
+        "2 cups kale - washed, dried, and shredded",
+        "2 tablespoons chicken soup base",
+        "1 quart water",
+        "\u2153 cup heavy whipping cream"
+    ],
+    "recipeInstructions": [
+        "Preheat oven to 300 degrees F (150 degrees C).\n",
+        "Place sausage links onto a sheet pan and bake for 25 minutes, or until done. Cut links in half lengthwise, then cut at an angle into 1\/2-inch slices.\n",
+        "Place onions and bacon slices in a large saucepan and cook over medium heat until onions are almost clear. Remove bacon and crumble. Set aside.\n",
+        "Add garlic to the onions and cook an additional 1 minute. Add chicken soup base, water, and potatoes, simmer 15 minutes.\n",
+        "Add crumbled bacon, sausage, kale, and cream. Simmer 4 minutes and serve.\n"
+    ],
+    "tool": [],
+    "recipeYield": 6,
+    "prepTime": "PT0H15M",
+    "cookTime": "PT0H2M",
+    "totalTime": "PT1H5M",
+    "keywords": "",
+    "image": "https:\/\/imagesvc.meredithcorp.io\/v3\/mm\/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F1515920.jpg",
+    "url": "https:\/\/www.allrecipes.com\/recipe\/13183\/restaurant-style-zuppa-toscana\/",
+    "dateModified": "2021-06-18T12:31:58+0000"
+}

@@ -82,8 +82,12 @@ jobs:
       - name: Install php
         uses: shivammathur/setup-php@c541c155eee45413f5b09a52248675b1a2575231 # v2
         with:
-          php-version: '8.1'
+          php-version: "8.1"
           tools: composer
+
+      # Use https://github.com/kislyuk/yq
+      - name: Install yq
+        run: pip install yq
 
       - name: Generate specs
         run: |

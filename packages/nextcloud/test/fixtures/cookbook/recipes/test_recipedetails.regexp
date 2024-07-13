@@ -1,0 +1,60 @@
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/recipes/[0-9]+
+accept: application/json
+authorization: Basic mock

@@ -1,0 +1,7 @@
+SERVER_VERSION=29.0.3
+COOKBOOK_URL=https://github.com/christianlupus-nextcloud/cookbook-releases/releases/download/v0.11.1/cookbook-0.11.1.tar.gz
+DROP_ACCOUNT_URL=https://packages.framasoft.org/projects/nextcloud-apps/drop-account/drop_account-2.5.0.tar.gz
+NEWS_URL=https://github.com/nextcloud/news/releases/download/25.0.0-alpha7/news.tar.gz
+NOTES_URL=https://github.com/nextcloud-releases/notes/releases/download/v4.10.0/notes.tar.gz
+SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v19.0.4/spreed-v19.0.4.tar.gz
+UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/1.4.3.tar.gz

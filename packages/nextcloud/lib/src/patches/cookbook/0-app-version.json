@@ -1,0 +1,29 @@
+[
+    {
+        "op": "remove",
+        "path": "/components/schemas/PreReleaseVersion"
+    },
+    {
+        "op": "remove",
+        "path": "/components/schemas/ReleaseVersion"
+    },
+    {
+        "op": "replace",
+        "path": "/components/schemas/AppVersion",
+        "value": {
+            "type": "array",
+            "items": {
+                "type": "object"
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "The installed release of the cookbook app",
+            "example": [
+                0,
+                9,
+                14,
+                "-rc1"
+            ]
+        }
+    }
+]

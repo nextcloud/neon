@@ -21,12 +21,22 @@ RUN (sh /entrypoint.sh php -S 0.0.0.0:80 &) && \
     for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
 
 COPY static /usr/src/nextcloud/static
+COPY assets/Recipes /usr/src/nextcloud/data/admin/files/Recipes
+COPY assets/Recipes /usr/src/nextcloud/data/user1/files/Recipes
+COPY assets/Recipes /usr/src/nextcloud/data/user2/files/Recipes
+
+RUN ./occ files:scan --all
 
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
 
 FROM alpine:latest@sha256:b89d9c93e9ed3597455c90a0b88a8bbb5cb7188438f70953fede212a0c4394e0 AS apps
 RUN apk add curl
+
+
+FROM apps AS cookbook
+ARG COOKBOOK_URL
+RUN curl -L "$COOKBOOK_URL" | tar -xz -C /
 
 FROM apps AS news
 ARG NEWS_URL
@@ -49,6 +59,9 @@ ARG DROP_ACCOUNT_URL
 RUN curl -L "$DROP_ACCOUNT_URL" | tar -xz -C /
 
 FROM nextcloud
+
+COPY --from=cookbook /cookbook /usr/src/nextcloud/apps/cookbook
+RUN ./occ app:enable cookbook
 
 COPY --from=news /news /usr/src/nextcloud/apps/news
 RUN ./occ app:enable news

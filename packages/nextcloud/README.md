@@ -56,11 +56,12 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 | Component                                                                          | Supported versions (1) |
 |------------------------------------------------------------------------------------|------------------------|
 | [Server](https://github.com/nextcloud/server) (2)                                  | 28 - 29                |
+| [Cookbook app](https://github.com/nextcloud/cookbook)                              | 0.11.1                 |
 | [News app](https://github.com/nextcloud/news)                                      | 25                     |
+| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 29                |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 19                |
-| [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.5              |
 
 1: Other versions might be supported too or at least mostly working, but we do not test against those.  
