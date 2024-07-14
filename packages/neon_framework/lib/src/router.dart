@@ -36,67 +36,75 @@ GoRouter buildAppRouter({
       debugLogDiagnostics: kDebugMode,
       navigatorKey: navigatorKey,
       initialLocation: const HomeRoute().location,
-      onException: (context, state, router) async {
-        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-        if (accountsBloc.hasAccounts) {
-          final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
-          final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data;
-          final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
-
-          final account = NeonProvider.of<Account>(context);
-          var uri = account.completeUri(state.uri);
-
-          if (uri != state.uri && !modRewriteWorking && !uri.path.startsWith('/index.php')) {
-            uri = uri.replace(path: '/index.php${uri.path}');
-          }
-
-          await launchUrl(
-            uri,
-            mode: LaunchMode.externalApplication,
-          );
-
-          return;
-        }
-
-        if (!context.mounted) {
-          return;
-        }
-
-        await router.push(RouteNotFoundRoute(uri: state.uri).location);
-      },
-      redirect: (context, state) {
-        if (state.uri.path.startsWith('/index.php/')) {
-          return state.uri.path.substring(10);
-        }
-
-        final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
-        if (loginQRcode != null) {
-          return LoginCheckServerStatusWithCredentialsRoute(
-            serverUrl: loginQRcode.serverURL,
-            loginName: loginQRcode.username,
-            password: loginQRcode.password,
-          ).location;
-        }
-
-        final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-        if (accountsBloc.hasAccounts && state.uri.hasScheme) {
-          final account = NeonProvider.of<Account>(context);
-          final strippedUri = account.stripUri(state.uri);
-          if (strippedUri != state.uri) {
-            return strippedUri.toString();
-          }
-        }
-
-        // Redirect to login screen when no account is logged in
-        // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
-        if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
-          return const LoginRoute().location;
-        }
-
-        return null;
-      },
+      onException: onException,
+      redirect: redirect,
       routes: $appRoutes,
     );
+
+/// Handles routing exceptions thrown by the [GoRouter] of [buildAppRouter].
+@visibleForTesting
+Future<void> onException(BuildContext context, GoRouterState state, GoRouter router) async {
+  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+  if (accountsBloc.hasAccounts) {
+    final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
+    final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data;
+    final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
+
+    final account = NeonProvider.of<Account>(context);
+    var uri = account.completeUri(state.uri);
+
+    if (uri != state.uri && !modRewriteWorking && !uri.path.startsWith('/index.php')) {
+      uri = uri.replace(path: '/index.php${uri.path}');
+    }
+
+    await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    );
+
+    return;
+  }
+
+  if (!context.mounted) {
+    return;
+  }
+
+  await router.push(RouteNotFoundRoute(uri: state.uri).location);
+}
+
+/// Handles redirects of the [GoRouter] of [buildAppRouter].
+@visibleForTesting
+String? redirect(BuildContext context, GoRouterState state) {
+  if (state.uri.path.startsWith('/index.php/')) {
+    return state.uri.path.substring(10);
+  }
+
+  final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
+  if (loginQRcode != null) {
+    return LoginCheckServerStatusWithCredentialsRoute(
+      serverUrl: loginQRcode.serverURL,
+      loginName: loginQRcode.username,
+      password: loginQRcode.password,
+    ).location;
+  }
+
+  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
+  if (accountsBloc.hasAccounts && state.uri.hasScheme) {
+    final account = NeonProvider.of<Account>(context);
+    final strippedUri = account.stripUri(state.uri);
+    if (strippedUri != state.uri) {
+      return strippedUri.toString();
+    }
+  }
+
+  // Redirect to login screen when no account is logged in
+  // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
+  if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
+    return const LoginRoute().location;
+  }
+
+  return null;
+}
 
 /// {@template AppRoutes.AccountSettingsRoute}
 /// Route for the [AccountSettingsPage].

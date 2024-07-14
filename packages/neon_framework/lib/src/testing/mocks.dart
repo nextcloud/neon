@@ -17,7 +17,11 @@ import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
+// ignore: depend_on_referenced_packages
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
+// ignore: depend_on_referenced_packages
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 class MockAccount extends Mock implements Account {
   @internal
@@ -94,3 +98,7 @@ class MockUserDetails extends Mock implements provisioning_api.UserDetails {}
 class MockSelectOption<T> extends Mock implements SelectOption<T> {}
 
 class MockGoRouter extends Mock implements GoRouter {}
+
+class MockGoRouterState extends Mock implements GoRouterState {}
+
+class MockUrlLauncher extends Mock with MockPlatformInterfaceMixin implements UrlLauncherPlatform {}
