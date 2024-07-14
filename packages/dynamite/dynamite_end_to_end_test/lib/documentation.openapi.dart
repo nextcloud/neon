@@ -22,6 +22,8 @@
 /// Usage of these apis must adhere to the terms of service: `http://swagger.io/terms/`.
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -223,6 +225,8 @@ class $Client extends _i1.DynamiteClient {
   /// Returns a `DynamiteRequest` backing the [nonRootClientSetMode] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] Some request body
+  ///
   /// Status codes:
   ///   * default: finds an object
   ///
@@ -230,11 +234,25 @@ class $Client extends _i1.DynamiteClient {
   ///  * [nonRootClientSetMode] for a method executing this request and parsing the response.
   ///  * [$nonRootClientSetMode_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $nonRootClientSetMode_Request() {
+  _i3.Request $nonRootClientSetMode_Request({NonRootClientSetModeRequestApplicationJson? $body}) {
     const _path = '/other-endpoint';
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(NonRootClientSetModeRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              NonRootClientSetModeRequestApplicationJson(),
+              specifiedType: const FullType(NonRootClientSetModeRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -243,14 +261,20 @@ class $Client extends _i1.DynamiteClient {
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] Some request body
+  ///
   /// Status codes:
   ///   * default: finds an object
   ///
   /// See:
   ///  * [$nonRootClientSetMode_Request] for the request send by this method.
   ///  * [$nonRootClientSetMode_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Object1, void>> nonRootClientSetMode() async {
-    final _request = $nonRootClientSetMode_Request();
+  Future<_i1.DynamiteResponse<Object1, void>> nonRootClientSetMode({
+    NonRootClientSetModeRequestApplicationJson? $body,
+  }) async {
+    final _request = $nonRootClientSetMode_Request(
+      $body: $body,
+    );
     final _streamedResponse = await httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -351,6 +375,8 @@ class $NonRootClientClient {
   /// Returns a `DynamiteRequest` backing the [setMode] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] Some request body
+  ///
   /// Status codes:
   ///   * default: finds an object
   ///
@@ -358,11 +384,25 @@ class $NonRootClientClient {
   ///  * [setMode] for a method executing this request and parsing the response.
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $setMode_Request() {
+  _i3.Request $setMode_Request({NonRootClientSetModeRequestApplicationJson? $body}) {
     const _path = '/other-endpoint';
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = $body != null
+        ? json.encode(
+            _$jsonSerializers.serialize(
+              $body,
+              specifiedType: const FullType(NonRootClientSetModeRequestApplicationJson),
+            ),
+          )
+        : json.encode(
+            _$jsonSerializers.serialize(
+              NonRootClientSetModeRequestApplicationJson(),
+              specifiedType: const FullType(NonRootClientSetModeRequestApplicationJson),
+            ),
+          );
     return _request;
   }
 
@@ -371,14 +411,18 @@ class $NonRootClientClient {
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] Some request body
+  ///
   /// Status codes:
   ///   * default: finds an object
   ///
   /// See:
   ///  * [$setMode_Request] for the request send by this method.
   ///  * [$setMode_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Object1, void>> setMode() async {
-    final _request = $setMode_Request();
+  Future<_i1.DynamiteResponse<Object1, void>> setMode({NonRootClientSetModeRequestApplicationJson? $body}) async {
+    final _request = $setMode_Request(
+      $body: $body,
+    );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
@@ -503,6 +547,66 @@ abstract class Object1 implements $Object1Interface, Built<Object1, Object1Build
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(Object1Builder b) {
     $Object1Interface._validate(b);
+  }
+}
+
+/// Some request body.
+@BuiltValue(instantiable: false)
+sealed class $NonRootClientSetModeRequestApplicationJsonInterface {
+  /// Some request body property.
+  String? get test;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$NonRootClientSetModeRequestApplicationJsonInterfaceBuilder].
+  $NonRootClientSetModeRequestApplicationJsonInterface rebuild(
+    void Function($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$NonRootClientSetModeRequestApplicationJsonInterfaceBuilder].
+  $NonRootClientSetModeRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+/// Some request body.
+abstract class NonRootClientSetModeRequestApplicationJson
+    implements
+        $NonRootClientSetModeRequestApplicationJsonInterface,
+        Built<NonRootClientSetModeRequestApplicationJson, NonRootClientSetModeRequestApplicationJsonBuilder> {
+  /// Creates a new NonRootClientSetModeRequestApplicationJson object using the builder pattern.
+  factory NonRootClientSetModeRequestApplicationJson([
+    void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? b,
+  ]) = _$NonRootClientSetModeRequestApplicationJson;
+
+  const NonRootClientSetModeRequestApplicationJson._();
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  factory NonRootClientSetModeRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  /// Serializer for NonRootClientSetModeRequestApplicationJson.
+  static Serializer<NonRootClientSetModeRequestApplicationJson> get serializer =>
+      _$nonRootClientSetModeRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NonRootClientSetModeRequestApplicationJsonBuilder b) {
+    $NonRootClientSetModeRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(NonRootClientSetModeRequestApplicationJsonBuilder b) {
+    $NonRootClientSetModeRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -686,6 +790,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Object1.serializer)
       ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
       ..add(Object2.serializer)
+      ..addBuilderFactory(
+        const FullType(NonRootClientSetModeRequestApplicationJson),
+        NonRootClientSetModeRequestApplicationJsonBuilder.new,
+      )
+      ..add(NonRootClientSetModeRequestApplicationJson.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..add(HuntingSkill.serializer))
     .build();

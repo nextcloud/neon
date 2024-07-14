@@ -80,6 +80,10 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
       buffer.write('\n');
     }
 
+    if (requestBody?.description?.isNotEmpty ?? false) {
+      buffer.writeln('Request body: [\$body] ${requestBody!.description!}\n');
+    }
+
     if (responses != null && responses!.isNotEmpty) {
       buffer.writeln('Status codes:');
       for (final response in responses!.entries) {

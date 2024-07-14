@@ -35,6 +35,8 @@ final BuiltSet<HuntingSkill> _$huntingSkillValues = BuiltSet<HuntingSkill>(const
 
 Serializer<Object2> _$object2Serializer = _$Object2Serializer();
 Serializer<Object1> _$object1Serializer = _$Object1Serializer();
+Serializer<NonRootClientSetModeRequestApplicationJson> _$nonRootClientSetModeRequestApplicationJsonSerializer =
+    _$NonRootClientSetModeRequestApplicationJsonSerializer();
 
 class _$Object2Serializer implements StructuredSerializer<Object2> {
   @override
@@ -127,6 +129,51 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
           break;
         case 'tag':
           result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NonRootClientSetModeRequestApplicationJsonSerializer
+    implements StructuredSerializer<NonRootClientSetModeRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    NonRootClientSetModeRequestApplicationJson,
+    _$NonRootClientSetModeRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'NonRootClientSetModeRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, NonRootClientSetModeRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.test;
+    if (value != null) {
+      result
+        ..add('test')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  NonRootClientSetModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NonRootClientSetModeRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'test':
+          result.test = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -346,6 +393,97 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
             id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
             tag: tag);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $NonRootClientSetModeRequestApplicationJsonInterfaceBuilder {
+  void replace($NonRootClientSetModeRequestApplicationJsonInterface other);
+  void update(void Function($NonRootClientSetModeRequestApplicationJsonInterfaceBuilder) updates);
+  String? get test;
+  set test(String? test);
+}
+
+class _$NonRootClientSetModeRequestApplicationJson extends NonRootClientSetModeRequestApplicationJson {
+  @override
+  final String? test;
+
+  factory _$NonRootClientSetModeRequestApplicationJson(
+          [void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates]) =>
+      (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$NonRootClientSetModeRequestApplicationJson._({this.test}) : super._();
+
+  @override
+  NonRootClientSetModeRequestApplicationJson rebuild(
+          void Function(NonRootClientSetModeRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NonRootClientSetModeRequestApplicationJsonBuilder toBuilder() =>
+      NonRootClientSetModeRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is NonRootClientSetModeRequestApplicationJson && test == other.test;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, test.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'NonRootClientSetModeRequestApplicationJson')..add('test', test)).toString();
+  }
+}
+
+class NonRootClientSetModeRequestApplicationJsonBuilder
+    implements
+        Builder<NonRootClientSetModeRequestApplicationJson, NonRootClientSetModeRequestApplicationJsonBuilder>,
+        $NonRootClientSetModeRequestApplicationJsonInterfaceBuilder {
+  _$NonRootClientSetModeRequestApplicationJson? _$v;
+
+  String? _test;
+  String? get test => _$this._test;
+  set test(covariant String? test) => _$this._test = test;
+
+  NonRootClientSetModeRequestApplicationJsonBuilder() {
+    NonRootClientSetModeRequestApplicationJson._defaults(this);
+  }
+
+  NonRootClientSetModeRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _test = $v.test;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant NonRootClientSetModeRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$NonRootClientSetModeRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  NonRootClientSetModeRequestApplicationJson build() => _build();
+
+  _$NonRootClientSetModeRequestApplicationJson _build() {
+    NonRootClientSetModeRequestApplicationJson._validate(this);
+    final _$result = _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }

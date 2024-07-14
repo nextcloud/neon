@@ -68,6 +68,23 @@
         "tags": [
           "non_root_client"
         ],
+        "requestBody": {
+          "description": "Some request body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Some request body",
+                "properties": {
+                  "test": {
+                    "type": "string",
+                    "description": "Some request body property"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
             "description": "finds an object",
