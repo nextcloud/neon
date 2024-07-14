@@ -1,5 +1,0 @@
-POST http://localhost/index\.php/apps/cookbook/api/v1/import
-accept: application/json
-authorization: Basic mock
-content-type: application/json; charset=utf-8
-\{"url":"https://www\.chefkoch\.de/rezepte/126221054029392/Germknoedel-mit-Powidl\.html"\}
