@@ -6,10 +6,215 @@ part of 'drop_account.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<ApiDeleteResponseApplicationJson_Ocs_Data> _$apiDeleteResponseApplicationJsonOcsDataSerializer =
+    _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer();
+Serializer<ApiDeleteResponseApplicationJson_Ocs> _$apiDeleteResponseApplicationJsonOcsSerializer =
+    _$ApiDeleteResponseApplicationJson_OcsSerializer();
+Serializer<ApiDeleteResponseApplicationJson> _$apiDeleteResponseApplicationJsonSerializer =
+    _$ApiDeleteResponseApplicationJsonSerializer();
 Serializer<Capabilities_DropAccount_Delay> _$capabilitiesDropAccountDelaySerializer =
     _$Capabilities_DropAccount_DelaySerializer();
 Serializer<Capabilities_DropAccount> _$capabilitiesDropAccountSerializer = _$Capabilities_DropAccountSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  @override
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
+  @override
+  final String wireName = 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<ApiDeleteResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    ApiDeleteResponseApplicationJson_Ocs_Data,
+    _$ApiDeleteResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'ApiDeleteResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiDeleteResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiDeleteResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [ApiDeleteResponseApplicationJson_Ocs, _$ApiDeleteResponseApplicationJson_Ocs];
+  @override
+  final String wireName = 'ApiDeleteResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiDeleteResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs_Data))!
+                  as ApiDeleteResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiDeleteResponseApplicationJsonSerializer implements StructuredSerializer<ApiDeleteResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [ApiDeleteResponseApplicationJson, _$ApiDeleteResponseApplicationJson];
+  @override
+  final String wireName = 'ApiDeleteResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiDeleteResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs))!
+                  as ApiDeleteResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer<Capabilities_DropAccount_Delay> {
   @override
@@ -148,6 +353,475 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
+  }
+}
+
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
+  String? get status;
+  set status(String? status);
+
+  int? get statuscode;
+  set statuscode(int? statuscode);
+
+  String? get message;
+  set message(String? message);
+
+  String? get totalitems;
+  set totalitems(String? totalitems);
+
+  String? get itemsperpage;
+  set itemsperpage(String? itemsperpage);
+}
+
+class _$OCSMeta extends OCSMeta {
+  @override
+  final String status;
+  @override
+  final int statuscode;
+  @override
+  final String? message;
+  @override
+  final String? totalitems;
+  @override
+  final String? itemsperpage;
+
+  factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
+
+  _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status');
+    BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode');
+  }
+
+  @override
+  OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  OCSMetaBuilder toBuilder() => OCSMetaBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OCSMeta &&
+        status == other.status &&
+        statuscode == other.statuscode &&
+        message == other.message &&
+        totalitems == other.totalitems &&
+        itemsperpage == other.itemsperpage;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, statuscode.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, totalitems.hashCode);
+    _$hash = $jc(_$hash, itemsperpage.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OCSMeta')
+          ..add('status', status)
+          ..add('statuscode', statuscode)
+          ..add('message', message)
+          ..add('totalitems', totalitems)
+          ..add('itemsperpage', itemsperpage))
+        .toString();
+  }
+}
+
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
+  _$OCSMeta? _$v;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  int? _statuscode;
+  int? get statuscode => _$this._statuscode;
+  set statuscode(covariant int? statuscode) => _$this._statuscode = statuscode;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  String? _totalitems;
+  String? get totalitems => _$this._totalitems;
+  set totalitems(covariant String? totalitems) => _$this._totalitems = totalitems;
+
+  String? _itemsperpage;
+  String? get itemsperpage => _$this._itemsperpage;
+  set itemsperpage(covariant String? itemsperpage) => _$this._itemsperpage = itemsperpage;
+
+  OCSMetaBuilder() {
+    OCSMeta._defaults(this);
+  }
+
+  OCSMetaBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _status = $v.status;
+      _statuscode = $v.statuscode;
+      _message = $v.message;
+      _totalitems = $v.totalitems;
+      _itemsperpage = $v.itemsperpage;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OCSMeta other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OCSMeta;
+  }
+
+  @override
+  void update(void Function(OCSMetaBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OCSMeta build() => _build();
+
+  _$OCSMeta _build() {
+    OCSMeta._validate(this);
+    final _$result = _$v ??
+        _$OCSMeta._(
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
+            statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
+            message: message,
+            totalitems: totalitems,
+            itemsperpage: itemsperpage);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiDeleteResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ApiDeleteResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ApiDeleteResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  String? get message;
+  set message(String? message);
+}
+
+class _$ApiDeleteResponseApplicationJson_Ocs_Data extends ApiDeleteResponseApplicationJson_Ocs_Data {
+  @override
+  final String message;
+
+  factory _$ApiDeleteResponseApplicationJson_Ocs_Data(
+          [void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$ApiDeleteResponseApplicationJson_Ocs_Data._({required this.message}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message');
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs_Data rebuild(
+          void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiDeleteResponseApplicationJson_Ocs_Data && message == other.message;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiDeleteResponseApplicationJson_Ocs_Data')..add('message', message))
+        .toString();
+  }
+}
+
+class ApiDeleteResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<ApiDeleteResponseApplicationJson_Ocs_Data, ApiDeleteResponseApplicationJson_Ocs_DataBuilder>,
+        $ApiDeleteResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$ApiDeleteResponseApplicationJson_Ocs_Data? _$v;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder() {
+    ApiDeleteResponseApplicationJson_Ocs_Data._defaults(this);
+  }
+
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _message = $v.message;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiDeleteResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiDeleteResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$ApiDeleteResponseApplicationJson_Ocs_Data _build() {
+    ApiDeleteResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$ApiDeleteResponseApplicationJson_Ocs_Data._(
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiDeleteResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiDeleteResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiDeleteResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(ApiDeleteResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$ApiDeleteResponseApplicationJson_Ocs extends ApiDeleteResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final ApiDeleteResponseApplicationJson_Ocs_Data data;
+
+  factory _$ApiDeleteResponseApplicationJson_Ocs(
+          [void Function(ApiDeleteResponseApplicationJson_OcsBuilder)? updates]) =>
+      (ApiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$ApiDeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'ApiDeleteResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'ApiDeleteResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs rebuild(void Function(ApiDeleteResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiDeleteResponseApplicationJson_OcsBuilder toBuilder() =>
+      ApiDeleteResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiDeleteResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiDeleteResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class ApiDeleteResponseApplicationJson_OcsBuilder
+    implements
+        Builder<ApiDeleteResponseApplicationJson_Ocs, ApiDeleteResponseApplicationJson_OcsBuilder>,
+        $ApiDeleteResponseApplicationJson_OcsInterfaceBuilder {
+  _$ApiDeleteResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder? _data;
+  ApiDeleteResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant ApiDeleteResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  ApiDeleteResponseApplicationJson_OcsBuilder() {
+    ApiDeleteResponseApplicationJson_Ocs._defaults(this);
+  }
+
+  ApiDeleteResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiDeleteResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiDeleteResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(ApiDeleteResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson_Ocs build() => _build();
+
+  _$ApiDeleteResponseApplicationJson_Ocs _build() {
+    ApiDeleteResponseApplicationJson_Ocs._validate(this);
+    _$ApiDeleteResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$ApiDeleteResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ApiDeleteResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiDeleteResponseApplicationJsonInterface other);
+  void update(void Function($ApiDeleteResponseApplicationJsonInterfaceBuilder) updates);
+  ApiDeleteResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(ApiDeleteResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$ApiDeleteResponseApplicationJson extends ApiDeleteResponseApplicationJson {
+  @override
+  final ApiDeleteResponseApplicationJson_Ocs ocs;
+
+  factory _$ApiDeleteResponseApplicationJson([void Function(ApiDeleteResponseApplicationJsonBuilder)? updates]) =>
+      (ApiDeleteResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$ApiDeleteResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'ApiDeleteResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson rebuild(void Function(ApiDeleteResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ApiDeleteResponseApplicationJsonBuilder toBuilder() => ApiDeleteResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ApiDeleteResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ApiDeleteResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class ApiDeleteResponseApplicationJsonBuilder
+    implements
+        Builder<ApiDeleteResponseApplicationJson, ApiDeleteResponseApplicationJsonBuilder>,
+        $ApiDeleteResponseApplicationJsonInterfaceBuilder {
+  _$ApiDeleteResponseApplicationJson? _$v;
+
+  ApiDeleteResponseApplicationJson_OcsBuilder? _ocs;
+  ApiDeleteResponseApplicationJson_OcsBuilder get ocs => _$this._ocs ??= ApiDeleteResponseApplicationJson_OcsBuilder();
+  set ocs(covariant ApiDeleteResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  ApiDeleteResponseApplicationJsonBuilder() {
+    ApiDeleteResponseApplicationJson._defaults(this);
+  }
+
+  ApiDeleteResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ApiDeleteResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ApiDeleteResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(ApiDeleteResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ApiDeleteResponseApplicationJson build() => _build();
+
+  _$ApiDeleteResponseApplicationJson _build() {
+    ApiDeleteResponseApplicationJson._validate(this);
+    _$ApiDeleteResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ApiDeleteResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ApiDeleteResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
   }
 }
 
