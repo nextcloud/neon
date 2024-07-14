@@ -27,5 +27,7 @@ dependency_overrides:
     path: ../neon/neon_talk
   nextcloud:
     path: ../nextcloud
+  recipe_repository:
+    path: ../neon/neon_cookbook/packages/recipe_repository
   sort_box:
     path: ../sort_box
