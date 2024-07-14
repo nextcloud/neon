@@ -1,0 +1,27 @@
+[
+    {
+        "op": "add",
+        "path": "/components/schemas/Recipe/allOf/1/properties/nutrition/description",
+        "value": "Nutritional information about the recipe."
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/Recipe/allOf/1/properties/recipeInstructions/description",
+        "value": "An ordered list with steps in making the recipe."
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/Recipe/allOf/1/properties/recipeIngredient/description",
+        "value": "A list of ingredients used in the recipe."
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/Recipe/allOf/1/properties/tool/description",
+        "value": "A list of objects used (but not consumed) when performing instructions or a direction."
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/Nutrition/description",
+        "value": "Nutritional information about the recipe."
+    }
+]

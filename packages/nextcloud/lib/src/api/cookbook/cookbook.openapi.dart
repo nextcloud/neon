@@ -2067,6 +2067,7 @@ abstract class Url implements $UrlInterface, Built<Url, UrlBuilder> {
   }
 }
 
+/// Nutritional information about the recipe.
 @BuiltValue(instantiable: false)
 sealed class $NutritionInterface {
   static final _$type = _$jsonSerializers.deserialize(
@@ -2131,6 +2132,7 @@ sealed class $NutritionInterface {
   static void _validate($NutritionInterfaceBuilder b) {}
 }
 
+/// Nutritional information about the recipe.
 abstract class Nutrition implements $NutritionInterface, Built<Nutrition, NutritionBuilder> {
   /// Creates a new Nutrition object using the builder pattern.
   factory Nutrition([void Function(NutritionBuilder)? b]) = _$Nutrition;
@@ -2230,9 +2232,17 @@ sealed class $RecipeInterface implements $RecipeStubInformationInterface {
 
   /// The category of the recipe.
   String get recipeCategory;
+
+  /// A list of objects used (but not consumed) when performing instructions or a direction.
   BuiltList<String> get tool;
+
+  /// A list of ingredients used in the recipe.
   BuiltList<String> get recipeIngredient;
+
+  /// An ordered list with steps in making the recipe.
   BuiltList<String> get recipeInstructions;
+
+  /// Nutritional information about the recipe.
   Nutrition get nutrition;
 
   /// Rebuilds the instance.

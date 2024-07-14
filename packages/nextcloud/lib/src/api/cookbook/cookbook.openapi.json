@@ -333,7 +333,8 @@
                 },
                 "required": [
                     "@type"
-                ]
+                ],
+                "description": "Nutritional information about the recipe."
             },
             "Recipe": {
                 "description": "A recipe according to [schema.org](http://schema.org/Recipe)",
@@ -408,22 +409,26 @@
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/Tool"
-                                }
+                                },
+                                "description": "A list of objects used (but not consumed) when performing instructions or a direction."
                             },
                             "recipeIngredient": {
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/Ingredient"
-                                }
+                                },
+                                "description": "A list of ingredients used in the recipe."
                             },
                             "recipeInstructions": {
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/Instruction"
-                                }
+                                },
+                                "description": "An ordered list with steps in making the recipe."
                             },
                             "nutrition": {
-                                "$ref": "#/components/schemas/Nutrition"
+                                "$ref": "#/components/schemas/Nutrition",
+                                "description": "Nutritional information about the recipe."
                             }
                         },
                         "required": [
