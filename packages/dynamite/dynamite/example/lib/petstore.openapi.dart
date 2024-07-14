@@ -147,6 +147,8 @@ class $Client extends _i1.DynamiteClient {
   /// Returns a `DynamiteRequest` backing the [addPet] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] Pet to add to the store
+  ///
   /// Status codes:
   ///   * 200: pet response
   ///   * default: unexpected error
@@ -169,6 +171,8 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Request body: [$body] Pet to add to the store
   ///
   /// Status codes:
   ///   * 200: pet response

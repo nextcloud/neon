@@ -940,6 +940,11 @@ class $RecipesClient {
   /// Returns a `DynamiteRequest` backing the [newRecipe] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Request body: [$body] A JSON representation of the recipe to be saved.
+  ///
+  /// See also the structure at https://schema.org/Recipe
+  ///
+  ///
   /// Status codes:
   ///   * 200: Successfully created new recipe
   ///   * 409: A recipe with the name was already found on the server. No recipe is created.
@@ -980,6 +985,11 @@ class $RecipesClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Request body: [$body] A JSON representation of the recipe to be saved.
+  ///
+  /// See also the structure at https://schema.org/Recipe
+  ///
   ///
   /// Status codes:
   ///   * 200: Successfully created new recipe
