@@ -1,7 +1,7 @@
 [
     {
         "op": "add",
-        "path": "/components/schemas/RichObjectParameter",
+        "path": "/components/schemas/RichObjectParameterAddressbook",
         "value": {
             "type": "object",
             "required": [
@@ -11,48 +11,200 @@
             ],
             "properties": {
                 "type": {
-                    "type": "string",
-                    "enum": [
-                        "addressbook",
-                        "addressbook-contact",
-                        "announcement",
-                        "app",
-                        "calendar",
-                        "calendar-event",
-                        "call",
-                        "circle",
-                        "deck-board",
-                        "deck-card",
-                        "email",
-                        "file",
-                        "forms-form",
-                        "guest",
-                        "highlight",
-                        "geo-location",
-                        "open-graph",
-                        "pending-federated-share",
-                        "systemtag",
-                        "talk-attachment",
-                        "talk-poll",
-                        "user",
-                        "user-group"
-                    ]
+                    "type": "string"
                 },
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The id used to identify the addressbook on the instance",
+                    "example": "42"
                 },
                 "name": {
+                    "type": "string",
+                    "description": "The display name of the addressbook which should be used in the visual representation",
+                    "example": "Contacts"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterAddressbookContact",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
                     "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the contact on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the contact which should be used in the visual representation",
+                    "example": "John Doe"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterAnnouncement",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the announcement on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The announcement subject which should be used in the visual representation",
+                    "example": "file.txt"
                 },
                 "link": {
                     "type": "string",
                     "description": "The full URL to the file",
                     "example": "http://localhost/index.php/apps/announcements/#23"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterApp",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The app id",
+                    "example": "updatenotification"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the app which should be used in the visual representation",
+                    "example": "Update notification"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterCalendar",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the calendar on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the calendar which should be used in the visual representation",
+                    "example": "Personal"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterCalendarEvent",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the event on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the event which should be used in the visual representation",
+                    "example": "Workout"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "A link to the page displaying the calendar",
+                    "example": "http://localhost/index.php/apps/calendar/dayGridMonth/2020-01-20/edit/sidebar/base64string/1579046400"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterCall",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "call-type"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the call on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the call which should be used in the visual representation",
+                    "example": "Company call"
                 },
                 "call-type": {
                     "type": "string",
                     "description": "The type of the call: one2one, group or public",
                     "example": "one2one"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The link to the conversation",
+                    "example": "https://localhost/index.php/call/R4nd0mToken"
                 },
                 "icon-url": {
                     "type": "string",
@@ -63,6 +215,102 @@
                     "type": "string",
                     "description": "The id of a message that was referred to",
                     "example": "12345"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterCircle",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "link"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the circle on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the circle which should be used in the visual representation",
+                    "example": "My friends"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL to the circle",
+                    "example": "http://localhost/index.php/apps/circles/#42"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterDeckBoard",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "link"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the board on the instance",
+                    "example": "1"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the deck board",
+                    "example": "Personal"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL to the board",
+                    "example": "http://localhost/index.php/apps/deck/#/board/1"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterDeckCard",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "boardname",
+                "stackname",
+                "link"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the card on the instance",
+                    "example": "1"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the deck card",
+                    "example": "Foo Bar"
                 },
                 "boardname": {
                     "type": "string",
@@ -74,6 +322,66 @@
                     "description": "The display name of the stack which contains the card in the board",
                     "example": "To do"
                 },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL to the card directly",
+                    "example": "https://nextcloud21.local/index.php/apps/deck/#/board/1/card/1"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterEmail",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The mail-address used to identify the event on the instance",
+                    "example": "test@localhost"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of a matching contact or the email (fallback) which should be used in the visual representation",
+                    "example": "Foo Bar"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterFile",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "path"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the file on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The file name which should be used in the visual representation",
+                    "example": "file.txt"
+                },
                 "size": {
                     "type": "string",
                     "description": "The file size in bytes",
@@ -83,6 +391,11 @@
                     "type": "string",
                     "description": "The full path of the file for the user, should not start with a slash",
                     "example": "path/to/file.txt"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL to the file",
+                    "example": "http://localhost/index.php/f/42"
                 },
                 "mimetype": {
                     "type": "string",
@@ -123,6 +436,127 @@
                     "type": "string",
                     "description": "The blurhash of the image",
                     "example": "LEHV9uae2yk8pyo0adR*.7kCMdnj"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterFormsForm",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "link"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The form-hash of the form",
+                    "example": "q72GGqbfbLBC6xNB"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The title of the form",
+                    "example": "Nice Form"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL to the board",
+                    "example": "http://localhost/index.php/apps/forms/q72GGqbfbLBC6xNB"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterGuest",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the guest user",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Potential displayname of the guest user",
+                    "example": "Foobar Cats"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterHighlight",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the highlighted object on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The string that should be highlighted.",
+                    "example": "Hello World"
+                },
+                "link": {
+                    "type": "string",
+                    "description": "The full URL that should be opened when clicking the highlighted text.",
+                    "example": "http://localhost/index.php/f/42"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterGeoLocation",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The geo URI (https://en.wikipedia.org/wiki/Geo_URI_scheme) to identify the location",
+                    "example": "geo:52.5450511,13.3741463"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A description of the location",
+                    "example": "Nextcloud Berlin Office"
                 },
                 "latitude": {
                     "type": "string",
@@ -133,6 +567,33 @@
                     "type": "string",
                     "description": "The longitude of the location MUST be the same as in the id",
                     "example": "13.3741463"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterOpenGraph",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the open graph data on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The open graph title of the website",
+                    "example": "This is a website"
                 },
                 "description": {
                     "type": "string",
@@ -149,6 +610,67 @@
                     "description": "The name of the described website",
                     "example": "Nextcloud - App Store"
                 },
+                "link": {
+                    "type": "string",
+                    "description": "The full link to the website",
+                    "example": "https://apps.nextcloud.com/apps/mood"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterPendingFederatedShare",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the federated share on the instance",
+                    "example": "42"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the shared item which should be used in the visual representation",
+                    "example": "file.txt"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterSystemtag",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "visibility",
+                "assignable"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the systemtag on the instance",
+                    "example": "23"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the systemtag which should be used in the visual representation",
+                    "example": "Project 1"
+                },
                 "visibility": {
                     "type": "string",
                     "description": "If the user can see the systemtag",
@@ -158,16 +680,240 @@
                     "type": "string",
                     "description": "If the user can assign the systemtag",
                     "example": "0"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterTalkAttachment",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name",
+                "conversation"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the attachment on the instance",
+                    "example": "12345"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the attachment",
+                    "example": "John Doe"
                 },
                 "conversation": {
                     "type": "string",
                     "description": "The token of the conversation",
                     "example": "a1b2c3d4"
                 },
+                "mimetype": {
+                    "type": "string",
+                    "description": "The mimetype of the file/folder to allow clients to show a placeholder",
+                    "example": "text/plain"
+                },
+                "preview-available": {
+                    "type": "string",
+                    "description": "Whether or not a preview is available. If `no` the mimetype icon should be used",
+                    "example": "yes"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterTalkPoll",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the poll on the instance",
+                    "example": "12345"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The poll question",
+                    "example": "What is the question?"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterUser",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the user on the instance",
+                    "example": "johndoe"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the user which should be used in the visual representation",
+                    "example": "John Doe"
+                },
                 "server": {
                     "type": "string",
                     "description": "The URL of the instance the user lives on",
                     "example": "localhost"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameterUserGroup",
+        "value": {
+            "type": "object",
+            "required": [
+                "type",
+                "id",
+                "name"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The id used to identify the group on the instance",
+                    "example": "supportteam"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the group which should be used in the visual representation",
+                    "example": "Support Team"
+                }
+            }
+        }
+    },
+    {
+        "op": "add",
+        "path": "/components/schemas/RichObjectParameter",
+        "value": {
+            "oneOf": [
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterAddressbook"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterAddressbookContact"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterAnnouncement"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterApp"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterCalendar"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterCalendarEvent"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterCall"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterCircle"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterDeckBoard"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterDeckCard"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterEmail"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterFile"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterFormsForm"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterGuest"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterHighlight"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterGeoLocation"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterOpenGraph"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterPendingFederatedShare"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterSystemtag"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterTalkAttachment"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterTalkPoll"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterUser"
+                },
+                {
+                    "$ref": "#/components/schemas/RichObjectParameterUserGroup"
+                }
+            ],
+            "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                    "addressbook": "#/components/schemas/RichObjectParameterAddressbook",
+                    "addressbook-contact": "#/components/schemas/RichObjectParameterAddressbookContact",
+                    "announcement": "#/components/schemas/RichObjectParameterAnnouncement",
+                    "app": "#/components/schemas/RichObjectParameterApp",
+                    "calendar": "#/components/schemas/RichObjectParameterCalendar",
+                    "calendar-event": "#/components/schemas/RichObjectParameterCalendarEvent",
+                    "call": "#/components/schemas/RichObjectParameterCall",
+                    "circle": "#/components/schemas/RichObjectParameterCircle",
+                    "deck-board": "#/components/schemas/RichObjectParameterDeckBoard",
+                    "deck-card": "#/components/schemas/RichObjectParameterDeckCard",
+                    "email": "#/components/schemas/RichObjectParameterEmail",
+                    "file": "#/components/schemas/RichObjectParameterFile",
+                    "forms-form": "#/components/schemas/RichObjectParameterFormsForm",
+                    "guest": "#/components/schemas/RichObjectParameterGuest",
+                    "highlight": "#/components/schemas/RichObjectParameterHighlight",
+                    "geo-location": "#/components/schemas/RichObjectParameterGeoLocation",
+                    "open-graph": "#/components/schemas/RichObjectParameterOpenGraph",
+                    "pending-federated-share": "#/components/schemas/RichObjectParameterPendingFederatedShare",
+                    "systemtag": "#/components/schemas/RichObjectParameterSystemtag",
+                    "talk-attachment": "#/components/schemas/RichObjectParameterTalkAttachment",
+                    "talk-poll": "#/components/schemas/RichObjectParameterTalkPoll",
+                    "user": "#/components/schemas/RichObjectParameterUser",
+                    "user-group": "#/components/schemas/RichObjectParameterUserGroup"
                 }
             }
         }
