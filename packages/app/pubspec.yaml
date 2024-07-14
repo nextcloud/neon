@@ -10,6 +10,10 @@ dependencies:
   built_collection: ^5.0.0
   flutter:
     sdk: flutter
+  neon_cookbook:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon/neon_cookbook
   neon_dashboard:
     git:
       url: https://github.com/nextcloud/neon

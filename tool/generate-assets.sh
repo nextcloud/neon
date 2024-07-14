@@ -75,6 +75,7 @@ done
   precompile_assets
 )
 
+copy_app_svg cookbook external/nextcloud-cookbook
 copy_app_svg dashboard external/nextcloud-server/apps/dashboard
 copy_app_svg files external/nextcloud-server/apps/files
 copy_app_svg news external/nextcloud-news

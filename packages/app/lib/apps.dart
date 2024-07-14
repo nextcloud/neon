@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
+import 'package:neon_cookbook/neon_cookbook.dart';
 import 'package:neon_dashboard/neon_dashboard.dart';
 import 'package:neon_files/neon_files.dart';
 import 'package:neon_framework/models.dart';
@@ -16,4 +17,5 @@ final BuiltSet<AppImplementation> appImplementations = BuiltSet({
   NotesApp(),
   NotificationsApp(),
   if (kDebugMode) TalkApp(),
+  if (kDebugMode) CookbookApp(),
 });
