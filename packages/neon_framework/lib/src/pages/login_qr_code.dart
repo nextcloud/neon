@@ -48,11 +48,11 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
                 throw const InvalidQRcodeException();
               }
 
-              await LoginCheckServerStatusWithCredentialsRoute(
+              LoginCheckServerStatusWithCredentialsRoute(
                 serverUrl: match.serverURL,
                 loginName: match.username,
                 password: match.password,
-              ).push<LoginCheckServerStatusRoute>(context);
+              ).pushReplacement(context);
             } on InvalidQRcodeException catch (error, stackTrace) {
               if (_lastErrorURL != url) {
                 _log.warning(
