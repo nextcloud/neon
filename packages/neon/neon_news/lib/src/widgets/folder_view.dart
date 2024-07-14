@@ -23,8 +23,16 @@ class NewsFolderView extends StatefulWidget {
 }
 
 class _NewsFolderViewState extends State<NewsFolderView> {
-  late final option = widget.bloc.options.defaultFolderViewTypeOption;
-  late DefaultFolderViewType _viewType = option.value;
+  late final NewsOptions options;
+  late DefaultFolderViewType viewType;
+
+  @override
+  void initState() {
+    super.initState();
+
+    options = NeonProvider.of<NewsOptions>(context);
+    viewType = options.defaultFolderViewTypeOption.value;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,28 +42,28 @@ class _NewsFolderViewState extends State<NewsFolderView> {
           margin: const EdgeInsets.symmetric(horizontal: 15),
           child: DropdownButton(
             isExpanded: true,
-            value: _viewType,
-            items: option.values.keys
+            value: viewType,
+            items: options.defaultFolderViewTypeOption.values.keys
                 .map(
                   (key) => DropdownMenuItem(
                     value: key,
-                    child: Text(option.values[key]!(context)),
+                    child: Text(options.defaultFolderViewTypeOption.values[key]!(context)),
                   ),
                 )
                 .toList(),
             onChanged: (value) {
               setState(() {
-                _viewType = value!;
+                viewType = value!;
               });
             },
           ),
         ),
         Expanded(
-          child: _viewType == DefaultFolderViewType.articles
+          child: viewType == DefaultFolderViewType.articles
               ? NewsArticlesView(
                   bloc: NewsArticlesBloc(
                     newsBloc: widget.bloc,
-                    options: widget.bloc.options,
+                    options: options,
                     account: NeonProvider.of<Account>(context),
                     id: widget.folder.id,
                     listType: ListType.folder,

@@ -5,7 +5,6 @@ import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
-import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notes.dart' as notes;
 import 'package:queue/queue.dart';
@@ -25,8 +24,6 @@ sealed class NotesNoteBloc implements InteractiveBloc {
   void updateCategory(String category);
 
   BehaviorSubject<String> get category;
-
-  NotesOptions get options;
 
   String get initialContent;
 
@@ -70,9 +67,6 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
       }
     });
   }
-
-  @override
-  NotesOptions get options => notesBloc.options;
 
   final NotesBloc notesBloc;
   final Account account;

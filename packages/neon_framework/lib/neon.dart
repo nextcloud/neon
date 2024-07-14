@@ -95,6 +95,7 @@ Future<void> runNeon({
           create: (_) => appImplementations,
           dispose: (_, appImplementations) => appImplementations.disposeAll(),
         ),
+        for (final appImplementation in appImplementations) appImplementation.optionsProvider,
         Provider<PackageInfo>.value(value: packageInfo),
       ],
       child: NeonApp(neonTheme: theme),

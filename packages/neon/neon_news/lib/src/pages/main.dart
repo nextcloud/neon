@@ -6,6 +6,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/widgets/articles_view.dart';
 import 'package:neon_news/src/widgets/feed_floating_action_button.dart';
 import 'package:neon_news/src/widgets/feeds_view.dart';
@@ -23,13 +24,14 @@ class NewsMainPage extends StatefulWidget {
 
 class _NewsMainPageState extends State<NewsMainPage> {
   late NewsBloc bloc;
-  late int _index = bloc.options.defaultCategoryOption.value.index;
+  late int index;
   late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
     super.initState();
     bloc = NeonProvider.of<NewsBloc>(context);
+    index = NeonProvider.of<NewsOptions>(context).defaultCategoryOption.value.index;
 
     errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
@@ -67,10 +69,10 @@ class _NewsMainPageState extends State<NewsMainPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index,
+        currentIndex: index,
         onTap: (index) {
           setState(() {
-            _index = index;
+            this.index = index;
           });
         },
         items: [
@@ -88,8 +90,8 @@ class _NewsMainPageState extends State<NewsMainPage> {
           ),
         ],
       ),
-      body: views[_index],
-      floatingActionButton: floatingActionButtons[_index],
+      body: views[index],
+      floatingActionButton: floatingActionButtons[index],
     );
   }
 }

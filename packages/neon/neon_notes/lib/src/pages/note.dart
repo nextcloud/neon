@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/note.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
@@ -62,7 +63,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       unawaited(WakelockPlus.enable());
 
-      if (widget.bloc.options.defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
+      if (NeonProvider.of<NotesOptions>(context).defaultNoteViewTypeOption.value == DefaultNoteViewType.edit ||
           widget.bloc.initialContent.isEmpty) {
         setState(() {
           _showEditor = true;

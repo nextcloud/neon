@@ -49,8 +49,6 @@ sealed class FilesBloc implements InteractiveBloc {
 
   BehaviorSubject<BuiltList<FilesTask>> get tasks;
 
-  FilesOptions get options;
-
   FilesBrowserBloc get browser;
 
   FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode});
@@ -68,7 +66,6 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   @override
   final log = Logger('FilesBloc');
 
-  @override
   final FilesOptions options;
   final Account account;
   @override

@@ -6,6 +6,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/feed.dart';
 import 'package:neon_news/src/sort/feeds.dart';
 import 'package:neon_news/src/utils/dialog.dart';
@@ -25,14 +26,16 @@ class NewsFeedsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final options = NeonProvider.of<NewsOptions>(context);
+
     return ResultBuilder.behaviorSubject(
       subject: bloc.folders,
       builder: (context, folders) => ResultBuilder.behaviorSubject(
         subject: bloc.feeds,
         builder: (context, feeds) => SortBoxBuilder(
           sortBox: feedsSortBox,
-          sortProperty: bloc.options.feedsSortPropertyOption,
-          sortBoxOrder: bloc.options.feedsSortBoxOrderOption,
+          sortProperty: options.feedsSortPropertyOption,
+          sortBoxOrder: options.feedsSortBoxOrderOption,
           input: folders.hasData ? feeds.data?.where((f) => folderID == null || f.folderId == folderID).toList() : null,
           builder: (context, sorted) => NeonListView(
             scrollKey: 'news-feeds',

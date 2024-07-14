@@ -28,6 +28,8 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final options = NeonProvider.of<NotesOptions>(context);
+
     return ResultBuilder.behaviorSubject(
       subject: bloc.notes,
       builder: (context, notesList) => SortBoxBuilder(
@@ -35,8 +37,8 @@ class NotesView extends StatelessWidget {
         presort: const {
           (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
         },
-        sortProperty: bloc.options.notesSortPropertyOption,
-        sortBoxOrder: bloc.options.notesSortBoxOrderOption,
+        sortProperty: options.notesSortPropertyOption,
+        sortBoxOrder: options.notesSortBoxOrderOption,
         input: category != null
             ? notesList.data?.where((note) => note.category == category).toList()
             : notesList.data?.toList(),

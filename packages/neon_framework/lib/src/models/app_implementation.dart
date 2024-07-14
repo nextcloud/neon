@@ -64,6 +64,11 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   @mustBeOverridden
   R get options;
 
+  /// The [Provider] of the [options].
+  Provider<R> get optionsProvider => Provider<R>.value(
+        value: options,
+      );
+
   /// Checks if the app is supported on the server of the [account].
   ///
   /// A value of `null` means that it can not be known if the app is supported.

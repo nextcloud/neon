@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/article.dart';
 import 'package:neon_news/src/blocs/articles.dart';
+import 'package:neon_news/src/options.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
@@ -89,7 +91,11 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
 
   Future<void> _startMarkAsReadTimer() async {
     if (await widget.bloc.unread.first) {
-      if (widget.articlesBloc.options.articleDisableMarkAsReadTimeoutOption.value) {
+      if (!mounted) {
+        return;
+      }
+
+      if (NeonProvider.of<NewsOptions>(context).articleDisableMarkAsReadTimeoutOption.value) {
         widget.bloc.markArticleAsRead();
       } else {
         _markAsReadTimer = Timer(const Duration(seconds: 3), () async {

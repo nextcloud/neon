@@ -9,6 +9,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_files/src/widgets/browser_view.dart';
 import 'package:neon_framework/platform.dart';
@@ -73,7 +74,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
   }
 
   Future<bool> confirmUpload(int size) async {
-    final sizeWarning = widget.bloc.options.uploadSizeWarning.value;
+    final sizeWarning = NeonProvider.of<FilesOptions>(context).uploadSizeWarning.value;
     if (sizeWarning != null) {
       if (size > sizeWarning) {
         final result = await showUploadConfirmationDialog(context, sizeWarning, size);
