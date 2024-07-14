@@ -1,3 +1,9 @@
 GET http://localhost/index\.php/apps/cookbook/api/v1/category/Soup
 accept: application/json
 authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/category/_
+accept: application/json
+authorization: Basic mock
+GET http://localhost/index\.php/apps/cookbook/api/v1/category/%2A
+accept: application/json
+authorization: Basic mock
