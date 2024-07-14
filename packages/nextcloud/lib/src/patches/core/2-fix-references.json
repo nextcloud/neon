@@ -1,0 +1,12 @@
+[
+  {
+    "op": "add",
+    "path": "/components/schemas/Reference/properties/richObject/additionalProperties/nullable",
+    "value": true
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/Resource/properties/richObject/additionalProperties/nullable",
+    "value": true
+  }
+]
