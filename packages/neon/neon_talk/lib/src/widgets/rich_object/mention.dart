@@ -75,7 +75,12 @@ class TalkRichObjectMention extends StatelessWidget {
     return Chip(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       padding: EdgeInsets.zero,
-      labelPadding: const EdgeInsetsDirectional.only(end: 4, start: -4),
+      labelPadding: const EdgeInsetsDirectional.only(
+        end: 4,
+        start: -4,
+        top: -2,
+        bottom: -2,
+      ),
       avatar: Padding(
         padding: const EdgeInsets.all(6),
         child: child,
