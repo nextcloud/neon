@@ -18,6 +18,7 @@
   "roomMessageReply": "Reply",
   "roomMessageReaction": "Add reaction",
   "roomMessageDelete": "Delete",
+  "roomMessageEdit": "Edit",
   "roomMessageEdited": "edited",
   "roomMessageLastEdited": "Last edited by {name} at {time}",
   "@roomMessageLastEdited": {

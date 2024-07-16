@@ -39,8 +39,14 @@ abstract class TalkRoomBloc implements InteractiveBloc {
   /// Sets a [chatMessage] as the message to [replyTo].
   void setReplyChatMessage(spreed.$ChatMessageInterface chatMessage);
 
+  /// Sets a [chatMessage] as the message to [editing].
+  void setEditChatMessage(spreed.$ChatMessageInterface chatMessage);
+
   /// Removes the current [replyTo] chat message.
   void removeReplyChatMessage();
+
+  /// Removes the current [editing] chat message.
+  void removeEditChatMessage();
 
   /// Deletes a chat messages.
   void deleteMessage(spreed.$ChatMessageInterface chatMessage);
@@ -61,6 +67,9 @@ abstract class TalkRoomBloc implements InteractiveBloc {
 
   /// Current chat message to reply to.
   BehaviorSubject<spreed.$ChatMessageInterface?> get replyTo;
+
+  /// Current chat message that is edited.
+  BehaviorSubject<spreed.$ChatMessageInterface?> get editing;
 }
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
@@ -183,6 +192,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
   final replyTo = BehaviorSubject.seeded(null);
 
   @override
+  final editing = BehaviorSubject.seeded(null);
+
+  @override
   void dispose() {
     pollLoop = false;
     unawaited(account.client.spreed.room.leaveRoom(token: token));
@@ -192,6 +204,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
     unawaited(lastCommonRead.close());
     unawaited(reactions.close());
     unawaited(replyTo.close());
+    unawaited(editing.close());
     super.dispose();
   }
 
@@ -234,29 +247,48 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   Future<void> sendMessage(String message) async {
-    final replyToId = replyTo.value?.id;
-    replyTo.add(null);
-
     await wrapAction(
       () async {
-        final response = await account.client.spreed.chat.sendMessage(
-          token: token,
-          $body: spreed.ChatSendMessageRequestApplicationJson(
-            (b) {
-              b.message = message;
-              if (replyToId != null) {
-                b.replyTo = replyToId;
-              }
-            },
-          ),
-        );
+        late spreed.ChatMessageWithParent? m;
+        late String? lastCommonRead;
 
-        updateLastCommonRead(response.headers.xChatLastCommonRead);
+        final editingId = editing.value?.id;
+        if (editingId != null) {
+          editing.add(null);
 
-        final m = response.body.ocs.data;
+          final response = await account.client.spreed.chat.editMessage(
+            token: token,
+            messageId: editingId,
+            $body: spreed.ChatEditMessageRequestApplicationJson(
+              (b) => b.message = message,
+            ),
+          );
+
+          m = response.body.ocs.data;
+          lastCommonRead = response.headers.xChatLastCommonRead;
+        } else {
+          final replyToId = replyTo.value?.id;
+          replyTo.add(null);
+
+          final response = await account.client.spreed.chat.sendMessage(
+            token: token,
+            $body: spreed.ChatSendMessageRequestApplicationJson(
+              (b) {
+                b.message = message;
+                if (replyToId != null) {
+                  b.replyTo = replyToId;
+                }
+              },
+            ),
+          );
+
+          m = response.body.ocs.data;
+          lastCommonRead = response.headers.xChatLastCommonRead;
+        }
+
+        updateLastCommonRead(lastCommonRead);
         if (m != null) {
           updateLastKnownMessageId(m.id);
-
           prependMessages([m]);
         }
       },
@@ -330,12 +362,24 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   void setReplyChatMessage(spreed.$ChatMessageInterface chatMessage) {
+    editing.add(null);
     replyTo.add(chatMessage);
   }
 
   @override
   void removeReplyChatMessage() {
     replyTo.add(null);
+  }
+
+  @override
+  void setEditChatMessage(spreed.$ChatMessageInterface chatMessage) {
+    replyTo.add(null);
+    editing.add(chatMessage);
+  }
+
+  @override
+  void removeEditChatMessage() {
+    editing.add(null);
   }
 
   @override

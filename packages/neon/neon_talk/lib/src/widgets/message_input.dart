@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
@@ -52,6 +54,8 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
     },
   );
   late TalkRoomBloc bloc;
+  late StreamSubscription<spreed.$ChatMessageInterface?> replyToSubscription;
+  late StreamSubscription<spreed.$ChatMessageInterface?> editingSubscription;
 
   @override
   void initState() {
@@ -59,8 +63,19 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
 
     bloc = NeonProvider.of<TalkRoomBloc>(context);
 
-    bloc.replyTo.listen((replyTo) {
+    replyToSubscription = bloc.replyTo.listen((replyTo) {
       if (replyTo != null) {
+        focusNode.requestFocus();
+      }
+    });
+    editingSubscription = bloc.editing.listen((editing) {
+      if (editing != null) {
+        controller
+          ..text = editing.message
+          ..selection = TextSelection(
+            baseOffset: editing.message.length,
+            extentOffset: editing.message.length,
+          );
         focusNode.requestFocus();
       }
     });
@@ -68,6 +83,8 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
 
   @override
   void dispose() {
+    unawaited(replyToSubscription.cancel());
+    unawaited(editingSubscription.cancel());
     controller.dispose();
     focusNode.dispose();
     super.dispose();
@@ -117,28 +134,31 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
           return const SizedBox();
         }
 
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 5),
-          child: Row(
-            children: [
-              const SizedBox.square(
-                dimension: 40,
-              ),
-              Expanded(
-                child: TalkParentMessage(
-                  room: widget.room,
-                  parentChatMessage: replyToSnapshot.requireData!,
-                  lastCommonRead: null,
-                ),
-              ),
-              IconButton(
-                onPressed: () {
-                  bloc.removeReplyChatMessage();
-                },
-                icon: const Icon(Icons.close),
-              ),
-            ],
-          ),
+        return buildContextMessage(
+          chatMessage: replyToSnapshot.requireData!,
+          onDismiss: bloc.removeReplyChatMessage,
+        );
+      },
+    );
+
+    final editing = StreamBuilder(
+      stream: bloc.editing,
+      builder: (context, editingSnapshot) {
+        if (!editingSnapshot.hasData) {
+          return const SizedBox();
+        }
+
+        return buildContextMessage(
+          chatMessage: editingSnapshot.requireData!,
+          onDismiss: () {
+            bloc.removeEditChatMessage();
+            controller
+              ..text = ''
+              ..selection = const TextSelection(
+                baseOffset: 0,
+                extentOffset: 0,
+              );
+          },
         );
       },
     );
@@ -230,6 +250,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       mainAxisSize: MainAxisSize.min,
       children: [
         replyTo,
+        editing,
         inputField,
       ],
     );
@@ -256,6 +277,35 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       title: Text(suggestion.mention.label),
       subtitle: Text(suggestion.mention.id),
       leading: icon,
+    );
+  }
+
+  Widget buildContextMessage({
+    required spreed.$ChatMessageInterface chatMessage,
+    required VoidCallback onDismiss,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: Row(
+        children: [
+          const SizedBox.square(
+            dimension: 40,
+          ),
+          Expanded(
+            child: TalkParentMessage(
+              room: widget.room,
+              parentChatMessage: chatMessage,
+              lastCommonRead: null,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              onDismiss();
+            },
+            icon: const Icon(Icons.close),
+          ),
+        ],
+      ),
     );
   }
 }

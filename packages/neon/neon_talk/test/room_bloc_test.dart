@@ -42,7 +42,7 @@ Account mockTalkAccount() {
           ),
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd/([0-9]+)'): {
-      'delete': (match, queryParameters) {
+      'delete': (match, bodyBytes) {
         final id = int.parse(match.group(1)!);
 
         return Response(
@@ -56,6 +56,32 @@ Account mockTalkAccount() {
                 parent: getChatMessage(
                   id: id,
                   messageType: spreed.MessageType.commentDeleted,
+                ),
+              ),
+            },
+          }),
+          200,
+          headers: {
+            'content-type': 'application/json',
+          },
+        );
+      },
+      'put': (match, bodyBytes) {
+        final id = int.parse(match.group(1)!);
+        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        final message = data['message'] as String;
+
+        return Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': getChatMessage(
+                id: messageCount++,
+                systemMessage: 'message_edited',
+                messageType: spreed.MessageType.system,
+                parent: getChatMessage(
+                  id: id,
+                  message: message,
                 ),
               ),
             },
@@ -385,6 +411,14 @@ void main() {
         null,
       ]),
     );
+    expect(
+      roomBloc.editing,
+      emitsInOrder([
+        null,
+        null,
+        null,
+      ]),
+    );
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -394,6 +428,48 @@ void main() {
       ..removeReplyChatMessage()
       ..setReplyChatMessage(message)
       ..sendMessage('');
+  });
+
+  test('Edit', () async {
+    final message = MockChatMessage();
+    when(() => message.id).thenReturn(1);
+
+    expect(
+      roomBloc.messages.transformResult((e) => BuiltList<String>(e.map((m) => m.message))),
+      emitsInOrder([
+        Result<BuiltList<String>>.loading(),
+        Result.success(BuiltList<String>(['', '', ''])),
+        Result.success(BuiltList<String>(['', 'test', ''])),
+      ]),
+    );
+
+    expect(
+      roomBloc.editing,
+      emitsInOrder([
+        null,
+        message,
+        null,
+        message,
+        null,
+      ]),
+    );
+    expect(
+      roomBloc.replyTo,
+      emitsInOrder([
+        null,
+        null,
+        null,
+      ]),
+    );
+
+    // The delay is necessary to avoid a race condition with loading twice at the same time
+    await Future<void>.delayed(const Duration(milliseconds: 1));
+
+    roomBloc
+      ..setEditChatMessage(message)
+      ..removeEditChatMessage()
+      ..setEditChatMessage(message)
+      ..sendMessage('test');
   });
 
   test('addReaction', () async {
