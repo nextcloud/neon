@@ -20,14 +20,14 @@ class TalkRichObjectFilePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+
         final maxSize = Size(constraints.maxWidth, MediaQuery.sizeOf(context).height / 2);
 
         Size? logicalSize;
-        var deviceSize = const Size(-1, -1);
+        var deviceSize = Size(-1, maxSize.height / devicePixelRatio);
 
         if (parameter.width != null && parameter.height != null) {
-          final devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
-
           deviceSize = Size(
             _parseDimension(parameter.width!).toDouble(),
             _parseDimension(parameter.height!).toDouble(),
@@ -66,7 +66,8 @@ class TalkRichObjectFilePreview extends StatelessWidget {
                 (b) => b
                   ..fileId = int.parse(parameter.id)
                   ..x = deviceSize.width.toInt()
-                  ..y = deviceSize.height.toInt(),
+                  ..y = deviceSize.height.toInt()
+                  ..a = true,
               ),
             ),
           );
