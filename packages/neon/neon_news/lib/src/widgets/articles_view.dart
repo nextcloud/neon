@@ -142,145 +142,152 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
     news.Article article,
     news.Feed feed,
   ) =>
-      ListTile(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Text(
-                article.title,
-                style: article.unread
-                    ? null
-                    : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
-              ),
-            ),
-            if (article.mediaThumbnail != null)
-              NeonUriImage(
-                uri: Uri.parse(article.mediaThumbnail!),
-                size: const Size(100, 50),
-                fit: BoxFit.cover,
-                account: NeonProvider.of<Account>(context),
-              ),
-          ],
-        ),
-        subtitle: Row(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(
-                top: 8,
-                bottom: 8,
-                right: 8,
-              ),
-              child: NewsFeedIcon(
-                feed: feed,
-                size: smallIconSize,
-                borderRadius: const BorderRadius.all(Radius.circular(2)),
-              ),
-            ),
-            RelativeTime(
-              date: DateTimeUtils.fromSecondsSinceEpoch(
-                tz.UTC,
-                article.pubDate,
-              ),
-              style: const TextStyle(
-                fontWeight: FontWeight.w300,
-                fontSize: 12,
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            Flexible(
-              child: Text(
-                feed.title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
-        trailing: IconButton(
-          onPressed: () {
-            if (article.starred) {
-              widget.bloc.unstarArticle(article);
-            } else {
-              widget.bloc.starArticle(article);
-            }
-          },
-          tooltip:
-              article.starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
-          icon: Icon(
-            article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        onLongPress: () {
+      Dismissible(
+        key: Key(article.id.toString()),
+        direction: DismissDirection.startToEnd,
+        behavior: HitTestBehavior.translucent,
+        background: Container(color: Colors.red),
+        onDismissed: (_) {
           if (article.unread) {
             widget.bloc.markArticleAsRead(article);
           } else {
             widget.bloc.markArticleAsUnread(article);
           }
         },
-        onTap: () async {
-          final viewType = options.articleViewTypeOption.value;
-          String? bodyData;
-          try {
-            bodyData = _fixArticleBody(article.body);
-          } on Exception catch (error, stackTrace) {
-            _log.warning(
-              'Could not parse the body of ${article.title}',
-              error,
-              stackTrace,
-            );
-          }
-
-          final account = NeonProvider.of<Account>(context);
-
-          if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
-            await Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (context) => NewsArticlePage(
-                  bloc: NewsArticleBloc(
-                    articlesBloc: widget.bloc,
-                    account: account,
-                    article: article,
-                  ),
-                  articlesBloc: widget.bloc,
-                  useWebView: false,
-                  bodyData: bodyData,
-                  url: article.url,
+        child: ListTile(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Text(
+                  article.title,
+                  style: article.unread
+                      ? null
+                      : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
                 ),
               ),
-            );
-          } else if (viewType == ArticleViewType.internalBrowser &&
-              article.url != null &&
-              NeonPlatform.instance.canUseWebView) {
-            await Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (context) => NewsArticlePage(
-                  bloc: NewsArticleBloc(
-                    articlesBloc: widget.bloc,
-                    account: account,
-                    article: article,
-                  ),
-                  articlesBloc: widget.bloc,
-                  useWebView: true,
-                  url: article.url,
+              if (article.mediaThumbnail != null)
+                NeonUriImage(
+                  uri: Uri.parse(article.mediaThumbnail!),
+                  size: const Size(100, 50),
+                  fit: BoxFit.cover,
+                  account: NeonProvider.of<Account>(context),
+                ),
+            ],
+          ),
+          subtitle: Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  top: 8,
+                  bottom: 8,
+                  right: 8,
+                ),
+                child: NewsFeedIcon(
+                  feed: feed,
+                  size: smallIconSize,
+                  borderRadius: const BorderRadius.all(Radius.circular(2)),
                 ),
               ),
-            );
-          } else {
-            if (article.unread) {
-              widget.bloc.markArticleAsRead(article);
-            }
-            if (article.url != null) {
-              await launchUrlString(
-                article.url!,
-                mode: LaunchMode.externalApplication,
+              RelativeTime(
+                date: DateTimeUtils.fromSecondsSinceEpoch(
+                  tz.UTC,
+                  article.pubDate,
+                ),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 12,
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Flexible(
+                child: Text(
+                  feed.title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
+          trailing: IconButton(
+            onPressed: () {
+              if (article.starred) {
+                widget.bloc.unstarArticle(article);
+              } else {
+                widget.bloc.starArticle(article);
+              }
+            },
+            tooltip: article.starred
+                ? NewsLocalizations.of(context).articleUnstar
+                : NewsLocalizations.of(context).articleStar,
+            icon: Icon(
+              article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          onTap: () async {
+            final viewType = options.articleViewTypeOption.value;
+            String? bodyData;
+            try {
+              bodyData = _fixArticleBody(article.body);
+            } on Exception catch (error, stackTrace) {
+              _log.warning(
+                'Could not parse the body of ${article.title}',
+                error,
+                stackTrace,
               );
             }
-          }
-        },
+
+            final account = NeonProvider.of<Account>(context);
+
+            if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
+              await Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (context) => NewsArticlePage(
+                    bloc: NewsArticleBloc(
+                      articlesBloc: widget.bloc,
+                      account: account,
+                      article: article,
+                    ),
+                    articlesBloc: widget.bloc,
+                    useWebView: false,
+                    bodyData: bodyData,
+                    url: article.url,
+                  ),
+                ),
+              );
+            } else if (viewType == ArticleViewType.internalBrowser &&
+                article.url != null &&
+                NeonPlatform.instance.canUseWebView) {
+              await Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (context) => NewsArticlePage(
+                    bloc: NewsArticleBloc(
+                      articlesBloc: widget.bloc,
+                      account: account,
+                      article: article,
+                    ),
+                    articlesBloc: widget.bloc,
+                    useWebView: true,
+                    url: article.url,
+                  ),
+                ),
+              );
+            } else {
+              if (article.unread) {
+                widget.bloc.markArticleAsRead(article);
+              }
+              if (article.url != null) {
+                await launchUrlString(
+                  article.url!,
+                  mode: LaunchMode.externalApplication,
+                );
+              }
+            }
+          },
+        ),
       );
 
   String _fixArticleBody(String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;

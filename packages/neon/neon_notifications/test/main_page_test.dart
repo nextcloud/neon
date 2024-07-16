@@ -131,7 +131,8 @@ void main() {
     await tester.tap(find.byType(FloatingActionButton));
     verify(() => bloc.deleteAllNotifications()).called(1);
 
-    await tester.longPress(find.byType(NotificationsNotification).first);
+    await tester.drag(find.byType(NotificationsNotification).first, const Offset(500, 0));
+    await tester.pumpAndSettle();
     verify(() => bloc.deleteNotification(0)).called(1);
   });
 }

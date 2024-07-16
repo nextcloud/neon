@@ -35,6 +35,7 @@ void main() {
     when(() => secondaryAction.primary).thenReturn(false);
 
     notification = MockNotification();
+    when(() => notification.notificationId).thenReturn(0);
     when(() => notification.app).thenReturn('app');
     when(() => notification.subject).thenReturn('subject');
     when(() => notification.message).thenReturn('message');
@@ -75,11 +76,11 @@ void main() {
     expect(find.byType(NotificationsAction), findsExactly(2));
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/notification.png'));
 
-    await tester.longPress(find.byType(NotificationsNotification));
-    verify(callback.call).called(1);
-
     await tester.tap(find.byType(NotificationsNotification));
-
     verify(() => router.go('/link')).called(1);
+
+    await tester.drag(find.byType(NotificationsNotification), const Offset(500, 0));
+    await tester.pumpAndSettle();
+    verify(callback.call).called(1);
   });
 }

@@ -64,84 +64,89 @@ class NewsFoldersView extends StatelessWidget {
     FolderFeedsWrapper folderFeedsWrapper,
   ) {
     final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) = folderFeedsWrapper;
-    return ListTile(
-      title: Text(
-        folder?.name ?? NewsLocalizations.of(context).folderRoot,
-        style: unreadCount == 0
-            ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
-            : null,
-      ),
-      subtitle: unreadCount > 0 ? Text(NewsLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
-      leading: SizedBox.square(
-        dimension: largeIconSize,
-        child: Stack(
-          children: [
-            Icon(
-              AdaptiveIcons.folder,
-              size: largeIconSize,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-            Center(
-              child: Text(
-                feedCount.toString(),
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
-            ),
-          ],
+
+    return Dismissible(
+      key: Key(folder?.id.toString() ?? 'root'),
+      direction: DismissDirection.startToEnd,
+      behavior: HitTestBehavior.translucent,
+      background: Container(color: Colors.red),
+      onDismissed: (_) {
+        if (folder != null && unreadCount > 0) {
+          bloc.markFolderAsRead(folder.id);
+        }
+      },
+      child: ListTile(
+        title: Text(
+          folder?.name ?? NewsLocalizations.of(context).folderRoot,
+          style: unreadCount == 0
+              ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
+              : null,
         ),
-      ),
-      trailing: folder != null
-          ? PopupMenuButton(
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  value: NewsFolderAction.delete,
-                  child: Text(NewsLocalizations.of(context).actionDelete),
-                ),
-                PopupMenuItem(
-                  value: NewsFolderAction.rename,
-                  child: Text(NewsLocalizations.of(context).actionRename),
-                ),
-              ],
-              onSelected: (action) async {
-                switch (action) {
-                  case NewsFolderAction.delete:
-                    final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
-                    if (result) {
-                      bloc.deleteFolder(folder.id);
-                    }
-                  case NewsFolderAction.rename:
-                    if (!context.mounted) {
-                      return;
-                    }
-                    final result = await showFolderRenameDialog(context: context, folderName: folder.name);
-                    if (result != null) {
-                      bloc.renameFolder(folder.id, result);
-                    }
-                }
-              },
-            )
-          : null,
-      onLongPress: folder != null
-          ? () {
-              if (unreadCount > 0) {
-                bloc.markFolderAsRead(folder.id);
-              }
-            }
-          : null,
-      onTap: folder != null
-          ? () async {
-              await Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => NewsFolderPage(
-                    bloc: bloc,
-                    folder: folder,
+        subtitle: unreadCount > 0 ? Text(NewsLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
+        leading: SizedBox.square(
+          dimension: largeIconSize,
+          child: Stack(
+            children: [
+              Icon(
+                AdaptiveIcons.folder,
+                size: largeIconSize,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              Center(
+                child: Text(
+                  feedCount.toString(),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
-              );
-            }
-          : null,
+              ),
+            ],
+          ),
+        ),
+        trailing: folder != null
+            ? PopupMenuButton(
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: NewsFolderAction.delete,
+                    child: Text(NewsLocalizations.of(context).actionDelete),
+                  ),
+                  PopupMenuItem(
+                    value: NewsFolderAction.rename,
+                    child: Text(NewsLocalizations.of(context).actionRename),
+                  ),
+                ],
+                onSelected: (action) async {
+                  switch (action) {
+                    case NewsFolderAction.delete:
+                      final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
+                      if (result) {
+                        bloc.deleteFolder(folder.id);
+                      }
+                    case NewsFolderAction.rename:
+                      if (!context.mounted) {
+                        return;
+                      }
+                      final result = await showFolderRenameDialog(context: context, folderName: folder.name);
+                      if (result != null) {
+                        bloc.renameFolder(folder.id, result);
+                      }
+                  }
+                },
+              )
+            : null,
+        onTap: folder != null
+            ? () async {
+                await Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (context) => NewsFolderPage(
+                      bloc: bloc,
+                      folder: folder,
+                    ),
+                  ),
+                );
+              }
+            : null,
+      ),
     );
   }
 }

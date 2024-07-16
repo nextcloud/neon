@@ -58,68 +58,73 @@ class NotesView extends StatelessWidget {
     BuildContext context,
     notes.Note note,
   ) =>
-      ListTile(
-        title: Text(note.title),
-        subtitle: Row(
-          children: [
-            RelativeTime(
-              date: DateTimeUtils.fromSecondsSinceEpoch(
-                tz.UTC,
-                note.modified,
-              ),
-            ),
-            if (note.category.isNotEmpty) ...[
-              const SizedBox(
-                width: 8,
-              ),
-              Icon(
-                AdaptiveIcons.tag,
-                size: smallIconSize,
-                color: NotesCategoryColor.compute(note.category),
-              ),
-              const SizedBox(
-                width: 2,
-              ),
-              Text(note.category),
-            ],
-          ],
+      Dismissible(
+        key: Key(note.id.toString()),
+        direction: DismissDirection.startToEnd,
+        behavior: HitTestBehavior.translucent,
+        background: Container(color: Colors.red),
+        confirmDismiss: (direction) async => showConfirmationDialog(
+          context: context,
+          title: NotesLocalizations.of(context).noteDeleteConfirm(note.title),
         ),
-        trailing: IconButton(
-          onPressed: () {
-            bloc.updateNote(
-              note.id,
-              note.etag,
-              favorite: !note.favorite,
+        onDismissed: (_) async {
+          bloc.deleteNote(note.id);
+        },
+        child: ListTile(
+          title: Text(note.title),
+          subtitle: Row(
+            children: [
+              RelativeTime(
+                date: DateTimeUtils.fromSecondsSinceEpoch(
+                  tz.UTC,
+                  note.modified,
+                ),
+              ),
+              if (note.category.isNotEmpty) ...[
+                const SizedBox(
+                  width: 8,
+                ),
+                Icon(
+                  AdaptiveIcons.tag,
+                  size: smallIconSize,
+                  color: NotesCategoryColor.compute(note.category),
+                ),
+                const SizedBox(
+                  width: 2,
+                ),
+                Text(note.category),
+              ],
+            ],
+          ),
+          trailing: IconButton(
+            onPressed: () {
+              bloc.updateNote(
+                note.id,
+                note.etag,
+                favorite: !note.favorite,
+              );
+            },
+            tooltip:
+                note.favorite ? NotesLocalizations.of(context).noteUnstar : NotesLocalizations.of(context).noteStar,
+            icon: Icon(
+              note.favorite ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ),
+          onTap: () async {
+            await Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (context) => NotesNotePage(
+                  bloc: NotesNoteBloc(
+                    notesBloc: bloc,
+                    account: NeonProvider.of<Account>(context),
+                    note: note,
+                  ),
+                  notesBloc: bloc,
+                ),
+              ),
             );
           },
-          tooltip: note.favorite ? NotesLocalizations.of(context).noteUnstar : NotesLocalizations.of(context).noteStar,
-          icon: Icon(
-            note.favorite ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
-            color: Theme.of(context).colorScheme.primary,
-          ),
         ),
-        onTap: () async {
-          await Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (context) => NotesNotePage(
-                bloc: NotesNoteBloc(
-                  notesBloc: bloc,
-                  account: NeonProvider.of<Account>(context),
-                  note: note,
-                ),
-                notesBloc: bloc,
-              ),
-            ),
-          );
-        },
-        onLongPress: () async {
-          final result = await showConfirmationDialog(
-            context: context,
-            title: NotesLocalizations.of(context).noteDeleteConfirm(note.title),
-          );
-          if (result) {
-            bloc.deleteNote(note.id);
-          }
-        },
       );
 }
