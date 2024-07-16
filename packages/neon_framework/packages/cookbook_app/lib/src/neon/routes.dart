@@ -1,3 +1,4 @@
+import 'package:cookbook_app/src/neon/neon.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon_framework/utils.dart';
@@ -16,5 +17,5 @@ class CookbookAppRoute extends NeonBaseAppRoute {
   const CookbookAppRoute();
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => const Placeholder();
+  Widget build(BuildContext context, GoRouterState state) => const HomePage();
 }

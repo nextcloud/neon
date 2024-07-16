@@ -220,6 +220,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  cookbook_recipe_repository:
+    dependency: "direct overridden"
+    description:
+      path: "../packages/cookbook_recipe_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   cookie_store:
     dependency: "direct overridden"
     description:

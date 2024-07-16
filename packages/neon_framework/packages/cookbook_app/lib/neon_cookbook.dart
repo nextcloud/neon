@@ -31,7 +31,7 @@ final class CookbookApp extends AppImplementation<CookbookBloc, CookbookOptions>
   CookbookBloc buildBloc(Account account) => CookbookBloc();
 
   @override
-  final Widget page = const Placeholder();
+  final Widget page = const HomePage();
 
   @override
   final RouteBase route = $cookbookAppRoute;

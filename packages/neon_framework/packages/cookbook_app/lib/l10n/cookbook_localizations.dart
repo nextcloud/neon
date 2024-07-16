@@ -89,10 +89,49 @@ abstract class CookbookLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en')
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
 
+  /// Button to open the create recipe screen
+  ///
+  /// In en, this message translates to:
+  /// **'Create Recipe'**
+  String get recipeCreateButton;
+
+  /// Title of the category view.
+  ///
+  /// In en, this message translates to:
+  /// **'Category: {name}'**
+  String recipeListTitle(String name);
+
+  /// No description provided for @noRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes available.'**
+  String get noRecipes;
+
+  /// Error message when fetching the recipes failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load Recipe!'**
+  String get errorLoadFailed;
+
+  /// No description provided for @categoryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All Recipes'**
+  String get categoryAll;
+
+  /// No description provided for @categoryUncategorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Uncategorized'**
+  String get categoryUncategorized;
+
+  /// Number of recipes in a category.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{no items} =1 {1 item} other {{count} items}}'**
+  String categoryItems(int count);
 }
 
 class _CookbookLocalizationsDelegate extends LocalizationsDelegate<CookbookLocalizations> {
@@ -111,17 +150,14 @@ class _CookbookLocalizationsDelegate extends LocalizationsDelegate<CookbookLocal
 }
 
 CookbookLocalizations lookupCookbookLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return CookbookLocalizationsEn();
+    case 'en':
+      return CookbookLocalizationsEn();
   }
 
-  throw FlutterError(
-    'CookbookLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+  throw FlutterError('CookbookLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
