@@ -323,5 +323,11 @@ class BinaryResponseConverter with Converter<http.Response, Uint8List> {
   const BinaryResponseConverter();
 
   @override
-  Uint8List convert(http.Response input) => input.bodyBytes;
+  Uint8List convert(http.Response input) {
+    if (input.statusCode != 200 && input.statusCode != 201) {
+      throw DynamiteStatusCodeException(input);
+    }
+
+    return input.bodyBytes;
+  }
 }
