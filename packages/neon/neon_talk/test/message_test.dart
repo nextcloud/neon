@@ -816,6 +816,61 @@ void main() {
           matchesGoldenFile('goldens/message_comment_message_separate_system_message.png'),
         );
       });
+
+      testWidgets('Edited', (tester) async {
+        final account = MockAccount();
+        when(() => account.id).thenReturn('');
+        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+        final previousChatMessage = MockChatMessage();
+        when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
+        when(() => previousChatMessage.timestamp).thenReturn(0);
+        when(() => previousChatMessage.actorId).thenReturn('test');
+
+        final chatMessage = MockChatMessage();
+        when(() => chatMessage.timestamp).thenReturn(0);
+        when(() => chatMessage.actorId).thenReturn('test');
+        when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+        when(() => chatMessage.actorDisplayName).thenReturn('test');
+        when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+        when(() => chatMessage.message).thenReturn('abc');
+        when(() => chatMessage.reactions).thenReturn(BuiltMap({'😀': 1, '😊': 23}));
+        when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+        when(() => chatMessage.lastEditTimestamp).thenReturn(0);
+        when(() => chatMessage.lastEditActorDisplayName).thenReturn('test');
+
+        final roomBloc = MockRoomBloc();
+        when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
+        await tester.pumpWidgetWithAccessibility(
+          wrapWidget(
+            providers: [
+              Provider<Account>.value(value: account),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+            ],
+            child: TalkCommentMessage(
+              room: room,
+              chatMessage: chatMessage,
+              lastCommonRead: null,
+              previousChatMessage: previousChatMessage,
+            ),
+          ),
+        );
+        expect(find.byType(TalkActorAvatar), findsOne);
+        expect(find.text('1:00 AM'), findsOne);
+        expect(find.byTooltip('1/1/1970 1:00 AM'), findsOne);
+        expect(find.text('test'), findsOne);
+        expect(find.text(' (edited)'), findsOne);
+        expect(find.byTooltip('Last edited by test at 1/1/1970 1:00 AM'), findsOne);
+        expect(find.text('abc', findRichText: true), findsOne);
+        expect(find.byType(TalkReactions), findsOne);
+        expect(find.byType(SelectionArea), findsOne);
+        await expectLater(
+          find.byType(TalkCommentMessage),
+          matchesGoldenFile('goldens/message_comment_message_separate_edited.png'),
+        );
+      });
     });
 
     group('Menu', () {

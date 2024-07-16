@@ -18,6 +18,18 @@
   "roomMessageReply": "Reply",
   "roomMessageReaction": "Add reaction",
   "roomMessageDelete": "Delete",
+  "roomMessageEdited": "edited",
+  "roomMessageLastEdited": "Last edited by {name} at {time}",
+  "@roomMessageLastEdited": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
   "reactionsAddNew": "Add a new reaction",
   "reactionsLoading": "Loading reactions",
   "roomsCreateNew": "Create new room"
