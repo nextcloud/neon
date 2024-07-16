@@ -1,0 +1,18 @@
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"roomType":3,"invite":"","roomName":"Test","source":"","objectType":"","objectId":""\}
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"message":"bla","actorDisplayName":"","referenceId":"","replyTo":0,"silent":false\}
+PUT http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}/[0-9]+
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"message":"123"\}
