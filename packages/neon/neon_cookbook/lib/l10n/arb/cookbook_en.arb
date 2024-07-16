@@ -5,6 +5,18 @@
     "type": "text",
     "description": "Button to open the create recipe screen"
   },
+  "recipeListTitle": "Category: {name}",
+  "@recipeListTitle": {
+    "type": "text",
+    "description": "Title of the category view.",
+    "placeholders": {
+      "name": {
+        "description": "The name of the category.",
+        "type": "String",
+        "example": "Vegan"
+      }
+    }
+  },
   "noRecipes": "No recipes available.",
   "errorLoadFailed": "Failed to load Recipe!",
   "@errorLoadFailed": {

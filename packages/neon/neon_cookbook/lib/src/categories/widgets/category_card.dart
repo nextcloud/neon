@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neon_cookbook/l10n/l10n.dart';
+import 'package:neon_cookbook/src/recipe_list/recipe_list.dart';
 import 'package:neon_cookbook/src/widgets/widgets.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:recipe_repository/recipe_repository.dart';
@@ -65,7 +67,12 @@ class CategoryCard extends StatelessWidget {
               ],
             ),
           ),
-          onTap: () => throw UnimplementedError('Navigate to RecipeListPage'),
+          onTap: () async => Navigator.of(context).push(
+            RecipeListPage.route(
+              category: category,
+              recipeRepository: context.read<RecipeRepository>(),
+            ),
+          ),
         );
       },
     );

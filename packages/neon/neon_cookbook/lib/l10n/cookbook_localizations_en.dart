@@ -10,6 +10,11 @@ class CookbookLocalizationsEn extends CookbookLocalizations {
   String get recipeCreateButton => 'Create Recipe';
 
   @override
+  String recipeListTitle(String name) {
+    return 'Category: $name';
+  }
+
+  @override
   String get noRecipes => 'No recipes available.';
 
   @override
