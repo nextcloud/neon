@@ -11,3 +11,18 @@ extension AppLocalizationsX on BuildContext {
   /// `CookbookLocalizations.of(this)`.
   CookbookLocalizations get l10n => CookbookLocalizations.of(this);
 }
+
+/// Extension for custom localizations constructed from other ones.
+extension CookbookLocalizationsX on CookbookLocalizations {
+  /// Translates the special categories '_' (all recipes) and '*' (uncategorized).
+  ///
+  /// In en, this message translates to:
+  /// **'{name, select, _{[categoryAll]} *{[categoryUncategorized]} other{{name}}}'**
+  String categoryName(String name) {
+    return switch (name) {
+      '_' => categoryAll,
+      '*' => categoryUncategorized,
+      _ => name,
+    };
+  }
+}

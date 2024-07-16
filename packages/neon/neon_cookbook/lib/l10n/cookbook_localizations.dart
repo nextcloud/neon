@@ -96,6 +96,36 @@ abstract class CookbookLocalizations {
   /// In en, this message translates to:
   /// **'Create Recipe'**
   String get recipeCreateButton;
+
+  /// No description provided for @noRecipes.
+  ///
+  /// In en, this message translates to:
+  /// **'No recipes available.'**
+  String get noRecipes;
+
+  /// Error message when fetching the recipes failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load Recipe!'**
+  String get errorLoadFailed;
+
+  /// No description provided for @categoryAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All Recipes'**
+  String get categoryAll;
+
+  /// No description provided for @categoryUncategorized.
+  ///
+  /// In en, this message translates to:
+  /// **'Uncategorized'**
+  String get categoryUncategorized;
+
+  /// Number of recipes in a category.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{no items} =1 {1 item} other {{count} items}}'**
+  String categoryItems(int count);
 }
 
 class _CookbookLocalizationsDelegate extends LocalizationsDelegate<CookbookLocalizations> {
