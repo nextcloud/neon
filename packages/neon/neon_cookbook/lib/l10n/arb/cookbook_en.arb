@@ -1,3 +1,8 @@
 {
-  "@@locale": "en"
+  "@@locale": "en",
+  "recipeCreateButton": "Create Recipe",
+  "@recipeCreateButton": {
+    "type": "text",
+    "description": "Button to open the create recipe screen"
+  }
 }

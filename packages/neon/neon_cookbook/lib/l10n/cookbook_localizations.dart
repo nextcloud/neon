@@ -87,7 +87,15 @@ abstract class CookbookLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en')
+  ];
+
+  /// Button to open the create recipe screen
+  ///
+  /// In en, this message translates to:
+  /// **'Create Recipe'**
+  String get recipeCreateButton;
 }
 
 class _CookbookLocalizationsDelegate extends LocalizationsDelegate<CookbookLocalizations> {
@@ -106,14 +114,17 @@ class _CookbookLocalizationsDelegate extends LocalizationsDelegate<CookbookLocal
 }
 
 CookbookLocalizations lookupCookbookLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return CookbookLocalizationsEn();
+    case 'en': return CookbookLocalizationsEn();
   }
 
-  throw FlutterError('CookbookLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+  throw FlutterError(
+    'CookbookLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }
