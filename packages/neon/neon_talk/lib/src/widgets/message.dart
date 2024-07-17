@@ -1,15 +1,20 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/l10n/localizations.dart';
+import 'package:neon_talk/src/blocs/message_bloc.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
+import 'package:neon_talk/src/widgets/reference_preview.dart';
 import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
@@ -37,8 +42,10 @@ String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageI
 /// Renders the [chatMessage] as a rich [TextSpan].
 TextSpan buildChatMessage({
   required spreed.$ChatMessageInterface chatMessage,
+  required BuiltList<String> references,
+  required TextStyle style,
+  required void Function(String reference) onReferenceClicked,
   bool isPreview = false,
-  TextStyle? style,
 }) {
   var message = chatMessage.message;
   if (isPreview) {
@@ -62,6 +69,16 @@ TextSpan buildChatMessage({
 
     if (!found) {
       unusedParameters[entry.key] = entry.value;
+    }
+
+    parts = newParts;
+  }
+  for (final reference in references) {
+    final newParts = <String>[];
+
+    for (final part in parts) {
+      final p = part.split(reference);
+      newParts.addAll(p.intersperse(reference));
     }
 
     parts = newParts;
@@ -94,6 +111,29 @@ TextSpan buildChatMessage({
             parameter: entry.value,
             textStyle: style,
             isPreview: isPreview,
+          ),
+        );
+        match = true;
+        break;
+      }
+    }
+    for (final reference in references) {
+      if (reference == part) {
+        children.add(
+          WidgetSpan(
+            child: InkWell(
+              onTap: () {
+                onReferenceClicked(reference);
+              },
+              onHover: (_) {},
+              child: Text(
+                part,
+                style: style.copyWith(
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2,
+                ),
+              ),
+            ),
           ),
         );
         match = true;
@@ -207,8 +247,10 @@ class TalkMessagePreview extends StatelessWidget {
             ),
           buildChatMessage(
             chatMessage: chatMessage,
+            references: BuiltList(),
             isPreview: true,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodyMedium!,
+            onReferenceClicked: context.go,
           ),
         ],
       ),
@@ -295,7 +337,9 @@ class TalkSystemMessage extends StatelessWidget {
         child: RichText(
           text: buildChatMessage(
             chatMessage: chatMessage,
-            style: Theme.of(context).textTheme.labelSmall,
+            references: BuiltList(),
+            style: Theme.of(context).textTheme.labelSmall!,
+            onReferenceClicked: context.go,
           ),
         ),
       ),
@@ -381,206 +425,241 @@ class TalkCommentMessage extends StatefulWidget {
 class _TalkCommentMessageState extends State<TalkCommentMessage> {
   bool hoverState = false;
   bool menuOpen = false;
+  late final TalkMessageBloc bloc;
+
+  @override
+  void initState() {
+    super.initState();
+
+    bloc = TalkMessageBloc(
+      chatMessage: widget.chatMessage,
+      referencesBloc: NeonProvider.of<ReferencesBloc>(context),
+      isParent: widget.isParent,
+    );
+  }
+
+  @override
+  void dispose() {
+    bloc.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-    final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
+    return StreamBuilder(
+      stream: bloc.references,
+      builder: (context, referencesResult) {
+        final references = referencesResult.data ?? BuiltMap();
 
-    final date = DateTimeUtils.fromSecondsSinceEpoch(
-      tz.UTC,
-      widget.chatMessage.timestamp,
-    );
-    tz.TZDateTime? previousDate;
-    if (widget.previousChatMessage != null) {
-      previousDate = DateTimeUtils.fromSecondsSinceEpoch(
-        tz.UTC,
-        widget.previousChatMessage!.timestamp,
-      );
-    }
+        final textTheme = Theme.of(context).textTheme;
+        final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
 
-    final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
-        widget.previousChatMessage?.messageType == spreed.MessageType.system ||
-        previousDate == null ||
-        date.difference(previousDate) > const Duration(minutes: 3);
-
-    Widget? displayName;
-    Widget? avatar;
-    Widget? time;
-    if (separateMessages) {
-      displayName = Text(
-        getActorDisplayName(TalkLocalizations.of(context), widget.chatMessage),
-        style: textTheme.labelLarge!.copyWith(
-          color: labelColor,
-        ),
-      );
-
-      if (!widget.isParent) {
-        avatar = TalkActorAvatar(
-          actorId: widget.chatMessage.actorId,
-          actorType: widget.chatMessage.actorType,
+        final date = DateTimeUtils.fromSecondsSinceEpoch(
+          tz.UTC,
+          widget.chatMessage.timestamp,
         );
+        tz.TZDateTime? previousDate;
+        if (widget.previousChatMessage != null) {
+          previousDate = DateTimeUtils.fromSecondsSinceEpoch(
+            tz.UTC,
+            widget.previousChatMessage!.timestamp,
+          );
+        }
 
-        time = Tooltip(
-          message: _dateTimeFormat.format(date.toLocal()),
-          child: Text(
-            _timeFormat.format(date.toLocal()),
-            style: textTheme.labelSmall,
-          ),
-        );
-      }
-    }
+        final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
+            widget.previousChatMessage?.messageType == spreed.MessageType.system ||
+            previousDate == null ||
+            date.difference(previousDate) > const Duration(minutes: 3);
 
-    Widget? parent;
-    if (widget.chatMessage
-        case spreed.ChatMessageWithParent(
-          parent: final p,
-          messageType: != spreed.MessageType.commentDeleted,
-        ) when p != null && !widget.isParent) {
-      parent = TalkParentMessage(
-        room: widget.room,
-        parentChatMessage: p,
-        lastCommonRead: widget.lastCommonRead,
-      );
-    }
-
-    double topMargin;
-    if (widget.isParent) {
-      topMargin = 5;
-    } else if (separateMessages) {
-      topMargin = 20;
-    } else {
-      topMargin = 0;
-    }
-
-    Widget text = Text.rich(
-      buildChatMessage(
-        chatMessage: widget.chatMessage,
-        isPreview: widget.isParent,
-        style: textTheme.bodyLarge!.copyWith(
-          color: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
-              ? labelColor
-              : null,
-        ),
-      ),
-      maxLines: widget.isParent ? 1 : null,
-      overflow: widget.isParent ? TextOverflow.ellipsis : TextOverflow.visible,
-    );
-    if (!widget.isParent && widget.chatMessage.messageType != spreed.MessageType.commentDeleted) {
-      text = SelectionArea(
-        child: text,
-      );
-    }
-    if (widget.chatMessage.messageType == spreed.MessageType.commentDeleted) {
-      text = Row(
-        children: [
-          Icon(
-            AdaptiveIcons.cancel,
-            size: textTheme.bodySmall!.fontSize,
-            color: labelColor,
-          ),
-          const SizedBox(
-            width: 2.5,
-          ),
-          text,
-        ],
-      );
-    }
-
-    final account = NeonProvider.of<Account>(context);
-
-    Widget? readIndicator;
-    if (widget.lastCommonRead != null && account.username == widget.chatMessage.actorId) {
-      readIndicator = TalkReadIndicator(
-        chatMessage: widget.chatMessage,
-        lastCommonRead: widget.lastCommonRead!,
-      );
-    }
-
-    Widget message = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            if (displayName != null) displayName,
-            if (time != null) time,
-          ],
-        ),
-        if (parent != null) parent,
-        text,
-        if (!widget.isParent && widget.chatMessage.reactions.isNotEmpty)
-          TalkReactions(
-            chatMessage: widget.chatMessage,
-          ),
-      ]
-          .intersperse(
-            const SizedBox(
-              height: 5,
+        Widget? displayName;
+        Widget? avatar;
+        Widget? time;
+        if (separateMessages) {
+          displayName = Text(
+            getActorDisplayName(TalkLocalizations.of(context), widget.chatMessage),
+            style: textTheme.labelLarge!.copyWith(
+              color: labelColor,
             ),
-          )
-          .toList(),
-    );
+          );
 
-    if (!widget.isParent) {
-      message = MouseRegion(
-        onEnter: (_) {
-          setState(() {
-            hoverState = true;
-          });
-        },
-        onExit: (_) {
-          setState(() {
-            hoverState = false;
-          });
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: (hoverState || menuOpen) ? Theme.of(context).colorScheme.surfaceDim : null,
+          if (!widget.isParent) {
+            avatar = TalkActorAvatar(
+              actorId: widget.chatMessage.actorId,
+              actorType: widget.chatMessage.actorType,
+            );
+
+            time = Tooltip(
+              message: _dateTimeFormat.format(date.toLocal()),
+              child: Text(
+                _timeFormat.format(date.toLocal()),
+                style: textTheme.labelSmall,
+              ),
+            );
+          }
+        }
+
+        Widget? parent;
+        if (widget.chatMessage
+            case spreed.ChatMessageWithParent(
+              parent: final p,
+              messageType: != spreed.MessageType.commentDeleted,
+            ) when p != null && !widget.isParent) {
+          parent = TalkParentMessage(
+            room: widget.room,
+            parentChatMessage: p,
+            lastCommonRead: widget.lastCommonRead,
+          );
+        }
+
+        double topMargin;
+        if (widget.isParent) {
+          topMargin = 5;
+        } else if (separateMessages) {
+          topMargin = 20;
+        } else {
+          topMargin = 0;
+        }
+
+        Widget text = Text.rich(
+          buildChatMessage(
+            chatMessage: widget.chatMessage,
+            isPreview: widget.isParent,
+            references: references.keys.toBuiltList(),
+            style: textTheme.bodyLarge!.copyWith(
+              color: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
+                  ? labelColor
+                  : null,
+            ),
+            onReferenceClicked: context.go,
           ),
-          padding: const EdgeInsets.all(5),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          maxLines: widget.isParent ? 1 : null,
+          overflow: widget.isParent ? TextOverflow.ellipsis : TextOverflow.visible,
+        );
+        if (!widget.isParent && widget.chatMessage.messageType != spreed.MessageType.commentDeleted) {
+          text = SelectionArea(
+            child: text,
+          );
+        }
+        if (widget.chatMessage.messageType == spreed.MessageType.commentDeleted) {
+          text = Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: SizedBox(
-                  width: 40,
-                  child: avatar,
-                ),
+              Icon(
+                AdaptiveIcons.cancel,
+                size: textTheme.bodySmall!.fontSize,
+                color: labelColor,
               ),
-              Expanded(
-                child: message,
+              const SizedBox(
+                width: 2.5,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5),
-                child: SizedBox(
-                  width: 14,
-                  child: readIndicator,
-                ),
-              ),
-              SizedBox.square(
-                dimension: 32,
-                child: widget.chatMessage.messageType != spreed.MessageType.commentDeleted && (hoverState || menuOpen)
-                    ? _buildPopupMenuButton(
-                        widget.room,
-                        widget.chatMessage,
-                      )
-                    : null,
-              ),
+              text,
             ],
-          ),
-        ),
-      );
-    }
+          );
+        }
 
-    return Container(
-      margin: EdgeInsets.only(
-        top: topMargin,
-        bottom: 5,
-      ),
-      child: message,
+        final account = NeonProvider.of<Account>(context);
+
+        Widget? readIndicator;
+        if (widget.lastCommonRead != null && account.username == widget.chatMessage.actorId) {
+          readIndicator = TalkReadIndicator(
+            chatMessage: widget.chatMessage,
+            lastCommonRead: widget.lastCommonRead!,
+          );
+        }
+
+        Widget message = Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (displayName != null) displayName,
+                if (time != null) time,
+              ],
+            ),
+            if (parent != null) parent,
+            text,
+            for (final entry in references.entries.take(3))
+              if (entry.value.data?.openGraphObject.name != entry.key)
+                TalkReferencePreview(
+                  url: entry.key,
+                  openGraphObject: entry.value.data?.openGraphObject,
+                ),
+            if (!widget.isParent && widget.chatMessage.reactions.isNotEmpty)
+              TalkReactions(
+                chatMessage: widget.chatMessage,
+              ),
+          ]
+              .intersperse(
+                const SizedBox(
+                  height: 5,
+                ),
+              )
+              .toList(),
+        );
+
+        if (!widget.isParent) {
+          message = MouseRegion(
+            onEnter: (_) {
+              setState(() {
+                hoverState = true;
+              });
+            },
+            onExit: (_) {
+              setState(() {
+                hoverState = false;
+              });
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: (hoverState || menuOpen) ? Theme.of(context).colorScheme.surfaceDim : null,
+              ),
+              padding: const EdgeInsets.all(5),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: SizedBox(
+                      width: 40,
+                      child: avatar,
+                    ),
+                  ),
+                  Expanded(
+                    child: message,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5),
+                    child: SizedBox(
+                      width: 14,
+                      child: readIndicator,
+                    ),
+                  ),
+                  SizedBox.square(
+                    dimension: 32,
+                    child:
+                        widget.chatMessage.messageType != spreed.MessageType.commentDeleted && (hoverState || menuOpen)
+                            ? _buildPopupMenuButton(
+                                widget.room,
+                                widget.chatMessage,
+                              )
+                            : null,
+                  ),
+                ],
+              ),
+            ),
+          );
+        }
+
+        return Container(
+          margin: EdgeInsets.only(
+            top: topMargin,
+            bottom: 5,
+          ),
+          child: message,
+        );
+      },
     );
   }
 

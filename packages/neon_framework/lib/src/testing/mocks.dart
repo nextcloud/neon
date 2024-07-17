@@ -102,3 +102,5 @@ class MockGoRouter extends Mock implements GoRouter {}
 class MockGoRouterState extends Mock implements GoRouterState {}
 
 class MockUrlLauncher extends Mock with MockPlatformInterfaceMixin implements UrlLauncherPlatform {}
+
+class MockReferencesBloc extends Mock implements ReferencesBloc {}

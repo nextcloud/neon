@@ -6,14 +6,10 @@ import 'package:collection/collection.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/bloc/bloc.dart';
-import 'package:neon_framework/src/blocs/apps.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
-import 'package:neon_framework/src/blocs/user_details.dart';
-import 'package:neon_framework/src/blocs/user_status.dart';
-import 'package:neon_framework/src/blocs/weather_status.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
@@ -93,6 +89,9 @@ abstract interface class AccountsBloc implements Disposable {
 
   /// The MaintenanceModeBloc for the specified [account].
   MaintenanceModeBloc getMaintenanceModeBlocFor(Account account);
+
+  /// The ReferencesBloc for the specified [account].
+  ReferencesBloc getReferencesBlocFor(Account account);
 }
 
 /// Implementation of [AccountsBloc].
@@ -171,6 +170,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   final unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
   final weatherStatusBlocs = AccountCache<WeatherStatusBloc>();
   final maintenanceModeBlocs = AccountCache<MaintenanceModeBloc>();
+  final referencesBlocs = AccountCache<ReferencesBloc>();
 
   @override
   void dispose() {
@@ -183,6 +183,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     unifiedSearchBlocs.dispose();
     weatherStatusBlocs.dispose();
     maintenanceModeBlocs.dispose();
+    referencesBlocs.dispose();
     accountsOptions.dispose();
   }
 
@@ -299,6 +300,12 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   MaintenanceModeBloc getMaintenanceModeBlocFor(Account account) =>
       maintenanceModeBlocs[account] ??= MaintenanceModeBloc(
         account: account,
+      );
+
+  @override
+  ReferencesBloc getReferencesBlocFor(Account account) => referencesBlocs[account] ??= ReferencesBloc(
+        account: account,
+        capabilities: getCapabilitiesBlocFor(account).capabilities,
       );
 }
 

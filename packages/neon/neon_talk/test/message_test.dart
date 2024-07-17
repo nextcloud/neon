@@ -15,6 +15,7 @@ import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
+import 'package:neon_talk/src/widgets/reference_preview.dart';
 import 'package:neon_talk/src/widgets/rich_object/deck_card.dart';
 import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
@@ -43,6 +44,7 @@ Widget wrapWidget({
 
 void main() {
   late spreed.Room room;
+  late ReferencesBloc referencesBloc;
 
   setUpAll(() {
     FakeNeonStorage.setup();
@@ -55,6 +57,10 @@ void main() {
 
   setUp(() {
     room = MockRoom();
+
+    referencesBloc = MockReferencesBloc();
+    when(() => referencesBloc.referenceRegex).thenAnswer((_) => BehaviorSubject.seeded(Result.success(null)));
+    when(() => referencesBloc.references).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
   });
 
   group('getActorDisplayName', () {
@@ -236,6 +242,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkMessage(
             room: room,
@@ -313,6 +320,7 @@ void main() {
       wrapWidget(
         providers: [
           Provider<Account>.value(value: account),
+          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
         ],
         child: TalkParentMessage(
           room: room,
@@ -357,6 +365,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkCommentMessage(
             room: room,
@@ -410,6 +419,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkCommentMessage(
             room: room,
@@ -457,6 +467,7 @@ void main() {
         wrapWidget(
           providers: [
             Provider<Account>.value(value: account),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkCommentMessage(
             room: room,
@@ -493,6 +504,7 @@ void main() {
         wrapWidget(
           providers: [
             Provider<Account>.value(value: account),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkCommentMessage(
             room: room,
@@ -552,6 +564,7 @@ void main() {
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
           child: TalkCommentMessage(
             room: room,
@@ -567,6 +580,87 @@ void main() {
       await expectLater(
         find.byType(TalkCommentMessage).first,
         matchesGoldenFile('goldens/message_comment_message_with_parent.png'),
+      );
+    });
+
+    testWidgets('With references', (tester) async {
+      when(() => referencesBloc.referenceRegex).thenAnswer(
+        (_) => BehaviorSubject.seeded(Result.success(RegExp('[a-z]+'))),
+      );
+
+      final openGraphObject = MockOpenGraphObject();
+      when(() => openGraphObject.name).thenReturn('name');
+      when(() => openGraphObject.link).thenReturn('/link');
+
+      final reference = MockReference();
+      when(() => reference.openGraphObject).thenReturn(openGraphObject);
+
+      final brokenOpenGraphObject = MockOpenGraphObject();
+      when(() => brokenOpenGraphObject.name).thenReturn('c');
+      when(() => brokenOpenGraphObject.link).thenReturn('/link');
+
+      final brokenReference = MockReference();
+      when(() => brokenReference.openGraphObject).thenReturn(brokenOpenGraphObject);
+
+      when(() => referencesBloc.references).thenAnswer(
+        (_) => BehaviorSubject.seeded(
+          BuiltMap({
+            'a': Result.success(reference),
+            'b': Result.success(reference),
+            'c': Result.success(brokenReference),
+          }),
+        ),
+      );
+
+      final account = MockAccount();
+      when(() => account.id).thenReturn('');
+      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+
+      final chatMessage = MockChatMessageWithParent();
+      when(() => chatMessage.id).thenReturn(0);
+      when(() => chatMessage.timestamp).thenReturn(0);
+      when(() => chatMessage.actorId).thenReturn('test');
+      when(() => chatMessage.actorType).thenReturn(spreed.ActorType.users);
+      when(() => chatMessage.actorDisplayName).thenReturn('test');
+      when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+      when(() => chatMessage.message).thenReturn('a b c');
+      when(() => chatMessage.reactions).thenReturn(BuiltMap());
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+
+      final roomBloc = MockRoomBloc();
+      when(() => roomBloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+
+      await tester.pumpWidgetWithAccessibility(
+        wrapWidget(
+          providers: [
+            Provider<Account>.value(value: account),
+            NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+            NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          ],
+          child: TalkCommentMessage(
+            room: room,
+            chatMessage: chatMessage,
+            lastCommonRead: null,
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TalkReferencePreview), findsExactly(2));
+      for (final url in ['a', 'b']) {
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is TalkReferencePreview && widget.url == url && widget.openGraphObject == openGraphObject,
+          ),
+          findsOne,
+        );
+      }
+
+      await expectLater(
+        find.byType(TalkCommentMessage).first,
+        matchesGoldenFile('goldens/message_comment_message_with_references.png'),
       );
     });
 
@@ -599,6 +693,7 @@ void main() {
             providers: [
               Provider<Account>.value(value: account),
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             ],
             child: TalkCommentMessage(
               room: room,
@@ -649,6 +744,7 @@ void main() {
             providers: [
               Provider<Account>.value(value: account),
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             ],
             child: TalkCommentMessage(
               room: room,
@@ -698,6 +794,7 @@ void main() {
             providers: [
               Provider<Account>.value(value: account),
               NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             ],
             child: TalkCommentMessage(
               room: room,
@@ -761,6 +858,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -804,6 +902,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -837,6 +936,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -870,6 +970,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -907,6 +1008,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -938,6 +1040,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -971,6 +1074,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -1008,6 +1112,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -1041,6 +1146,7 @@ void main() {
               providers: [
                 Provider<Account>.value(value: account),
                 NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+                NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               ],
               child: TalkCommentMessage(
                 room: room,
@@ -1185,10 +1291,21 @@ void main() {
       when(() => chatMessage.message).thenReturn('123\n456');
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
 
-      var span = buildChatMessage(chatMessage: chatMessage).children!.single as TextSpan;
+      var span = buildChatMessage(
+        chatMessage: chatMessage,
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!.single as TextSpan;
       expect(span.text, '123\n456');
 
-      span = buildChatMessage(chatMessage: chatMessage, isPreview: true).children!.single as TextSpan;
+      span = buildChatMessage(
+        chatMessage: chatMessage,
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+        isPreview: true,
+      ).children!.single as TextSpan;
       expect(span.text, '123 456');
     });
 
@@ -1209,7 +1326,12 @@ void main() {
               }),
             );
 
-            final spans = buildChatMessage(chatMessage: chatMessage).children!;
+            final spans = buildChatMessage(
+              chatMessage: chatMessage,
+              references: BuiltList(),
+              style: const TextStyle(),
+              onReferenceClicked: (_) {},
+            ).children!;
             expect((spans.single as TextSpan).text, 'test');
           });
         }
@@ -1229,7 +1351,12 @@ void main() {
           }),
         );
 
-        final spans = buildChatMessage(chatMessage: chatMessage).children!;
+        final spans = buildChatMessage(
+          chatMessage: chatMessage,
+          references: BuiltList(),
+          style: const TextStyle(),
+          onReferenceClicked: (_) {},
+        ).children!;
         expect(spans, hasLength(3));
         expect((spans[0] as WidgetSpan).child, isA<TalkRichObjectFile>());
         expect((spans[1] as TextSpan).text, '\n');
@@ -1257,7 +1384,12 @@ void main() {
         }),
       );
 
-      final spans = buildChatMessage(chatMessage: chatMessage).children!;
+      final spans = buildChatMessage(
+        chatMessage: chatMessage,
+        references: BuiltList(),
+        style: const TextStyle(),
+        onReferenceClicked: (_) {},
+      ).children!;
       expect(spans, hasLength(5));
       expect((spans[0] as TextSpan).text, '123 ');
       expect((spans[1] as WidgetSpan).child, isA<TalkRichObjectMention>());

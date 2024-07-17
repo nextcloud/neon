@@ -27,15 +27,14 @@ import 'testing.dart';
 void main() {
   late spreed.Room room;
   late TalkRoomBloc bloc;
+  late ReferencesBloc referencesBloc;
 
   setUpAll(() {
     KeyboardVisibilityTesting.setVisibilityForTesting(true);
 
     tzdata.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
-  });
 
-  setUp(() {
     FakeNeonStorage.setup();
   });
 
@@ -55,6 +54,10 @@ void main() {
         .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>())));
     when(() => bloc.lastCommonRead).thenAnswer((_) => BehaviorSubject.seeded(0));
     when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
+
+    referencesBloc = MockReferencesBloc();
+    when(() => referencesBloc.referenceRegex).thenAnswer((_) => BehaviorSubject.seeded(Result.success(null)));
+    when(() => referencesBloc.references).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
   });
 
   testWidgets('Status message', (tester) async {
@@ -168,6 +171,7 @@ void main() {
         providers: [
           Provider<Account>.value(value: account),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
+          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
         ],
         child: const TalkRoomPage(),
       ),
@@ -231,6 +235,7 @@ void main() {
         providers: [
           Provider<Account>.value(value: account),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
+          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
         ],
         child: const TalkRoomPage(),
       ),

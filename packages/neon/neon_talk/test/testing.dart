@@ -1,6 +1,7 @@
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 
 class MockRoom extends Mock implements spreed.Room {}
@@ -14,6 +15,10 @@ class MockReaction extends Mock implements spreed.Reaction {}
 class MockRoomBloc extends Mock implements TalkRoomBloc {}
 
 class MockTalkBloc extends Mock implements TalkBloc {}
+
+class MockReference extends Mock implements core.Reference {}
+
+class MockOpenGraphObject extends Mock implements core.OpenGraphObject {}
 
 Map<String, dynamic> getRoom({
   int? id,
