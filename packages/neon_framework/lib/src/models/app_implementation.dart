@@ -171,7 +171,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
               'assets/app.svg.vec',
               packageName: 'neon_$id',
             ),
-            semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
+            semanticsLabel: "Nextcloud Client Logo",
           );
         },
       );
