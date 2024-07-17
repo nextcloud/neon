@@ -50,7 +50,7 @@ void main() {
         child: TalkRichObjectDeckCard(
           parameter: spreed.RichObjectParameter(
             (b) => b
-              ..type = ''
+              ..type = spreed.RichObjectParameter_Type.deckCard
               ..id = ''
               ..name = 'name'
               ..boardname = 'boardname'
@@ -82,7 +82,7 @@ void main() {
             child: TalkRichObjectMention(
               parameter: spreed.RichObjectParameter(
                 (b) => b
-                  ..type = 'user'
+                  ..type = spreed.RichObjectParameter_Type.user
                   ..id = 'username'
                   ..name = 'name',
               ),
@@ -107,7 +107,7 @@ void main() {
             child: TalkRichObjectMention(
               parameter: spreed.RichObjectParameter(
                 (b) => b
-                  ..type = 'user'
+                  ..type = spreed.RichObjectParameter_Type.user
                   ..id = 'other'
                   ..name = 'name',
               ),
@@ -133,7 +133,7 @@ void main() {
           child: TalkRichObjectMention(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = 'call'
+                ..type = spreed.RichObjectParameter_Type.call
                 ..id = ''
                 ..name = 'name'
                 ..iconUrl = '',
@@ -156,7 +156,7 @@ void main() {
           child: TalkRichObjectMention(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = 'guest'
+                ..type = spreed.RichObjectParameter_Type.guest
                 ..id = ''
                 ..name = 'name',
             ),
@@ -172,8 +172,11 @@ void main() {
       );
     });
 
-    for (final type in ['user-group', 'group']) {
-      testWidgets(type, (tester) async {
+    for (final type in [
+      spreed.RichObjectParameter_Type.userGroup,
+      spreed.RichObjectParameter_Type.group,
+    ]) {
+      testWidgets(type.value, (tester) async {
         final userDetails = MockUserDetails();
         when(() => userDetails.groups).thenReturn(BuiltList(['group']));
 
@@ -200,7 +203,7 @@ void main() {
         expect(find.text('name'), findsOne);
         await expectLater(
           find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_${type}_highlight.png'),
+          matchesGoldenFile('goldens/rich_object_mention_${type.value}_highlight.png'),
         );
 
         await tester.pumpWidgetWithAccessibility(
@@ -223,7 +226,7 @@ void main() {
         expect(find.text('name'), findsOne);
         await expectLater(
           find.byType(TalkRichObjectMention),
-          matchesGoldenFile('goldens/rich_object_mention_${type}_other.png'),
+          matchesGoldenFile('goldens/rich_object_mention_${type.value}_other.png'),
         );
       });
     }
@@ -239,10 +242,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.no
+                ..previewAvailable = 'no'
                 ..path = ''
                 ..link = '/link',
             ),
@@ -264,10 +267,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..previewAvailable = 'yes'
                 ..path = '',
             ),
             textStyle: null,
@@ -283,10 +286,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.no
+                ..previewAvailable = 'no'
                 ..path = '',
             ),
             textStyle: null,
@@ -316,10 +319,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..previewAvailable = 'yes'
                 ..path = 'path',
             ),
             textStyle: null,
@@ -347,10 +350,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..previewAvailable = 'yes'
                 ..path = 'path'
                 ..width = ($int: width, string: null)
                 ..height = ($int: height, string: null),
@@ -380,10 +383,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..previewAvailable = 'yes'
                 ..path = 'path'
                 ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
                 ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
@@ -414,10 +417,10 @@ void main() {
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = spreed.RichObjectParameter_PreviewAvailable.yes
+                ..previewAvailable = 'yes'
                 ..path = 'path'
                 ..mimetype = 'image/gif',
             ),
@@ -447,7 +450,7 @@ void main() {
           child: TalkRichObjectFallback(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.calendarEvent
                 ..id = ''
                 ..name = 'name'
                 ..link = '/link',
@@ -467,7 +470,7 @@ void main() {
           child: TalkRichObjectFallback(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.addressbook
                 ..id = ''
                 ..name = 'name',
             ),
@@ -492,7 +495,7 @@ void main() {
           child: TalkRichObjectFallback(
             parameter: spreed.RichObjectParameter(
               (b) => b
-                ..type = ''
+                ..type = spreed.RichObjectParameter_Type.addressbook
                 ..id = ''
                 ..name = 'name'
                 ..iconUrl = '',

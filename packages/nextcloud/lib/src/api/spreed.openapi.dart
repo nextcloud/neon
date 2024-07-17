@@ -15316,65 +15316,181 @@ class _$ActorTypeSerializer implements PrimitiveSerializer<ActorType> {
       _fromWire[serialized]!;
 }
 
-class RichObjectParameter_CallType extends EnumClass {
-  const RichObjectParameter_CallType._(super.name);
+class RichObjectParameter_Type extends EnumClass {
+  const RichObjectParameter_Type._(super.name);
 
-  /// `one2one`
-  static const RichObjectParameter_CallType one2one = _$richObjectParameterCallTypeOne2one;
+  /// `addressbook`
+  static const RichObjectParameter_Type addressbook = _$richObjectParameterTypeAddressbook;
+
+  /// `addressbook-contact`
+  @BuiltValueEnumConst(wireName: 'addressbook-contact')
+  static const RichObjectParameter_Type addressbookContact = _$richObjectParameterTypeAddressbookContact;
+
+  /// `announcement`
+  static const RichObjectParameter_Type announcement = _$richObjectParameterTypeAnnouncement;
+
+  /// `app`
+  static const RichObjectParameter_Type app = _$richObjectParameterTypeApp;
+
+  /// `calendar`
+  static const RichObjectParameter_Type calendar = _$richObjectParameterTypeCalendar;
+
+  /// `calendar-event`
+  @BuiltValueEnumConst(wireName: 'calendar-event')
+  static const RichObjectParameter_Type calendarEvent = _$richObjectParameterTypeCalendarEvent;
+
+  /// `call`
+  static const RichObjectParameter_Type call = _$richObjectParameterTypeCall;
+
+  /// `circle`
+  static const RichObjectParameter_Type circle = _$richObjectParameterTypeCircle;
+
+  /// `deck-board`
+  @BuiltValueEnumConst(wireName: 'deck-board')
+  static const RichObjectParameter_Type deckBoard = _$richObjectParameterTypeDeckBoard;
+
+  /// `deck-card`
+  @BuiltValueEnumConst(wireName: 'deck-card')
+  static const RichObjectParameter_Type deckCard = _$richObjectParameterTypeDeckCard;
+
+  /// `email`
+  static const RichObjectParameter_Type email = _$richObjectParameterTypeEmail;
+
+  /// `file`
+  static const RichObjectParameter_Type file = _$richObjectParameterTypeFile;
+
+  /// `forms-form`
+  @BuiltValueEnumConst(wireName: 'forms-form')
+  static const RichObjectParameter_Type formsForm = _$richObjectParameterTypeFormsForm;
+
+  /// `guest`
+  static const RichObjectParameter_Type guest = _$richObjectParameterTypeGuest;
+
+  /// `highlight`
+  static const RichObjectParameter_Type highlight = _$richObjectParameterTypeHighlight;
+
+  /// `geo-location`
+  @BuiltValueEnumConst(wireName: 'geo-location')
+  static const RichObjectParameter_Type geoLocation = _$richObjectParameterTypeGeoLocation;
+
+  /// `open-graph`
+  @BuiltValueEnumConst(wireName: 'open-graph')
+  static const RichObjectParameter_Type openGraph = _$richObjectParameterTypeOpenGraph;
+
+  /// `pending-federated-share`
+  @BuiltValueEnumConst(wireName: 'pending-federated-share')
+  static const RichObjectParameter_Type pendingFederatedShare = _$richObjectParameterTypePendingFederatedShare;
+
+  /// `systemtag`
+  static const RichObjectParameter_Type systemtag = _$richObjectParameterTypeSystemtag;
+
+  /// `talk-attachment`
+  @BuiltValueEnumConst(wireName: 'talk-attachment')
+  static const RichObjectParameter_Type talkAttachment = _$richObjectParameterTypeTalkAttachment;
+
+  /// `talk-poll`
+  @BuiltValueEnumConst(wireName: 'talk-poll')
+  static const RichObjectParameter_Type talkPoll = _$richObjectParameterTypeTalkPoll;
+
+  /// `user`
+  static const RichObjectParameter_Type user = _$richObjectParameterTypeUser;
+
+  /// `user-group`
+  @BuiltValueEnumConst(wireName: 'user-group')
+  static const RichObjectParameter_Type userGroup = _$richObjectParameterTypeUserGroup;
 
   /// `group`
-  static const RichObjectParameter_CallType group = _$richObjectParameterCallTypeGroup;
-
-  /// `public`
-  static const RichObjectParameter_CallType public = _$richObjectParameterCallTypePublic;
+  static const RichObjectParameter_Type group = _$richObjectParameterTypeGroup;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<RichObjectParameter_CallType> get values => _$richObjectParameterCallTypeValues;
+  static BuiltSet<RichObjectParameter_Type> get values => _$richObjectParameterTypeValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static RichObjectParameter_CallType valueOf(String name) => _$valueOfRichObjectParameter_CallType(name);
+  static RichObjectParameter_Type valueOf(String name) => _$valueOfRichObjectParameter_Type(name);
 
   /// Returns the serialized value of this enum value.
   String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
 
-  /// Serializer for RichObjectParameter_CallType.
+  /// Serializer for RichObjectParameter_Type.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RichObjectParameter_CallType> get serializer => const _$RichObjectParameter_CallTypeSerializer();
+  static Serializer<RichObjectParameter_Type> get serializer => const _$RichObjectParameter_TypeSerializer();
 }
 
-class _$RichObjectParameter_CallTypeSerializer implements PrimitiveSerializer<RichObjectParameter_CallType> {
-  const _$RichObjectParameter_CallTypeSerializer();
+class _$RichObjectParameter_TypeSerializer implements PrimitiveSerializer<RichObjectParameter_Type> {
+  const _$RichObjectParameter_TypeSerializer();
 
-  static const Map<RichObjectParameter_CallType, Object> _toWire = <RichObjectParameter_CallType, Object>{
-    RichObjectParameter_CallType.one2one: 'one2one',
-    RichObjectParameter_CallType.group: 'group',
-    RichObjectParameter_CallType.public: 'public',
+  static const Map<RichObjectParameter_Type, Object> _toWire = <RichObjectParameter_Type, Object>{
+    RichObjectParameter_Type.addressbook: 'addressbook',
+    RichObjectParameter_Type.addressbookContact: 'addressbook-contact',
+    RichObjectParameter_Type.announcement: 'announcement',
+    RichObjectParameter_Type.app: 'app',
+    RichObjectParameter_Type.calendar: 'calendar',
+    RichObjectParameter_Type.calendarEvent: 'calendar-event',
+    RichObjectParameter_Type.call: 'call',
+    RichObjectParameter_Type.circle: 'circle',
+    RichObjectParameter_Type.deckBoard: 'deck-board',
+    RichObjectParameter_Type.deckCard: 'deck-card',
+    RichObjectParameter_Type.email: 'email',
+    RichObjectParameter_Type.file: 'file',
+    RichObjectParameter_Type.formsForm: 'forms-form',
+    RichObjectParameter_Type.guest: 'guest',
+    RichObjectParameter_Type.highlight: 'highlight',
+    RichObjectParameter_Type.geoLocation: 'geo-location',
+    RichObjectParameter_Type.openGraph: 'open-graph',
+    RichObjectParameter_Type.pendingFederatedShare: 'pending-federated-share',
+    RichObjectParameter_Type.systemtag: 'systemtag',
+    RichObjectParameter_Type.talkAttachment: 'talk-attachment',
+    RichObjectParameter_Type.talkPoll: 'talk-poll',
+    RichObjectParameter_Type.user: 'user',
+    RichObjectParameter_Type.userGroup: 'user-group',
+    RichObjectParameter_Type.group: 'group',
   };
 
-  static const Map<Object, RichObjectParameter_CallType> _fromWire = <Object, RichObjectParameter_CallType>{
-    'one2one': RichObjectParameter_CallType.one2one,
-    'group': RichObjectParameter_CallType.group,
-    'public': RichObjectParameter_CallType.public,
+  static const Map<Object, RichObjectParameter_Type> _fromWire = <Object, RichObjectParameter_Type>{
+    'addressbook': RichObjectParameter_Type.addressbook,
+    'addressbook-contact': RichObjectParameter_Type.addressbookContact,
+    'announcement': RichObjectParameter_Type.announcement,
+    'app': RichObjectParameter_Type.app,
+    'calendar': RichObjectParameter_Type.calendar,
+    'calendar-event': RichObjectParameter_Type.calendarEvent,
+    'call': RichObjectParameter_Type.call,
+    'circle': RichObjectParameter_Type.circle,
+    'deck-board': RichObjectParameter_Type.deckBoard,
+    'deck-card': RichObjectParameter_Type.deckCard,
+    'email': RichObjectParameter_Type.email,
+    'file': RichObjectParameter_Type.file,
+    'forms-form': RichObjectParameter_Type.formsForm,
+    'guest': RichObjectParameter_Type.guest,
+    'highlight': RichObjectParameter_Type.highlight,
+    'geo-location': RichObjectParameter_Type.geoLocation,
+    'open-graph': RichObjectParameter_Type.openGraph,
+    'pending-federated-share': RichObjectParameter_Type.pendingFederatedShare,
+    'systemtag': RichObjectParameter_Type.systemtag,
+    'talk-attachment': RichObjectParameter_Type.talkAttachment,
+    'talk-poll': RichObjectParameter_Type.talkPoll,
+    'user': RichObjectParameter_Type.user,
+    'user-group': RichObjectParameter_Type.userGroup,
+    'group': RichObjectParameter_Type.group,
   };
 
   @override
-  Iterable<Type> get types => const [RichObjectParameter_CallType];
+  Iterable<Type> get types => const [RichObjectParameter_Type];
 
   @override
-  String get wireName => 'RichObjectParameter_CallType';
+  String get wireName => 'RichObjectParameter_Type';
 
   @override
   Object serialize(
     Serializers serializers,
-    RichObjectParameter_CallType object, {
+    RichObjectParameter_Type object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  RichObjectParameter_CallType deserialize(
+  RichObjectParameter_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -15383,233 +15499,76 @@ class _$RichObjectParameter_CallTypeSerializer implements PrimitiveSerializer<Ri
 }
 
 typedef RichObjectParameter_Size = ({int? $int, String? string});
-
-class RichObjectParameter_PreviewAvailable extends EnumClass {
-  const RichObjectParameter_PreviewAvailable._(super.name);
-
-  /// `yes`
-  static const RichObjectParameter_PreviewAvailable yes = _$richObjectParameterPreviewAvailableYes;
-
-  /// `no`
-  static const RichObjectParameter_PreviewAvailable no = _$richObjectParameterPreviewAvailableNo;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RichObjectParameter_PreviewAvailable> get values => _$richObjectParameterPreviewAvailableValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RichObjectParameter_PreviewAvailable valueOf(String name) =>
-      _$valueOfRichObjectParameter_PreviewAvailable(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RichObjectParameter_PreviewAvailable.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RichObjectParameter_PreviewAvailable> get serializer =>
-      const _$RichObjectParameter_PreviewAvailableSerializer();
-}
-
-class _$RichObjectParameter_PreviewAvailableSerializer
-    implements PrimitiveSerializer<RichObjectParameter_PreviewAvailable> {
-  const _$RichObjectParameter_PreviewAvailableSerializer();
-
-  static const Map<RichObjectParameter_PreviewAvailable, Object> _toWire =
-      <RichObjectParameter_PreviewAvailable, Object>{
-    RichObjectParameter_PreviewAvailable.yes: 'yes',
-    RichObjectParameter_PreviewAvailable.no: 'no',
-  };
-
-  static const Map<Object, RichObjectParameter_PreviewAvailable> _fromWire =
-      <Object, RichObjectParameter_PreviewAvailable>{
-    'yes': RichObjectParameter_PreviewAvailable.yes,
-    'no': RichObjectParameter_PreviewAvailable.no,
-  };
-
-  @override
-  Iterable<Type> get types => const [RichObjectParameter_PreviewAvailable];
-
-  @override
-  String get wireName => 'RichObjectParameter_PreviewAvailable';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RichObjectParameter_PreviewAvailable object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RichObjectParameter_PreviewAvailable deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class RichObjectParameter_Visibility extends EnumClass {
-  const RichObjectParameter_Visibility._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const RichObjectParameter_Visibility $0 = _$richObjectParameterVisibility$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const RichObjectParameter_Visibility $1 = _$richObjectParameterVisibility$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RichObjectParameter_Visibility> get values => _$richObjectParameterVisibilityValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RichObjectParameter_Visibility valueOf(String name) => _$valueOfRichObjectParameter_Visibility(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RichObjectParameter_Visibility.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RichObjectParameter_Visibility> get serializer =>
-      const _$RichObjectParameter_VisibilitySerializer();
-}
-
-class _$RichObjectParameter_VisibilitySerializer implements PrimitiveSerializer<RichObjectParameter_Visibility> {
-  const _$RichObjectParameter_VisibilitySerializer();
-
-  static const Map<RichObjectParameter_Visibility, Object> _toWire = <RichObjectParameter_Visibility, Object>{
-    RichObjectParameter_Visibility.$0: '0',
-    RichObjectParameter_Visibility.$1: '1',
-  };
-
-  static const Map<Object, RichObjectParameter_Visibility> _fromWire = <Object, RichObjectParameter_Visibility>{
-    '0': RichObjectParameter_Visibility.$0,
-    '1': RichObjectParameter_Visibility.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [RichObjectParameter_Visibility];
-
-  @override
-  String get wireName => 'RichObjectParameter_Visibility';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RichObjectParameter_Visibility object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RichObjectParameter_Visibility deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-class RichObjectParameter_Assignable extends EnumClass {
-  const RichObjectParameter_Assignable._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const RichObjectParameter_Assignable $0 = _$richObjectParameterAssignable$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const RichObjectParameter_Assignable $1 = _$richObjectParameterAssignable$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<RichObjectParameter_Assignable> get values => _$richObjectParameterAssignableValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static RichObjectParameter_Assignable valueOf(String name) => _$valueOfRichObjectParameter_Assignable(name);
-
-  /// Returns the serialized value of this enum value.
-  String get value => _$jsonSerializers.serializeWith(serializer, this)! as String;
-
-  /// Serializer for RichObjectParameter_Assignable.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RichObjectParameter_Assignable> get serializer =>
-      const _$RichObjectParameter_AssignableSerializer();
-}
-
-class _$RichObjectParameter_AssignableSerializer implements PrimitiveSerializer<RichObjectParameter_Assignable> {
-  const _$RichObjectParameter_AssignableSerializer();
-
-  static const Map<RichObjectParameter_Assignable, Object> _toWire = <RichObjectParameter_Assignable, Object>{
-    RichObjectParameter_Assignable.$0: '0',
-    RichObjectParameter_Assignable.$1: '1',
-  };
-
-  static const Map<Object, RichObjectParameter_Assignable> _fromWire = <Object, RichObjectParameter_Assignable>{
-    '0': RichObjectParameter_Assignable.$0,
-    '1': RichObjectParameter_Assignable.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [RichObjectParameter_Assignable];
-
-  @override
-  String get wireName => 'RichObjectParameter_Assignable';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    RichObjectParameter_Assignable object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  RichObjectParameter_Assignable deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
 typedef RichObjectParameter_Width = ({int? $int, String? string});
 typedef RichObjectParameter_Height = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $RichObjectParameterInterface {
-  String get type;
+  RichObjectParameter_Type get type;
   String get id;
   String get name;
-  String? get server;
+
+  /// The full URL to the file.
   String? get link;
+
+  /// The type of the call: one2one, group or public.
   @BuiltValueField(wireName: 'call-type')
-  RichObjectParameter_CallType? get callType;
+  String? get callType;
+
+  /// The icon url to use as avatar.
   @BuiltValueField(wireName: 'icon-url')
   String? get iconUrl;
+
+  /// The id of a message that was referred to.
   @BuiltValueField(wireName: 'message-id')
   String? get messageId;
+
+  /// The display name of board which contains the card.
   String? get boardname;
+
+  /// The display name of the stack which contains the card in the board.
   String? get stackname;
   RichObjectParameter_Size? get size;
+
+  /// The full path of the file for the user, should not start with a slash.
   String? get path;
+
+  /// The mimetype of the file/folder to allow clients to show a placeholder.
   String? get mimetype;
+
+  /// Whether or not a preview is available. If `no` the mimetype icon should be used.
   @BuiltValueField(wireName: 'preview-available')
-  RichObjectParameter_PreviewAvailable? get previewAvailable;
+  String? get previewAvailable;
+
+  /// The mtime of the file/folder as unix timestamp.
   String? get mtime;
+
+  /// The latitude of the location MUST be the same as in the id.
   String? get latitude;
+
+  /// The longitude of the location MUST be the same as in the id.
   String? get longitude;
+
+  /// The open graph description from the website.
   String? get description;
+
+  /// The full URL of the open graph thumbnail.
   String? get thumb;
+
+  /// The name of the described website.
   String? get website;
-  RichObjectParameter_Visibility? get visibility;
-  RichObjectParameter_Assignable? get assignable;
+
+  /// If the user can see the systemtag.
+  String? get visibility;
+
+  /// If the user can assign the systemtag.
+  String? get assignable;
+
+  /// The token of the conversation.
   String? get conversation;
+
+  /// The URL of the instance the user lives on.
+  String? get server;
   String? get etag;
   RichObjectParameter_Width? get width;
   RichObjectParameter_Height? get height;
@@ -50038,11 +49997,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(BaseMessage.serializer)
       ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
       ..add(RichObjectParameter.serializer)
-      ..add(RichObjectParameter_CallType.serializer)
+      ..add(RichObjectParameter_Type.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
-      ..add(RichObjectParameter_PreviewAvailable.serializer)
-      ..add(RichObjectParameter_Visibility.serializer)
-      ..add(RichObjectParameter_Assignable.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(RichObjectParameter)]),
         MapBuilder<String, RichObjectParameter>.new,

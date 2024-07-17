@@ -57,6 +57,8 @@ function generate_spec() {
   > /tmp/nextcloud-neon/cookbook.openapi.json
 )
 
+./tool/generate-rich-objects-patch.php
+
 for spec in /tmp/nextcloud-neon/*.openapi.json; do
   name="$(basename "$spec" | cut -d "." -f 1)"
   if [[ "$name" == "core" ]]; then

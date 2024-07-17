@@ -85,90 +85,114 @@ final BuiltSet<ActorType> _$actorTypeValues = BuiltSet<ActorType>(const <ActorTy
   _$actorTypePhones,
 ]);
 
-const RichObjectParameter_CallType _$richObjectParameterCallTypeOne2one = RichObjectParameter_CallType._('one2one');
-const RichObjectParameter_CallType _$richObjectParameterCallTypeGroup = RichObjectParameter_CallType._('group');
-const RichObjectParameter_CallType _$richObjectParameterCallTypePublic = RichObjectParameter_CallType._('public');
+const RichObjectParameter_Type _$richObjectParameterTypeAddressbook = RichObjectParameter_Type._('addressbook');
+const RichObjectParameter_Type _$richObjectParameterTypeAddressbookContact =
+    RichObjectParameter_Type._('addressbookContact');
+const RichObjectParameter_Type _$richObjectParameterTypeAnnouncement = RichObjectParameter_Type._('announcement');
+const RichObjectParameter_Type _$richObjectParameterTypeApp = RichObjectParameter_Type._('app');
+const RichObjectParameter_Type _$richObjectParameterTypeCalendar = RichObjectParameter_Type._('calendar');
+const RichObjectParameter_Type _$richObjectParameterTypeCalendarEvent = RichObjectParameter_Type._('calendarEvent');
+const RichObjectParameter_Type _$richObjectParameterTypeCall = RichObjectParameter_Type._('call');
+const RichObjectParameter_Type _$richObjectParameterTypeCircle = RichObjectParameter_Type._('circle');
+const RichObjectParameter_Type _$richObjectParameterTypeDeckBoard = RichObjectParameter_Type._('deckBoard');
+const RichObjectParameter_Type _$richObjectParameterTypeDeckCard = RichObjectParameter_Type._('deckCard');
+const RichObjectParameter_Type _$richObjectParameterTypeEmail = RichObjectParameter_Type._('email');
+const RichObjectParameter_Type _$richObjectParameterTypeFile = RichObjectParameter_Type._('file');
+const RichObjectParameter_Type _$richObjectParameterTypeFormsForm = RichObjectParameter_Type._('formsForm');
+const RichObjectParameter_Type _$richObjectParameterTypeGuest = RichObjectParameter_Type._('guest');
+const RichObjectParameter_Type _$richObjectParameterTypeHighlight = RichObjectParameter_Type._('highlight');
+const RichObjectParameter_Type _$richObjectParameterTypeGeoLocation = RichObjectParameter_Type._('geoLocation');
+const RichObjectParameter_Type _$richObjectParameterTypeOpenGraph = RichObjectParameter_Type._('openGraph');
+const RichObjectParameter_Type _$richObjectParameterTypePendingFederatedShare =
+    RichObjectParameter_Type._('pendingFederatedShare');
+const RichObjectParameter_Type _$richObjectParameterTypeSystemtag = RichObjectParameter_Type._('systemtag');
+const RichObjectParameter_Type _$richObjectParameterTypeTalkAttachment = RichObjectParameter_Type._('talkAttachment');
+const RichObjectParameter_Type _$richObjectParameterTypeTalkPoll = RichObjectParameter_Type._('talkPoll');
+const RichObjectParameter_Type _$richObjectParameterTypeUser = RichObjectParameter_Type._('user');
+const RichObjectParameter_Type _$richObjectParameterTypeUserGroup = RichObjectParameter_Type._('userGroup');
+const RichObjectParameter_Type _$richObjectParameterTypeGroup = RichObjectParameter_Type._('group');
 
-RichObjectParameter_CallType _$valueOfRichObjectParameter_CallType(String name) {
+RichObjectParameter_Type _$valueOfRichObjectParameter_Type(String name) {
   switch (name) {
-    case 'one2one':
-      return _$richObjectParameterCallTypeOne2one;
+    case 'addressbook':
+      return _$richObjectParameterTypeAddressbook;
+    case 'addressbookContact':
+      return _$richObjectParameterTypeAddressbookContact;
+    case 'announcement':
+      return _$richObjectParameterTypeAnnouncement;
+    case 'app':
+      return _$richObjectParameterTypeApp;
+    case 'calendar':
+      return _$richObjectParameterTypeCalendar;
+    case 'calendarEvent':
+      return _$richObjectParameterTypeCalendarEvent;
+    case 'call':
+      return _$richObjectParameterTypeCall;
+    case 'circle':
+      return _$richObjectParameterTypeCircle;
+    case 'deckBoard':
+      return _$richObjectParameterTypeDeckBoard;
+    case 'deckCard':
+      return _$richObjectParameterTypeDeckCard;
+    case 'email':
+      return _$richObjectParameterTypeEmail;
+    case 'file':
+      return _$richObjectParameterTypeFile;
+    case 'formsForm':
+      return _$richObjectParameterTypeFormsForm;
+    case 'guest':
+      return _$richObjectParameterTypeGuest;
+    case 'highlight':
+      return _$richObjectParameterTypeHighlight;
+    case 'geoLocation':
+      return _$richObjectParameterTypeGeoLocation;
+    case 'openGraph':
+      return _$richObjectParameterTypeOpenGraph;
+    case 'pendingFederatedShare':
+      return _$richObjectParameterTypePendingFederatedShare;
+    case 'systemtag':
+      return _$richObjectParameterTypeSystemtag;
+    case 'talkAttachment':
+      return _$richObjectParameterTypeTalkAttachment;
+    case 'talkPoll':
+      return _$richObjectParameterTypeTalkPoll;
+    case 'user':
+      return _$richObjectParameterTypeUser;
+    case 'userGroup':
+      return _$richObjectParameterTypeUserGroup;
     case 'group':
-      return _$richObjectParameterCallTypeGroup;
-    case 'public':
-      return _$richObjectParameterCallTypePublic;
+      return _$richObjectParameterTypeGroup;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<RichObjectParameter_CallType> _$richObjectParameterCallTypeValues =
-    BuiltSet<RichObjectParameter_CallType>(const <RichObjectParameter_CallType>[
-  _$richObjectParameterCallTypeOne2one,
-  _$richObjectParameterCallTypeGroup,
-  _$richObjectParameterCallTypePublic,
-]);
-
-const RichObjectParameter_PreviewAvailable _$richObjectParameterPreviewAvailableYes =
-    RichObjectParameter_PreviewAvailable._('yes');
-const RichObjectParameter_PreviewAvailable _$richObjectParameterPreviewAvailableNo =
-    RichObjectParameter_PreviewAvailable._('no');
-
-RichObjectParameter_PreviewAvailable _$valueOfRichObjectParameter_PreviewAvailable(String name) {
-  switch (name) {
-    case 'yes':
-      return _$richObjectParameterPreviewAvailableYes;
-    case 'no':
-      return _$richObjectParameterPreviewAvailableNo;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<RichObjectParameter_PreviewAvailable> _$richObjectParameterPreviewAvailableValues =
-    BuiltSet<RichObjectParameter_PreviewAvailable>(const <RichObjectParameter_PreviewAvailable>[
-  _$richObjectParameterPreviewAvailableYes,
-  _$richObjectParameterPreviewAvailableNo,
-]);
-
-const RichObjectParameter_Visibility _$richObjectParameterVisibility$0 = RichObjectParameter_Visibility._('\$0');
-const RichObjectParameter_Visibility _$richObjectParameterVisibility$1 = RichObjectParameter_Visibility._('\$1');
-
-RichObjectParameter_Visibility _$valueOfRichObjectParameter_Visibility(String name) {
-  switch (name) {
-    case '\$0':
-      return _$richObjectParameterVisibility$0;
-    case '\$1':
-      return _$richObjectParameterVisibility$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<RichObjectParameter_Visibility> _$richObjectParameterVisibilityValues =
-    BuiltSet<RichObjectParameter_Visibility>(const <RichObjectParameter_Visibility>[
-  _$richObjectParameterVisibility$0,
-  _$richObjectParameterVisibility$1,
-]);
-
-const RichObjectParameter_Assignable _$richObjectParameterAssignable$0 = RichObjectParameter_Assignable._('\$0');
-const RichObjectParameter_Assignable _$richObjectParameterAssignable$1 = RichObjectParameter_Assignable._('\$1');
-
-RichObjectParameter_Assignable _$valueOfRichObjectParameter_Assignable(String name) {
-  switch (name) {
-    case '\$0':
-      return _$richObjectParameterAssignable$0;
-    case '\$1':
-      return _$richObjectParameterAssignable$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<RichObjectParameter_Assignable> _$richObjectParameterAssignableValues =
-    BuiltSet<RichObjectParameter_Assignable>(const <RichObjectParameter_Assignable>[
-  _$richObjectParameterAssignable$0,
-  _$richObjectParameterAssignable$1,
+final BuiltSet<RichObjectParameter_Type> _$richObjectParameterTypeValues =
+    BuiltSet<RichObjectParameter_Type>(const <RichObjectParameter_Type>[
+  _$richObjectParameterTypeAddressbook,
+  _$richObjectParameterTypeAddressbookContact,
+  _$richObjectParameterTypeAnnouncement,
+  _$richObjectParameterTypeApp,
+  _$richObjectParameterTypeCalendar,
+  _$richObjectParameterTypeCalendarEvent,
+  _$richObjectParameterTypeCall,
+  _$richObjectParameterTypeCircle,
+  _$richObjectParameterTypeDeckBoard,
+  _$richObjectParameterTypeDeckCard,
+  _$richObjectParameterTypeEmail,
+  _$richObjectParameterTypeFile,
+  _$richObjectParameterTypeFormsForm,
+  _$richObjectParameterTypeGuest,
+  _$richObjectParameterTypeHighlight,
+  _$richObjectParameterTypeGeoLocation,
+  _$richObjectParameterTypeOpenGraph,
+  _$richObjectParameterTypePendingFederatedShare,
+  _$richObjectParameterTypeSystemtag,
+  _$richObjectParameterTypeTalkAttachment,
+  _$richObjectParameterTypeTalkPoll,
+  _$richObjectParameterTypeUser,
+  _$richObjectParameterTypeUserGroup,
+  _$richObjectParameterTypeGroup,
 ]);
 
 const MessageType _$messageTypeComment = MessageType._('comment');
@@ -3783,19 +3807,13 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      serializers.serialize(object.type, specifiedType: const FullType(RichObjectParameter_Type)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.server;
-    if (value != null) {
-      result
-        ..add('server')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
     value = object.link;
     if (value != null) {
       result
@@ -3806,7 +3824,7 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
     if (value != null) {
       result
         ..add('call-type')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_CallType)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.iconUrl;
     if (value != null) {
@@ -3854,7 +3872,7 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
     if (value != null) {
       result
         ..add('preview-available')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_PreviewAvailable)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.mtime;
     if (value != null) {
@@ -3896,18 +3914,24 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
     if (value != null) {
       result
         ..add('visibility')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Visibility)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.assignable;
     if (value != null) {
       result
         ..add('assignable')
-        ..add(serializers.serialize(value, specifiedType: const FullType(RichObjectParameter_Assignable)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.conversation;
     if (value != null) {
       result
         ..add('conversation')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.server;
+    if (value != null) {
+      result
+        ..add('server')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.etag;
@@ -3943,7 +3967,8 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
       final Object? value = iterator.current;
       switch (key) {
         case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.type = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_Type))!
+              as RichObjectParameter_Type;
           break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3951,15 +3976,11 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
         case 'name':
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
-        case 'server':
-          result.server = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
         case 'link':
           result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'call-type':
-          result.callType = serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_CallType))
-              as RichObjectParameter_CallType?;
+          result.callType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'icon-url':
           result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -3984,9 +4005,7 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'preview-available':
-          result.previewAvailable =
-              serializers.deserialize(value, specifiedType: const FullType(RichObjectParameter_PreviewAvailable))
-                  as RichObjectParameter_PreviewAvailable?;
+          result.previewAvailable = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'mtime':
           result.mtime = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -4007,15 +4026,16 @@ class _$RichObjectParameterSerializer implements StructuredSerializer<RichObject
           result.website = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'visibility':
-          result.visibility = serializers.deserialize(value,
-              specifiedType: const FullType(RichObjectParameter_Visibility)) as RichObjectParameter_Visibility?;
+          result.visibility = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'assignable':
-          result.assignable = serializers.deserialize(value,
-              specifiedType: const FullType(RichObjectParameter_Assignable)) as RichObjectParameter_Assignable?;
+          result.assignable = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'conversation':
           result.conversation = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'server':
+          result.server = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'etag':
           result.etag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -22970,8 +22990,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 abstract mixin class $RichObjectParameterInterfaceBuilder {
   void replace($RichObjectParameterInterface other);
   void update(void Function($RichObjectParameterInterfaceBuilder) updates);
-  String? get type;
-  set type(String? type);
+  RichObjectParameter_Type? get type;
+  set type(RichObjectParameter_Type? type);
 
   String? get id;
   set id(String? id);
@@ -22979,14 +22999,11 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
   String? get name;
   set name(String? name);
 
-  String? get server;
-  set server(String? server);
-
   String? get link;
   set link(String? link);
 
-  RichObjectParameter_CallType? get callType;
-  set callType(RichObjectParameter_CallType? callType);
+  String? get callType;
+  set callType(String? callType);
 
   String? get iconUrl;
   set iconUrl(String? iconUrl);
@@ -23009,8 +23026,8 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
   String? get mimetype;
   set mimetype(String? mimetype);
 
-  RichObjectParameter_PreviewAvailable? get previewAvailable;
-  set previewAvailable(RichObjectParameter_PreviewAvailable? previewAvailable);
+  String? get previewAvailable;
+  set previewAvailable(String? previewAvailable);
 
   String? get mtime;
   set mtime(String? mtime);
@@ -23030,14 +23047,17 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
   String? get website;
   set website(String? website);
 
-  RichObjectParameter_Visibility? get visibility;
-  set visibility(RichObjectParameter_Visibility? visibility);
+  String? get visibility;
+  set visibility(String? visibility);
 
-  RichObjectParameter_Assignable? get assignable;
-  set assignable(RichObjectParameter_Assignable? assignable);
+  String? get assignable;
+  set assignable(String? assignable);
 
   String? get conversation;
   set conversation(String? conversation);
+
+  String? get server;
+  set server(String? server);
 
   String? get etag;
   set etag(String? etag);
@@ -23051,17 +23071,15 @@ abstract mixin class $RichObjectParameterInterfaceBuilder {
 
 class _$RichObjectParameter extends RichObjectParameter {
   @override
-  final String type;
+  final RichObjectParameter_Type type;
   @override
   final String id;
   @override
   final String name;
   @override
-  final String? server;
-  @override
   final String? link;
   @override
-  final RichObjectParameter_CallType? callType;
+  final String? callType;
   @override
   final String? iconUrl;
   @override
@@ -23077,7 +23095,7 @@ class _$RichObjectParameter extends RichObjectParameter {
   @override
   final String? mimetype;
   @override
-  final RichObjectParameter_PreviewAvailable? previewAvailable;
+  final String? previewAvailable;
   @override
   final String? mtime;
   @override
@@ -23091,11 +23109,13 @@ class _$RichObjectParameter extends RichObjectParameter {
   @override
   final String? website;
   @override
-  final RichObjectParameter_Visibility? visibility;
+  final String? visibility;
   @override
-  final RichObjectParameter_Assignable? assignable;
+  final String? assignable;
   @override
   final String? conversation;
+  @override
+  final String? server;
   @override
   final String? etag;
   @override
@@ -23110,7 +23130,6 @@ class _$RichObjectParameter extends RichObjectParameter {
       {required this.type,
       required this.id,
       required this.name,
-      this.server,
       this.link,
       this.callType,
       this.iconUrl,
@@ -23130,6 +23149,7 @@ class _$RichObjectParameter extends RichObjectParameter {
       this.visibility,
       this.assignable,
       this.conversation,
+      this.server,
       this.etag,
       this.width,
       this.height})
@@ -23154,7 +23174,6 @@ class _$RichObjectParameter extends RichObjectParameter {
         type == other.type &&
         id == other.id &&
         name == other.name &&
-        server == other.server &&
         link == other.link &&
         callType == other.callType &&
         iconUrl == other.iconUrl &&
@@ -23174,6 +23193,7 @@ class _$RichObjectParameter extends RichObjectParameter {
         visibility == other.visibility &&
         assignable == other.assignable &&
         conversation == other.conversation &&
+        server == other.server &&
         etag == other.etag &&
         width == _$dynamicOther.width &&
         height == _$dynamicOther.height;
@@ -23185,7 +23205,6 @@ class _$RichObjectParameter extends RichObjectParameter {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jc(_$hash, link.hashCode);
     _$hash = $jc(_$hash, callType.hashCode);
     _$hash = $jc(_$hash, iconUrl.hashCode);
@@ -23205,6 +23224,7 @@ class _$RichObjectParameter extends RichObjectParameter {
     _$hash = $jc(_$hash, visibility.hashCode);
     _$hash = $jc(_$hash, assignable.hashCode);
     _$hash = $jc(_$hash, conversation.hashCode);
+    _$hash = $jc(_$hash, server.hashCode);
     _$hash = $jc(_$hash, etag.hashCode);
     _$hash = $jc(_$hash, width.hashCode);
     _$hash = $jc(_$hash, height.hashCode);
@@ -23218,7 +23238,6 @@ class _$RichObjectParameter extends RichObjectParameter {
           ..add('type', type)
           ..add('id', id)
           ..add('name', name)
-          ..add('server', server)
           ..add('link', link)
           ..add('callType', callType)
           ..add('iconUrl', iconUrl)
@@ -23238,6 +23257,7 @@ class _$RichObjectParameter extends RichObjectParameter {
           ..add('visibility', visibility)
           ..add('assignable', assignable)
           ..add('conversation', conversation)
+          ..add('server', server)
           ..add('etag', etag)
           ..add('width', width)
           ..add('height', height))
@@ -23249,9 +23269,9 @@ class RichObjectParameterBuilder
     implements Builder<RichObjectParameter, RichObjectParameterBuilder>, $RichObjectParameterInterfaceBuilder {
   _$RichObjectParameter? _$v;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(covariant String? type) => _$this._type = type;
+  RichObjectParameter_Type? _type;
+  RichObjectParameter_Type? get type => _$this._type;
+  set type(covariant RichObjectParameter_Type? type) => _$this._type = type;
 
   String? _id;
   String? get id => _$this._id;
@@ -23261,17 +23281,13 @@ class RichObjectParameterBuilder
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
-  String? _server;
-  String? get server => _$this._server;
-  set server(covariant String? server) => _$this._server = server;
-
   String? _link;
   String? get link => _$this._link;
   set link(covariant String? link) => _$this._link = link;
 
-  RichObjectParameter_CallType? _callType;
-  RichObjectParameter_CallType? get callType => _$this._callType;
-  set callType(covariant RichObjectParameter_CallType? callType) => _$this._callType = callType;
+  String? _callType;
+  String? get callType => _$this._callType;
+  set callType(covariant String? callType) => _$this._callType = callType;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
@@ -23301,10 +23317,9 @@ class RichObjectParameterBuilder
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  RichObjectParameter_PreviewAvailable? _previewAvailable;
-  RichObjectParameter_PreviewAvailable? get previewAvailable => _$this._previewAvailable;
-  set previewAvailable(covariant RichObjectParameter_PreviewAvailable? previewAvailable) =>
-      _$this._previewAvailable = previewAvailable;
+  String? _previewAvailable;
+  String? get previewAvailable => _$this._previewAvailable;
+  set previewAvailable(covariant String? previewAvailable) => _$this._previewAvailable = previewAvailable;
 
   String? _mtime;
   String? get mtime => _$this._mtime;
@@ -23330,17 +23345,21 @@ class RichObjectParameterBuilder
   String? get website => _$this._website;
   set website(covariant String? website) => _$this._website = website;
 
-  RichObjectParameter_Visibility? _visibility;
-  RichObjectParameter_Visibility? get visibility => _$this._visibility;
-  set visibility(covariant RichObjectParameter_Visibility? visibility) => _$this._visibility = visibility;
+  String? _visibility;
+  String? get visibility => _$this._visibility;
+  set visibility(covariant String? visibility) => _$this._visibility = visibility;
 
-  RichObjectParameter_Assignable? _assignable;
-  RichObjectParameter_Assignable? get assignable => _$this._assignable;
-  set assignable(covariant RichObjectParameter_Assignable? assignable) => _$this._assignable = assignable;
+  String? _assignable;
+  String? get assignable => _$this._assignable;
+  set assignable(covariant String? assignable) => _$this._assignable = assignable;
 
   String? _conversation;
   String? get conversation => _$this._conversation;
   set conversation(covariant String? conversation) => _$this._conversation = conversation;
+
+  String? _server;
+  String? get server => _$this._server;
+  set server(covariant String? server) => _$this._server = server;
 
   String? _etag;
   String? get etag => _$this._etag;
@@ -23364,7 +23383,6 @@ class RichObjectParameterBuilder
       _type = $v.type;
       _id = $v.id;
       _name = $v.name;
-      _server = $v.server;
       _link = $v.link;
       _callType = $v.callType;
       _iconUrl = $v.iconUrl;
@@ -23384,6 +23402,7 @@ class RichObjectParameterBuilder
       _visibility = $v.visibility;
       _assignable = $v.assignable;
       _conversation = $v.conversation;
+      _server = $v.server;
       _etag = $v.etag;
       _width = $v.width;
       _height = $v.height;
@@ -23413,7 +23432,6 @@ class RichObjectParameterBuilder
             type: BuiltValueNullFieldError.checkNotNull(type, r'RichObjectParameter', 'type'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'RichObjectParameter', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'RichObjectParameter', 'name'),
-            server: server,
             link: link,
             callType: callType,
             iconUrl: iconUrl,
@@ -23433,6 +23451,7 @@ class RichObjectParameterBuilder
             visibility: visibility,
             assignable: assignable,
             conversation: conversation,
+            server: server,
             etag: etag,
             width: width,
             height: height);
