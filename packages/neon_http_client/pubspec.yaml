@@ -1,0 +1,30 @@
+name: neon_http_client
+description: A http client for the Neon framework.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  built_collection: ^5.0.0
+  cookie_store:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/cookie_store
+  http: ^1.0.0
+  meta: ^1.0.0
+  universal_io: ^2.0.0
+
+dev_dependencies:
+  http_client_conformance_tests:
+    git:
+      url: https://github.com/dart-lang/http
+      path: pkgs/http_client_conformance_tests
+      ref: 757438e938ebe81f4b130e6372897b5f977615a6
+  mocktail: ^1.0.4
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
+  test: ^1.25.8

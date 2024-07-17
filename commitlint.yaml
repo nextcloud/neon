@@ -19,6 +19,7 @@ rules:
       - neon_dashboard
       - neon_files
       - neon_framework
+      - neon_http_client
       - neon_lints
       - neon_news
       - neon_notes
