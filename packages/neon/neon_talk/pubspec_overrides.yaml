@@ -1,3 +1,4 @@
+# melos_managed_dependency_overrides: neon_http_client
 dependency_overrides:
   cookie_store:
     path: ../../cookie_store
@@ -7,6 +8,8 @@ dependency_overrides:
     path: ../../file_icons
   neon_framework:
     path: ../../neon_framework
+  neon_http_client:
+    path: ../../neon_http_client
   neon_lints:
     path: ../../neon_lints
   nextcloud:

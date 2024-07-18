@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:cookie_store/cookie_store.dart';
 import 'package:crypto/crypto.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/storage.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'account.g.dart';
@@ -74,13 +74,17 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
       serverURL: serverURL,
     );
 
+    final httpClient = NeonHttpClient(
+      cookieStore: cookieStore,
+      userAgent: userAgent,
+      client: this.httpClient,
+    );
+
     return NextcloudClient(
       serverURL,
       loginName: username,
       password: password,
       appPassword: password,
-      userAgent: userAgent,
-      cookieJar: cookieStore != null ? CookieJarAdapter(cookieStore) : null,
       httpClient: httpClient,
     );
   }

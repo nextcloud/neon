@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
@@ -39,7 +40,9 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
   final Uri serverURL;
   late final client = NextcloudClient(
     serverURL,
-    userAgent: neonUserAgent,
+    httpClient: NeonHttpClient(
+      userAgent: neonUserAgent,
+    ),
   );
   final resultController = StreamController<core.LoginFlowV2Credentials>();
 
@@ -50,6 +53,7 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
     cancelPollTimer();
     unawaited(init.close());
     unawaited(resultController.close());
+    client.close();
 
     super.dispose();
   }
