@@ -51,6 +51,10 @@ function generate_spec() {
   generate_spec "." "drop_account"
 )
 (
+  cd external/nextcloud-tables
+  generate_spec "." "tables"
+)
+(
   yq -s '.[0]."components"."schemas" = .[1] | .[0] | walk(if type == "object" then with_entries( if (.key == "$ref" and (.value | test("#\/components\/schemas\/") | not)  ) then .value |= sub("#\/"; "#/components/schemas/") else . end ) else . end) | .paths |= with_entries(.key = "/index.php/apps/cookbook\(.key)")' \
   external/nextcloud-cookbook/docs/dev/api/0.1.2/openapi-cookbook.yaml \
   external/nextcloud-cookbook/docs/dev/api/0.1.2/objects.yaml \
@@ -68,7 +72,8 @@ for spec in /tmp/nextcloud-neon/*.openapi.json; do
     done
   fi
 
-  cp "$spec" "packages/nextcloud/lib/src/api/$name"
+  mkdir -p "packages/nextcloud/lib/src/api/$name"
+  cp "$spec" "packages/nextcloud/lib/src/api/$name/"
 done
 
 

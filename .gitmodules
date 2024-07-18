@@ -28,3 +28,6 @@
 [submodule "external/nextcloud-cookbook"]
 	path = external/nextcloud-cookbook
 	url = https://github.com/nextcloud/cookbook.git
+[submodule "external/nextcloud-tables"]
+	path = external/nextcloud-tables
+	url = https://github.com/nextcloud/tables

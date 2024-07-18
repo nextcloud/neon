@@ -126,6 +126,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({requi
           spreedCapabilities: null,
           spreedPublicCapabilities: null,
           systemtagsCapabilities: null,
+          tablesCapabilities: null,
           themingPublicCapabilities: null,
           userStatusCapabilities: null,
           weatherStatusCapabilities: core.WeatherStatusCapabilities(

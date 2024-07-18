@@ -397,6 +397,7 @@ void main() {
               spreedCapabilities: null,
               spreedPublicCapabilities: null,
               systemtagsCapabilities: null,
+              tablesCapabilities: null,
               themingPublicCapabilities: null,
               userStatusCapabilities: null,
               weatherStatusCapabilities: null,

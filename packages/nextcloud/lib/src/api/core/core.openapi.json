@@ -1600,6 +1600,50 @@
                     }
                 }
             },
+            "TablesCapabilities": {
+                "type": "object",
+                "required": [
+                    "tables"
+                ],
+                "properties": {
+                    "tables": {
+                        "type": "object",
+                        "required": [
+                            "enabled",
+                            "version",
+                            "apiVersions",
+                            "features",
+                            "column_types"
+                        ],
+                        "properties": {
+                            "enabled": {
+                                "type": "boolean"
+                            },
+                            "version": {
+                                "type": "string"
+                            },
+                            "apiVersions": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "features": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "column_types": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "ThemingPublicCapabilities": {
                 "type": "object",
                 "required": [
@@ -3641,6 +3685,9 @@
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/SystemtagsCapabilities"
+                                                                },
+                                                                {
+                                                                    "$ref": "#/components/schemas/TablesCapabilities"
                                                                 },
                                                                 {
                                                                     "$ref": "#/components/schemas/ThemingPublicCapabilities"

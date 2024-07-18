@@ -61,6 +61,7 @@ These OpenAPI specifications are [generated](https://github.com/nextcloud/openap
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 29                |
+| [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.7              |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 19                |
 | [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.5              |
 

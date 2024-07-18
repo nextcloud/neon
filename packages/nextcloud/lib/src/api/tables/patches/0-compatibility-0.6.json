@@ -1,0 +1,22 @@
+[
+  {
+    "op": "replace",
+    "path": "/components/schemas/Table/required",
+    "value": [
+      "id",
+      "title",
+      "emoji",
+      "ownership",
+      "createdBy",
+      "createdAt",
+      "lastEditBy",
+      "lastEditAt",
+      "isShared",
+      "onSharePermissions",
+      "hasShares",
+      "rowsCount",
+      "views",
+      "columnsCount"
+    ]
+  }
+]

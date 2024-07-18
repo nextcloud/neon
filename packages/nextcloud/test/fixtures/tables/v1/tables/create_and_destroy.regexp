@@ -1,0 +1,8 @@
+POST http://localhost/index\.php/apps/tables/api/1/tables
+accept: application/json
+authorization: Basic mock
+content-type: application/json; charset=utf-8
+\{"title":"title","template":"","emoji":"😀"\}
+DELETE http://localhost/index\.php/apps/tables/api/1/tables/[0-9]+
+accept: application/json
+authorization: Basic mock

@@ -365,6 +365,8 @@ Serializer<SpreedPublicCapabilities0> _$spreedPublicCapabilities0Serializer = _$
 Serializer<SystemtagsCapabilities_Systemtags> _$systemtagsCapabilitiesSystemtagsSerializer =
     _$SystemtagsCapabilities_SystemtagsSerializer();
 Serializer<SystemtagsCapabilities> _$systemtagsCapabilitiesSerializer = _$SystemtagsCapabilitiesSerializer();
+Serializer<TablesCapabilities_Tables> _$tablesCapabilitiesTablesSerializer = _$TablesCapabilities_TablesSerializer();
+Serializer<TablesCapabilities> _$tablesCapabilitiesSerializer = _$TablesCapabilitiesSerializer();
 Serializer<ThemingPublicCapabilities_Theming> _$themingPublicCapabilitiesThemingSerializer =
     _$ThemingPublicCapabilities_ThemingSerializer();
 Serializer<ThemingPublicCapabilities> _$themingPublicCapabilitiesSerializer = _$ThemingPublicCapabilitiesSerializer();
@@ -6677,6 +6679,106 @@ class _$SystemtagsCapabilitiesSerializer implements StructuredSerializer<Systemt
         case 'systemtags':
           result.systemtags.replace(serializers.deserialize(value,
               specifiedType: const FullType(SystemtagsCapabilities_Systemtags))! as SystemtagsCapabilities_Systemtags);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TablesCapabilities_TablesSerializer implements StructuredSerializer<TablesCapabilities_Tables> {
+  @override
+  final Iterable<Type> types = const [TablesCapabilities_Tables, _$TablesCapabilities_Tables];
+  @override
+  final String wireName = 'TablesCapabilities_Tables';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TablesCapabilities_Tables object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+      'apiVersions',
+      serializers.serialize(object.apiVersions, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'features',
+      serializers.serialize(object.features, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'column_types',
+      serializers.serialize(object.columnTypes, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TablesCapabilities_Tables deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TablesCapabilities_TablesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'apiVersions':
+          result.apiVersions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'features':
+          result.features.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'column_types':
+          result.columnTypes.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TablesCapabilitiesSerializer implements StructuredSerializer<TablesCapabilities> {
+  @override
+  final Iterable<Type> types = const [TablesCapabilities, _$TablesCapabilities];
+  @override
+  final String wireName = 'TablesCapabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TablesCapabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tables',
+      serializers.serialize(object.tables, specifiedType: const FullType(TablesCapabilities_Tables)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TablesCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TablesCapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tables':
+          result.tables.replace(serializers.deserialize(value,
+              specifiedType: const FullType(TablesCapabilities_Tables))! as TablesCapabilities_Tables);
           break;
       }
     }
@@ -27363,6 +27465,283 @@ class SystemtagsCapabilitiesBuilder
         systemtags.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SystemtagsCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TablesCapabilities_TablesInterfaceBuilder {
+  void replace($TablesCapabilities_TablesInterface other);
+  void update(void Function($TablesCapabilities_TablesInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  String? get version;
+  set version(String? version);
+
+  ListBuilder<String> get apiVersions;
+  set apiVersions(ListBuilder<String>? apiVersions);
+
+  ListBuilder<String> get features;
+  set features(ListBuilder<String>? features);
+
+  ListBuilder<String> get columnTypes;
+  set columnTypes(ListBuilder<String>? columnTypes);
+}
+
+class _$TablesCapabilities_Tables extends TablesCapabilities_Tables {
+  @override
+  final bool enabled;
+  @override
+  final String version;
+  @override
+  final BuiltList<String> apiVersions;
+  @override
+  final BuiltList<String> features;
+  @override
+  final BuiltList<String> columnTypes;
+
+  factory _$TablesCapabilities_Tables([void Function(TablesCapabilities_TablesBuilder)? updates]) =>
+      (TablesCapabilities_TablesBuilder()..update(updates))._build();
+
+  _$TablesCapabilities_Tables._(
+      {required this.enabled,
+      required this.version,
+      required this.apiVersions,
+      required this.features,
+      required this.columnTypes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version');
+    BuiltValueNullFieldError.checkNotNull(apiVersions, r'TablesCapabilities_Tables', 'apiVersions');
+    BuiltValueNullFieldError.checkNotNull(features, r'TablesCapabilities_Tables', 'features');
+    BuiltValueNullFieldError.checkNotNull(columnTypes, r'TablesCapabilities_Tables', 'columnTypes');
+  }
+
+  @override
+  TablesCapabilities_Tables rebuild(void Function(TablesCapabilities_TablesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TablesCapabilities_TablesBuilder toBuilder() => TablesCapabilities_TablesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TablesCapabilities_Tables &&
+        enabled == other.enabled &&
+        version == other.version &&
+        apiVersions == other.apiVersions &&
+        features == other.features &&
+        columnTypes == other.columnTypes;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jc(_$hash, apiVersions.hashCode);
+    _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, columnTypes.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TablesCapabilities_Tables')
+          ..add('enabled', enabled)
+          ..add('version', version)
+          ..add('apiVersions', apiVersions)
+          ..add('features', features)
+          ..add('columnTypes', columnTypes))
+        .toString();
+  }
+}
+
+class TablesCapabilities_TablesBuilder
+    implements
+        Builder<TablesCapabilities_Tables, TablesCapabilities_TablesBuilder>,
+        $TablesCapabilities_TablesInterfaceBuilder {
+  _$TablesCapabilities_Tables? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  ListBuilder<String>? _apiVersions;
+  ListBuilder<String> get apiVersions => _$this._apiVersions ??= ListBuilder<String>();
+  set apiVersions(covariant ListBuilder<String>? apiVersions) => _$this._apiVersions = apiVersions;
+
+  ListBuilder<String>? _features;
+  ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
+  set features(covariant ListBuilder<String>? features) => _$this._features = features;
+
+  ListBuilder<String>? _columnTypes;
+  ListBuilder<String> get columnTypes => _$this._columnTypes ??= ListBuilder<String>();
+  set columnTypes(covariant ListBuilder<String>? columnTypes) => _$this._columnTypes = columnTypes;
+
+  TablesCapabilities_TablesBuilder() {
+    TablesCapabilities_Tables._defaults(this);
+  }
+
+  TablesCapabilities_TablesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _version = $v.version;
+      _apiVersions = $v.apiVersions.toBuilder();
+      _features = $v.features.toBuilder();
+      _columnTypes = $v.columnTypes.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TablesCapabilities_Tables other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TablesCapabilities_Tables;
+  }
+
+  @override
+  void update(void Function(TablesCapabilities_TablesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TablesCapabilities_Tables build() => _build();
+
+  _$TablesCapabilities_Tables _build() {
+    TablesCapabilities_Tables._validate(this);
+    _$TablesCapabilities_Tables _$result;
+    try {
+      _$result = _$v ??
+          _$TablesCapabilities_Tables._(
+              enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'TablesCapabilities_Tables', 'enabled'),
+              version: BuiltValueNullFieldError.checkNotNull(version, r'TablesCapabilities_Tables', 'version'),
+              apiVersions: apiVersions.build(),
+              features: features.build(),
+              columnTypes: columnTypes.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'apiVersions';
+        apiVersions.build();
+        _$failedField = 'features';
+        features.build();
+        _$failedField = 'columnTypes';
+        columnTypes.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TablesCapabilities_Tables', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $TablesCapabilitiesInterfaceBuilder {
+  void replace($TablesCapabilitiesInterface other);
+  void update(void Function($TablesCapabilitiesInterfaceBuilder) updates);
+  TablesCapabilities_TablesBuilder get tables;
+  set tables(TablesCapabilities_TablesBuilder? tables);
+}
+
+class _$TablesCapabilities extends TablesCapabilities {
+  @override
+  final TablesCapabilities_Tables tables;
+
+  factory _$TablesCapabilities([void Function(TablesCapabilitiesBuilder)? updates]) =>
+      (TablesCapabilitiesBuilder()..update(updates))._build();
+
+  _$TablesCapabilities._({required this.tables}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(tables, r'TablesCapabilities', 'tables');
+  }
+
+  @override
+  TablesCapabilities rebuild(void Function(TablesCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TablesCapabilitiesBuilder toBuilder() => TablesCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TablesCapabilities && tables == other.tables;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tables.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TablesCapabilities')..add('tables', tables)).toString();
+  }
+}
+
+class TablesCapabilitiesBuilder
+    implements Builder<TablesCapabilities, TablesCapabilitiesBuilder>, $TablesCapabilitiesInterfaceBuilder {
+  _$TablesCapabilities? _$v;
+
+  TablesCapabilities_TablesBuilder? _tables;
+  TablesCapabilities_TablesBuilder get tables => _$this._tables ??= TablesCapabilities_TablesBuilder();
+  set tables(covariant TablesCapabilities_TablesBuilder? tables) => _$this._tables = tables;
+
+  TablesCapabilitiesBuilder() {
+    TablesCapabilities._defaults(this);
+  }
+
+  TablesCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tables = $v.tables.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TablesCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TablesCapabilities;
+  }
+
+  @override
+  void update(void Function(TablesCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TablesCapabilities build() => _build();
+
+  _$TablesCapabilities _build() {
+    TablesCapabilities._validate(this);
+    _$TablesCapabilities _$result;
+    try {
+      _$result = _$v ?? _$TablesCapabilities._(tables: tables.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tables';
+        tables.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TablesCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

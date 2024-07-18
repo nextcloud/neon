@@ -45,6 +45,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(
           spreedCapabilities: null,
           spreedPublicCapabilities: null,
           systemtagsCapabilities: null,
+          tablesCapabilities: null,
           themingPublicCapabilities: null,
           userStatusCapabilities: null,
           weatherStatusCapabilities: null,
