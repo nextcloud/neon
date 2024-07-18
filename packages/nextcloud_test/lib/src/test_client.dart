@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:cookie_store/cookie_store.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/docker_container.dart';
 import 'package:nextcloud_test/src/fixtures.dart';
@@ -45,6 +46,13 @@ extension TestNextcloudClient on NextcloudClient {
       appPassword = (result.stdout as String).split('\n')[1];
     }
 
+    final httpClient = NeonHttpClient(
+      cookieStore: CookieStore(),
+      client: getProxyHttpClient(
+        onRequest: appendFixture,
+      ),
+    );
+
     return NextcloudClient(
       Uri(
         scheme: 'http',
@@ -54,12 +62,7 @@ extension TestNextcloudClient on NextcloudClient {
       loginName: username,
       password: username,
       appPassword: appPassword,
-      cookieJar: CookieJarAdapter(
-        CookieStore(),
-      ),
-      httpClient: getProxyHttpClient(
-        onRequest: appendFixture,
-      ),
+      httpClient: httpClient,
     );
   }
 }
