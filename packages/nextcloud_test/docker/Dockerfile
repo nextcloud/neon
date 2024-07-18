@@ -54,6 +54,10 @@ FROM apps AS spreed
 ARG SPREED_URL
 RUN curl -L "$SPREED_URL" | tar -xz -C /
 
+FROM apps AS tables
+ARG TABLES_URL
+RUN curl -L "$TABLES_URL" | tar -xz -C /
+
 FROM apps AS drop_account
 ARG DROP_ACCOUNT_URL
 RUN curl -L "$DROP_ACCOUNT_URL" | tar -xz -C /
@@ -75,6 +79,9 @@ RUN ./occ app:enable uppush
 COPY --from=spreed /spreed /usr/src/nextcloud/apps/spreed
 RUN ./occ app:enable spreed
 RUN ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
+
+COPY --from=tables /tables /usr/src/nextcloud/apps/tables
+RUN ./occ app:enable tables
 
 COPY --from=drop_account /drop_account /usr/src/nextcloud/apps/drop_account
 RUN ./occ app:enable drop_account

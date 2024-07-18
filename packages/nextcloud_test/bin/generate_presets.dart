@@ -12,6 +12,7 @@ Future<void> main() async {
     'news',
     'notes',
     'spreed',
+    'tables',
     'uppush',
     'drop_account',
   ];

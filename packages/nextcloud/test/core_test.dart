@@ -97,6 +97,7 @@ void main() {
               'activity',
               'spreed',
               'notes',
+              'tables',
               'news',
               'cookbook',
             ]),
