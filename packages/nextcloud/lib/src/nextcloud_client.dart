@@ -20,34 +20,50 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
   /// A custom HTTP client can be provided through [httpClient].
   /// Additionally a [cookieJar] can be specified to save cookies across requests.
   /// Some endpoints require the use of a cookies persistence.
-  NextcloudClient(
-    super.baseURL, {
+  factory NextcloudClient(
+    Uri baseURL, {
     String? loginName,
     String? password,
     String? appPassword,
     String? userAgent,
     http.Client? httpClient,
     cookie_jar.CookieJar? cookieJar,
-  }) : super(
-          httpClient: CookieJarClient(
-            httpClient: httpClient,
-            cookieJar: cookieJar,
-            baseHeaders: {
-              if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
-            },
-          ),
-          authentications: [
-            if (appPassword != null)
-              DynamiteHttpBearerAuthentication(
-                token: appPassword,
-              ),
-            if (loginName != null && (password ?? appPassword) != null)
-              DynamiteHttpBasicAuthentication(
-                username: loginName,
-                password: (password ?? appPassword)!,
-              ),
-          ],
-        );
+  }) {
+    var client = httpClient ?? http.Client();
+    if (cookieJar != null || userAgent != null) {
+      client = CookieJarClient(
+        httpClient: httpClient,
+        cookieJar: cookieJar,
+        baseHeaders: {
+          if (userAgent != null) HttpHeaders.userAgentHeader: userAgent,
+        },
+      );
+    }
+
+    final authentications = [
+      if (appPassword != null)
+        DynamiteHttpBearerAuthentication(
+          token: appPassword,
+        ),
+      if (loginName != null && (password ?? appPassword) != null)
+        DynamiteHttpBasicAuthentication(
+          username: loginName,
+          password: (password ?? appPassword)!,
+        ),
+    ];
+
+    return NextcloudClient._(
+      baseURL,
+      httpClient: client,
+      authentications: authentications,
+    );
+  }
+
+  NextcloudClient._(
+    super.baseURL, {
+    super.httpClient,
+    super.authentications,
+  });
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) => httpClient.send(request);
