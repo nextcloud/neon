@@ -8,10 +8,10 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/theme.dart';
+import 'package:neon_talk/src/utils/helpers.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/message_input.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
-import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 const _millisecondsPerDay = 24 * 60 * 60 * 1000;
@@ -121,8 +121,6 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                   if (previousMessage == null ||
                       (tz.local.translate(previousMessage.timestamp * 1000) ~/ _millisecondsPerDay) !=
                           (tz.local.translate(message.timestamp * 1000) ~/ _millisecondsPerDay)) {
-                    final date = DateTimeUtils.fromSecondsSinceEpoch(tz.local, message.timestamp);
-
                     child = Column(
                       children: [
                         Padding(
@@ -135,7 +133,7 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(50)),
                                   ),
-                                  label: Text(DateFormat.yMd().format(date)),
+                                  label: Text(DateFormat.yMd().format(message.parsedTimestamp.toLocal())),
                                 ),
                               ),
                             ],

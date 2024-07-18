@@ -11,6 +11,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/message_bloc.dart';
 import 'package:neon_talk/src/blocs/room.dart';
+import 'package:neon_talk/src/utils/helpers.dart';
 import 'package:neon_talk/src/widgets/actor_avatar.dart';
 import 'package:neon_talk/src/widgets/reactions.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
@@ -20,7 +21,6 @@ import 'package:neon_talk/src/widgets/rich_object/fallback.dart';
 import 'package:neon_talk/src/widgets/rich_object/file.dart';
 import 'package:neon_talk/src/widgets/rich_object/mention.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
-import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 final _timeFormat = DateFormat.jm();
@@ -450,16 +450,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         final textTheme = Theme.of(context).textTheme;
         final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
 
-        final date = DateTimeUtils.fromSecondsSinceEpoch(
-          tz.UTC,
-          widget.chatMessage.timestamp,
-        );
+        final date = widget.chatMessage.parsedTimestamp.toLocal();
         tz.TZDateTime? previousDate;
         if (widget.previousChatMessage != null) {
-          previousDate = DateTimeUtils.fromSecondsSinceEpoch(
-            tz.UTC,
-            widget.previousChatMessage!.timestamp,
-          );
+          previousDate = widget.previousChatMessage!.parsedTimestamp.toLocal();
         }
 
         final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||

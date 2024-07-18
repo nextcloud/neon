@@ -11,13 +11,12 @@ import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/blocs/talk.dart';
 import 'package:neon_talk/src/dialogs/create_room.dart';
 import 'package:neon_talk/src/pages/room.dart';
+import 'package:neon_talk/src/utils/helpers.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/read_indicator.dart';
 import 'package:neon_talk/src/widgets/room_avatar.dart';
 import 'package:neon_talk/src/widgets/unread_indicator.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
-import 'package:nextcloud/utils.dart';
-import 'package:timezone/timezone.dart' as tz;
 
 /// The main page displaying the chat list.
 class TalkMainPage extends StatefulWidget {
@@ -113,10 +112,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
         );
       }
 
-      final timestamp = DateTimeUtils.fromSecondsSinceEpoch(
-        tz.local,
-        lastChatMessage.timestamp,
-      );
+      final timestamp = lastChatMessage.parsedTimestamp.toLocal();
 
       final time = Tooltip(
         message: DateFormat.yMd().add_jm().format(timestamp),
