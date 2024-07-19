@@ -112,7 +112,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
         );
       }
 
-      final timestamp = lastChatMessage.parsedTimestamp.toLocal();
+      final timestamp = lastChatMessage.parsedTimestamp;
 
       final time = Tooltip(
         message: DateFormat.yMd().add_jm().format(timestamp),
