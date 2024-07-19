@@ -78,6 +78,7 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
       cookieStore: cookieStore,
       userAgent: userAgent,
       client: this.httpClient,
+      timeLimit: kDefaultTimeout,
     );
 
     return NextcloudClient(
