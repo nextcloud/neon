@@ -23,27 +23,27 @@ extension ChatMessageHidden on spreed.$ChatMessageInterface {
 /// Helper extension for [spreed.$BaseMessageInterface]
 extension $BaseMessageInterfaceHelpers on spreed.$BaseMessageInterface {
   /// Parsed equivalent of [expirationTimestamp].
-  tz.TZDateTime get parsedExpirationTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, expirationTimestamp);
+  tz.TZDateTime get parsedExpirationTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, expirationTimestamp);
 }
 
 /// Helper extension for [spreed.$ChatMessageInterface]
 extension $ChatMessageInterfaceHelpers on spreed.$ChatMessageInterface {
   /// Parsed equivalent of [timestamp].
-  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, timestamp);
+  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, timestamp);
 
   /// Parsed equivalent of [lastEditTimestamp].
   tz.TZDateTime? get parsedLastEditTimestamp =>
-      lastEditTimestamp != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, lastEditTimestamp!) : null;
+      lastEditTimestamp != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.local, lastEditTimestamp!) : null;
 }
 
 /// Helper extension for [spreed.$ChatReminderInterface]
 extension $ChatReminderInterfaceHelpers on spreed.$ChatReminderInterface {
   /// Parsed equivalent of [timestamp].
-  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, timestamp);
+  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, timestamp);
 }
 
 /// Helper extension for [spreed.$ReactionInterface]
 extension $ReactionInterfaceHelpers on spreed.$ReactionInterface {
   /// Parsed equivalent of [timestamp].
-  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, timestamp);
+  tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, timestamp);
 }

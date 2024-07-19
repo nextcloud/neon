@@ -450,10 +450,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         final textTheme = Theme.of(context).textTheme;
         final labelColor = Theme.of(context).colorScheme.inverseSurface.withOpacity(0.7);
 
-        final date = widget.chatMessage.parsedTimestamp.toLocal();
+        final date = widget.chatMessage.parsedTimestamp;
         tz.TZDateTime? previousDate;
         if (widget.previousChatMessage != null) {
-          previousDate = widget.previousChatMessage!.parsedTimestamp.toLocal();
+          previousDate = widget.previousChatMessage!.parsedTimestamp;
         }
 
         final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
@@ -479,9 +479,9 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             );
 
             time = Tooltip(
-              message: _dateTimeFormat.format(date.toLocal()),
+              message: _dateTimeFormat.format(date),
               child: Text(
-                _timeFormat.format(date.toLocal()),
+                _timeFormat.format(date),
                 style: textTheme.labelSmall,
               ),
             );
