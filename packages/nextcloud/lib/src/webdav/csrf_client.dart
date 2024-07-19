@@ -23,6 +23,10 @@ final class WebDavCSRFClient with http.BaseClient {
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
+    if (request.url.host != _inner.baseURL.host || !request.url.path.startsWith(_inner.baseURL.path)) {
+      return _inner.send(request);
+    }
+
     if (_token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
