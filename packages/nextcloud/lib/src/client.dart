@@ -51,4 +51,11 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) => httpClient.send(request);
+
+  @override
+  void close() {
+    httpClient.close();
+
+    super.close();
+  }
 }

@@ -67,4 +67,11 @@ class CookieJarClient with http.BaseClient {
 
     return response;
   }
+
+  @override
+  void close() {
+    httpClient.close();
+
+    super.close();
+  }
 }

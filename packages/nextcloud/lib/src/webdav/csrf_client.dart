@@ -56,4 +56,11 @@ final class WebDavCSRFClient with http.BaseClient {
 
     return streamedResponse;
   }
+
+  @override
+  void close() {
+    _inner.close();
+
+    super.close();
+  }
 }
