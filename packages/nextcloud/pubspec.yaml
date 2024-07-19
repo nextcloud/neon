@@ -35,6 +35,11 @@ dev_dependencies:
   built_value_generator: ^8.9.2
   built_value_test: ^8.9.2
   dynamite: ^0.4.0
+  http_client_conformance_tests:
+    git:
+      url: https://github.com/dart-lang/http
+      path: pkgs/http_client_conformance_tests
+      ref: 757438e938ebe81f4b130e6372897b5f977615a6
   mocktail: ^1.0.4
   neon_lints:
     git:

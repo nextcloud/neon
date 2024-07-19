@@ -10,12 +10,13 @@ flathub
 foss
 fullscreen
 persistences
+pkgs
 playstore
 postmarket
 provokateurin
 punycode
-STRFTIME
 rescan
+STRFTIME
 subroutes
 testexample
 uncategorized
