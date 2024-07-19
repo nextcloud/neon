@@ -5,3 +5,4 @@ library;
 
 export 'src/interceptors/interceptors.dart' show CookieInterceptor, HttpInterceptor;
 export 'src/neon_http_client.dart';
+export 'src/utils/utils.dart' show kDefaultTimeout;

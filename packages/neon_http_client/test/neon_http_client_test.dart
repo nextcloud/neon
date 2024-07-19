@@ -156,5 +156,38 @@ void main() {
         );
       });
     });
+
+    group('timeout', () {
+      test('does not time out without timeout', () async {
+        client = NeonHttpClient(
+          client: MockClient((request) async {
+            await Future<void>.delayed(const Duration(milliseconds: 10));
+
+            return Response.fromStream(fakeResponse());
+          }),
+        );
+
+        expect(
+          client.get(uri),
+          completion(isA<Response>()),
+        );
+      });
+
+      test('does time out', () async {
+        client = NeonHttpClient(
+          timeLimit: const Duration(milliseconds: 3),
+          client: MockClient((request) async {
+            await Future<void>.delayed(const Duration(milliseconds: 10));
+
+            return Response.fromStream(fakeResponse());
+          }),
+        );
+
+        expect(
+          client.get(uri),
+          throwsA(isA<HttpTimeoutException>()),
+        );
+      });
+    });
   });
 }
