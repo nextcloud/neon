@@ -15,8 +15,10 @@ BaseClient getProxyHttpClient({
   final realClient = Client();
   return MockClient.streaming((baseRequest, bytesStream) async {
     final bodyBytes = await bytesStream.toBytes();
-    final fixture = _formatHttpRequest(baseRequest, bodyBytes);
-    onRequest(fixture);
+    if (baseRequest.url.path != '/index.php') {
+      final fixture = _formatHttpRequest(baseRequest, bodyBytes);
+      onRequest(fixture);
+    }
 
     final request = Request(baseRequest.method, baseRequest.url)
       ..persistentConnection = baseRequest.persistentConnection
