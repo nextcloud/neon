@@ -45,10 +45,21 @@ void main() {
         });
 
         test('renameCategory', () async {
+          final recipe = cookbook.RecipeBuilder()
+            ..name = 'My super cool recipe'
+            ..dateCreated = DateTime.utc(2023).toIso8601String()
+            ..recipeCategory = 'Test';
+          final createResponse = await client.cookbook.recipes.newRecipe($body: recipe.build());
+          addTearDown(() async {
+            closeFixture();
+            await client.cookbook.recipes.deleteRecipe(id: createResponse.body.toString());
+          });
+          expect(createResponse.body, isNotNull);
+
           final request = cookbook.RenameCategoryRequestApplicationJsonBuilder()..name = 'Delicious Soup';
 
           final response = await client.cookbook.categories.renameCategory(
-            category: 'Soup',
+            category: 'Test',
             $body: request.build(),
           );
 
@@ -57,21 +68,23 @@ void main() {
       });
 
       group('misc', () {
+        final expectedConfig = cookbook.ConfigBuilder()
+          ..folder = '/Recipes'
+          ..updateInterval = 5
+          ..printImage = true
+          ..visibleInfoBlocks.update(
+            (b) => b
+              ..preparationTime = true
+              ..cookingTime = true
+              ..totalTime = true
+              ..nutritionInformation = true
+              ..tools = true,
+          );
+
         test('getConfig', () async {
           final response = await client.cookbook.misc.getConfig();
-          final visibleInfoBlocks = cookbook.VisibleInfoBlocksBuilder()
-            ..preparationTime = true
-            ..cookingTime = true
-            ..totalTime = true
-            ..nutritionInformation = true
-            ..tools = true;
-          final expected = cookbook.ConfigBuilder()
-            ..folder = '/Recipes'
-            ..updateInterval = 5
-            ..printImage = true
-            ..visibleInfoBlocks = visibleInfoBlocks;
 
-          expect(response.body, equalsBuilt(expected.build()));
+          expect(response.body, equalsBuilt(expectedConfig.build()));
         });
 
         test('reindex', () async {
@@ -81,6 +94,11 @@ void main() {
         });
 
         test('setConfig', () async {
+          addTearDown(() async {
+            closeFixture();
+            await client.cookbook.misc.setConfig($body: expectedConfig.build());
+          });
+
           final config = cookbook.ConfigBuilder()..folder = '/';
           final response = await client.cookbook.misc.setConfig($body: config.build());
 
@@ -100,15 +118,12 @@ void main() {
         test('callImport', () async {
           final url = cookbook.UrlBuilder()..url = 'http://localhost/static/recipe.html';
           final response = await client.cookbook.recipes.$import($body: url.build());
+          addTearDown(() async {
+            closeFixture();
+            await client.cookbook.recipes.deleteRecipe(id: response.body.id!);
+          });
 
           expect(response.body, isA<Recipe>());
-        });
-
-        test('deleteRecipe', () async {
-          const id = '0';
-          final response = await client.cookbook.recipes.deleteRecipe(id: id);
-
-          expect(response.body, equals('Recipe $id deleted successfully'));
         });
 
         test('getImage', () async {
@@ -135,13 +150,15 @@ void main() {
           expect(response.body, hasLength(19));
         });
 
-        test('newRecipe', () async {
+        test('newRecipe and deleteRecipe', () async {
           final recipe = cookbook.RecipeBuilder()
             ..name = 'My super cool recipe'
             ..dateCreated = DateTime.utc(2023).toIso8601String();
-          final response = await client.cookbook.recipes.newRecipe($body: recipe.build());
+          final createResponse = await client.cookbook.recipes.newRecipe($body: recipe.build());
+          expect(createResponse.body, isNotNull);
 
-          expect(response.body, isNotNull);
+          final deleteResponse = await client.cookbook.recipes.deleteRecipe(id: createResponse.body.toString());
+          expect(deleteResponse.body, equals('Recipe ${createResponse.body} deleted successfully'));
         });
 
         test('recipeDetails', () async {
@@ -166,9 +183,19 @@ void main() {
           final recipe = cookbook.RecipeBuilder()
             ..name = 'My super cool recipe'
             ..dateCreated = DateTime.utc(2023).toIso8601String();
-          final response = await client.cookbook.recipes.updateRecipe(id: '0', $body: recipe.build());
+          final createResponse = await client.cookbook.recipes.newRecipe($body: recipe.build());
+          addTearDown(() async {
+            closeFixture();
+            await client.cookbook.recipes.deleteRecipe(id: createResponse.body.toString());
+          });
+          expect(createResponse.body, isNotNull);
 
-          expect(response.body, isNotNull);
+          recipe
+            ..id = createResponse.body.toString()
+            ..name = 'My updated super cool recipe';
+          final updateResponse =
+              await client.cookbook.recipes.updateRecipe(id: createResponse.body.toString(), $body: recipe.build());
+          expect(updateResponse.body, isNotNull);
         });
       });
 
