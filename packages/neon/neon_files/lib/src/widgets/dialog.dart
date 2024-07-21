@@ -235,15 +235,11 @@ class FilesChooseFolderDialog extends StatelessWidget {
   const FilesChooseFolderDialog({
     required this.bloc,
     required this.filesBloc,
-    this.originalPath,
     super.key,
   });
 
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
-
-  /// The initial path to start at.
-  final PathUri? originalPath;
 
   @override
   Widget build(BuildContext context) {

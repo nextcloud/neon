@@ -2,10 +2,14 @@ import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/capabilities.dart';
+import 'package:neon_framework/src/router.dart';
+import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
 import 'package:neon_framework/src/widgets/error.dart';
@@ -33,6 +37,21 @@ class _NeonDrawerState extends State<NeonDrawer> {
   int? _activeApp;
   late final StreamSubscription<Result<BuiltSet<AppImplementation>>> appImplementationsSubscription;
 
+  final _extraDestinations = <NavigationDrawerDestination, void Function(BuildContext)>{
+    NavigationDrawerDestination(
+      icon: const Icon(MdiIcons.cloudSync),
+      label: Builder(
+        builder: (context) => Text(NeonLocalizations.of(context).sync),
+      ),
+    ): (context) => const SyncRoute().go(context),
+    NavigationDrawerDestination(
+      icon: Icon(AdaptiveIcons.settings),
+      label: Builder(
+        builder: (context) => Text(NeonLocalizations.of(context).settings),
+      ),
+    ): (context) => const SettingsRoute().go(context),
+  };
+
   @override
   void initState() {
     super.initState();
@@ -57,6 +76,13 @@ class _NeonDrawerState extends State<NeonDrawer> {
   void onAppChange(int index) {
     Scaffold.maybeOf(context)?.closeDrawer();
 
+    // selected item is not a registered app like the SettingsPage
+    final appsCount = _apps?.length ?? 0;
+    if (index >= appsCount) {
+      _extraDestinations.values.elementAt(index - appsCount)(context);
+      return;
+    }
+
     setState(() {
       _activeApp = index;
     });
@@ -79,6 +105,7 @@ class _NeonDrawerState extends State<NeonDrawer> {
       children: [
         const NeonDrawerHeader(),
         ...?appDestinations,
+        ..._extraDestinations.keys,
       ],
     );
 
