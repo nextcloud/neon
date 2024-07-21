@@ -1,12 +1,12 @@
-MKCOL http://localhost/remote\.php/webdav/copy-simple-src
+MKCOL http://localhost/remote\.php/webdav/test/copy-simple-src
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
-COPY http://localhost/remote\.php/webdav/copy-simple-src
+COPY http://localhost/remote\.php/webdav/test/copy-simple-src
 authorization: Bearer mock
 content-type: application/xml
-destination: http://localhost/remote\.php/webdav/copy-simple-dst
+destination: http://localhost/remote\.php/webdav/test/copy-simple-dst
 ocs-apirequest: true
 overwrite: F
 requesttoken: token

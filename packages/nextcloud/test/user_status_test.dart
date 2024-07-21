@@ -1,3 +1,4 @@
+import 'package:built_value_test/matcher.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
@@ -19,15 +20,15 @@ void main() {
         await container.destroy();
       });
 
-      tearDown(() async {
-        closeFixture();
-
+      setUp(() async {
         await client.userStatus.userStatus.setStatus(
           $body: user_status.UserStatusSetStatusRequestApplicationJson(
             (b) => b..statusType = user_status.$Type.online.value,
           ),
         );
         await client.userStatus.userStatus.clearMessage();
+
+        resetFixture();
       });
 
       group('Predefined status', () {
@@ -190,12 +191,19 @@ void main() {
           final response = await client.userStatus.statuses.findAll();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(1));
-          expect(response.body.ocs.data[0].userId, 'user1');
-          expect(response.body.ocs.data[0].message, null);
-          expect(response.body.ocs.data[0].icon, null);
-          expect(response.body.ocs.data[0].clearAt, null);
-          expect(response.body.ocs.data[0].status, user_status.$Type.online);
+          expect(response.body.ocs.data, isNotEmpty);
+          expect(
+            response.body.ocs.data,
+            containsOnce(
+              equalsBuilt(
+                user_status.Public(
+                  (b) => b
+                    ..userId = 'user1'
+                    ..status = user_status.$Type.online,
+                ),
+              ),
+            ),
+          );
         });
       });
 

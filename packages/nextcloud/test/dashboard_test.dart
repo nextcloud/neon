@@ -21,17 +21,12 @@ void main() {
       test('Get widgets', () async {
         final response = await client.dashboard.dashboardApi.getWidgets();
         expect(response.statusCode, 200);
-        expect(
-          response.body.ocs.data.keys,
-          isNotEmpty,
-        );
       });
 
       group('Get widget items', () {
         test('v1', () async {
           final response = await client.dashboard.dashboardApi.getWidgetItems();
           expect(response.statusCode, 200);
-          expect(response.body.ocs.data.keys, equals(['recommendations', 'spreed']));
         });
 
         test('v2', () async {

@@ -1,29 +1,29 @@
-PUT http://localhost/remote\.php/webdav/remove-props\.txt
+PUT http://localhost/remote\.php/webdav/test/remove-props\.txt
 authorization: Bearer mock
 content-length: 4
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 test
-PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
+PROPPATCH http://localhost/remote\.php/webdav/test/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 <d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>true</oc:favorite></d:prop></d:set></d:propertyupdate>
-PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
+PROPFIND http://localhost/remote\.php/webdav/test/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 <d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><nc:creation_time/><nc:upload_time/><oc:favorite/></d:prop></d:propfind>
-PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
+PROPPATCH http://localhost/remote\.php/webdav/test/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 <d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:remove><d:prop><oc:favorite/></d:prop></d:remove></d:propertyupdate>
-PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
+PROPFIND http://localhost/remote\.php/webdav/test/remove-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

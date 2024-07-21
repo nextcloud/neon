@@ -1,4 +1,4 @@
-PROPFIND http://localhost/remote\.php/webdav
+PROPFIND http://localhost/remote\.php/webdav/test
 authorization: Bearer mock
 content-type: application/xml
 depth: infinity
