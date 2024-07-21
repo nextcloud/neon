@@ -7,6 +7,7 @@ import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
@@ -39,10 +40,19 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
   final Uri serverURL;
   final String loginName;
   final String password;
+  late final client = NextcloudClient(
+    serverURL,
+    loginName: loginName,
+    password: password,
+    httpClient: NeonHttpClient(
+      userAgent: neonUserAgent,
+    ),
+  );
 
   @override
   void dispose() {
     unawaited(state.close());
+    client.close();
 
     super.dispose();
   }
@@ -55,13 +65,6 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
     state.add(Result.loading());
 
     try {
-      final client = NextcloudClient(
-        serverURL,
-        loginName: loginName,
-        password: password,
-        userAgent: neonUserAgent,
-      );
-
       final response = await client.provisioningApi.users.getCurrentUser();
 
       final account = Account(

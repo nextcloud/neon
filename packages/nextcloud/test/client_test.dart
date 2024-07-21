@@ -29,6 +29,7 @@ void main() {
         final client = NextcloudClient(
           uri,
           httpClient: mockedClient,
+          // ignore: deprecated_member_use_from_same_package
           cookieJar: cookieJar,
         );
 
@@ -56,6 +57,7 @@ void main() {
         final client = NextcloudClient(
           uri,
           httpClient: mockedClient,
+          // ignore: deprecated_member_use_from_same_package
           cookieJar: cookieJar,
         );
 
@@ -82,6 +84,7 @@ void main() {
         final client = NextcloudClient(
           uri,
           httpClient: mockedClient,
+          // ignore: deprecated_member_use_from_same_package
           userAgent: 'Neon',
         );
 
@@ -106,6 +109,7 @@ void main() {
         final client = NextcloudClient(
           uri,
           httpClient: mockedClient,
+          // ignore: deprecated_member_use_from_same_package
           userAgent: 'Neon',
         );
 

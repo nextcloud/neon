@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/utils/user_agent.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
@@ -32,10 +33,17 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
   final log = Logger('LoginCheckServerStatusBloc');
 
   final Uri serverURL;
+  late final client = NextcloudClient(
+    serverURL,
+    httpClient: NeonHttpClient(
+      userAgent: neonUserAgent,
+    ),
+  );
 
   @override
   void dispose() {
     unawaited(state.close());
+    client.close();
 
     super.dispose();
   }
@@ -48,11 +56,6 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
     state.add(Result.loading());
 
     try {
-      final client = NextcloudClient(
-        serverURL,
-        userAgent: neonUserAgent,
-      );
-
       final status = await client.core.getStatus();
       state.add(Result.success(status.body));
     } on http.ClientException catch (error, stackTrace) {
