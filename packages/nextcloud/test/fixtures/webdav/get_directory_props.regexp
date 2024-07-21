@@ -1,16 +1,16 @@
-MKCOL http://localhost/remote\.php/webdav/dir-props
+MKCOL http://localhost/remote\.php/webdav/test/dir-props
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
-PUT http://localhost/remote\.php/webdav/dir-props/test\.txt
+PUT http://localhost/remote\.php/webdav/test/dir-props/test\.txt
 authorization: Bearer mock
 content-length: 4
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 test
-PROPFIND http://localhost/remote\.php/webdav/dir-props
+PROPFIND http://localhost/remote\.php/webdav/test/dir-props
 authorization: Bearer mock
 content-type: application/xml
 depth: 0

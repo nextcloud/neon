@@ -1,11 +1,11 @@
-PUT http://localhost/remote\.php/webdav/largefile\.txt
+PUT http://localhost/remote\.php/webdav/test/largefile\.txt
 authorization: Bearer mock
 content-length: 1000000000
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 .*
-GET http://localhost/remote\.php/webdav/largefile\.txt
+GET http://localhost/remote\.php/webdav/test/largefile\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

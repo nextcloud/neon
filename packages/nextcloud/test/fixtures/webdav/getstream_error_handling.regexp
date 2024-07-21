@@ -1,4 +1,4 @@
-GET http://localhost/remote\.php/webdav/404\.txt
+GET http://localhost/remote\.php/webdav/test/404\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

@@ -1,3 +1,4 @@
+import 'package:built_value_test/matcher.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notes.dart' as notes;
@@ -153,13 +154,18 @@ void main() {
       });
 
       test('Get and update settings', () async {
+        final expectedSettings = notes.Settings(
+          (b) => b
+            ..notesPath = 'Notes'
+            ..fileSuffix = '.md'
+            ..noteMode = notes.Settings_NoteMode.rich,
+        );
+
         var response = await client.notes.getSettings();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        expect(response.body.notesPath, 'Notes');
-        expect(response.body.fileSuffix, '.md');
-        expect(response.body.noteMode, notes.Settings_NoteMode.rich);
+        expect(response.body, equalsBuilt(expectedSettings));
 
         response = await client.notes.updateSettings(
           $body: notes.Settings(
@@ -169,6 +175,11 @@ void main() {
               ..noteMode = notes.Settings_NoteMode.preview,
           ),
         );
+        addTearDown(() async {
+          closeFixture();
+          await client.notes.updateSettings($body: expectedSettings);
+        });
+
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 

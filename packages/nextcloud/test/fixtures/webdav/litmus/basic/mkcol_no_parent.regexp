@@ -1,4 +1,4 @@
-MKCOL http://localhost/remote\.php/webdav/409me/noparent
+MKCOL http://localhost/remote\.php/webdav/test/409me/noparent
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

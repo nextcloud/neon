@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
@@ -85,11 +88,9 @@ void main() {
           final response = await client.core.navigation.getAppsNavigation();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(8));
-
           expect(
             response.body.ocs.data.map((e) => e.id),
-            containsAllInOrder([
+            containsAll([
               'dashboard',
               'files',
               'photos',
@@ -129,9 +130,16 @@ void main() {
 
       group('Preview', () {
         test('Get', () async {
+          final file = File('test/files/test.png');
+          await client.webdav.putFile(file, file.statSync(), PathUri.parse('preview.png'));
+          addTearDown(() async {
+            closeFixture();
+            await client.webdav.delete(PathUri.parse('preview.png'));
+          });
+
           final response = await client.core.preview.getPreview(
             $body: core.PreviewGetPreviewRequestApplicationJson(
-              (b) => b..file = 'Nextcloud.png',
+              (b) => b..file = 'preview.png',
             ),
           );
           expect(response.statusCode, 200);

@@ -1,4 +1,4 @@
-PUT http://localhost/remote\.php/webdav/set-props\.txt
+PUT http://localhost/remote\.php/webdav/test/set-props\.txt
 authorization: Bearer mock
 content-length: 4
 content-type: application/xml
@@ -7,13 +7,13 @@ requesttoken: token
 x-oc-ctime: 34214400
 x-oc-mtime: 68256000
 test
-PROPPATCH http://localhost/remote\.php/webdav/set-props\.txt
+PROPPATCH http://localhost/remote\.php/webdav/test/set-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
 <d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>true</oc:favorite></d:prop></d:set></d:propertyupdate>
-PROPFIND http://localhost/remote\.php/webdav/set-props\.txt
+PROPFIND http://localhost/remote\.php/webdav/test/set-props\.txt
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

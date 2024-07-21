@@ -1,5 +1,12 @@
+PUT http://localhost/remote\.php/webdav/preview\.png
+authorization: Bearer mock
+content-length: 8650
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+.+
 GET http://localhost/index\.php/core/preview\.png
 accept: \*/\*
 authorization: Bearer mock
 content-type: application/json; charset=utf-8
-\{"file":"Nextcloud\.png","x":32,"y":32,"a":false,"forceIcon":true,"mode":"fill","mimeFallback":false\}
+\{"file":"preview\.png","x":32,"y":32,"a":false,"forceIcon":true,"mode":"fill","mimeFallback":false\}

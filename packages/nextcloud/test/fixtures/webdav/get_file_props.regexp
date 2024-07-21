@@ -1,4 +1,11 @@
-PROPFIND http://localhost/remote\.php/webdav/Nextcloud\.png
+PUT http://localhost/remote\.php/webdav/test/test\.png
+authorization: Bearer mock
+content-length: 8650
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+.+
+PROPFIND http://localhost/remote\.php/webdav/test/test\.png
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true

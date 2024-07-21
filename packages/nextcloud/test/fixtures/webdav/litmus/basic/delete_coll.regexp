@@ -1,9 +1,9 @@
-MKCOL http://localhost/remote\.php/webdav/delete-coll
+MKCOL http://localhost/remote\.php/webdav/test/delete-coll
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
 requesttoken: token
-DELETE http://localhost/remote\.php/webdav/delete-coll
+DELETE http://localhost/remote\.php/webdav/test/delete-coll
 authorization: Bearer mock
 content-type: application/xml
 ocs-apirequest: true
