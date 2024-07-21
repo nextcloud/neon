@@ -2,7 +2,7 @@
 // coverage:ignore-file
 
 import 'package:meta/meta.dart';
-import 'package:nextcloud/src/webdav/props.dart';
+import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 

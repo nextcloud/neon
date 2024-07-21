@@ -1,7 +1,7 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/src/api/core.openapi.dart' as core;
-import 'package:nextcloud/src/api/notes.openapi.dart' as notes;
-import 'package:nextcloud/src/helpers/common.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/src/api/notes/notes.openapi.dart' as notes;
+import 'package:nextcloud/src/models/models.dart';
 import 'package:version/version.dart';
 
 /// Minimum API version of the notes app supported

@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/weather_status.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/weather_status/weather_status.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/weather_status.openapi.dart';
+export 'src/api/weather_status/weather_status.openapi.dart';
 
 // ignore: public_member_api_docs
 extension WeatherStatusExtension on NextcloudClient {

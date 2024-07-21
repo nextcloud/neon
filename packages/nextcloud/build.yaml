@@ -21,9 +21,9 @@ targets:
             - 'Map<String, dynamic> toJson\(\) => _\$jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;'
             - 'static BuiltSet<.*> get values => _\$.*Values;'
           overrides:
-            lib/src/api/news.openapi.json:
+            lib/src/api/news/news.openapi.json:
               experimental: true
-            lib/src/api/notes.openapi.json:
+            lib/src/api/notes/notes.openapi.json:
               experimental: true
-            lib/src/api/uppush.openapi.json:
+            lib/src/api/uppush/uppush.openapi.json:
               experimental: true

@@ -1,1 +1,1 @@
-export 'src/api/comments.openapi.dart';
+export 'src/api/comments/comments.openapi.dart';

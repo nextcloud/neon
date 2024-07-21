@@ -1,1 +1,1 @@
-export 'src/api/systemtags.openapi.dart';
+export 'src/api/systemtags/systemtags.openapi.dart';

@@ -8,7 +8,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
 
-part 'notifications.g.dart';
+part 'notifications_helpers.g.dart';
 
 /// Generates the push token hash which is just sha512
 String generatePushTokenHash(String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();

@@ -1,7 +1,7 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 void main() {

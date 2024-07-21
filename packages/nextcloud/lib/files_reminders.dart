@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/files_reminders.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/files_reminders/files_reminders.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/files_reminders.openapi.dart';
+export 'src/api/files_reminders/files_reminders.openapi.dart';
 
 // ignore: public_member_api_docs
 extension FilesRemindersExtension on NextcloudClient {

@@ -1,9 +1,9 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/news.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/news/news.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/news.openapi.dart';
-export 'src/helpers/news.dart';
+export 'src/api/news/news.openapi.dart';
+export 'src/api/news/news_helpers.dart';
 
 // ignore: public_member_api_docs
 extension NewsExtension on NextcloudClient {
