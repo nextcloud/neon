@@ -1,4 +1,9 @@
-PUT http://localhost/index\.php/apps/cookbook/api/v1/category/Soup
+POST http://localhost/index\.php/apps/cookbook/api/v1/recipes
+accept: application/json
+authorization: Basic mock
+content-type: application/json; charset=utf-8
+\{"@type":"Recipe","description":"","url":"","image":"","recipeYield":1,"recipeCategory":"Test","tool":\[\],"recipeIngredient":\[\],"recipeInstructions":\[\],"nutrition":\{"@type":"NutritionInformation"\},"name":"My super cool recipe","keywords":"","dateCreated":"2023-01-01T00:00:00\.000Z","imageUrl":"","imagePlaceholderUrl":""\}
+PUT http://localhost/index\.php/apps/cookbook/api/v1/category/Test
 accept: application/json
 authorization: Basic mock
 content-type: application/json; charset=utf-8

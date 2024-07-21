@@ -1,3 +1,0 @@
-DELETE http://localhost/index\.php/apps/cookbook/api/v1/recipes/0
-accept: application/json
-authorization: Basic mock
