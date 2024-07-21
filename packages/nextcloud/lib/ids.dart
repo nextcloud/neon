@@ -60,6 +60,9 @@ final class AppIDs {
   /// ID for the systemtags app.
   static const systemtags = 'systemtags';
 
+  /// ID for the tables app.
+  static const tables = 'tables';
+
   /// ID for the theming app.
   static const theming = 'theming';
 

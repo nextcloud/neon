@@ -13091,6 +13091,123 @@ abstract class SystemtagsCapabilities
 }
 
 @BuiltValue(instantiable: false)
+sealed class $TablesCapabilities_TablesInterface {
+  bool get enabled;
+  String get version;
+  BuiltList<String> get apiVersions;
+  BuiltList<String> get features;
+  @BuiltValueField(wireName: 'column_types')
+  BuiltList<String> get columnTypes;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TablesCapabilities_TablesInterfaceBuilder].
+  $TablesCapabilities_TablesInterface rebuild(void Function($TablesCapabilities_TablesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TablesCapabilities_TablesInterfaceBuilder].
+  $TablesCapabilities_TablesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TablesCapabilities_TablesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TablesCapabilities_TablesInterfaceBuilder b) {}
+}
+
+abstract class TablesCapabilities_Tables
+    implements $TablesCapabilities_TablesInterface, Built<TablesCapabilities_Tables, TablesCapabilities_TablesBuilder> {
+  /// Creates a new TablesCapabilities_Tables object using the builder pattern.
+  factory TablesCapabilities_Tables([void Function(TablesCapabilities_TablesBuilder)? b]) = _$TablesCapabilities_Tables;
+
+  // coverage:ignore-start
+  const TablesCapabilities_Tables._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TablesCapabilities_Tables.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TablesCapabilities_Tables.
+  static Serializer<TablesCapabilities_Tables> get serializer => _$tablesCapabilitiesTablesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TablesCapabilities_TablesBuilder b) {
+    $TablesCapabilities_TablesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TablesCapabilities_TablesBuilder b) {
+    $TablesCapabilities_TablesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $TablesCapabilitiesInterface {
+  TablesCapabilities_Tables get tables;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$TablesCapabilitiesInterfaceBuilder].
+  $TablesCapabilitiesInterface rebuild(void Function($TablesCapabilitiesInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$TablesCapabilitiesInterfaceBuilder].
+  $TablesCapabilitiesInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($TablesCapabilitiesInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($TablesCapabilitiesInterfaceBuilder b) {}
+}
+
+abstract class TablesCapabilities
+    implements $TablesCapabilitiesInterface, Built<TablesCapabilities, TablesCapabilitiesBuilder> {
+  /// Creates a new TablesCapabilities object using the builder pattern.
+  factory TablesCapabilities([void Function(TablesCapabilitiesBuilder)? b]) = _$TablesCapabilities;
+
+  // coverage:ignore-start
+  const TablesCapabilities._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory TablesCapabilities.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for TablesCapabilities.
+  static Serializer<TablesCapabilities> get serializer => _$tablesCapabilitiesSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TablesCapabilitiesBuilder b) {
+    $TablesCapabilitiesInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(TablesCapabilitiesBuilder b) {
+    $TablesCapabilitiesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
@@ -13596,6 +13713,7 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   SpreedCapabilities? spreedCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
+  TablesCapabilities? tablesCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
@@ -20673,13 +20791,13 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
   /// Serializer for OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      $f6f5edfce09cb06e8f14ce14ab1af117Extension._serializer;
+      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
   static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
-      $f6f5edfce09cb06e8f14ce14ab1af117Extension._fromJson(json);
+      $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._fromJson(json);
 }
 
 /// Serialization extension for `UnifiedSearchSearchRequestApplicationJson_Cursor`.
@@ -21045,7 +21163,7 @@ class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$f6f5edfce09cb06e8f14ce14ab1af117 = ({
+typedef _$ff3cbb941adc0f0f38f18ba5aabd7f48 = ({
   CommentsCapabilities? commentsCapabilities,
   CoreCapabilities? coreCapabilities,
   CorePublicCapabilities? corePublicCapabilities,
@@ -21062,6 +21180,7 @@ typedef _$f6f5edfce09cb06e8f14ce14ab1af117 = ({
   SpreedCapabilities? spreedCapabilities,
   SpreedPublicCapabilities? spreedPublicCapabilities,
   SystemtagsCapabilities? systemtagsCapabilities,
+  TablesCapabilities? tablesCapabilities,
   ThemingPublicCapabilities? themingPublicCapabilities,
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
@@ -21069,7 +21188,7 @@ typedef _$f6f5edfce09cb06e8f14ce14ab1af117 = ({
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
-extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce14ab1af117 {
+extension $ff3cbb941adc0f0f38f18ba5aabd7f48Extension on _$ff3cbb941adc0f0f38f18ba5aabd7f48 {
   List<dynamic> get _values => [
         commentsCapabilities,
         coreCapabilities,
@@ -21087,6 +21206,7 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
         spreedCapabilities,
         spreedPublicCapabilities,
         systemtagsCapabilities,
+        tablesCapabilities,
         themingPublicCapabilities,
         userStatusCapabilities,
         weatherStatusCapabilities,
@@ -21108,6 +21228,7 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
         'spreedCapabilities',
         'spreedPublicCapabilities',
         'systemtagsCapabilities',
+        'tablesCapabilities',
         'themingPublicCapabilities',
         'userStatusCapabilities',
         'weatherStatusCapabilities',
@@ -21124,9 +21245,9 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
         _values,
         _names,
       );
-  static Serializer<_$f6f5edfce09cb06e8f14ce14ab1af117> get _serializer =>
-      const _$f6f5edfce09cb06e8f14ce14ab1af117Serializer();
-  static _$f6f5edfce09cb06e8f14ce14ab1af117 _fromJson(Object? json) =>
+  static Serializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> get _serializer =>
+      const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
+  static _$ff3cbb941adc0f0f38f18ba5aabd7f48 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
   /// Parses this object into a json like map.
@@ -21135,19 +21256,19 @@ extension $f6f5edfce09cb06e8f14ce14ab1af117Extension on _$f6f5edfce09cb06e8f14ce
   Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerializer<_$f6f5edfce09cb06e8f14ce14ab1af117> {
-  const _$f6f5edfce09cb06e8f14ce14ab1af117Serializer();
+class _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer implements PrimitiveSerializer<_$ff3cbb941adc0f0f38f18ba5aabd7f48> {
+  const _$ff3cbb941adc0f0f38f18ba5aabd7f48Serializer();
 
   @override
-  Iterable<Type> get types => const [_$f6f5edfce09cb06e8f14ce14ab1af117];
+  Iterable<Type> get types => const [_$ff3cbb941adc0f0f38f18ba5aabd7f48];
 
   @override
-  String get wireName => r'_$f6f5edfce09cb06e8f14ce14ab1af117';
+  String get wireName => r'_$ff3cbb941adc0f0f38f18ba5aabd7f48';
 
   @override
   Object serialize(
     Serializers serializers,
-    _$f6f5edfce09cb06e8f14ce14ab1af117 object, {
+    _$ff3cbb941adc0f0f38f18ba5aabd7f48 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -21215,6 +21336,10 @@ class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerialize
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(SystemtagsCapabilities))!;
     }
+    value = object.tablesCapabilities;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(TablesCapabilities))!;
+    }
     value = object.themingPublicCapabilities;
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
@@ -21232,7 +21357,7 @@ class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerialize
   }
 
   @override
-  _$f6f5edfce09cb06e8f14ce14ab1af117 deserialize(
+  _$ff3cbb941adc0f0f38f18ba5aabd7f48 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -21351,6 +21476,13 @@ class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerialize
         specifiedType: const FullType(SystemtagsCapabilities),
       )! as SystemtagsCapabilities;
     } catch (_) {}
+    TablesCapabilities? tablesCapabilities;
+    try {
+      tablesCapabilities = serializers.deserialize(
+        data,
+        specifiedType: const FullType(TablesCapabilities),
+      )! as TablesCapabilities;
+    } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
       themingPublicCapabilities = serializers.deserialize(
@@ -21389,6 +21521,7 @@ class _$f6f5edfce09cb06e8f14ce14ab1af117Serializer implements PrimitiveSerialize
       spreedCapabilities: spreedCapabilities,
       spreedPublicCapabilities: spreedPublicCapabilities,
       systemtagsCapabilities: systemtagsCapabilities,
+      tablesCapabilities: tablesCapabilities,
       themingPublicCapabilities: themingPublicCapabilities,
       userStatusCapabilities: userStatusCapabilities,
       weatherStatusCapabilities: weatherStatusCapabilities
@@ -21934,6 +22067,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(SystemtagsCapabilities_Systemtags.serializer)
       ..add(SystemtagsCapabilities_Systemtags_Enabled.serializer)
+      ..addBuilderFactory(const FullType(TablesCapabilities), TablesCapabilitiesBuilder.new)
+      ..add(TablesCapabilities.serializer)
+      ..addBuilderFactory(const FullType(TablesCapabilities_Tables), TablesCapabilities_TablesBuilder.new)
+      ..add(TablesCapabilities_Tables.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -21959,7 +22096,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NotesCapabilities.serializer)
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..add($f6f5edfce09cb06e8f14ce14ab1af117Extension._serializer)
+      ..add($ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer)
       ..addBuilderFactory(
         const FullType(PreviewGetPreviewRequestApplicationJson),
         PreviewGetPreviewRequestApplicationJsonBuilder.new,
@@ -22477,7 +22614,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$46564992d3ed3482aa6c1162698aac99,
             _$06c2e47196a84ebc3718dccf9eb4b29d,
-            _$f6f5edfce09cb06e8f14ce14ab1af117,
+            _$ff3cbb941adc0f0f38f18ba5aabd7f48,
           },
         ),
       )

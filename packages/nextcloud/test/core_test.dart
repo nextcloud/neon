@@ -77,6 +77,7 @@ void main() {
           expect(response.body.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.spreedPublicCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.systemtagsCapabilities, isNotNull);
+          expect(response.body.ocs.data.capabilities.tablesCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.userStatusCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.weatherStatusCapabilities, isNotNull);
@@ -97,6 +98,7 @@ void main() {
               'activity',
               'spreed',
               'notes',
+              'tables',
               'news',
               'cookbook',
             ]),

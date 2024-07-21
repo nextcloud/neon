@@ -188,6 +188,8 @@ const _reservedNames = [
   'void',
   'while',
   'with',
+  'update',
+  'replace',
 ];
 
 bool _isNonAlphaNumericString(String input) => !RegExp(r'^[a-zA-Z0-9]$').hasMatch(input);
