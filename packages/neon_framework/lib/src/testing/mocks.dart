@@ -9,7 +9,6 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';

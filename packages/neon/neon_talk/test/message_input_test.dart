@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:convert';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -13,11 +15,14 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
+import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/message_input.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:timezone/data/latest.dart' as tzdata;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
@@ -49,20 +54,44 @@ Account mockTalkAccount() {
 }
 
 void main() {
+  late Account account;
   late TalkRoomBloc bloc;
   late spreed.Room room;
+  late BehaviorSubject<spreed.$ChatMessageInterface?> replyTo;
+  late BehaviorSubject<spreed.$ChatMessageInterface?> editing;
+  late ReferencesBloc referencesBloc;
 
   setUpAll(() {
     KeyboardVisibilityTesting.setVisibilityForTesting(true);
+
+    tzdata.initializeTimeZones();
+    tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
   });
 
   setUp(() {
     FakeNeonStorage.setup();
 
+    account = mockTalkAccount();
+
+    replyTo = BehaviorSubject.seeded(null);
+    editing = BehaviorSubject.seeded(null);
+
     bloc = MockRoomBloc();
-    when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
+    when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
+    when(() => bloc.replyTo).thenAnswer((_) => replyTo);
+    when(() => bloc.editing).thenAnswer((_) => editing);
 
     room = MockRoom();
+    when(() => room.token).thenReturn('token');
+
+    referencesBloc = MockReferencesBloc();
+    when(() => referencesBloc.referenceRegex).thenAnswer((_) => BehaviorSubject.seeded(Result.success(null)));
+    when(() => referencesBloc.references).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
+  });
+
+  tearDown(() {
+    unawaited(replyTo.close());
+    unawaited(editing.close());
   });
 
   testWidgets('Cupertino no emoji button', (tester) async {
@@ -128,12 +157,6 @@ void main() {
   });
 
   testWidgets('Mention suggestions', (tester) async {
-    final account = mockTalkAccount();
-
-    final room = MockRoom();
-    when(() => room.token).thenReturn('token');
-    when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
@@ -167,12 +190,6 @@ void main() {
   });
 
   testWidgets('Multiline', (tester) async {
-    final account = mockTalkAccount();
-
-    final room = MockRoom();
-    when(() => room.token).thenReturn('token');
-    when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
@@ -210,5 +227,79 @@ void main() {
     await simulateKeyUpEvent(LogicalKeyboardKey.enter);
 
     verify(() => bloc.sendMessage('123\n456')).called(1);
+  });
+
+  testWidgets('Reply', (tester) async {
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          Provider<Account>.value(value: account),
+        ],
+        child: TalkMessageInput(
+          room: room,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TalkParentMessage), findsNothing);
+
+    final chatMessage = MockChatMessage();
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+    when(() => chatMessage.timestamp).thenReturn(0);
+    when(() => chatMessage.actorId).thenReturn('test');
+    when(() => chatMessage.actorDisplayName).thenReturn('test');
+    when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+
+    replyTo.add(chatMessage);
+    await tester.pumpAndSettle();
+    expect(find.byType(TalkParentMessage), findsOne);
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/message_input_reply.png'));
+
+    await tester.tap(find.byIcon(Icons.close));
+    verify(() => bloc.removeReplyChatMessage()).called(1);
+  });
+
+  testWidgets('Edit', (tester) async {
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          NeonProvider<TalkRoomBloc>.value(value: bloc),
+          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+          Provider<Account>.value(value: account),
+        ],
+        child: TalkMessageInput(
+          room: room,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TalkParentMessage), findsNothing);
+
+    final chatMessage = MockChatMessage();
+    when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
+    when(() => chatMessage.timestamp).thenReturn(0);
+    when(() => chatMessage.actorId).thenReturn('test');
+    when(() => chatMessage.actorDisplayName).thenReturn('test');
+    when(() => chatMessage.message).thenReturn('message');
+    when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+
+    editing.add(chatMessage);
+    await tester.pumpAndSettle();
+    expect(find.byType(TalkParentMessage), findsOne);
+    expect(find.text('message'), findsExactly(2));
+    await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/message_input_edit.png'));
+
+    await tester.tap(find.byIcon(Icons.close));
+    verify(() => bloc.removeEditChatMessage()).called(1);
+    expect(find.text('message'), findsOne);
   });
 }

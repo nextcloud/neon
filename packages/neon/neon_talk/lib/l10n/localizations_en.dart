@@ -57,6 +57,17 @@ class TalkLocalizationsEn extends TalkLocalizations {
   String get roomMessageDelete => 'Delete';
 
   @override
+  String get roomMessageEdit => 'Edit';
+
+  @override
+  String get roomMessageEdited => 'edited';
+
+  @override
+  String roomMessageLastEdited(String name, String time) {
+    return 'Last edited by $name at $time';
+  }
+
+  @override
   String get reactionsAddNew => 'Add a new reaction';
 
   @override

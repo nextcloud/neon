@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';

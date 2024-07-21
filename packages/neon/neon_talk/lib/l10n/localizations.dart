@@ -167,6 +167,24 @@ abstract class TalkLocalizations {
   /// **'Delete'**
   String get roomMessageDelete;
 
+  /// No description provided for @roomMessageEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get roomMessageEdit;
+
+  /// No description provided for @roomMessageEdited.
+  ///
+  /// In en, this message translates to:
+  /// **'edited'**
+  String get roomMessageEdited;
+
+  /// No description provided for @roomMessageLastEdited.
+  ///
+  /// In en, this message translates to:
+  /// **'Last edited by {name} at {time}'**
+  String roomMessageLastEdited(String name, String time);
+
   /// No description provided for @reactionsAddNew.
   ///
   /// In en, this message translates to:

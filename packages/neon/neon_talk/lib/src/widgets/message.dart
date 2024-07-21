@@ -459,18 +459,39 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
             widget.previousChatMessage?.messageType == spreed.MessageType.system ||
             previousDate == null ||
-            date.difference(previousDate) > const Duration(minutes: 3);
+            date.difference(previousDate) > const Duration(minutes: 3) ||
+            widget.chatMessage.lastEditTimestamp != null;
 
-        Widget? displayName;
+        Widget? label;
         Widget? avatar;
         Widget? time;
         if (separateMessages) {
-          displayName = Text(
+          label = Text(
             getActorDisplayName(TalkLocalizations.of(context), widget.chatMessage),
             style: textTheme.labelLarge!.copyWith(
               color: labelColor,
             ),
           );
+
+          if (widget.chatMessage.lastEditTimestamp != null && widget.chatMessage.lastEditActorDisplayName != null) {
+            label = Row(
+              children: [
+                label,
+                Tooltip(
+                  message: TalkLocalizations.of(context).roomMessageLastEdited(
+                    widget.chatMessage.lastEditActorDisplayName!,
+                    DateFormat.yMd().add_jm().format(widget.chatMessage.parsedLastEditTimestamp!),
+                  ),
+                  child: Text(
+                    ' (${TalkLocalizations.of(context).roomMessageEdited})',
+                    style: textTheme.labelLarge!.copyWith(
+                      color: labelColor,
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }
 
           if (!widget.isParent) {
             avatar = TalkActorAvatar(
@@ -562,7 +583,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                if (displayName != null) displayName,
+                if (label != null) label,
                 if (time != null) time,
               ],
             ),
@@ -692,6 +713,20 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             });
 
             NeonProvider.of<TalkRoomBloc>(context).setReplyChatMessage(chatMessage);
+          },
+        ),
+      if (chatMessage.messageType != spreed.MessageType.commentDeleted &&
+          chatMessage.actorId == room.actorId &&
+          hasFeature(context, 'edit-messages'))
+        MenuItemButton(
+          leadingIcon: const Icon(Icons.edit),
+          child: Text(TalkLocalizations.of(context).roomMessageEdit),
+          onPressed: () {
+            setState(() {
+              menuOpen = false;
+            });
+
+            NeonProvider.of<TalkRoomBloc>(context).setEditChatMessage(chatMessage);
           },
         ),
       if (chatMessage.messageType != spreed.MessageType.commentDeleted && chatMessage.actorId == room.actorId)

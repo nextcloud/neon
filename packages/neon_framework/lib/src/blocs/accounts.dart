@@ -7,7 +7,6 @@ import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/models/account.dart';

@@ -1,6 +1,7 @@
 export 'package:neon_framework/src/bloc/bloc.dart';
 export 'package:neon_framework/src/bloc/result.dart';
 export 'package:neon_framework/src/blocs/apps.dart';
+export 'package:neon_framework/src/blocs/capabilities.dart';
 export 'package:neon_framework/src/blocs/references.dart';
 export 'package:neon_framework/src/blocs/timer.dart';
 export 'package:neon_framework/src/blocs/user_details.dart';

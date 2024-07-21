@@ -267,6 +267,48 @@ void main() {
           expect(response.body.ocs.data!.messageType, spreed.MessageType.comment);
         });
 
+        test(
+          'Edit message',
+          () async {
+            final startTime = DateTime.timestamp();
+            final room = await createTestRoom();
+
+            final messageResponse = await client1.spreed.chat.sendMessage(
+              token: room.token,
+              $body: spreed.ChatSendMessageRequestApplicationJson(
+                (b) => b..message = 'bla',
+              ),
+            );
+
+            final response = await client1.spreed.chat.editMessage(
+              token: room.token,
+              messageId: messageResponse.body.ocs.data!.id,
+              $body: spreed.ChatEditMessageRequestApplicationJson(
+                (b) => b..message = '123',
+              ),
+            );
+            expect(response.body.ocs.data.id, isPositive);
+            expect(response.body.ocs.data.actorType, spreed.ActorType.users);
+            expect(response.body.ocs.data.actorId, 'user1');
+            expect(response.body.ocs.data.actorDisplayName, 'User One');
+            expect(response.body.ocs.data.message, 'You edited a message');
+            expect(response.body.ocs.data.messageType, spreed.MessageType.system);
+            expect(response.body.ocs.data.systemMessage, 'message_edited');
+            expect(response.body.ocs.data.parent!.id, messageResponse.body.ocs.data!.id);
+            expect(response.body.ocs.data.parent!.actorType, spreed.ActorType.users);
+            expect(response.body.ocs.data.parent!.actorId, 'user1');
+            expect(response.body.ocs.data.parent!.actorDisplayName, 'User One');
+            expect(response.body.ocs.data.parent!.message, '123');
+            expect(response.body.ocs.data.parent!.messageType, spreed.MessageType.comment);
+            expect(response.body.ocs.data.parent!.systemMessage, '');
+            expect(response.body.ocs.data.parent!.lastEditTimestamp, closeTo(startTime.secondsSinceEpoch, 10));
+            expect(response.body.ocs.data.parent!.lastEditActorId, 'user1');
+            expect(response.body.ocs.data.parent!.lastEditActorDisplayName, 'User One');
+            expect(response.body.ocs.data.parent!.lastEditActorType, spreed.ActorType.users);
+          },
+          skip: preset.version < Version(19, 0, 0),
+        );
+
         group('Get messages', () {
           test('Directly', () async {
             final startTime = DateTime.timestamp();

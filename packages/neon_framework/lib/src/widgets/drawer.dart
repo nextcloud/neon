@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
 import 'package:neon_framework/src/widgets/error.dart';

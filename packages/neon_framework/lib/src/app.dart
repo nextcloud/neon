@@ -10,7 +10,6 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/models/account.dart';

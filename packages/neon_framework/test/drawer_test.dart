@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer.dart';

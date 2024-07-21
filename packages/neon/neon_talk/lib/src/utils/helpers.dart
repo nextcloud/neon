@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -46,4 +49,17 @@ extension $ChatReminderInterfaceHelpers on spreed.$ChatReminderInterface {
 extension $ReactionInterfaceHelpers on spreed.$ReactionInterface {
   /// Parsed equivalent of [timestamp].
   tz.TZDateTime get parsedTimestamp => DateTimeUtils.fromSecondsSinceEpoch(tz.local, timestamp);
+}
+
+/// Returns if the Talk [feature] is supported on the instance.
+bool hasFeature(BuildContext context, String feature) {
+  final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
+  final capabilities = capabilitiesBloc
+      .capabilities.valueOrNull?.data?.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed;
+
+  if (capabilities == null) {
+    return false;
+  }
+
+  return capabilities.features.contains(feature);
 }
