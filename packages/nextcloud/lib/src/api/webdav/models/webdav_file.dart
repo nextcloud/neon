@@ -1,7 +1,4 @@
-import 'package:nextcloud/src/webdav/path_uri.dart';
-import 'package:nextcloud/src/webdav/props.dart';
-import 'package:nextcloud/src/webdav/utils.dart';
-import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 // ignore: public_member_api_docs

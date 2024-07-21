@@ -61,26 +61,24 @@ function generate_spec() {
 
 for spec in /tmp/nextcloud-neon/*.openapi.json; do
   name="$(basename "$spec" | cut -d "." -f 1)"
-  if [[ "$name" == "core" ]]; then
-    continue;
-  fi
-  dir="packages/nextcloud/lib/src/patches/$name"
-  if [ -d "$dir" ]; then
+  dir="packages/nextcloud/lib/src/api/$name/patches"
+  if [ -d "$dir" ] && [[ "$name" != "core" ]]; then
     for patch in "$dir/"*; do
       jsonpatch --indent 4 --in-place "$spec" "$patch"
     done
   fi
+
+  cp "$spec" "packages/nextcloud/lib/src/api/$name"
 done
 
-cp /tmp/nextcloud-neon/*.openapi.json packages/nextcloud/lib/src/api
 
 ./external/nextcloud-openapi-extractor/merge-specs \
   --core /tmp/nextcloud-neon/core.openapi.json \
   --merged /tmp/nextcloud-neon/merged.json \
   /tmp/nextcloud-neon/*.openapi.json \
-  packages/nextcloud/lib/src/api/news.openapi.json \
-  packages/nextcloud/lib/src/api/notes.openapi.json \
-  packages/nextcloud/lib/src/api/uppush.openapi.json \
+  packages/nextcloud/lib/src/api/news/news.openapi.json \
+  packages/nextcloud/lib/src/api/notes/notes.openapi.json \
+  packages/nextcloud/lib/src/api/uppush/uppush.openapi.json \
   --openapi-version 3.1.0
 
 jq \
@@ -89,8 +87,8 @@ jq \
   '.[0] * {components: {schemas: .[1].components.schemas | with_entries(select(.key | endswith("Capabilities")))}, paths: {"/ocs/v2.php/cloud/capabilities": {get: {responses: .[1].paths."/ocs/v2.php/cloud/capabilities".get.responses}}}}' \
   /tmp/nextcloud-neon/core.openapi.json \
   /tmp/nextcloud-neon/merged.json \
-  > packages/nextcloud/lib/src/api/core.openapi.json
+  > packages/nextcloud/lib/src/api/core/core.openapi.json
 
-for patch in "packages/nextcloud/lib/src/patches/core/"*; do
-  jsonpatch --indent 4 --in-place packages/nextcloud/lib/src/api/core.openapi.json "$patch"
+for patch in "packages/nextcloud/lib/src/api/core/patches/"*; do
+  jsonpatch --indent 4 --in-place packages/nextcloud/lib/src/api/core/core.openapi.json "$patch"
 done

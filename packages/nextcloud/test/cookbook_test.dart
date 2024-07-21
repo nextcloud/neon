@@ -2,7 +2,6 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value_test/matcher.dart';
 import 'package:nextcloud/cookbook.dart' as cookbook;
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/src/api/cookbook.openapi.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
@@ -123,7 +122,7 @@ void main() {
             await client.cookbook.recipes.deleteRecipe(id: response.body.id!);
           });
 
-          expect(response.body, isA<Recipe>());
+          expect(response.body, isA<cookbook.Recipe>());
         });
 
         test('getImage', () async {
@@ -138,7 +137,7 @@ void main() {
           final recipeWithImage = recipes.body.firstWhere((stub) => stub.name == "Chef John's Gazpacho");
           final response2 = await client.cookbook.recipes.getImage(
             id: recipeWithImage.id,
-            size: GetImageSize.full,
+            size: cookbook.GetImageSize.full,
           );
 
           expect(response2.body, isNotNull);

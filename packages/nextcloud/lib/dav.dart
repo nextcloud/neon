@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/dav.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/dav/dav.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/dav.openapi.dart';
+export 'src/api/dav/dav.openapi.dart';
 
 // ignore: public_member_api_docs
 extension DavExtension on NextcloudClient {

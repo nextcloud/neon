@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/src/api/cookbook.openapi.dart' as cookbook;
-import 'package:nextcloud/src/helpers/common.dart';
+import 'package:nextcloud/src/api/cookbook/cookbook.openapi.dart' as cookbook;
+import 'package:nextcloud/src/models/models.dart';
 import 'package:version/version.dart';
 
 /// Minimum version of the cookbook app supported.

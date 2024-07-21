@@ -1,7 +1,7 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/src/api/core.openapi.dart' as core;
-import 'package:nextcloud/src/api/spreed.openapi.dart' as spreed;
+import 'package:nextcloud/src/api/spreed/spreed.openapi.dart' as spreed;
 import 'package:version/version.dart';
 
 /// The minimum version of the spreed app that is supported.

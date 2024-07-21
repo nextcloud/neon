@@ -121,17 +121,17 @@ void main() {
       variables.add(variable);
     }
   }
-  File('lib/src/webdav/props.dart').writeAsStringSync(
+  File('lib/src/api/webdav/models/props.dart').writeAsStringSync(
     [
       '// ignore_for_file: public_member_api_docs',
       '// coverage:ignore-file',
       "import 'package:meta/meta.dart';",
+      "import 'package:nextcloud/src/api/webdav/webdav.dart';",
       "import 'package:nextcloud/src/utils/date_time.dart';",
-      "import 'package:nextcloud/src/webdav/utils.dart';",
-      "import 'package:nextcloud/src/webdav/webdav.dart';",
       "import 'package:timezone/timezone.dart' as tz;",
       "import 'package:xml/xml.dart';",
       "import 'package:xml_annotation/xml_annotation.dart' as annotation;",
+      '',
       "part 'props.g.dart';",
       '',
       ...generateClass(

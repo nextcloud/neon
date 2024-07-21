@@ -1,1 +1,1 @@
-export 'src/api/sharebymail.openapi.dart';
+export 'src/api/sharebymail/sharebymail.openapi.dart';

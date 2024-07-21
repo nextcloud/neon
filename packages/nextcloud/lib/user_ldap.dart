@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/user_ldap.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/user_ldap/user_ldap.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/user_ldap.openapi.dart';
+export 'src/api/user_ldap/user_ldap.openapi.dart';
 
 // ignore: public_member_api_docs
 extension UserLdapExtension on NextcloudClient {

@@ -4,8 +4,8 @@ import 'dart:typed_data';
 
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
-import 'package:nextcloud/src/webdav/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';

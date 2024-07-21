@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/files_versions.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/files_versions/files_versions.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/files_versions.openapi.dart';
+export 'src/api/files_versions/files_versions.openapi.dart';
 
 // ignore: public_member_api_docs
 extension FilesVersionsExtension on NextcloudClient {

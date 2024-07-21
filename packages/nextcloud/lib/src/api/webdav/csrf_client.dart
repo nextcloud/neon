@@ -1,6 +1,7 @@
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// A [http.Client] that sends the Nextcloud CSRF token.
@@ -10,6 +11,7 @@ import 'package:nextcloud/nextcloud.dart';
 /// long as we send the OCS-APIRequest header, but the server has a bug that only triggers when you also send the
 /// cookies.
 /// {@endtemplate}
+@internal
 final class WebDavCSRFClient with http.BaseClient {
   /// Creates a new CSRF client that executes requests through the given [DynamiteClient].
   WebDavCSRFClient(this._inner);

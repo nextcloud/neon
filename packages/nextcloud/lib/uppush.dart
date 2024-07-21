@@ -1,8 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/uppush.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/uppush/uppush.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/uppush.openapi.dart';
+export 'src/api/uppush/uppush.openapi.dart';
 
 // ignore: public_member_api_docs
 extension UppushExtension on NextcloudClient {

@@ -1,9 +1,9 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/api/notifications.openapi.dart';
-import 'package:nextcloud/src/client.dart';
+import 'package:nextcloud/src/api/notifications/notifications.openapi.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/notifications.openapi.dart';
-export 'src/helpers/notifications.dart';
+export 'src/api/notifications/notifications.openapi.dart';
+export 'src/api/notifications/notifications_helpers.dart';
 
 // ignore: public_member_api_docs
 extension NotificationsExtension on NextcloudClient {

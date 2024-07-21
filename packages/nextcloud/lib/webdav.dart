@@ -1,14 +1,8 @@
 // coverage:ignore-file
-import 'package:nextcloud/src/client.dart';
-import 'package:nextcloud/src/webdav/client.dart';
+import 'package:nextcloud/src/api/webdav/webdav_client.dart';
+import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/webdav/client.dart';
-export 'src/webdav/file.dart';
-export 'src/webdav/models.dart';
-export 'src/webdav/path_uri.dart';
-export 'src/webdav/props.dart';
-export 'src/webdav/utils.dart' hide DurationXMLConverter, constructUri;
-export 'src/webdav/webdav.dart';
+export 'src/api/webdav/webdav.dart' hide DurationXMLConverter, WebDavCSRFClient, constructUri, parseWebDavOptions;
 
 // ignore: public_member_api_docs
 extension WebDAVExtension on NextcloudClient {

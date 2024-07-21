@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/src/api/core.openapi.dart' as core;
-import 'package:nextcloud/src/helpers/common.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/src/models/models.dart';
 import 'package:version/version.dart';
 
 /// Minimum version of core/Server supported

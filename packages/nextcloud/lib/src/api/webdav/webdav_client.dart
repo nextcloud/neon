@@ -5,13 +5,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
-import 'package:nextcloud/src/client.dart';
-import 'package:nextcloud/src/webdav/csrf_client.dart';
-import 'package:nextcloud/src/webdav/models.dart';
-import 'package:nextcloud/src/webdav/path_uri.dart';
-import 'package:nextcloud/src/webdav/props.dart';
-import 'package:nextcloud/src/webdav/utils.dart';
-import 'package:nextcloud/src/webdav/webdav.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' show File, FileStat;
 

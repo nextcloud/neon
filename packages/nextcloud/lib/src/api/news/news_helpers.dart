@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud/src/api/news.openapi.dart' as news;
-import 'package:nextcloud/src/helpers/common.dart';
+import 'package:nextcloud/src/api/news/news.openapi.dart' as news;
+import 'package:nextcloud/src/models/models.dart';
 import 'package:version/version.dart';
 
 /// Minimum API version of the news app supported
