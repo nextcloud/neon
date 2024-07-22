@@ -70,8 +70,14 @@ class WebDavClient {
   /// See:
   ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
   ///  * [mkcol_Request] for the request sent by this method.
-  Future<http.StreamedResponse> mkcol(PathUri path) {
+  Future<http.StreamedResponse> mkcol(
+    PathUri path, {
+    Map<String, String>? headers,
+  }) {
     final request = mkcol_Request(path);
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }
@@ -132,6 +138,7 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    Map<String, String>? headers,
   }) {
     final request = put_Request(
       localData,
@@ -139,6 +146,9 @@ class WebDavClient {
       lastModified: lastModified,
       created: created,
     );
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }
@@ -513,12 +523,16 @@ class WebDavClient {
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
+    Map<String, String>? headers,
   }) {
     final request = move_Request(
       sourcePath,
       destinationPath,
       overwrite: overwrite,
     );
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }

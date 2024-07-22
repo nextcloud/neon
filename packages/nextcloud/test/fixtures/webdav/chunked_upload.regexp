@@ -1,0 +1,37 @@
+MKCOL http://localhost/remote\.php/dav/uploads/user1/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}
+authorization: Bearer mock
+content-type: application/xml
+destination: //:80/remote\.php/dav/files/user1/test/test\.bin
+ocs-apirequest: true
+requesttoken: token
+PUT http://localhost/remote\.php/dav/uploads/user1/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/1
+authorization: Bearer mock
+content-length: 10485760
+content-type: application/xml
+destination: //:80/remote\.php/dav/files/user1/test/test\.bin
+oc-total-length: 15728640
+ocs-apirequest: true
+requesttoken: token
+.+
+PUT http://localhost/remote\.php/dav/uploads/user1/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/2
+authorization: Bearer mock
+content-length: 5242880
+content-type: application/xml
+destination: //:80/remote\.php/dav/files/user1/test/test\.bin
+oc-total-length: 15728640
+ocs-apirequest: true
+requesttoken: token
+.+
+MOVE http://localhost/remote\.php/dav/uploads/user1/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/\.file
+destination: //:80/remote\.php/dav/files/user1/test/test\.bin
+oc-total-length: 15728640
+ocs-apirequest: true
+requesttoken: token
+x-oc-ctime: 0
+x-oc-mtime: 31536000
+PROPFIND http://localhost/remote\.php/webdav/test/test\.bin
+authorization: Bearer mock
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><d:getcontentlength/><d:getlastmodified/><nc:creation_time/></d:prop></d:propfind>

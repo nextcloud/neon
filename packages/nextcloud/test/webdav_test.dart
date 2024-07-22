@@ -4,11 +4,13 @@ import 'dart:typed_data';
 
 import 'package:mocktail/mocktail.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/src/api/webdav/chunked_upload_client.dart';
 import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
 class MockCallbackFunction extends Mock {
@@ -213,6 +215,44 @@ void main() {
         await client.webdav().delete(PathUri.parse('test'));
 
         await container.destroy();
+      });
+
+      test('Chunked upload', () async {
+        final chunkedUploadClient = ChunkedUploadClient(client, 'user1');
+
+        final chunkedUpload = await chunkedUploadClient.start(PathUri.parse('test/test.bin'));
+
+        final chunk1 = Uint8List.fromList(List.generate(10 * pow(1024, 2).toInt(), (i) => 1));
+        final chunk2 = Uint8List.fromList(List.generate(5 * pow(1024, 2).toInt(), (i) => 2));
+        final combined = Uint8List.fromList(chunk1 + chunk2);
+
+        await chunkedUploadClient.uploadChunk(chunkedUpload, 1, chunk1, combined.lengthInBytes);
+        await chunkedUploadClient.uploadChunk(chunkedUpload, 2, chunk2, combined.lengthInBytes);
+
+        final lastModified = tz.TZDateTime(tz.UTC, 1971);
+        final created = tz.TZDateTime(tz.UTC, 1970);
+
+        await chunkedUploadClient.assembleChunks(
+          chunkedUpload,
+          combined.lengthInBytes,
+          lastModified: lastModified,
+          created: created,
+        );
+
+        final result = await client.webdav().propfind(
+              PathUri.parse('test/test.bin'),
+              prop: const WebDavPropWithoutValues.fromBools(
+                davGetlastmodified: true,
+                davGetcontentlength: true,
+                ncCreationTime: true,
+              ),
+            );
+        final response = result.toWebDavFiles().single;
+
+        expect(response.path, PathUri.parse('test/test.bin'));
+        expect(response.lastModified, lastModified);
+        expect(response.createdDate, created);
+        expect(response.size, combined.lengthInBytes);
       });
 
       test('List directory', () async {
