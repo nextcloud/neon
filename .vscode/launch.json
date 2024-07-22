@@ -5,21 +5,33 @@
       "name": "app",
       "cwd": "packages/app",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      "args": [
+        "--web-browser-flag",
+        "--disable-web-security"
+      ]
     },
     {
       "name": "app (profile mode)",
       "cwd": "packages/app",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "profile"
+      "flutterMode": "profile",
+      "args": [
+        "--web-browser-flag",
+        "--disable-web-security"
+      ]
     },
     {
       "name": "app (release mode)",
       "cwd": "packages/app",
       "request": "launch",
       "type": "dart",
-      "flutterMode": "release"
+      "flutterMode": "release",
+      "args": [
+        "--web-browser-flag",
+        "--disable-web-security"
+      ]
     }
   ]
 }
