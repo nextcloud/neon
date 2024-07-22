@@ -67,11 +67,11 @@ class FilesDownloadTaskIO extends FilesTaskIO implements FilesDownloadTask {
   });
 
   Future<void> execute(NextcloudClient client) async {
-    await client.webdav.getFile(
-      uri,
-      file,
-      onProgress: progressController.add,
-    );
+    await client.webdav().getFile(
+          uri,
+          file,
+          onProgress: progressController.add,
+        );
     await progressController.close();
   }
 }
@@ -91,13 +91,13 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   late tz.TZDateTime lastModified = tz.TZDateTime.from(_stat.modified, tz.UTC);
 
   Future<void> execute(NextcloudClient client) async {
-    await client.webdav.putFile(
-      file,
-      _stat,
-      uri,
-      lastModified: _stat.modified,
-      onProgress: progressController.add,
-    );
+    await client.webdav().putFile(
+          file,
+          _stat,
+          uri,
+          lastModified: _stat.modified,
+          onProgress: progressController.add,
+        );
     await progressController.close();
   }
 }
@@ -108,10 +108,10 @@ class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTa
   });
 
   Future<void> execute(NextcloudClient client) async {
-    final stream = client.webdav.getStream(
-      uri,
-      onProgress: progressController.add,
-    );
+    final stream = client.webdav().getStream(
+          uri,
+          onProgress: progressController.add,
+        );
     await stream.pipe(_stream);
     await progressController.close();
   }
@@ -134,13 +134,13 @@ class FilesUploadTaskMemory extends FilesTaskMemory implements FilesUploadTask {
   final tz.TZDateTime? lastModified;
 
   Future<void> execute(NextcloudClient client) async {
-    await client.webdav.putStream(
-      _stream.stream,
-      uri,
-      lastModified: lastModified,
-      contentLength: size,
-      onProgress: progressController.add,
-    );
+    await client.webdav().putStream(
+          _stream.stream,
+          uri,
+          lastModified: lastModified,
+          contentLength: size,
+          onProgress: progressController.add,
+        );
     await progressController.close();
   }
 }

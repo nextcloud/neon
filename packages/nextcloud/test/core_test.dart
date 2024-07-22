@@ -133,10 +133,10 @@ void main() {
       group('Preview', () {
         test('Get', () async {
           final file = File('test/files/test.png');
-          await client.webdav.putFile(file, file.statSync(), PathUri.parse('preview.png'));
+          await client.webdav().putFile(file, file.statSync(), PathUri.parse('preview.png'));
           addTearDown(() async {
             closeFixture();
-            await client.webdav.delete(PathUri.parse('preview.png'));
+            await client.webdav().delete(PathUri.parse('preview.png'));
           });
 
           final response = await client.core.preview.getPreview(

@@ -13,7 +13,10 @@ import 'package:universal_io/io.dart' show File, FileStat;
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(this.rootClient) : csrfClient = WebDavCSRFClient(rootClient);
+  WebDavClient(
+    this.rootClient, {
+    this.endpoint = 'remote.php/webdav',
+  }) : csrfClient = WebDavCSRFClient(rootClient);
 
   // ignore: public_member_api_docs
   final NextcloudClient rootClient;
@@ -22,7 +25,12 @@ class WebDavClient {
   // TODO: Fix this bug in server.
   final WebDavCSRFClient csrfClient;
 
-  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
+  /// WebDAV endpoint used for all operations.
+  ///
+  /// Defaults to `remote.php/webdav` for accessing "Files".
+  final String endpoint;
+
+  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, endpoint, path);
 
   /// Request to get the WebDAV capabilities of the server.
   ///
