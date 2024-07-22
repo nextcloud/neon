@@ -46,7 +46,14 @@ extension TestNextcloudClient on NextcloudClient {
       appPassword = (result.stdout as String).split('\n')[1];
     }
 
+    final url = Uri(
+      scheme: 'http',
+      host: 'localhost',
+      port: container.port,
+    );
+
     final httpClient = NeonHttpClient(
+      baseURL: url,
       cookieStore: CookieStore(),
       client: getProxyHttpClient(
         onRequest: appendFixture,
@@ -54,11 +61,7 @@ extension TestNextcloudClient on NextcloudClient {
     );
 
     return NextcloudClient(
-      Uri(
-        scheme: 'http',
-        host: 'localhost',
-        port: container.port,
-      ),
+      url,
       loginName: username,
       password: username,
       appPassword: appPassword,

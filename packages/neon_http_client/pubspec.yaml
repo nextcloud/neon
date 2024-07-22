@@ -13,7 +13,9 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store
   http: ^1.0.0
+  logging: ^1.0.0
   meta: ^1.0.0
+  nextcloud: ^6.1.0
   universal_io: ^2.0.0
 
 dev_dependencies:

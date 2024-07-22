@@ -34,35 +34,54 @@ final class NeonHttpClient with http.BaseClient {
   /// A custom HTTP client can be provided through [client].
   /// Additionally a [cookieStore] can be specified to save cookies across requests.
   /// Some endpoints require the use of a cookies persistence.
-  NeonHttpClient({
+  factory NeonHttpClient({
+    required Uri baseURL,
     http.Client? client,
     Iterable<HttpInterceptor>? interceptors,
     String? userAgent,
     CookieStore? cookieStore,
     Duration? timeLimit,
-  })  : _baseClient = client ?? http.Client(),
-        _timeLimit = timeLimit,
-        interceptors = BuiltList.build((builder) {
-          if (interceptors != null) {
-            builder.addAll(interceptors);
-          }
+  }) {
+    final baseClient = client ?? http.Client();
+    final builtInterceptors = BuiltList<HttpInterceptor>.build((builder) {
+      if (interceptors != null) {
+        builder.addAll(interceptors);
+      }
 
-          if (cookieStore != null) {
-            builder.add(
-              CookieStoreInterceptor(cookieStore: cookieStore),
-            );
-          }
+      if (cookieStore != null) {
+        builder.add(
+          CookieStoreInterceptor(cookieStore: cookieStore),
+        );
+      }
 
-          if (userAgent != null) {
-            builder.add(
-              BaseHeaderInterceptor(
-                baseHeaders: {
-                  HttpHeaders.userAgentHeader: userAgent,
-                },
-              ),
-            );
-          }
-        });
+      if (userAgent != null) {
+        builder.add(
+          BaseHeaderInterceptor(
+            baseHeaders: {
+              HttpHeaders.userAgentHeader: userAgent,
+            },
+          ),
+        );
+      }
+
+      builder.add(
+        CSRFInterceptor(client: baseClient, baseURL: baseURL),
+      );
+    });
+
+    return NeonHttpClient._(
+      baseClient: baseClient,
+      interceptors: builtInterceptors,
+      timeLimit: timeLimit,
+    );
+  }
+
+  const NeonHttpClient._({
+    required http.Client baseClient,
+    required this.interceptors,
+    Duration? timeLimit,
+  })  : _baseClient = baseClient,
+        _timeLimit = timeLimit;
 
   final http.Client _baseClient;
 
