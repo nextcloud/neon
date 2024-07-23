@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_http_client/src/interceptors/interceptors.dart';
+import 'package:neon_http_client/src/utils/utils.dart';
 import 'package:universal_io/io.dart';
 
 /// An exception caused by an error in a [NeonHttpClient].
@@ -14,6 +17,12 @@ sealed class NeonHttpClientException extends http.ClientException {
 final class InterceptionException extends NeonHttpClientException {
   /// Creates a new interceptor failure exception.
   InterceptionException(super.message, [super.uri]);
+}
+
+/// An exception caused by a timed out http request.
+final class HttpTimeoutException extends NeonHttpClientException {
+  /// Creates a new exception that the request has timed out.
+  HttpTimeoutException(super.message, [super.uri]);
 }
 
 /// A http client for the Neon framework.
@@ -30,7 +39,9 @@ final class NeonHttpClient with http.BaseClient {
     Iterable<HttpInterceptor>? interceptors,
     String? userAgent,
     CookieStore? cookieStore,
+    Duration? timeLimit,
   })  : _baseClient = client ?? http.Client(),
+        _timeLimit = timeLimit,
         interceptors = BuiltList.build((builder) {
           if (interceptors != null) {
             builder.addAll(interceptors);
@@ -59,6 +70,9 @@ final class NeonHttpClient with http.BaseClient {
   @visibleForTesting
   final BuiltList<HttpInterceptor> interceptors;
 
+  /// Stop waiting for a response after timeLimit has passed.
+  final Duration? _timeLimit;
+
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     var interceptedRequest = request;
@@ -77,7 +91,12 @@ final class NeonHttpClient with http.BaseClient {
       }
     }
 
-    var interceptedResponse = await _baseClient.send(interceptedRequest);
+    http.StreamedResponse interceptedResponse;
+    try {
+      interceptedResponse = await _baseClient.send(interceptedRequest).maybeTimeout(_timeLimit);
+    } on TimeoutException catch (error) {
+      throw HttpTimeoutException(error.toString(), request.url);
+    }
 
     Uri url;
     if (interceptedResponse case http.BaseResponseWithUrl(url: final responseUrl)) {

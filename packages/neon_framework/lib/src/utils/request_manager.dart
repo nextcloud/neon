@@ -10,6 +10,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
+import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
@@ -37,11 +38,6 @@ typedef DeserializeCallback<T> = T Function(Uint8List);
 /// A request will not be retried if the returned status code is in the `500`
 /// range or if the request has timed out.
 const kMaxTries = 3;
-
-/// The default timeout for requests.
-///
-/// Requests that take longer than this duration will be canceled.
-const kDefaultTimeout = Duration(seconds: 30);
 
 /// A singleton class that handles requests to the Nextcloud API.
 ///
@@ -81,8 +77,6 @@ class RequestManager {
     required Converter<http.Response, R> converter,
     required UnwrapCallback<T, R> unwrap,
     AsyncValueGetter<Map<String, String>>? getCacheHeaders,
-    bool disableTimeout = false,
-    Duration timeLimit = kDefaultTimeout,
   }) async {
     if (subject.isClosed) {
       return;
@@ -125,10 +119,7 @@ class RequestManager {
       // Save the new cache parameters and return.
       if (parameters case CacheParameters(:final etag) when etag != null && getCacheHeaders != null) {
         try {
-          final newHeaders = await timeout(
-            getCacheHeaders.call,
-            timeLimit: timeLimit,
-          );
+          final newHeaders = await getCacheHeaders.call();
           if (subject.isClosed) {
             return;
           }
@@ -146,7 +137,7 @@ class RequestManager {
             subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
             return;
           }
-        } on TimeoutException catch (error) {
+        } on HttpTimeoutException catch (error) {
           _log.info(
             'Fetching cache parameters timed out. Assuming expired.',
             error,
@@ -171,24 +162,19 @@ class RequestManager {
       subject.add(subject.value.asLoading());
     }
 
+    var client = httpClient;
+    // Assume the request is for WebDAV if the Content-Type is application/xml,
+    if (request.headers['content-type']?.split(';').first == 'application/xml') {
+      client ??= account.client.webdav.csrfClient;
+    } else {
+      client ??= account.client;
+    }
+
     for (var i = 0; i < kMaxTries; i++) {
       try {
-        final response = await timeout(
-          () async {
-            var client = httpClient;
-            // Assume the request is for WebDAV if the Content-Type is application/xml,
-            if (request.headers['content-type']?.split(';').first == 'application/xml') {
-              client ??= account.client.webdav.csrfClient;
-            } else {
-              client ??= account.client;
-            }
+        final streamedResponse = await client.send(request);
+        final response = await http.Response.fromStream(streamedResponse);
 
-            final streamedResponse = await client.send(request);
-            return http.Response.fromStream(streamedResponse);
-          },
-          disableTimeout: disableTimeout,
-          timeLimit: timeLimit,
-        );
         if (subject.isClosed) {
           return;
         }
@@ -200,12 +186,8 @@ class RequestManager {
           response,
         );
         break;
-      } on TimeoutException catch (error, stackTrace) {
-        _log.info(
-          'Request timeout',
-          error,
-          stackTrace,
-        );
+      } on HttpTimeoutException catch (error) {
+        _log.info('Request timeout', error);
 
         if (subject.isClosed) {
           return;
