@@ -13,11 +13,13 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:neon_talk/l10n/localizations.dart';
 import 'package:neon_talk/src/blocs/room.dart';
 import 'package:neon_talk/src/widgets/message.dart';
 import 'package:neon_talk/src/widgets/message_input.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,9 +40,14 @@ Account mockTalkAccount() {
               'meta': {'status': '', 'statuscode': 0},
               'data': [
                 {
-                  'id': 'id',
-                  'label': 'label',
+                  'id': 'id1',
+                  'label': 'label1',
                   'source': 'groups',
+                },
+                {
+                  'id': 'id2',
+                  'label': 'label2',
+                  'source': 'users',
                 },
               ],
             },
@@ -49,6 +56,9 @@ Account mockTalkAccount() {
           headers: {'content-type': 'application/json'},
         );
       },
+    },
+    RegExp(r'/index\.php/avatar/.*'): {
+      'get': (match, bodyBytes) => Response('', 404),
     },
   });
 }
@@ -157,11 +167,27 @@ void main() {
   });
 
   testWidgets('Mention suggestions', (tester) async {
+    final userStatusBloc = MockUserStatusBloc();
+    when(() => userStatusBloc.statuses).thenAnswer(
+      (_) => BehaviorSubject.seeded(
+        BuiltMap({
+          'id2': Result.success(
+            user_status.Public(
+              (b) => b
+                ..userId = 'id1'
+                ..status = user_status.$Type.online,
+            ),
+          ),
+        }),
+      ),
+    );
+
     await tester.pumpWidgetWithAccessibility(
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
         providers: [
+          NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
           Provider<Account>.value(value: account),
         ],
@@ -177,16 +203,19 @@ void main() {
     await tester.enterText(find.byType(TextField), '123 @gr');
     await tester.pumpAndSettle();
 
-    expect(find.byType(ListTile), findsOne);
+    expect(find.byType(ListTile), findsExactly(2));
     expect(find.byIcon(AdaptiveIcons.group), findsOne);
-    expect(find.text('label'), findsOne);
-    expect(find.text('id'), findsOne);
+    expect(find.text('label1'), findsOne);
+    expect(find.text('id1'), findsOne);
+    expect(find.byType(NeonUserAvatar), findsOne);
+    expect(find.text('label2'), findsOne);
+    expect(find.text('id2'), findsOne);
 
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/message_input_mention_suggestions.png'));
 
-    await tester.tap(find.byType(ListTile));
+    await tester.tap(find.byType(ListTile).first);
     await tester.testTextInput.receiveAction(TextInputAction.send);
-    verify(() => bloc.sendMessage('123 @"id" ')).called(1);
+    verify(() => bloc.sendMessage('123 @"id1" ')).called(1);
   });
 
   testWidgets('Multiline', (tester) async {
