@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_implementing_value_types, public_member_api_docs, missing_override_of_must_be_overridden
 
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 // ignore: depend_on_referenced_packages
@@ -103,3 +104,5 @@ class MockGoRouterState extends Mock implements GoRouterState {}
 class MockUrlLauncher extends Mock with MockPlatformInterfaceMixin implements UrlLauncherPlatform {}
 
 class MockReferencesBloc extends Mock implements ReferencesBloc {}
+
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
