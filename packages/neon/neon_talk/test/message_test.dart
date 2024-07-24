@@ -996,6 +996,45 @@ void main() {
         );
       });
 
+      testWidgets('Close', (tester) async {
+        SharedPreferences.setMockInitialValues({});
+
+        when(() => room.readOnly).thenReturn(0);
+        when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+        when(() => room.actorId).thenReturn('test');
+
+        await tester.pumpWidgetWithAccessibility(
+          wrapWidget(
+            providers: [
+              Provider<Account>.value(value: account),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+              NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
+            ],
+            child: TalkCommentMessage(
+              room: room,
+              chatMessage: chatMessage,
+              lastCommonRead: 0,
+            ),
+          ),
+        );
+
+        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+        await gesture.addPointer(location: Offset.zero);
+        addTearDown(gesture.removePointer);
+        await tester.pump();
+        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+        expect(find.byIcon(Icons.add_reaction_outlined), findsOne);
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+        expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
+      });
+
       group('Add reaction', () {
         testWidgets('Allowed', (tester) async {
           SharedPreferences.setMockInitialValues({});
