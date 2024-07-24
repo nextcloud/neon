@@ -178,7 +178,8 @@ void main() {
       testWidgets('Other', (tester) async {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
-        when(() => chatMessage.actorId).thenReturn('test');
+        when(() => chatMessage.actorId).thenReturn('other');
+        when(() => chatMessage.actorDisplayName).thenReturn('other');
         when(() => chatMessage.message).thenReturn('test');
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.id).thenReturn(0);
@@ -202,7 +203,7 @@ void main() {
 
         expect(find.byType(TalkMessagePreview), findsOne);
         expect(find.byType(TalkUnreadIndicator), findsNothing);
-        expect(find.byType(TalkReadIndicator), findsOne);
+        expect(find.byType(TalkReadIndicator), findsNothing);
         expect(find.text('1h'), findsOne);
         await expectLater(
           find.byType(TalkMainPage),
