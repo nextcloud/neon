@@ -46,6 +46,7 @@ void main() {
     when(() => room.isCustomAvatar).thenReturn(false);
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
     when(() => room.actorId).thenReturn('');
+    when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
 
     bloc = MockRoomBloc();
     when(() => bloc.errors).thenAnswer((_) => StreamController<Object>().stream);
@@ -120,6 +121,7 @@ void main() {
     when(() => chatMessage1.reactions).thenReturn(BuiltMap());
     when(() => chatMessage1.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage1.systemMessage).thenReturn('');
+    when(() => chatMessage1.isReplyable).thenReturn(true);
 
     final chatMessage2 = MockChatMessageWithParent();
     when(() => chatMessage2.id).thenReturn(2);
@@ -132,6 +134,7 @@ void main() {
     when(() => chatMessage2.reactions).thenReturn(BuiltMap());
     when(() => chatMessage2.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage2.systemMessage).thenReturn('');
+    when(() => chatMessage2.isReplyable).thenReturn(true);
 
     final chatMessage3 = MockChatMessageWithParent();
     when(() => chatMessage3.id).thenReturn(3);
@@ -144,6 +147,7 @@ void main() {
     when(() => chatMessage3.reactions).thenReturn(BuiltMap());
     when(() => chatMessage3.messageParameters).thenReturn(BuiltMap());
     when(() => chatMessage3.systemMessage).thenReturn('');
+    when(() => chatMessage3.isReplyable).thenReturn(true);
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
