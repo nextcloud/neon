@@ -40,11 +40,12 @@ void main() {
   group(NeonHttpClient, () {
     test('adds user agent', () {
       client = NeonHttpClient(
+        baseURL: Uri(),
         userAgent: 'NeonTest',
       );
 
       expect(
-        client.interceptors.single,
+        client.interceptors.first,
         isA<BaseHeaderInterceptor>(),
       );
     });
@@ -53,12 +54,27 @@ void main() {
       final cookieStore = _MockCookieStore();
 
       client = NeonHttpClient(
+        baseURL: Uri(),
         cookieStore: cookieStore,
       );
 
       expect(
-        client.interceptors.single,
+        client.interceptors.first,
         isA<CookieStoreInterceptor>(),
+      );
+    });
+
+    test('adds csrf interceptor after cookie store', () {
+      final cookieStore = _MockCookieStore();
+
+      client = NeonHttpClient(
+        baseURL: Uri(),
+        cookieStore: cookieStore,
+      );
+
+      expect(
+        client.interceptors.last,
+        isA<CSRFInterceptor>(),
       );
     });
 
@@ -69,6 +85,7 @@ void main() {
         interceptor = _MockInterceptor();
 
         client = NeonHttpClient(
+          baseURL: Uri(),
           client: mockedClient,
           interceptors: [interceptor],
         );
@@ -160,6 +177,7 @@ void main() {
     group('timeout', () {
       test('does not time out without timeout', () async {
         client = NeonHttpClient(
+          baseURL: Uri(),
           client: MockClient((request) async {
             await Future<void>.delayed(const Duration(milliseconds: 10));
 
@@ -175,6 +193,7 @@ void main() {
 
       test('does time out', () async {
         client = NeonHttpClient(
+          baseURL: Uri(),
           timeLimit: const Duration(milliseconds: 3),
           client: MockClient((request) async {
             await Future<void>.delayed(const Duration(milliseconds: 10));

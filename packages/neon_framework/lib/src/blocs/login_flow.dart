@@ -42,6 +42,7 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
     serverURL,
     httpClient: NeonHttpClient(
       userAgent: neonUserAgent,
+      baseURL: serverURL,
     ),
   );
   final resultController = StreamController<core.LoginFlowV2Credentials>();

@@ -79,6 +79,7 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
       userAgent: userAgent,
       client: this.httpClient,
       timeLimit: kDefaultTimeout,
+      baseURL: serverURL,
     );
 
     return NextcloudClient(

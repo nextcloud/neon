@@ -46,6 +46,7 @@ class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccoun
     password: password,
     httpClient: NeonHttpClient(
       userAgent: neonUserAgent,
+      baseURL: serverURL,
     ),
   );
 

@@ -37,6 +37,7 @@ class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckS
     serverURL,
     httpClient: NeonHttpClient(
       userAgent: neonUserAgent,
+      baseURL: serverURL,
     ),
   );
 

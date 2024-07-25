@@ -12,7 +12,6 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/utils.dart';
-import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -162,13 +161,7 @@ class RequestManager {
       subject.add(subject.value.asLoading());
     }
 
-    var client = httpClient;
-    // Assume the request is for WebDAV if the Content-Type is application/xml,
-    if (request.headers['content-type']?.split(';').first == 'application/xml') {
-      client ??= account.client.webdav.csrfClient;
-    } else {
-      client ??= account.client;
-    }
+    final client = httpClient ?? account.client;
 
     for (var i = 0; i < kMaxTries; i++) {
       try {
