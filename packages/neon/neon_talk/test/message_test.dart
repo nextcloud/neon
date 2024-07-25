@@ -32,6 +32,10 @@ import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
+class MockOnReferenceClickedCallback extends Mock {
+  void call(String reference);
+}
+
 Widget wrapWidget({
   required Widget child,
   List<SingleChildWidget> providers = const [],
@@ -992,6 +996,45 @@ void main() {
         );
       });
 
+      testWidgets('Close', (tester) async {
+        SharedPreferences.setMockInitialValues({});
+
+        when(() => room.readOnly).thenReturn(0);
+        when(() => room.permissions).thenReturn(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary);
+        when(() => room.actorId).thenReturn('test');
+
+        await tester.pumpWidgetWithAccessibility(
+          wrapWidget(
+            providers: [
+              Provider<Account>.value(value: account),
+              NeonProvider<TalkRoomBloc>.value(value: roomBloc),
+              NeonProvider<ReferencesBloc>.value(value: referencesBloc),
+              NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
+            ],
+            child: TalkCommentMessage(
+              room: room,
+              chatMessage: chatMessage,
+              lastCommonRead: 0,
+            ),
+          ),
+        );
+
+        final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
+        await gesture.addPointer(location: Offset.zero);
+        addTearDown(gesture.removePointer);
+        await tester.pump();
+        await gesture.moveTo(tester.getCenter(find.byType(TalkCommentMessage)));
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+        expect(find.byIcon(Icons.add_reaction_outlined), findsOne);
+
+        await tester.tap(find.byIcon(Icons.more_vert));
+        await tester.pumpAndSettle();
+        expect(find.byIcon(Icons.add_reaction_outlined), findsNothing);
+      });
+
       group('Add reaction', () {
         testWidgets('Allowed', (tester) async {
           SharedPreferences.setMockInitialValues({});
@@ -1701,6 +1744,38 @@ void main() {
       expect((spans[2] as TextSpan).text, ' 456 ');
       expect((spans[3] as WidgetSpan).child, isA<TalkRichObjectMention>());
       expect((spans[4] as TextSpan).text, ' 789');
+    });
+
+    test('References', () {
+      final chatMessage = MockChatMessage();
+      when(() => chatMessage.message).thenReturn('a 123 b 456 c');
+      when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
+
+      final callback = MockOnReferenceClickedCallback();
+
+      final spans = buildChatMessage(
+        chatMessage: chatMessage,
+        references: BuiltList(['123', '456']),
+        style: const TextStyle(),
+        onReferenceClicked: callback.call,
+      ).children!;
+      expect(spans, hasLength(5));
+
+      expect((spans[0] as TextSpan).text, 'a ');
+
+      final link1 = (spans[1] as WidgetSpan).child as InkWell;
+      expect((link1.child! as Text).data, '123');
+      link1.onTap!();
+      verify(() => callback('123')).called(1);
+
+      expect((spans[2] as TextSpan).text, ' b ');
+
+      final link2 = (spans[3] as WidgetSpan).child as InkWell;
+      expect((link2.child! as Text).data, '456');
+      link2.onTap!();
+      verify(() => callback('456')).called(1);
+
+      expect((spans[4] as TextSpan).text, ' c');
     });
   });
 }

@@ -39,11 +39,8 @@ void main() {
     when(() => openGraphObject.name).thenReturn('name');
     when(() => openGraphObject.link).thenReturn('/link');
 
-    final router = MockGoRouter();
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        router: router,
         providers: [
           Provider<Account>.value(value: account),
         ],
@@ -61,6 +58,33 @@ void main() {
     await expectLater(find.byType(TalkReferencePreview), matchesGoldenFile('goldens/reference_preview.png'));
   });
 
+  testWidgets('Opens link', (tester) async {
+    final account = MockAccount();
+    when(() => account.client).thenReturn(NextcloudClient(Uri()));
+
+    final openGraphObject = MockOpenGraphObject();
+    when(() => openGraphObject.name).thenReturn('name');
+    when(() => openGraphObject.link).thenReturn('/link');
+
+    final router = MockGoRouter();
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        router: router,
+        providers: [
+          Provider<Account>.value(value: account),
+        ],
+        child: TalkReferencePreview(
+          url: '/link',
+          openGraphObject: openGraphObject,
+        ),
+      ),
+    );
+
+    await tester.tap(find.byType(TalkReferencePreview));
+    verify(() => router.go('/link')).called(1);
+  });
+
   testWidgets('With thumb', (tester) async {
     final account = MockAccount();
     when(() => account.client).thenReturn(NextcloudClient(Uri()));
@@ -70,11 +94,8 @@ void main() {
     when(() => openGraphObject.name).thenReturn('name');
     when(() => openGraphObject.link).thenReturn('/link');
 
-    final router = MockGoRouter();
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        router: router,
         providers: [
           Provider<Account>.value(value: account),
         ],
@@ -97,11 +118,8 @@ void main() {
     when(() => openGraphObject.name).thenReturn('name');
     when(() => openGraphObject.description).thenReturn('description');
 
-    final router = MockGoRouter();
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        router: router,
         child: TalkReferencePreview(
           url: '/link',
           openGraphObject: openGraphObject,

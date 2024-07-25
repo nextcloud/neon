@@ -22,6 +22,7 @@ class TestApp extends StatelessWidget {
     this.wrapMaterial = true,
     this.providers = const [],
     this.router,
+    this.navigatorObserver,
     super.key,
   });
 
@@ -65,6 +66,9 @@ class TestApp extends StatelessWidget {
   /// Wraps the [child] using a GoRouter for mocking.
   final MockGoRouter? router;
 
+  /// Observer to verify Navigator events happen.
+  final MockNavigatorObserver? navigatorObserver;
+
   @override
   Widget build(BuildContext context) {
     final theme = AppTheme.test(
@@ -95,6 +99,9 @@ class TestApp extends StatelessWidget {
         ...?supportedLocales,
       ],
       locale: locale,
+      navigatorObservers: [
+        if (navigatorObserver != null) navigatorObserver!,
+      ],
       home: child,
     );
 

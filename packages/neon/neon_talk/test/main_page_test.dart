@@ -33,6 +33,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(spreed.RoomType.group);
+    registerFallbackValue(MaterialPageRoute<dynamic>(builder: (_) => const SizedBox()) as Route<dynamic>);
 
     tzdata.initializeTimeZones();
     tz.setLocalLocation(tz.getLocation('Europe/Berlin'));
@@ -83,6 +84,31 @@ void main() {
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/main_page_error.png'));
 
     await controller.close();
+  });
+
+  testWidgets('Open room', (tester) async {
+    when(() => room.lastMessage).thenReturn((baseMessage: null, builtListNever: null, chatMessage: null));
+    when(() => room.unreadMessages).thenReturn(0);
+
+    final navigatorObserver = MockNavigatorObserver();
+
+    await tester.pumpWidgetWithAccessibility(
+      TestApp(
+        localizationsDelegates: TalkLocalizations.localizationsDelegates,
+        supportedLocales: TalkLocalizations.supportedLocales,
+        providers: [
+          Provider<Account>.value(value: account),
+          NeonProvider<TalkBloc>.value(value: bloc),
+        ],
+        navigatorObserver: navigatorObserver,
+        child: const TalkMainPage(),
+      ),
+    );
+
+    await tester.tap(find.byType(ListTile));
+
+    // First push is the main page
+    verify(() => navigatorObserver.didPush(any(), any())).called(2);
   });
 
   testWidgets('Without message preview', (tester) async {
@@ -178,7 +204,8 @@ void main() {
       testWidgets('Other', (tester) async {
         final chatMessage = MockChatMessage();
         when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
-        when(() => chatMessage.actorId).thenReturn('test');
+        when(() => chatMessage.actorId).thenReturn('other');
+        when(() => chatMessage.actorDisplayName).thenReturn('other');
         when(() => chatMessage.message).thenReturn('test');
         when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
         when(() => chatMessage.id).thenReturn(0);
@@ -202,7 +229,7 @@ void main() {
 
         expect(find.byType(TalkMessagePreview), findsOne);
         expect(find.byType(TalkUnreadIndicator), findsNothing);
-        expect(find.byType(TalkReadIndicator), findsOne);
+        expect(find.byType(TalkReadIndicator), findsNothing);
         expect(find.text('1h'), findsOne);
         await expectLater(
           find.byType(TalkMainPage),

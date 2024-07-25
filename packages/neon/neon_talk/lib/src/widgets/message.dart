@@ -125,7 +125,6 @@ TextSpan buildChatMessage({
               onTap: () {
                 onReferenceClicked(reference);
               },
-              onHover: (_) {},
               child: Text(
                 part,
                 style: style.copyWith(
