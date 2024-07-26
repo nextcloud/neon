@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
@@ -32,13 +34,14 @@ final class WebDavCSRFClient with http.BaseClient {
     if (_token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
-      final streamedResponse = await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php')));
+      final streamedResponse =
+          await _inner.send(http.Request('GET', Uri.parse('${_inner.baseURL}/index.php/csrftoken')));
       final response = await http.Response.fromStream(streamedResponse);
       if (streamedResponse.statusCode >= 300) {
         throw DynamiteStatusCodeException(response);
       }
 
-      _token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+      _token = (json.decode(response.body) as Map<String, dynamic>)['token']! as String;
     }
 
     request.headers.addAll({

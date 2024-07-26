@@ -15,7 +15,7 @@ BaseClient getProxyHttpClient({
   final realClient = Client();
   return MockClient.streaming((baseRequest, bytesStream) async {
     final bodyBytes = await bytesStream.toBytes();
-    if (baseRequest.url.path != '/index.php') {
+    if (baseRequest.url.path != '/index.php/csrftoken') {
       final fixture = _formatHttpRequest(baseRequest, bodyBytes);
       onRequest(fixture);
     }

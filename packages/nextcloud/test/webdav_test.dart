@@ -148,8 +148,8 @@ void main() {
         request.listen(
           (_) {},
           onDone: () async {
-            if (request.uri.path == '/index.php') {
-              final response = request.response..write('data-requesttoken="token"');
+            if (request.uri.path == '/index.php/csrftoken') {
+              final response = request.response..write('{"token":"token"}');
               await response.close();
 
               return;
