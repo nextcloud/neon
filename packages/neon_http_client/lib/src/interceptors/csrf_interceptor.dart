@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
@@ -63,12 +65,12 @@ final class CSRFInterceptor implements HttpInterceptor {
     if (token == null) {
       _log.fine('Acquiring new CSRF token for WebDAV');
 
-      final response = await _client.get(Uri.parse('$_baseURL/index.php'));
+      final response = await _client.get(Uri.parse('$_baseURL/index.php/csrftoken'));
       if (response.statusCode >= 300) {
         throw DynamiteStatusCodeException(response);
       }
 
-      token = RegExp('data-requesttoken="([^"]*)"').firstMatch(response.body)!.group(1);
+      token = (json.decode(response.body) as Map<String, dynamic>)['token']! as String;
     }
 
     request.headers.addAll({

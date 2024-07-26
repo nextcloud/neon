@@ -87,7 +87,7 @@ void main() {
       'requests and attaches a new token on web ',
       () async {
         final mockedClient = MockClient((request) async {
-          return Response('data-requesttoken="token"', 200);
+          return Response('{"token":"token"}', 200);
         });
 
         final interceptor = CSRFInterceptor(
