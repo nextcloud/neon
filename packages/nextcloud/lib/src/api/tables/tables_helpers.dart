@@ -18,7 +18,6 @@ extension TablesVersionCheck on tables.$Client {
     return VersionCheck(
       versions: version != null ? BuiltList([Version.parse(version)]) : null,
       minimumVersion: minAppVersion,
-      maximumMajor: null,
     );
   }
 }

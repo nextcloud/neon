@@ -8,9 +8,6 @@ import 'package:version/version.dart';
 /// Minimum version of core/Server supported
 final minVersion = Version(28, 0, 0);
 
-/// Maximum major of core/Server supported
-const maxMajor = 29;
-
 /// Checks whether the server [version] is a dev, beta or RC version.
 bool _isDevelopmentServerVersion(String version) {
   return version.contains('dev') || version.contains('beta') || version.contains('RC');
@@ -29,7 +26,6 @@ extension CoreVersionCheck on core.$Client {
     return VersionCheck(
       versions: BuiltList([version]),
       minimumVersion: minVersion,
-      maximumMajor: maxMajor,
       isSupportedOverride: _isDevelopmentServerVersion(capabilities.version.string) ? true : null,
     );
   }
@@ -40,7 +36,6 @@ extension CoreStatusVersionCheck on core.Status {
   VersionCheck get versionCheck => VersionCheck(
         versions: BuiltList([Version.parse(version)]),
         minimumVersion: minVersion,
-        maximumMajor: maxMajor,
         isSupportedOverride: _isDevelopmentServerVersion(versionstring) ? true : null,
       );
 }

@@ -329,13 +329,11 @@ void main() {
     final versionCheckCore = VersionCheck(
       versions: BuiltList([Version(0, 0, 0)]),
       minimumVersion: core.minVersion,
-      maximumMajor: core.maxMajor,
     );
 
     final versionCheck1 = VersionCheck(
       versions: BuiltList([Version(2, 0, 0)]),
       minimumVersion: Version(2, 0, 0),
-      maximumMajor: 2,
     );
 
     final appImplementation1 = MockAppImplementation();
@@ -346,7 +344,6 @@ void main() {
     final versionCheck2 = VersionCheck(
       versions: BuiltList([Version(1, 0, 0)]),
       minimumVersion: Version(2, 0, 0),
-      maximumMajor: 2,
     );
 
     final appImplementation2 = MockAppImplementation();

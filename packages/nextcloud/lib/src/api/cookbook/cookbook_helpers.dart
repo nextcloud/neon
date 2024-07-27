@@ -29,7 +29,6 @@ extension CookbookVersionCheck on cookbook.$Client {
     return VersionCheck(
       versions: versions,
       minimumVersion: minAppVersion,
-      maximumMajor: null,
     );
   }
 }

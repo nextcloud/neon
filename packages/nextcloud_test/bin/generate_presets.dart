@@ -32,6 +32,9 @@ Future<void> main() async {
 
     for (final release in app.releases) {
       final serverVersion = release.findLatestServerVersion(serverVersions);
+      if (serverVersion == null) {
+        continue;
+      }
 
       final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
 
@@ -108,7 +111,7 @@ Future<List<Version>> _getServerVersions(http.Client httpClient) async {
         final version = Version.parse(tag['name'] as String);
         final normalizedVersion = Version(version.major, version.minor, 0);
 
-        if (version < core.minVersion || version.major > core.maxMajor) {
+        if (version < core.minVersion) {
           continue;
         }
 
@@ -161,9 +164,6 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
           Version.parse(rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''));
 
       if (maximumServerVersionRequirement < core.minVersion) {
-        continue;
-      }
-      if (minimumServerVersionRequirement.major > core.maxMajor) {
         continue;
       }
 

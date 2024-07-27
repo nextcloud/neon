@@ -17,7 +17,6 @@ extension NotesVersionCheck on notes.$Client {
     return VersionCheck(
       versions: versions?.map(Version.parse).toBuiltList(),
       minimumVersion: minVersion,
-      maximumMajor: null,
     );
   }
 }
