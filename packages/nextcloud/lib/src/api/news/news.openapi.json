@@ -329,6 +329,9 @@
     },
     "/index.php/apps/news/api/v1-3/folders": {
       "get": {
+        "tags": [
+          "folders"
+        ],
         "operationId": "list-folders",
         "responses": {
           "200": {
@@ -344,6 +347,9 @@
         }
       },
       "post": {
+        "tags": [
+          "folders"
+        ],
         "operationId": "create-folder",
         "parameters": [
           {
@@ -381,6 +387,9 @@
         }
       ],
       "put": {
+        "tags": [
+          "folders"
+        ],
         "operationId": "rename-folder",
         "parameters": [
           {
@@ -399,6 +408,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "folders"
+        ],
         "operationId": "delete-folder",
         "responses": {
           "200": {
@@ -420,6 +432,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "folders"
+        ],
         "operationId": "mark-folder-as-read",
         "parameters": [
           {
@@ -441,6 +456,9 @@
     },
     "/index.php/apps/news/api/v1-3/feeds": {
       "get": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "list-feeds",
         "responses": {
           "200": {
@@ -456,6 +474,9 @@
         }
       },
       "post": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "add-feed",
         "parameters": [
           {
@@ -501,6 +522,9 @@
         }
       ],
       "delete": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "delete-feed",
         "responses": {
           "200": {
@@ -521,6 +545,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "move-feed",
         "parameters": [
           {
@@ -551,6 +578,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "rename-feed",
         "parameters": [
           {
@@ -581,6 +611,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "feeds"
+        ],
         "operationId": "mark-feed-as-read",
         "parameters": [
           {
@@ -601,6 +634,9 @@
     },
     "/index.php/apps/news/api/v1-3/items": {
       "get": {
+        "tags": [
+          "items"
+        ],
         "operationId": "list-articles",
         "parameters": [
           {
@@ -674,6 +710,9 @@
     },
     "/index.php/apps/news/api/v1-3/items/updated": {
       "get": {
+        "tags": [
+          "items"
+        ],
         "operationId": "list-updated-articles",
         "parameters": [
           {
@@ -730,6 +769,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "items"
+        ],
         "operationId": "mark-article-as-read",
         "responses": {
           "200": {
@@ -750,6 +792,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "items"
+        ],
         "operationId": "mark-article-as-unread",
         "responses": {
           "200": {
@@ -770,6 +815,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "items"
+        ],
         "operationId": "star-article",
         "responses": {
           "200": {
@@ -790,6 +838,9 @@
         }
       ],
       "post": {
+        "tags": [
+          "items"
+        ],
         "operationId": "unstar-article",
         "responses": {
           "200": {

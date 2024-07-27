@@ -67,7 +67,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   @override
   Future<void> markArticleAsRead() async {
     await wrapAction(() async {
-      await account.client.news.markArticleAsRead(itemId: id);
+      await account.client.news.items.markArticleAsRead(itemId: id);
       unread.add(false);
     });
   }
@@ -75,7 +75,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   @override
   Future<void> markArticleAsUnread() async {
     await wrapAction(() async {
-      await account.client.news.markArticleAsUnread(itemId: id);
+      await account.client.news.items.markArticleAsUnread(itemId: id);
       unread.add(true);
     });
   }
@@ -83,7 +83,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   @override
   Future<void> starArticle() async {
     await wrapAction(() async {
-      await account.client.news.starArticle(itemId: id);
+      await account.client.news.items.starArticle(itemId: id);
       starred.add(true);
     });
   }
@@ -91,7 +91,7 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   @override
   Future<void> unstarArticle() async {
     await wrapAction(() async {
-      await account.client.news.unstarArticle(itemId: id);
+      await account.client.news.items.unstarArticle(itemId: id);
       starred.add(false);
     });
   }

@@ -141,24 +141,24 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: articles,
-      getRequest: () => account.client.news.$listArticles_Request(
+      getRequest: () => account.client.news.items.$listArticles_Request(
         type: type.index,
         id: id ?? 0,
         getRead: getRead ?? true ? 1 : 0,
       ),
-      converter: ResponseConverter(account.client.news.$listArticles_Serializer()),
+      converter: ResponseConverter(account.client.news.items.$listArticles_Serializer()),
       unwrap: (response) => response.body.items,
     );
   }
 
   @override
   Future<void> markArticleAsRead(news.Article article) async {
-    await wrapAction(() async => account.client.news.markArticleAsRead(itemId: article.id));
+    await wrapAction(() async => account.client.news.items.markArticleAsRead(itemId: article.id));
   }
 
   @override
   Future<void> markArticleAsUnread(news.Article article) async {
-    await wrapAction(() async => account.client.news.markArticleAsUnread(itemId: article.id));
+    await wrapAction(() async => account.client.news.items.markArticleAsUnread(itemId: article.id));
   }
 
   @override
@@ -168,11 +168,11 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
 
   @override
   Future<void> starArticle(news.Article article) async {
-    await wrapAction(() async => account.client.news.starArticle(itemId: article.id));
+    await wrapAction(() async => account.client.news.items.starArticle(itemId: article.id));
   }
 
   @override
   Future<void> unstarArticle(news.Article article) async {
-    await wrapAction(() async => account.client.news.unstarArticle(itemId: article.id));
+    await wrapAction(() async => account.client.news.items.unstarArticle(itemId: article.id));
   }
 }

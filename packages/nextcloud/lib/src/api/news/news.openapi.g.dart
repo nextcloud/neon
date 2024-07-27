@@ -9,9 +9,9 @@ part of 'news.openapi.dart';
 Serializer<SupportedAPIVersions> _$supportedAPIVersionsSerializer = _$SupportedAPIVersionsSerializer();
 Serializer<Article> _$articleSerializer = _$ArticleSerializer();
 Serializer<Feed> _$feedSerializer = _$FeedSerializer();
+Serializer<ListFeeds> _$listFeedsSerializer = _$ListFeedsSerializer();
 Serializer<Folder> _$folderSerializer = _$FolderSerializer();
 Serializer<ListFolders> _$listFoldersSerializer = _$ListFoldersSerializer();
-Serializer<ListFeeds> _$listFeedsSerializer = _$ListFeedsSerializer();
 Serializer<ListArticles> _$listArticlesSerializer = _$ListArticlesSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
@@ -338,6 +338,63 @@ class _$FeedSerializer implements StructuredSerializer<Feed> {
   }
 }
 
+class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
+  @override
+  final Iterable<Type> types = const [ListFeeds, _$ListFeeds];
+  @override
+  final String wireName = 'ListFeeds';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ListFeeds object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'feeds',
+      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
+    ];
+    Object? value;
+    value = object.starredCount;
+    if (value != null) {
+      result
+        ..add('starredCount')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.newestItemId;
+    if (value != null) {
+      result
+        ..add('newestItemId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  ListFeeds deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ListFeedsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'starredCount':
+          result.starredCount = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'newestItemId':
+          result.newestItemId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'feeds':
+          result.feeds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$FolderSerializer implements StructuredSerializer<Folder> {
   @override
   final Iterable<Type> types = const [Folder, _$Folder];
@@ -422,63 +479,6 @@ class _$ListFoldersSerializer implements StructuredSerializer<ListFolders> {
         case 'folders':
           result.folders.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(Folder)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ListFeedsSerializer implements StructuredSerializer<ListFeeds> {
-  @override
-  final Iterable<Type> types = const [ListFeeds, _$ListFeeds];
-  @override
-  final String wireName = 'ListFeeds';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ListFeeds object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'feeds',
-      serializers.serialize(object.feeds, specifiedType: const FullType(BuiltList, [FullType(Feed)])),
-    ];
-    Object? value;
-    value = object.starredCount;
-    if (value != null) {
-      result
-        ..add('starredCount')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.newestItemId;
-    if (value != null) {
-      result
-        ..add('newestItemId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  ListFeeds deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ListFeedsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'starredCount':
-          result.starredCount = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'newestItemId':
-          result.newestItemId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'feeds':
-          result.feeds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Feed)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1457,6 +1457,132 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
   }
 }
 
+abstract mixin class $ListFeedsInterfaceBuilder {
+  void replace($ListFeedsInterface other);
+  void update(void Function($ListFeedsInterfaceBuilder) updates);
+  int? get starredCount;
+  set starredCount(int? starredCount);
+
+  int? get newestItemId;
+  set newestItemId(int? newestItemId);
+
+  ListBuilder<Feed> get feeds;
+  set feeds(ListBuilder<Feed>? feeds);
+}
+
+class _$ListFeeds extends ListFeeds {
+  @override
+  final int? starredCount;
+  @override
+  final int? newestItemId;
+  @override
+  final BuiltList<Feed> feeds;
+
+  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (ListFeedsBuilder()..update(updates))._build();
+
+  _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(feeds, r'ListFeeds', 'feeds');
+  }
+
+  @override
+  ListFeeds rebuild(void Function(ListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  ListFeedsBuilder toBuilder() => ListFeedsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ListFeeds &&
+        starredCount == other.starredCount &&
+        newestItemId == other.newestItemId &&
+        feeds == other.feeds;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, starredCount.hashCode);
+    _$hash = $jc(_$hash, newestItemId.hashCode);
+    _$hash = $jc(_$hash, feeds.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ListFeeds')
+          ..add('starredCount', starredCount)
+          ..add('newestItemId', newestItemId)
+          ..add('feeds', feeds))
+        .toString();
+  }
+}
+
+class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFeedsInterfaceBuilder {
+  _$ListFeeds? _$v;
+
+  int? _starredCount;
+  int? get starredCount => _$this._starredCount;
+  set starredCount(covariant int? starredCount) => _$this._starredCount = starredCount;
+
+  int? _newestItemId;
+  int? get newestItemId => _$this._newestItemId;
+  set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
+
+  ListBuilder<Feed>? _feeds;
+  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
+  set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
+
+  ListFeedsBuilder() {
+    ListFeeds._defaults(this);
+  }
+
+  ListFeedsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _starredCount = $v.starredCount;
+      _newestItemId = $v.newestItemId;
+      _feeds = $v.feeds.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ListFeeds other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ListFeeds;
+  }
+
+  @override
+  void update(void Function(ListFeedsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ListFeeds build() => _build();
+
+  _$ListFeeds _build() {
+    ListFeeds._validate(this);
+    _$ListFeeds _$result;
+    try {
+      _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'feeds';
+        feeds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $FolderInterfaceBuilder {
   void replace($FolderInterface other);
   void update(void Function($FolderInterfaceBuilder) updates);
@@ -1690,132 +1816,6 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $L
         folders.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ListFolders', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ListFeedsInterfaceBuilder {
-  void replace($ListFeedsInterface other);
-  void update(void Function($ListFeedsInterfaceBuilder) updates);
-  int? get starredCount;
-  set starredCount(int? starredCount);
-
-  int? get newestItemId;
-  set newestItemId(int? newestItemId);
-
-  ListBuilder<Feed> get feeds;
-  set feeds(ListBuilder<Feed>? feeds);
-}
-
-class _$ListFeeds extends ListFeeds {
-  @override
-  final int? starredCount;
-  @override
-  final int? newestItemId;
-  @override
-  final BuiltList<Feed> feeds;
-
-  factory _$ListFeeds([void Function(ListFeedsBuilder)? updates]) => (ListFeedsBuilder()..update(updates))._build();
-
-  _$ListFeeds._({this.starredCount, this.newestItemId, required this.feeds}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(feeds, r'ListFeeds', 'feeds');
-  }
-
-  @override
-  ListFeeds rebuild(void Function(ListFeedsBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  ListFeedsBuilder toBuilder() => ListFeedsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ListFeeds &&
-        starredCount == other.starredCount &&
-        newestItemId == other.newestItemId &&
-        feeds == other.feeds;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, starredCount.hashCode);
-    _$hash = $jc(_$hash, newestItemId.hashCode);
-    _$hash = $jc(_$hash, feeds.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ListFeeds')
-          ..add('starredCount', starredCount)
-          ..add('newestItemId', newestItemId)
-          ..add('feeds', feeds))
-        .toString();
-  }
-}
-
-class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFeedsInterfaceBuilder {
-  _$ListFeeds? _$v;
-
-  int? _starredCount;
-  int? get starredCount => _$this._starredCount;
-  set starredCount(covariant int? starredCount) => _$this._starredCount = starredCount;
-
-  int? _newestItemId;
-  int? get newestItemId => _$this._newestItemId;
-  set newestItemId(covariant int? newestItemId) => _$this._newestItemId = newestItemId;
-
-  ListBuilder<Feed>? _feeds;
-  ListBuilder<Feed> get feeds => _$this._feeds ??= ListBuilder<Feed>();
-  set feeds(covariant ListBuilder<Feed>? feeds) => _$this._feeds = feeds;
-
-  ListFeedsBuilder() {
-    ListFeeds._defaults(this);
-  }
-
-  ListFeedsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _starredCount = $v.starredCount;
-      _newestItemId = $v.newestItemId;
-      _feeds = $v.feeds.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ListFeeds other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ListFeeds;
-  }
-
-  @override
-  void update(void Function(ListFeedsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ListFeeds build() => _build();
-
-  _$ListFeeds _build() {
-    ListFeeds._validate(this);
-    _$ListFeeds _$result;
-    try {
-      _$result = _$v ?? _$ListFeeds._(starredCount: starredCount, newestItemId: newestItemId, feeds: feeds.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'feeds';
-        feeds.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'ListFeeds', _$failedField, e.toString());
       }
       rethrow;
     }
