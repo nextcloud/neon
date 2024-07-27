@@ -803,6 +803,74 @@
         }
       }
     },
+    "/index.php/apps/news/api/v1-3/items/read/multiple": {
+      "post": {
+        "tags": [
+          "items"
+        ],
+        "operationId": "read-multiple-articles",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "itemIds"
+                ],
+                "properties": {
+                  "itemIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/index.php/apps/news/api/v1-3/items/unread/multiple": {
+      "post": {
+        "tags": [
+          "items"
+        ],
+        "operationId": "unread-multiple-articles",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "itemIds"
+                ],
+                "properties": {
+                  "itemIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/index.php/apps/news/api/v1-3/items/{itemId}/star": {
       "parameters": [
         {
@@ -842,6 +910,74 @@
           "items"
         ],
         "operationId": "unstar-article",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/index.php/apps/news/api/v1-3/items/star/multiple": {
+      "post": {
+        "tags": [
+          "items"
+        ],
+        "operationId": "star-multiple-articles",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "itemIds"
+                ],
+                "properties": {
+                  "itemIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/index.php/apps/news/api/v1-3/items/unstar/multiple": {
+      "post": {
+        "tags": [
+          "items"
+        ],
+        "operationId": "unstar-multiple-articles",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "itemIds"
+                ],
+                "properties": {
+                  "itemIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": ""

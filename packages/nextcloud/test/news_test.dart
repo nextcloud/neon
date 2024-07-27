@@ -266,6 +266,31 @@ void main() {
         expect(response.body.items, hasLength(unreadArticles + 1));
       });
 
+      test('Mark multiple articles as read and unread', () async {
+        await addWikipediaFeed();
+        var response = await client.news.items.listArticles(type: news.ListType.unread.index);
+        final unreadArticles = response.body.items;
+        expect(unreadArticles, isNotEmpty);
+
+        await client.news.items.readMultipleArticles(
+          $body: news.ReadMultipleArticlesRequestApplicationJson((b) {
+            b.itemIds.addAll(unreadArticles.map((a) => a.id));
+          }),
+        );
+
+        response = await client.news.items.listArticles(type: news.ListType.unread.index);
+        expect(response.body.items, isEmpty);
+
+        await client.news.items.unreadMultipleArticles(
+          $body: news.UnreadMultipleArticlesRequestApplicationJson((b) {
+            b.itemIds.addAll(unreadArticles.map((a) => a.id));
+          }),
+        );
+
+        response = await client.news.items.listArticles(type: news.ListType.unread.index);
+        expect(response.body.items, hasLength(unreadArticles.length));
+      });
+
       test('Star article', () async {
         await addWikipediaFeed();
 
@@ -316,6 +341,30 @@ void main() {
         expect(() => response.headers, isA<void>());
 
         expect(response.body.items, hasLength(0));
+      });
+
+      test('Star and Unstar multiple articles', () async {
+        await addWikipediaFeed();
+        var response = await client.news.items.listArticles(type: news.ListType.allItems.index);
+        final allIDs = response.body.items.map((e) => e.id);
+        response = await client.news.items.listArticles(type: news.ListType.starred.index);
+        expect(response.body.items, isEmpty);
+
+        await client.news.items.starMultipleArticles(
+          $body: news.StarMultipleArticlesRequestApplicationJson((b) {
+            b.itemIds.addAll(allIDs);
+          }),
+        );
+        response = await client.news.items.listArticles(type: news.ListType.starred.index);
+        expect(response.body.items, isNotEmpty);
+
+        await client.news.items.unstarMultipleArticles(
+          $body: news.UnstarMultipleArticlesRequestApplicationJson((b) {
+            b.itemIds.addAll(allIDs);
+          }),
+        );
+        response = await client.news.items.listArticles(type: news.ListType.starred.index);
+        expect(response.body.items, isEmpty);
       });
 
       test('Create folder', () async {

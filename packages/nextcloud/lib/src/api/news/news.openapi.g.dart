@@ -13,6 +13,14 @@ Serializer<ListFeeds> _$listFeedsSerializer = _$ListFeedsSerializer();
 Serializer<Folder> _$folderSerializer = _$FolderSerializer();
 Serializer<ListFolders> _$listFoldersSerializer = _$ListFoldersSerializer();
 Serializer<ListArticles> _$listArticlesSerializer = _$ListArticlesSerializer();
+Serializer<ReadMultipleArticlesRequestApplicationJson> _$readMultipleArticlesRequestApplicationJsonSerializer =
+    _$ReadMultipleArticlesRequestApplicationJsonSerializer();
+Serializer<UnreadMultipleArticlesRequestApplicationJson> _$unreadMultipleArticlesRequestApplicationJsonSerializer =
+    _$UnreadMultipleArticlesRequestApplicationJsonSerializer();
+Serializer<StarMultipleArticlesRequestApplicationJson> _$starMultipleArticlesRequestApplicationJsonSerializer =
+    _$StarMultipleArticlesRequestApplicationJsonSerializer();
+Serializer<UnstarMultipleArticlesRequestApplicationJson> _$unstarMultipleArticlesRequestApplicationJsonSerializer =
+    _$UnstarMultipleArticlesRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
 Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
@@ -518,6 +526,178 @@ class _$ListArticlesSerializer implements StructuredSerializer<ListArticles> {
         case 'items':
           result.items.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, [FullType(Article)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ReadMultipleArticlesRequestApplicationJsonSerializer
+    implements StructuredSerializer<ReadMultipleArticlesRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ReadMultipleArticlesRequestApplicationJson,
+    _$ReadMultipleArticlesRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'ReadMultipleArticlesRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ReadMultipleArticlesRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'itemIds',
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ReadMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ReadMultipleArticlesRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'itemIds':
+          result.itemIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UnreadMultipleArticlesRequestApplicationJsonSerializer
+    implements StructuredSerializer<UnreadMultipleArticlesRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UnreadMultipleArticlesRequestApplicationJson,
+    _$UnreadMultipleArticlesRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UnreadMultipleArticlesRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UnreadMultipleArticlesRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'itemIds',
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UnreadMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UnreadMultipleArticlesRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'itemIds':
+          result.itemIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$StarMultipleArticlesRequestApplicationJsonSerializer
+    implements StructuredSerializer<StarMultipleArticlesRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    StarMultipleArticlesRequestApplicationJson,
+    _$StarMultipleArticlesRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'StarMultipleArticlesRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StarMultipleArticlesRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'itemIds',
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  StarMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StarMultipleArticlesRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'itemIds':
+          result.itemIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UnstarMultipleArticlesRequestApplicationJsonSerializer
+    implements StructuredSerializer<UnstarMultipleArticlesRequestApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UnstarMultipleArticlesRequestApplicationJson,
+    _$UnstarMultipleArticlesRequestApplicationJson
+  ];
+  @override
+  final String wireName = 'UnstarMultipleArticlesRequestApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UnstarMultipleArticlesRequestApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'itemIds',
+      serializers.serialize(object.itemIds, specifiedType: const FullType(BuiltList, [FullType(int)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UnstarMultipleArticlesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UnstarMultipleArticlesRequestApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'itemIds':
+          result.itemIds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -1914,6 +2094,430 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
         items.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ListArticles', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  void replace($ReadMultipleArticlesRequestApplicationJsonInterface other);
+  void update(void Function($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<int> get itemIds;
+  set itemIds(ListBuilder<int>? itemIds);
+}
+
+class _$ReadMultipleArticlesRequestApplicationJson extends ReadMultipleArticlesRequestApplicationJson {
+  @override
+  final BuiltList<int> itemIds;
+
+  factory _$ReadMultipleArticlesRequestApplicationJson(
+          [void Function(ReadMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
+      (ReadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$ReadMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(itemIds, r'ReadMultipleArticlesRequestApplicationJson', 'itemIds');
+  }
+
+  @override
+  ReadMultipleArticlesRequestApplicationJson rebuild(
+          void Function(ReadMultipleArticlesRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ReadMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
+      ReadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ReadMultipleArticlesRequestApplicationJson && itemIds == other.itemIds;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, itemIds.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'ReadMultipleArticlesRequestApplicationJson')..add('itemIds', itemIds))
+        .toString();
+  }
+}
+
+class ReadMultipleArticlesRequestApplicationJsonBuilder
+    implements
+        Builder<ReadMultipleArticlesRequestApplicationJson, ReadMultipleArticlesRequestApplicationJsonBuilder>,
+        $ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  _$ReadMultipleArticlesRequestApplicationJson? _$v;
+
+  ListBuilder<int>? _itemIds;
+  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
+
+  ReadMultipleArticlesRequestApplicationJsonBuilder() {
+    ReadMultipleArticlesRequestApplicationJson._defaults(this);
+  }
+
+  ReadMultipleArticlesRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _itemIds = $v.itemIds.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant ReadMultipleArticlesRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$ReadMultipleArticlesRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(ReadMultipleArticlesRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  ReadMultipleArticlesRequestApplicationJson build() => _build();
+
+  _$ReadMultipleArticlesRequestApplicationJson _build() {
+    ReadMultipleArticlesRequestApplicationJson._validate(this);
+    _$ReadMultipleArticlesRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$ReadMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'itemIds';
+        itemIds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'ReadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  void replace($UnreadMultipleArticlesRequestApplicationJsonInterface other);
+  void update(void Function($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<int> get itemIds;
+  set itemIds(ListBuilder<int>? itemIds);
+}
+
+class _$UnreadMultipleArticlesRequestApplicationJson extends UnreadMultipleArticlesRequestApplicationJson {
+  @override
+  final BuiltList<int> itemIds;
+
+  factory _$UnreadMultipleArticlesRequestApplicationJson(
+          [void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
+      (UnreadMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UnreadMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(itemIds, r'UnreadMultipleArticlesRequestApplicationJson', 'itemIds');
+  }
+
+  @override
+  UnreadMultipleArticlesRequestApplicationJson rebuild(
+          void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UnreadMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
+      UnreadMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UnreadMultipleArticlesRequestApplicationJson && itemIds == other.itemIds;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, itemIds.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UnreadMultipleArticlesRequestApplicationJson')..add('itemIds', itemIds))
+        .toString();
+  }
+}
+
+class UnreadMultipleArticlesRequestApplicationJsonBuilder
+    implements
+        Builder<UnreadMultipleArticlesRequestApplicationJson, UnreadMultipleArticlesRequestApplicationJsonBuilder>,
+        $UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  _$UnreadMultipleArticlesRequestApplicationJson? _$v;
+
+  ListBuilder<int>? _itemIds;
+  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
+
+  UnreadMultipleArticlesRequestApplicationJsonBuilder() {
+    UnreadMultipleArticlesRequestApplicationJson._defaults(this);
+  }
+
+  UnreadMultipleArticlesRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _itemIds = $v.itemIds.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UnreadMultipleArticlesRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UnreadMultipleArticlesRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UnreadMultipleArticlesRequestApplicationJson build() => _build();
+
+  _$UnreadMultipleArticlesRequestApplicationJson _build() {
+    UnreadMultipleArticlesRequestApplicationJson._validate(this);
+    _$UnreadMultipleArticlesRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UnreadMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'itemIds';
+        itemIds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UnreadMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $StarMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  void replace($StarMultipleArticlesRequestApplicationJsonInterface other);
+  void update(void Function($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<int> get itemIds;
+  set itemIds(ListBuilder<int>? itemIds);
+}
+
+class _$StarMultipleArticlesRequestApplicationJson extends StarMultipleArticlesRequestApplicationJson {
+  @override
+  final BuiltList<int> itemIds;
+
+  factory _$StarMultipleArticlesRequestApplicationJson(
+          [void Function(StarMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
+      (StarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$StarMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(itemIds, r'StarMultipleArticlesRequestApplicationJson', 'itemIds');
+  }
+
+  @override
+  StarMultipleArticlesRequestApplicationJson rebuild(
+          void Function(StarMultipleArticlesRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  StarMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
+      StarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is StarMultipleArticlesRequestApplicationJson && itemIds == other.itemIds;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, itemIds.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'StarMultipleArticlesRequestApplicationJson')..add('itemIds', itemIds))
+        .toString();
+  }
+}
+
+class StarMultipleArticlesRequestApplicationJsonBuilder
+    implements
+        Builder<StarMultipleArticlesRequestApplicationJson, StarMultipleArticlesRequestApplicationJsonBuilder>,
+        $StarMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  _$StarMultipleArticlesRequestApplicationJson? _$v;
+
+  ListBuilder<int>? _itemIds;
+  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
+
+  StarMultipleArticlesRequestApplicationJsonBuilder() {
+    StarMultipleArticlesRequestApplicationJson._defaults(this);
+  }
+
+  StarMultipleArticlesRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _itemIds = $v.itemIds.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant StarMultipleArticlesRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$StarMultipleArticlesRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(StarMultipleArticlesRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  StarMultipleArticlesRequestApplicationJson build() => _build();
+
+  _$StarMultipleArticlesRequestApplicationJson _build() {
+    StarMultipleArticlesRequestApplicationJson._validate(this);
+    _$StarMultipleArticlesRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$StarMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'itemIds';
+        itemIds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'StarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  void replace($UnstarMultipleArticlesRequestApplicationJsonInterface other);
+  void update(void Function($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates);
+  ListBuilder<int> get itemIds;
+  set itemIds(ListBuilder<int>? itemIds);
+}
+
+class _$UnstarMultipleArticlesRequestApplicationJson extends UnstarMultipleArticlesRequestApplicationJson {
+  @override
+  final BuiltList<int> itemIds;
+
+  factory _$UnstarMultipleArticlesRequestApplicationJson(
+          [void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder)? updates]) =>
+      (UnstarMultipleArticlesRequestApplicationJsonBuilder()..update(updates))._build();
+
+  _$UnstarMultipleArticlesRequestApplicationJson._({required this.itemIds}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(itemIds, r'UnstarMultipleArticlesRequestApplicationJson', 'itemIds');
+  }
+
+  @override
+  UnstarMultipleArticlesRequestApplicationJson rebuild(
+          void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UnstarMultipleArticlesRequestApplicationJsonBuilder toBuilder() =>
+      UnstarMultipleArticlesRequestApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UnstarMultipleArticlesRequestApplicationJson && itemIds == other.itemIds;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, itemIds.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UnstarMultipleArticlesRequestApplicationJson')..add('itemIds', itemIds))
+        .toString();
+  }
+}
+
+class UnstarMultipleArticlesRequestApplicationJsonBuilder
+    implements
+        Builder<UnstarMultipleArticlesRequestApplicationJson, UnstarMultipleArticlesRequestApplicationJsonBuilder>,
+        $UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder {
+  _$UnstarMultipleArticlesRequestApplicationJson? _$v;
+
+  ListBuilder<int>? _itemIds;
+  ListBuilder<int> get itemIds => _$this._itemIds ??= ListBuilder<int>();
+  set itemIds(covariant ListBuilder<int>? itemIds) => _$this._itemIds = itemIds;
+
+  UnstarMultipleArticlesRequestApplicationJsonBuilder() {
+    UnstarMultipleArticlesRequestApplicationJson._defaults(this);
+  }
+
+  UnstarMultipleArticlesRequestApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _itemIds = $v.itemIds.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UnstarMultipleArticlesRequestApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UnstarMultipleArticlesRequestApplicationJson;
+  }
+
+  @override
+  void update(void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UnstarMultipleArticlesRequestApplicationJson build() => _build();
+
+  _$UnstarMultipleArticlesRequestApplicationJson _build() {
+    UnstarMultipleArticlesRequestApplicationJson._validate(this);
+    _$UnstarMultipleArticlesRequestApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UnstarMultipleArticlesRequestApplicationJson._(itemIds: itemIds.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'itemIds';
+        itemIds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UnstarMultipleArticlesRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

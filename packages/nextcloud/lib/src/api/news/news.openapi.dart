@@ -17,6 +17,8 @@
 @_i2.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -1330,6 +1332,147 @@ class $ItemsClient {
     return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
+  /// Builds a serializer to parse the response of [$readMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $readMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [readMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [readMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$readMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $readMultipleArticles_Request({required ReadMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/read/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ReadMultipleArticlesRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$readMultipleArticles_Request] for the request send by this method.
+  ///  * [$readMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> readMultipleArticles({
+    required ReadMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $readMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $readMultipleArticles_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$unreadMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $unreadMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [unreadMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unreadMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$unreadMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unreadMultipleArticles_Request({required UnreadMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/unread/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UnreadMultipleArticlesRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$unreadMultipleArticles_Request] for the request send by this method.
+  ///  * [$unreadMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> unreadMultipleArticles({
+    required UnreadMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $unreadMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $unreadMultipleArticles_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
   /// Builds a serializer to parse the response of [$starArticle_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $starArticle_Serializer() => _i1.DynamiteSerializer(
@@ -1461,6 +1604,147 @@ class $ItemsClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unstarArticle_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$starMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $starMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [starMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$starMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $starMultipleArticles_Request({required StarMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/star/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(StarMultipleArticlesRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$starMultipleArticles_Request] for the request send by this method.
+  ///  * [$starMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> starMultipleArticles({
+    required StarMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $starMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $starMultipleArticles_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$unstarMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $unstarMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [unstarMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$unstarMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unstarMultipleArticles_Request({required UnstarMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/unstar/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UnstarMultipleArticlesRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$unstarMultipleArticles_Request] for the request send by this method.
+  ///  * [$unstarMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> unstarMultipleArticles({
+    required UnstarMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $unstarMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $unstarMultipleArticles_Serializer();
     return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
@@ -1885,6 +2169,258 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ReadMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $ReadMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReadMultipleArticlesRequestApplicationJson
+    implements
+        $ReadMultipleArticlesRequestApplicationJsonInterface,
+        Built<ReadMultipleArticlesRequestApplicationJson, ReadMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new ReadMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory ReadMultipleArticlesRequestApplicationJson([
+    void Function(ReadMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$ReadMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ReadMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReadMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReadMultipleArticlesRequestApplicationJson.
+  static Serializer<ReadMultipleArticlesRequestApplicationJson> get serializer =>
+      _$readMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $ReadMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $ReadMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UnreadMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnreadMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UnreadMultipleArticlesRequestApplicationJson
+    implements
+        $UnreadMultipleArticlesRequestApplicationJsonInterface,
+        Built<UnreadMultipleArticlesRequestApplicationJson, UnreadMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new UnreadMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory UnreadMultipleArticlesRequestApplicationJson([
+    void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$UnreadMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UnreadMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UnreadMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UnreadMultipleArticlesRequestApplicationJson.
+  static Serializer<UnreadMultipleArticlesRequestApplicationJson> get serializer =>
+      _$unreadMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnreadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnreadMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnreadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnreadMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $StarMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $StarMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $StarMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class StarMultipleArticlesRequestApplicationJson
+    implements
+        $StarMultipleArticlesRequestApplicationJsonInterface,
+        Built<StarMultipleArticlesRequestApplicationJson, StarMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new StarMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory StarMultipleArticlesRequestApplicationJson([
+    void Function(StarMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$StarMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const StarMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory StarMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for StarMultipleArticlesRequestApplicationJson.
+  static Serializer<StarMultipleArticlesRequestApplicationJson> get serializer =>
+      _$starMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $StarMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $StarMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UnstarMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnstarMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UnstarMultipleArticlesRequestApplicationJson
+    implements
+        $UnstarMultipleArticlesRequestApplicationJsonInterface,
+        Built<UnstarMultipleArticlesRequestApplicationJson, UnstarMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new UnstarMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory UnstarMultipleArticlesRequestApplicationJson([
+    void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$UnstarMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UnstarMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UnstarMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UnstarMultipleArticlesRequestApplicationJson.
+  static Serializer<UnstarMultipleArticlesRequestApplicationJson> get serializer =>
+      _$unstarMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnstarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnstarMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnstarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnstarMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $OCSMetaInterface {
   String get status;
   int get statuscode;
@@ -2077,6 +2613,27 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Folder)]), ListBuilder<Folder>.new)
       ..addBuilderFactory(const FullType(ListArticles), ListArticlesBuilder.new)
       ..add(ListArticles.serializer)
+      ..addBuilderFactory(
+        const FullType(ReadMultipleArticlesRequestApplicationJson),
+        ReadMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(ReadMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(
+        const FullType(UnreadMultipleArticlesRequestApplicationJson),
+        UnreadMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(UnreadMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(StarMultipleArticlesRequestApplicationJson),
+        StarMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(StarMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UnstarMultipleArticlesRequestApplicationJson),
+        UnstarMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(UnstarMultipleArticlesRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
