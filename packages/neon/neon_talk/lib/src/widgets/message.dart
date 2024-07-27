@@ -26,6 +26,9 @@ import 'package:timezone/timezone.dart' as tz;
 final _timeFormat = DateFormat.jm();
 final _dateTimeFormat = DateFormat.yMd().add_jm();
 
+/// Action that can be performed on a [TalkCommentMessage].
+typedef TalkMessageAction = ({Widget icon, Widget child, VoidCallback onPressed});
+
 /// Returns the display name of the actor of the [chatMessage].
 ///
 /// In case the actor is a guest and has no display name set a default display name will be returned.
@@ -608,57 +611,56 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         );
 
         if (!widget.isParent) {
-          message = MouseRegion(
-            onEnter: (_) {
-              setState(() {
-                hoverState = true;
-              });
-            },
-            onExit: (_) {
-              setState(() {
-                hoverState = false;
-              });
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: (hoverState || menuOpen) ? Theme.of(context).colorScheme.surfaceDim : null,
-              ),
-              padding: const EdgeInsets.all(5),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: SizedBox(
-                      width: 40,
-                      child: avatar,
-                    ),
+          final actions = _buildMessageActions(widget.room, widget.chatMessage);
+
+          message = Padding(
+            padding: const EdgeInsets.all(5),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: SizedBox(
+                    width: 40,
+                    child: avatar,
                   ),
-                  Expanded(
-                    child: message,
+                ),
+                Expanded(
+                  child: message,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: SizedBox(
+                    width: 14,
+                    child: readIndicator,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: SizedBox(
-                      width: 14,
-                      child: readIndicator,
-                    ),
-                  ),
-                  SizedBox.square(
-                    dimension: 32,
-                    child:
-                        widget.chatMessage.messageType != spreed.MessageType.commentDeleted && (hoverState || menuOpen)
-                            ? _buildPopupMenuButton(
-                                widget.room,
-                                widget.chatMessage,
-                              )
-                            : null,
-                  ),
-                ],
-              ),
+                ),
+                SizedBox.square(
+                  dimension: 32,
+                  child: actions.isNotEmpty && (hoverState || menuOpen) ? _buildPopupMenuButton(actions) : null,
+                ),
+              ],
             ),
           );
+
+          if (actions.isNotEmpty) {
+            message = MouseRegion(
+              onEnter: (_) {
+                setState(() {
+                  hoverState = true;
+                });
+              },
+              onExit: (_) {
+                setState(() {
+                  hoverState = false;
+                });
+              },
+              child: InkWell(
+                onLongPress: () async => _showActionsModal(actions),
+                child: message,
+              ),
+            );
+          }
         }
 
         return Container(
@@ -672,7 +674,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     );
   }
 
-  Widget? _buildPopupMenuButton(
+  List<TalkMessageAction> _buildMessageActions(
     spreed.Room room,
     spreed.$ChatMessageInterface chatMessage,
   ) {
@@ -680,10 +682,14 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     final permissions = spreed.ParticipantPermission.values.byBinary(room.permissions);
     final hasChatPermission = permissions.contains(spreed.ParticipantPermission.canSendMessageAndShareAndReact);
 
-    final children = [
-      if (chatMessage.isReplyable && !readOnly && hasChatPermission)
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.add_reaction_outlined),
+    return [
+      if (widget.chatMessage.messageType != spreed.MessageType.commentDeleted &&
+          chatMessage.isReplyable &&
+          !readOnly &&
+          hasChatPermission)
+        (
+          icon: const Icon(Icons.add_reaction_outlined),
+          child: Text(TalkLocalizations.of(context).roomMessageReaction),
           onPressed: () async {
             final reaction = await showDialog<String>(
               context: context,
@@ -700,51 +706,49 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             // ignore: use_build_context_synchronously
             NeonProvider.of<TalkRoomBloc>(context).addReaction(chatMessage, reaction);
           },
-          child: Text(TalkLocalizations.of(context).roomMessageReaction),
         ),
-      if (chatMessage.isReplyable && !readOnly && hasChatPermission)
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.reply),
+      if (widget.chatMessage.messageType != spreed.MessageType.commentDeleted &&
+          chatMessage.isReplyable &&
+          !readOnly &&
+          hasChatPermission)
+        (
+          icon: const Icon(Icons.reply),
           child: Text(TalkLocalizations.of(context).roomMessageReply),
-          onPressed: () {
-            setState(() {
-              menuOpen = false;
-            });
-
-            NeonProvider.of<TalkRoomBloc>(context).setReplyChatMessage(chatMessage);
-          },
+          onPressed: () => NeonProvider.of<TalkRoomBloc>(context).setReplyChatMessage(chatMessage),
         ),
       if (chatMessage.messageType != spreed.MessageType.commentDeleted &&
           chatMessage.actorId == room.actorId &&
           hasFeature(context, 'edit-messages'))
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.edit),
+        (
+          icon: const Icon(Icons.edit),
           child: Text(TalkLocalizations.of(context).roomMessageEdit),
-          onPressed: () {
-            setState(() {
-              menuOpen = false;
-            });
-
-            NeonProvider.of<TalkRoomBloc>(context).setEditChatMessage(chatMessage);
-          },
+          onPressed: () => NeonProvider.of<TalkRoomBloc>(context).setEditChatMessage(chatMessage),
         ),
       if (chatMessage.messageType != spreed.MessageType.commentDeleted && chatMessage.actorId == room.actorId)
-        MenuItemButton(
-          leadingIcon: const Icon(Icons.delete_forever),
+        (
+          icon: const Icon(Icons.delete_forever),
           child: Text(TalkLocalizations.of(context).roomMessageDelete),
-          onPressed: () {
-            setState(() {
-              menuOpen = false;
-            });
-
-            NeonProvider.of<TalkRoomBloc>(context).deleteMessage(chatMessage);
-          },
+          onPressed: () => NeonProvider.of<TalkRoomBloc>(context).deleteMessage(chatMessage),
         ),
     ];
+  }
 
-    if (children.isEmpty) {
-      return null;
-    }
+  Widget? _buildPopupMenuButton(List<TalkMessageAction> actions) {
+    final children = actions
+        .map(
+          (action) => MenuItemButton(
+            leadingIcon: action.icon,
+            onPressed: () {
+              setState(() {
+                menuOpen = false;
+              });
+
+              action.onPressed();
+            },
+            child: action.child,
+          ),
+        )
+        .toList();
 
     return MenuAnchor(
       menuChildren: children,
@@ -768,6 +772,43 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         },
         padding: const EdgeInsets.all(4),
         icon: const Icon(Icons.more_vert),
+      ),
+    );
+  }
+
+  Future<void> _showActionsModal(List<TalkMessageAction> actions) async {
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Align(
+                  alignment: AlignmentDirectional.centerStart,
+                  child: TalkParentMessage(
+                    room: widget.room,
+                    parentChatMessage: widget.chatMessage,
+                    lastCommonRead: widget.lastCommonRead,
+                  ),
+                ),
+              ),
+              for (final action in actions)
+                ListTile(
+                  leading: action.icon,
+                  title: action.child,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    action.onPressed();
+                  },
+                ),
+            ],
+          ),
+        ),
       ),
     );
   }
