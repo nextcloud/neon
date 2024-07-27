@@ -94,8 +94,6 @@ void main() {
             containsAll([
               'dashboard',
               'files',
-              'photos',
-              'activity',
               'spreed',
               'notes',
               'tables',
