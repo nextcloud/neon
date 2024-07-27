@@ -9,6 +9,7 @@ bulkupload
 clearsky
 configapi
 cospend
+csrftoken
 datetime
 dialin
 dialout
