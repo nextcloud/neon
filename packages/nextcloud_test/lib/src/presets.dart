@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 import 'package:test/test.dart';
@@ -6,6 +7,7 @@ import 'package:test/test.dart';
 typedef NextcloudTesterCallback = void Function(NextcloudTester tester);
 
 /// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
+@isTestGroup
 void presets(
   String presetGroup,
   String app,
