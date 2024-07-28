@@ -12,7 +12,8 @@ bootstrap:
 packages:
   - packages/*
   - packages/dynamite/*
-  - packages/neon/*
+  - packages/neon/neon_*
+  - packages/neon/neon_*/packages/*
   - packages/**/example
 
 ide:

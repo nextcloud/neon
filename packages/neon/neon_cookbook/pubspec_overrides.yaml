@@ -1,0 +1,17 @@
+dependency_overrides:
+  cookie_store:
+    path: ../../cookie_store
+  dynamite_runtime:
+    path: ../../dynamite/dynamite_runtime
+  neon_framework:
+    path: ../../neon_framework
+  neon_http_client:
+    path: ../../neon_http_client
+  neon_lints:
+    path: ../../neon_lints
+  nextcloud:
+    path: ../../nextcloud
+  recipe_repository:
+    path: packages/recipe_repository
+  sort_box:
+    path: ../../sort_box

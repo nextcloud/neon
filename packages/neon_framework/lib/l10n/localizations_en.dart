@@ -25,6 +25,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
         'notes': 'Notes',
         'notifications': 'Notifications',
         'talk': 'Talk',
+        'cookbook': 'Cookbook',
         'other': '',
       },
     );

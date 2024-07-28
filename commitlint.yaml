@@ -16,6 +16,7 @@ rules:
       - dynamite_end_to_end_test
       - dynamite_runtime
       - file_icons
+      - neon_cookbook
       - neon_dashboard
       - neon_files
       - neon_framework

@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  bloc:
+    dependency: transitive
+    description:
+      name: bloc
+      sha256: "106842ad6569f0b60297619e9e0b1885c2fb9bf84812935490e6c5275777804e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.1.4"
   boolean_selector:
     dependency: transitive
     description:
@@ -327,6 +335,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -419,6 +435,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bloc:
+    dependency: transitive
+    description:
+      name: flutter_bloc
+      sha256: b594505eac31a0518bdcb4b5b79573b8d9117b193cc80cc12e17d639b10aa27a
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.1.6"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -826,6 +850,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  neon_cookbook:
+    dependency: "direct main"
+    description:
+      path: "../neon/neon_cookbook"
+      relative: true
+    source: path
+    version: "1.0.0"
   neon_dashboard:
     dependency: "direct main"
     description:
@@ -1200,6 +1231,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  recipe_repository:
+    dependency: "direct overridden"
+    description:
+      path: "../neon/neon_cookbook/packages/recipe_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   rxdart:
     dependency: transitive
     description:

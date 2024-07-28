@@ -39,9 +39,16 @@ void main() {
         });
 
         test('recipesInCategory', () async {
-          final response = await client.cookbook.categories.recipesInCategory(category: 'Soup');
-
+          var response = await client.cookbook.categories.recipesInCategory(category: 'Soup');
           expect(response.body, hasLength(2));
+
+          // Uncategorized
+          response = await client.cookbook.categories.recipesInCategory(category: '_');
+          expect(response.body, hasLength(10));
+
+          // All Recipes can not be queried
+          response = await client.cookbook.categories.recipesInCategory(category: '*');
+          expect(response.body, hasLength(0));
         });
 
         test('renameCategory', () async {
