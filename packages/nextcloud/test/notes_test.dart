@@ -6,44 +6,32 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.create();
-
   presets(
-    targetFactory,
     'notes',
     'notes',
-    (preset) {
-      late TestTargetInstance target;
-      late NextcloudClient client;
-      setUpAll(() async {
-        target = await targetFactory.spawn(preset);
-        client = await target.createClient();
-      });
-      tearDownAll(() async {
-        await target.destroy();
-      });
+    (tester) {
       tearDown(() async {
         closeFixture();
 
-        final response = await client.notes.getNotes();
+        final response = await tester.client.notes.getNotes();
         for (final note in response.body) {
-          await client.notes.deleteNote(id: note.id);
+          await tester.client.notes.deleteNote(id: note.id);
         }
       });
 
       test('Is supported', () async {
-        final response = await client.core.ocs.getCapabilities();
+        final response = await tester.client.core.ocs.getCapabilities();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        final result = client.notes.getVersionCheck(response.body.ocs.data);
+        final result = tester.client.notes.getVersionCheck(response.body.ocs.data);
         expect(result.versions, isNotNull);
         expect(result.versions, isNotEmpty);
         expect(result.isSupported, isTrue);
       });
 
       test('Create note favorite', () async {
-        final response = await client.notes.createNote(
+        final response = await tester.client.notes.createNote(
           title: 'a',
           content: 'b',
           category: 'c',
@@ -63,7 +51,7 @@ void main() {
       });
 
       test('Create note not favorite', () async {
-        final response = await client.notes.createNote(
+        final response = await tester.client.notes.createNote(
           title: 'a',
           content: 'b',
           category: 'c',
@@ -82,10 +70,10 @@ void main() {
       });
 
       test('Get notes', () async {
-        await client.notes.createNote(title: 'a');
-        await client.notes.createNote(title: 'b');
+        await tester.client.notes.createNote(title: 'a');
+        await tester.client.notes.createNote(title: 'b');
 
-        final response = await client.notes.getNotes();
+        final response = await tester.client.notes.getNotes();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -95,8 +83,8 @@ void main() {
       });
 
       test('Get note', () async {
-        final response = await client.notes.getNote(
-          id: (await client.notes.createNote(title: 'a')).body.id,
+        final response = await tester.client.notes.getNote(
+          id: (await tester.client.notes.createNote(title: 'a')).body.id,
         );
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
@@ -105,13 +93,13 @@ void main() {
       });
 
       test('Update note', () async {
-        final id = (await client.notes.createNote(title: 'a')).body.id;
-        await client.notes.updateNote(
+        final id = (await tester.client.notes.createNote(title: 'a')).body.id;
+        await tester.client.notes.updateNote(
           id: id,
           title: 'b',
         );
 
-        final response = await client.notes.getNote(id: id);
+        final response = await tester.client.notes.getNote(id: id);
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -119,17 +107,17 @@ void main() {
       });
 
       test('Update note fail changed on server', () async {
-        final response = await client.notes.createNote(title: 'a');
+        final response = await tester.client.notes.createNote(title: 'a');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        await client.notes.updateNote(
+        await tester.client.notes.updateNote(
           id: response.body.id,
           title: 'b',
           ifMatch: '"${response.body.etag}"',
         );
         await expectLater(
-          () => client.notes.updateNote(
+          () => tester.client.notes.updateNote(
             id: response.body.id,
             title: 'c',
             ifMatch: '"${response.body.etag}"',
@@ -139,17 +127,17 @@ void main() {
       });
 
       test('Delete note', () async {
-        final id = (await client.notes.createNote(title: 'a')).body.id;
+        final id = (await tester.client.notes.createNote(title: 'a')).body.id;
 
-        var response = await client.notes.getNotes();
+        var response = await tester.client.notes.getNotes();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
         expect(response.body, hasLength(1));
 
-        await client.notes.deleteNote(id: id);
+        await tester.client.notes.deleteNote(id: id);
 
-        response = await client.notes.getNotes();
+        response = await tester.client.notes.getNotes();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -164,13 +152,13 @@ void main() {
             ..noteMode = notes.Settings_NoteMode.rich,
         );
 
-        var response = await client.notes.getSettings();
+        var response = await tester.client.notes.getSettings();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
         expect(response.body, equalsBuilt(expectedSettings));
 
-        response = await client.notes.updateSettings(
+        response = await tester.client.notes.updateSettings(
           $body: notes.Settings(
             (b) => b
               ..notesPath = 'Test Notes'
@@ -180,7 +168,7 @@ void main() {
         );
         addTearDown(() async {
           closeFixture();
-          await client.notes.updateSettings($body: expectedSettings);
+          await tester.client.notes.updateSettings($body: expectedSettings);
         });
 
         expect(response.statusCode, 200);
@@ -190,7 +178,7 @@ void main() {
         expect(response.body.fileSuffix, '.txt');
         expect(response.body.noteMode, notes.Settings_NoteMode.preview);
 
-        response = await client.notes.getSettings();
+        response = await tester.client.notes.getSettings();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 

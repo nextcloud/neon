@@ -1,34 +1,19 @@
 import 'dart:async';
 
 import 'package:crypton/crypton.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.create();
-
   presets(
-    targetFactory,
     'server',
     'notifications',
-    (preset) {
-      late TestTargetInstance target;
-      late NextcloudClient client;
-      setUpAll(() async {
-        target = await targetFactory.spawn(preset);
-        client = await target.createClient(
-          username: 'admin',
-        );
-      });
-      tearDownAll(() async {
-        await target.destroy();
-      });
-
+    username: 'admin',
+    (tester) {
       Future<void> sendTestNotification() async {
-        await client.notifications.api.generateNotification(
+        await tester.client.notifications.api.generateNotification(
           userId: 'admin',
           $body: notifications.ApiGenerateNotificationRequestApplicationJson(
             (b) => b
@@ -46,14 +31,14 @@ void main() {
 
       group('Endpoint', () {
         setUp(() async {
-          await client.notifications.endpoint.deleteAllNotifications();
+          await tester.client.notifications.endpoint.deleteAllNotifications();
         });
 
         test('List notifications', () async {
           await sendTestNotification();
 
           final startTime = DateTime.timestamp();
-          final response = await client.notifications.endpoint.listNotifications();
+          final response = await tester.client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(1));
           expect(response.body.ocs.data[0].notificationId, isPositive);
           expect(response.body.ocs.data[0].app, 'admin_notifications');
@@ -77,11 +62,11 @@ void main() {
 
         test('Get notification', () async {
           await sendTestNotification();
-          final listResponse = await client.notifications.endpoint.listNotifications();
+          final listResponse = await tester.client.notifications.endpoint.listNotifications();
           expect(listResponse.body.ocs.data, hasLength(1));
 
           final startTime = DateTime.timestamp();
-          final response = await client.notifications.endpoint.getNotification(
+          final response = await tester.client.notifications.endpoint.getNotification(
             id: listResponse.body.ocs.data.first.notificationId,
           );
           expect(response.statusCode, 200);
@@ -109,20 +94,22 @@ void main() {
 
         test('Delete notification', () async {
           await sendTestNotification();
-          final listResponse = await client.notifications.endpoint.listNotifications();
+          final listResponse = await tester.client.notifications.endpoint.listNotifications();
           expect(listResponse.body.ocs.data, hasLength(1));
-          await client.notifications.endpoint.deleteNotification(id: listResponse.body.ocs.data.first.notificationId);
+          await tester.client.notifications.endpoint.deleteNotification(
+            id: listResponse.body.ocs.data.first.notificationId,
+          );
 
-          final response = await client.notifications.endpoint.listNotifications();
+          final response = await tester.client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(0));
         });
 
         test('Delete all notifications', () async {
           await sendTestNotification();
           await sendTestNotification();
-          await client.notifications.endpoint.deleteAllNotifications();
+          await tester.client.notifications.endpoint.deleteAllNotifications();
 
-          final response = await client.notifications.endpoint.listNotifications();
+          final response = await tester.client.notifications.endpoint.listNotifications();
           expect(response.body.ocs.data, hasLength(0));
         });
       });
@@ -136,7 +123,7 @@ void main() {
           const pushToken = '789';
           final keypair = generateKeypair();
 
-          final subscription = (await client.notifications.push.registerDevice(
+          final subscription = (await tester.client.notifications.push.registerDevice(
             $body: notifications.PushRegisterDeviceRequestApplicationJson(
               (b) => b
                 ..pushTokenHash = notifications.generatePushTokenHash(pushToken)
@@ -152,7 +139,7 @@ void main() {
           expect(subscription.deviceIdentifier, isNotEmpty);
           expect(subscription.signature, isNotEmpty);
 
-          await client.notifications.push.removeDevice();
+          await tester.client.notifications.push.removeDevice();
         });
       });
     },

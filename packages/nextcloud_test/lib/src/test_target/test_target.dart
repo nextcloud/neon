@@ -1,37 +1,55 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:nextcloud_test/src/fixtures.dart';
+import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/proxy_http_client.dart';
 import 'package:nextcloud_test/src/test_target/docker_container.dart';
 import 'package:nextcloud_test/src/test_target/local.dart';
 import 'package:version/version.dart';
 
 /// Factory for creating [TestTargetInstance]s.
-abstract interface class TestTargetFactory<T extends TestTargetInstance> {
+@internal
+abstract class TestTargetFactory<T extends TestTargetInstance> {
+  /// The instance of the [TestTargetFactory].
+  static final TestTargetFactory instance = TestTargetFactory._create();
+
   /// Creates a new [TestTargetFactory].
-  static TestTargetFactory create() {
-    final url = Platform.environment['URL'];
+  static TestTargetFactory _create() {
     final dir = Platform.environment['DIR'];
-    if (url != null && url.isNotEmpty && dir != null && dir.isNotEmpty) {
-      return LocalFactory();
+    final url = Platform.environment['URL'];
+
+    if (url != null || dir != null) {
+      // Fail hard if the variables are not properly set to avoid a fallback to docker.
+      return LocalFactory(
+        dir: dir!,
+        url: Uri.parse(url!),
+      );
     }
 
     return DockerContainerFactory();
   }
 
   /// Spawns a new [T].
-  FutureOr<T> spawn(Preset? preset);
+  FutureOr<T> spawn(Preset preset);
 
   /// Returns the available presets for the factory.
-  Map<String, List<Version>> getPresets();
+  late BuiltListMultimap<String, Version> presets = getPresets();
+
+  /// Generates the presets.
+  ///
+  /// Use the cached version [presets] instead.
+  @protected
+  BuiltListMultimap<String, Version> getPresets();
 }
 
 /// Instance of a test target.
+@internal
 abstract class TestTargetInstance {
   /// Destroys the instance.
   FutureOr<void> destroy();

@@ -1,23 +1,26 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 
-import 'package:nextcloud/webdav.dart';
-import 'package:nextcloud_test/src/presets.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:glob/glob.dart';
+import 'package:glob/list_local_fs.dart';
+import 'package:meta/meta.dart';
+import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
+import 'package:path/path.dart' as p;
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
 
 /// Factory for spawning docker containers as test targets.
-class DockerContainerFactory implements TestTargetFactory<DockerContainerInstance> {
+@internal
+final class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> {
   /// Creates a new docker container and returns its representation.
   @override
-  Future<DockerContainerInstance> spawn(Preset? preset) async {
-    final dockerImageName =
-        'ghcr.io/nextcloud/neon/dev:${preset!.name}-${preset.version.major}.${preset.version.minor}';
+  Future<DockerContainerInstance> spawn(Preset preset) async {
+    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
 
     var result = await runExecutableArguments(
       'docker',
@@ -67,29 +70,23 @@ class DockerContainerFactory implements TestTargetFactory<DockerContainerInstanc
   }
 
   @override
-  Map<String, List<Version>> getPresets() {
-    final presets = <String, List<Version>>{};
+  BuiltListMultimap<String, Version> getPresets() {
+    final files = Glob('../nextcloud_test/docker/presets/**/*').listSync();
 
-    final presetGroups = Directory('../nextcloud_test/docker/presets')
-        .listSync(followLinks: false)
-        .whereType<Directory>()
-        .map((d) => PathUri.parse(d.path).name);
-
-    for (final presetGroup in presetGroups) {
-      final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
-          .listSync(followLinks: false)
-          .whereType<File>()
-          .map((f) => Version.parse(PathUri.parse(f.path).name));
-
-      presets[presetGroup] = presetVersions.toList();
-    }
-
-    return presets;
+    return BuiltListMultimap<String, Version>.build((b) {
+      for (final file in files) {
+        b.add(
+          p.split(file.dirname).last,
+          Version.parse(file.basename),
+        );
+      }
+    });
   }
 }
 
 /// Test target representing a docker container.
-class DockerContainerInstance extends TestTargetInstance {
+@internal
+final class DockerContainerInstance extends TestTargetInstance {
   /// Creates a new Docker container instance.
   DockerContainerInstance({
     required this.id,

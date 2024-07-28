@@ -7,37 +7,24 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.create();
-
   presets(
-    targetFactory,
     'server',
     'core',
-    (preset) {
-      late TestTargetInstance target;
-      late NextcloudClient client;
-      setUpAll(() async {
-        target = await targetFactory.spawn(preset);
-        client = await target.createClient();
-      });
-      tearDownAll(() async {
-        await target.destroy();
-      });
-
+    (tester) {
       test('Is supported from capabilities', () async {
-        final response = await client.core.ocs.getCapabilities();
+        final response = await tester.client.core.ocs.getCapabilities();
 
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        final result = client.core.getVersionCheck(response.body.ocs.data);
+        final result = tester.client.core.getVersionCheck(response.body.ocs.data);
         expect(result.versions, isNotNull);
         expect(result.versions, isNotEmpty);
         expect(result.isSupported, isTrue);
       });
 
       test('Is supported from status', () async {
-        final response = await client.core.getStatus();
+        final response = await tester.client.core.getStatus();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -45,7 +32,7 @@ void main() {
       });
 
       test('Get status', () async {
-        final response = await client.core.getStatus();
+        final response = await tester.client.core.getStatus();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -61,7 +48,7 @@ void main() {
 
       group('OCS', () {
         test('Get capabilities', () async {
-          final response = await client.core.ocs.getCapabilities();
+          final response = await tester.client.core.ocs.getCapabilities();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -89,7 +76,7 @@ void main() {
 
       group('Navigation', () {
         test('Get apps navigation', () async {
-          final response = await client.core.navigation.getAppsNavigation();
+          final response = await tester.client.core.navigation.getAppsNavigation();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
           expect(
@@ -109,7 +96,7 @@ void main() {
 
       group('Autocomplete', () {
         test('Get', () async {
-          final response = await client.core.autoComplete.$get(
+          final response = await tester.client.core.autoComplete.$get(
             $body: core.AutoCompleteGetRequestApplicationJson(
               (b) => b
                 ..search = ''
@@ -134,13 +121,13 @@ void main() {
       group('Preview', () {
         test('Get', () async {
           final file = File('test/files/test.png');
-          await client.webdav.putFile(file, file.statSync(), PathUri.parse('preview.png'));
+          await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('preview.png'));
           addTearDown(() async {
             closeFixture();
-            await client.webdav.delete(PathUri.parse('preview.png'));
+            await tester.client.webdav.delete(PathUri.parse('preview.png'));
           });
 
-          final response = await client.core.preview.getPreview(
+          final response = await tester.client.core.preview.getPreview(
             $body: core.PreviewGetPreviewRequestApplicationJson(
               (b) => b..file = 'preview.png',
             ),
@@ -154,13 +141,13 @@ void main() {
 
       group('Avatar', () {
         test('Get', () async {
-          final response = await client.core.avatar.getAvatar(userId: 'admin', size: 32);
+          final response = await tester.client.core.avatar.getAvatar(userId: 'admin', size: 32);
           expect(response.body, isNotEmpty);
           expect(response.headers.xNcIscustomavatar?.content, 0);
         });
 
         test('Get dark', () async {
-          final response = await client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
+          final response = await tester.client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
           expect(response.body, isNotEmpty);
           expect(response.headers.xNcIscustomavatar?.content, 0);
         });
@@ -169,7 +156,7 @@ void main() {
       group('App password', () {
         test('Delete', () async {
           // Separate client to not break other tests
-          final client = await target.createClient();
+          final client = await tester.createClient();
 
           await client.core.appPassword.deleteAppPassword();
           await expectLater(
@@ -181,7 +168,7 @@ void main() {
 
       group('Unified search', () {
         test('Get providers', () async {
-          final response = await client.core.unifiedSearch.getProviders();
+          final response = await tester.client.core.unifiedSearch.getProviders();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -189,7 +176,7 @@ void main() {
         });
 
         test('Search', () async {
-          final response = await client.core.unifiedSearch.search(
+          final response = await tester.client.core.unifiedSearch.search(
             providerId: 'settings',
             $body: core.UnifiedSearchSearchRequestApplicationJson(
               (b) => b..term = 'Personal info',
@@ -214,7 +201,7 @@ void main() {
 
       group('Client login flow V2', () {
         test('Init and poll', () async {
-          final response = await client.core.clientFlowLoginV2.init();
+          final response = await tester.client.core.clientFlowLoginV2.init();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -223,7 +210,7 @@ void main() {
           expect(response.body.poll.token, isNotEmpty);
 
           await expectLater(
-            () => client.core.clientFlowLoginV2.poll(
+            () => tester.client.core.clientFlowLoginV2.poll(
               $body: core.ClientFlowLoginV2PollRequestApplicationJson(
                 (b) => b..token = response.body.poll.token,
               ),
@@ -235,7 +222,7 @@ void main() {
 
       group('References', () {
         test('resolveOne', () async {
-          final response = await client.core.referenceApi.resolveOne(
+          final response = await tester.client.core.referenceApi.resolveOne(
             $body: core.ReferenceApiResolveOneRequestApplicationJson(
               (b) => b..reference = 'https://example.com',
             ),
@@ -258,7 +245,7 @@ void main() {
         });
 
         test('resolve', () async {
-          final response = await client.core.referenceApi.resolve(
+          final response = await tester.client.core.referenceApi.resolve(
             $body: core.ReferenceApiResolveRequestApplicationJson(
               (b) => b
                 ..references.replace([
@@ -288,7 +275,7 @@ void main() {
         });
 
         test('extract', () async {
-          final response = await client.core.referenceApi.extract(
+          final response = await tester.client.core.referenceApi.extract(
             $body: core.ReferenceApiExtractRequestApplicationJson(
               (b) => b
                 ..text = '''

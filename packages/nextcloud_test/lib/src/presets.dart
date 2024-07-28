@@ -1,34 +1,49 @@
+import 'package:meta/meta.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
+import 'package:nextcloud_test/src/models/models.dart';
+import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:test/test.dart';
-import 'package:version/version.dart';
 
-/// Combination of preset `name` and preset `version`.
-typedef Preset = ({String name, Version version});
+/// Signature for callback to [presets].
+typedef NextcloudTesterCallback = void Function(NextcloudTester tester);
 
 /// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
+@isTestGroup
 void presets(
-  TestTargetFactory targetFactory,
   String presetGroup,
   String app,
-  dynamic Function(Preset preset) body, {
+  NextcloudTesterCallback body, {
+  String username = defaultTestUsername,
   int? retry,
   Timeout? timeout,
 }) {
-  final presets = targetFactory.getPresets();
+  final presets = TestTargetFactory.instance.presets;
   if (!presets.containsKey(presetGroup)) {
     throw Exception('Unknown preset type "$presetGroup"');
   }
 
   void innerBody() {
-    for (final presetVersion in presets[presetGroup]!) {
+    for (final presetVersion in presets[presetGroup]) {
       group('${presetVersion.major}.${presetVersion.minor}', () {
-        final preset = (name: presetGroup, version: presetVersion);
+        final tester = NextcloudTester(
+          appName: presetGroup,
+          version: presetVersion,
+          username: username,
+        );
 
-        tearDown(() {
-          validateFixture(preset);
+        setUpAll(() async {
+          await tester.init();
         });
 
-        body(preset);
+        tearDownAll(() async {
+          await tester.close();
+        });
+
+        tearDown(() {
+          validateFixture(tester);
+        });
+
+        body(tester);
       });
     }
   }

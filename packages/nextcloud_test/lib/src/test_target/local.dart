@@ -1,23 +1,34 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:nextcloud_test/src/presets.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:meta/meta.dart';
+import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 /// Factory for running tests against a local instance.
-class LocalFactory implements TestTargetFactory<LocalInstance> {
-  @override
-  LocalInstance spawn(Preset? preset) => LocalInstance();
+@internal
+final class LocalFactory extends TestTargetFactory<LocalInstance> {
+  /// Creates a new test factory for a local server.
+  LocalFactory({
+    required String dir,
+    required Uri url,
+  })  : _dir = dir,
+        _instance = LocalInstance(url: url, dir: dir);
+
+  final String _dir;
+
+  final LocalInstance _instance;
 
   @override
-  Map<String, List<Version>> getPresets() {
-    final presets = <String, List<Version>>{};
+  LocalInstance spawn(Preset preset) => _instance;
+
+  @override
+  BuiltListMultimap<String, Version> getPresets() {
+    final presets = ListMultimapBuilder<String, Version>();
     final regex = RegExp('  - (.*): (.*)');
-
-    final dir = Platform.environment['DIR']!;
 
     var result = runExecutableArgumentsSync(
       'php',
@@ -27,7 +38,7 @@ class LocalFactory implements TestTargetFactory<LocalInstance> {
         'app:list',
         '--enabled',
       ],
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
       throw Exception('Failed to list apps\n${result.stderr}\n${result.stdout}');
@@ -39,7 +50,7 @@ class LocalFactory implements TestTargetFactory<LocalInstance> {
       if (matches.isNotEmpty) {
         final match = matches.single;
 
-        presets[match.group(1)!] = [Version.parse(match.group(2)!)];
+        presets.add(match.group(1)!, Version.parse(match.group(2)!));
       }
     }
 
@@ -50,7 +61,7 @@ class LocalFactory implements TestTargetFactory<LocalInstance> {
         './occ',
         'status',
       ],
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
       throw Exception('Failed to get status\n${result.stderr}\n${result.stdout}');
@@ -65,30 +76,39 @@ class LocalFactory implements TestTargetFactory<LocalInstance> {
           continue;
         }
 
-        presets['server'] = [Version.parse(match.group(2)!)];
+        presets.add('server', Version.parse(match.group(2)!));
         break;
       }
     }
 
-    return presets;
+    return presets.build();
   }
 }
 
 /// Test target representing a local instance.
-class LocalInstance extends TestTargetInstance {
+@internal
+final class LocalInstance extends TestTargetInstance {
+  /// Creates a new test instance for a local server.
+  LocalInstance({
+    required Uri url,
+    required String dir,
+  })  : hostURL = url,
+        targetURL = url,
+        _dir = dir;
+
+  final String _dir;
+
   @override
   void destroy() {}
 
   @override
-  Uri hostURL = Uri.parse(Platform.environment['URL']!);
+  final Uri hostURL;
 
   @override
-  late Uri targetURL = hostURL;
+  final Uri targetURL;
 
   @override
   Future<String> createAppPassword(String username) async {
-    final dir = Platform.environment['DIR']!;
-
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
       'php',
@@ -99,7 +119,7 @@ class LocalInstance extends TestTargetInstance {
         username,
       ],
       stdin: inputStream.stream,
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     inputStream.add(utf8.encode(username));
     await inputStream.close();
