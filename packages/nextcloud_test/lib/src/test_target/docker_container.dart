@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 
-import 'package:nextcloud/webdav.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:glob/glob.dart';
+import 'package:glob/list_local_fs.dart';
 import 'package:nextcloud_test/src/presets.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
+import 'package:path/path.dart' as p;
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
@@ -67,24 +69,17 @@ class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> 
   }
 
   @override
-  Map<String, List<Version>> getPresets() {
-    final presets = <String, List<Version>>{};
+  BuiltListMultimap<String, Version> getPresets() {
+    final files = Glob('../nextcloud_test/docker/presets/**/*').listSync();
 
-    final presetGroups = Directory('../nextcloud_test/docker/presets')
-        .listSync(followLinks: false)
-        .whereType<Directory>()
-        .map((d) => PathUri.parse(d.path).name);
-
-    for (final presetGroup in presetGroups) {
-      final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
-          .listSync(followLinks: false)
-          .whereType<File>()
-          .map((f) => Version.parse(PathUri.parse(f.path).name));
-
-      presets[presetGroup] = presetVersions.toList();
-    }
-
-    return presets;
+    return BuiltListMultimap<String, Version>.build((b) {
+      for (final file in files) {
+        b.add(
+          p.split(file.dirname).last,
+          Version.parse(file.basename),
+        );
+      }
+    });
   }
 }
 

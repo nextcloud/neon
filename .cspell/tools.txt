@@ -42,6 +42,7 @@ libflutter
 libgtk
 libsqlite
 mipmap
+Multimap
 ndebug
 nodoc
 noopenapi

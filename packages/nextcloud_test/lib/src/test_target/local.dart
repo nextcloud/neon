@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud_test/src/presets.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:process_run/process_run.dart';
@@ -13,8 +14,8 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
   LocalInstance spawn(Preset? preset) => LocalInstance();
 
   @override
-  Map<String, List<Version>> getPresets() {
-    final presets = <String, List<Version>>{};
+  BuiltListMultimap<String, Version> getPresets() {
+    final presets = ListMultimapBuilder<String, Version>();
     final regex = RegExp('  - (.*): (.*)');
 
     final dir = Platform.environment['DIR']!;
@@ -39,7 +40,7 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
       if (matches.isNotEmpty) {
         final match = matches.single;
 
-        presets[match.group(1)!] = [Version.parse(match.group(2)!)];
+        presets.add(match.group(1)!, Version.parse(match.group(2)!));
       }
     }
 
@@ -65,12 +66,12 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
           continue;
         }
 
-        presets['server'] = [Version.parse(match.group(2)!)];
+        presets.add('server', Version.parse(match.group(2)!));
         break;
       }
     }
 
-    return presets;
+    return presets.build();
   }
 }
 

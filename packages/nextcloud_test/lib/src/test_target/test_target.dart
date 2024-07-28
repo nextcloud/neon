@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:cookie_store/cookie_store.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_http_client/neon_http_client.dart';
@@ -29,13 +30,13 @@ abstract class TestTargetFactory<T extends TestTargetInstance> {
   FutureOr<T> spawn(Preset? preset);
 
   /// Returns the available presets for the factory.
-  late Map<String, List<Version>> presets = getPresets();
+  late BuiltListMultimap<String, Version> presets = getPresets();
 
   /// Generates the presets.
   ///
   /// Use the cached version [presets] instead.
   @protected
-  Map<String, List<Version>> getPresets();
+  BuiltListMultimap<String, Version> getPresets();
 }
 
 /// Instance of a test target.

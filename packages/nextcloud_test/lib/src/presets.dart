@@ -20,7 +20,7 @@ void presets(
   }
 
   void innerBody() {
-    for (final presetVersion in presets[presetGroup]!) {
+    for (final presetVersion in presets[presetGroup]) {
       group('${presetVersion.major}.${presetVersion.minor}', () {
         final preset = (name: presetGroup, version: presetVersion);
 
