@@ -111,15 +111,15 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
       RequestManager.instance.wrap(
         account: account,
         subject: folders,
-        getRequest: account.client.news.$listFolders_Request,
-        converter: ResponseConverter(account.client.news.$listFolders_Serializer()),
+        getRequest: account.client.news.folders.$listFolders_Request,
+        converter: ResponseConverter(account.client.news.folders.$listFolders_Serializer()),
         unwrap: (response) => response.body.folders,
       ),
       RequestManager.instance.wrap(
         account: account,
         subject: feeds,
-        getRequest: account.client.news.$listFeeds_Request,
-        converter: ResponseConverter(account.client.news.$listFeeds_Serializer()),
+        getRequest: account.client.news.feeds.$listFeeds_Request,
+        converter: ResponseConverter(account.client.news.feeds.$listFeeds_Serializer()),
         unwrap: (response) {
           if (response.body.newestItemId != null) {
             newestItemId = response.body.newestItemId!;
@@ -133,47 +133,49 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
 
   @override
   Future<void> addFeed(String url, int? folderId) async {
-    await wrapAction(() async => account.client.news.addFeed(url: url, folderId: folderId));
+    await wrapAction(() async => account.client.news.feeds.addFeed(url: url, folderId: folderId));
   }
 
   @override
   Future<void> createFolder(String name) async {
-    await wrapAction(() async => account.client.news.createFolder(name: name));
+    await wrapAction(() async => account.client.news.folders.createFolder(name: name));
   }
 
   @override
   Future<void> deleteFolder(int folderId) async {
-    await wrapAction(() async => account.client.news.deleteFolder(folderId: folderId));
+    await wrapAction(() async => account.client.news.folders.deleteFolder(folderId: folderId));
   }
 
   @override
   Future<void> markFeedAsRead(int feedId) async {
-    await wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: newestItemId));
+    await wrapAction(() async => account.client.news.feeds.markFeedAsRead(feedId: feedId, newestItemId: newestItemId));
   }
 
   @override
   Future<void> markFolderAsRead(int folderId) async {
-    await wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: newestItemId));
+    await wrapAction(
+      () async => account.client.news.folders.markFolderAsRead(folderId: folderId, newestItemId: newestItemId),
+    );
   }
 
   @override
   Future<void> moveFeed(int feedId, int? folderId) async {
-    await wrapAction(() async => account.client.news.moveFeed(feedId: feedId, folderId: folderId));
+    await wrapAction(() async => account.client.news.feeds.moveFeed(feedId: feedId, folderId: folderId));
   }
 
   @override
   Future<void> removeFeed(int feedId) async {
-    await wrapAction(() async => account.client.news.deleteFeed(feedId: feedId));
+    await wrapAction(() async => account.client.news.feeds.deleteFeed(feedId: feedId));
   }
 
   @override
   Future<void> renameFeed(int feedId, String feedTitle) async {
-    await wrapAction(() async => account.client.news.renameFeed(feedId: feedId, feedTitle: feedTitle));
+    await wrapAction(() async => account.client.news.feeds.renameFeed(feedId: feedId, feedTitle: feedTitle));
   }
 
   @override
   Future<void> renameFolder(int folderId, String name) async {
-    await wrapAction(() async => account.client.news.renameFolder(folderId: folderId, name: name));
+    await wrapAction(() async => account.client.news.folders.renameFolder(folderId: folderId, name: name));
   }
 
   @override

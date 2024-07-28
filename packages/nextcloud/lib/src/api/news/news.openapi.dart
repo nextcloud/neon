@@ -17,6 +17,8 @@
 @_i2.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -46,6 +48,12 @@ class $Client extends _i1.DynamiteClient {
           httpClient: client.httpClient,
           authentications: client.authentications,
         );
+
+  late final $FeedsClient feeds = $FeedsClient(this);
+
+  late final $FoldersClient folders = $FoldersClient(this);
+
+  late final $ItemsClient items = $ItemsClient(this);
 
   /// Builds a serializer to parse the response of [$getSupportedApiVersions_Request].
   @_i2.experimental
@@ -108,376 +116,13 @@ class $Client extends _i1.DynamiteClient {
     final _serializer = $getSupportedApiVersions_Serializer();
     return _i1.ResponseConverter<SupportedAPIVersions, void>(_serializer).convert(_response);
   }
+}
 
-  /// Builds a serializer to parse the response of [$listFolders_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<ListFolders, void> $listFolders_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFolders),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+class $FeedsClient {
+  /// Creates a new `DynamiteClient` for feeds requests.
+  $FeedsClient(this._rootClient);
 
-  /// Returns a `DynamiteRequest` backing the [listFolders] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [listFolders] for a method executing this request and parsing the response.
-  ///  * [$listFolders_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $listFolders_Request() {
-    const _path = '/index.php/apps/news/api/v1-3/folders';
-    final _uri = Uri.parse('$baseURL$_path');
-    final _request = _i3.Request('get', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [$listFolders_Request] for the request send by this method.
-  ///  * [$listFolders_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ListFolders, void>> listFolders() async {
-    final _request = $listFolders_Request();
-    final _streamedResponse = await httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $listFolders_Serializer();
-    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of [$createFolder_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<ListFolders, void> $createFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFolders),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Returns a `DynamiteRequest` backing the [createFolder] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [name]
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [createFolder] for a method executing this request and parsing the response.
-  ///  * [$createFolder_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $createFolder_Request({required String name}) {
-    final _parameters = <String, Object?>{};
-    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    _parameters['name'] = __name;
-
-    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
-    final _request = _i3.Request('post', _uri);
-    _request.headers['Accept'] = 'application/json';
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [name]
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [$createFolder_Request] for the request send by this method.
-  ///  * [$createFolder_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
-    final _request = $createFolder_Request(
-      name: name,
-    );
-    final _streamedResponse = await httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $createFolder_Serializer();
-    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of [$renameFolder_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<void, void> $renameFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Returns a `DynamiteRequest` backing the [renameFolder] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [name]
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [renameFolder] for a method executing this request and parsing the response.
-  ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $renameFolder_Request({
-    required int folderId,
-    required String name,
-  }) {
-    final _parameters = <String, Object?>{};
-    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = __folderId;
-
-    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    _parameters['name'] = __name;
-
-    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
-    final _request = _i3.Request('put', _uri);
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [name]
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [$renameFolder_Request] for the request send by this method.
-  ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> renameFolder({
-    required int folderId,
-    required String name,
-  }) async {
-    final _request = $renameFolder_Request(
-      folderId: folderId,
-      name: name,
-    );
-    final _streamedResponse = await httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $renameFolder_Serializer();
-    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of [$deleteFolder_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<void, void> $deleteFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Returns a `DynamiteRequest` backing the [deleteFolder] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [deleteFolder] for a method executing this request and parsing the response.
-  ///  * [$deleteFolder_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $deleteFolder_Request({required int folderId}) {
-    final _parameters = <String, Object?>{};
-    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = __folderId;
-
-    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
-    final _request = _i3.Request('delete', _uri);
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [$deleteFolder_Request] for the request send by this method.
-  ///  * [$deleteFolder_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
-    final _request = $deleteFolder_Request(
-      folderId: folderId,
-    );
-    final _streamedResponse = await httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $deleteFolder_Serializer();
-    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-  }
-
-  /// Builds a serializer to parse the response of [$markFolderAsRead_Request].
-  @_i2.experimental
-  _i1.DynamiteSerializer<void, void> $markFolderAsRead_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
-
-  /// Returns a `DynamiteRequest` backing the [markFolderAsRead] operation.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [newestItemId] The newest read item.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [markFolderAsRead] for a method executing this request and parsing the response.
-  ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed this request.
-  @_i2.experimental
-  _i3.Request $markFolderAsRead_Request({
-    required int folderId,
-    required int newestItemId,
-  }) {
-    final _parameters = <String, Object?>{};
-    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    _parameters['folderId'] = __folderId;
-
-    final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
-    _parameters['newestItemId'] = __newestItemId;
-
-    final _path =
-        _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
-    final _request = _i3.Request('post', _uri);
-// coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
-      (auth) => switch (auth) {
-        _i1.DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _request.headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for basic_auth');
-    }
-
-// coverage:ignore-end
-    return _request;
-  }
-
-  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
-  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [newestItemId] The newest read item.
-  ///
-  /// Status codes:
-  ///   * 200
-  ///
-  /// See:
-  ///  * [$markFolderAsRead_Request] for the request send by this method.
-  ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<void, void>> markFolderAsRead({
-    required int folderId,
-    required int newestItemId,
-  }) async {
-    final _request = $markFolderAsRead_Request(
-      folderId: folderId,
-      newestItemId: newestItemId,
-    );
-    final _streamedResponse = await httpClient.send(_request);
-    final _response = await _i3.Response.fromStream(_streamedResponse);
-
-    final _serializer = $markFolderAsRead_Serializer();
-    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
-  }
+  final $Client _rootClient;
 
   /// Builds a serializer to parse the response of [$listFeeds_Request].
   @_i2.experimental
@@ -500,11 +145,11 @@ class $Client extends _i1.DynamiteClient {
   @_i2.experimental
   _i3.Request $listFeeds_Request() {
     const _path = '/index.php/apps/news/api/v1-3/feeds';
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -534,7 +179,7 @@ class $Client extends _i1.DynamiteClient {
   ///  * [$listFeeds_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ListFeeds, void>> listFeeds() async {
     final _request = $listFeeds_Request();
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listFeeds_Serializer();
@@ -576,11 +221,11 @@ class $Client extends _i1.DynamiteClient {
     _parameters['folderId'] = __folderId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -620,7 +265,7 @@ class $Client extends _i1.DynamiteClient {
       url: url,
       folderId: folderId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $addFeed_Serializer();
@@ -652,10 +297,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['feedId'] = __feedId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -687,7 +332,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $deleteFeed_Request(
       feedId: feedId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $deleteFeed_Serializer();
@@ -728,10 +373,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['folderId'] = __folderId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -770,7 +415,7 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       folderId: folderId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $moveFeed_Serializer();
@@ -812,10 +457,10 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -854,7 +499,7 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       feedTitle: feedTitle,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $renameFeed_Serializer();
@@ -896,10 +541,10 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -938,12 +583,396 @@ class $Client extends _i1.DynamiteClient {
       feedId: feedId,
       newestItemId: newestItemId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markFeedAsRead_Serializer();
     return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
+}
+
+class $FoldersClient {
+  /// Creates a new `DynamiteClient` for folders requests.
+  $FoldersClient(this._rootClient);
+
+  final $Client _rootClient;
+
+  /// Builds a serializer to parse the response of [$listFolders_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFolders, void> $listFolders_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFolders),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [listFolders] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [listFolders] for a method executing this request and parsing the response.
+  ///  * [$listFolders_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $listFolders_Request() {
+    const _path = '/index.php/apps/news/api/v1-3/folders';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('get', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$listFolders_Request] for the request send by this method.
+  ///  * [$listFolders_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ListFolders, void>> listFolders() async {
+    final _request = $listFolders_Request();
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $listFolders_Serializer();
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$createFolder_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<ListFolders, void> $createFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: const FullType(ListFolders),
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [createFolder] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [createFolder] for a method executing this request and parsing the response.
+  ///  * [$createFolder_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $createFolder_Request({required String name}) {
+    final _parameters = <String, Object?>{};
+    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    _parameters['name'] = __name;
+
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+    _request.headers['Accept'] = 'application/json';
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$createFolder_Request] for the request send by this method.
+  ///  * [$createFolder_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
+    final _request = $createFolder_Request(
+      name: name,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $createFolder_Serializer();
+    return _i1.ResponseConverter<ListFolders, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$renameFolder_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $renameFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [renameFolder] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [renameFolder] for a method executing this request and parsing the response.
+  ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $renameFolder_Request({
+    required int folderId,
+    required String name,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
+
+    final __name = _$jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    _parameters['name'] = __name;
+
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('put', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [name]
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$renameFolder_Request] for the request send by this method.
+  ///  * [$renameFolder_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> renameFolder({
+    required int folderId,
+    required String name,
+  }) async {
+    final _request = $renameFolder_Request(
+      folderId: folderId,
+      name: name,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $renameFolder_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$deleteFolder_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $deleteFolder_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [deleteFolder] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [deleteFolder] for a method executing this request and parsing the response.
+  ///  * [$deleteFolder_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $deleteFolder_Request({required int folderId}) {
+    final _parameters = <String, Object?>{};
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
+
+    final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('delete', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$deleteFolder_Request] for the request send by this method.
+  ///  * [$deleteFolder_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
+    final _request = $deleteFolder_Request(
+      folderId: folderId,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $deleteFolder_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$markFolderAsRead_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $markFolderAsRead_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [markFolderAsRead] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [markFolderAsRead] for a method executing this request and parsing the response.
+  ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $markFolderAsRead_Request({
+    required int folderId,
+    required int newestItemId,
+  }) {
+    final _parameters = <String, Object?>{};
+    final __folderId = _$jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
+    _parameters['folderId'] = __folderId;
+
+    final __newestItemId = _$jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
+    _parameters['newestItemId'] = __newestItemId;
+
+    final _path =
+        _i5.UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [newestItemId] The newest read item.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$markFolderAsRead_Request] for the request send by this method.
+  ///  * [$markFolderAsRead_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> markFolderAsRead({
+    required int folderId,
+    required int newestItemId,
+  }) async {
+    final _request = $markFolderAsRead_Request(
+      folderId: folderId,
+      newestItemId: newestItemId,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $markFolderAsRead_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+}
+
+class $ItemsClient {
+  /// Creates a new `DynamiteClient` for items requests.
+  $ItemsClient(this._rootClient);
+
+  final $Client _rootClient;
 
   /// Builds a serializer to parse the response of [$listArticles_Request].
   @_i2.experimental
@@ -1008,11 +1037,11 @@ class $Client extends _i1.DynamiteClient {
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
             .expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1064,7 +1093,7 @@ class $Client extends _i1.DynamiteClient {
       offset: offset,
       oldestFirst: oldestFirst,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listArticles_Serializer();
@@ -1115,11 +1144,11 @@ class $Client extends _i1.DynamiteClient {
 
     final _path =
         _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1162,7 +1191,7 @@ class $Client extends _i1.DynamiteClient {
       id: id,
       lastModified: lastModified,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $listUpdatedArticles_Serializer();
@@ -1194,10 +1223,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1229,7 +1258,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $markArticleAsRead_Request(
       itemId: itemId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markArticleAsRead_Serializer();
@@ -1261,10 +1290,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1296,10 +1325,151 @@ class $Client extends _i1.DynamiteClient {
     final _request = $markArticleAsUnread_Request(
       itemId: itemId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $markArticleAsUnread_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$readMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $readMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [readMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [readMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$readMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $readMultipleArticles_Request({required ReadMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/read/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(ReadMultipleArticlesRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$readMultipleArticles_Request] for the request send by this method.
+  ///  * [$readMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> readMultipleArticles({
+    required ReadMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $readMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $readMultipleArticles_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$unreadMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $unreadMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [unreadMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unreadMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$unreadMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unreadMultipleArticles_Request({required UnreadMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/unread/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UnreadMultipleArticlesRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$unreadMultipleArticles_Request] for the request send by this method.
+  ///  * [$unreadMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> unreadMultipleArticles({
+    required UnreadMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $unreadMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $unreadMultipleArticles_Serializer();
     return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 
@@ -1328,10 +1498,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1363,7 +1533,7 @@ class $Client extends _i1.DynamiteClient {
     final _request = $starArticle_Request(
       itemId: itemId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $starArticle_Serializer();
@@ -1395,10 +1565,10 @@ class $Client extends _i1.DynamiteClient {
     _parameters['itemId'] = __itemId;
 
     final _path = _i5.UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
-    final _uri = Uri.parse('$baseURL$_path');
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('post', _uri);
 // coverage:ignore-start
-    final authentication = _i4.IterableExtension(authentications)?.firstWhereOrNull(
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
       (auth) => switch (auth) {
         _i1.DynamiteHttpBasicAuthentication() => true,
         _ => false,
@@ -1430,10 +1600,151 @@ class $Client extends _i1.DynamiteClient {
     final _request = $unstarArticle_Request(
       itemId: itemId,
     );
-    final _streamedResponse = await httpClient.send(_request);
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $unstarArticle_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$starMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $starMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [starMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [starMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$starMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $starMultipleArticles_Request({required StarMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/star/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize($body, specifiedType: const FullType(StarMultipleArticlesRequestApplicationJson)),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$starMultipleArticles_Request] for the request send by this method.
+  ///  * [$starMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> starMultipleArticles({
+    required StarMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $starMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $starMultipleArticles_Serializer();
+    return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
+  }
+
+  /// Builds a serializer to parse the response of [$unstarMultipleArticles_Request].
+  @_i2.experimental
+  _i1.DynamiteSerializer<void, void> $unstarMultipleArticles_Serializer() => _i1.DynamiteSerializer(
+        bodyType: null,
+        headersType: null,
+        serializers: _$jsonSerializers,
+        validStatuses: const {200},
+      );
+
+  /// Returns a `DynamiteRequest` backing the [unstarMultipleArticles] operation.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [unstarMultipleArticles] for a method executing this request and parsing the response.
+  ///  * [$unstarMultipleArticles_Serializer] for a converter to parse the `Response` from an executed this request.
+  @_i2.experimental
+  _i3.Request $unstarMultipleArticles_Request({required UnstarMultipleArticlesRequestApplicationJson $body}) {
+    const _path = '/index.php/apps/news/api/v1-3/items/unstar/multiple';
+    final _uri = Uri.parse('${_rootClient.baseURL}$_path');
+    final _request = _i3.Request('post', _uri);
+// coverage:ignore-start
+    final authentication = _i4.IterableExtension(_rootClient.authentications)?.firstWhereOrNull(
+      (auth) => switch (auth) {
+        _i1.DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      _request.headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for basic_auth');
+    }
+
+// coverage:ignore-end
+    _request.headers['Content-Type'] = 'application/json';
+    _request.body = json.encode(
+      _$jsonSerializers.serialize(
+        $body,
+        specifiedType: const FullType(UnstarMultipleArticlesRequestApplicationJson),
+      ),
+    );
+    return _request;
+  }
+
+  /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
+  /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [$unstarMultipleArticles_Request] for the request send by this method.
+  ///  * [$unstarMultipleArticles_Serializer] for a converter to parse the `Response` from an executed request.
+  Future<_i1.DynamiteResponse<void, void>> unstarMultipleArticles({
+    required UnstarMultipleArticlesRequestApplicationJson $body,
+  }) async {
+    final _request = $unstarMultipleArticles_Request(
+      $body: $body,
+    );
+    final _streamedResponse = await _rootClient.httpClient.send(_request);
+    final _response = await _i3.Response.fromStream(_streamedResponse);
+
+    final _serializer = $unstarMultipleArticles_Serializer();
     return _i1.ResponseConverter<void, void>(_serializer).convert(_response);
   }
 }
@@ -1634,6 +1945,62 @@ abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
 }
 
 @BuiltValue(instantiable: false)
+sealed class $ListFeedsInterface {
+  int? get starredCount;
+  int? get newestItemId;
+  BuiltList<Feed> get feeds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ListFeedsInterfaceBuilder].
+  $ListFeedsInterface rebuild(void Function($ListFeedsInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$ListFeedsInterfaceBuilder].
+  $ListFeedsInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ListFeedsInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ListFeedsInterfaceBuilder b) {}
+}
+
+abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
+  /// Creates a new ListFeeds object using the builder pattern.
+  factory ListFeeds([void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
+
+  // coverage:ignore-start
+  const ListFeeds._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ListFeeds.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ListFeeds.
+  static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ListFeedsBuilder b) {
+    $ListFeedsInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ListFeedsBuilder b) {
+    $ListFeedsInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
 sealed class $FolderInterface {
   int get id;
   String get name;
@@ -1748,62 +2115,6 @@ abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, 
 }
 
 @BuiltValue(instantiable: false)
-sealed class $ListFeedsInterface {
-  int? get starredCount;
-  int? get newestItemId;
-  BuiltList<Feed> get feeds;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ListFeedsInterfaceBuilder].
-  $ListFeedsInterface rebuild(void Function($ListFeedsInterfaceBuilder) updates);
-
-  /// Converts the instance to a builder [$ListFeedsInterfaceBuilder].
-  $ListFeedsInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ListFeedsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ListFeedsInterfaceBuilder b) {}
-}
-
-abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
-  /// Creates a new ListFeeds object using the builder pattern.
-  factory ListFeeds([void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
-
-  // coverage:ignore-start
-  const ListFeeds._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ListFeeds.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ListFeeds.
-  static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ListFeedsBuilder b) {
-    $ListFeedsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ListFeedsBuilder b) {
-    $ListFeedsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $ListArticlesInterface {
   BuiltList<Article> get items;
 
@@ -1854,6 +2165,258 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ListArticlesBuilder b) {
     $ListArticlesInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $ReadMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $ReadMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($ReadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class ReadMultipleArticlesRequestApplicationJson
+    implements
+        $ReadMultipleArticlesRequestApplicationJsonInterface,
+        Built<ReadMultipleArticlesRequestApplicationJson, ReadMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new ReadMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory ReadMultipleArticlesRequestApplicationJson([
+    void Function(ReadMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$ReadMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const ReadMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory ReadMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for ReadMultipleArticlesRequestApplicationJson.
+  static Serializer<ReadMultipleArticlesRequestApplicationJson> get serializer =>
+      _$readMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $ReadMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(ReadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $ReadMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UnreadMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnreadMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnreadMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UnreadMultipleArticlesRequestApplicationJson
+    implements
+        $UnreadMultipleArticlesRequestApplicationJsonInterface,
+        Built<UnreadMultipleArticlesRequestApplicationJson, UnreadMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new UnreadMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory UnreadMultipleArticlesRequestApplicationJson([
+    void Function(UnreadMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$UnreadMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UnreadMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UnreadMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UnreadMultipleArticlesRequestApplicationJson.
+  static Serializer<UnreadMultipleArticlesRequestApplicationJson> get serializer =>
+      _$unreadMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnreadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnreadMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnreadMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnreadMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $StarMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$StarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $StarMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$StarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $StarMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($StarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class StarMultipleArticlesRequestApplicationJson
+    implements
+        $StarMultipleArticlesRequestApplicationJsonInterface,
+        Built<StarMultipleArticlesRequestApplicationJson, StarMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new StarMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory StarMultipleArticlesRequestApplicationJson([
+    void Function(StarMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$StarMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const StarMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory StarMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for StarMultipleArticlesRequestApplicationJson.
+  static Serializer<StarMultipleArticlesRequestApplicationJson> get serializer =>
+      _$starMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $StarMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(StarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $StarMultipleArticlesRequestApplicationJsonInterface._validate(b);
+  }
+}
+
+@BuiltValue(instantiable: false)
+sealed class $UnstarMultipleArticlesRequestApplicationJsonInterface {
+  BuiltList<int> get itemIds;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnstarMultipleArticlesRequestApplicationJsonInterface rebuild(
+    void Function($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder) updates,
+  );
+
+  /// Converts the instance to a builder [$UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder].
+  $UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($UnstarMultipleArticlesRequestApplicationJsonInterfaceBuilder b) {}
+}
+
+abstract class UnstarMultipleArticlesRequestApplicationJson
+    implements
+        $UnstarMultipleArticlesRequestApplicationJsonInterface,
+        Built<UnstarMultipleArticlesRequestApplicationJson, UnstarMultipleArticlesRequestApplicationJsonBuilder> {
+  /// Creates a new UnstarMultipleArticlesRequestApplicationJson object using the builder pattern.
+  factory UnstarMultipleArticlesRequestApplicationJson([
+    void Function(UnstarMultipleArticlesRequestApplicationJsonBuilder)? b,
+  ]) = _$UnstarMultipleArticlesRequestApplicationJson;
+
+  // coverage:ignore-start
+  const UnstarMultipleArticlesRequestApplicationJson._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory UnstarMultipleArticlesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for UnstarMultipleArticlesRequestApplicationJson.
+  static Serializer<UnstarMultipleArticlesRequestApplicationJson> get serializer =>
+      _$unstarMultipleArticlesRequestApplicationJsonSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UnstarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnstarMultipleArticlesRequestApplicationJsonInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(UnstarMultipleArticlesRequestApplicationJsonBuilder b) {
+    $UnstarMultipleArticlesRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -2035,21 +2598,42 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
       ..add(SupportedAPIVersions.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(ListFolders), ListFoldersBuilder.new)
-      ..add(ListFolders.serializer)
-      ..addBuilderFactory(const FullType(Folder), FolderBuilder.new)
-      ..add(Folder.serializer)
+      ..addBuilderFactory(const FullType(ListFeeds), ListFeedsBuilder.new)
+      ..add(ListFeeds.serializer)
       ..addBuilderFactory(const FullType(Feed), FeedBuilder.new)
       ..add(Feed.serializer)
       ..addBuilderFactory(const FullType(Article), ArticleBuilder.new)
       ..add(Article.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Article)]), ListBuilder<Article>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Feed)]), ListBuilder<Feed>.new)
+      ..addBuilderFactory(const FullType(ListFolders), ListFoldersBuilder.new)
+      ..add(ListFolders.serializer)
+      ..addBuilderFactory(const FullType(Folder), FolderBuilder.new)
+      ..add(Folder.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Folder)]), ListBuilder<Folder>.new)
-      ..addBuilderFactory(const FullType(ListFeeds), ListFeedsBuilder.new)
-      ..add(ListFeeds.serializer)
       ..addBuilderFactory(const FullType(ListArticles), ListArticlesBuilder.new)
       ..add(ListArticles.serializer)
+      ..addBuilderFactory(
+        const FullType(ReadMultipleArticlesRequestApplicationJson),
+        ReadMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(ReadMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..addBuilderFactory(
+        const FullType(UnreadMultipleArticlesRequestApplicationJson),
+        UnreadMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(UnreadMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(StarMultipleArticlesRequestApplicationJson),
+        StarMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(StarMultipleArticlesRequestApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UnstarMultipleArticlesRequestApplicationJson),
+        UnstarMultipleArticlesRequestApplicationJsonBuilder.new,
+      )
+      ..add(UnstarMultipleArticlesRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
