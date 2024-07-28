@@ -78,6 +78,8 @@
       }
     }
   },
+  "errorUserPasswordConfirmationRequired": "You need to confirm your user password",
+  "errorWrongUserPassword": "Wrong user password",
   "errorDialog": "An error has occurred",
   "actionYes": "Yes",
   "actionNo": "No",
@@ -278,5 +280,6 @@
   "userStatusClearAtThisWeek": "This week",
   "userStatusActionClear": "Clear status",
   "userStatusStatusMessage": "Status message",
-  "userStatusOnlineStatus": "Online status"
+  "userStatusOnlineStatus": "Online status",
+  "passwordConfirmationUserPassword": "Your user password"
 }
