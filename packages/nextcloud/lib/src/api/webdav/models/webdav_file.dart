@@ -4,8 +4,15 @@ import 'package:timezone/timezone.dart' as tz;
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
-  List<WebDavFile> toWebDavFiles() =>
-      responses.where((response) => response.href != null).map((response) => WebDavFile(response: response)).toList();
+  List<WebDavFile> toWebDavFiles({String endpoint = 'remote.php/webdav'}) => responses
+      .where((response) => response.href != null)
+      .map(
+        (response) => WebDavFile(
+          response: response,
+          endpoint: endpoint,
+        ),
+      )
+      .toList();
 }
 
 /// WebDavFile class
@@ -13,9 +20,12 @@ class WebDavFile {
   /// Creates a new WebDavFile object with the given path
   WebDavFile({
     required WebDavResponse response,
-  }) : _response = response;
+    required String endpoint,
+  })  : _response = response,
+        _endpoint = PathUri.parse(endpoint);
 
   final WebDavResponse _response;
+  final PathUri _endpoint;
 
   /// Get the props of the file
   late final WebDavProp props = _response.propstats.singleWhere((propstat) => propstat.status.contains('200')).prop;
@@ -26,7 +36,7 @@ class WebDavFile {
     return PathUri(
       isAbsolute: false,
       isDirectory: href.isDirectory,
-      pathSegments: href.pathSegments.sublist(webdavBase.pathSegments.length),
+      pathSegments: href.pathSegments.sublist(_endpoint.pathSegments.length),
     );
   }();
 

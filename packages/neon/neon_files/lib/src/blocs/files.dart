@@ -164,46 +164,46 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   Future<void> delete(PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.delete(uri));
+    await wrapAction(() async => account.client.webdav().delete(uri));
   }
 
   @override
   Future<void> rename(PathUri uri, String name) async {
     await wrapAction(
-      () async => account.client.webdav.move(
-        uri,
-        uri.rename(name),
-      ),
+      () async => account.client.webdav().move(
+            uri,
+            uri.rename(name),
+          ),
     );
   }
 
   @override
   Future<void> move(PathUri uri, PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.move(uri, destination));
+    await wrapAction(() async => account.client.webdav().move(uri, destination));
   }
 
   @override
   Future<void> copy(PathUri uri, PathUri destination) async {
-    await wrapAction(() async => account.client.webdav.copy(uri, destination));
+    await wrapAction(() async => account.client.webdav().copy(uri, destination));
   }
 
   @override
   Future<void> addFavorite(PathUri uri) async {
     await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const WebDavProp(ocFavorite: true),
-      ),
+      () async => account.client.webdav().proppatch(
+            uri,
+            set: const WebDavProp(ocFavorite: true),
+          ),
     );
   }
 
   @override
   Future<void> removeFavorite(PathUri uri) async {
     await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const WebDavProp(ocFavorite: false),
-      ),
+      () async => account.client.webdav().proppatch(
+            uri,
+            set: const WebDavProp(ocFavorite: false),
+          ),
     );
   }
 

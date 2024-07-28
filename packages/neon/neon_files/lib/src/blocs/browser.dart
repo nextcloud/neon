@@ -91,19 +91,19 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: files,
-      getRequest: () => account.client.webdav.propfind_Request(
-        uri.value,
-        prop: const WebDavPropWithoutValues.fromBools(
-          davGetcontenttype: true,
-          davGetetag: true,
-          davGetlastmodified: true,
-          ncHasPreview: true,
-          ncMetadataBlurhash: true,
-          ocSize: true,
-          ocFavorite: true,
-        ),
-        depth: WebDavDepth.one,
-      ),
+      getRequest: () => account.client.webdav().propfind_Request(
+            uri.value,
+            prop: const WebDavPropWithoutValues.fromBools(
+              davGetcontenttype: true,
+              davGetetag: true,
+              davGetlastmodified: true,
+              ncHasPreview: true,
+              ncMetadataBlurhash: true,
+              ocSize: true,
+              ocFavorite: true,
+            ),
+            depth: WebDavDepth.one,
+          ),
       converter: const WebDavResponseConverter(),
       unwrap: (response) => BuiltList<WebDavFile>.build((b) {
         for (final file in response.toWebDavFiles()) {
@@ -144,6 +144,6 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
 
   @override
   Future<void> createFolder(PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.mkcol(uri));
+    await wrapAction(() async => account.client.webdav().mkcol(uri));
   }
 }

@@ -13,7 +13,10 @@ import 'package:universal_io/io.dart' show File, FileStat;
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
-  WebDavClient(this.rootClient) : csrfClient = WebDavCSRFClient(rootClient);
+  WebDavClient(
+    this.rootClient, {
+    this.endpoint = 'remote.php/webdav',
+  }) : csrfClient = WebDavCSRFClient(rootClient);
 
   // ignore: public_member_api_docs
   final NextcloudClient rootClient;
@@ -22,7 +25,12 @@ class WebDavClient {
   // TODO: Fix this bug in server.
   final WebDavCSRFClient csrfClient;
 
-  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
+  /// WebDAV endpoint used for all operations.
+  ///
+  /// Defaults to `remote.php/webdav` for accessing "Files".
+  final String endpoint;
+
+  Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, endpoint, path);
 
   /// Request to get the WebDAV capabilities of the server.
   ///
@@ -62,8 +70,14 @@ class WebDavClient {
   /// See:
   ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
   ///  * [mkcol_Request] for the request sent by this method.
-  Future<http.StreamedResponse> mkcol(PathUri path) {
+  Future<http.StreamedResponse> mkcol(
+    PathUri path, {
+    Map<String, String>? headers,
+  }) {
     final request = mkcol_Request(path);
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }
@@ -124,6 +138,7 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    Map<String, String>? headers,
   }) {
     final request = put_Request(
       localData,
@@ -131,6 +146,9 @@ class WebDavClient {
       lastModified: lastModified,
       created: created,
     );
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }
@@ -505,12 +523,16 @@ class WebDavClient {
     PathUri sourcePath,
     PathUri destinationPath, {
     bool overwrite = false,
+    Map<String, String>? headers,
   }) {
     final request = move_Request(
       sourcePath,
       destinationPath,
       overwrite: overwrite,
     );
+    if (headers != null) {
+      request.headers.addAll(headers);
+    }
 
     return csrfClient.send(request);
   }
