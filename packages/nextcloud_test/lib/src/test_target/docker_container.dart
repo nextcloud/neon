@@ -5,8 +5,7 @@ import 'dart:math';
 import 'package:built_collection/built_collection.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
-import 'package:nextcloud_test/src/presets.dart';
-import 'package:nextcloud_test/src/test_target/test_target.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:path/path.dart' as p;
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
@@ -17,9 +16,8 @@ int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
 class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> {
   /// Creates a new docker container and returns its representation.
   @override
-  Future<DockerContainerInstance> spawn(Preset? preset) async {
-    final dockerImageName =
-        'ghcr.io/nextcloud/neon/dev:${preset!.name}-${preset.version.major}.${preset.version.minor}';
+  Future<DockerContainerInstance> spawn(Preset preset) async {
+    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version.major}.${preset.version.minor}';
 
     var result = await runExecutableArguments(
       'docker',

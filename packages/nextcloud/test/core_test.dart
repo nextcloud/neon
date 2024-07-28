@@ -7,7 +7,7 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.create();
+  final targetFactory = TestTargetFactory.instance;
 
   presets(
     targetFactory,

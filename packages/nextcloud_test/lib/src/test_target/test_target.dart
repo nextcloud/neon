@@ -14,20 +14,29 @@ import 'package:nextcloud_test/src/test_target/local.dart';
 import 'package:version/version.dart';
 
 /// Factory for creating [TestTargetInstance]s.
+
 abstract class TestTargetFactory<T extends TestTargetInstance> {
+  /// The instance of the [TestTargetFactory].
+  static final TestTargetFactory instance = TestTargetFactory._create();
+
   /// Creates a new [TestTargetFactory].
-  static TestTargetFactory create() {
-    final url = Platform.environment['URL'];
+  static TestTargetFactory _create() {
     final dir = Platform.environment['DIR'];
-    if (url != null && url.isNotEmpty && dir != null && dir.isNotEmpty) {
-      return LocalFactory();
+    final url = Platform.environment['URL'];
+
+    if (url != null || dir != null) {
+      // Fail hard if the variables are not properly set to avoid a fallback to docker.
+      return LocalFactory(
+        dir: dir!,
+        url: Uri.parse(url!),
+      );
     }
 
     return DockerContainerFactory();
   }
 
   /// Spawns a new [T].
-  FutureOr<T> spawn(Preset? preset);
+  FutureOr<T> spawn(Preset preset);
 
   /// Returns the available presets for the factory.
   late BuiltListMultimap<String, Version> presets = getPresets();

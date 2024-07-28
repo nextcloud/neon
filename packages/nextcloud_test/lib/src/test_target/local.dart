@@ -1,24 +1,32 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud_test/src/presets.dart';
-import 'package:nextcloud_test/src/test_target/test_target.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 /// Factory for running tests against a local instance.
+
 class LocalFactory extends TestTargetFactory<LocalInstance> {
+  /// Creates a new test factory for a local server.
+  LocalFactory({
+    required String dir,
+    required Uri url,
+  })  : _dir = dir,
+        _instance = LocalInstance(url: url, dir: dir);
+
+  final String _dir;
+
+  final LocalInstance _instance;
+
   @override
-  LocalInstance spawn(Preset? preset) => LocalInstance();
+  LocalInstance spawn(Preset preset) => _instance;
 
   @override
   BuiltListMultimap<String, Version> getPresets() {
     final presets = ListMultimapBuilder<String, Version>();
     final regex = RegExp('  - (.*): (.*)');
-
-    final dir = Platform.environment['DIR']!;
 
     var result = runExecutableArgumentsSync(
       'php',
@@ -28,7 +36,7 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
         'app:list',
         '--enabled',
       ],
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
       throw Exception('Failed to list apps\n${result.stderr}\n${result.stdout}');
@@ -51,7 +59,7 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
         './occ',
         'status',
       ],
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     if (result.exitCode != 0) {
       throw Exception('Failed to get status\n${result.stderr}\n${result.stdout}');
@@ -77,19 +85,27 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
 
 /// Test target representing a local instance.
 class LocalInstance extends TestTargetInstance {
+  /// Creates a new test instance for a local server.
+  LocalInstance({
+    required Uri url,
+    required String dir,
+  })  : hostURL = url,
+        targetURL = url,
+        _dir = dir;
+
+  final String _dir;
+
   @override
   void destroy() {}
 
   @override
-  Uri hostURL = Uri.parse(Platform.environment['URL']!);
+  final Uri hostURL;
 
   @override
-  late Uri targetURL = hostURL;
+  final Uri targetURL;
 
   @override
   Future<String> createAppPassword(String username) async {
-    final dir = Platform.environment['DIR']!;
-
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
       'php',
@@ -100,7 +116,7 @@ class LocalInstance extends TestTargetInstance {
         username,
       ],
       stdin: inputStream.stream,
-      workingDirectory: dir,
+      workingDirectory: _dir,
     );
     inputStream.add(utf8.encode(username));
     await inputStream.close();

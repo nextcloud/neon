@@ -11,7 +11,7 @@ import 'package:test/test.dart';
 import 'package:version/version.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.create();
+  final targetFactory = TestTargetFactory.instance;
 
   presets(
     targetFactory,
