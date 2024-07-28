@@ -7,18 +7,21 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:version/version.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'tables',
     'tables',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
 
       test('Is supported', () async {

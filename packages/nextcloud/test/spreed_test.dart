@@ -11,18 +11,21 @@ import 'package:test/test.dart';
 import 'package:version/version.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'spreed',
     'spreed',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client1;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client1 = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client1 = await target.createClient();
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
 
       Future<spreed.Room> createTestRoom() async => (await client1.spreed.room.createRoom(
@@ -551,8 +554,7 @@ void main() {
           final room1 = (await client1.spreed.room.joinRoom(token: room.token)).body.ocs.data;
           await client1.spreed.call.joinCall(token: room.token);
 
-          final client2 = await TestNextcloudClient.create(
-            container,
+          final client2 = await target.createClient(
             username: 'user2',
           );
 

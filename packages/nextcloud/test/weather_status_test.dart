@@ -7,18 +7,21 @@ import 'package:test/test.dart';
 import 'package:version/version.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'server',
     'weather_status',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
 
       test('Set mode', () async {

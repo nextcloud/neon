@@ -6,20 +6,21 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'cookbook',
     'cookbook',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
-
-      setUp(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(container);
+      setUpAll(() async {
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient();
       });
-
-      tearDown(() async {
-        await container.destroy();
+      tearDownAll(() async {
+        await target.destroy();
       });
 
       group('CookbookVersionCheck', () {
@@ -115,7 +116,7 @@ void main() {
 
       group('recipes', () {
         test('callImport', () async {
-          final url = cookbook.UrlBuilder()..url = 'http://localhost/static/recipe.html';
+          final url = cookbook.UrlBuilder()..url = '${target.targetURL}/static/recipe.html';
           final response = await client.cookbook.recipes.$import($body: url.build());
           addTearDown(() async {
             closeFixture();

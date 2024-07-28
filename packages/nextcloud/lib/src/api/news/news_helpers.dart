@@ -18,7 +18,6 @@ extension NewsVersionCheck on news.$Client {
     return VersionCheck(
       versions: versions?.map((version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toBuiltList(),
       minimumVersion: minVersion,
-      maximumMajor: null,
     );
   }
 }

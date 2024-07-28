@@ -4,21 +4,23 @@ import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
+  final targetFactory = TestTargetFactory.create();
+
   presets(
+    targetFactory,
     'uppush',
     'uppush',
     (preset) {
-      late DockerContainer container;
+      late TestTargetInstance target;
       late NextcloudClient client;
       setUpAll(() async {
-        container = await DockerContainer.create(preset);
-        client = await TestNextcloudClient.create(
-          container,
+        target = await targetFactory.spawn(preset);
+        client = await target.createClient(
           username: 'admin',
         );
       });
       tearDownAll(() async {
-        await container.destroy();
+        await target.destroy();
       });
 
       test('Is installed', () async {

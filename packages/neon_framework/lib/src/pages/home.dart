@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         final versionCheck = entry.value;
         final appName = l10n.appImplementationName(entry.key);
 
-        buffer.writeln('- $appName >=${versionCheck.minimumVersion} <${versionCheck.maximumMajor + 1}.0.0');
+        buffer.writeln('- $appName >=${versionCheck.minimumVersion}');
       }
 
       final message = l10n.errorUnsupportedAppVersions(buffer.toString());

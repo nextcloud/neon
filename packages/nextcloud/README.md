@@ -46,11 +46,6 @@ They can be accessed using getters on the `NextcloudClient`.
 
 For an example checkout the [example](https://github.com/nextcloud/neon/blob/main/packages/nextcloud/example/example.dart).  
 
-## Development
-
-Except for WebDAV all client code is generated using OpenAPI specifications which can be found in the `lib/src/api/` folder.  
-These OpenAPI specifications are [generated](https://github.com/nextcloud/openapi-extractor) from the PHP source code.
-
 ## Compatibility/Support policy
 
 | Component                                                                          | Supported versions (1) |

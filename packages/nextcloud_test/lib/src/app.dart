@@ -40,7 +40,7 @@ extension AppFindLatestRelease on App {
 
 @internal
 extension AppReleaseFindLatestServerVersion on AppRelease {
-  Version findLatestServerVersion(List<Version> serverVersions) {
+  Version? findLatestServerVersion(List<Version> serverVersions) {
     final compatibleReleases = serverVersions
         .where(
           (serverVersion) =>
@@ -48,6 +48,6 @@ extension AppReleaseFindLatestServerVersion on AppRelease {
         )
         .toList()
       ..sort((a, b) => b.compareTo(a));
-    return compatibleReleases.first;
+    return compatibleReleases.firstOrNull;
   }
 }
