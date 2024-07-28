@@ -275,6 +275,18 @@ abstract class NeonLocalizations {
   /// **'Route not found: {route}'**
   String errorRouteNotFound(String route);
 
+  /// No description provided for @errorUserPasswordConfirmationRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to confirm your user password'**
+  String get errorUserPasswordConfirmationRequired;
+
+  /// No description provided for @errorWrongUserPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong user password'**
+  String get errorWrongUserPassword;
+
   /// No description provided for @errorDialog.
   ///
   /// In en, this message translates to:
@@ -868,6 +880,12 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Online status'**
   String get userStatusOnlineStatus;
+
+  /// No description provided for @passwordConfirmationUserPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Your user password'**
+  String get passwordConfirmationUserPassword;
 }
 
 class _NeonLocalizationsDelegate extends LocalizationsDelegate<NeonLocalizations> {

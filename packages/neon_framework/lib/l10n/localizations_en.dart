@@ -131,6 +131,12 @@ class NeonLocalizationsEn extends NeonLocalizations {
   }
 
   @override
+  String get errorUserPasswordConfirmationRequired => 'You need to confirm your user password';
+
+  @override
+  String get errorWrongUserPassword => 'Wrong user password';
+
+  @override
   String get errorDialog => 'An error has occurred';
 
   @override
@@ -505,4 +511,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get userStatusOnlineStatus => 'Online status';
+
+  @override
+  String get passwordConfirmationUserPassword => 'Your user password';
 }

@@ -1,9 +1,13 @@
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
@@ -15,6 +19,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 void main() {
+  setUpAll(() {
+    registerFallbackValue(MaterialPageRoute<dynamic>(builder: (_) => const SizedBox()) as Route<dynamic>);
+
+    FakeNeonStorage.setup();
+  });
+
   group('dialog', () {
     group('NeonConfirmationDialog', () {
       testWidgets('NeonConfirmationDialog widget', (tester) async {
@@ -524,6 +534,80 @@ void main() {
         await tester.tap(find.text(NeonLocalizations.of(context).actionContinue));
         expect(await future, AccountDeletion.remote);
       });
+    });
+  });
+
+  group('NeonPasswordConfirmationDialog', () {
+    late final Account account;
+
+    setUpAll(() {
+      account = mockServer({
+        RegExp(r'/ocs/v2\.php/core/apppassword/confirm'): {
+          'put': (match, request) {
+            final data = json.decode(request.body) as Map<String, dynamic>;
+            final password = data['password'] as String;
+
+            return http.Response(
+              json.encode({
+                'ocs': {
+                  'meta': {'status': '', 'statuscode': 0},
+                  'data': <dynamic, dynamic>{
+                    'lastLogin': 0,
+                  },
+                },
+              }),
+              password == 'correct' ? 200 : 403,
+              headers: {'content-type': 'application/json'},
+            );
+          },
+        },
+      });
+    });
+
+    testWidgets('Empty password', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          child: NeonPasswordConfirmationDialog(
+            account: account,
+          ),
+        ),
+      );
+
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+      expect(find.text(NeonLocalizationsEn().errorEmptyField), findsOne);
+    });
+
+    testWidgets('Wrong password', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          child: NeonPasswordConfirmationDialog(
+            account: account,
+          ),
+        ),
+      );
+
+      await tester.enterText(find.byType(TextFormField), 'wrong');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+      expect(find.text(NeonLocalizationsEn().errorWrongUserPassword), findsOne);
+    });
+
+    testWidgets('Correct password', (tester) async {
+      final navigatorObserver = MockNavigatorObserver();
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          navigatorObserver: navigatorObserver,
+          child: NeonPasswordConfirmationDialog(
+            account: account,
+          ),
+        ),
+      );
+
+      await tester.enterText(find.byType(TextFormField), 'correct');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+      verify(() => navigatorObserver.didPop(any(), any())).called(1);
     });
   });
 }
