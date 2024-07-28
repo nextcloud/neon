@@ -2,15 +2,15 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:nextcloud_test/nextcloud_test.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 /// Factory for running tests against a local instance.
-
-class LocalFactory extends TestTargetFactory<LocalInstance> {
+@internal
+final class LocalFactory extends TestTargetFactory<LocalInstance> {
   /// Creates a new test factory for a local server.
   LocalFactory({
     required String dir,
@@ -86,7 +86,8 @@ class LocalFactory extends TestTargetFactory<LocalInstance> {
 }
 
 /// Test target representing a local instance.
-class LocalInstance extends TestTargetInstance {
+@internal
+final class LocalInstance extends TestTargetInstance {
   /// Creates a new test instance for a local server.
   LocalInstance({
     required Uri url,

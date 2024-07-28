@@ -14,7 +14,7 @@ import 'package:nextcloud_test/src/test_target/local.dart';
 import 'package:version/version.dart';
 
 /// Factory for creating [TestTargetInstance]s.
-
+@internal
 abstract class TestTargetFactory<T extends TestTargetInstance> {
   /// The instance of the [TestTargetFactory].
   static final TestTargetFactory instance = TestTargetFactory._create();
@@ -49,6 +49,7 @@ abstract class TestTargetFactory<T extends TestTargetInstance> {
 }
 
 /// Instance of a test target.
+@internal
 abstract class TestTargetInstance {
   /// Destroys the instance.
   FutureOr<void> destroy();

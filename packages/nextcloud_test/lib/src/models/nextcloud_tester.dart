@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:nextcloud_test/src/models/models.dart';
+import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:version/version.dart';
 
 /// Class that manages the creation of nextcloud api clients and the test environment.

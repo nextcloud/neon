@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:built_collection/built_collection.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
+import 'package:meta/meta.dart';
 import 'package:nextcloud_test/src/models/models.dart';
 import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:path/path.dart' as p;
@@ -14,7 +15,8 @@ import 'package:version/version.dart';
 int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
 
 /// Factory for spawning docker containers as test targets.
-class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> {
+@internal
+final class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> {
   /// Creates a new docker container and returns its representation.
   @override
   Future<DockerContainerInstance> spawn(Preset preset) async {
@@ -83,7 +85,8 @@ class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> 
 }
 
 /// Test target representing a docker container.
-class DockerContainerInstance extends TestTargetInstance {
+@internal
+final class DockerContainerInstance extends TestTargetInstance {
   /// Creates a new Docker container instance.
   DockerContainerInstance({
     required this.id,
