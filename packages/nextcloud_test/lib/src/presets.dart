@@ -14,7 +14,7 @@ void presets(
   int? retry,
   Timeout? timeout,
 }) {
-  final presets = targetFactory.getPresets();
+  final presets = targetFactory.presets;
   if (!presets.containsKey(presetGroup)) {
     throw Exception('Unknown preset type "$presetGroup"');
   }

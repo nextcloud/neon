@@ -12,7 +12,7 @@ import 'package:version/version.dart';
 int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
 
 /// Factory for spawning docker containers as test targets.
-class DockerContainerFactory implements TestTargetFactory<DockerContainerInstance> {
+class DockerContainerFactory extends TestTargetFactory<DockerContainerInstance> {
   /// Creates a new docker container and returns its representation.
   @override
   Future<DockerContainerInstance> spawn(Preset? preset) async {

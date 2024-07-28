@@ -8,7 +8,7 @@ import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
 /// Factory for running tests against a local instance.
-class LocalFactory implements TestTargetFactory<LocalInstance> {
+class LocalFactory extends TestTargetFactory<LocalInstance> {
   @override
   LocalInstance spawn(Preset? preset) => LocalInstance();
 
