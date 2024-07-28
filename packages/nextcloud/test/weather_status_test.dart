@@ -1,5 +1,4 @@
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:nextcloud/weather_status.dart' as weather_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
@@ -7,25 +6,12 @@ import 'package:test/test.dart';
 import 'package:version/version.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.instance;
-
   presets(
-    targetFactory,
     'server',
     'weather_status',
-    (preset) {
-      late TestTargetInstance target;
-      late NextcloudClient client;
-      setUpAll(() async {
-        target = await targetFactory.spawn(preset);
-        client = await target.createClient();
-      });
-      tearDownAll(() async {
-        await target.destroy();
-      });
-
+    (tester) {
       test('Set mode', () async {
-        final response = await client.weatherStatus.weatherStatus.setMode(
+        final response = await tester.client.weatherStatus.weatherStatus.setMode(
           $body: weather_status.WeatherStatusSetModeRequestApplicationJson(
             (b) => b..mode = 1,
           ),
@@ -35,13 +21,13 @@ void main() {
       });
 
       test('Get location', () async {
-        await client.weatherStatus.weatherStatus.setLocation(
+        await tester.client.weatherStatus.weatherStatus.setLocation(
           $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
             (b) => b..address = 'Berlin',
           ),
         );
 
-        final response = await client.weatherStatus.weatherStatus.getLocation();
+        final response = await tester.client.weatherStatus.weatherStatus.getLocation();
         expect(response.statusCode, 200);
         expect(response.body.ocs.data.mode, 2);
         expect(response.body.ocs.data.address, 'Berlin, Deutschland');
@@ -50,7 +36,7 @@ void main() {
       });
 
       test('Set location', () async {
-        var response = await client.weatherStatus.weatherStatus.setLocation(
+        var response = await tester.client.weatherStatus.weatherStatus.setLocation(
           $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
             (b) => b..address = 'Hamburg',
           ),
@@ -61,7 +47,7 @@ void main() {
         expect(response.body.ocs.data.lat, isNotEmpty);
         expect(response.body.ocs.data.lon, isNotEmpty);
 
-        response = await client.weatherStatus.weatherStatus.setLocation(
+        response = await tester.client.weatherStatus.weatherStatus.setLocation(
           $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
             (b) => b
               ..lat = 52.5170365
@@ -78,19 +64,19 @@ void main() {
       test(
         'Use personal address',
         () async {
-          await client.weatherStatus.weatherStatus.setLocation(
+          await tester.client.weatherStatus.weatherStatus.setLocation(
             $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
               (b) => b..address = 'Hamburg',
             ),
           );
 
-          await client.core.appPassword.confirmUserPassword(
+          await tester.client.core.appPassword.confirmUserPassword(
             $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson(
               (b) => b..password = 'user1',
             ),
           );
 
-          await client.provisioningApi.users.editUser(
+          await tester.client.provisioningApi.users.editUser(
             userId: 'user1',
             $body: provisioning_api.UsersEditUserRequestApplicationJson(
               (b) => b
@@ -99,43 +85,43 @@ void main() {
             ),
           );
 
-          final response = await client.weatherStatus.weatherStatus.usePersonalAddress();
+          final response = await tester.client.weatherStatus.weatherStatus.usePersonalAddress();
           expect(response.statusCode, 200);
           expect(response.body.ocs.data.success, true);
           expect(response.body.ocs.data.address, 'Berlin, Deutschland');
           expect(response.body.ocs.data.lat, isNotEmpty);
           expect(response.body.ocs.data.lon, isNotEmpty);
         },
-        skip: preset.version < Version(29, 0, 0),
+        skip: tester.version < Version(29, 0, 0),
       );
 
       test('Get forecast', () async {
-        await client.weatherStatus.weatherStatus.setLocation(
+        await tester.client.weatherStatus.weatherStatus.setLocation(
           $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
             (b) => b..address = 'Berlin',
           ),
         );
 
-        final response = await client.weatherStatus.weatherStatus.getForecast();
+        final response = await tester.client.weatherStatus.weatherStatus.getForecast();
         expect(response.statusCode, 200);
         expect(response.body.ocs.data.builtListForecast, isNotNull);
         expect(response.body.ocs.data.builtListForecast, isNotEmpty);
       });
 
       test('Get favorites', () async {
-        await client.weatherStatus.weatherStatus.setFavorites(
+        await tester.client.weatherStatus.weatherStatus.setFavorites(
           $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson(
             (b) => b..favorites.replace(['a', 'b']),
           ),
         );
 
-        final response = await client.weatherStatus.weatherStatus.getFavorites();
+        final response = await tester.client.weatherStatus.weatherStatus.getFavorites();
         expect(response.statusCode, 200);
         expect(response.body.ocs.data, equals(['a', 'b']));
       });
 
       test('Set favorites', () async {
-        final response = await client.weatherStatus.weatherStatus.setFavorites(
+        final response = await tester.client.weatherStatus.weatherStatus.setFavorites(
           $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson(
             (b) => b..favorites.replace(['a', 'b']),
           ),

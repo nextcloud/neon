@@ -1,35 +1,21 @@
 import 'package:built_value_test/matcher.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 
 void main() {
-  final targetFactory = TestTargetFactory.instance;
-
   presets(
-    targetFactory,
     'server',
     'user_status',
-    (preset) {
-      late TestTargetInstance target;
-      late NextcloudClient client;
-      setUpAll(() async {
-        target = await targetFactory.spawn(preset);
-        client = await target.createClient();
-      });
-      tearDownAll(() async {
-        await target.destroy();
-      });
-
+    (tester) {
       setUp(() async {
-        await client.userStatus.userStatus.setStatus(
+        await tester.client.userStatus.userStatus.setStatus(
           $body: user_status.UserStatusSetStatusRequestApplicationJson(
             (b) => b..statusType = user_status.$Type.online.value,
           ),
         );
-        await client.userStatus.userStatus.clearMessage();
+        await tester.client.userStatus.userStatus.clearMessage();
 
         resetFixture();
       });
@@ -37,7 +23,7 @@ void main() {
       group('Predefined status', () {
         test('Find all', () async {
           final expectedStatusIDs = ['meeting', 'commuting', 'remote-work', 'sick-leave', 'vacationing'];
-          final response = await client.userStatus.predefinedStatus.findAll();
+          final response = await tester.client.userStatus.predefinedStatus.findAll();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -72,7 +58,7 @@ void main() {
 
       group('User status', () {
         test('Set', () async {
-          final response = await client.userStatus.userStatus.setStatus(
+          final response = await tester.client.userStatus.userStatus.setStatus(
             $body: user_status.UserStatusSetStatusRequestApplicationJson(
               (b) => b..statusType = user_status.$Type.online.value,
             ),
@@ -91,7 +77,7 @@ void main() {
         });
 
         test('Get', () async {
-          final response = await client.userStatus.userStatus.getStatus();
+          final response = await tester.client.userStatus.userStatus.getStatus();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -106,7 +92,7 @@ void main() {
         });
 
         test('Find', () async {
-          final response = await client.userStatus.statuses.find(userId: 'user1');
+          final response = await tester.client.userStatus.statuses.find(userId: 'user1');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -119,7 +105,7 @@ void main() {
 
         test('Set predefined message', () async {
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
-          final response = await client.userStatus.userStatus.setPredefinedMessage(
+          final response = await tester.client.userStatus.userStatus.setPredefinedMessage(
             $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
               (b) => b
                 ..messageId = 'meeting'
@@ -141,7 +127,7 @@ void main() {
 
         test('Set custom message', () async {
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
-          final response = await client.userStatus.userStatus.setCustomMessage(
+          final response = await tester.client.userStatus.userStatus.setCustomMessage(
             $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
               (b) => b
                 ..statusIcon = '😀'
@@ -164,7 +150,7 @@ void main() {
 
         test('Clear message', () async {
           final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
-          await client.userStatus.userStatus.setCustomMessage(
+          await tester.client.userStatus.userStatus.setCustomMessage(
             $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
               (b) => b
                 ..statusIcon = '😀'
@@ -172,9 +158,9 @@ void main() {
                 ..clearAt = clearAt,
             ),
           );
-          await client.userStatus.userStatus.clearMessage();
+          await tester.client.userStatus.userStatus.clearMessage();
 
-          final response = await client.userStatus.userStatus.getStatus();
+          final response = await tester.client.userStatus.userStatus.getStatus();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
@@ -191,7 +177,7 @@ void main() {
 
       group('Statuses', () {
         test('Find all', () async {
-          final response = await client.userStatus.statuses.findAll();
+          final response = await tester.client.userStatus.statuses.findAll();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
           expect(response.body.ocs.data, isNotEmpty);
@@ -212,7 +198,7 @@ void main() {
 
       group('Heartbeat', () {
         test('Heartbeat', () async {
-          final response = await client.userStatus.heartbeat.heartbeat(
+          final response = await tester.client.userStatus.heartbeat.heartbeat(
             $body: user_status.HeartbeatHeartbeatRequestApplicationJson(
               (b) => b..status = user_status.$Type.online.value,
             ),

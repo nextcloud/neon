@@ -1,6 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/webdav.dart';
-import 'package:nextcloud_test/src/presets.dart';
+import 'package:nextcloud_test/src/models/models.dart';
 // ignore: implementation_imports
 import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
@@ -30,7 +30,7 @@ void resetFixture() {
 /// Validates that the requests match the stored fixtures.
 ///
 /// If there is no stored fixture a new one is created.
-void validateFixture(Preset? preset) {
+void validateFixture(NextcloudTester tester) {
   if (_fixture.isEmpty) {
     return;
   }
@@ -50,13 +50,11 @@ void validateFixture(Preset? preset) {
     groups.removeAt(0);
   }
 
-  if (preset != null) {
-    // Remove the groups that are the preset name and the preset version and the app is kept.
-    for (var i = 0; i <= 2; i++) {
-      if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
-        groups.removeAt(i);
-        break;
-      }
+  // Remove the groups that are the preset name and the preset version and the app is kept.
+  for (var i = 0; i <= 2; i++) {
+    if (groups[i] == '${tester.version.major}.${tester.version.minor}') {
+      groups.removeAt(i);
+      break;
     }
   }
 

@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
+import 'package:nextcloud_test/src/models/models.dart';
+import 'package:nextcloud_test/src/test_target/test_target.dart';
 import 'package:process_run/process_run.dart';
 import 'package:version/version.dart';
 
