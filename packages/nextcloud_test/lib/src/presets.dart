@@ -7,6 +7,9 @@ import 'package:test/test.dart';
 /// Signature for callback to [presets].
 typedef NextcloudTesterCallback = void Function(NextcloudTester tester);
 
+/// The default username used in nextcloud tests.
+const String defaultTestUsername = 'user1';
+
 /// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
 @isTestGroup
 void presets(

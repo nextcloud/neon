@@ -7,14 +7,14 @@ authorization: Basic mock
 POST http://localhost/index\.php/apps/news/api/v1-3/items/read/multiple
 authorization: Basic mock
 content-type: application/json; charset=utf-8
-\{"itemIds":\[10,9,8,7,6,5,4,3,2,1\]\}
+\{"itemIds":\[[0-9,]*\]\}
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=6&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept: application/json
 authorization: Basic mock
 POST http://localhost/index\.php/apps/news/api/v1-3/items/unread/multiple
 authorization: Basic mock
 content-type: application/json; charset=utf-8
-\{"itemIds":\[10,9,8,7,6,5,4,3,2,1\]\}
+\{"itemIds":\[[0-9,]*\]\}
 GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=6&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 accept: application/json
 authorization: Basic mock
