@@ -191,6 +191,12 @@ abstract class NeonLocalizations {
   /// **'The credentials for this account no longer match'**
   String get errorCredentialsForAccountNoLongerMatch;
 
+  /// No description provided for @errorBruteforceThrottled.
+  ///
+  /// In en, this message translates to:
+  /// **'Your requests are throttled at the moment due to brute force protection'**
+  String get errorBruteforceThrottled;
+
   /// No description provided for @errorServerHadAProblemProcessingYourRequest.
   ///
   /// In en, this message translates to:

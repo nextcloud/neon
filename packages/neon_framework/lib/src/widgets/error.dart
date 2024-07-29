@@ -174,6 +174,11 @@ class NeonError extends StatelessWidget {
             isUnauthorized: true,
           );
         }
+        if (error.statusCode == 429) {
+          return NeonExceptionDetails(
+            getText: (context) => NeonLocalizations.of(context).errorBruteforceThrottled,
+          );
+        }
         if (error.statusCode >= 500 && error.statusCode <= 599) {
           return NeonExceptionDetails(
             getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
