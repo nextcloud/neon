@@ -35,7 +35,7 @@ dependencies:
   path: ^1.0.0
   path_provider: ^2.0.0
   queue: ^3.0.0
-  rxdart: ^0.27.0
+  rxdart: ^0.28.0
   share_plus: ^10.0.0
   timezone: ^0.9.4
   universal_io: ^2.0.0
