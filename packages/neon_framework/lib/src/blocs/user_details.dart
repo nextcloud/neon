@@ -21,6 +21,9 @@ abstract class UserDetailsBloc implements InteractiveBloc {
 
   /// Contains the user details.
   BehaviorSubject<Result<provisioning_api.UserDetails>> get userDetails;
+
+  /// Updates a property of the [userDetails].
+  void updateProperty(String key, String value);
 }
 
 class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
@@ -52,6 +55,36 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
       getRequest: account.client.provisioningApi.users.$getCurrentUser_Request,
       converter: ResponseConverter(account.client.provisioningApi.users.$getCurrentUser_Serializer()),
       unwrap: (response) => response.body.ocs.data,
+    );
+  }
+
+  @override
+  Future<void> updateProperty(String key, String value) async {
+    await wrapAction(
+      () async {
+        userDetails.add(userDetails.valueOrNull?.asLoading() ?? Result.loading());
+
+        await account.client.provisioningApi.users.editUser(
+          userId: account.username,
+          $body: provisioning_api.UsersEditUserRequestApplicationJson(
+            (b) => b
+              ..key = key
+              ..value = value,
+          ),
+        );
+
+        var data = userDetails.valueOrNull?.data;
+        if (data == null) {
+          return;
+        }
+
+        final raw = data.toJson();
+        raw[key] = value;
+        data = provisioning_api.UserDetails.fromJson(raw);
+
+        userDetails.add(Result.success(data));
+      },
+      refresh: () async {},
     );
   }
 }

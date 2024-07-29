@@ -371,6 +371,89 @@ class NeonLocalizationsEn extends NeonLocalizations {
   }
 
   @override
+  String get accountOptionsCategoryProfile => 'Profile';
+
+  @override
+  String get accountOptionsProfileDisplayNameLabel => 'Full name';
+
+  @override
+  String get accountOptionsProfileDisplayNameHint => 'Your full name';
+
+  @override
+  String get accountOptionsProfileEmailLabel => 'Email';
+
+  @override
+  String get accountOptionsProfileEmailHint => 'Primary email for password reset and notifications';
+
+  @override
+  String get accountOptionsProfilePhoneLabel => 'Phone number';
+
+  @override
+  String get accountOptionsProfilePhoneHint => 'Your phone number';
+
+  @override
+  String get accountOptionsProfileAddressLabel => 'Location';
+
+  @override
+  String get accountOptionsProfileAddressHint => 'Your city';
+
+  @override
+  String get accountOptionsProfileWebsiteLabel => 'Website';
+
+  @override
+  String get accountOptionsProfileWebsiteHint => 'Your website';
+
+  @override
+  String get accountOptionsProfileTwitterLabel => 'X (formerly Twitter)';
+
+  @override
+  String get accountOptionsProfileTwitterHint => 'Your X (formerly Twitter) handle';
+
+  @override
+  String get accountOptionsProfileFediverseLabel => 'Fediverse (e.g. Mastodon)';
+
+  @override
+  String get accountOptionsProfileFediverseHint => 'Your handle';
+
+  @override
+  String get accountOptionsProfileOrganisationLabel => 'Organisation';
+
+  @override
+  String get accountOptionsProfileOrganisationHint => 'Your organisation';
+
+  @override
+  String get accountOptionsProfileRoleLabel => 'Role';
+
+  @override
+  String get accountOptionsProfileRoleHint => 'Your role';
+
+  @override
+  String get accountOptionsProfileHeadlineLabel => 'Headline';
+
+  @override
+  String get accountOptionsProfileHeadlineHint => 'Your headline';
+
+  @override
+  String get accountOptionsProfileBiographyLabel => 'About';
+
+  @override
+  String get accountOptionsProfileBiographyHint => 'Your biography';
+
+  @override
+  String get accountOptionsProfileScopePrivate =>
+      'Only visible to people matched via phone number integration through Talk on mobile';
+
+  @override
+  String get accountOptionsProfileScopeLocal => 'Only visible to people on this instance and guests';
+
+  @override
+  String get accountOptionsProfileScopeFederated => 'Only synchronize to trusted servers';
+
+  @override
+  String get accountOptionsProfileScopePublished =>
+      'Synchronize to trusted servers and the global and public address book';
+
+  @override
   String get accountOptionsInitialApp => 'App to show initially';
 
   @override
