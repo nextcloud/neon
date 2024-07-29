@@ -725,6 +725,168 @@ abstract class NeonLocalizations {
   /// **'{used} used of {total} ({relative}%)'**
   String accountOptionsQuotaUsedOf(String used, String total, String relative);
 
+  /// No description provided for @accountOptionsCategoryProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get accountOptionsCategoryProfile;
+
+  /// No description provided for @accountOptionsProfileDisplayNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Full name'**
+  String get accountOptionsProfileDisplayNameLabel;
+
+  /// No description provided for @accountOptionsProfileDisplayNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your full name'**
+  String get accountOptionsProfileDisplayNameHint;
+
+  /// No description provided for @accountOptionsProfileEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get accountOptionsProfileEmailLabel;
+
+  /// No description provided for @accountOptionsProfileEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary email for password reset and notifications'**
+  String get accountOptionsProfileEmailHint;
+
+  /// No description provided for @accountOptionsProfilePhoneLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone number'**
+  String get accountOptionsProfilePhoneLabel;
+
+  /// No description provided for @accountOptionsProfilePhoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone number'**
+  String get accountOptionsProfilePhoneHint;
+
+  /// No description provided for @accountOptionsProfileAddressLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get accountOptionsProfileAddressLabel;
+
+  /// No description provided for @accountOptionsProfileAddressHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your city'**
+  String get accountOptionsProfileAddressHint;
+
+  /// No description provided for @accountOptionsProfileWebsiteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get accountOptionsProfileWebsiteLabel;
+
+  /// No description provided for @accountOptionsProfileWebsiteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your website'**
+  String get accountOptionsProfileWebsiteHint;
+
+  /// No description provided for @accountOptionsProfileTwitterLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'X (formerly Twitter)'**
+  String get accountOptionsProfileTwitterLabel;
+
+  /// No description provided for @accountOptionsProfileTwitterHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your X (formerly Twitter) handle'**
+  String get accountOptionsProfileTwitterHint;
+
+  /// No description provided for @accountOptionsProfileFediverseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Fediverse (e.g. Mastodon)'**
+  String get accountOptionsProfileFediverseLabel;
+
+  /// No description provided for @accountOptionsProfileFediverseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your handle'**
+  String get accountOptionsProfileFediverseHint;
+
+  /// No description provided for @accountOptionsProfileOrganisationLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Organisation'**
+  String get accountOptionsProfileOrganisationLabel;
+
+  /// No description provided for @accountOptionsProfileOrganisationHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your organisation'**
+  String get accountOptionsProfileOrganisationHint;
+
+  /// No description provided for @accountOptionsProfileRoleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get accountOptionsProfileRoleLabel;
+
+  /// No description provided for @accountOptionsProfileRoleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your role'**
+  String get accountOptionsProfileRoleHint;
+
+  /// No description provided for @accountOptionsProfileHeadlineLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Headline'**
+  String get accountOptionsProfileHeadlineLabel;
+
+  /// No description provided for @accountOptionsProfileHeadlineHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your headline'**
+  String get accountOptionsProfileHeadlineHint;
+
+  /// No description provided for @accountOptionsProfileBiographyLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get accountOptionsProfileBiographyLabel;
+
+  /// No description provided for @accountOptionsProfileBiographyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your biography'**
+  String get accountOptionsProfileBiographyHint;
+
+  /// No description provided for @accountOptionsProfileScopePrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Only visible to people matched via phone number integration through Talk on mobile'**
+  String get accountOptionsProfileScopePrivate;
+
+  /// No description provided for @accountOptionsProfileScopeLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'Only visible to people on this instance and guests'**
+  String get accountOptionsProfileScopeLocal;
+
+  /// No description provided for @accountOptionsProfileScopeFederated.
+  ///
+  /// In en, this message translates to:
+  /// **'Only synchronize to trusted servers'**
+  String get accountOptionsProfileScopeFederated;
+
+  /// No description provided for @accountOptionsProfileScopePublished.
+  ///
+  /// In en, this message translates to:
+  /// **'Synchronize to trusted servers and the global and public address book'**
+  String get accountOptionsProfileScopePublished;
+
   /// No description provided for @accountOptionsInitialApp.
   ///
   /// In en, this message translates to:

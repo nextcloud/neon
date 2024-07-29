@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
@@ -14,15 +16,17 @@ import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
-import 'package:neon_framework/src/widgets/error.dart';
+import 'package:neon_framework/src/widgets/settings_profile_section.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:neon_framework/widgets.dart';
+import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:provider/provider.dart';
 
 /// Account settings page.
 ///
 /// Displays settings for an [Account]. Settings are specified as `Option`s.
 @internal
-class AccountSettingsPage extends StatelessWidget {
+class AccountSettingsPage extends StatefulWidget {
   /// Creates a new account settings page for the given [account].
   const AccountSettingsPage({
     required this.account,
@@ -33,22 +37,48 @@ class AccountSettingsPage extends StatelessWidget {
   final Account account;
 
   @override
-  Widget build(BuildContext context) {
-    final bloc = NeonProvider.of<AccountsBloc>(context);
-    final options = bloc.getOptionsFor(account);
-    final userDetailsBloc = bloc.getUserDetailsBlocFor(account);
-    final name = account.humanReadableID;
+  State<AccountSettingsPage> createState() => _AccountSettingsPageState();
+}
 
+class _AccountSettingsPageState extends State<AccountSettingsPage> {
+  late final AccountsBloc bloc;
+  late final AccountOptions options;
+  late final UserDetailsBloc userDetailsBloc;
+  late final name = widget.account.humanReadableID;
+  late final StreamSubscription<Object> errorSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+
+    bloc = NeonProvider.of<AccountsBloc>(context);
+    options = bloc.getOptionsFor(widget.account);
+    userDetailsBloc = bloc.getUserDetailsBlocFor(widget.account);
+
+    errorSubscription = userDetailsBloc.errors.listen((error) {
+      NeonError.showSnackbar(context, error);
+    });
+  }
+
+  @override
+  void dispose() {
+    unawaited(errorSubscription.cancel());
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final appBar = AppBar(
-      title: Text(name),
+      title: Text(widget.account.humanReadableID),
       actions: [
         IconButton(
           onPressed: () async {
             final decision = await showAdaptiveDialog<AccountDeletion>(
               context: context,
               builder: (context) => NeonAccountDeletionDialog(
-                account: account,
-                capabilitiesBloc: bloc.getCapabilitiesBlocFor(account),
+                account: widget.account,
+                capabilitiesBloc: bloc.getCapabilitiesBlocFor(widget.account),
               ),
             );
 
@@ -57,13 +87,13 @@ class AccountSettingsPage extends StatelessWidget {
                 break;
               case AccountDeletion.remote:
                 if (context.mounted) {
-                  await launchUrl(NeonProvider.of<Account>(context), '/index.php/settings/user/drop_account');
+                  await launchUrl(widget.account, '/index.php/settings/user/drop_account');
                 }
               case AccountDeletion.local:
-                final isActive = bloc.activeAccount.valueOrNull == account;
+                final isActive = bloc.activeAccount.valueOrNull == widget.account;
 
                 options.reset();
-                bloc.removeAccount(account);
+                bloc.removeAccount(widget.account);
 
                 if (!context.mounted) {
                   return;
@@ -102,22 +132,50 @@ class AccountSettingsPage extends StatelessWidget {
       ],
     );
 
-    final body = SettingsList(
-      categories: [
-        _buildGeneralSection(context, options),
-        _buildStorageSection(context, userDetailsBloc),
-      ],
+    final body = ResultBuilder.behaviorSubject(
+      subject: userDetailsBloc.userDetails,
+      builder: (context, userDetails) {
+        final categories = <Widget>[_buildGeneralSection(context, options)];
+
+        if (userDetails.hasError) {
+          categories.add(
+            NeonError(
+              userDetails.error,
+              type: NeonErrorType.listTile,
+              onRetry: userDetailsBloc.refresh,
+            ),
+          );
+        }
+        if (userDetails.hasData) {
+          categories
+            ..add(
+              _buildStorageSection(
+                context,
+                userDetails.requireData,
+              ),
+            )
+            ..add(
+              NeonSettingsProfileSection(
+                userDetails: userDetails.requireData,
+                onUpdateProperty: userDetailsBloc.updateProperty,
+              ),
+            );
+        }
+
+        return SettingsList(
+          categories: categories,
+        );
+      },
     );
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: appBar,
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
             constraints: NeonDialogTheme.of(context).constraints,
             child: Provider<Account>.value(
-              value: account,
+              value: widget.account,
               child: body,
             ),
           ),
@@ -139,49 +197,25 @@ class AccountSettingsPage extends StatelessWidget {
 
   Widget _buildStorageSection(
     BuildContext context,
-    UserDetailsBloc userDetailsBloc,
+    provisioning_api.UserDetails userDetails,
   ) {
     return SettingsCategory(
       title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
       tiles: [
-        ResultBuilder.behaviorSubject(
-          subject: userDetailsBloc.userDetails,
-          builder: (context, userDetails) {
-            if (userDetails.hasError) {
-              return NeonError(
-                userDetails.error,
-                type: NeonErrorType.listTile,
-                onRetry: userDetailsBloc.refresh,
-              );
-            }
-
-            double? value;
-            Widget? subtitle;
-            if (userDetails.hasData) {
-              final quotaRelative = userDetails.data?.quota.relative ?? 0;
-              final quotaTotal = userDetails.data?.quota.total ?? 0;
-              final quotaUsed = userDetails.data?.quota.used ?? 0;
-
-              value = quotaRelative / 100;
-              subtitle = Text(
-                NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
-                  filesize(quotaUsed, 1),
-                  filesize(quotaTotal, 1),
-                  quotaRelative.toString(),
-                ),
-              );
-            }
-
-            return CustomSettingsTile(
-              title: LinearProgressIndicator(
-                value: value,
-                minHeight: isCupertino(context) ? 15 : null,
-                borderRadius: BorderRadius.circular(isCupertino(context) ? 5 : 3),
-                backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-              ),
-              subtitle: subtitle,
-            );
-          },
+        CustomSettingsTile(
+          title: LinearProgressIndicator(
+            value: userDetails.quota.relative / 100,
+            minHeight: isCupertino(context) ? 15 : null,
+            borderRadius: BorderRadius.circular(isCupertino(context) ? 5 : 3),
+            backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+          ),
+          subtitle: Text(
+            NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
+              filesize(userDetails.quota.used, 1),
+              filesize(userDetails.quota.total, 1),
+              userDetails.quota.relative.toString(),
+            ),
+          ),
         ),
       ],
     );
