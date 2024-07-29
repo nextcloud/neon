@@ -36,6 +36,7 @@
   "loginMaintenanceModeDisabled": "Maintenance mode disabled",
   "loginCheckingAccount": "Checking account",
   "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
+  "errorBruteforceThrottled": "Your requests are throttled at the moment due to brute force protection",
   "errorServerHadAProblemProcessingYourRequest": "The server had a problem while processing your request. You might want to try again",
   "errorSomethingWentWrongTryAgainLater": "Something went wrong. Please try again later",
   "errorUnableToReachServer": "Unable to reach the server",

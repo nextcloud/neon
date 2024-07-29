@@ -78,6 +78,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get errorCredentialsForAccountNoLongerMatch => 'The credentials for this account no longer match';
 
   @override
+  String get errorBruteforceThrottled => 'Your requests are throttled at the moment due to brute force protection';
+
+  @override
   String get errorServerHadAProblemProcessingYourRequest =>
       'The server had a problem while processing your request. You might want to try again';
 
