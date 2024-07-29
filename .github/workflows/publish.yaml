@@ -95,7 +95,7 @@ jobs:
         with:
           platforms: ${{ matrix.architecture.docker }}
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@aa33708b10e362ff993539393ff100fa93ed6a27 # v3
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db # v3
         with:
           platforms: linux/${{ matrix.architecture.docker }}
 
