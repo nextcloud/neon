@@ -1,56 +1,139 @@
 import 'dart:io';
 
+import 'package:built_collection/built_collection.dart';
+import 'package:code_builder/code_builder.dart';
+import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:glob/glob.dart';
 import 'package:glob/list_local_fs.dart';
 import 'package:path/path.dart' as p;
 
+final _clientRegex = RegExp(r'class \$Client extends _i[0-9]*.DynamiteClient {');
+
+class _State {
+  _State(this._filePath);
+
+  final String _filePath;
+  late final String _basename = p.basename(_filePath);
+
+  /// The unescaped app name.
+  late String clientID = _basename.substring(0, _basename.length - 13);
+
+  /// The dart version of [clientID].
+  late String dartName = toDartName(clientID);
+
+  /// The class name version of [clientID].
+  late String className = toDartName(clientID, className: true);
+
+  late bool hasHelpers = File('lib/src/api/$clientID/${clientID}_helpers.dart').existsSync();
+  late bool hasClient = File(_filePath).readAsStringSync().contains(_clientRegex);
+}
+
 void main() {
   final files = Glob('lib/src/api/**/*.openapi.dart').listSync()..sort((a, b) => a.path.compareTo(b.path));
 
-  final idStatements = StringBuffer();
+  final formatter = DartFormatter(pageWidth: 120);
+  final emitter = DartEmitter(
+    orderDirectives: true,
+    useNullSafetySyntax: true,
+  );
 
-  for (final file in files) {
-    final basename = p.basename(file.path);
-    final id = basename.substring(0, basename.length - 13);
-    final variablePrefix = toDartName(id);
-    final classPrefix = toDartName(id, className: true);
-
-    idStatements
-      ..writeln('  /// ID for the $id app.')
-      ..writeln("  static const $variablePrefix = '$id';");
-
-    final exports = ["export 'src/api/$id/$id.openapi.dart';"];
-    if (File('lib/src/api/$id/${id}_helpers.dart').existsSync()) {
-      exports.add("export 'src/api/$id/${id}_helpers.dart';");
+  final states = BuiltList<_State>.build((b) {
+    for (final file in files) {
+      b.add(_State(file.path));
     }
+  });
 
-    if (!File(file.path).readAsStringSync().contains(RegExp(r'class \$Client extends _i[0-9]*.DynamiteClient {'))) {
-      File('lib/$id.dart').writeAsStringSync(exports.join('\n'));
-      continue;
-    }
-
-    File('lib/$id.dart').writeAsStringSync('''
-// coverage:ignore-file
-import 'package:nextcloud/src/api/$id/$id.openapi.dart';
-import 'package:nextcloud/src/nextcloud_client.dart';
-
-${exports.join('\n')}
-
-// ignore: public_member_api_docs
-extension ${classPrefix}Extension on NextcloudClient {
-  static final _$variablePrefix = Expando<\$Client>();
-
-  /// Client for the $id APIs
-  \$Client get $variablePrefix => _$variablePrefix[this] ??= \$Client.fromClient(this);
-}
-''');
+  for (final state in states) {
+    final library = _buildClientExports(state);
+    final output = library.accept(emitter).toString();
+    File('lib/${state.clientID}.dart').writeAsStringSync(
+      formatter.format(output),
+    );
   }
 
-  File('lib/ids.dart').writeAsStringSync('''
-/// IDs of the apps.
-final class AppIDs {
-$idStatements
+  final library = Library((b) {
+    final appIDBuilder = ClassBuilder()
+      ..docs.add('/// IDs of the apps.')
+      ..name = 'AppIDs'
+      ..modifier = ClassModifier.final$;
+
+    for (final state in states) {
+      final clientID = state.clientID;
+
+      final appID = Field((b) {
+        b
+          ..docs.add('/// ID for the $clientID app.')
+          ..static = true
+          ..modifier = FieldModifier.constant
+          ..name = state.dartName
+          ..assignment = literalString(clientID).code;
+      });
+
+      appIDBuilder.fields.add(appID);
+    }
+
+    b.body.add(appIDBuilder.build());
+  });
+
+  final output = library.accept(emitter).toString();
+
+  File('lib/ids.dart').writeAsStringSync(
+    formatter.format(output),
+  );
 }
-''');
+
+Library _buildClientExports(_State state) {
+  final clientID = state.clientID;
+  final dartName = state.dartName;
+
+  return Library((b) {
+    b.directives.add(
+      Directive.export('package:nextcloud/src/api/$clientID/$clientID.openapi.dart'),
+    );
+
+    if (state.hasHelpers) {
+      b.directives.add(
+        Directive.export('package:nextcloud/src/api/$clientID/${clientID}_helpers.dart'),
+      );
+    }
+
+    if (state.hasClient) {
+      b.directives.addAll([
+        Directive.import('package:nextcloud/src/api/$clientID/$clientID.openapi.dart'),
+        Directive.import('package:nextcloud/src/nextcloud_client.dart'),
+      ]);
+
+      final docs = '/// Client for the $clientID APIs.';
+
+      final expando = Field((b) {
+        b
+          ..static = true
+          ..modifier = FieldModifier.final$
+          ..name = '_$dartName'
+          ..assignment = const Code(r'Expando<$Client>()');
+      });
+
+      final clientGetter = Method((b) {
+        b
+          ..docs.add(docs)
+          ..returns = refer(r'$Client')
+          ..type = MethodType.getter
+          ..name = dartName
+          ..lambda = true
+          ..body = Code('_$dartName[this] ??= \$Client.fromClient(this)');
+      });
+
+      final extension = Extension((b) {
+        b
+          ..docs.add(docs)
+          ..name = '${state.className}Extension'
+          ..on = refer('NextcloudClient')
+          ..fields.add(expando)
+          ..methods.add(clientGetter);
+      });
+
+      b.body.add(extension);
+    }
+  });
 }

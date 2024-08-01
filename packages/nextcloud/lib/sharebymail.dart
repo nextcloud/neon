@@ -1,1 +1,1 @@
-export 'src/api/sharebymail/sharebymail.openapi.dart';
+export 'package:nextcloud/src/api/sharebymail/sharebymail.openapi.dart';

@@ -1,1 +1,1 @@
-export 'src/api/comments/comments.openapi.dart';
+export 'package:nextcloud/src/api/comments/comments.openapi.dart';
