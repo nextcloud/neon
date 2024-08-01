@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:nextcloud/ids.dart';
+import 'package:nextcloud/nextcloud.dart';
 
 /// Interface of a storable element.
 ///

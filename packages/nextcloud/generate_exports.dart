@@ -83,7 +83,7 @@ void main() {
 
   final output = library.accept(emitter).toString();
 
-  File('lib/ids.dart').writeAsStringSync(
+  File('lib/src/app_ids.dart').writeAsStringSync(
     formatter.format(output),
   );
 }
