@@ -1,13 +1,15 @@
-// coverage:ignore-file
 import 'package:nextcloud/src/api/files_versions/files_versions.openapi.dart';
 import 'package:nextcloud/src/nextcloud_client.dart';
 
-export 'src/api/files_versions/files_versions.openapi.dart';
+export 'package:nextcloud/src/api/files_versions/files_versions.openapi.dart';
 
-// ignore: public_member_api_docs
+/// ID for the files_versions app.
+const String appID = 'files_versions';
+
+/// Client for the files_versions APIs.
 extension FilesVersionsExtension on NextcloudClient {
   static final _filesVersions = Expando<$Client>();
 
-  /// Client for the files_versions APIs
+  /// Client for the files_versions APIs.
   $Client get filesVersions => _filesVersions[this] ??= $Client.fromClient(this);
 }
