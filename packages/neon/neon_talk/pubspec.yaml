@@ -47,7 +47,7 @@ dev_dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
   provider: ^6.1.2
-  shared_preferences: ^2.3.0
+  shared_preferences: ^2.3.1
   vector_graphics_compiler: ^1.1.11+1
 
 flutter:
