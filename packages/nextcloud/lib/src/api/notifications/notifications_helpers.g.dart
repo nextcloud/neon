@@ -6,7 +6,6 @@ part of 'notifications_helpers.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$_serializers = (Serializers().toBuilder()..add(DecryptedSubject.serializer)).build();
 Serializer<DecryptedSubject> _$decryptedSubjectSerializer = _$DecryptedSubjectSerializer();
 
 class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubject> {
