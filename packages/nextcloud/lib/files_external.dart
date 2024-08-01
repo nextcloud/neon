@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/files_external/files_external.openapi.dart';
 
+/// ID for the files_external app.
+const String appID = 'files_external';
+
 /// Client for the files_external APIs.
 extension FilesExternalExtension on NextcloudClient {
   static final _filesExternal = Expando<$Client>();

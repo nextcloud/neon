@@ -1,83 +1,112 @@
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:nextcloud/comments.dart' as _comments;
+import 'package:nextcloud/cookbook.dart' as _cookbook;
+import 'package:nextcloud/core.dart' as _core;
+import 'package:nextcloud/dashboard.dart' as _dashboard;
+import 'package:nextcloud/dav.dart' as _dav;
+import 'package:nextcloud/drop_account.dart' as _drop_account;
+import 'package:nextcloud/files.dart' as _files;
+import 'package:nextcloud/files_external.dart' as _files_external;
+import 'package:nextcloud/files_reminders.dart' as _files_reminders;
+import 'package:nextcloud/files_sharing.dart' as _files_sharing;
+import 'package:nextcloud/files_trashbin.dart' as _files_trashbin;
+import 'package:nextcloud/files_versions.dart' as _files_versions;
+import 'package:nextcloud/news.dart' as _news;
+import 'package:nextcloud/notes.dart' as _notes;
+import 'package:nextcloud/notifications.dart' as _notifications;
+import 'package:nextcloud/provisioning_api.dart' as _provisioning_api;
+import 'package:nextcloud/settings.dart' as _settings;
+import 'package:nextcloud/sharebymail.dart' as _sharebymail;
+import 'package:nextcloud/spreed.dart' as _spreed;
+import 'package:nextcloud/systemtags.dart' as _systemtags;
+import 'package:nextcloud/tables.dart' as _tables;
+import 'package:nextcloud/theming.dart' as _theming;
+import 'package:nextcloud/updatenotification.dart' as _updatenotification;
+import 'package:nextcloud/uppush.dart' as _uppush;
+import 'package:nextcloud/user_ldap.dart' as _user_ldap;
+import 'package:nextcloud/user_status.dart' as _user_status;
+import 'package:nextcloud/weather_status.dart' as _weather_status;
+
 /// IDs of the apps.
 final class AppIDs {
   /// ID for the comments app.
-  static const comments = 'comments';
+  static const String comments = _comments.appID;
 
   /// ID for the cookbook app.
-  static const cookbook = 'cookbook';
+  static const String cookbook = _cookbook.appID;
 
   /// ID for the core app.
-  static const core = 'core';
+  static const String core = _core.appID;
 
   /// ID for the dashboard app.
-  static const dashboard = 'dashboard';
+  static const String dashboard = _dashboard.appID;
 
   /// ID for the dav app.
-  static const dav = 'dav';
+  static const String dav = _dav.appID;
 
   /// ID for the drop_account app.
-  static const dropAccount = 'drop_account';
+  static const String dropAccount = _drop_account.appID;
 
   /// ID for the files app.
-  static const files = 'files';
+  static const String files = _files.appID;
 
   /// ID for the files_external app.
-  static const filesExternal = 'files_external';
+  static const String filesExternal = _files_external.appID;
 
   /// ID for the files_reminders app.
-  static const filesReminders = 'files_reminders';
+  static const String filesReminders = _files_reminders.appID;
 
   /// ID for the files_sharing app.
-  static const filesSharing = 'files_sharing';
+  static const String filesSharing = _files_sharing.appID;
 
   /// ID for the files_trashbin app.
-  static const filesTrashbin = 'files_trashbin';
+  static const String filesTrashbin = _files_trashbin.appID;
 
   /// ID for the files_versions app.
-  static const filesVersions = 'files_versions';
+  static const String filesVersions = _files_versions.appID;
 
   /// ID for the news app.
-  static const news = 'news';
+  static const String news = _news.appID;
 
   /// ID for the notes app.
-  static const notes = 'notes';
+  static const String notes = _notes.appID;
 
   /// ID for the notifications app.
-  static const notifications = 'notifications';
+  static const String notifications = _notifications.appID;
 
   /// ID for the provisioning_api app.
-  static const provisioningApi = 'provisioning_api';
+  static const String provisioningApi = _provisioning_api.appID;
 
   /// ID for the settings app.
-  static const settings = 'settings';
+  static const String settings = _settings.appID;
 
   /// ID for the sharebymail app.
-  static const sharebymail = 'sharebymail';
+  static const String sharebymail = _sharebymail.appID;
 
   /// ID for the spreed app.
-  static const spreed = 'spreed';
+  static const String spreed = _spreed.appID;
 
   /// ID for the systemtags app.
-  static const systemtags = 'systemtags';
+  static const String systemtags = _systemtags.appID;
 
   /// ID for the tables app.
-  static const tables = 'tables';
+  static const String tables = _tables.appID;
 
   /// ID for the theming app.
-  static const theming = 'theming';
+  static const String theming = _theming.appID;
 
   /// ID for the updatenotification app.
-  static const updatenotification = 'updatenotification';
+  static const String updatenotification = _updatenotification.appID;
 
   /// ID for the uppush app.
-  static const uppush = 'uppush';
+  static const String uppush = _uppush.appID;
 
   /// ID for the user_ldap app.
-  static const userLdap = 'user_ldap';
+  static const String userLdap = _user_ldap.appID;
 
   /// ID for the user_status app.
-  static const userStatus = 'user_status';
+  static const String userStatus = _user_status.appID;
 
   /// ID for the weather_status app.
-  static const weatherStatus = 'weather_status';
+  static const String weatherStatus = _weather_status.appID;
 }

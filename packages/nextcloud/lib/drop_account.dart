@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/drop_account/drop_account.openapi.dart';
 
+/// ID for the drop_account app.
+const String appID = 'drop_account';
+
 /// Client for the drop_account APIs.
 extension DropAccountExtension on NextcloudClient {
   static final _dropAccount = Expando<$Client>();

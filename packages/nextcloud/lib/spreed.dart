@@ -4,6 +4,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 export 'package:nextcloud/src/api/spreed/spreed.openapi.dart';
 export 'package:nextcloud/src/api/spreed/spreed_helpers.dart';
 
+/// ID for the spreed app.
+const String appID = 'spreed';
+
 /// Client for the spreed APIs.
 extension SpreedExtension on NextcloudClient {
   static final _spreed = Expando<$Client>();

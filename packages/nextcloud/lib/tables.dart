@@ -4,6 +4,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 export 'package:nextcloud/src/api/tables/tables.openapi.dart';
 export 'package:nextcloud/src/api/tables/tables_helpers.dart';
 
+/// ID for the tables app.
+const String appID = 'tables';
+
 /// Client for the tables APIs.
 extension TablesExtension on NextcloudClient {
   static final _tables = Expando<$Client>();

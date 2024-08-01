@@ -4,6 +4,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 export 'package:nextcloud/src/api/notes/notes.openapi.dart';
 export 'package:nextcloud/src/api/notes/notes_helpers.dart';
 
+/// ID for the notes app.
+const String appID = 'notes';
+
 /// Client for the notes APIs.
 extension NotesExtension on NextcloudClient {
   static final _notes = Expando<$Client>();

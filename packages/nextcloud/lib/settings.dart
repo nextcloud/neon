@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/settings/settings.openapi.dart';
 
+/// ID for the settings app.
+const String appID = 'settings';
+
 /// Client for the settings APIs.
 extension SettingsExtension on NextcloudClient {
   static final _settings = Expando<$Client>();

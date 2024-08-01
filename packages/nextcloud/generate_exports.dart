@@ -10,6 +10,8 @@ import 'package:path/path.dart' as p;
 
 final _clientRegex = RegExp(r'class \$Client extends _i[0-9]*.DynamiteClient {');
 
+const String _idField = 'appID';
+
 class _State {
   _State(this._filePath);
 
@@ -61,13 +63,16 @@ void main() {
     for (final state in states) {
       final clientID = state.clientID;
 
+      b.directives.add(Directive.import('package:nextcloud/$clientID.dart', as: '_$clientID'));
+
       final appID = Field((b) {
         b
           ..docs.add('/// ID for the $clientID app.')
           ..static = true
           ..modifier = FieldModifier.constant
+          ..type = refer('String')
           ..name = state.dartName
-          ..assignment = literalString(clientID).code;
+          ..assignment = refer('_$clientID.$_idField').code;
       });
 
       appIDBuilder.fields.add(appID);
@@ -97,6 +102,17 @@ Library _buildClientExports(_State state) {
         Directive.export('package:nextcloud/src/api/$clientID/${clientID}_helpers.dart'),
       );
     }
+
+    final appID = Field((b) {
+      b
+        ..docs.add('/// ID for the $clientID app.')
+        ..modifier = FieldModifier.constant
+        ..type = refer('String')
+        ..name = _idField
+        ..assignment = literalString(clientID).code;
+    });
+
+    b.body.add(appID);
 
     if (state.hasClient) {
       b.directives.addAll([

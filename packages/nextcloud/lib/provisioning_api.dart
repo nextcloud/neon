@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/provisioning_api/provisioning_api.openapi.dart';
 
+/// ID for the provisioning_api app.
+const String appID = 'provisioning_api';
+
 /// Client for the provisioning_api APIs.
 extension ProvisioningApiExtension on NextcloudClient {
   static final _provisioningApi = Expando<$Client>();

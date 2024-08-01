@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/dav/dav.openapi.dart';
 
+/// ID for the dav app.
+const String appID = 'dav';
+
 /// Client for the dav APIs.
 extension DavExtension on NextcloudClient {
   static final _dav = Expando<$Client>();

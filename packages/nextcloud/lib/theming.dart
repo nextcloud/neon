@@ -3,6 +3,9 @@ import 'package:nextcloud/src/nextcloud_client.dart';
 
 export 'package:nextcloud/src/api/theming/theming.openapi.dart';
 
+/// ID for the theming app.
+const String appID = 'theming';
+
 /// Client for the theming APIs.
 extension ThemingExtension on NextcloudClient {
   static final _theming = Expando<$Client>();
