@@ -6,6 +6,26 @@ part of 'files_sharing.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const PublicPreviewGetPreviewA _$publicPreviewGetPreviewA$0 = PublicPreviewGetPreviewA._('\$0');
+const PublicPreviewGetPreviewA _$publicPreviewGetPreviewA$1 = PublicPreviewGetPreviewA._('\$1');
+
+PublicPreviewGetPreviewA _$valueOfPublicPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$publicPreviewGetPreviewA$0;
+    case '\$1':
+      return _$publicPreviewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PublicPreviewGetPreviewA> _$publicPreviewGetPreviewAValues =
+    BuiltSet<PublicPreviewGetPreviewA>(const <PublicPreviewGetPreviewA>[
+  _$publicPreviewGetPreviewA$0,
+  _$publicPreviewGetPreviewA$1,
+]);
+
 const Share_HideDownload _$shareHideDownload$0 = Share_HideDownload._('\$0');
 const Share_HideDownload _$shareHideDownload$1 = Share_HideDownload._('\$1');
 
@@ -63,6 +83,46 @@ final BuiltSet<Share_MailSend> _$shareMailSendValues = BuiltSet<Share_MailSend>(
   _$shareMailSend$1,
 ]);
 
+const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$0 = ShareapiGetShareIncludeTags._('\$0');
+const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$1 = ShareapiGetShareIncludeTags._('\$1');
+
+ShareapiGetShareIncludeTags _$valueOfShareapiGetShareIncludeTags(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareapiGetShareIncludeTags$0;
+    case '\$1':
+      return _$shareapiGetShareIncludeTags$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareapiGetShareIncludeTags> _$shareapiGetShareIncludeTagsValues =
+    BuiltSet<ShareapiGetShareIncludeTags>(const <ShareapiGetShareIncludeTags>[
+  _$shareapiGetShareIncludeTags$0,
+  _$shareapiGetShareIncludeTags$1,
+]);
+
+const ShareesapiSearchLookup _$shareesapiSearchLookup$0 = ShareesapiSearchLookup._('\$0');
+const ShareesapiSearchLookup _$shareesapiSearchLookup$1 = ShareesapiSearchLookup._('\$1');
+
+ShareesapiSearchLookup _$valueOfShareesapiSearchLookup(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareesapiSearchLookup$0;
+    case '\$1':
+      return _$shareesapiSearchLookup$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ShareesapiSearchLookup> _$shareesapiSearchLookupValues =
+    BuiltSet<ShareesapiSearchLookup>(const <ShareesapiSearchLookup>[
+  _$shareesapiSearchLookup$0,
+  _$shareesapiSearchLookup$1,
+]);
+
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DeletedShare> _$deletedShareSerializer = _$DeletedShareSerializer();
 Serializer<DeletedShareapiIndexResponseApplicationJson_Ocs> _$deletedShareapiIndexResponseApplicationJsonOcsSerializer =
@@ -74,8 +134,6 @@ Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs>
     _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer();
 Serializer<DeletedShareapiUndeleteResponseApplicationJson> _$deletedShareapiUndeleteResponseApplicationJsonSerializer =
     _$DeletedShareapiUndeleteResponseApplicationJsonSerializer();
-Serializer<PublicPreviewGetPreviewRequestApplicationJson> _$publicPreviewGetPreviewRequestApplicationJsonSerializer =
-    _$PublicPreviewGetPreviewRequestApplicationJsonSerializer();
 Serializer<RemoteShare> _$remoteShareSerializer = _$RemoteShareSerializer();
 Serializer<RemoteGetSharesResponseApplicationJson_Ocs> _$remoteGetSharesResponseApplicationJsonOcsSerializer =
     _$RemoteGetSharesResponseApplicationJson_OcsSerializer();
@@ -104,8 +162,6 @@ Serializer<RemoteUnshareResponseApplicationJson> _$remoteUnshareResponseApplicat
 Serializer<ShareInfoInfoRequestApplicationJson> _$shareInfoInfoRequestApplicationJsonSerializer =
     _$ShareInfoInfoRequestApplicationJsonSerializer();
 Serializer<ShareInfo> _$shareInfoSerializer = _$ShareInfoSerializer();
-Serializer<ShareapiGetSharesRequestApplicationJson> _$shareapiGetSharesRequestApplicationJsonSerializer =
-    _$ShareapiGetSharesRequestApplicationJsonSerializer();
 Serializer<Share_Status> _$shareStatusSerializer = _$Share_StatusSerializer();
 Serializer<Share> _$shareSerializer = _$ShareSerializer();
 Serializer<ShareapiGetSharesResponseApplicationJson_Ocs> _$shareapiGetSharesResponseApplicationJsonOcsSerializer =
@@ -118,9 +174,6 @@ Serializer<ShareapiCreateShareResponseApplicationJson_Ocs> _$shareapiCreateShare
     _$ShareapiCreateShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiCreateShareResponseApplicationJson> _$shareapiCreateShareResponseApplicationJsonSerializer =
     _$ShareapiCreateShareResponseApplicationJsonSerializer();
-Serializer<ShareapiGetInheritedSharesRequestApplicationJson>
-    _$shareapiGetInheritedSharesRequestApplicationJsonSerializer =
-    _$ShareapiGetInheritedSharesRequestApplicationJsonSerializer();
 Serializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs>
     _$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer =
     _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer();
@@ -132,8 +185,6 @@ Serializer<ShareapiPendingSharesResponseApplicationJson_Ocs>
     _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiPendingSharesResponseApplicationJson> _$shareapiPendingSharesResponseApplicationJsonSerializer =
     _$ShareapiPendingSharesResponseApplicationJsonSerializer();
-Serializer<ShareapiGetShareRequestApplicationJson> _$shareapiGetShareRequestApplicationJsonSerializer =
-    _$ShareapiGetShareRequestApplicationJsonSerializer();
 Serializer<ShareapiGetShareResponseApplicationJson_Ocs> _$shareapiGetShareResponseApplicationJsonOcsSerializer =
     _$ShareapiGetShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiGetShareResponseApplicationJson> _$shareapiGetShareResponseApplicationJsonSerializer =
@@ -152,8 +203,6 @@ Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShare
     _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
     _$ShareapiAcceptShareResponseApplicationJsonSerializer();
-Serializer<ShareesapiSearchRequestApplicationJson> _$shareesapiSearchRequestApplicationJsonSerializer =
-    _$ShareesapiSearchRequestApplicationJsonSerializer();
 Serializer<Sharee> _$shareeSerializer = _$ShareeSerializer();
 Serializer<ShareeValue> _$shareeValueSerializer = _$ShareeValueSerializer();
 Serializer<ShareeCircle_Value> _$shareeCircleValueSerializer = _$ShareeCircle_ValueSerializer();
@@ -177,9 +226,6 @@ Serializer<ShareesapiSearchResponseApplicationJson> _$shareesapiSearchResponseAp
     _$ShareesapiSearchResponseApplicationJsonSerializer();
 Serializer<ShareesapiShareesapiSearchHeaders> _$shareesapiShareesapiSearchHeadersSerializer =
     _$ShareesapiShareesapiSearchHeadersSerializer();
-Serializer<ShareesapiFindRecommendedRequestApplicationJson>
-    _$shareesapiFindRecommendedRequestApplicationJsonSerializer =
-    _$ShareesapiFindRecommendedRequestApplicationJsonSerializer();
 Serializer<ShareesRecommendedResult_Exact> _$shareesRecommendedResultExactSerializer =
     _$ShareesRecommendedResult_ExactSerializer();
 Serializer<ShareesRecommendedResult> _$shareesRecommendedResultSerializer = _$ShareesRecommendedResultSerializer();
@@ -618,63 +664,6 @@ class _$DeletedShareapiUndeleteResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs))!
               as DeletedShareapiUndeleteResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$PublicPreviewGetPreviewRequestApplicationJsonSerializer
-    implements StructuredSerializer<PublicPreviewGetPreviewRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    PublicPreviewGetPreviewRequestApplicationJson,
-    _$PublicPreviewGetPreviewRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'PublicPreviewGetPreviewRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, PublicPreviewGetPreviewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'file',
-      serializers.serialize(object.file, specifiedType: const FullType(String)),
-      'x',
-      serializers.serialize(object.x, specifiedType: const FullType(int)),
-      'y',
-      serializers.serialize(object.y, specifiedType: const FullType(int)),
-      'a',
-      serializers.serialize(object.a, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  PublicPreviewGetPreviewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = PublicPreviewGetPreviewRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'file':
-          result.file = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'x':
-          result.x = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'y':
-          result.y = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'a':
-          result.a = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -1515,68 +1504,6 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
   }
 }
 
-class _$ShareapiGetSharesRequestApplicationJsonSerializer
-    implements StructuredSerializer<ShareapiGetSharesRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ShareapiGetSharesRequestApplicationJson,
-    _$ShareapiGetSharesRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ShareapiGetSharesRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetSharesRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'shared_with_me',
-      serializers.serialize(object.sharedWithMe, specifiedType: const FullType(String)),
-      'reshares',
-      serializers.serialize(object.reshares, specifiedType: const FullType(String)),
-      'subfiles',
-      serializers.serialize(object.subfiles, specifiedType: const FullType(String)),
-      'path',
-      serializers.serialize(object.path, specifiedType: const FullType(String)),
-      'include_tags',
-      serializers.serialize(object.includeTags, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ShareapiGetSharesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareapiGetSharesRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'shared_with_me':
-          result.sharedWithMe = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'reshares':
-          result.reshares = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'subfiles':
-          result.subfiles = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'path':
-          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'include_tags':
-          result.includeTags = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
   @override
   final Iterable<Type> types = const [Share_Status, _$Share_Status];
@@ -2246,48 +2173,6 @@ class _$ShareapiCreateShareResponseApplicationJsonSerializer
   }
 }
 
-class _$ShareapiGetInheritedSharesRequestApplicationJsonSerializer
-    implements StructuredSerializer<ShareapiGetInheritedSharesRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ShareapiGetInheritedSharesRequestApplicationJson,
-    _$ShareapiGetInheritedSharesRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ShareapiGetInheritedSharesRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetInheritedSharesRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'path',
-      serializers.serialize(object.path, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ShareapiGetInheritedSharesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareapiGetInheritedSharesRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'path':
-          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs> {
   @override
@@ -2467,45 +2352,6 @@ class _$ShareapiPendingSharesResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs))!
               as ShareapiPendingSharesResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ShareapiGetShareRequestApplicationJsonSerializer
-    implements StructuredSerializer<ShareapiGetShareRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [ShareapiGetShareRequestApplicationJson, _$ShareapiGetShareRequestApplicationJson];
-  @override
-  final String wireName = 'ShareapiGetShareRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetShareRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'include_tags',
-      serializers.serialize(object.includeTags, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ShareapiGetShareRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareapiGetShareRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'include_tags':
-          result.includeTags = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -2987,81 +2833,6 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs))!
               as ShareapiAcceptShareResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ShareesapiSearchRequestApplicationJsonSerializer
-    implements StructuredSerializer<ShareesapiSearchRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [ShareesapiSearchRequestApplicationJson, _$ShareesapiSearchRequestApplicationJson];
-  @override
-  final String wireName = 'ShareesapiSearchRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiSearchRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'page',
-      serializers.serialize(object.page, specifiedType: const FullType(int)),
-      'perPage',
-      serializers.serialize(object.perPage, specifiedType: const FullType(int)),
-      'lookup',
-      serializers.serialize(object.lookup, specifiedType: const FullType(bool)),
-    ];
-    Object? value;
-    value = object.itemType;
-    if (value != null) {
-      result
-        ..add('itemType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.shareType;
-    if (value != null) {
-      result
-        ..add('shareType')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ShareesapiSearchRequestApplicationJson_ShareType)));
-    }
-    return result;
-  }
-
-  @override
-  ShareesapiSearchRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareesapiSearchRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'itemType':
-          result.itemType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'page':
-          result.page = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'perPage':
-          result.perPage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'shareType':
-          result.shareType = serializers.deserialize(value,
-                  specifiedType: const FullType(ShareesapiSearchRequestApplicationJson_ShareType))
-              as ShareesapiSearchRequestApplicationJson_ShareType?;
-          break;
-        case 'lookup':
-          result.lookup = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -4263,60 +4034,6 @@ class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSeriali
       switch (key) {
         case 'link':
           result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ShareesapiFindRecommendedRequestApplicationJsonSerializer
-    implements StructuredSerializer<ShareesapiFindRecommendedRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ShareesapiFindRecommendedRequestApplicationJson,
-    _$ShareesapiFindRecommendedRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ShareesapiFindRecommendedRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiFindRecommendedRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'itemType',
-      serializers.serialize(object.itemType, specifiedType: const FullType(String)),
-    ];
-    Object? value;
-    value = object.shareType;
-    if (value != null) {
-      result
-        ..add('shareType')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ShareesapiFindRecommendedRequestApplicationJson_ShareType)));
-    }
-    return result;
-  }
-
-  @override
-  ShareesapiFindRecommendedRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ShareesapiFindRecommendedRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'itemType':
-          result.itemType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'shareType':
-          result.shareType = serializers.deserialize(value,
-                  specifiedType: const FullType(ShareesapiFindRecommendedRequestApplicationJson_ShareType))
-              as ShareesapiFindRecommendedRequestApplicationJson_ShareType?;
           break;
       }
     }
@@ -6413,151 +6130,6 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  void replace($PublicPreviewGetPreviewRequestApplicationJsonInterface other);
-  void update(void Function($PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates);
-  String? get file;
-  set file(String? file);
-
-  int? get x;
-  set x(int? x);
-
-  int? get y;
-  set y(int? y);
-
-  bool? get a;
-  set a(bool? a);
-}
-
-class _$PublicPreviewGetPreviewRequestApplicationJson extends PublicPreviewGetPreviewRequestApplicationJson {
-  @override
-  final String file;
-  @override
-  final int x;
-  @override
-  final int y;
-  @override
-  final bool a;
-
-  factory _$PublicPreviewGetPreviewRequestApplicationJson(
-          [void Function(PublicPreviewGetPreviewRequestApplicationJsonBuilder)? updates]) =>
-      (PublicPreviewGetPreviewRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$PublicPreviewGetPreviewRequestApplicationJson._(
-      {required this.file, required this.x, required this.y, required this.a})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(file, r'PublicPreviewGetPreviewRequestApplicationJson', 'file');
-    BuiltValueNullFieldError.checkNotNull(x, r'PublicPreviewGetPreviewRequestApplicationJson', 'x');
-    BuiltValueNullFieldError.checkNotNull(y, r'PublicPreviewGetPreviewRequestApplicationJson', 'y');
-    BuiltValueNullFieldError.checkNotNull(a, r'PublicPreviewGetPreviewRequestApplicationJson', 'a');
-  }
-
-  @override
-  PublicPreviewGetPreviewRequestApplicationJson rebuild(
-          void Function(PublicPreviewGetPreviewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PublicPreviewGetPreviewRequestApplicationJsonBuilder toBuilder() =>
-      PublicPreviewGetPreviewRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PublicPreviewGetPreviewRequestApplicationJson &&
-        file == other.file &&
-        x == other.x &&
-        y == other.y &&
-        a == other.a;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, file.hashCode);
-    _$hash = $jc(_$hash, x.hashCode);
-    _$hash = $jc(_$hash, y.hashCode);
-    _$hash = $jc(_$hash, a.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PublicPreviewGetPreviewRequestApplicationJson')
-          ..add('file', file)
-          ..add('x', x)
-          ..add('y', y)
-          ..add('a', a))
-        .toString();
-  }
-}
-
-class PublicPreviewGetPreviewRequestApplicationJsonBuilder
-    implements
-        Builder<PublicPreviewGetPreviewRequestApplicationJson, PublicPreviewGetPreviewRequestApplicationJsonBuilder>,
-        $PublicPreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  _$PublicPreviewGetPreviewRequestApplicationJson? _$v;
-
-  String? _file;
-  String? get file => _$this._file;
-  set file(covariant String? file) => _$this._file = file;
-
-  int? _x;
-  int? get x => _$this._x;
-  set x(covariant int? x) => _$this._x = x;
-
-  int? _y;
-  int? get y => _$this._y;
-  set y(covariant int? y) => _$this._y = y;
-
-  bool? _a;
-  bool? get a => _$this._a;
-  set a(covariant bool? a) => _$this._a = a;
-
-  PublicPreviewGetPreviewRequestApplicationJsonBuilder() {
-    PublicPreviewGetPreviewRequestApplicationJson._defaults(this);
-  }
-
-  PublicPreviewGetPreviewRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _file = $v.file;
-      _x = $v.x;
-      _y = $v.y;
-      _a = $v.a;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PublicPreviewGetPreviewRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PublicPreviewGetPreviewRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(PublicPreviewGetPreviewRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PublicPreviewGetPreviewRequestApplicationJson build() => _build();
-
-  _$PublicPreviewGetPreviewRequestApplicationJson _build() {
-    PublicPreviewGetPreviewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PublicPreviewGetPreviewRequestApplicationJson._(
-            file: BuiltValueNullFieldError.checkNotNull(file, r'PublicPreviewGetPreviewRequestApplicationJson', 'file'),
-            x: BuiltValueNullFieldError.checkNotNull(x, r'PublicPreviewGetPreviewRequestApplicationJson', 'x'),
-            y: BuiltValueNullFieldError.checkNotNull(y, r'PublicPreviewGetPreviewRequestApplicationJson', 'y'),
-            a: BuiltValueNullFieldError.checkNotNull(a, r'PublicPreviewGetPreviewRequestApplicationJson', 'a'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RemoteShareInterfaceBuilder {
   void replace($RemoteShareInterface other);
   void update(void Function($RemoteShareInterfaceBuilder) updates);
@@ -8643,174 +8215,6 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   }
 }
 
-abstract mixin class $ShareapiGetSharesRequestApplicationJsonInterfaceBuilder {
-  void replace($ShareapiGetSharesRequestApplicationJsonInterface other);
-  void update(void Function($ShareapiGetSharesRequestApplicationJsonInterfaceBuilder) updates);
-  String? get sharedWithMe;
-  set sharedWithMe(String? sharedWithMe);
-
-  String? get reshares;
-  set reshares(String? reshares);
-
-  String? get subfiles;
-  set subfiles(String? subfiles);
-
-  String? get path;
-  set path(String? path);
-
-  String? get includeTags;
-  set includeTags(String? includeTags);
-}
-
-class _$ShareapiGetSharesRequestApplicationJson extends ShareapiGetSharesRequestApplicationJson {
-  @override
-  final String sharedWithMe;
-  @override
-  final String reshares;
-  @override
-  final String subfiles;
-  @override
-  final String path;
-  @override
-  final String includeTags;
-
-  factory _$ShareapiGetSharesRequestApplicationJson(
-          [void Function(ShareapiGetSharesRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetSharesRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ShareapiGetSharesRequestApplicationJson._(
-      {required this.sharedWithMe,
-      required this.reshares,
-      required this.subfiles,
-      required this.path,
-      required this.includeTags})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(sharedWithMe, r'ShareapiGetSharesRequestApplicationJson', 'sharedWithMe');
-    BuiltValueNullFieldError.checkNotNull(reshares, r'ShareapiGetSharesRequestApplicationJson', 'reshares');
-    BuiltValueNullFieldError.checkNotNull(subfiles, r'ShareapiGetSharesRequestApplicationJson', 'subfiles');
-    BuiltValueNullFieldError.checkNotNull(path, r'ShareapiGetSharesRequestApplicationJson', 'path');
-    BuiltValueNullFieldError.checkNotNull(includeTags, r'ShareapiGetSharesRequestApplicationJson', 'includeTags');
-  }
-
-  @override
-  ShareapiGetSharesRequestApplicationJson rebuild(
-          void Function(ShareapiGetSharesRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareapiGetSharesRequestApplicationJsonBuilder toBuilder() =>
-      ShareapiGetSharesRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareapiGetSharesRequestApplicationJson &&
-        sharedWithMe == other.sharedWithMe &&
-        reshares == other.reshares &&
-        subfiles == other.subfiles &&
-        path == other.path &&
-        includeTags == other.includeTags;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, sharedWithMe.hashCode);
-    _$hash = $jc(_$hash, reshares.hashCode);
-    _$hash = $jc(_$hash, subfiles.hashCode);
-    _$hash = $jc(_$hash, path.hashCode);
-    _$hash = $jc(_$hash, includeTags.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiGetSharesRequestApplicationJson')
-          ..add('sharedWithMe', sharedWithMe)
-          ..add('reshares', reshares)
-          ..add('subfiles', subfiles)
-          ..add('path', path)
-          ..add('includeTags', includeTags))
-        .toString();
-  }
-}
-
-class ShareapiGetSharesRequestApplicationJsonBuilder
-    implements
-        Builder<ShareapiGetSharesRequestApplicationJson, ShareapiGetSharesRequestApplicationJsonBuilder>,
-        $ShareapiGetSharesRequestApplicationJsonInterfaceBuilder {
-  _$ShareapiGetSharesRequestApplicationJson? _$v;
-
-  String? _sharedWithMe;
-  String? get sharedWithMe => _$this._sharedWithMe;
-  set sharedWithMe(covariant String? sharedWithMe) => _$this._sharedWithMe = sharedWithMe;
-
-  String? _reshares;
-  String? get reshares => _$this._reshares;
-  set reshares(covariant String? reshares) => _$this._reshares = reshares;
-
-  String? _subfiles;
-  String? get subfiles => _$this._subfiles;
-  set subfiles(covariant String? subfiles) => _$this._subfiles = subfiles;
-
-  String? _path;
-  String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
-
-  String? _includeTags;
-  String? get includeTags => _$this._includeTags;
-  set includeTags(covariant String? includeTags) => _$this._includeTags = includeTags;
-
-  ShareapiGetSharesRequestApplicationJsonBuilder() {
-    ShareapiGetSharesRequestApplicationJson._defaults(this);
-  }
-
-  ShareapiGetSharesRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _sharedWithMe = $v.sharedWithMe;
-      _reshares = $v.reshares;
-      _subfiles = $v.subfiles;
-      _path = $v.path;
-      _includeTags = $v.includeTags;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareapiGetSharesRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareapiGetSharesRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ShareapiGetSharesRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareapiGetSharesRequestApplicationJson build() => _build();
-
-  _$ShareapiGetSharesRequestApplicationJson _build() {
-    ShareapiGetSharesRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ShareapiGetSharesRequestApplicationJson._(
-            sharedWithMe: BuiltValueNullFieldError.checkNotNull(
-                sharedWithMe, r'ShareapiGetSharesRequestApplicationJson', 'sharedWithMe'),
-            reshares:
-                BuiltValueNullFieldError.checkNotNull(reshares, r'ShareapiGetSharesRequestApplicationJson', 'reshares'),
-            subfiles:
-                BuiltValueNullFieldError.checkNotNull(subfiles, r'ShareapiGetSharesRequestApplicationJson', 'subfiles'),
-            path: BuiltValueNullFieldError.checkNotNull(path, r'ShareapiGetSharesRequestApplicationJson', 'path'),
-            includeTags: BuiltValueNullFieldError.checkNotNull(
-                includeTags, r'ShareapiGetSharesRequestApplicationJson', 'includeTags'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $Share_StatusInterfaceBuilder {
   void replace($Share_StatusInterface other);
   void update(void Function($Share_StatusInterfaceBuilder) updates);
@@ -10393,104 +9797,6 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder {
-  void replace($ShareapiGetInheritedSharesRequestApplicationJsonInterface other);
-  void update(void Function($ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder) updates);
-  String? get path;
-  set path(String? path);
-}
-
-class _$ShareapiGetInheritedSharesRequestApplicationJson extends ShareapiGetInheritedSharesRequestApplicationJson {
-  @override
-  final String path;
-
-  factory _$ShareapiGetInheritedSharesRequestApplicationJson(
-          [void Function(ShareapiGetInheritedSharesRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetInheritedSharesRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ShareapiGetInheritedSharesRequestApplicationJson._({required this.path}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(path, r'ShareapiGetInheritedSharesRequestApplicationJson', 'path');
-  }
-
-  @override
-  ShareapiGetInheritedSharesRequestApplicationJson rebuild(
-          void Function(ShareapiGetInheritedSharesRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareapiGetInheritedSharesRequestApplicationJsonBuilder toBuilder() =>
-      ShareapiGetInheritedSharesRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareapiGetInheritedSharesRequestApplicationJson && path == other.path;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, path.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiGetInheritedSharesRequestApplicationJson')..add('path', path))
-        .toString();
-  }
-}
-
-class ShareapiGetInheritedSharesRequestApplicationJsonBuilder
-    implements
-        Builder<ShareapiGetInheritedSharesRequestApplicationJson,
-            ShareapiGetInheritedSharesRequestApplicationJsonBuilder>,
-        $ShareapiGetInheritedSharesRequestApplicationJsonInterfaceBuilder {
-  _$ShareapiGetInheritedSharesRequestApplicationJson? _$v;
-
-  String? _path;
-  String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
-
-  ShareapiGetInheritedSharesRequestApplicationJsonBuilder() {
-    ShareapiGetInheritedSharesRequestApplicationJson._defaults(this);
-  }
-
-  ShareapiGetInheritedSharesRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _path = $v.path;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareapiGetInheritedSharesRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareapiGetInheritedSharesRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ShareapiGetInheritedSharesRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareapiGetInheritedSharesRequestApplicationJson build() => _build();
-
-  _$ShareapiGetInheritedSharesRequestApplicationJson _build() {
-    ShareapiGetInheritedSharesRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ShareapiGetInheritedSharesRequestApplicationJson._(
-            path: BuiltValueNullFieldError.checkNotNull(
-                path, r'ShareapiGetInheritedSharesRequestApplicationJson', 'path'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface other);
   void update(void Function($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -10951,103 +10257,6 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ShareapiGetShareRequestApplicationJsonInterfaceBuilder {
-  void replace($ShareapiGetShareRequestApplicationJsonInterface other);
-  void update(void Function($ShareapiGetShareRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get includeTags;
-  set includeTags(bool? includeTags);
-}
-
-class _$ShareapiGetShareRequestApplicationJson extends ShareapiGetShareRequestApplicationJson {
-  @override
-  final bool includeTags;
-
-  factory _$ShareapiGetShareRequestApplicationJson(
-          [void Function(ShareapiGetShareRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetShareRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ShareapiGetShareRequestApplicationJson._({required this.includeTags}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(includeTags, r'ShareapiGetShareRequestApplicationJson', 'includeTags');
-  }
-
-  @override
-  ShareapiGetShareRequestApplicationJson rebuild(
-          void Function(ShareapiGetShareRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareapiGetShareRequestApplicationJsonBuilder toBuilder() =>
-      ShareapiGetShareRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareapiGetShareRequestApplicationJson && includeTags == other.includeTags;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, includeTags.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiGetShareRequestApplicationJson')..add('includeTags', includeTags))
-        .toString();
-  }
-}
-
-class ShareapiGetShareRequestApplicationJsonBuilder
-    implements
-        Builder<ShareapiGetShareRequestApplicationJson, ShareapiGetShareRequestApplicationJsonBuilder>,
-        $ShareapiGetShareRequestApplicationJsonInterfaceBuilder {
-  _$ShareapiGetShareRequestApplicationJson? _$v;
-
-  bool? _includeTags;
-  bool? get includeTags => _$this._includeTags;
-  set includeTags(covariant bool? includeTags) => _$this._includeTags = includeTags;
-
-  ShareapiGetShareRequestApplicationJsonBuilder() {
-    ShareapiGetShareRequestApplicationJson._defaults(this);
-  }
-
-  ShareapiGetShareRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _includeTags = $v.includeTags;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareapiGetShareRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareapiGetShareRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ShareapiGetShareRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareapiGetShareRequestApplicationJson build() => _build();
-
-  _$ShareapiGetShareRequestApplicationJson _build() {
-    ShareapiGetShareRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ShareapiGetShareRequestApplicationJson._(
-            includeTags: BuiltValueNullFieldError.checkNotNull(
-                includeTags, r'ShareapiGetShareRequestApplicationJson', 'includeTags'));
     replace(_$result);
     return _$result;
   }
@@ -12185,186 +11394,6 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ShareesapiSearchRequestApplicationJsonInterfaceBuilder {
-  void replace($ShareesapiSearchRequestApplicationJsonInterface other);
-  void update(void Function($ShareesapiSearchRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  String? get itemType;
-  set itemType(String? itemType);
-
-  int? get page;
-  set page(int? page);
-
-  int? get perPage;
-  set perPage(int? perPage);
-
-  ShareesapiSearchRequestApplicationJson_ShareType? get shareType;
-  set shareType(ShareesapiSearchRequestApplicationJson_ShareType? shareType);
-
-  bool? get lookup;
-  set lookup(bool? lookup);
-}
-
-class _$ShareesapiSearchRequestApplicationJson extends ShareesapiSearchRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final String? itemType;
-  @override
-  final int page;
-  @override
-  final int perPage;
-  @override
-  final ShareesapiSearchRequestApplicationJson_ShareType? shareType;
-  @override
-  final bool lookup;
-
-  factory _$ShareesapiSearchRequestApplicationJson(
-          [void Function(ShareesapiSearchRequestApplicationJsonBuilder)? updates]) =>
-      (ShareesapiSearchRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ShareesapiSearchRequestApplicationJson._(
-      {required this.search,
-      this.itemType,
-      required this.page,
-      required this.perPage,
-      this.shareType,
-      required this.lookup})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'ShareesapiSearchRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(page, r'ShareesapiSearchRequestApplicationJson', 'page');
-    BuiltValueNullFieldError.checkNotNull(perPage, r'ShareesapiSearchRequestApplicationJson', 'perPage');
-    BuiltValueNullFieldError.checkNotNull(lookup, r'ShareesapiSearchRequestApplicationJson', 'lookup');
-  }
-
-  @override
-  ShareesapiSearchRequestApplicationJson rebuild(
-          void Function(ShareesapiSearchRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareesapiSearchRequestApplicationJsonBuilder toBuilder() =>
-      ShareesapiSearchRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
-    return other is ShareesapiSearchRequestApplicationJson &&
-        search == other.search &&
-        itemType == other.itemType &&
-        page == other.page &&
-        perPage == other.perPage &&
-        shareType == _$dynamicOther.shareType &&
-        lookup == other.lookup;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, itemType.hashCode);
-    _$hash = $jc(_$hash, page.hashCode);
-    _$hash = $jc(_$hash, perPage.hashCode);
-    _$hash = $jc(_$hash, shareType.hashCode);
-    _$hash = $jc(_$hash, lookup.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiSearchRequestApplicationJson')
-          ..add('search', search)
-          ..add('itemType', itemType)
-          ..add('page', page)
-          ..add('perPage', perPage)
-          ..add('shareType', shareType)
-          ..add('lookup', lookup))
-        .toString();
-  }
-}
-
-class ShareesapiSearchRequestApplicationJsonBuilder
-    implements
-        Builder<ShareesapiSearchRequestApplicationJson, ShareesapiSearchRequestApplicationJsonBuilder>,
-        $ShareesapiSearchRequestApplicationJsonInterfaceBuilder {
-  _$ShareesapiSearchRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  String? _itemType;
-  String? get itemType => _$this._itemType;
-  set itemType(covariant String? itemType) => _$this._itemType = itemType;
-
-  int? _page;
-  int? get page => _$this._page;
-  set page(covariant int? page) => _$this._page = page;
-
-  int? _perPage;
-  int? get perPage => _$this._perPage;
-  set perPage(covariant int? perPage) => _$this._perPage = perPage;
-
-  ShareesapiSearchRequestApplicationJson_ShareType? _shareType;
-  ShareesapiSearchRequestApplicationJson_ShareType? get shareType => _$this._shareType;
-  set shareType(covariant ShareesapiSearchRequestApplicationJson_ShareType? shareType) => _$this._shareType = shareType;
-
-  bool? _lookup;
-  bool? get lookup => _$this._lookup;
-  set lookup(covariant bool? lookup) => _$this._lookup = lookup;
-
-  ShareesapiSearchRequestApplicationJsonBuilder() {
-    ShareesapiSearchRequestApplicationJson._defaults(this);
-  }
-
-  ShareesapiSearchRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _itemType = $v.itemType;
-      _page = $v.page;
-      _perPage = $v.perPage;
-      _shareType = $v.shareType;
-      _lookup = $v.lookup;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareesapiSearchRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareesapiSearchRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ShareesapiSearchRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareesapiSearchRequestApplicationJson build() => _build();
-
-  _$ShareesapiSearchRequestApplicationJson _build() {
-    ShareesapiSearchRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ShareesapiSearchRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(search, r'ShareesapiSearchRequestApplicationJson', 'search'),
-            itemType: itemType,
-            page: BuiltValueNullFieldError.checkNotNull(page, r'ShareesapiSearchRequestApplicationJson', 'page'),
-            perPage:
-                BuiltValueNullFieldError.checkNotNull(perPage, r'ShareesapiSearchRequestApplicationJson', 'perPage'),
-            shareType: shareType,
-            lookup: BuiltValueNullFieldError.checkNotNull(lookup, r'ShareesapiSearchRequestApplicationJson', 'lookup'));
     replace(_$result);
     return _$result;
   }
@@ -15413,122 +14442,6 @@ class ShareesapiShareesapiSearchHeadersBuilder
   _$ShareesapiShareesapiSearchHeaders _build() {
     ShareesapiShareesapiSearchHeaders._validate(this);
     final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder {
-  void replace($ShareesapiFindRecommendedRequestApplicationJsonInterface other);
-  void update(void Function($ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder) updates);
-  String? get itemType;
-  set itemType(String? itemType);
-
-  ShareesapiFindRecommendedRequestApplicationJson_ShareType? get shareType;
-  set shareType(ShareesapiFindRecommendedRequestApplicationJson_ShareType? shareType);
-}
-
-class _$ShareesapiFindRecommendedRequestApplicationJson extends ShareesapiFindRecommendedRequestApplicationJson {
-  @override
-  final String itemType;
-  @override
-  final ShareesapiFindRecommendedRequestApplicationJson_ShareType? shareType;
-
-  factory _$ShareesapiFindRecommendedRequestApplicationJson(
-          [void Function(ShareesapiFindRecommendedRequestApplicationJsonBuilder)? updates]) =>
-      (ShareesapiFindRecommendedRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ShareesapiFindRecommendedRequestApplicationJson._({required this.itemType, this.shareType}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(itemType, r'ShareesapiFindRecommendedRequestApplicationJson', 'itemType');
-  }
-
-  @override
-  ShareesapiFindRecommendedRequestApplicationJson rebuild(
-          void Function(ShareesapiFindRecommendedRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareesapiFindRecommendedRequestApplicationJsonBuilder toBuilder() =>
-      ShareesapiFindRecommendedRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
-    return other is ShareesapiFindRecommendedRequestApplicationJson &&
-        itemType == other.itemType &&
-        shareType == _$dynamicOther.shareType;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, itemType.hashCode);
-    _$hash = $jc(_$hash, shareType.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedRequestApplicationJson')
-          ..add('itemType', itemType)
-          ..add('shareType', shareType))
-        .toString();
-  }
-}
-
-class ShareesapiFindRecommendedRequestApplicationJsonBuilder
-    implements
-        Builder<ShareesapiFindRecommendedRequestApplicationJson,
-            ShareesapiFindRecommendedRequestApplicationJsonBuilder>,
-        $ShareesapiFindRecommendedRequestApplicationJsonInterfaceBuilder {
-  _$ShareesapiFindRecommendedRequestApplicationJson? _$v;
-
-  String? _itemType;
-  String? get itemType => _$this._itemType;
-  set itemType(covariant String? itemType) => _$this._itemType = itemType;
-
-  ShareesapiFindRecommendedRequestApplicationJson_ShareType? _shareType;
-  ShareesapiFindRecommendedRequestApplicationJson_ShareType? get shareType => _$this._shareType;
-  set shareType(covariant ShareesapiFindRecommendedRequestApplicationJson_ShareType? shareType) =>
-      _$this._shareType = shareType;
-
-  ShareesapiFindRecommendedRequestApplicationJsonBuilder() {
-    ShareesapiFindRecommendedRequestApplicationJson._defaults(this);
-  }
-
-  ShareesapiFindRecommendedRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _itemType = $v.itemType;
-      _shareType = $v.shareType;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareesapiFindRecommendedRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareesapiFindRecommendedRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ShareesapiFindRecommendedRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareesapiFindRecommendedRequestApplicationJson build() => _build();
-
-  _$ShareesapiFindRecommendedRequestApplicationJson _build() {
-    ShareesapiFindRecommendedRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ShareesapiFindRecommendedRequestApplicationJson._(
-            itemType: BuiltValueNullFieldError.checkNotNull(
-                itemType, r'ShareesapiFindRecommendedRequestApplicationJson', 'itemType'),
-            shareType: shareType);
     replace(_$result);
     return _$result;
   }

@@ -24,9 +24,7 @@ Account mockAutocompleteAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/core/autocomplete/get'): {
       'get': (match, request) {
-        final data = json.decode(request.body) as Map<String, dynamic>;
-
-        final source = ((data['shareTypes'] as List)[0] as int) == 0 ? 'users' : 'groups';
+        final source = request.url.queryParametersAll['shareTypes[]']!.single == '0' ? 'users' : 'groups';
         return Response(
           json.encode(
             {

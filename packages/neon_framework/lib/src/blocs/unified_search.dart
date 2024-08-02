@@ -143,9 +143,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
         try {
           final response = await account.client.core.unifiedSearch.search(
             providerId: providerID,
-            $body: core.UnifiedSearchSearchRequestApplicationJson(
-              (b) => b..term = term,
-            ),
+            term: term,
           );
           updateResults(providerID, Result.success(response.body.ocs.data));
         } on http.ClientException catch (error, stackTrace) {

@@ -95,8 +95,6 @@ Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
     _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson> _$predefinedStatusFindAllResponseApplicationJsonSerializer =
     _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
-Serializer<StatusesFindAllRequestApplicationJson> _$statusesFindAllRequestApplicationJsonSerializer =
-    _$StatusesFindAllRequestApplicationJsonSerializer();
 Serializer<StatusesFindAllResponseApplicationJson_Ocs> _$statusesFindAllResponseApplicationJsonOcsSerializer =
     _$StatusesFindAllResponseApplicationJson_OcsSerializer();
 Serializer<StatusesFindAllResponseApplicationJson> _$statusesFindAllResponseApplicationJsonSerializer =
@@ -701,57 +699,6 @@ class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs))!
               as PredefinedStatusFindAllResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$StatusesFindAllRequestApplicationJsonSerializer
-    implements StructuredSerializer<StatusesFindAllRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [StatusesFindAllRequestApplicationJson, _$StatusesFindAllRequestApplicationJson];
-  @override
-  final String wireName = 'StatusesFindAllRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.offset;
-    if (value != null) {
-      result
-        ..add('offset')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  StatusesFindAllRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = StatusesFindAllRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -3049,110 +2996,6 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $StatusesFindAllRequestApplicationJsonInterfaceBuilder {
-  void replace($StatusesFindAllRequestApplicationJsonInterface other);
-  void update(void Function($StatusesFindAllRequestApplicationJsonInterfaceBuilder) updates);
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$StatusesFindAllRequestApplicationJson extends StatusesFindAllRequestApplicationJson {
-  @override
-  final int? limit;
-  @override
-  final int? offset;
-
-  factory _$StatusesFindAllRequestApplicationJson(
-          [void Function(StatusesFindAllRequestApplicationJsonBuilder)? updates]) =>
-      (StatusesFindAllRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$StatusesFindAllRequestApplicationJson._({this.limit, this.offset}) : super._();
-
-  @override
-  StatusesFindAllRequestApplicationJson rebuild(void Function(StatusesFindAllRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  StatusesFindAllRequestApplicationJsonBuilder toBuilder() =>
-      StatusesFindAllRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is StatusesFindAllRequestApplicationJson && limit == other.limit && offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'StatusesFindAllRequestApplicationJson')
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class StatusesFindAllRequestApplicationJsonBuilder
-    implements
-        Builder<StatusesFindAllRequestApplicationJson, StatusesFindAllRequestApplicationJsonBuilder>,
-        $StatusesFindAllRequestApplicationJsonInterfaceBuilder {
-  _$StatusesFindAllRequestApplicationJson? _$v;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  StatusesFindAllRequestApplicationJsonBuilder() {
-    StatusesFindAllRequestApplicationJson._defaults(this);
-  }
-
-  StatusesFindAllRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant StatusesFindAllRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$StatusesFindAllRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(StatusesFindAllRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  StatusesFindAllRequestApplicationJson build() => _build();
-
-  _$StatusesFindAllRequestApplicationJson _build() {
-    StatusesFindAllRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$StatusesFindAllRequestApplicationJson._(limit: limit, offset: offset);
     replace(_$result);
     return _$result;
   }

@@ -20,12 +20,10 @@ GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock
 ocs-apirequest: true
-DELETE http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}
+DELETE http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}\?all=0
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"all":false\}
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}
 accept: application/json
 authorization: Bearer mock

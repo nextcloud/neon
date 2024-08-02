@@ -101,11 +101,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           account: account,
           subject: itemsV1,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
-            $body: dashboard.DashboardApiGetWidgetItemsRequestApplicationJson(
-              (b) => b
-                ..widgets.replace(v1WidgetIDs.build())
-                ..limit = maxItems,
-            ),
+            widgets: BuiltList(v1WidgetIDs.build()),
+            limit: maxItems,
           ),
           converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItems_Serializer()),
           unwrap: (response) => response.body.ocs.data,
@@ -115,11 +112,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
           account: account,
           subject: itemsV2,
           getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
-            $body: dashboard.DashboardApiGetWidgetItemsV2RequestApplicationJson(
-              (b) => b
-                ..widgets.replace(v2WidgetIDs.build())
-                ..limit = maxItems,
-            ),
+            widgets: BuiltList(v2WidgetIDs.build()),
+            limit: maxItems,
           ),
           converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer()),
           unwrap: (response) => response.body.ocs.data,

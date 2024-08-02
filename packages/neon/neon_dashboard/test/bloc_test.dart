@@ -40,14 +40,12 @@ Account mockDashboardAccount() => mockServer({
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widget-items'): {
         'get': (match, request) {
-          final data = json.decode(request.body) as Map<String, dynamic>;
-
           return Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
                 'data': {
-                  for (final key in (data['widgets'] as List).cast<String>())
+                  for (final key in request.url.queryParametersAll['widgets[]']!)
                     key: [
                       {
                         'subtitle': '',
@@ -79,14 +77,12 @@ Account mockDashboardAccount() => mockServer({
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v2/widget-items'): {
         'get': (match, request) {
-          final data = json.decode(request.body) as Map<String, dynamic>;
-
           return Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
                 'data': {
-                  for (final key in (data['widgets'] as List).cast<String>())
+                  for (final key in request.url.queryParametersAll['widgets[]']!)
                     key: {
                       'items': [
                         {

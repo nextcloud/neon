@@ -1649,23 +1649,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "darkTheme": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Theme used for background"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -1686,6 +1669,19 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "darkTheme",
+                        "in": "query",
+                        "description": "Theme used for background",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4002,23 +3998,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "all": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "whether to also terminate the call for all participants"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -4039,6 +4018,19 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "all",
+                        "in": "query",
+                        "description": "whether to also terminate the call for all participants",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4491,98 +4483,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "lookIntoFuture"
-                                ],
-                                "properties": {
-                                    "lookIntoFuture": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "Polling for new messages (1) or getting the history of the chat (0)"
-                                    },
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 100,
-                                        "description": "Number of chat messages to receive (100 by default, 200 at most)"
-                                    },
-                                    "lastKnownMessageId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "description": "The last known message (serves as offset)",
-                                        "minimum": 0
-                                    },
-                                    "lastCommonReadId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "description": "The last known common read message\n                             (so the response is 200 instead of 304 when\n                             it changes even when there are no messages)",
-                                        "minimum": 0
-                                    },
-                                    "timeout": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 30,
-                                        "description": "Number of seconds to wait for new messages (30 by default, 30 at most)",
-                                        "minimum": 0,
-                                        "maximum": 30
-                                    },
-                                    "setReadMarker": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 1,
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "Automatically set the last read marker when 1,\n                          if your client does this itself via chat/{token}/read set to 0"
-                                    },
-                                    "includeLastKnown": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "Include the $lastKnownMessageId in the messages when 1 (default 0)"
-                                    },
-                                    "noStatusUpdate": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "When the user status should not be automatically set to online set to 1 (default 0)"
-                                    },
-                                    "markNotificationsAsRead": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 1,
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "Set to 0 when notifications should not be marked as read (default 1)"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -4603,6 +4503,120 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "lookIntoFuture",
+                        "in": "query",
+                        "description": "Polling for new messages (1) or getting the history of the chat (0)",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of chat messages to receive (100 by default, 200 at most)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 100
+                        }
+                    },
+                    {
+                        "name": "lastKnownMessageId",
+                        "in": "query",
+                        "description": "The last known message (serves as offset)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "lastCommonReadId",
+                        "in": "query",
+                        "description": "The last known common read message (so the response is 200 instead of 304 when it changes even when there are no messages)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "timeout",
+                        "in": "query",
+                        "description": "Number of seconds to wait for new messages (30 by default, 30 at most)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 30,
+                            "minimum": 0,
+                            "maximum": 30
+                        }
+                    },
+                    {
+                        "name": "setReadMarker",
+                        "in": "query",
+                        "description": "Automatically set the last read marker when 1, if your client does this itself via chat/{token}/read set to 0",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includeLastKnown",
+                        "in": "query",
+                        "description": "Include the $lastKnownMessageId in the messages when 1 (default 0)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "noStatusUpdate",
+                        "in": "query",
+                        "description": "When the user status should not be automatically set to online set to 1 (default 0)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "markNotificationsAsRead",
+                        "in": "query",
+                        "description": "Set to 0 when notifications should not be marked as read (default 1)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -5634,26 +5648,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 50,
-                                        "description": "Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages)",
-                                        "minimum": 1,
-                                        "maximum": 100
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -5685,6 +5679,18 @@
                             "type": "integer",
                             "format": "int64",
                             "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 50,
+                            "minimum": 1,
+                            "maximum": 100
                         }
                     },
                     {
@@ -6369,36 +6375,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "search"
-                                ],
-                                "properties": {
-                                    "search": {
-                                        "type": "string",
-                                        "description": "Text to search for"
-                                    },
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 20,
-                                        "description": "Maximum number of results"
-                                    },
-                                    "includeStatus": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Include the user statuses"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -6419,6 +6395,38 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Text to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 20
+                        }
+                    },
+                    {
+                        "name": "includeStatus",
+                        "in": "query",
+                        "description": "Include the user statuses",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -6698,40 +6706,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "objectType"
-                                ],
-                                "properties": {
-                                    "objectType": {
-                                        "type": "string",
-                                        "description": "Type of the objects"
-                                    },
-                                    "lastKnownMessageId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "description": "ID of the last known message",
-                                        "minimum": 0
-                                    },
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 100,
-                                        "description": "Maximum number of objects",
-                                        "minimum": 1,
-                                        "maximum": 200
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -6752,6 +6726,38 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "objectType",
+                        "in": "query",
+                        "description": "Type of the objects",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lastKnownMessageId",
+                        "in": "query",
+                        "description": "ID of the last known message",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of objects",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 100,
+                            "minimum": 1,
+                            "maximum": 200
                         }
                     },
                     {
@@ -6825,26 +6831,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 7,
-                                        "description": "Maximum number of objects",
-                                        "minimum": 1,
-                                        "maximum": 20
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -6865,6 +6851,18 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of objects",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 7,
+                            "minimum": 1,
+                            "maximum": 20
                         }
                     },
                     {
@@ -8815,25 +8813,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "reaction"
-                                ],
-                                "properties": {
-                                    "reaction": {
-                                        "type": "string",
-                                        "description": "Emoji to remove"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -8865,6 +8844,15 @@
                             "type": "integer",
                             "format": "int64",
                             "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "reaction",
+                        "in": "query",
+                        "description": "Emoji to remove",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -8988,23 +8976,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "reaction": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "Emoji to filter"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -9036,6 +9007,15 @@
                             "type": "integer",
                             "format": "int64",
                             "minimum": 0
+                        }
+                    },
+                    {
+                        "name": "reaction",
+                        "in": "query",
+                        "description": "Emoji to filter",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
                         }
                     },
                     {
@@ -9386,27 +9366,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "timestamp"
-                                ],
-                                "properties": {
-                                    "timestamp": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "description": "Timestamp of the notification to be dismissed",
-                                        "minimum": 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -9427,6 +9386,17 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "timestamp",
+                        "in": "query",
+                        "description": "Timestamp of the notification to be dismissed",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9671,40 +9641,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "noStatusUpdate": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "enum": [
-                                            0,
-                                            1
-                                        ],
-                                        "description": "When the user status should not be automatically set to online set to 1 (default 0)"
-                                    },
-                                    "includeStatus": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Include the user status"
-                                    },
-                                    "modifiedSince": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 0,
-                                        "description": "Filter rooms modified after a timestamp",
-                                        "minimum": 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -9716,6 +9652,44 @@
                                 "v4"
                             ],
                             "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "noStatusUpdate",
+                        "in": "query",
+                        "description": "When the user status should not be automatically set to online set to 1 (default 0)",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "includeStatus",
+                        "in": "query",
+                        "description": "Include the user status",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "modifiedSince",
+                        "in": "query",
+                        "description": "Filter rooms modified after a timestamp",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -10035,23 +10009,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "searchTerm": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "search term"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -10063,6 +10020,15 @@
                                 "v4"
                             ],
                             "default": "v4"
+                        }
+                    },
+                    {
+                        "name": "searchTerm",
+                        "in": "query",
+                        "description": "search term",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
                         }
                     },
                     {
@@ -11402,23 +11368,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "includeStatus": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Include the user statuses"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -11439,6 +11388,19 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "includeStatus",
+                        "in": "query",
+                        "description": "Include the user statuses",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -11760,23 +11722,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "includeStatus": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Include the user statuses"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -11797,6 +11742,19 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "includeStatus",
+                        "in": "query",
+                        "description": "Include the user statuses",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -12072,27 +12030,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "attendeeId"
-                                ],
-                                "properties": {
-                                    "attendeeId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "description": "ID of the attendee",
-                                        "minimum": 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -12113,6 +12050,17 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "attendeeId",
+                        "in": "query",
+                        "description": "ID of the attendee",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -13376,27 +13324,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "attendeeId"
-                                ],
-                                "properties": {
-                                    "attendeeId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "description": "ID of the attendee",
-                                        "minimum": 0
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -13417,6 +13344,17 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "attendeeId",
+                        "in": "query",
+                        "description": "ID of the attendee",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -14879,23 +14817,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "token": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "Token of the room"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -14907,6 +14828,15 @@
                                 "v3"
                             ],
                             "default": "v3"
+                        }
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "Token of the room",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
                         }
                     },
                     {
@@ -15585,30 +15515,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "cloudId"
-                                ],
-                                "properties": {
-                                    "cloudId": {
-                                        "type": "string",
-                                        "description": "Federation CloudID to get the avatar for"
-                                    },
-                                    "darkTheme": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Theme used for background"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -15633,6 +15539,28 @@
                             "enum": [
                                 64,
                                 512
+                            ]
+                        }
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "query",
+                        "description": "Federation CloudID to get the avatar for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "darkTheme",
+                        "in": "query",
+                        "description": "Theme used for background",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
                             ]
                         }
                     },
@@ -15677,25 +15605,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "cloudId"
-                                ],
-                                "properties": {
-                                    "cloudId": {
-                                        "type": "string",
-                                        "description": "Federation CloudID to get the avatar for"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -15721,6 +15630,15 @@
                                 64,
                                 512
                             ]
+                        }
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "query",
+                        "description": "Federation CloudID to get the avatar for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -15765,30 +15683,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "cloudId"
-                                ],
-                                "properties": {
-                                    "cloudId": {
-                                        "type": "string",
-                                        "description": "Federation CloudID to get the avatar for"
-                                    },
-                                    "darkTheme": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Theme used for background"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -15822,6 +15716,28 @@
                             "enum": [
                                 64,
                                 512
+                            ]
+                        }
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "query",
+                        "description": "Federation CloudID to get the avatar for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "darkTheme",
+                        "in": "query",
+                        "description": "Theme used for background",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
                             ]
                         }
                     },
@@ -15867,25 +15783,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "cloudId"
-                                ],
-                                "properties": {
-                                    "cloudId": {
-                                        "type": "string",
-                                        "description": "Federation CloudID to get the avatar for"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -15920,6 +15817,15 @@
                                 64,
                                 512
                             ]
+                        }
+                    },
+                    {
+                        "name": "cloudId",
+                        "in": "query",
+                        "description": "Federation CloudID to get the avatar for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -16930,25 +16836,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "reaction"
-                                ],
-                                "properties": {
-                                    "reaction": {
-                                        "type": "string",
-                                        "description": "Reaction to delete"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -16980,6 +16867,15 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "reaction",
+                        "in": "query",
+                        "description": "Reaction to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -17202,25 +17098,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "host"
-                                ],
-                                "properties": {
-                                    "host": {
-                                        "type": "string",
-                                        "description": "Host to check"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -17232,6 +17109,15 @@
                                 "v1"
                             ],
                             "default": "v1"
+                        }
+                    },
+                    {
+                        "name": "host",
+                        "in": "query",
+                        "description": "Host to check",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -19114,7 +19000,7 @@
                                     },
                                     "options": {
                                         "type": "object",
-                                        "default": [],
+                                        "default": {},
                                         "description": "Additional details to verify the validity of the request",
                                         "properties": {
                                             "actorId": {
@@ -19468,42 +19354,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "callId"
-                                ],
-                                "properties": {
-                                    "callId": {
-                                        "type": "string",
-                                        "description": "The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate"
-                                    },
-                                    "options": {
-                                        "type": "object",
-                                        "default": [],
-                                        "description": "Additional details to verify the validity of the request",
-                                        "properties": {
-                                            "actorId": {
-                                                "type": "string"
-                                            },
-                                            "actorType": {
-                                                "$ref": "#/components/schemas/ActorType"
-                                            },
-                                            "attendeeId": {
-                                                "type": "integer",
-                                                "format": "int64"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "apiVersion",
@@ -19524,6 +19374,23 @@
                         "schema": {
                             "type": "string",
                             "pattern": "^[a-z0-9]{4,30}$"
+                        }
+                    },
+                    {
+                        "name": "callId",
+                        "in": "query",
+                        "description": "The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "options",
+                        "in": "query",
+                        "description": "Additional details to verify the validity of the request",
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {

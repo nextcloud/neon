@@ -1635,6 +1635,7 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [viewId] View ID.
   ///
   /// Status codes:
   ///   * 200: View deleted
@@ -1648,13 +1649,17 @@ class $Api1Client {
   @_i2.experimental
   _i3.Request $indexTableColumns_Request({
     required int tableId,
-    Api1IndexTableColumnsRequestApplicationJson? $body,
+    int? viewId,
   }) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
 
-    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/columns').expand(_parameters);
+    final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
+    _parameters['viewId'] = __viewId;
+
+    final _path =
+        _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/columns{?viewId*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1675,20 +1680,6 @@ class $Api1Client {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(Api1IndexTableColumnsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              Api1IndexTableColumnsRequestApplicationJson(),
-              specifiedType: const FullType(Api1IndexTableColumnsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -1699,6 +1690,7 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [viewId] View ID.
   ///
   /// Status codes:
   ///   * 200: View deleted
@@ -1711,11 +1703,11 @@ class $Api1Client {
   ///  * [$indexTableColumns_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Column>, void>> indexTableColumns({
     required int tableId,
-    Api1IndexTableColumnsRequestApplicationJson? $body,
+    int? viewId,
   }) async {
     final _request = $indexTableColumns_Request(
       tableId: tableId,
-      $body: $body,
+      viewId: viewId,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2258,6 +2250,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Row values returned
@@ -2271,13 +2265,21 @@ class $Api1Client {
   @_i2.experimental
   _i3.Request $indexTableRowsSimple_Request({
     required int tableId,
-    Api1IndexTableRowsSimpleRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
 
-    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows/simple').expand(_parameters);
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _parameters['offset'] = __offset;
+
+    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows/simple{?limit*,offset*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2298,20 +2300,6 @@ class $Api1Client {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(Api1IndexTableRowsSimpleRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              Api1IndexTableRowsSimpleRequestApplicationJson(),
-              specifiedType: const FullType(Api1IndexTableRowsSimpleRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2322,6 +2310,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Row values returned
@@ -2334,11 +2324,13 @@ class $Api1Client {
   ///  * [$indexTableRowsSimple_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<String>, void>> indexTableRowsSimple({
     required int tableId,
-    Api1IndexTableRowsSimpleRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) async {
     final _request = $indexTableRowsSimple_Request(
       tableId: tableId,
-      $body: $body,
+      limit: limit,
+      offset: offset,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2363,6 +2355,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Rows returned
@@ -2376,13 +2370,21 @@ class $Api1Client {
   @_i2.experimental
   _i3.Request $indexTableRows_Request({
     required int tableId,
-    Api1IndexTableRowsRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) {
     final _parameters = <String, Object?>{};
     final __tableId = _$jsonSerializers.serialize(tableId, specifiedType: const FullType(int));
     _parameters['tableId'] = __tableId;
 
-    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows').expand(_parameters);
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _parameters['offset'] = __offset;
+
+    final _path =
+        _i5.UriTemplate('/index.php/apps/tables/api/1/tables/{tableId}/rows{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2403,17 +2405,6 @@ class $Api1Client {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1IndexTableRowsRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              Api1IndexTableRowsRequestApplicationJson(),
-              specifiedType: const FullType(Api1IndexTableRowsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2424,6 +2415,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [tableId] Table ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Rows returned
@@ -2436,11 +2429,13 @@ class $Api1Client {
   ///  * [$indexTableRows_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Row>, void>> indexTableRows({
     required int tableId,
-    Api1IndexTableRowsRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) async {
     final _request = $indexTableRows_Request(
       tableId: tableId,
-      $body: $body,
+      limit: limit,
+      offset: offset,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2558,6 +2553,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [viewId] View ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Rows returned
@@ -2571,13 +2568,21 @@ class $Api1Client {
   @_i2.experimental
   _i3.Request $indexViewRows_Request({
     required int viewId,
-    Api1IndexViewRowsRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) {
     final _parameters = <String, Object?>{};
     final __viewId = _$jsonSerializers.serialize(viewId, specifiedType: const FullType(int));
     _parameters['viewId'] = __viewId;
 
-    final _path = _i5.UriTemplate('/index.php/apps/tables/api/1/views/{viewId}/rows').expand(_parameters);
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _parameters['offset'] = __offset;
+
+    final _path =
+        _i5.UriTemplate('/index.php/apps/tables/api/1/views/{viewId}/rows{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2598,17 +2603,6 @@ class $Api1Client {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1IndexViewRowsRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              Api1IndexViewRowsRequestApplicationJson(),
-              specifiedType: const FullType(Api1IndexViewRowsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2619,6 +2613,8 @@ class $Api1Client {
   ///
   /// Parameters:
   ///   * [viewId] View ID.
+  ///   * [limit] Limit.
+  ///   * [offset] Offset.
   ///
   /// Status codes:
   ///   * 200: Rows returned
@@ -2631,11 +2627,13 @@ class $Api1Client {
   ///  * [$indexViewRows_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BuiltList<Row>, void>> indexViewRows({
     required int viewId,
-    Api1IndexViewRowsRequestApplicationJson? $body,
+    int? limit,
+    int? offset,
   }) async {
     final _request = $indexViewRows_Request(
       viewId: viewId,
-      $body: $body,
+      limit: limit,
+      offset: offset,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -7988,70 +7986,6 @@ abstract class ContextNavigation
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Api1IndexTableColumnsRequestApplicationJsonInterface {
-  /// View ID.
-  int? get viewId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableColumnsRequestApplicationJsonInterface rebuild(
-    void Function($Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Api1IndexTableColumnsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class Api1IndexTableColumnsRequestApplicationJson
-    implements
-        $Api1IndexTableColumnsRequestApplicationJsonInterface,
-        Built<Api1IndexTableColumnsRequestApplicationJson, Api1IndexTableColumnsRequestApplicationJsonBuilder> {
-  /// Creates a new Api1IndexTableColumnsRequestApplicationJson object using the builder pattern.
-  factory Api1IndexTableColumnsRequestApplicationJson([
-    void Function(Api1IndexTableColumnsRequestApplicationJsonBuilder)? b,
-  ]) = _$Api1IndexTableColumnsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const Api1IndexTableColumnsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Api1IndexTableColumnsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Api1IndexTableColumnsRequestApplicationJson.
-  static Serializer<Api1IndexTableColumnsRequestApplicationJson> get serializer =>
-      _$api1IndexTableColumnsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Api1IndexTableColumnsRequestApplicationJsonBuilder b) {
-    $Api1IndexTableColumnsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Api1IndexTableColumnsRequestApplicationJsonBuilder b) {
-    $Api1IndexTableColumnsRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $ColumnInterface {
   int get id;
   String get title;
@@ -8685,140 +8619,6 @@ abstract class Api1UpdateColumnRequestApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $Api1IndexTableRowsSimpleRequestApplicationJsonInterface {
-  /// Limit.
-  int? get limit;
-
-  /// Offset.
-  int? get offset;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableRowsSimpleRequestApplicationJsonInterface rebuild(
-    void Function($Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Api1IndexTableRowsSimpleRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class Api1IndexTableRowsSimpleRequestApplicationJson
-    implements
-        $Api1IndexTableRowsSimpleRequestApplicationJsonInterface,
-        Built<Api1IndexTableRowsSimpleRequestApplicationJson, Api1IndexTableRowsSimpleRequestApplicationJsonBuilder> {
-  /// Creates a new Api1IndexTableRowsSimpleRequestApplicationJson object using the builder pattern.
-  factory Api1IndexTableRowsSimpleRequestApplicationJson([
-    void Function(Api1IndexTableRowsSimpleRequestApplicationJsonBuilder)? b,
-  ]) = _$Api1IndexTableRowsSimpleRequestApplicationJson;
-
-  // coverage:ignore-start
-  const Api1IndexTableRowsSimpleRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Api1IndexTableRowsSimpleRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Api1IndexTableRowsSimpleRequestApplicationJson.
-  static Serializer<Api1IndexTableRowsSimpleRequestApplicationJson> get serializer =>
-      _$api1IndexTableRowsSimpleRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Api1IndexTableRowsSimpleRequestApplicationJsonBuilder b) {
-    $Api1IndexTableRowsSimpleRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Api1IndexTableRowsSimpleRequestApplicationJsonBuilder b) {
-    $Api1IndexTableRowsSimpleRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $Api1IndexTableRowsRequestApplicationJsonInterface {
-  /// Limit.
-  int? get limit;
-
-  /// Offset.
-  int? get offset;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableRowsRequestApplicationJsonInterface rebuild(
-    void Function($Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Api1IndexTableRowsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class Api1IndexTableRowsRequestApplicationJson
-    implements
-        $Api1IndexTableRowsRequestApplicationJsonInterface,
-        Built<Api1IndexTableRowsRequestApplicationJson, Api1IndexTableRowsRequestApplicationJsonBuilder> {
-  /// Creates a new Api1IndexTableRowsRequestApplicationJson object using the builder pattern.
-  factory Api1IndexTableRowsRequestApplicationJson([
-    void Function(Api1IndexTableRowsRequestApplicationJsonBuilder)? b,
-  ]) = _$Api1IndexTableRowsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const Api1IndexTableRowsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Api1IndexTableRowsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Api1IndexTableRowsRequestApplicationJson.
-  static Serializer<Api1IndexTableRowsRequestApplicationJson> get serializer =>
-      _$api1IndexTableRowsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Api1IndexTableRowsRequestApplicationJsonBuilder b) {
-    $Api1IndexTableRowsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Api1IndexTableRowsRequestApplicationJsonBuilder b) {
-    $Api1IndexTableRowsRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $Row_DataInterface {
   int get columnId;
   JsonObject get value;
@@ -9002,72 +8802,6 @@ abstract class Api1CreateRowInTableRequestApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(Api1CreateRowInTableRequestApplicationJsonBuilder b) {
     $Api1CreateRowInTableRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $Api1IndexViewRowsRequestApplicationJsonInterface {
-  /// Limit.
-  int? get limit;
-
-  /// Offset.
-  int? get offset;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexViewRowsRequestApplicationJsonInterface rebuild(
-    void Function($Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder].
-  $Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($Api1IndexViewRowsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class Api1IndexViewRowsRequestApplicationJson
-    implements
-        $Api1IndexViewRowsRequestApplicationJsonInterface,
-        Built<Api1IndexViewRowsRequestApplicationJson, Api1IndexViewRowsRequestApplicationJsonBuilder> {
-  /// Creates a new Api1IndexViewRowsRequestApplicationJson object using the builder pattern.
-  factory Api1IndexViewRowsRequestApplicationJson([void Function(Api1IndexViewRowsRequestApplicationJsonBuilder)? b]) =
-      _$Api1IndexViewRowsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const Api1IndexViewRowsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory Api1IndexViewRowsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for Api1IndexViewRowsRequestApplicationJson.
-  static Serializer<Api1IndexViewRowsRequestApplicationJson> get serializer =>
-      _$api1IndexViewRowsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(Api1IndexViewRowsRequestApplicationJsonBuilder b) {
-    $Api1IndexViewRowsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(Api1IndexViewRowsRequestApplicationJsonBuilder b) {
-    $Api1IndexViewRowsRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -14856,11 +14590,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(Api1UpdateShareDisplayModeRequestApplicationJson_Target.serializer)
       ..addBuilderFactory(const FullType(ContextNavigation), ContextNavigationBuilder.new)
       ..add(ContextNavigation.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1IndexTableColumnsRequestApplicationJson),
-        Api1IndexTableColumnsRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1IndexTableColumnsRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(Column), ColumnBuilder.new)
       ..add(Column.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Column)]), ListBuilder<Column>.new)
@@ -14881,17 +14610,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         Api1UpdateColumnRequestApplicationJsonBuilder.new,
       )
       ..add(Api1UpdateColumnRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1IndexTableRowsSimpleRequestApplicationJson),
-        Api1IndexTableRowsSimpleRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1IndexTableRowsSimpleRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(Api1IndexTableRowsRequestApplicationJson),
-        Api1IndexTableRowsRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1IndexTableRowsRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(Row), RowBuilder.new)
       ..add(Row.serializer)
       ..addBuilderFactory(const FullType(Row_Data), Row_DataBuilder.new)
@@ -14907,11 +14626,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, JsonObject>.new,
       )
       ..add($3f5057013fe375112018fdacdf7c966aExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(Api1IndexViewRowsRequestApplicationJson),
-        Api1IndexViewRowsRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1IndexViewRowsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(Api1CreateRowInViewRequestApplicationJson),
         Api1CreateRowInViewRequestApplicationJsonBuilder.new,

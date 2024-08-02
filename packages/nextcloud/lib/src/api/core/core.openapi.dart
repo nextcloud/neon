@@ -524,6 +524,12 @@ class $AutoCompleteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for. Defaults to `[]`.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -534,10 +540,39 @@ class $AutoCompleteClient {
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $$get_Request({
-    required AutoCompleteGetRequestApplicationJson $body,
+    required String search,
+    String? itemType,
+    String? itemId,
+    String? sorter,
+    BuiltList<int>? shareTypes,
+    int? limit,
     bool? oCSAPIRequest,
   }) {
-    const _path = '/ocs/v2.php/core/autocomplete/get';
+    final _parameters = <String, Object?>{};
+    final __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    _parameters['search'] = __search;
+
+    final __itemType = _$jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
+    _parameters['itemType'] = __itemType;
+
+    final __itemId = _$jsonSerializers.serialize(itemId, specifiedType: const FullType(String));
+    _parameters['itemId'] = __itemId;
+
+    final __sorter = _$jsonSerializers.serialize(sorter, specifiedType: const FullType(String));
+    _parameters['sorter'] = __sorter;
+
+    var __shareTypes =
+        _$jsonSerializers.serialize(shareTypes, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    __shareTypes ??= const [];
+    _parameters['shareTypes%5B%5D'] = __shareTypes;
+
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 10;
+    _parameters['limit'] = __limit;
+
+    final _path = _i6.UriTemplate(
+      '/ocs/v2.php/core/autocomplete/get{?search*,itemType*,itemId*,sorter*,shareTypes%5B%5D*,limit*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -562,10 +597,6 @@ class $AutoCompleteClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(AutoCompleteGetRequestApplicationJson)),
-    );
     return _request;
   }
 
@@ -575,6 +606,12 @@ class $AutoCompleteClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [search] Text to search for.
+  ///   * [itemType] Type of the items to search for.
+  ///   * [itemId] ID of the items to search for.
+  ///   * [sorter] can be piped, top prio first, e.g.: "commenters|share-recipients".
+  ///   * [shareTypes] Types of shares to search for. Defaults to `[]`.
+  ///   * [limit] Maximum number of results to return. Defaults to `10`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -584,12 +621,22 @@ class $AutoCompleteClient {
   ///  * [$$get_Request] for the request send by this method.
   ///  * [$$get_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<AutoCompleteGetResponseApplicationJson, void>> $get({
-    required AutoCompleteGetRequestApplicationJson $body,
+    required String search,
+    String? itemType,
+    String? itemId,
+    String? sorter,
+    BuiltList<int>? shareTypes,
+    int? limit,
     bool? oCSAPIRequest,
   }) async {
     final _request = $$get_Request(
+      search: search,
+      itemType: itemType,
+      itemId: itemId,
+      sorter: sorter,
+      shareTypes: shareTypes,
+      limit: limit,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1267,6 +1314,8 @@ class $CollaborationResourcesClient {
   ///
   /// Parameters:
   ///   * [collectionId] ID of the collection.
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1280,14 +1329,23 @@ class $CollaborationResourcesClient {
   @_i2.experimental
   _i3.Request $removeResource_Request({
     required int collectionId,
-    required CollaborationResourcesRemoveResourceRequestApplicationJson $body,
+    required String resourceType,
+    required String resourceId,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
     final __collectionId = _$jsonSerializers.serialize(collectionId, specifiedType: const FullType(int));
     _parameters['collectionId'] = __collectionId;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(_parameters);
+    final __resourceType = _$jsonSerializers.serialize(resourceType, specifiedType: const FullType(String));
+    _parameters['resourceType'] = __resourceType;
+
+    final __resourceId = _$jsonSerializers.serialize(resourceId, specifiedType: const FullType(String));
+    _parameters['resourceId'] = __resourceId;
+
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1312,13 +1370,6 @@ class $CollaborationResourcesClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(CollaborationResourcesRemoveResourceRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -1329,6 +1380,8 @@ class $CollaborationResourcesClient {
   ///
   /// Parameters:
   ///   * [collectionId] ID of the collection.
+  ///   * [resourceType] Name of the resource.
+  ///   * [resourceId] ID of the resource.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1341,13 +1394,15 @@ class $CollaborationResourcesClient {
   ///  * [$removeResource_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
     required int collectionId,
-    required CollaborationResourcesRemoveResourceRequestApplicationJson $body,
+    required String resourceType,
+    required String resourceId,
     bool? oCSAPIRequest,
   }) async {
     final _request = $removeResource_Request(
       collectionId: collectionId,
+      resourceType: resourceType,
+      resourceId: resourceId,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1704,6 +1759,7 @@ class $GuestAvatarClient {
   /// Parameters:
   ///   * [guestName] The guest name, e.g. "Albert".
   ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1717,7 +1773,7 @@ class $GuestAvatarClient {
   _i3.Request $getAvatar_Request({
     required String guestName,
     required String size,
-    GuestAvatarGetAvatarRequestApplicationJson? $body,
+    GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) {
     final _parameters = <String, Object?>{};
     final __guestName = _$jsonSerializers.serialize(guestName, specifiedType: const FullType(String));
@@ -1726,7 +1782,12 @@ class $GuestAvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(String));
     _parameters['size'] = __size;
 
-    final _path = _i6.UriTemplate('/index.php/avatar/guest/{guestName}/{size}').expand(_parameters);
+    var __darkTheme =
+        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(GuestAvatarGetAvatarDarkTheme));
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
+
+    final _path = _i6.UriTemplate('/index.php/avatar/guest/{guestName}/{size}{?darkTheme*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -1745,20 +1806,6 @@ class $GuestAvatarClient {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(GuestAvatarGetAvatarRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              GuestAvatarGetAvatarRequestApplicationJson(),
-              specifiedType: const FullType(GuestAvatarGetAvatarRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -1770,6 +1817,7 @@ class $GuestAvatarClient {
   /// Parameters:
   ///   * [guestName] The guest name, e.g. "Albert".
   ///   * [size] The desired avatar size, e.g. 64 for 64x64px.
+  ///   * [darkTheme] Return dark avatar. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Custom avatar returned
@@ -1782,12 +1830,12 @@ class $GuestAvatarClient {
   Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
     required String guestName,
     required String size,
-    GuestAvatarGetAvatarRequestApplicationJson? $body,
+    GuestAvatarGetAvatarDarkTheme? darkTheme,
   }) async {
     final _request = $getAvatar_Request(
       guestName: guestName,
       size: size,
-      $body: $body,
+      darkTheme: darkTheme,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2095,6 +2143,7 @@ class $NavigationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2106,10 +2155,16 @@ class $NavigationClient {
   ///  * [$getAppsNavigation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getAppsNavigation_Request({
+    NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
-    NavigationGetAppsNavigationRequestApplicationJson? $body,
   }) {
-    const _path = '/ocs/v2.php/core/navigation/apps';
+    final _parameters = <String, Object?>{};
+    var __absolute =
+        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetAppsNavigationAbsolute));
+    __absolute ??= 0;
+    _parameters['absolute'] = __absolute;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2134,20 +2189,6 @@ class $NavigationClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(NavigationGetAppsNavigationRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              NavigationGetAppsNavigationRequestApplicationJson(),
-              specifiedType: const FullType(NavigationGetAppsNavigationRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2157,6 +2198,7 @@ class $NavigationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2167,12 +2209,12 @@ class $NavigationClient {
   ///  * [$getAppsNavigation_Request] for the request send by this method.
   ///  * [$getAppsNavigation_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
+    NavigationGetAppsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
-    NavigationGetAppsNavigationRequestApplicationJson? $body,
   }) async {
     final _request = $getAppsNavigation_Request(
+      absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2198,6 +2240,7 @@ class $NavigationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2209,10 +2252,16 @@ class $NavigationClient {
   ///  * [$getSettingsNavigation_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getSettingsNavigation_Request({
+    NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
-    NavigationGetSettingsNavigationRequestApplicationJson? $body,
   }) {
-    const _path = '/ocs/v2.php/core/navigation/settings';
+    final _parameters = <String, Object?>{};
+    var __absolute =
+        _$jsonSerializers.serialize(absolute, specifiedType: const FullType(NavigationGetSettingsNavigationAbsolute));
+    __absolute ??= 0;
+    _parameters['absolute'] = __absolute;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2237,20 +2286,6 @@ class $NavigationClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(NavigationGetSettingsNavigationRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              NavigationGetSettingsNavigationRequestApplicationJson(),
-              specifiedType: const FullType(NavigationGetSettingsNavigationRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2260,6 +2295,7 @@ class $NavigationClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [absolute] Rewrite URLs to absolute ones. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2270,12 +2306,12 @@ class $NavigationClient {
   ///  * [$getSettingsNavigation_Request] for the request send by this method.
   ///  * [$getSettingsNavigation_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
+    NavigationGetSettingsNavigationAbsolute? absolute,
     bool? oCSAPIRequest,
-    NavigationGetSettingsNavigationRequestApplicationJson? $body,
   }) async {
     final _request = $getSettingsNavigation_Request(
+      absolute: absolute,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2468,6 +2504,15 @@ class $PreviewClient {
   /// Returns a `DynamiteRequest` backing the [getPreview] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Parameters:
+  ///   * [file] Path of the file. Defaults to `""`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
+  ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
@@ -2479,8 +2524,47 @@ class $PreviewClient {
   ///  * [getPreview] for a method executing this request and parsing the response.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreview_Request({PreviewGetPreviewRequestApplicationJson? $body}) {
-    const _path = '/index.php/core/preview.png';
+  _i3.Request $getPreview_Request({
+    String? file,
+    int? x,
+    int? y,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) {
+    final _parameters = <String, Object?>{};
+    var __file = _$jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    __file ??= '';
+    _parameters['file'] = __file;
+
+    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    __x ??= 32;
+    _parameters['x'] = __x;
+
+    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    __y ??= 32;
+    _parameters['y'] = __y;
+
+    var __a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewA));
+    __a ??= 0;
+    _parameters['a'] = __a;
+
+    var __forceIcon = _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewForceIcon));
+    __forceIcon ??= 1;
+    _parameters['forceIcon'] = __forceIcon;
+
+    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    __mode ??= 'fill';
+    _parameters['mode'] = __mode;
+
+    var __mimeFallback =
+        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewMimeFallback));
+    __mimeFallback ??= 0;
+    _parameters['mimeFallback'] = __mimeFallback;
+
+    final _path = _i6.UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -2501,17 +2585,6 @@ class $PreviewClient {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(PreviewGetPreviewRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              PreviewGetPreviewRequestApplicationJson(),
-              specifiedType: const FullType(PreviewGetPreviewRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2519,6 +2592,15 @@ class $PreviewClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [file] Path of the file. Defaults to `""`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2530,9 +2612,23 @@ class $PreviewClient {
   /// See:
   ///  * [$getPreview_Request] for the request send by this method.
   ///  * [$getPreview_Serializer] for a converter to parse the `Response` from an executed request.
-  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({PreviewGetPreviewRequestApplicationJson? $body}) async {
+  Future<_i1.DynamiteResponse<Uint8List, void>> getPreview({
+    String? file,
+    int? x,
+    int? y,
+    PreviewGetPreviewA? a,
+    PreviewGetPreviewForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewMimeFallback? mimeFallback,
+  }) async {
     final _request = $getPreview_Request(
-      $body: $body,
+      file: file,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2555,6 +2651,15 @@ class $PreviewClient {
   /// Returns a `DynamiteRequest` backing the [getPreviewByFileId] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
+  /// Parameters:
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
+  ///
   /// Status codes:
   ///   * 200: Preview returned
   ///   * 400: Getting preview is not possible
@@ -2566,8 +2671,48 @@ class $PreviewClient {
   ///  * [getPreviewByFileId] for a method executing this request and parsing the response.
   ///  * [$getPreviewByFileId_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
-  _i3.Request $getPreviewByFileId_Request({PreviewGetPreviewByFileIdRequestApplicationJson? $body}) {
-    const _path = '/index.php/core/preview';
+  _i3.Request $getPreviewByFileId_Request({
+    int? fileId,
+    int? x,
+    int? y,
+    PreviewGetPreviewByFileIdA? a,
+    PreviewGetPreviewByFileIdForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
+  }) {
+    final _parameters = <String, Object?>{};
+    var __fileId = _$jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    __fileId ??= -1;
+    _parameters['fileId'] = __fileId;
+
+    var __x = _$jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    __x ??= 32;
+    _parameters['x'] = __x;
+
+    var __y = _$jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    __y ??= 32;
+    _parameters['y'] = __y;
+
+    var __a = _$jsonSerializers.serialize(a, specifiedType: const FullType(PreviewGetPreviewByFileIdA));
+    __a ??= 0;
+    _parameters['a'] = __a;
+
+    var __forceIcon =
+        _$jsonSerializers.serialize(forceIcon, specifiedType: const FullType(PreviewGetPreviewByFileIdForceIcon));
+    __forceIcon ??= 1;
+    _parameters['forceIcon'] = __forceIcon;
+
+    var __mode = _$jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    __mode ??= 'fill';
+    _parameters['mode'] = __mode;
+
+    var __mimeFallback =
+        _$jsonSerializers.serialize(mimeFallback, specifiedType: const FullType(PreviewGetPreviewByFileIdMimeFallback));
+    __mimeFallback ??= 0;
+    _parameters['mimeFallback'] = __mimeFallback;
+
+    final _path = _i6.UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -2588,20 +2733,6 @@ class $PreviewClient {
     }
 
 // coverage:ignore-end
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(PreviewGetPreviewByFileIdRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              PreviewGetPreviewByFileIdRequestApplicationJson(),
-              specifiedType: const FullType(PreviewGetPreviewByFileIdRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -2609,6 +2740,15 @@ class $PreviewClient {
   ///
   /// Returns a [Future] containing a `DynamiteResponse` with the status code, deserialized body and headers.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [fileId] ID of the file. Defaults to `-1`.
+  ///   * [x] Width of the preview. Defaults to `32`.
+  ///   * [y] Height of the preview. Defaults to `32`.
+  ///   * [a] Whether to not crop the preview. Defaults to `0`.
+  ///   * [forceIcon] Force returning an icon. Defaults to `1`.
+  ///   * [mode] How to crop the image. Defaults to `"fill"`.
+  ///   * [mimeFallback] Whether to fallback to the mime icon if no preview is available. Defaults to `0`.
   ///
   /// Status codes:
   ///   * 200: Preview returned
@@ -2621,10 +2761,22 @@ class $PreviewClient {
   ///  * [$getPreviewByFileId_Request] for the request send by this method.
   ///  * [$getPreviewByFileId_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getPreviewByFileId({
-    PreviewGetPreviewByFileIdRequestApplicationJson? $body,
+    int? fileId,
+    int? x,
+    int? y,
+    PreviewGetPreviewByFileIdA? a,
+    PreviewGetPreviewByFileIdForceIcon? forceIcon,
+    String? mode,
+    PreviewGetPreviewByFileIdMimeFallback? mimeFallback,
   }) async {
     final _request = $getPreviewByFileId_Request(
-      $body: $body,
+      fileId: fileId,
+      x: x,
+      y: y,
+      a: a,
+      forceIcon: forceIcon,
+      mode: mode,
+      mimeFallback: mimeFallback,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -2950,6 +3102,7 @@ class $ReferenceApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [reference] Reference to resolve.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -2960,10 +3113,14 @@ class $ReferenceApiClient {
   ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $resolveOne_Request({
-    required ReferenceApiResolveOneRequestApplicationJson $body,
+    required String reference,
     bool? oCSAPIRequest,
   }) {
-    const _path = '/ocs/v2.php/references/resolve';
+    final _parameters = <String, Object?>{};
+    final __reference = _$jsonSerializers.serialize(reference, specifiedType: const FullType(String));
+    _parameters['reference'] = __reference;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -2988,13 +3145,6 @@ class $ReferenceApiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(ReferenceApiResolveOneRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -3004,6 +3154,7 @@ class $ReferenceApiClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [reference] Reference to resolve.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3013,12 +3164,12 @@ class $ReferenceApiClient {
   ///  * [$resolveOne_Request] for the request send by this method.
   ///  * [$resolveOne_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
-    required ReferenceApiResolveOneRequestApplicationJson $body,
+    required String reference,
     bool? oCSAPIRequest,
   }) async {
     final _request = $resolveOne_Request(
+      reference: reference,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -3901,6 +4052,7 @@ class $TextProcessingApiClient {
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
+  ///   * [identifier] An arbitrary identifier for the task.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3913,14 +4065,17 @@ class $TextProcessingApiClient {
   @_i2.experimental
   _i3.Request $listTasksByApp_Request({
     required String appId,
+    String? identifier,
     bool? oCSAPIRequest,
-    TextProcessingApiListTasksByAppRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}').expand(_parameters);
+    final __identifier = _$jsonSerializers.serialize(identifier, specifiedType: const FullType(String));
+    _parameters['identifier'] = __identifier;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -3945,20 +4100,6 @@ class $TextProcessingApiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(TextProcessingApiListTasksByAppRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              TextProcessingApiListTasksByAppRequestApplicationJson(),
-              specifiedType: const FullType(TextProcessingApiListTasksByAppRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -3969,6 +4110,7 @@ class $TextProcessingApiClient {
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
+  ///   * [identifier] An arbitrary identifier for the task.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3980,13 +4122,13 @@ class $TextProcessingApiClient {
   ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required String appId,
+    String? identifier,
     bool? oCSAPIRequest,
-    TextProcessingApiListTasksByAppRequestApplicationJson? $body,
   }) async {
     final _request = $listTasksByApp_Request(
       appId: appId,
+      identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4486,6 +4628,7 @@ class $TextToImageApiClient {
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
+  ///   * [identifier] An arbitrary identifier for the task.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4498,14 +4641,17 @@ class $TextToImageApiClient {
   @_i2.experimental
   _i3.Request $listTasksByApp_Request({
     required String appId,
+    String? identifier,
     bool? oCSAPIRequest,
-    TextToImageApiListTasksByAppRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __appId = _$jsonSerializers.serialize(appId, specifiedType: const FullType(String));
     _parameters['appId'] = __appId;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}').expand(_parameters);
+    final __identifier = _$jsonSerializers.serialize(identifier, specifiedType: const FullType(String));
+    _parameters['identifier'] = __identifier;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -4530,20 +4676,6 @@ class $TextToImageApiClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(TextToImageApiListTasksByAppRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              TextToImageApiListTasksByAppRequestApplicationJson(),
-              specifiedType: const FullType(TextToImageApiListTasksByAppRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -4554,6 +4686,7 @@ class $TextToImageApiClient {
   ///
   /// Parameters:
   ///   * [appId] ID of the app.
+  ///   * [identifier] An arbitrary identifier for the task.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4565,13 +4698,13 @@ class $TextToImageApiClient {
   ///  * [$listTasksByApp_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required String appId,
+    String? identifier,
     bool? oCSAPIRequest,
-    TextToImageApiListTasksByAppRequestApplicationJson? $body,
   }) async {
     final _request = $listTasksByApp_Request(
       appId: appId,
+      identifier: identifier,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4787,6 +4920,7 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [from] the url the user is currently at. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4797,10 +4931,15 @@ class $UnifiedSearchClient {
   ///  * [$getProviders_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $getProviders_Request({
+    String? from,
     bool? oCSAPIRequest,
-    UnifiedSearchGetProvidersRequestApplicationJson? $body,
   }) {
-    const _path = '/ocs/v2.php/search/providers';
+    final _parameters = <String, Object?>{};
+    var __from = _$jsonSerializers.serialize(from, specifiedType: const FullType(String));
+    __from ??= '';
+    _parameters['from'] = __from;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -4825,20 +4964,6 @@ class $UnifiedSearchClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(UnifiedSearchGetProvidersRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              UnifiedSearchGetProvidersRequestApplicationJson(),
-              specifiedType: const FullType(UnifiedSearchGetProvidersRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -4848,6 +4973,7 @@ class $UnifiedSearchClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [from] the url the user is currently at. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4857,12 +4983,12 @@ class $UnifiedSearchClient {
   ///  * [$getProviders_Request] for the request send by this method.
   ///  * [$getProviders_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
+    String? from,
     bool? oCSAPIRequest,
-    UnifiedSearchGetProvidersRequestApplicationJson? $body,
   }) async {
     final _request = $getProviders_Request(
+      from: from,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4891,6 +5017,11 @@ class $UnifiedSearchClient {
   ///
   /// Parameters:
   ///   * [providerId] ID of the provider.
+  ///   * [term] Term to search. Defaults to `""`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4903,14 +5034,37 @@ class $UnifiedSearchClient {
   @_i2.experimental
   _i3.Request $search_Request({
     required String providerId,
+    String? term,
+    int? sortOrder,
+    int? limit,
+    UnifiedSearchSearchCursor? cursor,
+    String? from,
     bool? oCSAPIRequest,
-    UnifiedSearchSearchRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __providerId = _$jsonSerializers.serialize(providerId, specifiedType: const FullType(String));
     _parameters['providerId'] = __providerId;
 
-    final _path = _i6.UriTemplate('/ocs/v2.php/search/providers/{providerId}/search').expand(_parameters);
+    var __term = _$jsonSerializers.serialize(term, specifiedType: const FullType(String));
+    __term ??= '';
+    _parameters['term'] = __term;
+
+    final __sortOrder = _$jsonSerializers.serialize(sortOrder, specifiedType: const FullType(int));
+    _parameters['sortOrder'] = __sortOrder;
+
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    final __cursor = _$jsonSerializers.serialize(cursor, specifiedType: const FullType(UnifiedSearchSearchCursor));
+    _parameters['cursor'] = __cursor;
+
+    var __from = _$jsonSerializers.serialize(from, specifiedType: const FullType(String));
+    __from ??= '';
+    _parameters['from'] = __from;
+
+    final _path =
+        _i6.UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -4935,20 +5089,6 @@ class $UnifiedSearchClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(UnifiedSearchSearchRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              UnifiedSearchSearchRequestApplicationJson(),
-              specifiedType: const FullType(UnifiedSearchSearchRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -4961,6 +5101,11 @@ class $UnifiedSearchClient {
   ///
   /// Parameters:
   ///   * [providerId] ID of the provider.
+  ///   * [term] Term to search. Defaults to `""`.
+  ///   * [sortOrder] Order of entries.
+  ///   * [limit] Maximum amount of entries.
+  ///   * [cursor] Offset for searching.
+  ///   * [from] The current user URL. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4972,13 +5117,21 @@ class $UnifiedSearchClient {
   ///  * [$search_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<UnifiedSearchSearchResponseApplicationJson, void>> search({
     required String providerId,
+    String? term,
+    int? sortOrder,
+    int? limit,
+    UnifiedSearchSearchCursor? cursor,
+    String? from,
     bool? oCSAPIRequest,
-    UnifiedSearchSearchRequestApplicationJson? $body,
   }) async {
     final _request = $search_Request(
       providerId: providerId,
+      term: term,
+      sortOrder: sortOrder,
+      limit: limit,
+      cursor: cursor,
+      from: from,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -6206,98 +6359,6 @@ abstract class AppPasswordConfirmUserPasswordResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder b) {
     $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $AutoCompleteGetRequestApplicationJsonInterface {
-  static final _$shareTypes = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(int)]),
-  )! as BuiltList<int>;
-
-  static final _$limit = _$jsonSerializers.deserialize(
-    10,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  /// Text to search for.
-  String get search;
-
-  /// Type of the items to search for.
-  String? get itemType;
-
-  /// ID of the items to search for.
-  String? get itemId;
-
-  /// can be piped, top prio first, e.g.: "commenters|share-recipients".
-  String? get sorter;
-
-  /// Types of shares to search for.
-  BuiltList<int> get shareTypes;
-
-  /// Maximum number of results to return.
-  int get limit;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AutoCompleteGetRequestApplicationJsonInterfaceBuilder].
-  $AutoCompleteGetRequestApplicationJsonInterface rebuild(
-    void Function($AutoCompleteGetRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$AutoCompleteGetRequestApplicationJsonInterfaceBuilder].
-  $AutoCompleteGetRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AutoCompleteGetRequestApplicationJsonInterfaceBuilder b) {
-    b.shareTypes.replace(_$shareTypes);
-    b.limit = _$limit;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AutoCompleteGetRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class AutoCompleteGetRequestApplicationJson
-    implements
-        $AutoCompleteGetRequestApplicationJsonInterface,
-        Built<AutoCompleteGetRequestApplicationJson, AutoCompleteGetRequestApplicationJsonBuilder> {
-  /// Creates a new AutoCompleteGetRequestApplicationJson object using the builder pattern.
-  factory AutoCompleteGetRequestApplicationJson([void Function(AutoCompleteGetRequestApplicationJsonBuilder)? b]) =
-      _$AutoCompleteGetRequestApplicationJson;
-
-  // coverage:ignore-start
-  const AutoCompleteGetRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AutoCompleteGetRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AutoCompleteGetRequestApplicationJson.
-  static Serializer<AutoCompleteGetRequestApplicationJson> get serializer =>
-      _$autoCompleteGetRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AutoCompleteGetRequestApplicationJsonBuilder b) {
-    $AutoCompleteGetRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AutoCompleteGetRequestApplicationJsonBuilder b) {
-    $AutoCompleteGetRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -7602,74 +7663,6 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $CollaborationResourcesRemoveResourceRequestApplicationJsonInterface {
-  /// Name of the resource.
-  String get resourceType;
-
-  /// ID of the resource.
-  String get resourceId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder].
-  $CollaborationResourcesRemoveResourceRequestApplicationJsonInterface rebuild(
-    void Function($CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder].
-  $CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class CollaborationResourcesRemoveResourceRequestApplicationJson
-    implements
-        $CollaborationResourcesRemoveResourceRequestApplicationJsonInterface,
-        Built<CollaborationResourcesRemoveResourceRequestApplicationJson,
-            CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder> {
-  /// Creates a new CollaborationResourcesRemoveResourceRequestApplicationJson object using the builder pattern.
-  factory CollaborationResourcesRemoveResourceRequestApplicationJson([
-    void Function(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder)? b,
-  ]) = _$CollaborationResourcesRemoveResourceRequestApplicationJson;
-
-  // coverage:ignore-start
-  const CollaborationResourcesRemoveResourceRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CollaborationResourcesRemoveResourceRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CollaborationResourcesRemoveResourceRequestApplicationJson.
-  static Serializer<CollaborationResourcesRemoveResourceRequestApplicationJson> get serializer =>
-      _$collaborationResourcesRemoveResourceRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder b) {
-    $CollaborationResourcesRemoveResourceRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder b) {
-    $CollaborationResourcesRemoveResourceRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Collection get data;
@@ -8258,76 +8251,67 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
   }
 }
 
-@BuiltValue(instantiable: false)
-sealed class $GuestAvatarGetAvatarRequestApplicationJsonInterface {
-  static final _$darkTheme = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class GuestAvatarGetAvatarDarkTheme extends EnumClass {
+  const GuestAvatarGetAvatarDarkTheme._(super.name);
 
-  /// Return dark avatar.
-  bool? get darkTheme;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const GuestAvatarGetAvatarDarkTheme $0 = _$guestAvatarGetAvatarDarkTheme$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder].
-  $GuestAvatarGetAvatarRequestApplicationJsonInterface rebuild(
-    void Function($GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const GuestAvatarGetAvatarDarkTheme $1 = _$guestAvatarGetAvatarDarkTheme$1;
 
-  /// Converts the instance to a builder [$GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder].
-  $GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder b) {
-    b.darkTheme = _$darkTheme;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<GuestAvatarGetAvatarDarkTheme> get values => _$guestAvatarGetAvatarDarkThemeValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static GuestAvatarGetAvatarDarkTheme valueOf(String name) => _$valueOfGuestAvatarGetAvatarDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for GuestAvatarGetAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GuestAvatarGetAvatarDarkTheme> get serializer => const _$GuestAvatarGetAvatarDarkThemeSerializer();
 }
 
-abstract class GuestAvatarGetAvatarRequestApplicationJson
-    implements
-        $GuestAvatarGetAvatarRequestApplicationJsonInterface,
-        Built<GuestAvatarGetAvatarRequestApplicationJson, GuestAvatarGetAvatarRequestApplicationJsonBuilder> {
-  /// Creates a new GuestAvatarGetAvatarRequestApplicationJson object using the builder pattern.
-  factory GuestAvatarGetAvatarRequestApplicationJson([
-    void Function(GuestAvatarGetAvatarRequestApplicationJsonBuilder)? b,
-  ]) = _$GuestAvatarGetAvatarRequestApplicationJson;
+class _$GuestAvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<GuestAvatarGetAvatarDarkTheme> {
+  const _$GuestAvatarGetAvatarDarkThemeSerializer();
 
-  // coverage:ignore-start
-  const GuestAvatarGetAvatarRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<GuestAvatarGetAvatarDarkTheme, Object> _toWire = <GuestAvatarGetAvatarDarkTheme, Object>{
+    GuestAvatarGetAvatarDarkTheme.$0: 0,
+    GuestAvatarGetAvatarDarkTheme.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory GuestAvatarGetAvatarRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, GuestAvatarGetAvatarDarkTheme> _fromWire = <Object, GuestAvatarGetAvatarDarkTheme>{
+    0: GuestAvatarGetAvatarDarkTheme.$0,
+    1: GuestAvatarGetAvatarDarkTheme.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [GuestAvatarGetAvatarDarkTheme];
 
-  /// Serializer for GuestAvatarGetAvatarRequestApplicationJson.
-  static Serializer<GuestAvatarGetAvatarRequestApplicationJson> get serializer =>
-      _$guestAvatarGetAvatarRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'GuestAvatarGetAvatarDarkTheme';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GuestAvatarGetAvatarRequestApplicationJsonBuilder b) {
-    $GuestAvatarGetAvatarRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    GuestAvatarGetAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(GuestAvatarGetAvatarRequestApplicationJsonBuilder b) {
-    $GuestAvatarGetAvatarRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  GuestAvatarGetAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8706,77 +8690,70 @@ abstract class LoginConfirmPasswordResponseApplicationJson
   }
 }
 
-@BuiltValue(instantiable: false)
-sealed class $NavigationGetAppsNavigationRequestApplicationJsonInterface {
-  static final _$absolute = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class NavigationGetAppsNavigationAbsolute extends EnumClass {
+  const NavigationGetAppsNavigationAbsolute._(super.name);
 
-  /// Rewrite URLs to absolute ones.
-  bool get absolute;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const NavigationGetAppsNavigationAbsolute $0 = _$navigationGetAppsNavigationAbsolute$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder].
-  $NavigationGetAppsNavigationRequestApplicationJsonInterface rebuild(
-    void Function($NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const NavigationGetAppsNavigationAbsolute $1 = _$navigationGetAppsNavigationAbsolute$1;
 
-  /// Converts the instance to a builder [$NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder].
-  $NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder b) {
-    b.absolute = _$absolute;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<NavigationGetAppsNavigationAbsolute> get values => _$navigationGetAppsNavigationAbsoluteValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static NavigationGetAppsNavigationAbsolute valueOf(String name) => _$valueOfNavigationGetAppsNavigationAbsolute(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for NavigationGetAppsNavigationAbsolute.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NavigationGetAppsNavigationAbsolute> get serializer =>
+      const _$NavigationGetAppsNavigationAbsoluteSerializer();
 }
 
-abstract class NavigationGetAppsNavigationRequestApplicationJson
-    implements
-        $NavigationGetAppsNavigationRequestApplicationJsonInterface,
-        Built<NavigationGetAppsNavigationRequestApplicationJson,
-            NavigationGetAppsNavigationRequestApplicationJsonBuilder> {
-  /// Creates a new NavigationGetAppsNavigationRequestApplicationJson object using the builder pattern.
-  factory NavigationGetAppsNavigationRequestApplicationJson([
-    void Function(NavigationGetAppsNavigationRequestApplicationJsonBuilder)? b,
-  ]) = _$NavigationGetAppsNavigationRequestApplicationJson;
+class _$NavigationGetAppsNavigationAbsoluteSerializer
+    implements PrimitiveSerializer<NavigationGetAppsNavigationAbsolute> {
+  const _$NavigationGetAppsNavigationAbsoluteSerializer();
 
-  // coverage:ignore-start
-  const NavigationGetAppsNavigationRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<NavigationGetAppsNavigationAbsolute, Object> _toWire = <NavigationGetAppsNavigationAbsolute, Object>{
+    NavigationGetAppsNavigationAbsolute.$0: 0,
+    NavigationGetAppsNavigationAbsolute.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory NavigationGetAppsNavigationRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, NavigationGetAppsNavigationAbsolute> _fromWire =
+      <Object, NavigationGetAppsNavigationAbsolute>{
+    0: NavigationGetAppsNavigationAbsolute.$0,
+    1: NavigationGetAppsNavigationAbsolute.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [NavigationGetAppsNavigationAbsolute];
 
-  /// Serializer for NavigationGetAppsNavigationRequestApplicationJson.
-  static Serializer<NavigationGetAppsNavigationRequestApplicationJson> get serializer =>
-      _$navigationGetAppsNavigationRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'NavigationGetAppsNavigationAbsolute';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NavigationGetAppsNavigationRequestApplicationJsonBuilder b) {
-    $NavigationGetAppsNavigationRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    NavigationGetAppsNavigationAbsolute object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(NavigationGetAppsNavigationRequestApplicationJsonBuilder b) {
-    $NavigationGetAppsNavigationRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  NavigationGetAppsNavigationAbsolute deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 typedef NavigationEntry_Order = ({int? $int, String? string});
@@ -8974,77 +8951,73 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson
   }
 }
 
-@BuiltValue(instantiable: false)
-sealed class $NavigationGetSettingsNavigationRequestApplicationJsonInterface {
-  static final _$absolute = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class NavigationGetSettingsNavigationAbsolute extends EnumClass {
+  const NavigationGetSettingsNavigationAbsolute._(super.name);
 
-  /// Rewrite URLs to absolute ones.
-  bool get absolute;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const NavigationGetSettingsNavigationAbsolute $0 = _$navigationGetSettingsNavigationAbsolute$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder].
-  $NavigationGetSettingsNavigationRequestApplicationJsonInterface rebuild(
-    void Function($NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const NavigationGetSettingsNavigationAbsolute $1 = _$navigationGetSettingsNavigationAbsolute$1;
 
-  /// Converts the instance to a builder [$NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder].
-  $NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder b) {
-    b.absolute = _$absolute;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<NavigationGetSettingsNavigationAbsolute> get values =>
+      _$navigationGetSettingsNavigationAbsoluteValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static NavigationGetSettingsNavigationAbsolute valueOf(String name) =>
+      _$valueOfNavigationGetSettingsNavigationAbsolute(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for NavigationGetSettingsNavigationAbsolute.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NavigationGetSettingsNavigationAbsolute> get serializer =>
+      const _$NavigationGetSettingsNavigationAbsoluteSerializer();
 }
 
-abstract class NavigationGetSettingsNavigationRequestApplicationJson
-    implements
-        $NavigationGetSettingsNavigationRequestApplicationJsonInterface,
-        Built<NavigationGetSettingsNavigationRequestApplicationJson,
-            NavigationGetSettingsNavigationRequestApplicationJsonBuilder> {
-  /// Creates a new NavigationGetSettingsNavigationRequestApplicationJson object using the builder pattern.
-  factory NavigationGetSettingsNavigationRequestApplicationJson([
-    void Function(NavigationGetSettingsNavigationRequestApplicationJsonBuilder)? b,
-  ]) = _$NavigationGetSettingsNavigationRequestApplicationJson;
+class _$NavigationGetSettingsNavigationAbsoluteSerializer
+    implements PrimitiveSerializer<NavigationGetSettingsNavigationAbsolute> {
+  const _$NavigationGetSettingsNavigationAbsoluteSerializer();
 
-  // coverage:ignore-start
-  const NavigationGetSettingsNavigationRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<NavigationGetSettingsNavigationAbsolute, Object> _toWire =
+      <NavigationGetSettingsNavigationAbsolute, Object>{
+    NavigationGetSettingsNavigationAbsolute.$0: 0,
+    NavigationGetSettingsNavigationAbsolute.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory NavigationGetSettingsNavigationRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, NavigationGetSettingsNavigationAbsolute> _fromWire =
+      <Object, NavigationGetSettingsNavigationAbsolute>{
+    0: NavigationGetSettingsNavigationAbsolute.$0,
+    1: NavigationGetSettingsNavigationAbsolute.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [NavigationGetSettingsNavigationAbsolute];
 
-  /// Serializer for NavigationGetSettingsNavigationRequestApplicationJson.
-  static Serializer<NavigationGetSettingsNavigationRequestApplicationJson> get serializer =>
-      _$navigationGetSettingsNavigationRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'NavigationGetSettingsNavigationAbsolute';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(NavigationGetSettingsNavigationRequestApplicationJsonBuilder b) {
-    $NavigationGetSettingsNavigationRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    NavigationGetSettingsNavigationAbsolute object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(NavigationGetSettingsNavigationRequestApplicationJsonBuilder b) {
-    $NavigationGetSettingsNavigationRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  NavigationGetSettingsNavigationAbsolute deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13913,255 +13886,389 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
   }
 }
 
-@BuiltValue(instantiable: false)
-sealed class $PreviewGetPreviewRequestApplicationJsonInterface {
-  static final _$file = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
+class PreviewGetPreviewA extends EnumClass {
+  const PreviewGetPreviewA._(super.name);
 
-  static final _$x = _$jsonSerializers.deserialize(
-    32,
-    specifiedType: const FullType(int),
-  )! as int;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewA $0 = _$previewGetPreviewA$0;
 
-  static final _$y = _$jsonSerializers.deserialize(
-    32,
-    specifiedType: const FullType(int),
-  )! as int;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewA $1 = _$previewGetPreviewA$1;
 
-  static final _$a = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewA> get values => _$previewGetPreviewAValues;
+  // coverage:ignore-end
 
-  static final _$forceIcon = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewA valueOf(String name) => _$valueOfPreviewGetPreviewA(name);
 
-  static final _$mode = _$jsonSerializers.deserialize(
-    'fill',
-    specifiedType: const FullType(String),
-  )! as String;
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  static final _$mimeFallback = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
-
-  /// Path of the file.
-  String get file;
-
-  /// Width of the preview.
-  int get x;
-
-  /// Height of the preview.
-  int get y;
-
-  /// Whether to not crop the preview.
-  bool get a;
-
-  /// Force returning an icon.
-  bool get forceIcon;
-
-  /// How to crop the image.
-  String get mode;
-
-  /// Whether to fallback to the mime icon if no preview is available.
-  bool get mimeFallback;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$PreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
-  $PreviewGetPreviewRequestApplicationJsonInterface rebuild(
-    void Function($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$PreviewGetPreviewRequestApplicationJsonInterfaceBuilder].
-  $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {
-    b.file = _$file;
-    b.x = _$x;
-    b.y = _$y;
-    b.a = _$a;
-    b.forceIcon = _$forceIcon;
-    b.mode = _$mode;
-    b.mimeFallback = _$mimeFallback;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder b) {}
+  /// Serializer for PreviewGetPreviewA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewA> get serializer => const _$PreviewGetPreviewASerializer();
 }
 
-abstract class PreviewGetPreviewRequestApplicationJson
-    implements
-        $PreviewGetPreviewRequestApplicationJsonInterface,
-        Built<PreviewGetPreviewRequestApplicationJson, PreviewGetPreviewRequestApplicationJsonBuilder> {
-  /// Creates a new PreviewGetPreviewRequestApplicationJson object using the builder pattern.
-  factory PreviewGetPreviewRequestApplicationJson([void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? b]) =
-      _$PreviewGetPreviewRequestApplicationJson;
+class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPreviewA> {
+  const _$PreviewGetPreviewASerializer();
 
-  // coverage:ignore-start
-  const PreviewGetPreviewRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<PreviewGetPreviewA, Object> _toWire = <PreviewGetPreviewA, Object>{
+    PreviewGetPreviewA.$0: 0,
+    PreviewGetPreviewA.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory PreviewGetPreviewRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, PreviewGetPreviewA> _fromWire = <Object, PreviewGetPreviewA>{
+    0: PreviewGetPreviewA.$0,
+    1: PreviewGetPreviewA.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewA];
 
-  /// Serializer for PreviewGetPreviewRequestApplicationJson.
-  static Serializer<PreviewGetPreviewRequestApplicationJson> get serializer =>
-      _$previewGetPreviewRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'PreviewGetPreviewA';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PreviewGetPreviewRequestApplicationJsonBuilder b) {
-    $PreviewGetPreviewRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PreviewGetPreviewRequestApplicationJsonBuilder b) {
-    $PreviewGetPreviewRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  PreviewGetPreviewA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $PreviewGetPreviewByFileIdRequestApplicationJsonInterface {
-  static final _$fileId = _$jsonSerializers.deserialize(
-    -1,
-    specifiedType: const FullType(int),
-  )! as int;
+class PreviewGetPreviewForceIcon extends EnumClass {
+  const PreviewGetPreviewForceIcon._(super.name);
 
-  static final _$x = _$jsonSerializers.deserialize(
-    32,
-    specifiedType: const FullType(int),
-  )! as int;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewForceIcon $0 = _$previewGetPreviewForceIcon$0;
 
-  static final _$y = _$jsonSerializers.deserialize(
-    32,
-    specifiedType: const FullType(int),
-  )! as int;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewForceIcon $1 = _$previewGetPreviewForceIcon$1;
 
-  static final _$a = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewForceIcon> get values => _$previewGetPreviewForceIconValues;
+  // coverage:ignore-end
 
-  static final _$forceIcon = _$jsonSerializers.deserialize(
-    true,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewForceIcon(name);
 
-  static final _$mode = _$jsonSerializers.deserialize(
-    'fill',
-    specifiedType: const FullType(String),
-  )! as String;
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  static final _$mimeFallback = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
-
-  /// ID of the file.
-  int get fileId;
-
-  /// Width of the preview.
-  int get x;
-
-  /// Height of the preview.
-  int get y;
-
-  /// Whether to not crop the preview.
-  bool get a;
-
-  /// Force returning an icon.
-  bool get forceIcon;
-
-  /// How to crop the image.
-  String get mode;
-
-  /// Whether to fallback to the mime icon if no preview is available.
-  bool get mimeFallback;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder].
-  $PreviewGetPreviewByFileIdRequestApplicationJsonInterface rebuild(
-    void Function($PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder].
-  $PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder b) {
-    b.fileId = _$fileId;
-    b.x = _$x;
-    b.y = _$y;
-    b.a = _$a;
-    b.forceIcon = _$forceIcon;
-    b.mode = _$mode;
-    b.mimeFallback = _$mimeFallback;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder b) {}
+  /// Serializer for PreviewGetPreviewForceIcon.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewForceIcon> get serializer => const _$PreviewGetPreviewForceIconSerializer();
 }
 
-abstract class PreviewGetPreviewByFileIdRequestApplicationJson
-    implements
-        $PreviewGetPreviewByFileIdRequestApplicationJsonInterface,
-        Built<PreviewGetPreviewByFileIdRequestApplicationJson, PreviewGetPreviewByFileIdRequestApplicationJsonBuilder> {
-  /// Creates a new PreviewGetPreviewByFileIdRequestApplicationJson object using the builder pattern.
-  factory PreviewGetPreviewByFileIdRequestApplicationJson([
-    void Function(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder)? b,
-  ]) = _$PreviewGetPreviewByFileIdRequestApplicationJson;
+class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<PreviewGetPreviewForceIcon> {
+  const _$PreviewGetPreviewForceIconSerializer();
 
+  static const Map<PreviewGetPreviewForceIcon, Object> _toWire = <PreviewGetPreviewForceIcon, Object>{
+    PreviewGetPreviewForceIcon.$0: 0,
+    PreviewGetPreviewForceIcon.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewForceIcon> _fromWire = <Object, PreviewGetPreviewForceIcon>{
+    0: PreviewGetPreviewForceIcon.$0,
+    1: PreviewGetPreviewForceIcon.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewForceIcon];
+
+  @override
+  String get wireName => 'PreviewGetPreviewForceIcon';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewForceIcon object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewMimeFallback extends EnumClass {
+  const PreviewGetPreviewMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewMimeFallback $0 = _$previewGetPreviewMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewMimeFallback $1 = _$previewGetPreviewMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  const PreviewGetPreviewByFileIdRequestApplicationJson._();
+  static BuiltSet<PreviewGetPreviewMimeFallback> get values => _$previewGetPreviewMimeFallbackValues;
   // coverage:ignore-end
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewMimeFallback valueOf(String name) => _$valueOfPreviewGetPreviewMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewMimeFallback> get serializer => const _$PreviewGetPreviewMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<PreviewGetPreviewMimeFallback> {
+  const _$PreviewGetPreviewMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewMimeFallback, Object> _toWire = <PreviewGetPreviewMimeFallback, Object>{
+    PreviewGetPreviewMimeFallback.$0: 0,
+    PreviewGetPreviewMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewMimeFallback> _fromWire = <Object, PreviewGetPreviewMimeFallback>{
+    0: PreviewGetPreviewMimeFallback.$0,
+    1: PreviewGetPreviewMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdA extends EnumClass {
+  const PreviewGetPreviewByFileIdA._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdA $0 = _$previewGetPreviewByFileIdA$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdA $1 = _$previewGetPreviewByFileIdA$1;
+
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  factory PreviewGetPreviewByFileIdRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  static BuiltSet<PreviewGetPreviewByFileIdA> get values => _$previewGetPreviewByFileIdAValues;
   // coverage:ignore-end
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdA valueOf(String name) => _$valueOfPreviewGetPreviewByFileIdA(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewByFileIdA.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdA> get serializer => const _$PreviewGetPreviewByFileIdASerializer();
+}
+
+class _$PreviewGetPreviewByFileIdASerializer implements PrimitiveSerializer<PreviewGetPreviewByFileIdA> {
+  const _$PreviewGetPreviewByFileIdASerializer();
+
+  static const Map<PreviewGetPreviewByFileIdA, Object> _toWire = <PreviewGetPreviewByFileIdA, Object>{
+    PreviewGetPreviewByFileIdA.$0: 0,
+    PreviewGetPreviewByFileIdA.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdA> _fromWire = <Object, PreviewGetPreviewByFileIdA>{
+    0: PreviewGetPreviewByFileIdA.$0,
+    1: PreviewGetPreviewByFileIdA.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdA];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdA';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdA object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdA deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdForceIcon extends EnumClass {
+  const PreviewGetPreviewByFileIdForceIcon._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdForceIcon $0 = _$previewGetPreviewByFileIdForceIcon$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdForceIcon $1 = _$previewGetPreviewByFileIdForceIcon$1;
+
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  static BuiltSet<PreviewGetPreviewByFileIdForceIcon> get values => _$previewGetPreviewByFileIdForceIconValues;
   // coverage:ignore-end
 
-  /// Serializer for PreviewGetPreviewByFileIdRequestApplicationJson.
-  static Serializer<PreviewGetPreviewByFileIdRequestApplicationJson> get serializer =>
-      _$previewGetPreviewByFileIdRequestApplicationJsonSerializer;
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdForceIcon valueOf(String name) => _$valueOfPreviewGetPreviewByFileIdForceIcon(name);
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder b) {
-    $PreviewGetPreviewByFileIdRequestApplicationJsonInterface._defaults(b);
-  }
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder b) {
-    $PreviewGetPreviewByFileIdRequestApplicationJsonInterface._validate(b);
-  }
+  /// Serializer for PreviewGetPreviewByFileIdForceIcon.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdForceIcon> get serializer =>
+      const _$PreviewGetPreviewByFileIdForceIconSerializer();
+}
+
+class _$PreviewGetPreviewByFileIdForceIconSerializer
+    implements PrimitiveSerializer<PreviewGetPreviewByFileIdForceIcon> {
+  const _$PreviewGetPreviewByFileIdForceIconSerializer();
+
+  static const Map<PreviewGetPreviewByFileIdForceIcon, Object> _toWire = <PreviewGetPreviewByFileIdForceIcon, Object>{
+    PreviewGetPreviewByFileIdForceIcon.$0: 0,
+    PreviewGetPreviewByFileIdForceIcon.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdForceIcon> _fromWire = <Object, PreviewGetPreviewByFileIdForceIcon>{
+    0: PreviewGetPreviewByFileIdForceIcon.$0,
+    1: PreviewGetPreviewByFileIdForceIcon.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdForceIcon];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdForceIcon';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdForceIcon object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdForceIcon deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class PreviewGetPreviewByFileIdMimeFallback extends EnumClass {
+  const PreviewGetPreviewByFileIdMimeFallback._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const PreviewGetPreviewByFileIdMimeFallback $0 = _$previewGetPreviewByFileIdMimeFallback$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const PreviewGetPreviewByFileIdMimeFallback $1 = _$previewGetPreviewByFileIdMimeFallback$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<PreviewGetPreviewByFileIdMimeFallback> get values => _$previewGetPreviewByFileIdMimeFallbackValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static PreviewGetPreviewByFileIdMimeFallback valueOf(String name) =>
+      _$valueOfPreviewGetPreviewByFileIdMimeFallback(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for PreviewGetPreviewByFileIdMimeFallback.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PreviewGetPreviewByFileIdMimeFallback> get serializer =>
+      const _$PreviewGetPreviewByFileIdMimeFallbackSerializer();
+}
+
+class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
+    implements PrimitiveSerializer<PreviewGetPreviewByFileIdMimeFallback> {
+  const _$PreviewGetPreviewByFileIdMimeFallbackSerializer();
+
+  static const Map<PreviewGetPreviewByFileIdMimeFallback, Object> _toWire =
+      <PreviewGetPreviewByFileIdMimeFallback, Object>{
+    PreviewGetPreviewByFileIdMimeFallback.$0: 0,
+    PreviewGetPreviewByFileIdMimeFallback.$1: 1,
+  };
+
+  static const Map<Object, PreviewGetPreviewByFileIdMimeFallback> _fromWire =
+      <Object, PreviewGetPreviewByFileIdMimeFallback>{
+    0: PreviewGetPreviewByFileIdMimeFallback.$0,
+    1: PreviewGetPreviewByFileIdMimeFallback.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PreviewGetPreviewByFileIdMimeFallback];
+
+  @override
+  String get wireName => 'PreviewGetPreviewByFileIdMimeFallback';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PreviewGetPreviewByFileIdMimeFallback object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PreviewGetPreviewByFileIdMimeFallback deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14688,70 +14795,6 @@ abstract class ReferenceApiExtractResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(ReferenceApiExtractResponseApplicationJsonBuilder b) {
     $ReferenceApiExtractResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $ReferenceApiResolveOneRequestApplicationJsonInterface {
-  /// Reference to resolve.
-  String get reference;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder].
-  $ReferenceApiResolveOneRequestApplicationJsonInterface rebuild(
-    void Function($ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder].
-  $ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class ReferenceApiResolveOneRequestApplicationJson
-    implements
-        $ReferenceApiResolveOneRequestApplicationJsonInterface,
-        Built<ReferenceApiResolveOneRequestApplicationJson, ReferenceApiResolveOneRequestApplicationJsonBuilder> {
-  /// Creates a new ReferenceApiResolveOneRequestApplicationJson object using the builder pattern.
-  factory ReferenceApiResolveOneRequestApplicationJson([
-    void Function(ReferenceApiResolveOneRequestApplicationJsonBuilder)? b,
-  ]) = _$ReferenceApiResolveOneRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ReferenceApiResolveOneRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReferenceApiResolveOneRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReferenceApiResolveOneRequestApplicationJson.
-  static Serializer<ReferenceApiResolveOneRequestApplicationJson> get serializer =>
-      _$referenceApiResolveOneRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReferenceApiResolveOneRequestApplicationJsonBuilder b) {
-    $ReferenceApiResolveOneRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReferenceApiResolveOneRequestApplicationJsonBuilder b) {
-    $ReferenceApiResolveOneRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -17221,71 +17264,6 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $TextProcessingApiListTasksByAppRequestApplicationJsonInterface {
-  /// An arbitrary identifier for the task.
-  String? get identifier;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder].
-  $TextProcessingApiListTasksByAppRequestApplicationJsonInterface rebuild(
-    void Function($TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder].
-  $TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class TextProcessingApiListTasksByAppRequestApplicationJson
-    implements
-        $TextProcessingApiListTasksByAppRequestApplicationJsonInterface,
-        Built<TextProcessingApiListTasksByAppRequestApplicationJson,
-            TextProcessingApiListTasksByAppRequestApplicationJsonBuilder> {
-  /// Creates a new TextProcessingApiListTasksByAppRequestApplicationJson object using the builder pattern.
-  factory TextProcessingApiListTasksByAppRequestApplicationJson([
-    void Function(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder)? b,
-  ]) = _$TextProcessingApiListTasksByAppRequestApplicationJson;
-
-  // coverage:ignore-start
-  const TextProcessingApiListTasksByAppRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory TextProcessingApiListTasksByAppRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for TextProcessingApiListTasksByAppRequestApplicationJson.
-  static Serializer<TextProcessingApiListTasksByAppRequestApplicationJson> get serializer =>
-      _$textProcessingApiListTasksByAppRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder b) {
-    $TextProcessingApiListTasksByAppRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder b) {
-    $TextProcessingApiListTasksByAppRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextProcessingTask> get tasks;
 
@@ -18477,71 +18455,6 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $TextToImageApiListTasksByAppRequestApplicationJsonInterface {
-  /// An arbitrary identifier for the task.
-  String? get identifier;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder].
-  $TextToImageApiListTasksByAppRequestApplicationJsonInterface rebuild(
-    void Function($TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder].
-  $TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class TextToImageApiListTasksByAppRequestApplicationJson
-    implements
-        $TextToImageApiListTasksByAppRequestApplicationJsonInterface,
-        Built<TextToImageApiListTasksByAppRequestApplicationJson,
-            TextToImageApiListTasksByAppRequestApplicationJsonBuilder> {
-  /// Creates a new TextToImageApiListTasksByAppRequestApplicationJson object using the builder pattern.
-  factory TextToImageApiListTasksByAppRequestApplicationJson([
-    void Function(TextToImageApiListTasksByAppRequestApplicationJsonBuilder)? b,
-  ]) = _$TextToImageApiListTasksByAppRequestApplicationJson;
-
-  // coverage:ignore-start
-  const TextToImageApiListTasksByAppRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory TextToImageApiListTasksByAppRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for TextToImageApiListTasksByAppRequestApplicationJson.
-  static Serializer<TextToImageApiListTasksByAppRequestApplicationJson> get serializer =>
-      _$textToImageApiListTasksByAppRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TextToImageApiListTasksByAppRequestApplicationJsonBuilder b) {
-    $TextToImageApiListTasksByAppRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(TextToImageApiListTasksByAppRequestApplicationJsonBuilder b) {
-    $TextToImageApiListTasksByAppRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
   BuiltList<TextToImageTask> get tasks;
 
@@ -19258,78 +19171,6 @@ abstract class TranslationApiTranslateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-sealed class $UnifiedSearchGetProvidersRequestApplicationJsonInterface {
-  static final _$from = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  /// the url the user is currently at.
-  String get from;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder].
-  $UnifiedSearchGetProvidersRequestApplicationJsonInterface rebuild(
-    void Function($UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder].
-  $UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder b) {
-    b.from = _$from;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class UnifiedSearchGetProvidersRequestApplicationJson
-    implements
-        $UnifiedSearchGetProvidersRequestApplicationJsonInterface,
-        Built<UnifiedSearchGetProvidersRequestApplicationJson, UnifiedSearchGetProvidersRequestApplicationJsonBuilder> {
-  /// Creates a new UnifiedSearchGetProvidersRequestApplicationJson object using the builder pattern.
-  factory UnifiedSearchGetProvidersRequestApplicationJson([
-    void Function(UnifiedSearchGetProvidersRequestApplicationJsonBuilder)? b,
-  ]) = _$UnifiedSearchGetProvidersRequestApplicationJson;
-
-  // coverage:ignore-start
-  const UnifiedSearchGetProvidersRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UnifiedSearchGetProvidersRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UnifiedSearchGetProvidersRequestApplicationJson.
-  static Serializer<UnifiedSearchGetProvidersRequestApplicationJson> get serializer =>
-      _$unifiedSearchGetProvidersRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UnifiedSearchGetProvidersRequestApplicationJsonBuilder b) {
-    $UnifiedSearchGetProvidersRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(UnifiedSearchGetProvidersRequestApplicationJsonBuilder b) {
-    $UnifiedSearchGetProvidersRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $UnifiedSearchProviderInterface {
   String get id;
   String get appId;
@@ -19521,100 +19362,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
   }
 }
 
-/// Offset for searching.
-typedef UnifiedSearchSearchRequestApplicationJson_Cursor = ({int? $int, String? string});
-
-@BuiltValue(instantiable: false)
-sealed class $UnifiedSearchSearchRequestApplicationJsonInterface {
-  static final _$term = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  static final _$from = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  /// Term to search.
-  String get term;
-
-  /// Order of entries.
-  int? get sortOrder;
-
-  /// Maximum amount of entries.
-  int? get limit;
-
-  /// Offset for searching.
-  UnifiedSearchSearchRequestApplicationJson_Cursor? get cursor;
-
-  /// The current user URL.
-  String get from;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder].
-  $UnifiedSearchSearchRequestApplicationJsonInterface rebuild(
-    void Function($UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder].
-  $UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder b) {
-    b.term = _$term;
-    b.from = _$from;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder b) {
-    b.cursor?.validateOneOf();
-  }
-}
-
-abstract class UnifiedSearchSearchRequestApplicationJson
-    implements
-        $UnifiedSearchSearchRequestApplicationJsonInterface,
-        Built<UnifiedSearchSearchRequestApplicationJson, UnifiedSearchSearchRequestApplicationJsonBuilder> {
-  /// Creates a new UnifiedSearchSearchRequestApplicationJson object using the builder pattern.
-  factory UnifiedSearchSearchRequestApplicationJson([
-    void Function(UnifiedSearchSearchRequestApplicationJsonBuilder)? b,
-  ]) = _$UnifiedSearchSearchRequestApplicationJson;
-
-  // coverage:ignore-start
-  const UnifiedSearchSearchRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory UnifiedSearchSearchRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for UnifiedSearchSearchRequestApplicationJson.
-  static Serializer<UnifiedSearchSearchRequestApplicationJson> get serializer =>
-      _$unifiedSearchSearchRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UnifiedSearchSearchRequestApplicationJsonBuilder b) {
-    $UnifiedSearchSearchRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(UnifiedSearchSearchRequestApplicationJsonBuilder b) {
-    $UnifiedSearchSearchRequestApplicationJsonInterface._validate(b);
-  }
-}
+typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $UnifiedSearchResultEntryInterface {
@@ -20800,19 +20548,16 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
       $ff3cbb941adc0f0f38f18ba5aabd7f48Extension._fromJson(json);
 }
 
-/// Serialization extension for `UnifiedSearchSearchRequestApplicationJson_Cursor`.
-extension $UnifiedSearchSearchRequestApplicationJson_CursorExtension
-    on UnifiedSearchSearchRequestApplicationJson_Cursor {
-  /// Serializer for UnifiedSearchSearchRequestApplicationJson_Cursor.
+/// Serialization extension for `UnifiedSearchSearchCursor`.
+extension $UnifiedSearchSearchCursorExtension on UnifiedSearchSearchCursor {
+  /// Serializer for UnifiedSearchSearchCursor.
   @BuiltValueSerializer(custom: true)
-  static Serializer<UnifiedSearchSearchRequestApplicationJson_Cursor> get serializer =>
-      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static Serializer<UnifiedSearchSearchCursor> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static UnifiedSearchSearchRequestApplicationJson_Cursor fromJson(Object? json) =>
-      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+  static UnifiedSearchSearchCursor fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
 /// Serialization extension for `UnifiedSearchResult_Cursor`.
@@ -21601,11 +21346,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(AutoCompleteGetRequestApplicationJson),
-        AutoCompleteGetRequestApplicationJsonBuilder.new,
-      )
-      ..add(AutoCompleteGetRequestApplicationJson.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(AutoCompleteGetResponseApplicationJson),
@@ -21695,11 +21435,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(CollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(CollaborationResourcesRemoveResourceRequestApplicationJson),
-        CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesRemoveResourceRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
         CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder.new,
       )
@@ -21745,11 +21480,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestAvatarGetAvatarRequestApplicationJson),
-        GuestAvatarGetAvatarRequestApplicationJsonBuilder.new,
-      )
-      ..add(GuestAvatarGetAvatarRequestApplicationJson.serializer)
+      ..add(GuestAvatarGetAvatarDarkTheme.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson),
         HoverCardGetUserResponseApplicationJsonBuilder.new,
@@ -21778,11 +21509,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
         LoginConfirmPasswordResponseApplicationJsonBuilder.new,
       )
       ..add(LoginConfirmPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(NavigationGetAppsNavigationRequestApplicationJson),
-        NavigationGetAppsNavigationRequestApplicationJsonBuilder.new,
-      )
-      ..add(NavigationGetAppsNavigationRequestApplicationJson.serializer)
+      ..add(NavigationGetAppsNavigationAbsolute.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetAppsNavigationResponseApplicationJson),
         NavigationGetAppsNavigationResponseApplicationJsonBuilder.new,
@@ -21797,11 +21524,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(NavigationEntry.serializer)
       ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
-      ..addBuilderFactory(
-        const FullType(NavigationGetSettingsNavigationRequestApplicationJson),
-        NavigationGetSettingsNavigationRequestApplicationJsonBuilder.new,
-      )
-      ..add(NavigationGetSettingsNavigationRequestApplicationJson.serializer)
+      ..add(NavigationGetSettingsNavigationAbsolute.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
         NavigationGetSettingsNavigationResponseApplicationJsonBuilder.new,
@@ -22097,16 +21820,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
       ..add($ff3cbb941adc0f0f38f18ba5aabd7f48Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(PreviewGetPreviewRequestApplicationJson),
-        PreviewGetPreviewRequestApplicationJsonBuilder.new,
-      )
-      ..add(PreviewGetPreviewRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PreviewGetPreviewByFileIdRequestApplicationJson),
-        PreviewGetPreviewByFileIdRequestApplicationJsonBuilder.new,
-      )
-      ..add(PreviewGetPreviewByFileIdRequestApplicationJson.serializer)
+      ..add(PreviewGetPreviewA.serializer)
+      ..add(PreviewGetPreviewForceIcon.serializer)
+      ..add(PreviewGetPreviewMimeFallback.serializer)
+      ..add(PreviewGetPreviewByFileIdA.serializer)
+      ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
+      ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityRequestApplicationJson),
         ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
@@ -22148,11 +21867,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]),
         MapBuilder<String, Reference?>.new,
       )
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneRequestApplicationJson),
-        ReferenceApiResolveOneRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson),
         ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
@@ -22335,11 +22049,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(TextProcessingApiListTasksByAppRequestApplicationJson),
-        TextProcessingApiListTasksByAppRequestApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiListTasksByAppRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
         TextProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
       )
@@ -22427,11 +22136,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(TextToImageApiListTasksByAppRequestApplicationJson),
-        TextToImageApiListTasksByAppRequestApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiListTasksByAppRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
         TextToImageApiListTasksByAppResponseApplicationJsonBuilder.new,
       )
@@ -22492,11 +22196,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(UnifiedSearchGetProvidersRequestApplicationJson),
-        UnifiedSearchGetProvidersRequestApplicationJsonBuilder.new,
-      )
-      ..add(UnifiedSearchGetProvidersRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
         UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
       )
@@ -22516,11 +22215,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
         ListBuilder<UnifiedSearchProvider>.new,
       )
-      ..addBuilderFactory(
-        const FullType(UnifiedSearchSearchRequestApplicationJson),
-        UnifiedSearchSearchRequestApplicationJsonBuilder.new,
-      )
-      ..add(UnifiedSearchSearchRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
         UnifiedSearchSearchResponseApplicationJsonBuilder.new,

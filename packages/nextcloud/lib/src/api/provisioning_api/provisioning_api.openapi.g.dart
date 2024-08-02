@@ -27,8 +27,6 @@ Serializer<AppConfigSetValueResponseApplicationJson_Ocs> _$appConfigSetValueResp
     _$AppConfigSetValueResponseApplicationJson_OcsSerializer();
 Serializer<AppConfigSetValueResponseApplicationJson> _$appConfigSetValueResponseApplicationJsonSerializer =
     _$AppConfigSetValueResponseApplicationJsonSerializer();
-Serializer<AppsGetAppsRequestApplicationJson> _$appsGetAppsRequestApplicationJsonSerializer =
-    _$AppsGetAppsRequestApplicationJsonSerializer();
 Serializer<AppsGetAppsResponseApplicationJson_Ocs_Data> _$appsGetAppsResponseApplicationJsonOcsDataSerializer =
     _$AppsGetAppsResponseApplicationJson_Ocs_DataSerializer();
 Serializer<AppsGetAppsResponseApplicationJson_Ocs> _$appsGetAppsResponseApplicationJsonOcsSerializer =
@@ -53,8 +51,6 @@ Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs>
 Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson>
     _$groupsGetSubAdminsOfGroupResponseApplicationJsonSerializer =
     _$GroupsGetSubAdminsOfGroupResponseApplicationJsonSerializer();
-Serializer<GroupsGetGroupsRequestApplicationJson> _$groupsGetGroupsRequestApplicationJsonSerializer =
-    _$GroupsGetGroupsRequestApplicationJsonSerializer();
 Serializer<GroupsGetGroupsResponseApplicationJson_Ocs_Data> _$groupsGetGroupsResponseApplicationJsonOcsDataSerializer =
     _$GroupsGetGroupsResponseApplicationJson_Ocs_DataSerializer();
 Serializer<GroupsGetGroupsResponseApplicationJson_Ocs> _$groupsGetGroupsResponseApplicationJsonOcsSerializer =
@@ -67,8 +63,6 @@ Serializer<GroupsGetGroupResponseApplicationJson_Ocs> _$groupsGetGroupResponseAp
     _$GroupsGetGroupResponseApplicationJson_OcsSerializer();
 Serializer<GroupsGetGroupResponseApplicationJson> _$groupsGetGroupResponseApplicationJsonSerializer =
     _$GroupsGetGroupResponseApplicationJsonSerializer();
-Serializer<GroupsGetGroupsDetailsRequestApplicationJson> _$groupsGetGroupsDetailsRequestApplicationJsonSerializer =
-    _$GroupsGetGroupsDetailsRequestApplicationJsonSerializer();
 Serializer<GroupDetails> _$groupDetailsSerializer = _$GroupDetailsSerializer();
 Serializer<GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data>
     _$groupsGetGroupsDetailsResponseApplicationJsonOcsDataSerializer =
@@ -85,9 +79,6 @@ Serializer<GroupsGetGroupUsersResponseApplicationJson_Ocs> _$groupsGetGroupUsers
     _$GroupsGetGroupUsersResponseApplicationJson_OcsSerializer();
 Serializer<GroupsGetGroupUsersResponseApplicationJson> _$groupsGetGroupUsersResponseApplicationJsonSerializer =
     _$GroupsGetGroupUsersResponseApplicationJsonSerializer();
-Serializer<GroupsGetGroupUsersDetailsRequestApplicationJson>
-    _$groupsGetGroupUsersDetailsRequestApplicationJsonSerializer =
-    _$GroupsGetGroupUsersDetailsRequestApplicationJsonSerializer();
 Serializer<UserDetails_BackendCapabilities> _$userDetailsBackendCapabilitiesSerializer =
     _$UserDetails_BackendCapabilitiesSerializer();
 Serializer<UserDetailsQuota> _$userDetailsQuotaSerializer = _$UserDetailsQuotaSerializer();
@@ -127,9 +118,6 @@ Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs>
 Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson>
     _$preferencesSetMultiplePreferencesResponseApplicationJsonSerializer =
     _$PreferencesSetMultiplePreferencesResponseApplicationJsonSerializer();
-Serializer<PreferencesDeleteMultiplePreferenceRequestApplicationJson>
-    _$preferencesDeleteMultiplePreferenceRequestApplicationJsonSerializer =
-    _$PreferencesDeleteMultiplePreferenceRequestApplicationJsonSerializer();
 Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs>
     _$preferencesDeleteMultiplePreferenceResponseApplicationJsonOcsSerializer =
     _$PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsSerializer();
@@ -148,14 +136,10 @@ Serializer<UsersAddSubAdminResponseApplicationJson_Ocs> _$usersAddSubAdminRespon
     _$UsersAddSubAdminResponseApplicationJson_OcsSerializer();
 Serializer<UsersAddSubAdminResponseApplicationJson> _$usersAddSubAdminResponseApplicationJsonSerializer =
     _$UsersAddSubAdminResponseApplicationJsonSerializer();
-Serializer<UsersRemoveSubAdminRequestApplicationJson> _$usersRemoveSubAdminRequestApplicationJsonSerializer =
-    _$UsersRemoveSubAdminRequestApplicationJsonSerializer();
 Serializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> _$usersRemoveSubAdminResponseApplicationJsonOcsSerializer =
     _$UsersRemoveSubAdminResponseApplicationJson_OcsSerializer();
 Serializer<UsersRemoveSubAdminResponseApplicationJson> _$usersRemoveSubAdminResponseApplicationJsonSerializer =
     _$UsersRemoveSubAdminResponseApplicationJsonSerializer();
-Serializer<UsersGetUsersRequestApplicationJson> _$usersGetUsersRequestApplicationJsonSerializer =
-    _$UsersGetUsersRequestApplicationJsonSerializer();
 Serializer<UsersGetUsersResponseApplicationJson_Ocs_Data> _$usersGetUsersResponseApplicationJsonOcsDataSerializer =
     _$UsersGetUsersResponseApplicationJson_Ocs_DataSerializer();
 Serializer<UsersGetUsersResponseApplicationJson_Ocs> _$usersGetUsersResponseApplicationJsonOcsSerializer =
@@ -170,8 +154,6 @@ Serializer<UsersAddUserResponseApplicationJson_Ocs> _$usersAddUserResponseApplic
     _$UsersAddUserResponseApplicationJson_OcsSerializer();
 Serializer<UsersAddUserResponseApplicationJson> _$usersAddUserResponseApplicationJsonSerializer =
     _$UsersAddUserResponseApplicationJsonSerializer();
-Serializer<UsersGetUsersDetailsRequestApplicationJson> _$usersGetUsersDetailsRequestApplicationJsonSerializer =
-    _$UsersGetUsersDetailsRequestApplicationJsonSerializer();
 Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1>
     _$usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer =
     _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Serializer();
@@ -182,9 +164,6 @@ Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs> _$usersGetUsersDetai
     _$UsersGetUsersDetailsResponseApplicationJson_OcsSerializer();
 Serializer<UsersGetUsersDetailsResponseApplicationJson> _$usersGetUsersDetailsResponseApplicationJsonSerializer =
     _$UsersGetUsersDetailsResponseApplicationJsonSerializer();
-Serializer<UsersGetDisabledUsersDetailsRequestApplicationJson>
-    _$usersGetDisabledUsersDetailsRequestApplicationJsonSerializer =
-    _$UsersGetDisabledUsersDetailsRequestApplicationJsonSerializer();
 Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1>
     _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer =
     _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Serializer();
@@ -267,8 +246,6 @@ Serializer<UsersAddToGroupResponseApplicationJson_Ocs> _$usersAddToGroupResponse
     _$UsersAddToGroupResponseApplicationJson_OcsSerializer();
 Serializer<UsersAddToGroupResponseApplicationJson> _$usersAddToGroupResponseApplicationJsonSerializer =
     _$UsersAddToGroupResponseApplicationJsonSerializer();
-Serializer<UsersRemoveFromGroupRequestApplicationJson> _$usersRemoveFromGroupRequestApplicationJsonSerializer =
-    _$UsersRemoveFromGroupRequestApplicationJsonSerializer();
 Serializer<UsersRemoveFromGroupResponseApplicationJson_Ocs> _$usersRemoveFromGroupResponseApplicationJsonOcsSerializer =
     _$UsersRemoveFromGroupResponseApplicationJson_OcsSerializer();
 Serializer<UsersRemoveFromGroupResponseApplicationJson> _$usersRemoveFromGroupResponseApplicationJsonSerializer =
@@ -760,47 +737,6 @@ class _$AppConfigSetValueResponseApplicationJsonSerializer
   }
 }
 
-class _$AppsGetAppsRequestApplicationJsonSerializer implements StructuredSerializer<AppsGetAppsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [AppsGetAppsRequestApplicationJson, _$AppsGetAppsRequestApplicationJson];
-  @override
-  final String wireName = 'AppsGetAppsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AppsGetAppsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.filter;
-    if (value != null) {
-      result
-        ..add('filter')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  AppsGetAppsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AppsGetAppsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'filter':
-          result.filter = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$AppsGetAppsResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<AppsGetAppsResponseApplicationJson_Ocs_Data> {
   @override
@@ -1284,59 +1220,6 @@ class _$GroupsGetSubAdminsOfGroupResponseApplicationJsonSerializer
   }
 }
 
-class _$GroupsGetGroupsRequestApplicationJsonSerializer
-    implements StructuredSerializer<GroupsGetGroupsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [GroupsGetGroupsRequestApplicationJson, _$GroupsGetGroupsRequestApplicationJson];
-  @override
-  final String wireName = 'GroupsGetGroupsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GroupsGetGroupsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  GroupsGetGroupsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GroupsGetGroupsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$GroupsGetGroupsResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<GroupsGetGroupsResponseApplicationJson_Ocs_Data> {
   @override
@@ -1596,62 +1479,6 @@ class _$GroupsGetGroupResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(GroupsGetGroupResponseApplicationJson_Ocs))!
                   as GroupsGetGroupResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GroupsGetGroupsDetailsRequestApplicationJsonSerializer
-    implements StructuredSerializer<GroupsGetGroupsDetailsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    GroupsGetGroupsDetailsRequestApplicationJson,
-    _$GroupsGetGroupsDetailsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'GroupsGetGroupsDetailsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GroupsGetGroupsDetailsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  GroupsGetGroupsDetailsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GroupsGetGroupsDetailsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -1993,62 +1820,6 @@ class _$GroupsGetGroupUsersResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GroupsGetGroupUsersResponseApplicationJson_Ocs))!
               as GroupsGetGroupUsersResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GroupsGetGroupUsersDetailsRequestApplicationJsonSerializer
-    implements StructuredSerializer<GroupsGetGroupUsersDetailsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    GroupsGetGroupUsersDetailsRequestApplicationJson,
-    _$GroupsGetGroupUsersDetailsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'GroupsGetGroupUsersDetailsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GroupsGetGroupUsersDetailsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  GroupsGetGroupUsersDetailsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -3034,50 +2805,6 @@ class _$PreferencesSetMultiplePreferencesResponseApplicationJsonSerializer
   }
 }
 
-class _$PreferencesDeleteMultiplePreferenceRequestApplicationJsonSerializer
-    implements StructuredSerializer<PreferencesDeleteMultiplePreferenceRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    PreferencesDeleteMultiplePreferenceRequestApplicationJson,
-    _$PreferencesDeleteMultiplePreferenceRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'PreferencesDeleteMultiplePreferenceRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, PreferencesDeleteMultiplePreferenceRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'configKeys',
-      serializers.serialize(object.configKeys, specifiedType: const FullType(BuiltList, [FullType(String)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  PreferencesDeleteMultiplePreferenceRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'configKeys':
-          result.configKeys.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs> {
   @override
@@ -3398,48 +3125,6 @@ class _$UsersAddSubAdminResponseApplicationJsonSerializer
   }
 }
 
-class _$UsersRemoveSubAdminRequestApplicationJsonSerializer
-    implements StructuredSerializer<UsersRemoveSubAdminRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UsersRemoveSubAdminRequestApplicationJson,
-    _$UsersRemoveSubAdminRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UsersRemoveSubAdminRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UsersRemoveSubAdminRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'groupid',
-      serializers.serialize(object.groupid, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UsersRemoveSubAdminRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UsersRemoveSubAdminRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'groupid':
-          result.groupid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$UsersRemoveSubAdminResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> {
   @override
@@ -3523,59 +3208,6 @@ class _$UsersRemoveSubAdminResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UsersRemoveSubAdminResponseApplicationJson_Ocs))!
               as UsersRemoveSubAdminResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UsersGetUsersRequestApplicationJsonSerializer
-    implements StructuredSerializer<UsersGetUsersRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [UsersGetUsersRequestApplicationJson, _$UsersGetUsersRequestApplicationJson];
-  @override
-  final String wireName = 'UsersGetUsersRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UsersGetUsersRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  UsersGetUsersRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UsersGetUsersRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -3934,62 +3566,6 @@ class _$UsersAddUserResponseApplicationJsonSerializer
   }
 }
 
-class _$UsersGetUsersDetailsRequestApplicationJsonSerializer
-    implements StructuredSerializer<UsersGetUsersDetailsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UsersGetUsersDetailsRequestApplicationJson,
-    _$UsersGetUsersDetailsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UsersGetUsersDetailsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UsersGetUsersDetailsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  UsersGetUsersDetailsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UsersGetUsersDetailsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Serializer
     implements StructuredSerializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1> {
   @override
@@ -4167,57 +3743,6 @@ class _$UsersGetUsersDetailsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs))!
               as UsersGetUsersDetailsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UsersGetDisabledUsersDetailsRequestApplicationJsonSerializer
-    implements StructuredSerializer<UsersGetDisabledUsersDetailsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UsersGetDisabledUsersDetailsRequestApplicationJson,
-    _$UsersGetDisabledUsersDetailsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UsersGetDisabledUsersDetailsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UsersGetDisabledUsersDetailsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'offset',
-      serializers.serialize(object.offset, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  UsersGetDisabledUsersDetailsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'offset':
-          result.offset = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -5825,48 +5350,6 @@ class _$UsersAddToGroupResponseApplicationJsonSerializer
   }
 }
 
-class _$UsersRemoveFromGroupRequestApplicationJsonSerializer
-    implements StructuredSerializer<UsersRemoveFromGroupRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UsersRemoveFromGroupRequestApplicationJson,
-    _$UsersRemoveFromGroupRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UsersRemoveFromGroupRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UsersRemoveFromGroupRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'groupid',
-      serializers.serialize(object.groupid, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UsersRemoveFromGroupRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UsersRemoveFromGroupRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'groupid':
-          result.groupid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$UsersRemoveFromGroupResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<UsersRemoveFromGroupResponseApplicationJson_Ocs> {
   @override
@@ -7293,94 +6776,6 @@ class AppConfigSetValueResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $AppsGetAppsRequestApplicationJsonInterfaceBuilder {
-  void replace($AppsGetAppsRequestApplicationJsonInterface other);
-  void update(void Function($AppsGetAppsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get filter;
-  set filter(String? filter);
-}
-
-class _$AppsGetAppsRequestApplicationJson extends AppsGetAppsRequestApplicationJson {
-  @override
-  final String? filter;
-
-  factory _$AppsGetAppsRequestApplicationJson([void Function(AppsGetAppsRequestApplicationJsonBuilder)? updates]) =>
-      (AppsGetAppsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AppsGetAppsRequestApplicationJson._({this.filter}) : super._();
-
-  @override
-  AppsGetAppsRequestApplicationJson rebuild(void Function(AppsGetAppsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AppsGetAppsRequestApplicationJsonBuilder toBuilder() => AppsGetAppsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AppsGetAppsRequestApplicationJson && filter == other.filter;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, filter.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AppsGetAppsRequestApplicationJson')..add('filter', filter)).toString();
-  }
-}
-
-class AppsGetAppsRequestApplicationJsonBuilder
-    implements
-        Builder<AppsGetAppsRequestApplicationJson, AppsGetAppsRequestApplicationJsonBuilder>,
-        $AppsGetAppsRequestApplicationJsonInterfaceBuilder {
-  _$AppsGetAppsRequestApplicationJson? _$v;
-
-  String? _filter;
-  String? get filter => _$this._filter;
-  set filter(covariant String? filter) => _$this._filter = filter;
-
-  AppsGetAppsRequestApplicationJsonBuilder() {
-    AppsGetAppsRequestApplicationJson._defaults(this);
-  }
-
-  AppsGetAppsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _filter = $v.filter;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AppsGetAppsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AppsGetAppsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AppsGetAppsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AppsGetAppsRequestApplicationJson build() => _build();
-
-  _$AppsGetAppsRequestApplicationJson _build() {
-    AppsGetAppsRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$AppsGetAppsRequestApplicationJson._(filter: filter);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($AppsGetAppsResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($AppsGetAppsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -8625,132 +8020,6 @@ class GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $GroupsGetGroupsRequestApplicationJsonInterfaceBuilder {
-  void replace($GroupsGetGroupsRequestApplicationJsonInterface other);
-  void update(void Function($GroupsGetGroupsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$GroupsGetGroupsRequestApplicationJson extends GroupsGetGroupsRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$GroupsGetGroupsRequestApplicationJson(
-          [void Function(GroupsGetGroupsRequestApplicationJsonBuilder)? updates]) =>
-      (GroupsGetGroupsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$GroupsGetGroupsRequestApplicationJson._({required this.search, this.limit, required this.offset}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'GroupsGetGroupsRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(offset, r'GroupsGetGroupsRequestApplicationJson', 'offset');
-  }
-
-  @override
-  GroupsGetGroupsRequestApplicationJson rebuild(void Function(GroupsGetGroupsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupsGetGroupsRequestApplicationJsonBuilder toBuilder() =>
-      GroupsGetGroupsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupsGetGroupsRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupsGetGroupsRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class GroupsGetGroupsRequestApplicationJsonBuilder
-    implements
-        Builder<GroupsGetGroupsRequestApplicationJson, GroupsGetGroupsRequestApplicationJsonBuilder>,
-        $GroupsGetGroupsRequestApplicationJsonInterfaceBuilder {
-  _$GroupsGetGroupsRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  GroupsGetGroupsRequestApplicationJsonBuilder() {
-    GroupsGetGroupsRequestApplicationJson._defaults(this);
-  }
-
-  GroupsGetGroupsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupsGetGroupsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupsGetGroupsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(GroupsGetGroupsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupsGetGroupsRequestApplicationJson build() => _build();
-
-  _$GroupsGetGroupsRequestApplicationJson _build() {
-    GroupsGetGroupsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$GroupsGetGroupsRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(search, r'GroupsGetGroupsRequestApplicationJson', 'search'),
-            limit: limit,
-            offset: BuiltValueNullFieldError.checkNotNull(offset, r'GroupsGetGroupsRequestApplicationJson', 'offset'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($GroupsGetGroupsResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($GroupsGetGroupsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -9418,136 +8687,6 @@ class GroupsGetGroupResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder {
-  void replace($GroupsGetGroupsDetailsRequestApplicationJsonInterface other);
-  void update(void Function($GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$GroupsGetGroupsDetailsRequestApplicationJson extends GroupsGetGroupsDetailsRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$GroupsGetGroupsDetailsRequestApplicationJson(
-          [void Function(GroupsGetGroupsDetailsRequestApplicationJsonBuilder)? updates]) =>
-      (GroupsGetGroupsDetailsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$GroupsGetGroupsDetailsRequestApplicationJson._({required this.search, this.limit, required this.offset})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'GroupsGetGroupsDetailsRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(offset, r'GroupsGetGroupsDetailsRequestApplicationJson', 'offset');
-  }
-
-  @override
-  GroupsGetGroupsDetailsRequestApplicationJson rebuild(
-          void Function(GroupsGetGroupsDetailsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupsGetGroupsDetailsRequestApplicationJsonBuilder toBuilder() =>
-      GroupsGetGroupsDetailsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupsGetGroupsDetailsRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupsGetGroupsDetailsRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class GroupsGetGroupsDetailsRequestApplicationJsonBuilder
-    implements
-        Builder<GroupsGetGroupsDetailsRequestApplicationJson, GroupsGetGroupsDetailsRequestApplicationJsonBuilder>,
-        $GroupsGetGroupsDetailsRequestApplicationJsonInterfaceBuilder {
-  _$GroupsGetGroupsDetailsRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  GroupsGetGroupsDetailsRequestApplicationJsonBuilder() {
-    GroupsGetGroupsDetailsRequestApplicationJson._defaults(this);
-  }
-
-  GroupsGetGroupsDetailsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupsGetGroupsDetailsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupsGetGroupsDetailsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(GroupsGetGroupsDetailsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupsGetGroupsDetailsRequestApplicationJson build() => _build();
-
-  _$GroupsGetGroupsDetailsRequestApplicationJson _build() {
-    GroupsGetGroupsDetailsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$GroupsGetGroupsDetailsRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(
-                search, r'GroupsGetGroupsDetailsRequestApplicationJson', 'search'),
-            limit: limit,
-            offset: BuiltValueNullFieldError.checkNotNull(
-                offset, r'GroupsGetGroupsDetailsRequestApplicationJson', 'offset'));
     replace(_$result);
     return _$result;
   }
@@ -10402,137 +9541,6 @@ class GroupsGetGroupUsersResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  void replace($GroupsGetGroupUsersDetailsRequestApplicationJsonInterface other);
-  void update(void Function($GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$GroupsGetGroupUsersDetailsRequestApplicationJson extends GroupsGetGroupUsersDetailsRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$GroupsGetGroupUsersDetailsRequestApplicationJson(
-          [void Function(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder)? updates]) =>
-      (GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$GroupsGetGroupUsersDetailsRequestApplicationJson._({required this.search, this.limit, required this.offset})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'GroupsGetGroupUsersDetailsRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(offset, r'GroupsGetGroupUsersDetailsRequestApplicationJson', 'offset');
-  }
-
-  @override
-  GroupsGetGroupUsersDetailsRequestApplicationJson rebuild(
-          void Function(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder toBuilder() =>
-      GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupsGetGroupUsersDetailsRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupsGetGroupUsersDetailsRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder
-    implements
-        Builder<GroupsGetGroupUsersDetailsRequestApplicationJson,
-            GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder>,
-        $GroupsGetGroupUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  _$GroupsGetGroupUsersDetailsRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder() {
-    GroupsGetGroupUsersDetailsRequestApplicationJson._defaults(this);
-  }
-
-  GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupsGetGroupUsersDetailsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupsGetGroupUsersDetailsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(GroupsGetGroupUsersDetailsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupsGetGroupUsersDetailsRequestApplicationJson build() => _build();
-
-  _$GroupsGetGroupUsersDetailsRequestApplicationJson _build() {
-    GroupsGetGroupUsersDetailsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$GroupsGetGroupUsersDetailsRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(
-                search, r'GroupsGetGroupUsersDetailsRequestApplicationJson', 'search'),
-            limit: limit,
-            offset: BuiltValueNullFieldError.checkNotNull(
-                offset, r'GroupsGetGroupUsersDetailsRequestApplicationJson', 'offset'));
     replace(_$result);
     return _$result;
   }
@@ -12924,117 +11932,6 @@ class PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder {
-  void replace($PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterface other);
-  void update(void Function($PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder) updates);
-  ListBuilder<String> get configKeys;
-  set configKeys(ListBuilder<String>? configKeys);
-}
-
-class _$PreferencesDeleteMultiplePreferenceRequestApplicationJson
-    extends PreferencesDeleteMultiplePreferenceRequestApplicationJson {
-  @override
-  final BuiltList<String> configKeys;
-
-  factory _$PreferencesDeleteMultiplePreferenceRequestApplicationJson(
-          [void Function(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder)? updates]) =>
-      (PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$PreferencesDeleteMultiplePreferenceRequestApplicationJson._({required this.configKeys}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        configKeys, r'PreferencesDeleteMultiplePreferenceRequestApplicationJson', 'configKeys');
-  }
-
-  @override
-  PreferencesDeleteMultiplePreferenceRequestApplicationJson rebuild(
-          void Function(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder toBuilder() =>
-      PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PreferencesDeleteMultiplePreferenceRequestApplicationJson && configKeys == other.configKeys;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, configKeys.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PreferencesDeleteMultiplePreferenceRequestApplicationJson')
-          ..add('configKeys', configKeys))
-        .toString();
-  }
-}
-
-class PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder
-    implements
-        Builder<PreferencesDeleteMultiplePreferenceRequestApplicationJson,
-            PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder>,
-        $PreferencesDeleteMultiplePreferenceRequestApplicationJsonInterfaceBuilder {
-  _$PreferencesDeleteMultiplePreferenceRequestApplicationJson? _$v;
-
-  ListBuilder<String>? _configKeys;
-  ListBuilder<String> get configKeys => _$this._configKeys ??= ListBuilder<String>();
-  set configKeys(covariant ListBuilder<String>? configKeys) => _$this._configKeys = configKeys;
-
-  PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder() {
-    PreferencesDeleteMultiplePreferenceRequestApplicationJson._defaults(this);
-  }
-
-  PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _configKeys = $v.configKeys.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PreferencesDeleteMultiplePreferenceRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PreferencesDeleteMultiplePreferenceRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(PreferencesDeleteMultiplePreferenceRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PreferencesDeleteMultiplePreferenceRequestApplicationJson build() => _build();
-
-  _$PreferencesDeleteMultiplePreferenceRequestApplicationJson _build() {
-    PreferencesDeleteMultiplePreferenceRequestApplicationJson._validate(this);
-    _$PreferencesDeleteMultiplePreferenceRequestApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$PreferencesDeleteMultiplePreferenceRequestApplicationJson._(configKeys: configKeys.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'configKeys';
-        configKeys.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'PreferencesDeleteMultiplePreferenceRequestApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder {
   void replace($PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterface other);
   void update(void Function($PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -13838,103 +12735,6 @@ class UsersAddSubAdminResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder {
-  void replace($UsersRemoveSubAdminRequestApplicationJsonInterface other);
-  void update(void Function($UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder) updates);
-  String? get groupid;
-  set groupid(String? groupid);
-}
-
-class _$UsersRemoveSubAdminRequestApplicationJson extends UsersRemoveSubAdminRequestApplicationJson {
-  @override
-  final String groupid;
-
-  factory _$UsersRemoveSubAdminRequestApplicationJson(
-          [void Function(UsersRemoveSubAdminRequestApplicationJsonBuilder)? updates]) =>
-      (UsersRemoveSubAdminRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UsersRemoveSubAdminRequestApplicationJson._({required this.groupid}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(groupid, r'UsersRemoveSubAdminRequestApplicationJson', 'groupid');
-  }
-
-  @override
-  UsersRemoveSubAdminRequestApplicationJson rebuild(
-          void Function(UsersRemoveSubAdminRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersRemoveSubAdminRequestApplicationJsonBuilder toBuilder() =>
-      UsersRemoveSubAdminRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersRemoveSubAdminRequestApplicationJson && groupid == other.groupid;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, groupid.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersRemoveSubAdminRequestApplicationJson')..add('groupid', groupid))
-        .toString();
-  }
-}
-
-class UsersRemoveSubAdminRequestApplicationJsonBuilder
-    implements
-        Builder<UsersRemoveSubAdminRequestApplicationJson, UsersRemoveSubAdminRequestApplicationJsonBuilder>,
-        $UsersRemoveSubAdminRequestApplicationJsonInterfaceBuilder {
-  _$UsersRemoveSubAdminRequestApplicationJson? _$v;
-
-  String? _groupid;
-  String? get groupid => _$this._groupid;
-  set groupid(covariant String? groupid) => _$this._groupid = groupid;
-
-  UsersRemoveSubAdminRequestApplicationJsonBuilder() {
-    UsersRemoveSubAdminRequestApplicationJson._defaults(this);
-  }
-
-  UsersRemoveSubAdminRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _groupid = $v.groupid;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersRemoveSubAdminRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersRemoveSubAdminRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UsersRemoveSubAdminRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersRemoveSubAdminRequestApplicationJson build() => _build();
-
-  _$UsersRemoveSubAdminRequestApplicationJson _build() {
-    UsersRemoveSubAdminRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UsersRemoveSubAdminRequestApplicationJson._(
-            groupid: BuiltValueNullFieldError.checkNotNull(
-                groupid, r'UsersRemoveSubAdminRequestApplicationJson', 'groupid'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder {
   void replace($UsersRemoveSubAdminResponseApplicationJson_OcsInterface other);
   void update(void Function($UsersRemoveSubAdminResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -14161,130 +12961,6 @@ class UsersRemoveSubAdminResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UsersGetUsersRequestApplicationJsonInterfaceBuilder {
-  void replace($UsersGetUsersRequestApplicationJsonInterface other);
-  void update(void Function($UsersGetUsersRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$UsersGetUsersRequestApplicationJson extends UsersGetUsersRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$UsersGetUsersRequestApplicationJson([void Function(UsersGetUsersRequestApplicationJsonBuilder)? updates]) =>
-      (UsersGetUsersRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UsersGetUsersRequestApplicationJson._({required this.search, this.limit, required this.offset}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'UsersGetUsersRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(offset, r'UsersGetUsersRequestApplicationJson', 'offset');
-  }
-
-  @override
-  UsersGetUsersRequestApplicationJson rebuild(void Function(UsersGetUsersRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersGetUsersRequestApplicationJsonBuilder toBuilder() => UsersGetUsersRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersGetUsersRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersGetUsersRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class UsersGetUsersRequestApplicationJsonBuilder
-    implements
-        Builder<UsersGetUsersRequestApplicationJson, UsersGetUsersRequestApplicationJsonBuilder>,
-        $UsersGetUsersRequestApplicationJsonInterfaceBuilder {
-  _$UsersGetUsersRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  UsersGetUsersRequestApplicationJsonBuilder() {
-    UsersGetUsersRequestApplicationJson._defaults(this);
-  }
-
-  UsersGetUsersRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersGetUsersRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersGetUsersRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UsersGetUsersRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersGetUsersRequestApplicationJson build() => _build();
-
-  _$UsersGetUsersRequestApplicationJson _build() {
-    UsersGetUsersRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UsersGetUsersRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(search, r'UsersGetUsersRequestApplicationJson', 'search'),
-            limit: limit,
-            offset: BuiltValueNullFieldError.checkNotNull(offset, r'UsersGetUsersRequestApplicationJson', 'offset'));
     replace(_$result);
     return _$result;
   }
@@ -15186,135 +13862,6 @@ class UsersAddUserResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  void replace($UsersGetUsersDetailsRequestApplicationJsonInterface other);
-  void update(void Function($UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$UsersGetUsersDetailsRequestApplicationJson extends UsersGetUsersDetailsRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$UsersGetUsersDetailsRequestApplicationJson(
-          [void Function(UsersGetUsersDetailsRequestApplicationJsonBuilder)? updates]) =>
-      (UsersGetUsersDetailsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UsersGetUsersDetailsRequestApplicationJson._({required this.search, this.limit, required this.offset}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'UsersGetUsersDetailsRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(offset, r'UsersGetUsersDetailsRequestApplicationJson', 'offset');
-  }
-
-  @override
-  UsersGetUsersDetailsRequestApplicationJson rebuild(
-          void Function(UsersGetUsersDetailsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersGetUsersDetailsRequestApplicationJsonBuilder toBuilder() =>
-      UsersGetUsersDetailsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersGetUsersDetailsRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersGetUsersDetailsRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class UsersGetUsersDetailsRequestApplicationJsonBuilder
-    implements
-        Builder<UsersGetUsersDetailsRequestApplicationJson, UsersGetUsersDetailsRequestApplicationJsonBuilder>,
-        $UsersGetUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  _$UsersGetUsersDetailsRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  UsersGetUsersDetailsRequestApplicationJsonBuilder() {
-    UsersGetUsersDetailsRequestApplicationJson._defaults(this);
-  }
-
-  UsersGetUsersDetailsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersGetUsersDetailsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersGetUsersDetailsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UsersGetUsersDetailsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersGetUsersDetailsRequestApplicationJson build() => _build();
-
-  _$UsersGetUsersDetailsRequestApplicationJson _build() {
-    UsersGetUsersDetailsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UsersGetUsersDetailsRequestApplicationJson._(
-            search:
-                BuiltValueNullFieldError.checkNotNull(search, r'UsersGetUsersDetailsRequestApplicationJson', 'search'),
-            limit: limit,
-            offset:
-                BuiltValueNullFieldError.checkNotNull(offset, r'UsersGetUsersDetailsRequestApplicationJson', 'offset'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder {
   void replace($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface other);
   void update(void Function($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates);
@@ -15752,120 +14299,6 @@ class UsersGetUsersDetailsResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  void replace($UsersGetDisabledUsersDetailsRequestApplicationJsonInterface other);
-  void update(void Function($UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder) updates);
-  int? get limit;
-  set limit(int? limit);
-
-  int? get offset;
-  set offset(int? offset);
-}
-
-class _$UsersGetDisabledUsersDetailsRequestApplicationJson extends UsersGetDisabledUsersDetailsRequestApplicationJson {
-  @override
-  final int? limit;
-  @override
-  final int offset;
-
-  factory _$UsersGetDisabledUsersDetailsRequestApplicationJson(
-          [void Function(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder)? updates]) =>
-      (UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UsersGetDisabledUsersDetailsRequestApplicationJson._({this.limit, required this.offset}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(offset, r'UsersGetDisabledUsersDetailsRequestApplicationJson', 'offset');
-  }
-
-  @override
-  UsersGetDisabledUsersDetailsRequestApplicationJson rebuild(
-          void Function(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder toBuilder() =>
-      UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersGetDisabledUsersDetailsRequestApplicationJson &&
-        limit == other.limit &&
-        offset == other.offset;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, offset.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsRequestApplicationJson')
-          ..add('limit', limit)
-          ..add('offset', offset))
-        .toString();
-  }
-}
-
-class UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder
-    implements
-        Builder<UsersGetDisabledUsersDetailsRequestApplicationJson,
-            UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder>,
-        $UsersGetDisabledUsersDetailsRequestApplicationJsonInterfaceBuilder {
-  _$UsersGetDisabledUsersDetailsRequestApplicationJson? _$v;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _offset;
-  int? get offset => _$this._offset;
-  set offset(covariant int? offset) => _$this._offset = offset;
-
-  UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder() {
-    UsersGetDisabledUsersDetailsRequestApplicationJson._defaults(this);
-  }
-
-  UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _limit = $v.limit;
-      _offset = $v.offset;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersGetDisabledUsersDetailsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersGetDisabledUsersDetailsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UsersGetDisabledUsersDetailsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersGetDisabledUsersDetailsRequestApplicationJson build() => _build();
-
-  _$UsersGetDisabledUsersDetailsRequestApplicationJson _build() {
-    UsersGetDisabledUsersDetailsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UsersGetDisabledUsersDetailsRequestApplicationJson._(
-            limit: limit,
-            offset: BuiltValueNullFieldError.checkNotNull(
-                offset, r'UsersGetDisabledUsersDetailsRequestApplicationJson', 'offset'));
     replace(_$result);
     return _$result;
   }
@@ -19868,103 +18301,6 @@ class UsersAddToGroupResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder {
-  void replace($UsersRemoveFromGroupRequestApplicationJsonInterface other);
-  void update(void Function($UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder) updates);
-  String? get groupid;
-  set groupid(String? groupid);
-}
-
-class _$UsersRemoveFromGroupRequestApplicationJson extends UsersRemoveFromGroupRequestApplicationJson {
-  @override
-  final String groupid;
-
-  factory _$UsersRemoveFromGroupRequestApplicationJson(
-          [void Function(UsersRemoveFromGroupRequestApplicationJsonBuilder)? updates]) =>
-      (UsersRemoveFromGroupRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UsersRemoveFromGroupRequestApplicationJson._({required this.groupid}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(groupid, r'UsersRemoveFromGroupRequestApplicationJson', 'groupid');
-  }
-
-  @override
-  UsersRemoveFromGroupRequestApplicationJson rebuild(
-          void Function(UsersRemoveFromGroupRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersRemoveFromGroupRequestApplicationJsonBuilder toBuilder() =>
-      UsersRemoveFromGroupRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersRemoveFromGroupRequestApplicationJson && groupid == other.groupid;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, groupid.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersRemoveFromGroupRequestApplicationJson')..add('groupid', groupid))
-        .toString();
-  }
-}
-
-class UsersRemoveFromGroupRequestApplicationJsonBuilder
-    implements
-        Builder<UsersRemoveFromGroupRequestApplicationJson, UsersRemoveFromGroupRequestApplicationJsonBuilder>,
-        $UsersRemoveFromGroupRequestApplicationJsonInterfaceBuilder {
-  _$UsersRemoveFromGroupRequestApplicationJson? _$v;
-
-  String? _groupid;
-  String? get groupid => _$this._groupid;
-  set groupid(covariant String? groupid) => _$this._groupid = groupid;
-
-  UsersRemoveFromGroupRequestApplicationJsonBuilder() {
-    UsersRemoveFromGroupRequestApplicationJson._defaults(this);
-  }
-
-  UsersRemoveFromGroupRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _groupid = $v.groupid;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersRemoveFromGroupRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersRemoveFromGroupRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UsersRemoveFromGroupRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersRemoveFromGroupRequestApplicationJson build() => _build();
-
-  _$UsersRemoveFromGroupRequestApplicationJson _build() {
-    UsersRemoveFromGroupRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UsersRemoveFromGroupRequestApplicationJson._(
-            groupid: BuiltValueNullFieldError.checkNotNull(
-                groupid, r'UsersRemoveFromGroupRequestApplicationJson', 'groupid'));
     replace(_$result);
     return _$result;
   }

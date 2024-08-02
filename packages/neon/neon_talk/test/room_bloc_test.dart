@@ -95,9 +95,7 @@ Account mockTalkAccount() {
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd'): {
       'get': (match, request) async {
-        final data = json.decode(request.body) as Map<String, dynamic>;
-
-        final lookIntoFuture = (data['lookIntoFuture'] as int) == 1;
+        final lookIntoFuture = request.url.queryParameters['lookIntoFuture'] == '1';
         if (lookIntoFuture) {
           // Simulate a new message received after some time
           await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -226,9 +224,7 @@ Account mockTalkAccount() {
         );
       },
       'delete': (match, request) {
-        final data = json.decode(request.body) as Map<String, dynamic>;
-
-        final reaction = data['reaction'] as String;
+        final reaction = request.url.queryParameters['reaction']!;
 
         return Response(
           json.encode({

@@ -19,6 +19,4 @@ ocs-apirequest: true
 GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/reaction/[a-z0-9]{8}/[0-9]+
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{\}
