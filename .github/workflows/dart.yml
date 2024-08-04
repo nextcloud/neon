@@ -79,3 +79,9 @@ jobs:
           melos exec --file-exists="coverage/lcov.info" --concurrency=1 -- "
             codecov --verbose upload-process --fail-on-error -F MELOS_PACKAGE_NAME -f MELOS_PACKAGE_PATH/coverage/lcov.info -t ${{ secrets.CODECOV_TOKEN }}
           "
+
+      # Run as the last step to avoid running any other steps with downgraded dependencies
+      - name: Lint code with downgraded dependencies
+        run: |
+          melos exec dart pub downgrade
+          melos run analyze
