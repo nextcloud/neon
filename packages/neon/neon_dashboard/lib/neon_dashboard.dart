@@ -11,7 +11,7 @@ import 'package:neon_dashboard/src/options.dart';
 import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_dashboard/src/routes.dart';
 import 'package:neon_framework/models.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/dashboard.dart' as dashboard;
 
 /// Implementation of the server `dashboard` app.
 class DashboardApp extends AppImplementation<DashboardBloc, DashboardOptions> {
@@ -19,7 +19,7 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardOptions> {
   DashboardApp();
 
   @override
-  final String id = AppIDs.dashboard;
+  final String id = dashboard.appID;
 
   @override
   final LocalizationsDelegate<DashboardLocalizations> localizationsDelegate = DashboardLocalizations.delegate;

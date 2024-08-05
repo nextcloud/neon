@@ -28,6 +28,7 @@ import 'package:nextcloud/user_status.dart' as _user_status;
 import 'package:nextcloud/weather_status.dart' as _weather_status;
 
 /// IDs of the apps.
+@Deprecated("Use 'appID' from 'package:nextcloud/<id>.dart' instead.")
 final class AppIDs {
   /// ID for the comments app.
   static const String comments = _comments.appID;

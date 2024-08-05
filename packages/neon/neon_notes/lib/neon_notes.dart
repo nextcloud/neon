@@ -19,7 +19,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   NotesApp();
 
   @override
-  final String id = AppIDs.notes;
+  final String id = notes.appID;
 
   @override
   final List<Locale> supportedLocales = NotesLocalizations.supportedLocales;

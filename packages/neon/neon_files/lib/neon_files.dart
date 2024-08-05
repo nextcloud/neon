@@ -11,13 +11,13 @@ import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/pages/main.dart';
 import 'package:neon_files/src/routes.dart';
 import 'package:neon_framework/models.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/files.dart' as files;
 
 class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
   FilesApp();
 
   @override
-  final String id = AppIDs.files;
+  final String id = files.appID;
 
   @override
   final LocalizationsDelegate<FilesLocalizations> localizationsDelegate = FilesLocalizations.delegate;

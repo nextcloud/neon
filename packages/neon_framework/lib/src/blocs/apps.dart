@@ -13,7 +13,10 @@ import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/dashboard.dart' as dashboard;
+import 'package:nextcloud/files.dart' as files;
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -116,7 +119,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       final notificationsCapabilities =
           capabilitiesResult.requireData.capabilities.notificationsCapabilities?.notifications;
       if (notificationsCapabilities != null) {
-        final notificationsApp = allAppImplementations.firstWhereOrNull((a) => a.id == AppIDs.notifications);
+        final notificationsApp = allAppImplementations.firstWhereOrNull((a) => a.id == notifications.appID);
         if (notificationsApp != null) {
           appImplementationsBuilder.add(notificationsApp);
         }
@@ -167,7 +170,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       return null;
     }
 
-    for (final fallback in {accountOptions.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
+    for (final fallback in {accountOptions.initialApp.value, dashboard.appID, files.appID}) {
       if (supportedApps.tryFind(fallback) != null) {
         return fallback;
       }
