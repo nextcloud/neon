@@ -13,13 +13,11 @@ final class WebDavResponseConverter with Converter<http.Response, WebDavMultista
   /// Creates a new response converter
   const WebDavResponseConverter();
 
+  static final _converter = XmlEventDecoder().fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
+
   @override
   WebDavMultistatus convert(http.Response input) {
-    final xml = XmlEventDecoder()
-        .fuse(const XmlNormalizeEvents())
-        .fuse(const XmlNodeDecoder())
-        .convert(input.body)
-        .firstWhere((element) => element is XmlElement) as XmlElement;
+    final xml = _converter.convert(input.body).firstWhere((element) => element is XmlElement) as XmlElement;
 
     return WebDavMultistatus.fromXmlElement(xml);
   }

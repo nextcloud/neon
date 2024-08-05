@@ -10,17 +10,18 @@ import 'package:crypton/crypton.dart';
 
 part 'notifications_helpers.g.dart';
 
-/// Generates the push token hash which is just sha512
+/// Generates the push token hash which is just sha512.
 String generatePushTokenHash(String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
 
+/// {@template decrypted_subject}
 /// Decrypted version of the encrypted push notification received from the server.
+/// {@endtemplate}
 abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubjectBuilder> {
-  // ignore: public_member_api_docs
+  /// {@macro decrypted_subject}
   factory DecryptedSubject([void Function(DecryptedSubjectBuilder)? updates]) = _$DecryptedSubject;
-
   const DecryptedSubject._();
 
-  /// Decrypts the subject of a push notification
+  /// Decrypts the subject of a push notification.
   factory DecryptedSubject.fromEncrypted(RSAPrivateKey privateKey, String subject) => DecryptedSubject.fromJson(
         json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
       );
@@ -34,28 +35,30 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
   // ignore: public_member_api_docs
   static Serializer<DecryptedSubject> get serializer => _$decryptedSubjectSerializer;
 
-  /// ID if the notification
+  /// ID if the notification.
   int? get nid;
 
-  /// App that sent the notification
+  /// App that sent the notification.
   String? get app;
 
-  /// Subject of the notification
+  /// Subject of the notification.
   String? get subject;
 
-  /// Type of the notification
+  /// Type of the notification.
   String? get type;
 
-  /// ID of the notification
+  /// ID of the notification.
   String? get id;
 
-  /// Delete the notification
+  /// Delete the notification.
   bool? get delete;
 
-  /// Delete all notifications
+  /// Delete all notifications.
   @BuiltValueField(wireName: 'delete-all')
   bool? get deleteAll;
 }
 
-@SerializersFor([DecryptedSubject])
-final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+final Serializers _serializers = (Serializers().toBuilder()
+      ..add(DecryptedSubject.serializer)
+      ..addPlugin(StandardJsonPlugin()))
+    .build();

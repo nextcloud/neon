@@ -1,12 +1,27 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
+import 'package:http_client_conformance_tests/http_client_conformance_tests.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 void main() {
   final uri = Uri.parse('http://example.com');
   group(NextcloudClient, () {
+    group(
+      'Client conformance tests',
+      () {
+        testAll(
+          () => NextcloudClient(Uri()),
+          canReceiveSetCookieHeaders: true,
+          canSendCookieHeaders: true,
+        );
+      },
+      onPlatform: const {
+        'browser': [Skip()],
+      },
+    );
+
     group('Cookies', () {
       late CookieJar cookieJar;
       setUp(() {

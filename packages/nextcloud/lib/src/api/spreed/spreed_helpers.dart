@@ -154,6 +154,8 @@ enum ParticipantInCallFlag {
 extension EnumByBinary<T extends Enum> on List<T> {
   /// Converts the binary representation of an enum into enum values.
   Set<T> byBinary(int value) {
+    RangeError.checkNotNegative(value, 'value');
+
     final result = <T>{};
 
     var v = value;
@@ -187,5 +189,5 @@ extension EnumCollectionBinary<T extends Enum> on Set<T> {
   ///
   /// See [EnumBinary.binary] for getting the binary representation of a single enum value.
   /// See [EnumByBinary.byBinary] for converting the binary representation into enum values.
-  int get binary => map((p) => p.binary).reduce((a, b) => a | b);
+  int get binary => map((p) => p.binary).fold(0, (a, b) => a | b);
 }
