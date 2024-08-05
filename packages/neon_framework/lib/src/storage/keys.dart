@@ -1,5 +1,4 @@
 import 'package:meta/meta.dart';
-import 'package:nextcloud/nextcloud.dart';
 
 /// Interface of a storable element.
 ///
@@ -36,7 +35,7 @@ enum StorageKeys implements Storable {
   firstLaunch._('first-launch'),
 
   /// The key for the `PushUtils`.
-  notifications._(AppIDs.notifications);
+  notifications._('notifications');
 
   const StorageKeys._(this.value);
 

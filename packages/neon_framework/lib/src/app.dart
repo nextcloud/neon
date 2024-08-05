@@ -28,7 +28,7 @@ import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:neon_framework/src/widgets/options_collection_builder.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:provider/provider.dart';
 import 'package:quick_actions/quick_actions.dart';
 import 'package:universal_io/io.dart';
@@ -117,7 +117,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           }
 
           final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
-          final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
+          final app = allAppImplementations.tryFind(notifications.appID) as NotificationsAppInterface?;
 
           if (app == null) {
             return;
@@ -134,7 +134,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
 
           final allAppImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
-          final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
+          final notificationsApp = allAppImplementations.tryFind(notifications.appID) as NotificationsAppInterface?;
           if (notificationsApp != null) {
             _accountsBloc
                 .getAppsBlocFor(account)

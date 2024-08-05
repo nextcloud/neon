@@ -11,7 +11,7 @@ import 'package:neon_notifications/src/blocs/notifications.dart';
 import 'package:neon_notifications/src/options.dart';
 import 'package:neon_notifications/src/pages/main.dart';
 import 'package:neon_notifications/src/routes.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 
 class NotificationsApp extends AppImplementation<NotificationsBlocInterface, NotificationsOptions>
@@ -21,7 +21,7 @@ class NotificationsApp extends AppImplementation<NotificationsBlocInterface, Not
   NotificationsApp();
 
   @override
-  final String id = AppIDs.notifications;
+  final String id = notifications.appID;
 
   @override
   final LocalizationsDelegate<NotificationsLocalizations> localizationsDelegate = NotificationsLocalizations.delegate;

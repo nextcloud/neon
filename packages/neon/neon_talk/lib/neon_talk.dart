@@ -16,7 +16,7 @@ import 'package:neon_talk/src/routes.dart';
 import 'package:neon_talk/src/theme.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/spreed.dart';
+import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:rxdart/rxdart.dart';
 
 /// Implementation of the server `talk` app.
@@ -29,7 +29,7 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
   final String id = 'talk';
 
   @override
-  final BuiltSet<String> additionalMatchingIDs = BuiltSet([AppIDs.spreed]);
+  final BuiltSet<String> additionalMatchingIDs = BuiltSet([spreed.appID]);
 
   @override
   final LocalizationsDelegate<TalkLocalizations> localizationsDelegate = TalkLocalizations.delegate;

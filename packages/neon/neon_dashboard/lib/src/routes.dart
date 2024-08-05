@@ -2,14 +2,14 @@ import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/dashboard.dart' as dashboard;
 
 part 'routes.g.dart';
 
 /// Route for the dashboard app.
 @TypedGoRoute<DashboardAppRoute>(
-  path: '$appsBaseRoutePrefix${AppIDs.dashboard}',
-  name: AppIDs.dashboard,
+  path: '$appsBaseRoutePrefix${dashboard.appID}',
+  name: dashboard.appID,
 )
 @immutable
 class DashboardAppRoute extends NeonBaseAppRoute {

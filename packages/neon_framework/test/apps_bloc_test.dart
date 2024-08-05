@@ -10,7 +10,9 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 import 'package:version/version.dart';
 
@@ -47,7 +49,7 @@ Account mockAppsAccount() {
                     'unread': 0,
                   },
                   {
-                    'id': AppIDs.dashboard,
+                    'id': dashboard.appID,
                     'order': 2,
                     'href': '',
                     'icon': '',
@@ -254,7 +256,7 @@ void main() {
       when(() => appImplementation1.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
       final appImplementation2 = MockAppImplementation();
-      when(() => appImplementation2.id).thenReturn(AppIDs.dashboard);
+      when(() => appImplementation2.id).thenReturn(dashboard.appID);
       when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
       final allAppImplementation = BuiltSet<AppImplementation>([
@@ -293,7 +295,7 @@ void main() {
     when(() => appImplementation1.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
     final appImplementation2 = MockAppImplementation();
-    when(() => appImplementation2.id).thenReturn(AppIDs.notifications);
+    when(() => appImplementation2.id).thenReturn(notifications.appID);
     when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
     final allAppImplementation = BuiltSet<AppImplementation>([

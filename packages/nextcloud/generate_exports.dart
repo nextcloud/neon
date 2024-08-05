@@ -57,6 +57,8 @@ void main() {
   final library = Library((b) {
     final appIDBuilder = ClassBuilder()
       ..docs.add('/// IDs of the apps.')
+      ..annotations
+          .add(refer('Deprecated').call([refer("\"Use 'appID' from 'package:nextcloud/<id>.dart' instead.\"")]))
       ..name = 'AppIDs'
       ..modifier = ClassModifier.final$;
 

@@ -22,7 +22,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   NewsApp();
 
   @override
-  final String id = AppIDs.news;
+  final String id = news.appID;
 
   @override
   final LocalizationsDelegate<NewsLocalizations> localizationsDelegate = NewsLocalizations.delegate;
