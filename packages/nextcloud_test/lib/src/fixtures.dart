@@ -82,6 +82,7 @@ void validateFixture(NextcloudTester tester) {
     }
   } else {
     fixtureFile.writeAsStringSync(RegExp.escape(data));
+    throw Exception('Missing fixture $fixtureFile');
   }
 
   _closed = false;
