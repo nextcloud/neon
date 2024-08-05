@@ -53,22 +53,22 @@ See [here](packages/app/README.md) for screenshots.
 - :construction: Work in progress 
 - :rocket: Planned
 
-| App                                               | Status             |
-|---------------------------------------------------|--------------------|
-| [Dashboard](packages/neon/neon_dashboard)         | :white_check_mark: |
-| [Files](packages/neon/neon_files)                 | :white_check_mark: |
-| [News](packages/neon/neon_news)                   | :white_check_mark: |
-| [Notes](packages/neon/neon_notes)                 | :white_check_mark: |
-| [Notifications](packages/neon/neon_notifications) | :white_check_mark: |
-| Activity                                          | :rocket:           |
-| Calendar                                          | :rocket:           |
-| Contacts                                          | :rocket:           |
-| Cookbook                                          | :rocket:           |
-| Cospend                                           | :rocket:           |
-| Deck                                              | :rocket:           |
-| Photos                                            | :rocket:           |
-| Talk                                              | :construction:     |
-| Tasks                                             | :rocket:           |
+| App                                                       | Status             |
+|-----------------------------------------------------------|--------------------|
+| [Dashboard](packages/app/packages/neon_dashboard)         | :white_check_mark: |
+| [Files](packages/app/packages/neon_files)                 | :white_check_mark: |
+| [News](packages/app/packages/neon_news)                   | :white_check_mark: |
+| [Notes](packages/app/packages/neon_notes)                 | :white_check_mark: |
+| [Notifications](packages/app/packages/neon_notifications) | :white_check_mark: |
+| Activity                                                  | :rocket:           |
+| Calendar                                                  | :rocket:           |
+| Contacts                                                  | :rocket:           |
+| Cookbook                                                  | :rocket:           |
+| Cospend                                                   | :rocket:           |
+| Deck                                                      | :rocket:           |
+| Photos                                                    | :rocket:           |
+| Talk                                                      | :construction:     |
+| Tasks                                                     | :rocket:           |
 
 ## Platform support
 

@@ -11,8 +11,8 @@ bootstrap:
 
 packages:
   - packages/*
+  - packages/*/packages/*
   - packages/dynamite/*
-  - packages/neon/*
   - packages/**/example
 
 ide:

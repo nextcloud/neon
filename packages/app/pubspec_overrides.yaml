@@ -3,28 +3,28 @@ dependency_overrides:
   cookie_store:
     path: ../cookie_store
   dynamite_runtime:
-    path: ../dynamite/dynamite_runtime
+    path: ../dynamite/packages/dynamite_runtime
   file_icons:
-    path: ../file_icons
+    path: ../neon_framework/packages/file_icons
   neon_dashboard:
-    path: ../neon/neon_dashboard
+    path: packages/neon_dashboard
   neon_files:
-    path: ../neon/neon_files
+    path: packages/neon_files
   neon_framework:
     path: ../neon_framework
   neon_http_client:
-    path: ../neon_http_client
+    path: ../neon_framework/packages/neon_http_client
   neon_lints:
     path: ../neon_lints
   neon_news:
-    path: ../neon/neon_news
+    path: packages/neon_news
   neon_notes:
-    path: ../neon/neon_notes
+    path: packages/neon_notes
   neon_notifications:
-    path: ../neon/neon_notifications
+    path: packages/neon_notifications
   neon_talk:
-    path: ../neon/neon_talk
+    path: packages/neon_talk
   nextcloud:
     path: ../nextcloud
   sort_box:
-    path: ../sort_box
+    path: ../neon_framework/packages/sort_box
