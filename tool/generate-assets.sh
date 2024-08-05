@@ -10,7 +10,7 @@ mkdir -p /tmp/nextcloud-neon
 function copy_app_svg() {
   id="$1"
   path="$2"
-  target="packages/neon/neon_$id/assets/app.svg"
+  target="packages/neon_framework/packages/${id}_app/assets/app.svg"
   if [ -f "$path/img/app.svg" ]; then
     cp "$path/img/app.svg" "$target"
   elif [ -f "$path/img/$id.svg" ]; then
@@ -83,9 +83,9 @@ copy_app_svg notifications external/nextcloud-notifications
 copy_app_svg talk external/nextcloud-spreed
 
 (
-  cd packages/app
+  cd packages/neon_framework/example
 
-  cp ../../assets/logo.svg assets/logo.svg
+  cp ../../../assets/logo.svg assets/logo.svg
 
   # Splash screens
   inkscape assets/logo.svg -o img/splash_icon.png -w 768 -h 768 # 768px at xxxhdpi is 192dp
@@ -94,8 +94,8 @@ copy_app_svg talk external/nextcloud-spreed
 
   # Android launcher icons
   export_mipmap_icon_all "assets/logo.svg" "ic_launcher" &
-  for path in ../neon/neon_*; do
-    export_mipmap_icon_all "$path/assets/app.svg" "app_$(basename "$path" | sed "s/^neon_//")" &
+  for path in ../packages/*_app; do
+    export_mipmap_icon_all "$path/assets/app.svg" "$(basename "$path")" &
   done
   wait
 
@@ -107,10 +107,10 @@ copy_app_svg talk external/nextcloud-spreed
   fvm dart run sqflite_common_ffi_web:setup --force
 
   precompile_assets
-  cp ../../assets/logo.svg assets/logo.svg
+  cp ../../../assets/logo.svg assets/logo.svg
 )
 
-for path in packages/neon/neon_*; do
+for path in packages/neon_framework/packages/*_app; do
   (
     cd "$path"
     precompile_assets

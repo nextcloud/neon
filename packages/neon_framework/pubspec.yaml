@@ -56,7 +56,7 @@ dependencies:
   sort_box:
     git:
       url: https://github.com/nextcloud/neon
-      path: packages/sort_box
+      path: packages/neon_framework/packages/sort_box
   sqflite: ^2.3.0
   sqflite_common_ffi: ^2.3.2
   sqflite_common_ffi_web: ^0.4.2+3

@@ -3,6 +3,6 @@ set -euxo pipefail
 cd "$(dirname "$0")/.."
 
 (
-  cd packages/file_icons
+  cd packages/neon_framework/packages/files_icons
   fvm dart run
 )

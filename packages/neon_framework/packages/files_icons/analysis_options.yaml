@@ -1,0 +1,9 @@
+include: package:neon_lints/dart.yaml
+
+linter:
+  rules:
+    avoid_print: false
+
+custom_lint:
+  rules:
+    - avoid_dart_io: false

@@ -30,7 +30,7 @@
       ],
       "matchCurrentVersion": "!/^0/",
       "matchDepNames": [
-        "!app",
+        "!example",
         "!dynamite_end_to_end_test",
         "!dynamite_petstore_example",
         "!neon_lints",

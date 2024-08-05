@@ -3,12 +3,12 @@ dependency_overrides:
   cookie_store:
     path: ../cookie_store
   dynamite:
-    path: ../dynamite/dynamite
+    path: ../dynamite
   dynamite_runtime:
-    path: ../dynamite/dynamite_runtime
+    path: ../dynamite/packages/dynamite_runtime
   neon_http_client:
-    path: ../neon_http_client
+    path: ../neon_framework/packages/neon_http_client
   neon_lints:
     path: ../neon_lints
   nextcloud_test:
-    path: ../nextcloud_test
+    path: packages/nextcloud_test

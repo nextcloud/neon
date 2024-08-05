@@ -56,7 +56,7 @@ class NeonApp extends StatefulWidget {
 }
 
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowListener {
-  final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
+  final _appRegex = RegExp(r'^([a-z]+)_app$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
   late final BuiltSet<AppImplementation> _appImplementations;
   late final GlobalOptions _globalOptions;
@@ -90,9 +90,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           _appImplementations
               .map(
                 (app) => ShortcutItem(
-                  type: 'app_${app.id}',
+                  type: '${app.id}_app',
                   localizedTitle: app.nameFromLocalization(localizations),
-                  icon: 'app_${app.id}',
+                  icon: '${app.id}_app',
                 ),
               )
               .toList(),

@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Release" type="FlutterRunConfigurationType" factoryName="Flutter">
     <option name="additionalArgs" value="--web-browser-flag --disable-web-security --release" />
-    <option name="filePath" value="$PROJECT_DIR$/packages/app/lib/main.dart" />
+    <option name="filePath" value="$PROJECT_DIR$/packages/neon_framework/example/lib/main.dart" />
     <method v="2" />
   </configuration>
 </component>

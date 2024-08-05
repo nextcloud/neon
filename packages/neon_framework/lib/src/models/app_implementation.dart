@@ -169,7 +169,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
             colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
             loader: AssetBytesLoader(
               'assets/app.svg.vec',
-              packageName: 'neon_$id',
+              packageName: '${id}_app',
             ),
             semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
           );

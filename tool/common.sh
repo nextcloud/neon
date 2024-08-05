@@ -23,7 +23,7 @@ function cache_build_args() {
 }
 
 function preset_image_tag() {
-  path="$(realpath --relative-to ./packages/nextcloud_test/docker/presets "$1")"
+  path="$(realpath --relative-to ./packages/nextcloud/packages/nextcloud_test/docker/presets "$1")"
   name="$(dirname "$path")"
   version="$(basename "$path")"
   image_tag "dev:$name-$version"

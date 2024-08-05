@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 source tool/common.sh
 
 if [ "$#" -eq 0 ]; then
-  presets=(./packages/nextcloud_test/docker/presets/*/*)
+  presets=(./packages/nextcloud/packages/nextcloud_test/docker/presets/*/*)
 else
   presets=("$@")
 fi
@@ -18,5 +18,5 @@ for preset in "${presets[@]}"; do
   done < "$preset"
 
   # shellcheck disable=SC2046,SC2086
-  docker buildx build --tag "$tag" $(cache_build_args "$tag") ${args[*]} -f - ./packages/nextcloud_test/docker < packages/nextcloud_test/docker/Dockerfile
+  docker buildx build --tag "$tag" $(cache_build_args "$tag") ${args[*]} -f - ./packages/nextcloud/packages/nextcloud_test/docker < packages/nextcloud/packages/nextcloud_test/docker/Dockerfile
 done

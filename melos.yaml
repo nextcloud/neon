@@ -11,8 +11,7 @@ bootstrap:
 
 packages:
   - packages/*
-  - packages/dynamite/*
-  - packages/neon/*
+  - packages/*/packages/*
   - packages/**/example
 
 ide:
@@ -27,7 +26,7 @@ command:
     hooks:
       preCommit: |
         melos bootstrap
-        git add packages/app/pubspec.lock
+        git add packages/neon_framework/example/pubspec.lock
       # Needed until https://github.com/invertase/melos/issues/591 is supported
       post: |
         git commit --amend --signoff --no-edit

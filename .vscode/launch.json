@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "app",
-      "cwd": "packages/app",
+      "cwd": "packages/neon_framework/example",
       "request": "launch",
       "type": "dart",
       "args": [
@@ -13,7 +13,7 @@
     },
     {
       "name": "app (profile mode)",
-      "cwd": "packages/app",
+      "cwd": "packages/neon_framework/example",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
@@ -24,7 +24,7 @@
     },
     {
       "name": "app (release mode)",
-      "cwd": "packages/app",
+      "cwd": "packages/neon_framework/example",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",

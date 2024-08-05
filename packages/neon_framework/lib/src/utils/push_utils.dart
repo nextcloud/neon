@@ -164,7 +164,7 @@ class PushUtils {
                 appID,
                 appName ?? appID,
                 subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
-                groupKey: 'app_$appID',
+                groupKey: '${appID}_app',
                 icon: '@mipmap/ic_launcher',
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,

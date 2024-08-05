@@ -35,9 +35,9 @@ All commits need to be signed and signed off to pass our tests.
 To sign off your commits use `git commit --signoff`.
 To setup commit signing please consult the [Github documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 We use conventional commits to have meaningful commit messages and be able to generate changelogs.
-A non-breaking feature contribution to `neon_notes` could look like this:
+A non-breaking feature contribution to `notes_app` could look like this:
 ```bash
-git commit -m "feat(neon_notes): Add a super cool feature."
+git commit -m "feat(notes_app): Add a super cool feature."
 ```
 You can read the full documentation at https://www.conventionalcommits.org.
 
