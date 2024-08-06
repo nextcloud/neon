@@ -13,8 +13,13 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["pub"],
-      "matchDatasources": ["dart-version", "flutter-version"],
+      "matchManagers": [
+        "pub"
+      ],
+      "matchDatasources": [
+        "dart-version",
+        "flutter-version"
+      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
@@ -22,25 +27,33 @@
       "enabled": false
     },
     {
-      "matchManagers": ["pub"],
-      "matchDepTypes": ["dependencies"],
+      "matchManagers": [
+        "pub"
+      ],
+      "matchDepTypes": [
+        "dependencies"
+      ],
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
       "matchCurrentVersion": "!/^0/",
-      "excludeDepNames": [
-        "app",
-        "dynamite_end_to_end_test",
-        "dynamite_petstore_example",
-        "neon_lints",
-        "nextcloud_test"
-      ],
-      "enabled": false
+      "enabled": false,
+      "matchDepNames": [
+        "!app",
+        "!dynamite_end_to_end_test",
+        "!dynamite_petstore_example",
+        "!neon_lints",
+        "!nextcloud_test"
+      ]
     },
     {
-      "matchManagers": ["pub"],
-      "matchDepTypes": ["dependencies"],
+      "matchManagers": [
+        "pub"
+      ],
+      "matchDepTypes": [
+        "dependencies"
+      ],
       "matchUpdateTypes": [
         "patch"
       ],
@@ -48,26 +61,38 @@
       "enabled": false
     },
     {
-      "matchManagers": ["pub"],
-      "matchPackageNames": ["timezone"],
+      "matchManagers": [
+        "pub"
+      ],
+      "matchPackageNames": [
+        "timezone"
+      ],
       "rangeStrategy": "bump",
       "enabled": true
     },
     {
       "groupName": "built_value",
-      "matchPackagePatterns": "^built"
+      "matchPackageNames": [
+        "/^built/"
+      ]
     },
     {
       "groupName": "go_router",
-      "matchPackagePatterns": "^go_router"
+      "matchPackageNames": [
+        "/^go_router/"
+      ]
     },
     {
       "groupName": "sqflite",
-      "matchPackagePatterns": "^sqflite"
+      "matchPackageNames": [
+        "/^sqflite/"
+      ]
     },
     {
       "groupName": "unifiedpush",
-      "matchPackagePatterns": "^unifiedpush"
+      "matchPackageNames": [
+        "/^unifiedpush/"
+      ]
     },
     {
       "groupName": "xml_serializable",
