@@ -39,7 +39,7 @@ dev_dependencies:
   flutter_keyboard_visibility: ^6.0.0
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.7.0
+  go_router_builder: ^2.7.1
   http: ^1.2.2
   mocktail: ^1.0.4
   neon_lints:
