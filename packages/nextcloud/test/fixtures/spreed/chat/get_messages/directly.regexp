@@ -16,9 +16,7 @@ authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
 \{"message":"123","actorDisplayName":"","referenceId":"","replyTo":[0-9]+,"silent":false\}
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}\?lookIntoFuture=0&limit=100&lastKnownMessageId=0&lastCommonReadId=0&timeout=30&setReadMarker=1&includeLastKnown=0&noStatusUpdate=0&markNotificationsAsRead=1
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"lookIntoFuture":0,"limit":100,"lastKnownMessageId":0,"lastCommonReadId":0,"timeout":30,"setReadMarker":1,"includeLastKnown":0,"noStatusUpdate":0,"markNotificationsAsRead":1\}

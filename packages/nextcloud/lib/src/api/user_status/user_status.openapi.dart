@@ -270,6 +270,8 @@ class $StatusesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -280,10 +282,18 @@ class $StatusesClient {
   ///  * [$findAll_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $findAll_Request({
+    int? limit,
+    int? offset,
     bool? oCSAPIRequest,
-    StatusesFindAllRequestApplicationJson? $body,
   }) {
-    const _path = '/ocs/v2.php/apps/user_status/api/v1/statuses';
+    final _parameters = <String, Object?>{};
+    final __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = __limit;
+
+    final __offset = _$jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    _parameters['offset'] = __offset;
+
+    final _path = _i6.UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -308,17 +318,6 @@ class $StatusesClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(StatusesFindAllRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              StatusesFindAllRequestApplicationJson(),
-              specifiedType: const FullType(StatusesFindAllRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -328,6 +327,8 @@ class $StatusesClient {
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [limit] Maximum number of statuses to find.
+  ///   * [offset] Offset for finding statuses.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -337,12 +338,14 @@ class $StatusesClient {
   ///  * [$findAll_Request] for the request send by this method.
   ///  * [$findAll_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<StatusesFindAllResponseApplicationJson, void>> findAll({
+    int? limit,
+    int? offset,
     bool? oCSAPIRequest,
-    StatusesFindAllRequestApplicationJson? $body,
   }) async {
     final _request = $findAll_Request(
+      limit: limit,
+      offset: offset,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1816,72 +1819,6 @@ abstract class PredefinedStatusFindAllResponseApplicationJson
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(PredefinedStatusFindAllResponseApplicationJsonBuilder b) {
     $PredefinedStatusFindAllResponseApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $StatusesFindAllRequestApplicationJsonInterface {
-  /// Maximum number of statuses to find.
-  int? get limit;
-
-  /// Offset for finding statuses.
-  int? get offset;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$StatusesFindAllRequestApplicationJsonInterfaceBuilder].
-  $StatusesFindAllRequestApplicationJsonInterface rebuild(
-    void Function($StatusesFindAllRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$StatusesFindAllRequestApplicationJsonInterfaceBuilder].
-  $StatusesFindAllRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($StatusesFindAllRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($StatusesFindAllRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class StatusesFindAllRequestApplicationJson
-    implements
-        $StatusesFindAllRequestApplicationJsonInterface,
-        Built<StatusesFindAllRequestApplicationJson, StatusesFindAllRequestApplicationJsonBuilder> {
-  /// Creates a new StatusesFindAllRequestApplicationJson object using the builder pattern.
-  factory StatusesFindAllRequestApplicationJson([void Function(StatusesFindAllRequestApplicationJsonBuilder)? b]) =
-      _$StatusesFindAllRequestApplicationJson;
-
-  // coverage:ignore-start
-  const StatusesFindAllRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory StatusesFindAllRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for StatusesFindAllRequestApplicationJson.
-  static Serializer<StatusesFindAllRequestApplicationJson> get serializer =>
-      _$statusesFindAllRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(StatusesFindAllRequestApplicationJsonBuilder b) {
-    $StatusesFindAllRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(StatusesFindAllRequestApplicationJsonBuilder b) {
-    $StatusesFindAllRequestApplicationJsonInterface._validate(b);
   }
 }
 
@@ -3464,11 +3401,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ClearAtTimeType.serializer)
       ..add($557344b3ba734aacc7109e5420fcb6c5Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
-      ..addBuilderFactory(
-        const FullType(StatusesFindAllRequestApplicationJson),
-        StatusesFindAllRequestApplicationJsonBuilder.new,
-      )
-      ..add(StatusesFindAllRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(StatusesFindAllResponseApplicationJson),
         StatusesFindAllResponseApplicationJsonBuilder.new,

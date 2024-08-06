@@ -136,13 +136,10 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         try {
           final response = await account.client.spreed.chat.receiveMessages(
             token: token,
-            $body: spreed.ChatReceiveMessagesRequestApplicationJson(
-              (b) => b
-                ..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$1
-                ..includeLastKnown = spreed.ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0
-                ..lastKnownMessageId = lastKnownMessageId
-                ..limit = 100,
-            ),
+            lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$1,
+            includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
+            lastKnownMessageId: lastKnownMessageId,
+            limit: 100,
           );
 
           updateLastCommonRead(response.headers.xChatLastCommonRead);
@@ -225,12 +222,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         subject: messages,
         getRequest: () => account.client.spreed.chat.$receiveMessages_Request(
           token: token,
-          $body: spreed.ChatReceiveMessagesRequestApplicationJson(
-            (b) => b
-              ..lookIntoFuture = spreed.ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0
-              ..includeLastKnown = spreed.ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0
-              ..limit = 100,
-          ),
+          lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+          includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
+          limit: 100,
         ),
         converter: ResponseConverter(account.client.spreed.chat.$receiveMessages_Serializer()),
         unwrap: (response) {
@@ -324,9 +318,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         final response = await account.client.spreed.reaction.delete(
           token: token,
           messageId: message.id,
-          $body: spreed.ReactionDeleteRequestApplicationJson(
-            (b) => b..reaction = reaction,
-          ),
+          reaction: reaction,
         );
 
         updateReactions(

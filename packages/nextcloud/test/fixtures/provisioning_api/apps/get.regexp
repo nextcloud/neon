@@ -1,9 +1,7 @@
 GET http://localhost/ocs/v2\.php/cloud/apps
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{\}
 (GET http://localhost/ocs/v2\.php/cloud/apps/[a-z_]+
 accept: application/json
 authorization: Bearer mock

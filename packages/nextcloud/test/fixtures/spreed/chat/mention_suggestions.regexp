@@ -10,9 +10,7 @@ authorization: Bearer mock
 content-type: application/json; charset=utf-8
 ocs-apirequest: true
 \{"newParticipant":"user2","source":"users"\}
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}/mentions
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}/mentions\?search=user&limit=20&includeStatus=0
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
 ocs-apirequest: true
-\{"search":"user","limit":20,"includeStatus":false\}

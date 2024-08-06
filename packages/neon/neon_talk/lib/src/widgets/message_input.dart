@@ -185,11 +185,8 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
         final account = NeonProvider.of<Account>(context);
         final response = await account.client.spreed.chat.mentions(
           token: bloc.room.value.requireData.token,
-          $body: spreed.ChatMentionsRequestApplicationJson(
-            (b) => b
-              ..search = matchingPart.substring(1)
-              ..limit = 5,
-          ),
+          search: matchingPart.substring(1),
+          limit: 5,
         );
 
         return response.body.ocs.data

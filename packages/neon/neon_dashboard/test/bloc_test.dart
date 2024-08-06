@@ -10,7 +10,7 @@ import 'package:neon_framework/testing.dart';
 
 Account mockDashboardAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widgets'): {
-        'get': (match, bodyBytes) => Response(
+        'get': (match, request) => Response(
               json.encode({
                 'ocs': {
                   'meta': {'status': '', 'statuscode': 0},
@@ -39,15 +39,13 @@ Account mockDashboardAccount() => mockServer({
             ),
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widget-items'): {
-        'get': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
-
+        'get': (match, request) {
           return Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
                 'data': {
-                  for (final key in (data['widgets'] as List).cast<String>())
+                  for (final key in request.url.queryParametersAll['widgets[]']!)
                     key: [
                       {
                         'subtitle': '',
@@ -78,15 +76,13 @@ Account mockDashboardAccount() => mockServer({
         },
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v2/widget-items'): {
-        'get': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
-
+        'get': (match, request) {
           return Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
                 'data': {
-                  for (final key in (data['widgets'] as List).cast<String>())
+                  for (final key in request.url.queryParametersAll['widgets[]']!)
                     key: {
                       'items': [
                         {

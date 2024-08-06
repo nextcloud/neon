@@ -113,6 +113,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -125,8 +126,8 @@ class $AvatarClient {
   _i3.Request $getAvatar_Request({
     required String token,
     AvatarGetAvatarApiVersion? apiVersion,
+    AvatarGetAvatarDarkTheme? darkTheme,
     bool? oCSAPIRequest,
-    AvatarGetAvatarRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -142,7 +143,12 @@ class $AvatarClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(_parameters);
+    var __darkTheme = _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetAvatarDarkTheme));
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -165,17 +171,6 @@ class $AvatarClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(AvatarGetAvatarRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              AvatarGetAvatarRequestApplicationJson(),
-              specifiedType: const FullType(AvatarGetAvatarRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -187,6 +182,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -198,14 +194,14 @@ class $AvatarClient {
   Future<_i1.DynamiteResponse<Uint8List, void>> getAvatar({
     required String token,
     AvatarGetAvatarApiVersion? apiVersion,
+    AvatarGetAvatarDarkTheme? darkTheme,
     bool? oCSAPIRequest,
-    AvatarGetAvatarRequestApplicationJson? $body,
   }) async {
     final _request = $getAvatar_Request(
       token: token,
       apiVersion: apiVersion,
+      darkTheme: darkTheme,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -663,6 +659,8 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -674,14 +672,18 @@ class $AvatarClient {
   @_i2.experimental
   _i3.Request $getUserProxyAvatarWithoutRoom_Request({
     required AvatarGetUserProxyAvatarWithoutRoomSize size,
-    required AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarWithoutRoomApiVersion? apiVersion,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme? darkTheme,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
     final __size =
         _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomSize));
     _parameters['size'] = __size;
+
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
 
     var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
@@ -690,8 +692,16 @@ class $AvatarClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
+    var __darkTheme = _$jsonSerializers.serialize(
+      darkTheme,
+      specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomDarkTheme),
+    );
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
+
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}').expand(_parameters);
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}{?cloudId*,darkTheme*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -716,13 +726,6 @@ class $AvatarClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -734,6 +737,8 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -744,15 +749,17 @@ class $AvatarClient {
   ///  * [$getUserProxyAvatarWithoutRoom_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarWithoutRoom({
     required AvatarGetUserProxyAvatarWithoutRoomSize size,
-    required AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarWithoutRoomApiVersion? apiVersion,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme? darkTheme,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getUserProxyAvatarWithoutRoom_Request(
       size: size,
+      cloudId: cloudId,
       apiVersion: apiVersion,
+      darkTheme: darkTheme,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -778,6 +785,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -789,7 +797,7 @@ class $AvatarClient {
   @_i2.experimental
   _i3.Request $getUserProxyAvatarDarkWithoutRoom_Request({
     required AvatarGetUserProxyAvatarDarkWithoutRoomSize size,
-    required AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -798,6 +806,9 @@ class $AvatarClient {
         _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomSize));
     _parameters['size'] = __size;
 
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
+
     var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion),
@@ -805,8 +816,9 @@ class $AvatarClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark')
-        .expand(_parameters);
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/new/user-avatar/{size}/dark{?cloudId*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -831,13 +843,6 @@ class $AvatarClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -849,6 +854,7 @@ class $AvatarClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -859,15 +865,15 @@ class $AvatarClient {
   ///  * [$getUserProxyAvatarDarkWithoutRoom_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarDarkWithoutRoom({
     required AvatarGetUserProxyAvatarDarkWithoutRoomSize size,
-    required AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getUserProxyAvatarDarkWithoutRoom_Request(
       size: size,
+      cloudId: cloudId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -894,6 +900,8 @@ class $AvatarClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -906,8 +914,9 @@ class $AvatarClient {
   _i3.Request $getUserProxyAvatar_Request({
     required String token,
     required AvatarGetUserProxyAvatarSize size,
-    required AvatarGetUserProxyAvatarRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarApiVersion? apiVersion,
+    AvatarGetUserProxyAvatarDarkTheme? darkTheme,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -922,13 +931,22 @@ class $AvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarSize));
     _parameters['size'] = __size;
 
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}')
-        .expand(_parameters);
+    var __darkTheme =
+        _$jsonSerializers.serialize(darkTheme, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkTheme));
+    __darkTheme ??= 0;
+    _parameters['darkTheme'] = __darkTheme;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}{?cloudId*,darkTheme*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -951,13 +969,6 @@ class $AvatarClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(AvatarGetUserProxyAvatarRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -970,6 +981,8 @@ class $AvatarClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
+  ///   * [darkTheme] Theme used for background. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -981,16 +994,18 @@ class $AvatarClient {
   Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatar({
     required String token,
     required AvatarGetUserProxyAvatarSize size,
-    required AvatarGetUserProxyAvatarRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarApiVersion? apiVersion,
+    AvatarGetUserProxyAvatarDarkTheme? darkTheme,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getUserProxyAvatar_Request(
       token: token,
       size: size,
+      cloudId: cloudId,
       apiVersion: apiVersion,
+      darkTheme: darkTheme,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1017,6 +1032,7 @@ class $AvatarClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1029,7 +1045,7 @@ class $AvatarClient {
   _i3.Request $getUserProxyAvatarDark_Request({
     required String token,
     required AvatarGetUserProxyAvatarDarkSize size,
-    required AvatarGetUserProxyAvatarDarkRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -1045,13 +1061,17 @@ class $AvatarClient {
     final __size = _$jsonSerializers.serialize(size, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkSize));
     _parameters['size'] = __size;
 
+    final __cloudId = _$jsonSerializers.serialize(cloudId, specifiedType: const FullType(String));
+    _parameters['cloudId'] = __cloudId;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetUserProxyAvatarDarkApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark')
-        .expand(_parameters);
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/proxy/{token}/user-avatar/{size}/dark{?cloudId*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = '*/*';
@@ -1074,13 +1094,6 @@ class $AvatarClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(AvatarGetUserProxyAvatarDarkRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -1093,6 +1106,7 @@ class $AvatarClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [size] Avatar size.
+  ///   * [cloudId] Federation CloudID to get the avatar for.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1104,16 +1118,16 @@ class $AvatarClient {
   Future<_i1.DynamiteResponse<Uint8List, void>> getUserProxyAvatarDark({
     required String token,
     required AvatarGetUserProxyAvatarDarkSize size,
-    required AvatarGetUserProxyAvatarDarkRequestApplicationJson $body,
+    required String cloudId,
     AvatarGetUserProxyAvatarDarkApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getUserProxyAvatarDark_Request(
       token: token,
       size: size,
+      cloudId: cloudId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1732,6 +1746,7 @@ class $BotClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Reaction to delete.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1747,7 +1762,7 @@ class $BotClient {
   _i3.Request $deleteReaction_Request({
     required String token,
     required int messageId,
-    required BotDeleteReactionRequestApplicationJson $body,
+    required String reaction,
     BotDeleteReactionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -1763,13 +1778,17 @@ class $BotClient {
     final __messageId = _$jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
     _parameters['messageId'] = __messageId;
 
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}')
-        .expand(_parameters);
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -1792,10 +1811,6 @@ class $BotClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(BotDeleteReactionRequestApplicationJson)),
-    );
     return _request;
   }
 
@@ -1808,6 +1823,7 @@ class $BotClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token] Conversation token.
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Reaction to delete.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -1822,16 +1838,16 @@ class $BotClient {
   Future<_i1.DynamiteResponse<BotDeleteReactionResponseApplicationJson, void>> deleteReaction({
     required String token,
     required int messageId,
-    required BotDeleteReactionRequestApplicationJson $body,
+    required String reaction,
     BotDeleteReactionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $deleteReaction_Request(
       token: token,
       messageId: messageId,
+      reaction: reaction,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -3265,6 +3281,7 @@ class $CallClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3278,8 +3295,8 @@ class $CallClient {
   _i3.Request $leaveCall_Request({
     required String token,
     CallLeaveCallApiVersion? apiVersion,
+    CallLeaveCallAll? all,
     bool? oCSAPIRequest,
-    CallLeaveCallRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -3294,7 +3311,11 @@ class $CallClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(_parameters);
+    var __all = _$jsonSerializers.serialize(all, specifiedType: const FullType(CallLeaveCallAll));
+    __all ??= 0;
+    _parameters['all'] = __all;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -3317,17 +3338,6 @@ class $CallClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(CallLeaveCallRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              CallLeaveCallRequestApplicationJson(),
-              specifiedType: const FullType(CallLeaveCallRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -3339,6 +3349,7 @@ class $CallClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [all] whether to also terminate the call for all participants. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3351,14 +3362,14 @@ class $CallClient {
   Future<_i1.DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
     required String token,
     CallLeaveCallApiVersion? apiVersion,
+    CallLeaveCallAll? all,
     bool? oCSAPIRequest,
-    CallLeaveCallRequestApplicationJson? $body,
   }) async {
     final _request = $leaveCall_Request(
       token: token,
       apiVersion: apiVersion,
+      all: all,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -3633,6 +3644,15 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [lookIntoFuture] Polling for new messages (1) or getting the history of the chat (0).
+  ///   * [limit] Number of chat messages to receive (100 by default, 200 at most). Defaults to `100`.
+  ///   * [lastKnownMessageId] The last known message (serves as offset). Defaults to `0`.
+  ///   * [lastCommonReadId] The last known common read message (so the response is 200 instead of 304 when it changes even when there are no messages). Defaults to `0`.
+  ///   * [timeout] Number of seconds to wait for new messages (30 by default, 30 at most). Defaults to `30`.
+  ///   * [setReadMarker] Automatically set the last read marker when 1, if your client does this itself via chat/{token}/read set to 0. Defaults to `1`.
+  ///   * [includeLastKnown] Include the $lastKnownMessageId in the messages when 1 (default 0). Defaults to `0`.
+  ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
+  ///   * [markNotificationsAsRead] Set to 0 when notifications should not be marked as read (default 1). Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3645,8 +3665,16 @@ class $ChatClient {
   @_i2.experimental
   _i3.Request $receiveMessages_Request({
     required String token,
-    required ChatReceiveMessagesRequestApplicationJson $body,
+    required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     ChatReceiveMessagesApiVersion? apiVersion,
+    int? limit,
+    int? lastKnownMessageId,
+    int? lastCommonReadId,
+    int? timeout,
+    ChatReceiveMessagesSetReadMarker? setReadMarker,
+    ChatReceiveMessagesIncludeLastKnown? includeLastKnown,
+    ChatReceiveMessagesNoStatusUpdate? noStatusUpdate,
+    ChatReceiveMessagesMarkNotificationsAsRead? markNotificationsAsRead,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -3658,12 +3686,74 @@ class $ChatClient {
     );
     _parameters['token'] = __token;
 
+    final __lookIntoFuture =
+        _$jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
+    _parameters['lookIntoFuture'] = __lookIntoFuture;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(_parameters);
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 100;
+    _parameters['limit'] = __limit;
+
+    var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    __lastKnownMessageId ??= 0;
+    _i4.checkNumber(
+      __lastKnownMessageId,
+      'lastKnownMessageId',
+      minimum: 0,
+    );
+    _parameters['lastKnownMessageId'] = __lastKnownMessageId;
+
+    var __lastCommonReadId = _$jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
+    __lastCommonReadId ??= 0;
+    _i4.checkNumber(
+      __lastCommonReadId,
+      'lastCommonReadId',
+      minimum: 0,
+    );
+    _parameters['lastCommonReadId'] = __lastCommonReadId;
+
+    var __timeout = _$jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
+    __timeout ??= 30;
+    _i4.checkNumber(
+      __timeout,
+      'timeout',
+      maximum: 30,
+      minimum: 0,
+    );
+    _parameters['timeout'] = __timeout;
+
+    var __setReadMarker =
+        _$jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
+    __setReadMarker ??= 1;
+    _parameters['setReadMarker'] = __setReadMarker;
+
+    var __includeLastKnown = _$jsonSerializers.serialize(
+      includeLastKnown,
+      specifiedType: const FullType(ChatReceiveMessagesIncludeLastKnown),
+    );
+    __includeLastKnown ??= 0;
+    _parameters['includeLastKnown'] = __includeLastKnown;
+
+    var __noStatusUpdate =
+        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
+    __noStatusUpdate ??= 0;
+    _parameters['noStatusUpdate'] = __noStatusUpdate;
+
+    var __markNotificationsAsRead = _$jsonSerializers.serialize(
+      markNotificationsAsRead,
+      specifiedType: const FullType(ChatReceiveMessagesMarkNotificationsAsRead),
+    );
+    __markNotificationsAsRead ??= 1;
+    _parameters['markNotificationsAsRead'] = __markNotificationsAsRead;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -3686,10 +3776,6 @@ class $ChatClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson)),
-    );
     return _request;
   }
 
@@ -3705,6 +3791,15 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [lookIntoFuture] Polling for new messages (1) or getting the history of the chat (0).
+  ///   * [limit] Number of chat messages to receive (100 by default, 200 at most). Defaults to `100`.
+  ///   * [lastKnownMessageId] The last known message (serves as offset). Defaults to `0`.
+  ///   * [lastCommonReadId] The last known common read message (so the response is 200 instead of 304 when it changes even when there are no messages). Defaults to `0`.
+  ///   * [timeout] Number of seconds to wait for new messages (30 by default, 30 at most). Defaults to `30`.
+  ///   * [setReadMarker] Automatically set the last read marker when 1, if your client does this itself via chat/{token}/read set to 0. Defaults to `1`.
+  ///   * [includeLastKnown] Include the $lastKnownMessageId in the messages when 1 (default 0). Defaults to `0`.
+  ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
+  ///   * [markNotificationsAsRead] Set to 0 when notifications should not be marked as read (default 1). Defaults to `1`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -3717,15 +3812,31 @@ class $ChatClient {
   Future<_i1.DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>>
       receiveMessages({
     required String token,
-    required ChatReceiveMessagesRequestApplicationJson $body,
+    required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     ChatReceiveMessagesApiVersion? apiVersion,
+    int? limit,
+    int? lastKnownMessageId,
+    int? lastCommonReadId,
+    int? timeout,
+    ChatReceiveMessagesSetReadMarker? setReadMarker,
+    ChatReceiveMessagesIncludeLastKnown? includeLastKnown,
+    ChatReceiveMessagesNoStatusUpdate? noStatusUpdate,
+    ChatReceiveMessagesMarkNotificationsAsRead? markNotificationsAsRead,
     bool? oCSAPIRequest,
   }) async {
     final _request = $receiveMessages_Request(
       token: token,
+      lookIntoFuture: lookIntoFuture,
       apiVersion: apiVersion,
+      limit: limit,
+      lastKnownMessageId: lastKnownMessageId,
+      lastCommonReadId: lastCommonReadId,
+      timeout: timeout,
+      setReadMarker: setReadMarker,
+      includeLastKnown: includeLastKnown,
+      noStatusUpdate: noStatusUpdate,
+      markNotificationsAsRead: markNotificationsAsRead,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4261,6 +4372,7 @@ class $ChatClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] The focused message which should be in the "middle" of the returned context.
+  ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4275,8 +4387,8 @@ class $ChatClient {
     required String token,
     required int messageId,
     ChatGetMessageContextApiVersion? apiVersion,
+    int? limit,
     bool? oCSAPIRequest,
-    ChatGetMessageContextRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -4300,7 +4412,17 @@ class $ChatClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context')
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 50;
+    _i4.checkNumber(
+      __limit,
+      'limit',
+      maximum: 100,
+      minimum: 1,
+    );
+    _parameters['limit'] = __limit;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
         .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
@@ -4324,20 +4446,6 @@ class $ChatClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ChatGetMessageContextRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ChatGetMessageContextRequestApplicationJson(),
-              specifiedType: const FullType(ChatGetMessageContextRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -4350,6 +4458,7 @@ class $ChatClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] The focused message which should be in the "middle" of the returned context.
+  ///   * [limit] Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages). Defaults to `50`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -4364,15 +4473,15 @@ class $ChatClient {
     required String token,
     required int messageId,
     ChatGetMessageContextApiVersion? apiVersion,
+    int? limit,
     bool? oCSAPIRequest,
-    ChatGetMessageContextRequestApplicationJson? $body,
   }) async {
     final _request = $getMessageContext_Request(
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
+      limit: limit,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -5001,6 +5110,9 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [search] Text to search for.
+  ///   * [limit] Maximum number of results. Defaults to `20`.
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5012,8 +5124,10 @@ class $ChatClient {
   @_i2.experimental
   _i3.Request $mentions_Request({
     required String token,
-    required ChatMentionsRequestApplicationJson $body,
+    required String search,
     ChatMentionsApiVersion? apiVersion,
+    int? limit,
+    ChatMentionsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -5025,11 +5139,25 @@ class $ChatClient {
     );
     _parameters['token'] = __token;
 
+    final __search = _$jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    _parameters['search'] = __search;
+
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions').expand(_parameters);
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 20;
+    _parameters['limit'] = __limit;
+
+    var __includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(ChatMentionsIncludeStatus));
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -5052,9 +5180,6 @@ class $ChatClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json
-        .encode(_$jsonSerializers.serialize($body, specifiedType: const FullType(ChatMentionsRequestApplicationJson)));
     return _request;
   }
 
@@ -5066,6 +5191,9 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [search] Text to search for.
+  ///   * [limit] Maximum number of results. Defaults to `20`.
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5076,15 +5204,19 @@ class $ChatClient {
   ///  * [$mentions_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatMentionsResponseApplicationJson, void>> mentions({
     required String token,
-    required ChatMentionsRequestApplicationJson $body,
+    required String search,
     ChatMentionsApiVersion? apiVersion,
+    int? limit,
+    ChatMentionsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
   }) async {
     final _request = $mentions_Request(
       token: token,
+      search: search,
       apiVersion: apiVersion,
+      limit: limit,
+      includeStatus: includeStatus,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -5111,6 +5243,9 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [objectType] Type of the objects.
+  ///   * [lastKnownMessageId] ID of the last known message. Defaults to `0`.
+  ///   * [limit] Maximum number of objects. Defaults to `100`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5122,8 +5257,10 @@ class $ChatClient {
   @_i2.experimental
   _i3.Request $getObjectsSharedInRoom_Request({
     required String token,
-    required ChatGetObjectsSharedInRoomRequestApplicationJson $body,
+    required String objectType,
     ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    int? lastKnownMessageId,
+    int? limit,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -5135,12 +5272,36 @@ class $ChatClient {
     );
     _parameters['token'] = __token;
 
+    final __objectType = _$jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    _parameters['objectType'] = __objectType;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share').expand(_parameters);
+    var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    __lastKnownMessageId ??= 0;
+    _i4.checkNumber(
+      __lastKnownMessageId,
+      'lastKnownMessageId',
+      minimum: 0,
+    );
+    _parameters['lastKnownMessageId'] = __lastKnownMessageId;
+
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 100;
+    _i4.checkNumber(
+      __limit,
+      'limit',
+      maximum: 200,
+      minimum: 1,
+    );
+    _parameters['limit'] = __limit;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -5163,13 +5324,6 @@ class $ChatClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(ChatGetObjectsSharedInRoomRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -5181,6 +5335,9 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [objectType] Type of the objects.
+  ///   * [lastKnownMessageId] ID of the last known message. Defaults to `0`.
+  ///   * [limit] Maximum number of objects. Defaults to `100`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5192,15 +5349,19 @@ class $ChatClient {
   Future<_i1.DynamiteResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>>
       getObjectsSharedInRoom({
     required String token,
-    required ChatGetObjectsSharedInRoomRequestApplicationJson $body,
+    required String objectType,
     ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    int? lastKnownMessageId,
+    int? limit,
     bool? oCSAPIRequest,
   }) async {
     final _request = $getObjectsSharedInRoom_Request(
       token: token,
+      objectType: objectType,
       apiVersion: apiVersion,
+      lastKnownMessageId: lastKnownMessageId,
+      limit: limit,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -5354,6 +5515,7 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [limit] Maximum number of objects. Defaults to `7`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5366,8 +5528,8 @@ class $ChatClient {
   _i3.Request $getObjectsSharedInRoomOverview_Request({
     required String token,
     ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    int? limit,
     bool? oCSAPIRequest,
-    ChatGetObjectsSharedInRoomOverviewRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -5385,8 +5547,18 @@ class $ChatClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview').expand(_parameters);
+    var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    __limit ??= 7;
+    _i4.checkNumber(
+      __limit,
+      'limit',
+      maximum: 20,
+      minimum: 1,
+    );
+    _parameters['limit'] = __limit;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -5409,20 +5581,6 @@ class $ChatClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ChatGetObjectsSharedInRoomOverviewRequestApplicationJson(),
-              specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -5434,6 +5592,7 @@ class $ChatClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [limit] Maximum number of objects. Defaults to `7`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5446,14 +5605,14 @@ class $ChatClient {
       getObjectsSharedInRoomOverview({
     required String token,
     ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    int? limit,
     bool? oCSAPIRequest,
-    ChatGetObjectsSharedInRoomOverviewRequestApplicationJson? $body,
   }) async {
     final _request = $getObjectsSharedInRoomOverview_Request(
       token: token,
       apiVersion: apiVersion,
+      limit: limit,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -5487,6 +5646,7 @@ class $ExternalSignalingClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v3"`.
+  ///   * [token] Token of the room. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5500,8 +5660,8 @@ class $ExternalSignalingClient {
   @_i2.experimental
   _i3.Request $signalingGetSettings_Request({
     SignalingGetSettingsApiVersion? apiVersion,
+    String? token,
     bool? oCSAPIRequest,
-    SignalingGetSettingsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     var __apiVersion =
@@ -5509,7 +5669,12 @@ class $ExternalSignalingClient {
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings').expand(_parameters);
+    var __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    __token ??= '';
+    _parameters['token'] = __token;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -5532,20 +5697,6 @@ class $ExternalSignalingClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(SignalingGetSettingsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              SignalingGetSettingsRequestApplicationJson(),
-              specifiedType: const FullType(SignalingGetSettingsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -5556,6 +5707,7 @@ class $ExternalSignalingClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v3"`.
+  ///   * [token] Token of the room. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -5568,13 +5720,13 @@ class $ExternalSignalingClient {
   ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> signalingGetSettings({
     SignalingGetSettingsApiVersion? apiVersion,
+    String? token,
     bool? oCSAPIRequest,
-    SignalingGetSettingsRequestApplicationJson? $body,
   }) async {
     final _request = $signalingGetSettings_Request(
       apiVersion: apiVersion,
+      token: token,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -6658,6 +6810,7 @@ class $InternalSignalingClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v3"`.
+  ///   * [token] Token of the room. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6671,8 +6824,8 @@ class $InternalSignalingClient {
   @_i2.experimental
   _i3.Request $signalingGetSettings_Request({
     SignalingGetSettingsApiVersion? apiVersion,
+    String? token,
     bool? oCSAPIRequest,
-    SignalingGetSettingsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     var __apiVersion =
@@ -6680,7 +6833,12 @@ class $InternalSignalingClient {
     __apiVersion ??= 'v3';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings').expand(_parameters);
+    var __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    __token ??= '';
+    _parameters['token'] = __token;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -6703,20 +6861,6 @@ class $InternalSignalingClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(SignalingGetSettingsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              SignalingGetSettingsRequestApplicationJson(),
-              specifiedType: const FullType(SignalingGetSettingsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -6727,6 +6871,7 @@ class $InternalSignalingClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v3"`.
+  ///   * [token] Token of the room. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -6739,13 +6884,13 @@ class $InternalSignalingClient {
   ///  * [$signalingGetSettings_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> signalingGetSettings({
     SignalingGetSettingsApiVersion? apiVersion,
+    String? token,
     bool? oCSAPIRequest,
-    SignalingGetSettingsRequestApplicationJson? $body,
   }) async {
     final _request = $signalingGetSettings_Request(
       apiVersion: apiVersion,
+      token: token,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -8167,6 +8312,7 @@ class $ReactionClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Emoji to filter.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8181,8 +8327,8 @@ class $ReactionClient {
     required String token,
     required int messageId,
     ReactionGetReactionsApiVersion? apiVersion,
+    String? reaction,
     bool? oCSAPIRequest,
-    ReactionGetReactionsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -8206,8 +8352,11 @@ class $ReactionClient {
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(_parameters);
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -8230,20 +8379,6 @@ class $ReactionClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ReactionGetReactionsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ReactionGetReactionsRequestApplicationJson(),
-              specifiedType: const FullType(ReactionGetReactionsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -8256,6 +8391,7 @@ class $ReactionClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Emoji to filter.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8269,15 +8405,15 @@ class $ReactionClient {
     required String token,
     required int messageId,
     ReactionGetReactionsApiVersion? apiVersion,
+    String? reaction,
     bool? oCSAPIRequest,
-    ReactionGetReactionsRequestApplicationJson? $body,
   }) async {
     final _request = $getReactions_Request(
       token: token,
       messageId: messageId,
       apiVersion: apiVersion,
+      reaction: reaction,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -8433,6 +8569,7 @@ class $ReactionClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Emoji to remove.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8447,7 +8584,7 @@ class $ReactionClient {
   _i3.Request $delete_Request({
     required String token,
     required int messageId,
-    required ReactionDeleteRequestApplicationJson $body,
+    required String reaction,
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -8468,12 +8605,15 @@ class $ReactionClient {
     );
     _parameters['messageId'] = __messageId;
 
+    final __reaction = _$jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    _parameters['reaction'] = __reaction;
+
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -8496,10 +8636,6 @@ class $ReactionClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(ReactionDeleteRequestApplicationJson)),
-    );
     return _request;
   }
 
@@ -8512,6 +8648,7 @@ class $ReactionClient {
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
   ///   * [messageId] ID of the message.
+  ///   * [reaction] Emoji to remove.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8525,16 +8662,16 @@ class $ReactionClient {
   Future<_i1.DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
     required String token,
     required int messageId,
-    required ReactionDeleteRequestApplicationJson $body,
+    required String reaction,
     ReactionDeleteApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $delete_Request(
       token: token,
       messageId: messageId,
+      reaction: reaction,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -8789,6 +8926,7 @@ class $RecordingClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [timestamp] Timestamp of the notification to be dismissed.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8801,7 +8939,7 @@ class $RecordingClient {
   @_i2.experimental
   _i3.Request $notificationDismiss_Request({
     required String token,
-    required RecordingNotificationDismissRequestApplicationJson $body,
+    required int timestamp,
     RecordingNotificationDismissApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -8814,13 +8952,22 @@ class $RecordingClient {
     );
     _parameters['token'] = __token;
 
+    final __timestamp = _$jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    _i4.checkNumber(
+      __timestamp,
+      'timestamp',
+      minimum: 0,
+    );
+    _parameters['timestamp'] = __timestamp;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
     __apiVersion ??= 'v1';
     _parameters['apiVersion'] = __apiVersion;
 
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification').expand(_parameters);
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -8845,13 +8992,6 @@ class $RecordingClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RecordingNotificationDismissRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -8863,6 +9003,7 @@ class $RecordingClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
   ///   * [token]
+  ///   * [timestamp] Timestamp of the notification to be dismissed.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -8874,15 +9015,15 @@ class $RecordingClient {
   ///  * [$notificationDismiss_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismiss({
     required String token,
-    required RecordingNotificationDismissRequestApplicationJson $body,
+    required int timestamp,
     RecordingNotificationDismissApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $notificationDismiss_Request(
       token: token,
+      timestamp: timestamp,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -9245,6 +9386,9 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
+  ///   * [includeStatus] Include the user status. Defaults to `0`.
+  ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9256,15 +9400,38 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $getRooms_Request({
     RoomGetRoomsApiVersion? apiVersion,
+    RoomGetRoomsNoStatusUpdate? noStatusUpdate,
+    RoomGetRoomsIncludeStatus? includeStatus,
+    int? modifiedSince,
     bool? oCSAPIRequest,
-    RoomGetRoomsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     var __apiVersion = _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room').expand(_parameters);
+    var __noStatusUpdate =
+        _$jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
+    __noStatusUpdate ??= 0;
+    _parameters['noStatusUpdate'] = __noStatusUpdate;
+
+    var __includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetRoomsIncludeStatus));
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
+
+    var __modifiedSince = _$jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
+    __modifiedSince ??= 0;
+    _i4.checkNumber(
+      __modifiedSince,
+      'modifiedSince',
+      minimum: 0,
+    );
+    _parameters['modifiedSince'] = __modifiedSince;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -9289,17 +9456,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomGetRoomsRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomGetRoomsRequestApplicationJson(),
-              specifiedType: const FullType(RoomGetRoomsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -9310,6 +9466,9 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [noStatusUpdate] When the user status should not be automatically set to online set to 1 (default 0). Defaults to `0`.
+  ///   * [includeStatus] Include the user status. Defaults to `0`.
+  ///   * [modifiedSince] Filter rooms modified after a timestamp. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9320,13 +9479,17 @@ class $RoomClient {
   ///  * [$getRooms_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
     RoomGetRoomsApiVersion? apiVersion,
+    RoomGetRoomsNoStatusUpdate? noStatusUpdate,
+    RoomGetRoomsIncludeStatus? includeStatus,
+    int? modifiedSince,
     bool? oCSAPIRequest,
-    RoomGetRoomsRequestApplicationJson? $body,
   }) async {
     final _request = $getRooms_Request(
       apiVersion: apiVersion,
+      noStatusUpdate: noStatusUpdate,
+      includeStatus: includeStatus,
+      modifiedSince: modifiedSince,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -9461,6 +9624,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [searchTerm] search term. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9472,8 +9636,8 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $getListedRooms_Request({
     RoomGetListedRoomsApiVersion? apiVersion,
+    String? searchTerm,
     bool? oCSAPIRequest,
-    RoomGetListedRoomsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     var __apiVersion =
@@ -9481,7 +9645,12 @@ class $RoomClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room').expand(_parameters);
+    var __searchTerm = _$jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
+    __searchTerm ??= '';
+    _parameters['searchTerm'] = __searchTerm;
+
+    final _path =
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -9506,17 +9675,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomGetListedRoomsRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomGetListedRoomsRequestApplicationJson(),
-              specifiedType: const FullType(RoomGetListedRoomsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -9527,6 +9685,7 @@ class $RoomClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
+  ///   * [searchTerm] search term. Defaults to `""`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -9537,13 +9696,13 @@ class $RoomClient {
   ///  * [$getListedRooms_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRooms({
     RoomGetListedRoomsApiVersion? apiVersion,
+    String? searchTerm,
     bool? oCSAPIRequest,
-    RoomGetListedRoomsRequestApplicationJson? $body,
   }) async {
     final _request = $getListedRooms_Request(
       apiVersion: apiVersion,
+      searchTerm: searchTerm,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -10705,6 +10864,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10718,8 +10878,8 @@ class $RoomClient {
   _i3.Request $getParticipants_Request({
     required String token,
     RoomGetParticipantsApiVersion? apiVersion,
+    RoomGetParticipantsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
-    RoomGetParticipantsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -10735,8 +10895,13 @@ class $RoomClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants').expand(_parameters);
+    var __includeStatus =
+        _$jsonSerializers.serialize(includeStatus, specifiedType: const FullType(RoomGetParticipantsIncludeStatus));
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
+
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -10759,20 +10924,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(RoomGetParticipantsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomGetParticipantsRequestApplicationJson(),
-              specifiedType: const FullType(RoomGetParticipantsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -10784,6 +10935,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10797,14 +10949,14 @@ class $RoomClient {
       getParticipants({
     required String token,
     RoomGetParticipantsApiVersion? apiVersion,
+    RoomGetParticipantsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
-    RoomGetParticipantsRequestApplicationJson? $body,
   }) async {
     final _request = $getParticipants_Request(
       token: token,
       apiVersion: apiVersion,
+      includeStatus: includeStatus,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -10958,6 +11110,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -10972,8 +11125,8 @@ class $RoomClient {
   _i3.Request $getBreakoutRoomParticipants_Request({
     required String token,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
-    RoomGetBreakoutRoomParticipantsRequestApplicationJson? $body,
   }) {
     final _parameters = <String, Object?>{};
     final __token = _$jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -10991,8 +11144,16 @@ class $RoomClient {
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants')
-        .expand(_parameters);
+    var __includeStatus = _$jsonSerializers.serialize(
+      includeStatus,
+      specifiedType: const FullType(RoomGetBreakoutRoomParticipantsIncludeStatus),
+    );
+    __includeStatus ??= 0;
+    _parameters['includeStatus'] = __includeStatus;
+
+    final _path = _i5.UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
+    ).expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -11015,20 +11176,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(RoomGetBreakoutRoomParticipantsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomGetBreakoutRoomParticipantsRequestApplicationJson(),
-              specifiedType: const FullType(RoomGetBreakoutRoomParticipantsRequestApplicationJson),
-            ),
-          );
     return _request;
   }
 
@@ -11040,6 +11187,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [includeStatus] Include the user statuses. Defaults to `0`.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -11055,14 +11203,14 @@ class $RoomClient {
           RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
     required String token,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
     bool? oCSAPIRequest,
-    RoomGetBreakoutRoomParticipantsRequestApplicationJson? $body,
   }) async {
     final _request = $getBreakoutRoomParticipants_Request(
       token: token,
       apiVersion: apiVersion,
+      includeStatus: includeStatus,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -11203,6 +11351,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [attendeeId] ID of the attendee.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -11217,7 +11366,7 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $removeAttendeeFromRoom_Request({
     required String token,
-    required RoomRemoveAttendeeFromRoomRequestApplicationJson $body,
+    required int attendeeId,
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -11230,13 +11379,21 @@ class $RoomClient {
     );
     _parameters['token'] = __token;
 
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    _i4.checkNumber(
+      __attendeeId,
+      'attendeeId',
+      minimum: 0,
+    );
+    _parameters['attendeeId'] = __attendeeId;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -11259,13 +11416,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomRemoveAttendeeFromRoomRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -11277,6 +11427,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [attendeeId] ID of the attendee.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -11290,15 +11441,15 @@ class $RoomClient {
   ///  * [$removeAttendeeFromRoom_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoom({
     required String token,
-    required RoomRemoveAttendeeFromRoomRequestApplicationJson $body,
+    required int attendeeId,
     RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $removeAttendeeFromRoom_Request(
       token: token,
+      attendeeId: attendeeId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -12164,6 +12315,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [attendeeId] ID of the attendee.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -12178,7 +12330,7 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $demoteModerator_Request({
     required String token,
-    required RoomDemoteModeratorRequestApplicationJson $body,
+    required int attendeeId,
     RoomDemoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -12191,13 +12343,21 @@ class $RoomClient {
     );
     _parameters['token'] = __token;
 
+    final __attendeeId = _$jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    _i4.checkNumber(
+      __attendeeId,
+      'attendeeId',
+      minimum: 0,
+    );
+    _parameters['attendeeId'] = __attendeeId;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
-    final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators').expand(_parameters);
+    final _path = _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+        .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -12220,10 +12380,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomDemoteModeratorRequestApplicationJson)),
-    );
     return _request;
   }
 
@@ -12235,6 +12391,7 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [attendeeId] ID of the attendee.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -12248,15 +12405,15 @@ class $RoomClient {
   ///  * [$demoteModerator_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModerator({
     required String token,
-    required RoomDemoteModeratorRequestApplicationJson $body,
+    required int attendeeId,
     RoomDemoteModeratorApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $demoteModerator_Request(
       token: token,
+      attendeeId: attendeeId,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -13916,6 +14073,8 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
+  ///   * [options] Additional details to verify the validity of the request.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -13931,8 +14090,9 @@ class $RoomClient {
   @_i2.experimental
   _i3.Request $rejectedDialOutRequest_Request({
     required String token,
-    required RoomRejectedDialOutRequestRequestApplicationJson $body,
+    required String callId,
     RoomRejectedDialOutRequestApiVersion? apiVersion,
+    String? options,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
@@ -13944,13 +14104,20 @@ class $RoomClient {
     );
     _parameters['token'] = __token;
 
+    final __callId = _$jsonSerializers.serialize(callId, specifiedType: const FullType(String));
+    _parameters['callId'] = __callId;
+
     var __apiVersion =
         _$jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRejectedDialOutRequestApiVersion));
     __apiVersion ??= 'v4';
     _parameters['apiVersion'] = __apiVersion;
 
+    final __options = _$jsonSerializers.serialize(options, specifiedType: const FullType(String));
+    _parameters['options'] = __options;
+
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout').expand(_parameters);
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/rejected-dialout{?callId*,options*}')
+            .expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -13973,13 +14140,6 @@ class $RoomClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(RoomRejectedDialOutRequestRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -13991,6 +14151,8 @@ class $RoomClient {
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v4"`.
   ///   * [token]
+  ///   * [callId] The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
+  ///   * [options] Additional details to verify the validity of the request.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14005,15 +14167,17 @@ class $RoomClient {
   ///  * [$rejectedDialOutRequest_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomRejectedDialOutRequestResponseApplicationJson, void>> rejectedDialOutRequest({
     required String token,
-    required RoomRejectedDialOutRequestRequestApplicationJson $body,
+    required String callId,
     RoomRejectedDialOutRequestApiVersion? apiVersion,
+    String? options,
     bool? oCSAPIRequest,
   }) async {
     final _request = $rejectedDialOutRequest_Request(
       token: token,
+      callId: callId,
       apiVersion: apiVersion,
+      options: options,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -14253,6 +14417,7 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [host] Host to check.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14264,11 +14429,14 @@ class $SettingsClient {
   ///  * [$certificateGetCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed this request.
   @_i2.experimental
   _i3.Request $certificateGetCertificateExpiration_Request({
-    required CertificateGetCertificateExpirationRequestApplicationJson $body,
+    required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, Object?>{};
+    final __host = _$jsonSerializers.serialize(host, specifiedType: const FullType(String));
+    _parameters['host'] = __host;
+
     var __apiVersion = _$jsonSerializers.serialize(
       apiVersion,
       specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
@@ -14277,7 +14445,7 @@ class $SettingsClient {
     _parameters['apiVersion'] = __apiVersion;
 
     final _path =
-        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration').expand(_parameters);
+        _i5.UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(_parameters);
     final _uri = Uri.parse('${_rootClient.baseURL}$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Accept'] = 'application/json';
@@ -14302,13 +14470,6 @@ class $SettingsClient {
     __oCSAPIRequest ??= true;
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
-    _request.headers['Content-Type'] = 'application/json';
-    _request.body = json.encode(
-      _$jsonSerializers.serialize(
-        $body,
-        specifiedType: const FullType(CertificateGetCertificateExpirationRequestApplicationJson),
-      ),
-    );
     return _request;
   }
 
@@ -14321,6 +14482,7 @@ class $SettingsClient {
   ///
   /// Parameters:
   ///   * [apiVersion] Defaults to `"v1"`.
+  ///   * [host] Host to check.
   ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
@@ -14332,14 +14494,14 @@ class $SettingsClient {
   ///  * [$certificateGetCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
       certificateGetCertificateExpiration({
-    required CertificateGetCertificateExpirationRequestApplicationJson $body,
+    required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
     final _request = $certificateGetCertificateExpiration_Request(
+      host: host,
       apiVersion: apiVersion,
       oCSAPIRequest: oCSAPIRequest,
-      $body: $body,
     );
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -15034,75 +15196,67 @@ class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<Avata
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $AvatarGetAvatarRequestApplicationJsonInterface {
-  static final _$darkTheme = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class AvatarGetAvatarDarkTheme extends EnumClass {
+  const AvatarGetAvatarDarkTheme._(super.name);
 
-  /// Theme used for background.
-  bool get darkTheme;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetAvatarDarkTheme $0 = _$avatarGetAvatarDarkTheme$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AvatarGetAvatarRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetAvatarRequestApplicationJsonInterface rebuild(
-    void Function($AvatarGetAvatarRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetAvatarDarkTheme $1 = _$avatarGetAvatarDarkTheme$1;
 
-  /// Converts the instance to a builder [$AvatarGetAvatarRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetAvatarRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AvatarGetAvatarRequestApplicationJsonInterfaceBuilder b) {
-    b.darkTheme = _$darkTheme;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetAvatarDarkTheme> get values => _$avatarGetAvatarDarkThemeValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AvatarGetAvatarRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static AvatarGetAvatarDarkTheme valueOf(String name) => _$valueOfAvatarGetAvatarDarkTheme(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarDarkTheme> get serializer => const _$AvatarGetAvatarDarkThemeSerializer();
 }
 
-abstract class AvatarGetAvatarRequestApplicationJson
-    implements
-        $AvatarGetAvatarRequestApplicationJsonInterface,
-        Built<AvatarGetAvatarRequestApplicationJson, AvatarGetAvatarRequestApplicationJsonBuilder> {
-  /// Creates a new AvatarGetAvatarRequestApplicationJson object using the builder pattern.
-  factory AvatarGetAvatarRequestApplicationJson([void Function(AvatarGetAvatarRequestApplicationJsonBuilder)? b]) =
-      _$AvatarGetAvatarRequestApplicationJson;
+class _$AvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkTheme> {
+  const _$AvatarGetAvatarDarkThemeSerializer();
 
-  // coverage:ignore-start
-  const AvatarGetAvatarRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<AvatarGetAvatarDarkTheme, Object> _toWire = <AvatarGetAvatarDarkTheme, Object>{
+    AvatarGetAvatarDarkTheme.$0: 0,
+    AvatarGetAvatarDarkTheme.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AvatarGetAvatarRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, AvatarGetAvatarDarkTheme> _fromWire = <Object, AvatarGetAvatarDarkTheme>{
+    0: AvatarGetAvatarDarkTheme.$0,
+    1: AvatarGetAvatarDarkTheme.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarDarkTheme];
 
-  /// Serializer for AvatarGetAvatarRequestApplicationJson.
-  static Serializer<AvatarGetAvatarRequestApplicationJson> get serializer =>
-      _$avatarGetAvatarRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'AvatarGetAvatarDarkTheme';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AvatarGetAvatarRequestApplicationJsonBuilder b) {
-    $AvatarGetAvatarRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AvatarGetAvatarRequestApplicationJsonBuilder b) {
-    $AvatarGetAvatarRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  AvatarGetAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class AvatarUploadAvatarApiVersion extends EnumClass {
@@ -16786,80 +16940,73 @@ class _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface {
-  static final _$darkTheme = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class AvatarGetUserProxyAvatarWithoutRoomDarkTheme extends EnumClass {
+  const AvatarGetUserProxyAvatarWithoutRoomDarkTheme._(super.name);
 
-  /// Federation CloudID to get the avatar for.
-  String get cloudId;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetUserProxyAvatarWithoutRoomDarkTheme $0 = _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$0;
 
-  /// Theme used for background.
-  bool get darkTheme;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetUserProxyAvatarWithoutRoomDarkTheme $1 = _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$1;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface rebuild(
-    void Function($AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> get values =>
+      _$avatarGetUserProxyAvatarWithoutRoomDarkThemeValues;
+  // coverage:ignore-end
 
-  /// Converts the instance to a builder [$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder b) {
-    b.darkTheme = _$darkTheme;
-  }
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarWithoutRoomDarkTheme valueOf(String name) =>
+      _$valueOfAvatarGetUserProxyAvatarWithoutRoomDarkTheme(name);
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarWithoutRoomDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> get serializer =>
+      const _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer();
 }
 
-abstract class AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson
-    implements
-        $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface,
-        Built<AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson,
-            AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder> {
-  /// Creates a new AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson object using the builder pattern.
-  factory AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson([
-    void Function(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder)? b,
-  ]) = _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson;
+class _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer
+    implements PrimitiveSerializer<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> {
+  const _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer();
 
-  // coverage:ignore-start
-  const AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object> _toWire =
+      <AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object>{
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0: 0,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme> _fromWire =
+      <Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme>{
+    0: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0,
+    1: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomDarkTheme];
 
-  /// Serializer for AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson.
-  static Serializer<AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson> get serializer =>
-      _$avatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarWithoutRoomDarkTheme';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  AvatarGetUserProxyAvatarWithoutRoomDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkWithoutRoomSize extends EnumClass {
@@ -16994,71 +17141,6 @@ class _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface {
-  /// Federation CloudID to get the avatar for.
-  String get cloudId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface rebuild(
-    void Function($AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson
-    implements
-        $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface,
-        Built<AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson,
-            AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder> {
-  /// Creates a new AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson object using the builder pattern.
-  factory AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson([
-    void Function(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder)? b,
-  ]) = _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson;
-
-  // coverage:ignore-start
-  const AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson.
-  static Serializer<AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson> get serializer =>
-      _$avatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface._validate(b);
-  }
-}
-
 class AvatarGetUserProxyAvatarSize extends EnumClass {
   const AvatarGetUserProxyAvatarSize._(super.name);
 
@@ -17180,79 +17262,68 @@ class _$AvatarGetUserProxyAvatarApiVersionSerializer
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $AvatarGetUserProxyAvatarRequestApplicationJsonInterface {
-  static final _$darkTheme = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class AvatarGetUserProxyAvatarDarkTheme extends EnumClass {
+  const AvatarGetUserProxyAvatarDarkTheme._(super.name);
 
-  /// Federation CloudID to get the avatar for.
-  String get cloudId;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const AvatarGetUserProxyAvatarDarkTheme $0 = _$avatarGetUserProxyAvatarDarkTheme$0;
 
-  /// Theme used for background.
-  bool get darkTheme;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const AvatarGetUserProxyAvatarDarkTheme $1 = _$avatarGetUserProxyAvatarDarkTheme$1;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarRequestApplicationJsonInterface rebuild(
-    void Function($AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<AvatarGetUserProxyAvatarDarkTheme> get values => _$avatarGetUserProxyAvatarDarkThemeValues;
+  // coverage:ignore-end
 
-  /// Converts the instance to a builder [$AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder b) {
-    b.darkTheme = _$darkTheme;
-  }
+  /// Returns the enum value associated to the [name].
+  static AvatarGetUserProxyAvatarDarkTheme valueOf(String name) => _$valueOfAvatarGetUserProxyAvatarDarkTheme(name);
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for AvatarGetUserProxyAvatarDarkTheme.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetUserProxyAvatarDarkTheme> get serializer =>
+      const _$AvatarGetUserProxyAvatarDarkThemeSerializer();
 }
 
-abstract class AvatarGetUserProxyAvatarRequestApplicationJson
-    implements
-        $AvatarGetUserProxyAvatarRequestApplicationJsonInterface,
-        Built<AvatarGetUserProxyAvatarRequestApplicationJson, AvatarGetUserProxyAvatarRequestApplicationJsonBuilder> {
-  /// Creates a new AvatarGetUserProxyAvatarRequestApplicationJson object using the builder pattern.
-  factory AvatarGetUserProxyAvatarRequestApplicationJson([
-    void Function(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder)? b,
-  ]) = _$AvatarGetUserProxyAvatarRequestApplicationJson;
+class _$AvatarGetUserProxyAvatarDarkThemeSerializer implements PrimitiveSerializer<AvatarGetUserProxyAvatarDarkTheme> {
+  const _$AvatarGetUserProxyAvatarDarkThemeSerializer();
 
-  // coverage:ignore-start
-  const AvatarGetUserProxyAvatarRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<AvatarGetUserProxyAvatarDarkTheme, Object> _toWire = <AvatarGetUserProxyAvatarDarkTheme, Object>{
+    AvatarGetUserProxyAvatarDarkTheme.$0: 0,
+    AvatarGetUserProxyAvatarDarkTheme.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AvatarGetUserProxyAvatarRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, AvatarGetUserProxyAvatarDarkTheme> _fromWire = <Object, AvatarGetUserProxyAvatarDarkTheme>{
+    0: AvatarGetUserProxyAvatarDarkTheme.$0,
+    1: AvatarGetUserProxyAvatarDarkTheme.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkTheme];
 
-  /// Serializer for AvatarGetUserProxyAvatarRequestApplicationJson.
-  static Serializer<AvatarGetUserProxyAvatarRequestApplicationJson> get serializer =>
-      _$avatarGetUserProxyAvatarRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'AvatarGetUserProxyAvatarDarkTheme';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetUserProxyAvatarDarkTheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  AvatarGetUserProxyAvatarDarkTheme deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkSize extends EnumClass {
@@ -17378,71 +17449,6 @@ class _$AvatarGetUserProxyAvatarDarkApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface {
-  /// Federation CloudID to get the avatar for.
-  String get cloudId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface rebuild(
-    void Function($AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder].
-  $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class AvatarGetUserProxyAvatarDarkRequestApplicationJson
-    implements
-        $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface,
-        Built<AvatarGetUserProxyAvatarDarkRequestApplicationJson,
-            AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder> {
-  /// Creates a new AvatarGetUserProxyAvatarDarkRequestApplicationJson object using the builder pattern.
-  factory AvatarGetUserProxyAvatarDarkRequestApplicationJson([
-    void Function(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder)? b,
-  ]) = _$AvatarGetUserProxyAvatarDarkRequestApplicationJson;
-
-  // coverage:ignore-start
-  const AvatarGetUserProxyAvatarDarkRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory AvatarGetUserProxyAvatarDarkRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for AvatarGetUserProxyAvatarDarkRequestApplicationJson.
-  static Serializer<AvatarGetUserProxyAvatarDarkRequestApplicationJson> get serializer =>
-      _$avatarGetUserProxyAvatarDarkRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder b) {
-    $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 class BotListBotsApiVersion extends EnumClass {
@@ -18616,69 +18622,6 @@ class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<Bot
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $BotDeleteReactionRequestApplicationJsonInterface {
-  /// Reaction to delete.
-  String get reaction;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$BotDeleteReactionRequestApplicationJsonInterfaceBuilder].
-  $BotDeleteReactionRequestApplicationJsonInterface rebuild(
-    void Function($BotDeleteReactionRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$BotDeleteReactionRequestApplicationJsonInterfaceBuilder].
-  $BotDeleteReactionRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BotDeleteReactionRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($BotDeleteReactionRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class BotDeleteReactionRequestApplicationJson
-    implements
-        $BotDeleteReactionRequestApplicationJsonInterface,
-        Built<BotDeleteReactionRequestApplicationJson, BotDeleteReactionRequestApplicationJsonBuilder> {
-  /// Creates a new BotDeleteReactionRequestApplicationJson object using the builder pattern.
-  factory BotDeleteReactionRequestApplicationJson([void Function(BotDeleteReactionRequestApplicationJsonBuilder)? b]) =
-      _$BotDeleteReactionRequestApplicationJson;
-
-  // coverage:ignore-start
-  const BotDeleteReactionRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory BotDeleteReactionRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for BotDeleteReactionRequestApplicationJson.
-  static Serializer<BotDeleteReactionRequestApplicationJson> get serializer =>
-      _$botDeleteReactionRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BotDeleteReactionRequestApplicationJsonBuilder b) {
-    $BotDeleteReactionRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(BotDeleteReactionRequestApplicationJsonBuilder b) {
-    $BotDeleteReactionRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21728,75 +21671,67 @@ class _$CallLeaveCallApiVersionSerializer implements PrimitiveSerializer<CallLea
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $CallLeaveCallRequestApplicationJsonInterface {
-  static final _$all = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class CallLeaveCallAll extends EnumClass {
+  const CallLeaveCallAll._(super.name);
 
-  /// whether to also terminate the call for all participants.
-  bool get all;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallLeaveCallAll $0 = _$callLeaveCallAll$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$CallLeaveCallRequestApplicationJsonInterfaceBuilder].
-  $CallLeaveCallRequestApplicationJsonInterface rebuild(
-    void Function($CallLeaveCallRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallLeaveCallAll $1 = _$callLeaveCallAll$1;
 
-  /// Converts the instance to a builder [$CallLeaveCallRequestApplicationJsonInterfaceBuilder].
-  $CallLeaveCallRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CallLeaveCallRequestApplicationJsonInterfaceBuilder b) {
-    b.all = _$all;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<CallLeaveCallAll> get values => _$callLeaveCallAllValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CallLeaveCallRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static CallLeaveCallAll valueOf(String name) => _$valueOfCallLeaveCallAll(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for CallLeaveCallAll.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallLeaveCallAll> get serializer => const _$CallLeaveCallAllSerializer();
 }
 
-abstract class CallLeaveCallRequestApplicationJson
-    implements
-        $CallLeaveCallRequestApplicationJsonInterface,
-        Built<CallLeaveCallRequestApplicationJson, CallLeaveCallRequestApplicationJsonBuilder> {
-  /// Creates a new CallLeaveCallRequestApplicationJson object using the builder pattern.
-  factory CallLeaveCallRequestApplicationJson([void Function(CallLeaveCallRequestApplicationJsonBuilder)? b]) =
-      _$CallLeaveCallRequestApplicationJson;
+class _$CallLeaveCallAllSerializer implements PrimitiveSerializer<CallLeaveCallAll> {
+  const _$CallLeaveCallAllSerializer();
 
-  // coverage:ignore-start
-  const CallLeaveCallRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<CallLeaveCallAll, Object> _toWire = <CallLeaveCallAll, Object>{
+    CallLeaveCallAll.$0: 0,
+    CallLeaveCallAll.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CallLeaveCallRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, CallLeaveCallAll> _fromWire = <Object, CallLeaveCallAll>{
+    0: CallLeaveCallAll.$0,
+    1: CallLeaveCallAll.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [CallLeaveCallAll];
 
-  /// Serializer for CallLeaveCallRequestApplicationJson.
-  static Serializer<CallLeaveCallRequestApplicationJson> get serializer =>
-      _$callLeaveCallRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'CallLeaveCallAll';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CallLeaveCallRequestApplicationJsonBuilder b) {
-    $CallLeaveCallRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallLeaveCallAll object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CallLeaveCallRequestApplicationJsonBuilder b) {
-    $CallLeaveCallRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  CallLeaveCallAll deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22353,6 +22288,70 @@ abstract class CallSipDialOutResponseApplicationJson
   }
 }
 
+class ChatReceiveMessagesLookIntoFuture extends EnumClass {
+  const ChatReceiveMessagesLookIntoFuture._(super.name);
+
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesLookIntoFuture $0 = _$chatReceiveMessagesLookIntoFuture$0;
+
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesLookIntoFuture $1 = _$chatReceiveMessagesLookIntoFuture$1;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesLookIntoFuture> get values => _$chatReceiveMessagesLookIntoFutureValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static ChatReceiveMessagesLookIntoFuture valueOf(String name) => _$valueOfChatReceiveMessagesLookIntoFuture(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for ChatReceiveMessagesLookIntoFuture.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesLookIntoFuture> get serializer =>
+      const _$ChatReceiveMessagesLookIntoFutureSerializer();
+}
+
+class _$ChatReceiveMessagesLookIntoFutureSerializer implements PrimitiveSerializer<ChatReceiveMessagesLookIntoFuture> {
+  const _$ChatReceiveMessagesLookIntoFutureSerializer();
+
+  static const Map<ChatReceiveMessagesLookIntoFuture, Object> _toWire = <ChatReceiveMessagesLookIntoFuture, Object>{
+    ChatReceiveMessagesLookIntoFuture.$0: 0,
+    ChatReceiveMessagesLookIntoFuture.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesLookIntoFuture> _fromWire = <Object, ChatReceiveMessagesLookIntoFuture>{
+    0: ChatReceiveMessagesLookIntoFuture.$0,
+    1: ChatReceiveMessagesLookIntoFuture.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesLookIntoFuture];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesLookIntoFuture';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesLookIntoFuture object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesLookIntoFuture deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class ChatReceiveMessagesApiVersion extends EnumClass {
   const ChatReceiveMessagesApiVersion._(super.name);
 
@@ -22409,71 +22408,63 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
       _fromWire[serialized]!;
 }
 
-/// Polling for new messages (1) or getting the history of the chat (0).
-class ChatReceiveMessagesRequestApplicationJson_LookIntoFuture extends EnumClass {
-  const ChatReceiveMessagesRequestApplicationJson_LookIntoFuture._(super.name);
+class ChatReceiveMessagesSetReadMarker extends EnumClass {
+  const ChatReceiveMessagesSetReadMarker._(super.name);
 
   /// `0`
   @BuiltValueEnumConst(wireName: '0')
-  static const ChatReceiveMessagesRequestApplicationJson_LookIntoFuture $0 =
-      _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$0;
+  static const ChatReceiveMessagesSetReadMarker $0 = _$chatReceiveMessagesSetReadMarker$0;
 
   /// `1`
   @BuiltValueEnumConst(wireName: '1')
-  static const ChatReceiveMessagesRequestApplicationJson_LookIntoFuture $1 =
-      _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$1;
+  static const ChatReceiveMessagesSetReadMarker $1 = _$chatReceiveMessagesSetReadMarker$1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<ChatReceiveMessagesRequestApplicationJson_LookIntoFuture> get values =>
-      _$chatReceiveMessagesRequestApplicationJsonLookIntoFutureValues;
+  static BuiltSet<ChatReceiveMessagesSetReadMarker> get values => _$chatReceiveMessagesSetReadMarkerValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static ChatReceiveMessagesRequestApplicationJson_LookIntoFuture valueOf(String name) =>
-      _$valueOfChatReceiveMessagesRequestApplicationJson_LookIntoFuture(name);
+  static ChatReceiveMessagesSetReadMarker valueOf(String name) => _$valueOfChatReceiveMessagesSetReadMarker(name);
 
   /// Returns the serialized value of this enum value.
   int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.
+  /// Serializer for ChatReceiveMessagesSetReadMarker.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChatReceiveMessagesRequestApplicationJson_LookIntoFuture> get serializer =>
-      const _$ChatReceiveMessagesRequestApplicationJson_LookIntoFutureSerializer();
+  static Serializer<ChatReceiveMessagesSetReadMarker> get serializer =>
+      const _$ChatReceiveMessagesSetReadMarkerSerializer();
 }
 
-class _$ChatReceiveMessagesRequestApplicationJson_LookIntoFutureSerializer
-    implements PrimitiveSerializer<ChatReceiveMessagesRequestApplicationJson_LookIntoFuture> {
-  const _$ChatReceiveMessagesRequestApplicationJson_LookIntoFutureSerializer();
+class _$ChatReceiveMessagesSetReadMarkerSerializer implements PrimitiveSerializer<ChatReceiveMessagesSetReadMarker> {
+  const _$ChatReceiveMessagesSetReadMarkerSerializer();
 
-  static const Map<ChatReceiveMessagesRequestApplicationJson_LookIntoFuture, Object> _toWire =
-      <ChatReceiveMessagesRequestApplicationJson_LookIntoFuture, Object>{
-    ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0: 0,
-    ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$1: 1,
+  static const Map<ChatReceiveMessagesSetReadMarker, Object> _toWire = <ChatReceiveMessagesSetReadMarker, Object>{
+    ChatReceiveMessagesSetReadMarker.$0: 0,
+    ChatReceiveMessagesSetReadMarker.$1: 1,
   };
 
-  static const Map<Object, ChatReceiveMessagesRequestApplicationJson_LookIntoFuture> _fromWire =
-      <Object, ChatReceiveMessagesRequestApplicationJson_LookIntoFuture>{
-    0: ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$0,
-    1: ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.$1,
+  static const Map<Object, ChatReceiveMessagesSetReadMarker> _fromWire = <Object, ChatReceiveMessagesSetReadMarker>{
+    0: ChatReceiveMessagesSetReadMarker.$0,
+    1: ChatReceiveMessagesSetReadMarker.$1,
   };
 
   @override
-  Iterable<Type> get types => const [ChatReceiveMessagesRequestApplicationJson_LookIntoFuture];
+  Iterable<Type> get types => const [ChatReceiveMessagesSetReadMarker];
 
   @override
-  String get wireName => 'ChatReceiveMessagesRequestApplicationJson_LookIntoFuture';
+  String get wireName => 'ChatReceiveMessagesSetReadMarker';
 
   @override
   Object serialize(
     Serializers serializers,
-    ChatReceiveMessagesRequestApplicationJson_LookIntoFuture object, {
+    ChatReceiveMessagesSetReadMarker object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  ChatReceiveMessagesRequestApplicationJson_LookIntoFuture deserialize(
+  ChatReceiveMessagesSetReadMarker deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -22481,72 +22472,65 @@ class _$ChatReceiveMessagesRequestApplicationJson_LookIntoFutureSerializer
       _fromWire[serialized]!;
 }
 
-/// Automatically set the last read marker when 1,.
-/// if your client does this itself via chat/{token}/read set to 0.
-class ChatReceiveMessagesRequestApplicationJson_SetReadMarker extends EnumClass {
-  const ChatReceiveMessagesRequestApplicationJson_SetReadMarker._(super.name);
+class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
+  const ChatReceiveMessagesIncludeLastKnown._(super.name);
 
   /// `0`
   @BuiltValueEnumConst(wireName: '0')
-  static const ChatReceiveMessagesRequestApplicationJson_SetReadMarker $0 =
-      _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$0;
+  static const ChatReceiveMessagesIncludeLastKnown $0 = _$chatReceiveMessagesIncludeLastKnown$0;
 
   /// `1`
   @BuiltValueEnumConst(wireName: '1')
-  static const ChatReceiveMessagesRequestApplicationJson_SetReadMarker $1 =
-      _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$1;
+  static const ChatReceiveMessagesIncludeLastKnown $1 = _$chatReceiveMessagesIncludeLastKnown$1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<ChatReceiveMessagesRequestApplicationJson_SetReadMarker> get values =>
-      _$chatReceiveMessagesRequestApplicationJsonSetReadMarkerValues;
+  static BuiltSet<ChatReceiveMessagesIncludeLastKnown> get values => _$chatReceiveMessagesIncludeLastKnownValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static ChatReceiveMessagesRequestApplicationJson_SetReadMarker valueOf(String name) =>
-      _$valueOfChatReceiveMessagesRequestApplicationJson_SetReadMarker(name);
+  static ChatReceiveMessagesIncludeLastKnown valueOf(String name) => _$valueOfChatReceiveMessagesIncludeLastKnown(name);
 
   /// Returns the serialized value of this enum value.
   int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson_SetReadMarker.
+  /// Serializer for ChatReceiveMessagesIncludeLastKnown.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChatReceiveMessagesRequestApplicationJson_SetReadMarker> get serializer =>
-      const _$ChatReceiveMessagesRequestApplicationJson_SetReadMarkerSerializer();
+  static Serializer<ChatReceiveMessagesIncludeLastKnown> get serializer =>
+      const _$ChatReceiveMessagesIncludeLastKnownSerializer();
 }
 
-class _$ChatReceiveMessagesRequestApplicationJson_SetReadMarkerSerializer
-    implements PrimitiveSerializer<ChatReceiveMessagesRequestApplicationJson_SetReadMarker> {
-  const _$ChatReceiveMessagesRequestApplicationJson_SetReadMarkerSerializer();
+class _$ChatReceiveMessagesIncludeLastKnownSerializer
+    implements PrimitiveSerializer<ChatReceiveMessagesIncludeLastKnown> {
+  const _$ChatReceiveMessagesIncludeLastKnownSerializer();
 
-  static const Map<ChatReceiveMessagesRequestApplicationJson_SetReadMarker, Object> _toWire =
-      <ChatReceiveMessagesRequestApplicationJson_SetReadMarker, Object>{
-    ChatReceiveMessagesRequestApplicationJson_SetReadMarker.$0: 0,
-    ChatReceiveMessagesRequestApplicationJson_SetReadMarker.$1: 1,
+  static const Map<ChatReceiveMessagesIncludeLastKnown, Object> _toWire = <ChatReceiveMessagesIncludeLastKnown, Object>{
+    ChatReceiveMessagesIncludeLastKnown.$0: 0,
+    ChatReceiveMessagesIncludeLastKnown.$1: 1,
   };
 
-  static const Map<Object, ChatReceiveMessagesRequestApplicationJson_SetReadMarker> _fromWire =
-      <Object, ChatReceiveMessagesRequestApplicationJson_SetReadMarker>{
-    0: ChatReceiveMessagesRequestApplicationJson_SetReadMarker.$0,
-    1: ChatReceiveMessagesRequestApplicationJson_SetReadMarker.$1,
+  static const Map<Object, ChatReceiveMessagesIncludeLastKnown> _fromWire =
+      <Object, ChatReceiveMessagesIncludeLastKnown>{
+    0: ChatReceiveMessagesIncludeLastKnown.$0,
+    1: ChatReceiveMessagesIncludeLastKnown.$1,
   };
 
   @override
-  Iterable<Type> get types => const [ChatReceiveMessagesRequestApplicationJson_SetReadMarker];
+  Iterable<Type> get types => const [ChatReceiveMessagesIncludeLastKnown];
 
   @override
-  String get wireName => 'ChatReceiveMessagesRequestApplicationJson_SetReadMarker';
+  String get wireName => 'ChatReceiveMessagesIncludeLastKnown';
 
   @override
   Object serialize(
     Serializers serializers,
-    ChatReceiveMessagesRequestApplicationJson_SetReadMarker object, {
+    ChatReceiveMessagesIncludeLastKnown object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  ChatReceiveMessagesRequestApplicationJson_SetReadMarker deserialize(
+  ChatReceiveMessagesIncludeLastKnown deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -22554,71 +22538,63 @@ class _$ChatReceiveMessagesRequestApplicationJson_SetReadMarkerSerializer
       _fromWire[serialized]!;
 }
 
-/// Include the $lastKnownMessageId in the messages when 1 (default 0).
-class ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown extends EnumClass {
-  const ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown._(super.name);
+class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
+  const ChatReceiveMessagesNoStatusUpdate._(super.name);
 
   /// `0`
   @BuiltValueEnumConst(wireName: '0')
-  static const ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown $0 =
-      _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$0;
+  static const ChatReceiveMessagesNoStatusUpdate $0 = _$chatReceiveMessagesNoStatusUpdate$0;
 
   /// `1`
   @BuiltValueEnumConst(wireName: '1')
-  static const ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown $1 =
-      _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$1;
+  static const ChatReceiveMessagesNoStatusUpdate $1 = _$chatReceiveMessagesNoStatusUpdate$1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown> get values =>
-      _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnownValues;
+  static BuiltSet<ChatReceiveMessagesNoStatusUpdate> get values => _$chatReceiveMessagesNoStatusUpdateValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown valueOf(String name) =>
-      _$valueOfChatReceiveMessagesRequestApplicationJson_IncludeLastKnown(name);
+  static ChatReceiveMessagesNoStatusUpdate valueOf(String name) => _$valueOfChatReceiveMessagesNoStatusUpdate(name);
 
   /// Returns the serialized value of this enum value.
   int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.
+  /// Serializer for ChatReceiveMessagesNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown> get serializer =>
-      const _$ChatReceiveMessagesRequestApplicationJson_IncludeLastKnownSerializer();
+  static Serializer<ChatReceiveMessagesNoStatusUpdate> get serializer =>
+      const _$ChatReceiveMessagesNoStatusUpdateSerializer();
 }
 
-class _$ChatReceiveMessagesRequestApplicationJson_IncludeLastKnownSerializer
-    implements PrimitiveSerializer<ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown> {
-  const _$ChatReceiveMessagesRequestApplicationJson_IncludeLastKnownSerializer();
+class _$ChatReceiveMessagesNoStatusUpdateSerializer implements PrimitiveSerializer<ChatReceiveMessagesNoStatusUpdate> {
+  const _$ChatReceiveMessagesNoStatusUpdateSerializer();
 
-  static const Map<ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown, Object> _toWire =
-      <ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown, Object>{
-    ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0: 0,
-    ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$1: 1,
+  static const Map<ChatReceiveMessagesNoStatusUpdate, Object> _toWire = <ChatReceiveMessagesNoStatusUpdate, Object>{
+    ChatReceiveMessagesNoStatusUpdate.$0: 0,
+    ChatReceiveMessagesNoStatusUpdate.$1: 1,
   };
 
-  static const Map<Object, ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown> _fromWire =
-      <Object, ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown>{
-    0: ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$0,
-    1: ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.$1,
+  static const Map<Object, ChatReceiveMessagesNoStatusUpdate> _fromWire = <Object, ChatReceiveMessagesNoStatusUpdate>{
+    0: ChatReceiveMessagesNoStatusUpdate.$0,
+    1: ChatReceiveMessagesNoStatusUpdate.$1,
   };
 
   @override
-  Iterable<Type> get types => const [ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown];
+  Iterable<Type> get types => const [ChatReceiveMessagesNoStatusUpdate];
 
   @override
-  String get wireName => 'ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown';
+  String get wireName => 'ChatReceiveMessagesNoStatusUpdate';
 
   @override
   Object serialize(
     Serializers serializers,
-    ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown object, {
+    ChatReceiveMessagesNoStatusUpdate object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown deserialize(
+  ChatReceiveMessagesNoStatusUpdate deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -22626,306 +22602,73 @@ class _$ChatReceiveMessagesRequestApplicationJson_IncludeLastKnownSerializer
       _fromWire[serialized]!;
 }
 
-/// When the user status should not be automatically set to online set to 1 (default 0).
-class ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate extends EnumClass {
-  const ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate._(super.name);
+class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
+  const ChatReceiveMessagesMarkNotificationsAsRead._(super.name);
 
   /// `0`
   @BuiltValueEnumConst(wireName: '0')
-  static const ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate $0 =
-      _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$0;
+  static const ChatReceiveMessagesMarkNotificationsAsRead $0 = _$chatReceiveMessagesMarkNotificationsAsRead$0;
 
   /// `1`
   @BuiltValueEnumConst(wireName: '1')
-  static const ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate $1 =
-      _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$1;
+  static const ChatReceiveMessagesMarkNotificationsAsRead $1 = _$chatReceiveMessagesMarkNotificationsAsRead$1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate> get values =>
-      _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdateValues;
+  static BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> get values =>
+      _$chatReceiveMessagesMarkNotificationsAsReadValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate valueOf(String name) =>
-      _$valueOfChatReceiveMessagesRequestApplicationJson_NoStatusUpdate(name);
+  static ChatReceiveMessagesMarkNotificationsAsRead valueOf(String name) =>
+      _$valueOfChatReceiveMessagesMarkNotificationsAsRead(name);
 
   /// Returns the serialized value of this enum value.
   int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.
+  /// Serializer for ChatReceiveMessagesMarkNotificationsAsRead.
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate> get serializer =>
-      const _$ChatReceiveMessagesRequestApplicationJson_NoStatusUpdateSerializer();
+  static Serializer<ChatReceiveMessagesMarkNotificationsAsRead> get serializer =>
+      const _$ChatReceiveMessagesMarkNotificationsAsReadSerializer();
 }
 
-class _$ChatReceiveMessagesRequestApplicationJson_NoStatusUpdateSerializer
-    implements PrimitiveSerializer<ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate> {
-  const _$ChatReceiveMessagesRequestApplicationJson_NoStatusUpdateSerializer();
+class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
+    implements PrimitiveSerializer<ChatReceiveMessagesMarkNotificationsAsRead> {
+  const _$ChatReceiveMessagesMarkNotificationsAsReadSerializer();
 
-  static const Map<ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate, Object> _toWire =
-      <ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate, Object>{
-    ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.$0: 0,
-    ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.$1: 1,
+  static const Map<ChatReceiveMessagesMarkNotificationsAsRead, Object> _toWire =
+      <ChatReceiveMessagesMarkNotificationsAsRead, Object>{
+    ChatReceiveMessagesMarkNotificationsAsRead.$0: 0,
+    ChatReceiveMessagesMarkNotificationsAsRead.$1: 1,
   };
 
-  static const Map<Object, ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate> _fromWire =
-      <Object, ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate>{
-    0: ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.$0,
-    1: ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.$1,
+  static const Map<Object, ChatReceiveMessagesMarkNotificationsAsRead> _fromWire =
+      <Object, ChatReceiveMessagesMarkNotificationsAsRead>{
+    0: ChatReceiveMessagesMarkNotificationsAsRead.$0,
+    1: ChatReceiveMessagesMarkNotificationsAsRead.$1,
   };
 
   @override
-  Iterable<Type> get types => const [ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate];
+  Iterable<Type> get types => const [ChatReceiveMessagesMarkNotificationsAsRead];
 
   @override
-  String get wireName => 'ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate';
+  String get wireName => 'ChatReceiveMessagesMarkNotificationsAsRead';
 
   @override
   Object serialize(
     Serializers serializers,
-    ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate object, {
+    ChatReceiveMessagesMarkNotificationsAsRead object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate deserialize(
+  ChatReceiveMessagesMarkNotificationsAsRead deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-/// Set to 0 when notifications should not be marked as read (default 1).
-class ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead extends EnumClass {
-  const ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead._(super.name);
-
-  /// `0`
-  @BuiltValueEnumConst(wireName: '0')
-  static const ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead $0 =
-      _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$0;
-
-  /// `1`
-  @BuiltValueEnumConst(wireName: '1')
-  static const ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead $1 =
-      _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$1;
-
-  /// Returns a set with all values this enum contains.
-  // coverage:ignore-start
-  static BuiltSet<ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead> get values =>
-      _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsReadValues;
-  // coverage:ignore-end
-
-  /// Returns the enum value associated to the [name].
-  static ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead valueOf(String name) =>
-      _$valueOfChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead(name);
-
-  /// Returns the serialized value of this enum value.
-  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
-
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead> get serializer =>
-      const _$ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsReadSerializer();
-}
-
-class _$ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsReadSerializer
-    implements PrimitiveSerializer<ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead> {
-  const _$ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsReadSerializer();
-
-  static const Map<ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead, Object> _toWire =
-      <ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead, Object>{
-    ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.$0: 0,
-    ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.$1: 1,
-  };
-
-  static const Map<Object, ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead> _fromWire =
-      <Object, ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead>{
-    0: ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.$0,
-    1: ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.$1,
-  };
-
-  @override
-  Iterable<Type> get types => const [ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead];
-
-  @override
-  String get wireName => 'ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $ChatReceiveMessagesRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    100,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  static final _$lastKnownMessageId = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  static final _$lastCommonReadId = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  static final _$timeout = _$jsonSerializers.deserialize(
-    30,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  static final _$setReadMarker = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_SetReadMarker),
-  )! as ChatReceiveMessagesRequestApplicationJson_SetReadMarker;
-
-  static final _$includeLastKnown = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown),
-  )! as ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown;
-
-  static final _$noStatusUpdate = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate),
-  )! as ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate;
-
-  static final _$markNotificationsAsRead = _$jsonSerializers.deserialize(
-    1,
-    specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead),
-  )! as ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead;
-
-  /// Polling for new messages (1) or getting the history of the chat (0).
-  ChatReceiveMessagesRequestApplicationJson_LookIntoFuture get lookIntoFuture;
-
-  /// Number of chat messages to receive (100 by default, 200 at most).
-  int get limit;
-
-  /// The last known message (serves as offset).
-  int get lastKnownMessageId;
-
-  /// The last known common read message.
-  /// (so the response is 200 instead of 304 when.
-  /// it changes even when there are no messages).
-  int get lastCommonReadId;
-
-  /// Number of seconds to wait for new messages (30 by default, 30 at most).
-  int get timeout;
-
-  /// Automatically set the last read marker when 1,.
-  /// if your client does this itself via chat/{token}/read set to 0.
-  ChatReceiveMessagesRequestApplicationJson_SetReadMarker get setReadMarker;
-
-  /// Include the $lastKnownMessageId in the messages when 1 (default 0).
-  ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown get includeLastKnown;
-
-  /// When the user status should not be automatically set to online set to 1 (default 0).
-  ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate get noStatusUpdate;
-
-  /// Set to 0 when notifications should not be marked as read (default 1).
-  ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead get markNotificationsAsRead;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder].
-  $ChatReceiveMessagesRequestApplicationJsonInterface rebuild(
-    void Function($ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder].
-  $ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder b) {
-    b.limit = _$limit;
-    b.lastKnownMessageId = _$lastKnownMessageId;
-    b.lastCommonReadId = _$lastCommonReadId;
-    b.timeout = _$timeout;
-    b.setReadMarker = _$setReadMarker;
-    b.includeLastKnown = _$includeLastKnown;
-    b.noStatusUpdate = _$noStatusUpdate;
-    b.markNotificationsAsRead = _$markNotificationsAsRead;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.lastKnownMessageId,
-      'lastKnownMessageId',
-      minimum: 0,
-    );
-    _i4.checkNumber(
-      b.lastCommonReadId,
-      'lastCommonReadId',
-      minimum: 0,
-    );
-    _i4.checkNumber(
-      b.timeout,
-      'timeout',
-      maximum: 30,
-      minimum: 0,
-    );
-  }
-}
-
-abstract class ChatReceiveMessagesRequestApplicationJson
-    implements
-        $ChatReceiveMessagesRequestApplicationJsonInterface,
-        Built<ChatReceiveMessagesRequestApplicationJson, ChatReceiveMessagesRequestApplicationJsonBuilder> {
-  /// Creates a new ChatReceiveMessagesRequestApplicationJson object using the builder pattern.
-  factory ChatReceiveMessagesRequestApplicationJson([
-    void Function(ChatReceiveMessagesRequestApplicationJsonBuilder)? b,
-  ]) = _$ChatReceiveMessagesRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ChatReceiveMessagesRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatReceiveMessagesRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatReceiveMessagesRequestApplicationJson.
-  static Serializer<ChatReceiveMessagesRequestApplicationJson> get serializer =>
-      _$chatReceiveMessagesRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ChatReceiveMessagesRequestApplicationJsonBuilder b) {
-    $ChatReceiveMessagesRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ChatReceiveMessagesRequestApplicationJsonBuilder b) {
-    $ChatReceiveMessagesRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -24376,85 +24119,6 @@ class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $ChatGetMessageContextRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    50,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  /// Number of chat messages to receive in both directions (50 by default, 100 at most, might return 201 messages).
-  int get limit;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ChatGetMessageContextRequestApplicationJsonInterfaceBuilder].
-  $ChatGetMessageContextRequestApplicationJsonInterface rebuild(
-    void Function($ChatGetMessageContextRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ChatGetMessageContextRequestApplicationJsonInterfaceBuilder].
-  $ChatGetMessageContextRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatGetMessageContextRequestApplicationJsonInterfaceBuilder b) {
-    b.limit = _$limit;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatGetMessageContextRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.limit,
-      'limit',
-      maximum: 100,
-      minimum: 1,
-    );
-  }
-}
-
-abstract class ChatGetMessageContextRequestApplicationJson
-    implements
-        $ChatGetMessageContextRequestApplicationJsonInterface,
-        Built<ChatGetMessageContextRequestApplicationJson, ChatGetMessageContextRequestApplicationJsonBuilder> {
-  /// Creates a new ChatGetMessageContextRequestApplicationJson object using the builder pattern.
-  factory ChatGetMessageContextRequestApplicationJson([
-    void Function(ChatGetMessageContextRequestApplicationJsonBuilder)? b,
-  ]) = _$ChatGetMessageContextRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ChatGetMessageContextRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatGetMessageContextRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatGetMessageContextRequestApplicationJson.
-  static Serializer<ChatGetMessageContextRequestApplicationJson> get serializer =>
-      _$chatGetMessageContextRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ChatGetMessageContextRequestApplicationJsonBuilder b) {
-    $ChatGetMessageContextRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ChatGetMessageContextRequestApplicationJsonBuilder b) {
-    $ChatGetMessageContextRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -25993,87 +25657,67 @@ class _$ChatMentionsApiVersionSerializer implements PrimitiveSerializer<ChatMent
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $ChatMentionsRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    20,
-    specifiedType: const FullType(int),
-  )! as int;
+class ChatMentionsIncludeStatus extends EnumClass {
+  const ChatMentionsIncludeStatus._(super.name);
 
-  static final _$includeStatus = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatMentionsIncludeStatus $0 = _$chatMentionsIncludeStatus$0;
 
-  /// Text to search for.
-  String get search;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatMentionsIncludeStatus $1 = _$chatMentionsIncludeStatus$1;
 
-  /// Maximum number of results.
-  int get limit;
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<ChatMentionsIncludeStatus> get values => _$chatMentionsIncludeStatusValues;
+  // coverage:ignore-end
 
-  /// Include the user statuses.
-  bool get includeStatus;
+  /// Returns the enum value associated to the [name].
+  static ChatMentionsIncludeStatus valueOf(String name) => _$valueOfChatMentionsIncludeStatus(name);
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ChatMentionsRequestApplicationJsonInterfaceBuilder].
-  $ChatMentionsRequestApplicationJsonInterface rebuild(
-    void Function($ChatMentionsRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Converts the instance to a builder [$ChatMentionsRequestApplicationJsonInterfaceBuilder].
-  $ChatMentionsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatMentionsRequestApplicationJsonInterfaceBuilder b) {
-    b.limit = _$limit;
-    b.includeStatus = _$includeStatus;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatMentionsRequestApplicationJsonInterfaceBuilder b) {}
+  /// Serializer for ChatMentionsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMentionsIncludeStatus> get serializer => const _$ChatMentionsIncludeStatusSerializer();
 }
 
-abstract class ChatMentionsRequestApplicationJson
-    implements
-        $ChatMentionsRequestApplicationJsonInterface,
-        Built<ChatMentionsRequestApplicationJson, ChatMentionsRequestApplicationJsonBuilder> {
-  /// Creates a new ChatMentionsRequestApplicationJson object using the builder pattern.
-  factory ChatMentionsRequestApplicationJson([void Function(ChatMentionsRequestApplicationJsonBuilder)? b]) =
-      _$ChatMentionsRequestApplicationJson;
+class _$ChatMentionsIncludeStatusSerializer implements PrimitiveSerializer<ChatMentionsIncludeStatus> {
+  const _$ChatMentionsIncludeStatusSerializer();
 
-  // coverage:ignore-start
-  const ChatMentionsRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<ChatMentionsIncludeStatus, Object> _toWire = <ChatMentionsIncludeStatus, Object>{
+    ChatMentionsIncludeStatus.$0: 0,
+    ChatMentionsIncludeStatus.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatMentionsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, ChatMentionsIncludeStatus> _fromWire = <Object, ChatMentionsIncludeStatus>{
+    0: ChatMentionsIncludeStatus.$0,
+    1: ChatMentionsIncludeStatus.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [ChatMentionsIncludeStatus];
 
-  /// Serializer for ChatMentionsRequestApplicationJson.
-  static Serializer<ChatMentionsRequestApplicationJson> get serializer =>
-      _$chatMentionsRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'ChatMentionsIncludeStatus';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ChatMentionsRequestApplicationJsonBuilder b) {
-    $ChatMentionsRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMentionsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ChatMentionsRequestApplicationJsonBuilder b) {
-    $ChatMentionsRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  ChatMentionsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -26323,103 +25967,6 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $ChatGetObjectsSharedInRoomRequestApplicationJsonInterface {
-  static final _$lastKnownMessageId = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  static final _$limit = _$jsonSerializers.deserialize(
-    100,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  /// Type of the objects.
-  String get objectType;
-
-  /// ID of the last known message.
-  int get lastKnownMessageId;
-
-  /// Maximum number of objects.
-  int get limit;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder].
-  $ChatGetObjectsSharedInRoomRequestApplicationJsonInterface rebuild(
-    void Function($ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder].
-  $ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder b) {
-    b.lastKnownMessageId = _$lastKnownMessageId;
-    b.limit = _$limit;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.lastKnownMessageId,
-      'lastKnownMessageId',
-      minimum: 0,
-    );
-    _i4.checkNumber(
-      b.limit,
-      'limit',
-      maximum: 200,
-      minimum: 1,
-    );
-  }
-}
-
-abstract class ChatGetObjectsSharedInRoomRequestApplicationJson
-    implements
-        $ChatGetObjectsSharedInRoomRequestApplicationJsonInterface,
-        Built<ChatGetObjectsSharedInRoomRequestApplicationJson,
-            ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder> {
-  /// Creates a new ChatGetObjectsSharedInRoomRequestApplicationJson object using the builder pattern.
-  factory ChatGetObjectsSharedInRoomRequestApplicationJson([
-    void Function(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder)? b,
-  ]) = _$ChatGetObjectsSharedInRoomRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ChatGetObjectsSharedInRoomRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatGetObjectsSharedInRoomRequestApplicationJson.
-  static Serializer<ChatGetObjectsSharedInRoomRequestApplicationJson> get serializer =>
-      _$chatGetObjectsSharedInRoomRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder b) {
-    $ChatGetObjectsSharedInRoomRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder b) {
-    $ChatGetObjectsSharedInRoomRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -27020,86 +26567,6 @@ class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
 }
 
 @BuiltValue(instantiable: false)
-sealed class $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface {
-  static final _$limit = _$jsonSerializers.deserialize(
-    7,
-    specifiedType: const FullType(int),
-  )! as int;
-
-  /// Maximum number of objects.
-  int get limit;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder].
-  $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface rebuild(
-    void Function($ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder].
-  $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder b) {
-    b.limit = _$limit;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.limit,
-      'limit',
-      maximum: 20,
-      minimum: 1,
-    );
-  }
-}
-
-abstract class ChatGetObjectsSharedInRoomOverviewRequestApplicationJson
-    implements
-        $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface,
-        Built<ChatGetObjectsSharedInRoomOverviewRequestApplicationJson,
-            ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder> {
-  /// Creates a new ChatGetObjectsSharedInRoomOverviewRequestApplicationJson object using the builder pattern.
-  factory ChatGetObjectsSharedInRoomOverviewRequestApplicationJson([
-    void Function(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder)? b,
-  ]) = _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ChatGetObjectsSharedInRoomOverviewRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomOverviewRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ChatGetObjectsSharedInRoomOverviewRequestApplicationJson.
-  static Serializer<ChatGetObjectsSharedInRoomOverviewRequestApplicationJson> get serializer =>
-      _$chatGetObjectsSharedInRoomOverviewRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder b) {
-    $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder b) {
-    $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<ChatMessage>> get data;
@@ -27283,78 +26750,6 @@ class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $SignalingGetSettingsRequestApplicationJsonInterface {
-  static final _$token = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  /// Token of the room.
-  String get token;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$SignalingGetSettingsRequestApplicationJsonInterfaceBuilder].
-  $SignalingGetSettingsRequestApplicationJsonInterface rebuild(
-    void Function($SignalingGetSettingsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$SignalingGetSettingsRequestApplicationJsonInterfaceBuilder].
-  $SignalingGetSettingsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SignalingGetSettingsRequestApplicationJsonInterfaceBuilder b) {
-    b.token = _$token;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($SignalingGetSettingsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class SignalingGetSettingsRequestApplicationJson
-    implements
-        $SignalingGetSettingsRequestApplicationJsonInterface,
-        Built<SignalingGetSettingsRequestApplicationJson, SignalingGetSettingsRequestApplicationJsonBuilder> {
-  /// Creates a new SignalingGetSettingsRequestApplicationJson object using the builder pattern.
-  factory SignalingGetSettingsRequestApplicationJson([
-    void Function(SignalingGetSettingsRequestApplicationJsonBuilder)? b,
-  ]) = _$SignalingGetSettingsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const SignalingGetSettingsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory SignalingGetSettingsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for SignalingGetSettingsRequestApplicationJson.
-  static Serializer<SignalingGetSettingsRequestApplicationJson> get serializer =>
-      _$signalingGetSettingsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SignalingGetSettingsRequestApplicationJsonBuilder b) {
-    $SignalingGetSettingsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(SignalingGetSettingsRequestApplicationJsonBuilder b) {
-    $SignalingGetSettingsRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -33042,70 +32437,6 @@ class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<
 }
 
 @BuiltValue(instantiable: false)
-sealed class $ReactionGetReactionsRequestApplicationJsonInterface {
-  /// Emoji to filter.
-  String? get reaction;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ReactionGetReactionsRequestApplicationJsonInterfaceBuilder].
-  $ReactionGetReactionsRequestApplicationJsonInterface rebuild(
-    void Function($ReactionGetReactionsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ReactionGetReactionsRequestApplicationJsonInterfaceBuilder].
-  $ReactionGetReactionsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReactionGetReactionsRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReactionGetReactionsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class ReactionGetReactionsRequestApplicationJson
-    implements
-        $ReactionGetReactionsRequestApplicationJsonInterface,
-        Built<ReactionGetReactionsRequestApplicationJson, ReactionGetReactionsRequestApplicationJsonBuilder> {
-  /// Creates a new ReactionGetReactionsRequestApplicationJson object using the builder pattern.
-  factory ReactionGetReactionsRequestApplicationJson([
-    void Function(ReactionGetReactionsRequestApplicationJsonBuilder)? b,
-  ]) = _$ReactionGetReactionsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ReactionGetReactionsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReactionGetReactionsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReactionGetReactionsRequestApplicationJson.
-  static Serializer<ReactionGetReactionsRequestApplicationJson> get serializer =>
-      _$reactionGetReactionsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReactionGetReactionsRequestApplicationJsonBuilder b) {
-    $ReactionGetReactionsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReactionGetReactionsRequestApplicationJsonBuilder b) {
-    $ReactionGetReactionsRequestApplicationJsonInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
 sealed class $ReactionInterface {
   String get actorDisplayName;
   String get actorId;
@@ -33588,69 +32919,6 @@ class _$ReactionDeleteApiVersionSerializer implements PrimitiveSerializer<Reacti
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $ReactionDeleteRequestApplicationJsonInterface {
-  /// Emoji to remove.
-  String get reaction;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$ReactionDeleteRequestApplicationJsonInterfaceBuilder].
-  $ReactionDeleteRequestApplicationJsonInterface rebuild(
-    void Function($ReactionDeleteRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$ReactionDeleteRequestApplicationJsonInterfaceBuilder].
-  $ReactionDeleteRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReactionDeleteRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($ReactionDeleteRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class ReactionDeleteRequestApplicationJson
-    implements
-        $ReactionDeleteRequestApplicationJsonInterface,
-        Built<ReactionDeleteRequestApplicationJson, ReactionDeleteRequestApplicationJsonBuilder> {
-  /// Creates a new ReactionDeleteRequestApplicationJson object using the builder pattern.
-  factory ReactionDeleteRequestApplicationJson([void Function(ReactionDeleteRequestApplicationJsonBuilder)? b]) =
-      _$ReactionDeleteRequestApplicationJson;
-
-  // coverage:ignore-start
-  const ReactionDeleteRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory ReactionDeleteRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for ReactionDeleteRequestApplicationJson.
-  static Serializer<ReactionDeleteRequestApplicationJson> get serializer =>
-      _$reactionDeleteRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ReactionDeleteRequestApplicationJsonBuilder b) {
-    $ReactionDeleteRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(ReactionDeleteRequestApplicationJsonBuilder b) {
-    $ReactionDeleteRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -34265,77 +33533,6 @@ class _$RecordingNotificationDismissApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $RecordingNotificationDismissRequestApplicationJsonInterface {
-  /// Timestamp of the notification to be dismissed.
-  int get timestamp;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder].
-  $RecordingNotificationDismissRequestApplicationJsonInterface rebuild(
-    void Function($RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder].
-  $RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.timestamp,
-      'timestamp',
-      minimum: 0,
-    );
-  }
-}
-
-abstract class RecordingNotificationDismissRequestApplicationJson
-    implements
-        $RecordingNotificationDismissRequestApplicationJsonInterface,
-        Built<RecordingNotificationDismissRequestApplicationJson,
-            RecordingNotificationDismissRequestApplicationJsonBuilder> {
-  /// Creates a new RecordingNotificationDismissRequestApplicationJson object using the builder pattern.
-  factory RecordingNotificationDismissRequestApplicationJson([
-    void Function(RecordingNotificationDismissRequestApplicationJsonBuilder)? b,
-  ]) = _$RecordingNotificationDismissRequestApplicationJson;
-
-  // coverage:ignore-start
-  const RecordingNotificationDismissRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RecordingNotificationDismissRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RecordingNotificationDismissRequestApplicationJson.
-  static Serializer<RecordingNotificationDismissRequestApplicationJson> get serializer =>
-      _$recordingNotificationDismissRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RecordingNotificationDismissRequestApplicationJsonBuilder b) {
-    $RecordingNotificationDismissRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RecordingNotificationDismissRequestApplicationJsonBuilder b) {
-    $RecordingNotificationDismissRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -35212,71 +34409,62 @@ class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetR
       _fromWire[serialized]!;
 }
 
-/// When the user status should not be automatically set to online set to 1 (default 0).
-class RoomGetRoomsRequestApplicationJson_NoStatusUpdate extends EnumClass {
-  const RoomGetRoomsRequestApplicationJson_NoStatusUpdate._(super.name);
+class RoomGetRoomsNoStatusUpdate extends EnumClass {
+  const RoomGetRoomsNoStatusUpdate._(super.name);
 
   /// `0`
   @BuiltValueEnumConst(wireName: '0')
-  static const RoomGetRoomsRequestApplicationJson_NoStatusUpdate $0 =
-      _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$0;
+  static const RoomGetRoomsNoStatusUpdate $0 = _$roomGetRoomsNoStatusUpdate$0;
 
   /// `1`
   @BuiltValueEnumConst(wireName: '1')
-  static const RoomGetRoomsRequestApplicationJson_NoStatusUpdate $1 =
-      _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$1;
+  static const RoomGetRoomsNoStatusUpdate $1 = _$roomGetRoomsNoStatusUpdate$1;
 
   /// Returns a set with all values this enum contains.
   // coverage:ignore-start
-  static BuiltSet<RoomGetRoomsRequestApplicationJson_NoStatusUpdate> get values =>
-      _$roomGetRoomsRequestApplicationJsonNoStatusUpdateValues;
+  static BuiltSet<RoomGetRoomsNoStatusUpdate> get values => _$roomGetRoomsNoStatusUpdateValues;
   // coverage:ignore-end
 
   /// Returns the enum value associated to the [name].
-  static RoomGetRoomsRequestApplicationJson_NoStatusUpdate valueOf(String name) =>
-      _$valueOfRoomGetRoomsRequestApplicationJson_NoStatusUpdate(name);
+  static RoomGetRoomsNoStatusUpdate valueOf(String name) => _$valueOfRoomGetRoomsNoStatusUpdate(name);
 
   /// Returns the serialized value of this enum value.
   int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Serializer for RoomGetRoomsRequestApplicationJson_NoStatusUpdate.
+  /// Serializer for RoomGetRoomsNoStatusUpdate.
   @BuiltValueSerializer(custom: true)
-  static Serializer<RoomGetRoomsRequestApplicationJson_NoStatusUpdate> get serializer =>
-      const _$RoomGetRoomsRequestApplicationJson_NoStatusUpdateSerializer();
+  static Serializer<RoomGetRoomsNoStatusUpdate> get serializer => const _$RoomGetRoomsNoStatusUpdateSerializer();
 }
 
-class _$RoomGetRoomsRequestApplicationJson_NoStatusUpdateSerializer
-    implements PrimitiveSerializer<RoomGetRoomsRequestApplicationJson_NoStatusUpdate> {
-  const _$RoomGetRoomsRequestApplicationJson_NoStatusUpdateSerializer();
+class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<RoomGetRoomsNoStatusUpdate> {
+  const _$RoomGetRoomsNoStatusUpdateSerializer();
 
-  static const Map<RoomGetRoomsRequestApplicationJson_NoStatusUpdate, Object> _toWire =
-      <RoomGetRoomsRequestApplicationJson_NoStatusUpdate, Object>{
-    RoomGetRoomsRequestApplicationJson_NoStatusUpdate.$0: 0,
-    RoomGetRoomsRequestApplicationJson_NoStatusUpdate.$1: 1,
+  static const Map<RoomGetRoomsNoStatusUpdate, Object> _toWire = <RoomGetRoomsNoStatusUpdate, Object>{
+    RoomGetRoomsNoStatusUpdate.$0: 0,
+    RoomGetRoomsNoStatusUpdate.$1: 1,
   };
 
-  static const Map<Object, RoomGetRoomsRequestApplicationJson_NoStatusUpdate> _fromWire =
-      <Object, RoomGetRoomsRequestApplicationJson_NoStatusUpdate>{
-    0: RoomGetRoomsRequestApplicationJson_NoStatusUpdate.$0,
-    1: RoomGetRoomsRequestApplicationJson_NoStatusUpdate.$1,
+  static const Map<Object, RoomGetRoomsNoStatusUpdate> _fromWire = <Object, RoomGetRoomsNoStatusUpdate>{
+    0: RoomGetRoomsNoStatusUpdate.$0,
+    1: RoomGetRoomsNoStatusUpdate.$1,
   };
 
   @override
-  Iterable<Type> get types => const [RoomGetRoomsRequestApplicationJson_NoStatusUpdate];
+  Iterable<Type> get types => const [RoomGetRoomsNoStatusUpdate];
 
   @override
-  String get wireName => 'RoomGetRoomsRequestApplicationJson_NoStatusUpdate';
+  String get wireName => 'RoomGetRoomsNoStatusUpdate';
 
   @override
   Object serialize(
     Serializers serializers,
-    RoomGetRoomsRequestApplicationJson_NoStatusUpdate object, {
+    RoomGetRoomsNoStatusUpdate object, {
     FullType specifiedType = FullType.unspecified,
   }) =>
       _toWire[object]!;
 
   @override
-  RoomGetRoomsRequestApplicationJson_NoStatusUpdate deserialize(
+  RoomGetRoomsNoStatusUpdate deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
@@ -35284,99 +34472,67 @@ class _$RoomGetRoomsRequestApplicationJson_NoStatusUpdateSerializer
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $RoomGetRoomsRequestApplicationJsonInterface {
-  static final _$noStatusUpdate = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(RoomGetRoomsRequestApplicationJson_NoStatusUpdate),
-  )! as RoomGetRoomsRequestApplicationJson_NoStatusUpdate;
+class RoomGetRoomsIncludeStatus extends EnumClass {
+  const RoomGetRoomsIncludeStatus._(super.name);
 
-  static final _$includeStatus = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetRoomsIncludeStatus $0 = _$roomGetRoomsIncludeStatus$0;
 
-  static final _$modifiedSince = _$jsonSerializers.deserialize(
-    0,
-    specifiedType: const FullType(int),
-  )! as int;
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetRoomsIncludeStatus $1 = _$roomGetRoomsIncludeStatus$1;
 
-  /// When the user status should not be automatically set to online set to 1 (default 0).
-  RoomGetRoomsRequestApplicationJson_NoStatusUpdate get noStatusUpdate;
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetRoomsIncludeStatus> get values => _$roomGetRoomsIncludeStatusValues;
+  // coverage:ignore-end
 
-  /// Include the user status.
-  bool get includeStatus;
+  /// Returns the enum value associated to the [name].
+  static RoomGetRoomsIncludeStatus valueOf(String name) => _$valueOfRoomGetRoomsIncludeStatus(name);
 
-  /// Filter rooms modified after a timestamp.
-  int get modifiedSince;
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomGetRoomsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetRoomsRequestApplicationJsonInterface rebuild(
-    void Function($RoomGetRoomsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomGetRoomsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetRoomsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomGetRoomsRequestApplicationJsonInterfaceBuilder b) {
-    b.noStatusUpdate = _$noStatusUpdate;
-    b.includeStatus = _$includeStatus;
-    b.modifiedSince = _$modifiedSince;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomGetRoomsRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.modifiedSince,
-      'modifiedSince',
-      minimum: 0,
-    );
-  }
+  /// Serializer for RoomGetRoomsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsIncludeStatus> get serializer => const _$RoomGetRoomsIncludeStatusSerializer();
 }
 
-abstract class RoomGetRoomsRequestApplicationJson
-    implements
-        $RoomGetRoomsRequestApplicationJsonInterface,
-        Built<RoomGetRoomsRequestApplicationJson, RoomGetRoomsRequestApplicationJsonBuilder> {
-  /// Creates a new RoomGetRoomsRequestApplicationJson object using the builder pattern.
-  factory RoomGetRoomsRequestApplicationJson([void Function(RoomGetRoomsRequestApplicationJsonBuilder)? b]) =
-      _$RoomGetRoomsRequestApplicationJson;
+class _$RoomGetRoomsIncludeStatusSerializer implements PrimitiveSerializer<RoomGetRoomsIncludeStatus> {
+  const _$RoomGetRoomsIncludeStatusSerializer();
 
-  // coverage:ignore-start
-  const RoomGetRoomsRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<RoomGetRoomsIncludeStatus, Object> _toWire = <RoomGetRoomsIncludeStatus, Object>{
+    RoomGetRoomsIncludeStatus.$0: 0,
+    RoomGetRoomsIncludeStatus.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomGetRoomsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, RoomGetRoomsIncludeStatus> _fromWire = <Object, RoomGetRoomsIncludeStatus>{
+    0: RoomGetRoomsIncludeStatus.$0,
+    1: RoomGetRoomsIncludeStatus.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsIncludeStatus];
 
-  /// Serializer for RoomGetRoomsRequestApplicationJson.
-  static Serializer<RoomGetRoomsRequestApplicationJson> get serializer =>
-      _$roomGetRoomsRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'RoomGetRoomsIncludeStatus';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomGetRoomsRequestApplicationJsonBuilder b) {
-    $RoomGetRoomsRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomGetRoomsRequestApplicationJsonBuilder b) {
-    $RoomGetRoomsRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  RoomGetRoomsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -35911,78 +35067,6 @@ class _$RoomGetListedRoomsApiVersionSerializer implements PrimitiveSerializer<Ro
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $RoomGetListedRoomsRequestApplicationJsonInterface {
-  static final _$searchTerm = _$jsonSerializers.deserialize(
-    '',
-    specifiedType: const FullType(String),
-  )! as String;
-
-  /// search term.
-  String get searchTerm;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetListedRoomsRequestApplicationJsonInterface rebuild(
-    void Function($RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder b) {
-    b.searchTerm = _$searchTerm;
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class RoomGetListedRoomsRequestApplicationJson
-    implements
-        $RoomGetListedRoomsRequestApplicationJsonInterface,
-        Built<RoomGetListedRoomsRequestApplicationJson, RoomGetListedRoomsRequestApplicationJsonBuilder> {
-  /// Creates a new RoomGetListedRoomsRequestApplicationJson object using the builder pattern.
-  factory RoomGetListedRoomsRequestApplicationJson([
-    void Function(RoomGetListedRoomsRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomGetListedRoomsRequestApplicationJson;
-
-  // coverage:ignore-start
-  const RoomGetListedRoomsRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomGetListedRoomsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomGetListedRoomsRequestApplicationJson.
-  static Serializer<RoomGetListedRoomsRequestApplicationJson> get serializer =>
-      _$roomGetListedRoomsRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomGetListedRoomsRequestApplicationJsonBuilder b) {
-    $RoomGetListedRoomsRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomGetListedRoomsRequestApplicationJsonBuilder b) {
-    $RoomGetListedRoomsRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -38658,76 +37742,68 @@ class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<R
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $RoomGetParticipantsRequestApplicationJsonInterface {
-  static final _$includeStatus = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class RoomGetParticipantsIncludeStatus extends EnumClass {
+  const RoomGetParticipantsIncludeStatus._(super.name);
 
-  /// Include the user statuses.
-  bool get includeStatus;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetParticipantsIncludeStatus $0 = _$roomGetParticipantsIncludeStatus$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomGetParticipantsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetParticipantsRequestApplicationJsonInterface rebuild(
-    void Function($RoomGetParticipantsRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetParticipantsIncludeStatus $1 = _$roomGetParticipantsIncludeStatus$1;
 
-  /// Converts the instance to a builder [$RoomGetParticipantsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetParticipantsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomGetParticipantsRequestApplicationJsonInterfaceBuilder b) {
-    b.includeStatus = _$includeStatus;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetParticipantsIncludeStatus> get values => _$roomGetParticipantsIncludeStatusValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomGetParticipantsRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static RoomGetParticipantsIncludeStatus valueOf(String name) => _$valueOfRoomGetParticipantsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetParticipantsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetParticipantsIncludeStatus> get serializer =>
+      const _$RoomGetParticipantsIncludeStatusSerializer();
 }
 
-abstract class RoomGetParticipantsRequestApplicationJson
-    implements
-        $RoomGetParticipantsRequestApplicationJsonInterface,
-        Built<RoomGetParticipantsRequestApplicationJson, RoomGetParticipantsRequestApplicationJsonBuilder> {
-  /// Creates a new RoomGetParticipantsRequestApplicationJson object using the builder pattern.
-  factory RoomGetParticipantsRequestApplicationJson([
-    void Function(RoomGetParticipantsRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomGetParticipantsRequestApplicationJson;
+class _$RoomGetParticipantsIncludeStatusSerializer implements PrimitiveSerializer<RoomGetParticipantsIncludeStatus> {
+  const _$RoomGetParticipantsIncludeStatusSerializer();
 
-  // coverage:ignore-start
-  const RoomGetParticipantsRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<RoomGetParticipantsIncludeStatus, Object> _toWire = <RoomGetParticipantsIncludeStatus, Object>{
+    RoomGetParticipantsIncludeStatus.$0: 0,
+    RoomGetParticipantsIncludeStatus.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomGetParticipantsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, RoomGetParticipantsIncludeStatus> _fromWire = <Object, RoomGetParticipantsIncludeStatus>{
+    0: RoomGetParticipantsIncludeStatus.$0,
+    1: RoomGetParticipantsIncludeStatus.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [RoomGetParticipantsIncludeStatus];
 
-  /// Serializer for RoomGetParticipantsRequestApplicationJson.
-  static Serializer<RoomGetParticipantsRequestApplicationJson> get serializer =>
-      _$roomGetParticipantsRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'RoomGetParticipantsIncludeStatus';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomGetParticipantsRequestApplicationJsonBuilder b) {
-    $RoomGetParticipantsRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetParticipantsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomGetParticipantsRequestApplicationJsonBuilder b) {
-    $RoomGetParticipantsRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  RoomGetParticipantsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39479,77 +38555,73 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
       _fromWire[serialized]!;
 }
 
-@BuiltValue(instantiable: false)
-sealed class $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface {
-  static final _$includeStatus = _$jsonSerializers.deserialize(
-    false,
-    specifiedType: const FullType(bool),
-  )! as bool;
+class RoomGetBreakoutRoomParticipantsIncludeStatus extends EnumClass {
+  const RoomGetBreakoutRoomParticipantsIncludeStatus._(super.name);
 
-  /// Include the user statuses.
-  bool get includeStatus;
+  /// `0`
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetBreakoutRoomParticipantsIncludeStatus $0 = _$roomGetBreakoutRoomParticipantsIncludeStatus$0;
 
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface rebuild(
-    void Function($RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder) updates,
-  );
+  /// `1`
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetBreakoutRoomParticipantsIncludeStatus $1 = _$roomGetBreakoutRoomParticipantsIncludeStatus$1;
 
-  /// Converts the instance to a builder [$RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder].
-  $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder b) {
-    b.includeStatus = _$includeStatus;
-  }
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus> get values =>
+      _$roomGetBreakoutRoomParticipantsIncludeStatusValues;
+  // coverage:ignore-end
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder b) {}
+  /// Returns the enum value associated to the [name].
+  static RoomGetBreakoutRoomParticipantsIncludeStatus valueOf(String name) =>
+      _$valueOfRoomGetBreakoutRoomParticipantsIncludeStatus(name);
+
+  /// Returns the serialized value of this enum value.
+  int get value => _$jsonSerializers.serializeWith(serializer, this)! as int;
+
+  /// Serializer for RoomGetBreakoutRoomParticipantsIncludeStatus.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetBreakoutRoomParticipantsIncludeStatus> get serializer =>
+      const _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer();
 }
 
-abstract class RoomGetBreakoutRoomParticipantsRequestApplicationJson
-    implements
-        $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface,
-        Built<RoomGetBreakoutRoomParticipantsRequestApplicationJson,
-            RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder> {
-  /// Creates a new RoomGetBreakoutRoomParticipantsRequestApplicationJson object using the builder pattern.
-  factory RoomGetBreakoutRoomParticipantsRequestApplicationJson([
-    void Function(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomGetBreakoutRoomParticipantsRequestApplicationJson;
+class _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer
+    implements PrimitiveSerializer<RoomGetBreakoutRoomParticipantsIncludeStatus> {
+  const _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer();
 
-  // coverage:ignore-start
-  const RoomGetBreakoutRoomParticipantsRequestApplicationJson._();
-  // coverage:ignore-end
+  static const Map<RoomGetBreakoutRoomParticipantsIncludeStatus, Object> _toWire =
+      <RoomGetBreakoutRoomParticipantsIncludeStatus, Object>{
+    RoomGetBreakoutRoomParticipantsIncludeStatus.$0: 0,
+    RoomGetBreakoutRoomParticipantsIncludeStatus.$1: 1,
+  };
 
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomGetBreakoutRoomParticipantsRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
+  static const Map<Object, RoomGetBreakoutRoomParticipantsIncludeStatus> _fromWire =
+      <Object, RoomGetBreakoutRoomParticipantsIncludeStatus>{
+    0: RoomGetBreakoutRoomParticipantsIncludeStatus.$0,
+    1: RoomGetBreakoutRoomParticipantsIncludeStatus.$1,
+  };
 
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
+  @override
+  Iterable<Type> get types => const [RoomGetBreakoutRoomParticipantsIncludeStatus];
 
-  /// Serializer for RoomGetBreakoutRoomParticipantsRequestApplicationJson.
-  static Serializer<RoomGetBreakoutRoomParticipantsRequestApplicationJson> get serializer =>
-      _$roomGetBreakoutRoomParticipantsRequestApplicationJsonSerializer;
+  @override
+  String get wireName => 'RoomGetBreakoutRoomParticipantsIncludeStatus';
 
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder b) {
-    $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface._defaults(b);
-  }
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetBreakoutRoomParticipantsIncludeStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
 
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder b) {
-    $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface._validate(b);
-  }
+  @override
+  RoomGetBreakoutRoomParticipantsIncludeStatus deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39989,77 +39061,6 @@ class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface {
-  /// ID of the attendee.
-  int get attendeeId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder].
-  $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface rebuild(
-    void Function($RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder].
-  $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
-  }
-}
-
-abstract class RoomRemoveAttendeeFromRoomRequestApplicationJson
-    implements
-        $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface,
-        Built<RoomRemoveAttendeeFromRoomRequestApplicationJson,
-            RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder> {
-  /// Creates a new RoomRemoveAttendeeFromRoomRequestApplicationJson object using the builder pattern.
-  factory RoomRemoveAttendeeFromRoomRequestApplicationJson([
-    void Function(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomRemoveAttendeeFromRoomRequestApplicationJson;
-
-  // coverage:ignore-start
-  const RoomRemoveAttendeeFromRoomRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRemoveAttendeeFromRoomRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRemoveAttendeeFromRoomRequestApplicationJson.
-  static Serializer<RoomRemoveAttendeeFromRoomRequestApplicationJson> get serializer =>
-      _$roomRemoveAttendeeFromRoomRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder b) {
-    $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder b) {
-    $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -42264,76 +41265,6 @@ class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<R
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $RoomDemoteModeratorRequestApplicationJsonInterface {
-  /// ID of the attendee.
-  int get attendeeId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder].
-  $RoomDemoteModeratorRequestApplicationJsonInterface rebuild(
-    void Function($RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder].
-  $RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder b) {
-    _i4.checkNumber(
-      b.attendeeId,
-      'attendeeId',
-      minimum: 0,
-    );
-  }
-}
-
-abstract class RoomDemoteModeratorRequestApplicationJson
-    implements
-        $RoomDemoteModeratorRequestApplicationJsonInterface,
-        Built<RoomDemoteModeratorRequestApplicationJson, RoomDemoteModeratorRequestApplicationJsonBuilder> {
-  /// Creates a new RoomDemoteModeratorRequestApplicationJson object using the builder pattern.
-  factory RoomDemoteModeratorRequestApplicationJson([
-    void Function(RoomDemoteModeratorRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomDemoteModeratorRequestApplicationJson;
-
-  // coverage:ignore-start
-  const RoomDemoteModeratorRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomDemoteModeratorRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomDemoteModeratorRequestApplicationJson.
-  static Serializer<RoomDemoteModeratorRequestApplicationJson> get serializer =>
-      _$roomDemoteModeratorRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomDemoteModeratorRequestApplicationJsonBuilder b) {
-    $RoomDemoteModeratorRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomDemoteModeratorRequestApplicationJsonBuilder b) {
-    $RoomDemoteModeratorRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -46048,7 +44979,7 @@ abstract class RoomVerifyDialOutNumberRequestApplicationJson_Options
 @BuiltValue(instantiable: false)
 sealed class $RoomVerifyDialOutNumberRequestApplicationJsonInterface {
   static final _$options = _$jsonSerializers.deserialize(
-    const [],
+    const {},
     specifiedType: const FullType(RoomVerifyDialOutNumberRequestApplicationJson_Options),
   )! as RoomVerifyDialOutNumberRequestApplicationJson_Options;
 
@@ -46492,150 +45423,6 @@ class _$RoomRejectedDialOutRequestApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-/// Additional details to verify the validity of the request.
-@BuiltValue(instantiable: false)
-sealed class $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface {
-  String? get actorId;
-  ActorType? get actorType;
-  int? get attendeeId;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder].
-  $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface rebuild(
-    void Function($RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder].
-  $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder b) {}
-}
-
-/// Additional details to verify the validity of the request.
-abstract class RoomRejectedDialOutRequestRequestApplicationJson_Options
-    implements
-        $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface,
-        Built<RoomRejectedDialOutRequestRequestApplicationJson_Options,
-            RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder> {
-  /// Creates a new RoomRejectedDialOutRequestRequestApplicationJson_Options object using the builder pattern.
-  factory RoomRejectedDialOutRequestRequestApplicationJson_Options([
-    void Function(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder)? b,
-  ]) = _$RoomRejectedDialOutRequestRequestApplicationJson_Options;
-
-  // coverage:ignore-start
-  const RoomRejectedDialOutRequestRequestApplicationJson_Options._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRejectedDialOutRequestRequestApplicationJson_Options.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRejectedDialOutRequestRequestApplicationJson_Options.
-  static Serializer<RoomRejectedDialOutRequestRequestApplicationJson_Options> get serializer =>
-      _$roomRejectedDialOutRequestRequestApplicationJsonOptionsSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder b) {
-    $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder b) {
-    $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface._validate(b);
-  }
-}
-
-@BuiltValue(instantiable: false)
-sealed class $RoomRejectedDialOutRequestRequestApplicationJsonInterface {
-  static final _$options = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(RoomRejectedDialOutRequestRequestApplicationJson_Options),
-  )! as RoomRejectedDialOutRequestRequestApplicationJson_Options;
-
-  /// The call ID provided by the SIP bridge earlier to uniquely identify the call to terminate.
-  String get callId;
-
-  /// Additional details to verify the validity of the request.
-  RoomRejectedDialOutRequestRequestApplicationJson_Options get options;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder].
-  $RoomRejectedDialOutRequestRequestApplicationJsonInterface rebuild(
-    void Function($RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder].
-  $RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder b) {
-    b.options.replace(_$options);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class RoomRejectedDialOutRequestRequestApplicationJson
-    implements
-        $RoomRejectedDialOutRequestRequestApplicationJsonInterface,
-        Built<RoomRejectedDialOutRequestRequestApplicationJson,
-            RoomRejectedDialOutRequestRequestApplicationJsonBuilder> {
-  /// Creates a new RoomRejectedDialOutRequestRequestApplicationJson object using the builder pattern.
-  factory RoomRejectedDialOutRequestRequestApplicationJson([
-    void Function(RoomRejectedDialOutRequestRequestApplicationJsonBuilder)? b,
-  ]) = _$RoomRejectedDialOutRequestRequestApplicationJson;
-
-  // coverage:ignore-start
-  const RoomRejectedDialOutRequestRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory RoomRejectedDialOutRequestRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for RoomRejectedDialOutRequestRequestApplicationJson.
-  static Serializer<RoomRejectedDialOutRequestRequestApplicationJson> get serializer =>
-      _$roomRejectedDialOutRequestRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(RoomRejectedDialOutRequestRequestApplicationJsonBuilder b) {
-    $RoomRejectedDialOutRequestRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(RoomRejectedDialOutRequestRequestApplicationJsonBuilder b) {
-    $RoomRejectedDialOutRequestRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -47422,71 +46209,6 @@ class _$CertificateGetCertificateExpirationApiVersionSerializer
     FullType specifiedType = FullType.unspecified,
   }) =>
       _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-sealed class $CertificateGetCertificateExpirationRequestApplicationJsonInterface {
-  /// Host to check.
-  String get host;
-
-  /// Rebuilds the instance.
-  ///
-  /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder].
-  $CertificateGetCertificateExpirationRequestApplicationJsonInterface rebuild(
-    void Function($CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder) updates,
-  );
-
-  /// Converts the instance to a builder [$CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder].
-  $CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder toBuilder();
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder b) {}
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder b) {}
-}
-
-abstract class CertificateGetCertificateExpirationRequestApplicationJson
-    implements
-        $CertificateGetCertificateExpirationRequestApplicationJsonInterface,
-        Built<CertificateGetCertificateExpirationRequestApplicationJson,
-            CertificateGetCertificateExpirationRequestApplicationJsonBuilder> {
-  /// Creates a new CertificateGetCertificateExpirationRequestApplicationJson object using the builder pattern.
-  factory CertificateGetCertificateExpirationRequestApplicationJson([
-    void Function(CertificateGetCertificateExpirationRequestApplicationJsonBuilder)? b,
-  ]) = _$CertificateGetCertificateExpirationRequestApplicationJson;
-
-  // coverage:ignore-start
-  const CertificateGetCertificateExpirationRequestApplicationJson._();
-  // coverage:ignore-end
-
-  /// Creates a new object from the given [json] data.
-  ///
-  /// Use [toJson] to serialize it back into json.
-  // coverage:ignore-start
-  factory CertificateGetCertificateExpirationRequestApplicationJson.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  /// Parses this object into a json like map.
-  ///
-  /// Use the fromJson factory to revive it again.
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  /// Serializer for CertificateGetCertificateExpirationRequestApplicationJson.
-  static Serializer<CertificateGetCertificateExpirationRequestApplicationJson> get serializer =>
-      _$certificateGetCertificateExpirationRequestApplicationJsonSerializer;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CertificateGetCertificateExpirationRequestApplicationJsonBuilder b) {
-    $CertificateGetCertificateExpirationRequestApplicationJsonInterface._defaults(b);
-  }
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(CertificateGetCertificateExpirationRequestApplicationJsonBuilder b) {
-    $CertificateGetCertificateExpirationRequestApplicationJsonInterface._validate(b);
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -49970,11 +48692,7 @@ class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerialize
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarGetAvatarRequestApplicationJson),
-        AvatarGetAvatarRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarGetAvatarRequestApplicationJson.serializer)
+      ..add(AvatarGetAvatarDarkTheme.serializer)
       ..add(AvatarUploadAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarUploadAvatarResponseApplicationJson),
@@ -50040,32 +48758,14 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(AvatarGetAvatarDarkApiVersion.serializer)
       ..add(AvatarGetUserProxyAvatarWithoutRoomSize.serializer)
       ..add(AvatarGetUserProxyAvatarWithoutRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson),
-        AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson.serializer)
+      ..add(AvatarGetUserProxyAvatarWithoutRoomDarkTheme.serializer)
       ..add(AvatarGetUserProxyAvatarDarkWithoutRoomSize.serializer)
       ..add(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson),
-        AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson.serializer)
       ..add(AvatarGetUserProxyAvatarSize.serializer)
       ..add(AvatarGetUserProxyAvatarApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarGetUserProxyAvatarRequestApplicationJson),
-        AvatarGetUserProxyAvatarRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarGetUserProxyAvatarRequestApplicationJson.serializer)
+      ..add(AvatarGetUserProxyAvatarDarkTheme.serializer)
       ..add(AvatarGetUserProxyAvatarDarkSize.serializer)
       ..add(AvatarGetUserProxyAvatarDarkApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarGetUserProxyAvatarDarkRequestApplicationJson),
-        AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarGetUserProxyAvatarDarkRequestApplicationJson.serializer)
       ..add(BotListBotsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotListBotsResponseApplicationJson),
@@ -50129,11 +48829,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(BotReactResponseApplicationJson_Ocs.serializer)
       ..add(BotDeleteReactionApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDeleteReactionRequestApplicationJson),
-        BotDeleteReactionRequestApplicationJsonBuilder.new,
-      )
-      ..add(BotDeleteReactionRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotDeleteReactionResponseApplicationJson),
         BotDeleteReactionResponseApplicationJsonBuilder.new,
@@ -50312,11 +49007,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(CallJoinCallResponseApplicationJson_Ocs.serializer)
       ..add(CallLeaveCallApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallLeaveCallRequestApplicationJson),
-        CallLeaveCallRequestApplicationJsonBuilder.new,
-      )
-      ..add(CallLeaveCallRequestApplicationJson.serializer)
+      ..add(CallLeaveCallAll.serializer)
       ..addBuilderFactory(
         const FullType(CallLeaveCallResponseApplicationJson),
         CallLeaveCallResponseApplicationJsonBuilder.new,
@@ -50354,17 +49045,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
         CallSipDialOutResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson_Ocs_Data.serializer)
+      ..add(ChatReceiveMessagesLookIntoFuture.serializer)
       ..add(ChatReceiveMessagesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatReceiveMessagesRequestApplicationJson),
-        ChatReceiveMessagesRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatReceiveMessagesRequestApplicationJson.serializer)
-      ..add(ChatReceiveMessagesRequestApplicationJson_LookIntoFuture.serializer)
-      ..add(ChatReceiveMessagesRequestApplicationJson_SetReadMarker.serializer)
-      ..add(ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown.serializer)
-      ..add(ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate.serializer)
-      ..add(ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead.serializer)
+      ..add(ChatReceiveMessagesSetReadMarker.serializer)
+      ..add(ChatReceiveMessagesIncludeLastKnown.serializer)
+      ..add(ChatReceiveMessagesNoStatusUpdate.serializer)
+      ..add(ChatReceiveMessagesMarkNotificationsAsRead.serializer)
       ..addBuilderFactory(
         const FullType(ChatReceiveMessagesResponseApplicationJson),
         ChatReceiveMessagesResponseApplicationJsonBuilder.new,
@@ -50446,11 +49132,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
       ..add(ChatChatDeleteMessageHeaders.serializer)
       ..add(ChatGetMessageContextApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetMessageContextRequestApplicationJson),
-        ChatGetMessageContextRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetMessageContextRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetMessageContextResponseApplicationJson),
         ChatGetMessageContextResponseApplicationJsonBuilder.new,
@@ -50540,11 +49221,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
       ..add(ChatChatMarkUnreadHeaders.serializer)
       ..add(ChatMentionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatMentionsRequestApplicationJson),
-        ChatMentionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatMentionsRequestApplicationJson.serializer)
+      ..add(ChatMentionsIncludeStatus.serializer)
       ..addBuilderFactory(
         const FullType(ChatMentionsResponseApplicationJson),
         ChatMentionsResponseApplicationJsonBuilder.new,
@@ -50562,11 +49239,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         ListBuilder<ChatMentionSuggestion>.new,
       )
       ..add(ChatGetObjectsSharedInRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomRequestApplicationJson),
-        ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
         ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder.new,
@@ -50603,11 +49275,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatChatShareObjectToChatHeaders.serializer)
       ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomOverviewRequestApplicationJson),
-        ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomOverviewRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
         ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder.new,
       )
@@ -50625,11 +49292,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
         MapBuilder<String, BuiltList<ChatMessage>>.new,
       )
       ..add(SignalingGetSettingsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetSettingsRequestApplicationJson),
-        SignalingGetSettingsRequestApplicationJsonBuilder.new,
-      )
-      ..add(SignalingGetSettingsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetSettingsResponseApplicationJson),
         SignalingGetSettingsResponseApplicationJsonBuilder.new,
@@ -50986,11 +49648,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(PollClosePollResponseApplicationJson_Ocs.serializer)
       ..add(ReactionGetReactionsApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(ReactionGetReactionsRequestApplicationJson),
-        ReactionGetReactionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReactionGetReactionsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
         const FullType(ReactionGetReactionsResponseApplicationJson),
         ReactionGetReactionsResponseApplicationJsonBuilder.new,
       )
@@ -51027,11 +49684,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(ReactionReactResponseApplicationJson_Ocs.serializer)
       ..add(ReactionDeleteApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionDeleteRequestApplicationJson),
-        ReactionDeleteRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReactionDeleteRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReactionDeleteResponseApplicationJson),
         ReactionDeleteResponseApplicationJsonBuilder.new,
@@ -51070,11 +49722,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RecordingStopResponseApplicationJson_Ocs.serializer)
       ..add(RecordingNotificationDismissApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingNotificationDismissRequestApplicationJson),
-        RecordingNotificationDismissRequestApplicationJsonBuilder.new,
-      )
-      ..add(RecordingNotificationDismissRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingNotificationDismissResponseApplicationJson),
         RecordingNotificationDismissResponseApplicationJsonBuilder.new,
@@ -51129,12 +49776,8 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetRoomsRequestApplicationJson),
-        RoomGetRoomsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetRoomsRequestApplicationJson.serializer)
-      ..add(RoomGetRoomsRequestApplicationJson_NoStatusUpdate.serializer)
+      ..add(RoomGetRoomsNoStatusUpdate.serializer)
+      ..add(RoomGetRoomsIncludeStatus.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetRoomsResponseApplicationJson),
         RoomGetRoomsResponseApplicationJsonBuilder.new,
@@ -51164,11 +49807,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomCreateRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetListedRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetListedRoomsRequestApplicationJson),
-        RoomGetListedRoomsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetListedRoomsRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetListedRoomsResponseApplicationJson),
         RoomGetListedRoomsResponseApplicationJsonBuilder.new,
@@ -51325,11 +49963,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetParticipantsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetParticipantsRequestApplicationJson),
-        RoomGetParticipantsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetParticipantsRequestApplicationJson.serializer)
+      ..add(RoomGetParticipantsIncludeStatus.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson),
         RoomGetParticipantsResponseApplicationJsonBuilder.new,
@@ -51371,11 +50005,7 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
       ..add($bd993fb3f40af33e8594d0d698208560Extension._serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetBreakoutRoomParticipantsRequestApplicationJson),
-        RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetBreakoutRoomParticipantsRequestApplicationJson.serializer)
+      ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
         RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder.new,
@@ -51403,11 +50033,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomRemoveAttendeeFromRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveAttendeeFromRoomRequestApplicationJson),
-        RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomRemoveAttendeeFromRoomRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
         RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder.new,
@@ -51531,11 +50156,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       )
       ..add(RoomPromoteModeratorResponseApplicationJson_Ocs.serializer)
       ..add(RoomDemoteModeratorApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDemoteModeratorRequestApplicationJson),
-        RoomDemoteModeratorRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomDemoteModeratorRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomDemoteModeratorResponseApplicationJson),
         RoomDemoteModeratorResponseApplicationJsonBuilder.new,
@@ -51774,16 +50394,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(RoomCreateGuestByDialInResponseApplicationJson_Ocs.serializer)
       ..add(RoomRejectedDialOutRequestApiVersion.serializer)
       ..addBuilderFactory(
-        const FullType(RoomRejectedDialOutRequestRequestApplicationJson),
-        RoomRejectedDialOutRequestRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomRejectedDialOutRequestRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRejectedDialOutRequestRequestApplicationJson_Options),
-        RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder.new,
-      )
-      ..add(RoomRejectedDialOutRequestRequestApplicationJson_Options.serializer)
-      ..addBuilderFactory(
         const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
         RoomRejectedDialOutRequestResponseApplicationJsonBuilder.new,
       )
@@ -51825,11 +50435,6 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(BotWithDetails.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
       ..add(CertificateGetCertificateExpirationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationRequestApplicationJson),
-        CertificateGetCertificateExpirationRequestApplicationJsonBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationRequestApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
         CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,

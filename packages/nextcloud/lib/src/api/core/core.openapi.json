@@ -2200,56 +2200,66 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "search"
-                                ],
-                                "properties": {
-                                    "search": {
-                                        "type": "string",
-                                        "description": "Text to search for"
-                                    },
-                                    "itemType": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "Type of the items to search for"
-                                    },
-                                    "itemId": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "ID of the items to search for"
-                                    },
-                                    "sorter": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "can be piped, top prio first, e.g.: \"commenters|share-recipients\""
-                                    },
-                                    "shareTypes": {
-                                        "type": "array",
-                                        "default": [],
-                                        "description": "Types of shares to search for",
-                                        "items": {
-                                            "type": "integer",
-                                            "format": "int64"
-                                        }
-                                    },
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 10,
-                                        "description": "Maximum number of results to return"
-                                    }
-                                }
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Text to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "itemType",
+                        "in": "query",
+                        "description": "Type of the items to search for",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "itemId",
+                        "in": "query",
+                        "description": "ID of the items to search for",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "sorter",
+                        "in": "query",
+                        "description": "can be piped, top prio first, e.g.: \"commenters|share-recipients\"",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "shareTypes[]",
+                        "in": "query",
+                        "description": "Types of shares to search for",
+                        "schema": {
+                            "type": "array",
+                            "default": [],
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
                             }
                         }
-                    }
-                },
-                "parameters": [
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 10
+                        }
+                    },
                     {
                         "name": "OCS-APIRequest",
                         "in": "header",
@@ -2587,30 +2597,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "resourceType",
-                                    "resourceId"
-                                ],
-                                "properties": {
-                                    "resourceType": {
-                                        "type": "string",
-                                        "description": "Name of the resource"
-                                    },
-                                    "resourceId": {
-                                        "type": "string",
-                                        "description": "ID of the resource"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "collectionId",
@@ -2620,6 +2606,24 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "resourceType",
+                        "in": "query",
+                        "description": "Name of the resource",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "resourceId",
+                        "in": "query",
+                        "description": "ID of the resource",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {
@@ -3392,24 +3396,20 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "absolute": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Rewrite URLs to absolute ones"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
+                    {
+                        "name": "absolute",
+                        "in": "query",
+                        "description": "Rewrite URLs to absolute ones",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
                     {
                         "name": "OCS-APIRequest",
                         "in": "header",
@@ -3476,24 +3476,20 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "absolute": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Rewrite URLs to absolute ones"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
+                    {
+                        "name": "absolute",
+                        "in": "query",
+                        "description": "Rewrite URLs to absolute ones",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
                     {
                         "name": "OCS-APIRequest",
                         "in": "header",
@@ -4010,26 +4006,16 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "required": [
-                                    "reference"
-                                ],
-                                "properties": {
-                                    "reference": {
-                                        "type": "string",
-                                        "description": "Reference to resolve"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "query",
+                        "description": "Reference to resolve",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "OCS-APIRequest",
                         "in": "header",
@@ -5148,23 +5134,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "identifier": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "An arbitrary identifier for the task"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "appId",
@@ -5173,6 +5142,15 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "identifier",
+                        "in": "query",
+                        "description": "An arbitrary identifier for the task",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
                         }
                     },
                     {
@@ -5983,23 +5961,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "identifier": {
-                                        "type": "string",
-                                        "nullable": true,
-                                        "description": "An arbitrary identifier for the task"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "appId",
@@ -6008,6 +5969,15 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "identifier",
+                        "in": "query",
+                        "description": "An arbitrary identifier for the task",
+                        "schema": {
+                            "type": "string",
+                            "nullable": true
                         }
                     },
                     {
@@ -6446,24 +6416,16 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "from": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "the url the user is currently at"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "the url the user is currently at",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
                     {
                         "name": "OCS-APIRequest",
                         "in": "header",
@@ -6528,53 +6490,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "term": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "Term to search"
-                                    },
-                                    "sortOrder": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "nullable": true,
-                                        "description": "Order of entries"
-                                    },
-                                    "limit": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "nullable": true,
-                                        "description": "Maximum amount of entries"
-                                    },
-                                    "cursor": {
-                                        "nullable": true,
-                                        "description": "Offset for searching",
-                                        "oneOf": [
-                                            {
-                                                "type": "integer",
-                                                "format": "int64"
-                                            },
-                                            {
-                                                "type": "string"
-                                            }
-                                        ]
-                                    },
-                                    "from": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "The current user URL"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "providerId",
@@ -6583,6 +6498,61 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "term",
+                        "in": "query",
+                        "description": "Term to search",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Order of entries",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum amount of entries",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "nullable": true
+                        }
+                    },
+                    {
+                        "name": "cursor",
+                        "in": "query",
+                        "description": "Offset for searching",
+                        "schema": {
+                            "nullable": true,
+                            "oneOf": [
+                                {
+                                    "type": "integer",
+                                    "format": "int64"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "in": "query",
+                        "description": "The current user URL",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
                         }
                     },
                     {
@@ -7086,24 +7056,6 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "darkTheme": {
-                                        "type": "boolean",
-                                        "nullable": true,
-                                        "default": false,
-                                        "description": "Return dark avatar"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
                 "parameters": [
                     {
                         "name": "guestName",
@@ -7121,6 +7073,20 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "darkTheme",
+                        "in": "query",
+                        "description": "Return dark avatar",
+                        "schema": {
+                            "type": "integer",
+                            "nullable": true,
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     }
                 ],
@@ -7406,55 +7372,85 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "file": {
-                                        "type": "string",
-                                        "default": "",
-                                        "description": "Path of the file"
-                                    },
-                                    "x": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 32,
-                                        "description": "Width of the preview"
-                                    },
-                                    "y": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 32,
-                                        "description": "Height of the preview"
-                                    },
-                                    "a": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Whether to not crop the preview"
-                                    },
-                                    "forceIcon": {
-                                        "type": "boolean",
-                                        "default": true,
-                                        "description": "Force returning an icon"
-                                    },
-                                    "mode": {
-                                        "type": "string",
-                                        "default": "fill",
-                                        "description": "How to crop the image"
-                                    },
-                                    "mimeFallback": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Whether to fallback to the mime icon if no preview is available"
-                                    }
-                                }
-                            }
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "query",
+                        "description": "Path of the file",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "x",
+                        "in": "query",
+                        "description": "Width of the preview",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 32
+                        }
+                    },
+                    {
+                        "name": "y",
+                        "in": "query",
+                        "description": "Height of the preview",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 32
+                        }
+                    },
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "Whether to not crop the preview",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "forceIcon",
+                        "in": "query",
+                        "description": "Force returning an icon",
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "description": "How to crop the image",
+                        "schema": {
+                            "type": "string",
+                            "default": "fill"
+                        }
+                    },
+                    {
+                        "name": "mimeFallback",
+                        "in": "query",
+                        "description": "Whether to fallback to the mime icon if no preview is available",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "Preview returned",
@@ -7519,56 +7515,86 @@
                         "basic_auth": []
                     }
                 ],
-                "requestBody": {
-                    "required": false,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "fileId": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": -1,
-                                        "description": "ID of the file"
-                                    },
-                                    "x": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 32,
-                                        "description": "Width of the preview"
-                                    },
-                                    "y": {
-                                        "type": "integer",
-                                        "format": "int64",
-                                        "default": 32,
-                                        "description": "Height of the preview"
-                                    },
-                                    "a": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Whether to not crop the preview"
-                                    },
-                                    "forceIcon": {
-                                        "type": "boolean",
-                                        "default": true,
-                                        "description": "Force returning an icon"
-                                    },
-                                    "mode": {
-                                        "type": "string",
-                                        "default": "fill",
-                                        "description": "How to crop the image"
-                                    },
-                                    "mimeFallback": {
-                                        "type": "boolean",
-                                        "default": false,
-                                        "description": "Whether to fallback to the mime icon if no preview is available"
-                                    }
-                                }
-                            }
+                "parameters": [
+                    {
+                        "name": "fileId",
+                        "in": "query",
+                        "description": "ID of the file",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": -1
+                        }
+                    },
+                    {
+                        "name": "x",
+                        "in": "query",
+                        "description": "Width of the preview",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 32
+                        }
+                    },
+                    {
+                        "name": "y",
+                        "in": "query",
+                        "description": "Height of the preview",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64",
+                            "default": 32
+                        }
+                    },
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "Whether to not crop the preview",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "forceIcon",
+                        "in": "query",
+                        "description": "Force returning an icon",
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "name": "mode",
+                        "in": "query",
+                        "description": "How to crop the image",
+                        "schema": {
+                            "type": "string",
+                            "default": "fill"
+                        }
+                    },
+                    {
+                        "name": "mimeFallback",
+                        "in": "query",
+                        "description": "Whether to fallback to the mime icon if no preview is available",
+                        "schema": {
+                            "type": "integer",
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "Preview returned",

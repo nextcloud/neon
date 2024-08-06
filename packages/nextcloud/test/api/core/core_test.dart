@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart';
@@ -94,13 +95,10 @@ void main() {
     group('Autocomplete', () {
       test('Get', () async {
         final response = await tester.client.core.autoComplete.$get(
-          $body: core.AutoCompleteGetRequestApplicationJson(
-            (b) => b
-              ..search = ''
-              ..itemType = 'call'
-              ..itemId = 'new'
-              ..shareTypes.replace([core.ShareType.group.index]),
-          ),
+          search: '',
+          itemType: 'call',
+          itemId: 'new',
+          shareTypes: BuiltList([core.ShareType.group.index]),
         );
         expect(response.body.ocs.data, hasLength(1));
 
@@ -125,9 +123,7 @@ void main() {
         });
 
         final response = await tester.client.core.preview.getPreview(
-          $body: core.PreviewGetPreviewRequestApplicationJson(
-            (b) => b..file = 'preview.png',
-          ),
+          file: 'preview.png',
         );
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
@@ -175,9 +171,7 @@ void main() {
       test('Search', () async {
         final response = await tester.client.core.unifiedSearch.search(
           providerId: 'settings',
-          $body: core.UnifiedSearchSearchRequestApplicationJson(
-            (b) => b..term = 'Personal info',
-          ),
+          term: 'Personal info',
         );
 
         expect(response.statusCode, 200);
@@ -220,9 +214,7 @@ void main() {
     group('References', () {
       test('resolveOne', () async {
         final response = await tester.client.core.referenceApi.resolveOne(
-          $body: core.ReferenceApiResolveOneRequestApplicationJson(
-            (b) => b..reference = 'https://example.com',
-          ),
+          reference: 'https://example.com',
         );
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());

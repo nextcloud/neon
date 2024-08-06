@@ -6,6 +6,70 @@ part of 'core.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$0 = GuestAvatarGetAvatarDarkTheme._('\$0');
+const GuestAvatarGetAvatarDarkTheme _$guestAvatarGetAvatarDarkTheme$1 = GuestAvatarGetAvatarDarkTheme._('\$1');
+
+GuestAvatarGetAvatarDarkTheme _$valueOfGuestAvatarGetAvatarDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$guestAvatarGetAvatarDarkTheme$0;
+    case '\$1':
+      return _$guestAvatarGetAvatarDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<GuestAvatarGetAvatarDarkTheme> _$guestAvatarGetAvatarDarkThemeValues =
+    BuiltSet<GuestAvatarGetAvatarDarkTheme>(const <GuestAvatarGetAvatarDarkTheme>[
+  _$guestAvatarGetAvatarDarkTheme$0,
+  _$guestAvatarGetAvatarDarkTheme$1,
+]);
+
+const NavigationGetAppsNavigationAbsolute _$navigationGetAppsNavigationAbsolute$0 =
+    NavigationGetAppsNavigationAbsolute._('\$0');
+const NavigationGetAppsNavigationAbsolute _$navigationGetAppsNavigationAbsolute$1 =
+    NavigationGetAppsNavigationAbsolute._('\$1');
+
+NavigationGetAppsNavigationAbsolute _$valueOfNavigationGetAppsNavigationAbsolute(String name) {
+  switch (name) {
+    case '\$0':
+      return _$navigationGetAppsNavigationAbsolute$0;
+    case '\$1':
+      return _$navigationGetAppsNavigationAbsolute$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<NavigationGetAppsNavigationAbsolute> _$navigationGetAppsNavigationAbsoluteValues =
+    BuiltSet<NavigationGetAppsNavigationAbsolute>(const <NavigationGetAppsNavigationAbsolute>[
+  _$navigationGetAppsNavigationAbsolute$0,
+  _$navigationGetAppsNavigationAbsolute$1,
+]);
+
+const NavigationGetSettingsNavigationAbsolute _$navigationGetSettingsNavigationAbsolute$0 =
+    NavigationGetSettingsNavigationAbsolute._('\$0');
+const NavigationGetSettingsNavigationAbsolute _$navigationGetSettingsNavigationAbsolute$1 =
+    NavigationGetSettingsNavigationAbsolute._('\$1');
+
+NavigationGetSettingsNavigationAbsolute _$valueOfNavigationGetSettingsNavigationAbsolute(String name) {
+  switch (name) {
+    case '\$0':
+      return _$navigationGetSettingsNavigationAbsolute$0;
+    case '\$1':
+      return _$navigationGetSettingsNavigationAbsolute$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<NavigationGetSettingsNavigationAbsolute> _$navigationGetSettingsNavigationAbsoluteValues =
+    BuiltSet<NavigationGetSettingsNavigationAbsolute>(const <NavigationGetSettingsNavigationAbsolute>[
+  _$navigationGetSettingsNavigationAbsolute$0,
+  _$navigationGetSettingsNavigationAbsolute$1,
+]);
+
 const OcmOcmDiscoveryHeaders_XNextcloudOcmProviders _$ocmOcmDiscoveryHeadersXNextcloudOcmProviders$true =
     OcmOcmDiscoveryHeaders_XNextcloudOcmProviders._('\$true');
 
@@ -38,6 +102,129 @@ SystemtagsCapabilities_Systemtags_Enabled _$valueOfSystemtagsCapabilities_System
 final BuiltSet<SystemtagsCapabilities_Systemtags_Enabled> _$systemtagsCapabilitiesSystemtagsEnabledValues =
     BuiltSet<SystemtagsCapabilities_Systemtags_Enabled>(const <SystemtagsCapabilities_Systemtags_Enabled>[
   _$systemtagsCapabilitiesSystemtagsEnabled$true,
+]);
+
+const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
+
+PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewA$0;
+    case '\$1':
+      return _$previewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+  _$previewGetPreviewA$0,
+  _$previewGetPreviewA$1,
+]);
+
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$0 = PreviewGetPreviewForceIcon._('\$0');
+const PreviewGetPreviewForceIcon _$previewGetPreviewForceIcon$1 = PreviewGetPreviewForceIcon._('\$1');
+
+PreviewGetPreviewForceIcon _$valueOfPreviewGetPreviewForceIcon(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewForceIcon$0;
+    case '\$1':
+      return _$previewGetPreviewForceIcon$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewForceIcon> _$previewGetPreviewForceIconValues =
+    BuiltSet<PreviewGetPreviewForceIcon>(const <PreviewGetPreviewForceIcon>[
+  _$previewGetPreviewForceIcon$0,
+  _$previewGetPreviewForceIcon$1,
+]);
+
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$0 = PreviewGetPreviewMimeFallback._('\$0');
+const PreviewGetPreviewMimeFallback _$previewGetPreviewMimeFallback$1 = PreviewGetPreviewMimeFallback._('\$1');
+
+PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
+    BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
+  _$previewGetPreviewMimeFallback$0,
+  _$previewGetPreviewMimeFallback$1,
+]);
+
+const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$0 = PreviewGetPreviewByFileIdA._('\$0');
+const PreviewGetPreviewByFileIdA _$previewGetPreviewByFileIdA$1 = PreviewGetPreviewByFileIdA._('\$1');
+
+PreviewGetPreviewByFileIdA _$valueOfPreviewGetPreviewByFileIdA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdA$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdA$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdA> _$previewGetPreviewByFileIdAValues =
+    BuiltSet<PreviewGetPreviewByFileIdA>(const <PreviewGetPreviewByFileIdA>[
+  _$previewGetPreviewByFileIdA$0,
+  _$previewGetPreviewByFileIdA$1,
+]);
+
+const PreviewGetPreviewByFileIdForceIcon _$previewGetPreviewByFileIdForceIcon$0 =
+    PreviewGetPreviewByFileIdForceIcon._('\$0');
+const PreviewGetPreviewByFileIdForceIcon _$previewGetPreviewByFileIdForceIcon$1 =
+    PreviewGetPreviewByFileIdForceIcon._('\$1');
+
+PreviewGetPreviewByFileIdForceIcon _$valueOfPreviewGetPreviewByFileIdForceIcon(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdForceIcon$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdForceIcon$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdForceIcon> _$previewGetPreviewByFileIdForceIconValues =
+    BuiltSet<PreviewGetPreviewByFileIdForceIcon>(const <PreviewGetPreviewByFileIdForceIcon>[
+  _$previewGetPreviewByFileIdForceIcon$0,
+  _$previewGetPreviewByFileIdForceIcon$1,
+]);
+
+const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$0 =
+    PreviewGetPreviewByFileIdMimeFallback._('\$0');
+const PreviewGetPreviewByFileIdMimeFallback _$previewGetPreviewByFileIdMimeFallback$1 =
+    PreviewGetPreviewByFileIdMimeFallback._('\$1');
+
+PreviewGetPreviewByFileIdMimeFallback _$valueOfPreviewGetPreviewByFileIdMimeFallback(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewByFileIdMimeFallback$0;
+    case '\$1':
+      return _$previewGetPreviewByFileIdMimeFallback$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PreviewGetPreviewByFileIdMimeFallback> _$previewGetPreviewByFileIdMimeFallbackValues =
+    BuiltSet<PreviewGetPreviewByFileIdMimeFallback>(const <PreviewGetPreviewByFileIdMimeFallback>[
+  _$previewGetPreviewByFileIdMimeFallback$0,
+  _$previewGetPreviewByFileIdMimeFallback$1,
 ]);
 
 const TextProcessingTask_Status _$textProcessingTaskStatus$0 = TextProcessingTask_Status._('\$0');
@@ -142,8 +329,6 @@ Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs>
 Serializer<AppPasswordConfirmUserPasswordResponseApplicationJson>
     _$appPasswordConfirmUserPasswordResponseApplicationJsonSerializer =
     _$AppPasswordConfirmUserPasswordResponseApplicationJsonSerializer();
-Serializer<AutoCompleteGetRequestApplicationJson> _$autoCompleteGetRequestApplicationJsonSerializer =
-    _$AutoCompleteGetRequestApplicationJsonSerializer();
 Serializer<AutocompleteResult_Status0> _$autocompleteResultStatus0Serializer = _$AutocompleteResult_Status0Serializer();
 Serializer<AutocompleteResult> _$autocompleteResultSerializer = _$AutocompleteResultSerializer();
 Serializer<AutoCompleteGetResponseApplicationJson_Ocs> _$autoCompleteGetResponseApplicationJsonOcsSerializer =
@@ -186,9 +371,6 @@ Serializer<CollaborationResourcesAddResourceResponseApplicationJson_Ocs>
 Serializer<CollaborationResourcesAddResourceResponseApplicationJson>
     _$collaborationResourcesAddResourceResponseApplicationJsonSerializer =
     _$CollaborationResourcesAddResourceResponseApplicationJsonSerializer();
-Serializer<CollaborationResourcesRemoveResourceRequestApplicationJson>
-    _$collaborationResourcesRemoveResourceRequestApplicationJsonSerializer =
-    _$CollaborationResourcesRemoveResourceRequestApplicationJsonSerializer();
 Serializer<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs>
     _$collaborationResourcesRemoveResourceResponseApplicationJsonOcsSerializer =
     _$CollaborationResourcesRemoveResourceResponseApplicationJson_OcsSerializer();
@@ -216,8 +398,6 @@ Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJs
 Serializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson>
     _$collaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer =
     _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonSerializer();
-Serializer<GuestAvatarGetAvatarRequestApplicationJson> _$guestAvatarGetAvatarRequestApplicationJsonSerializer =
-    _$GuestAvatarGetAvatarRequestApplicationJsonSerializer();
 Serializer<ContactsAction> _$contactsActionSerializer = _$ContactsActionSerializer();
 Serializer<HoverCardGetUserResponseApplicationJson_Ocs_Data>
     _$hoverCardGetUserResponseApplicationJsonOcsDataSerializer =
@@ -230,9 +410,6 @@ Serializer<LoginConfirmPasswordRequestApplicationJson> _$loginConfirmPasswordReq
     _$LoginConfirmPasswordRequestApplicationJsonSerializer();
 Serializer<LoginConfirmPasswordResponseApplicationJson> _$loginConfirmPasswordResponseApplicationJsonSerializer =
     _$LoginConfirmPasswordResponseApplicationJsonSerializer();
-Serializer<NavigationGetAppsNavigationRequestApplicationJson>
-    _$navigationGetAppsNavigationRequestApplicationJsonSerializer =
-    _$NavigationGetAppsNavigationRequestApplicationJsonSerializer();
 Serializer<NavigationEntry> _$navigationEntrySerializer = _$NavigationEntrySerializer();
 Serializer<NavigationGetAppsNavigationResponseApplicationJson_Ocs>
     _$navigationGetAppsNavigationResponseApplicationJsonOcsSerializer =
@@ -240,9 +417,6 @@ Serializer<NavigationGetAppsNavigationResponseApplicationJson_Ocs>
 Serializer<NavigationGetAppsNavigationResponseApplicationJson>
     _$navigationGetAppsNavigationResponseApplicationJsonSerializer =
     _$NavigationGetAppsNavigationResponseApplicationJsonSerializer();
-Serializer<NavigationGetSettingsNavigationRequestApplicationJson>
-    _$navigationGetSettingsNavigationRequestApplicationJsonSerializer =
-    _$NavigationGetSettingsNavigationRequestApplicationJsonSerializer();
 Serializer<NavigationGetSettingsNavigationResponseApplicationJson_Ocs>
     _$navigationGetSettingsNavigationResponseApplicationJsonOcsSerializer =
     _$NavigationGetSettingsNavigationResponseApplicationJson_OcsSerializer();
@@ -385,11 +559,6 @@ Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs> _$ocsGetCapabilitiesRe
     _$OcsGetCapabilitiesResponseApplicationJson_OcsSerializer();
 Serializer<OcsGetCapabilitiesResponseApplicationJson> _$ocsGetCapabilitiesResponseApplicationJsonSerializer =
     _$OcsGetCapabilitiesResponseApplicationJsonSerializer();
-Serializer<PreviewGetPreviewRequestApplicationJson> _$previewGetPreviewRequestApplicationJsonSerializer =
-    _$PreviewGetPreviewRequestApplicationJsonSerializer();
-Serializer<PreviewGetPreviewByFileIdRequestApplicationJson>
-    _$previewGetPreviewByFileIdRequestApplicationJsonSerializer =
-    _$PreviewGetPreviewByFileIdRequestApplicationJsonSerializer();
 Serializer<ProfileApiSetVisibilityRequestApplicationJson> _$profileApiSetVisibilityRequestApplicationJsonSerializer =
     _$ProfileApiSetVisibilityRequestApplicationJsonSerializer();
 Serializer<ProfileApiSetVisibilityResponseApplicationJson_Ocs>
@@ -407,8 +576,6 @@ Serializer<ReferenceApiExtractResponseApplicationJson_Ocs> _$referenceApiExtract
     _$ReferenceApiExtractResponseApplicationJson_OcsSerializer();
 Serializer<ReferenceApiExtractResponseApplicationJson> _$referenceApiExtractResponseApplicationJsonSerializer =
     _$ReferenceApiExtractResponseApplicationJsonSerializer();
-Serializer<ReferenceApiResolveOneRequestApplicationJson> _$referenceApiResolveOneRequestApplicationJsonSerializer =
-    _$ReferenceApiResolveOneRequestApplicationJsonSerializer();
 Serializer<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data>
     _$referenceApiResolveOneResponseApplicationJsonOcsDataSerializer =
     _$ReferenceApiResolveOneResponseApplicationJson_Ocs_DataSerializer();
@@ -504,9 +671,6 @@ Serializer<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs>
 Serializer<TextProcessingApiDeleteTaskResponseApplicationJson>
     _$textProcessingApiDeleteTaskResponseApplicationJsonSerializer =
     _$TextProcessingApiDeleteTaskResponseApplicationJsonSerializer();
-Serializer<TextProcessingApiListTasksByAppRequestApplicationJson>
-    _$textProcessingApiListTasksByAppRequestApplicationJsonSerializer =
-    _$TextProcessingApiListTasksByAppRequestApplicationJsonSerializer();
 Serializer<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data>
     _$textProcessingApiListTasksByAppResponseApplicationJsonOcsDataSerializer =
     _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer();
@@ -553,9 +717,6 @@ Serializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs>
 Serializer<TextToImageApiDeleteTaskResponseApplicationJson>
     _$textToImageApiDeleteTaskResponseApplicationJsonSerializer =
     _$TextToImageApiDeleteTaskResponseApplicationJsonSerializer();
-Serializer<TextToImageApiListTasksByAppRequestApplicationJson>
-    _$textToImageApiListTasksByAppRequestApplicationJsonSerializer =
-    _$TextToImageApiListTasksByAppRequestApplicationJsonSerializer();
 Serializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data>
     _$textToImageApiListTasksByAppResponseApplicationJsonOcsDataSerializer =
     _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer();
@@ -586,9 +747,6 @@ Serializer<TranslationApiTranslateResponseApplicationJson_Ocs>
     _$TranslationApiTranslateResponseApplicationJson_OcsSerializer();
 Serializer<TranslationApiTranslateResponseApplicationJson> _$translationApiTranslateResponseApplicationJsonSerializer =
     _$TranslationApiTranslateResponseApplicationJsonSerializer();
-Serializer<UnifiedSearchGetProvidersRequestApplicationJson>
-    _$unifiedSearchGetProvidersRequestApplicationJsonSerializer =
-    _$UnifiedSearchGetProvidersRequestApplicationJsonSerializer();
 Serializer<UnifiedSearchProvider> _$unifiedSearchProviderSerializer = _$UnifiedSearchProviderSerializer();
 Serializer<UnifiedSearchGetProvidersResponseApplicationJson_Ocs>
     _$unifiedSearchGetProvidersResponseApplicationJsonOcsSerializer =
@@ -596,8 +754,6 @@ Serializer<UnifiedSearchGetProvidersResponseApplicationJson_Ocs>
 Serializer<UnifiedSearchGetProvidersResponseApplicationJson>
     _$unifiedSearchGetProvidersResponseApplicationJsonSerializer =
     _$UnifiedSearchGetProvidersResponseApplicationJsonSerializer();
-Serializer<UnifiedSearchSearchRequestApplicationJson> _$unifiedSearchSearchRequestApplicationJsonSerializer =
-    _$UnifiedSearchSearchRequestApplicationJsonSerializer();
 Serializer<UnifiedSearchResultEntry> _$unifiedSearchResultEntrySerializer = _$UnifiedSearchResultEntrySerializer();
 Serializer<UnifiedSearchResult> _$unifiedSearchResultSerializer = _$UnifiedSearchResultSerializer();
 Serializer<UnifiedSearchSearchResponseApplicationJson_Ocs> _$unifiedSearchSearchResponseApplicationJsonOcsSerializer =
@@ -1321,83 +1477,6 @@ class _$AppPasswordConfirmUserPasswordResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs))!
               as AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$AutoCompleteGetRequestApplicationJsonSerializer
-    implements StructuredSerializer<AutoCompleteGetRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [AutoCompleteGetRequestApplicationJson, _$AutoCompleteGetRequestApplicationJson];
-  @override
-  final String wireName = 'AutoCompleteGetRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AutoCompleteGetRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'shareTypes',
-      serializers.serialize(object.shareTypes, specifiedType: const FullType(BuiltList, [FullType(int)])),
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.itemType;
-    if (value != null) {
-      result
-        ..add('itemType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.itemId;
-    if (value != null) {
-      result
-        ..add('itemId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.sorter;
-    if (value != null) {
-      result
-        ..add('sorter')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  AutoCompleteGetRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AutoCompleteGetRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'itemType':
-          result.itemType = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'itemId':
-          result.itemId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'sorter':
-          result.sorter = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'shareTypes':
-          result.shareTypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<Object?>);
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -2441,55 +2520,6 @@ class _$CollaborationResourcesAddResourceResponseApplicationJsonSerializer
   }
 }
 
-class _$CollaborationResourcesRemoveResourceRequestApplicationJsonSerializer
-    implements StructuredSerializer<CollaborationResourcesRemoveResourceRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    CollaborationResourcesRemoveResourceRequestApplicationJson,
-    _$CollaborationResourcesRemoveResourceRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'CollaborationResourcesRemoveResourceRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, CollaborationResourcesRemoveResourceRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'resourceType',
-      serializers.serialize(object.resourceType, specifiedType: const FullType(String)),
-      'resourceId',
-      serializers.serialize(object.resourceId, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  CollaborationResourcesRemoveResourceRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'resourceType':
-          result.resourceType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'resourceId':
-          result.resourceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$CollaborationResourcesRemoveResourceResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs> {
   @override
@@ -2922,51 +2952,6 @@ class _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonS
   }
 }
 
-class _$GuestAvatarGetAvatarRequestApplicationJsonSerializer
-    implements StructuredSerializer<GuestAvatarGetAvatarRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    GuestAvatarGetAvatarRequestApplicationJson,
-    _$GuestAvatarGetAvatarRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'GuestAvatarGetAvatarRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, GuestAvatarGetAvatarRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.darkTheme;
-    if (value != null) {
-      result
-        ..add('darkTheme')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    return result;
-  }
-
-  @override
-  GuestAvatarGetAvatarRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = GuestAvatarGetAvatarRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'darkTheme':
-          result.darkTheme = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ContactsActionSerializer implements StructuredSerializer<ContactsAction> {
   @override
   final Iterable<Type> types = const [ContactsAction, _$ContactsAction];
@@ -3251,48 +3236,6 @@ class _$LoginConfirmPasswordResponseApplicationJsonSerializer
   }
 }
 
-class _$NavigationGetAppsNavigationRequestApplicationJsonSerializer
-    implements StructuredSerializer<NavigationGetAppsNavigationRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    NavigationGetAppsNavigationRequestApplicationJson,
-    _$NavigationGetAppsNavigationRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'NavigationGetAppsNavigationRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, NavigationGetAppsNavigationRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'absolute',
-      serializers.serialize(object.absolute, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  NavigationGetAppsNavigationRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = NavigationGetAppsNavigationRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'absolute':
-          result.absolute = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntry> {
   @override
   final Iterable<Type> types = const [NavigationEntry, _$NavigationEntry];
@@ -3458,49 +3401,6 @@ class _$NavigationGetAppsNavigationResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NavigationGetAppsNavigationResponseApplicationJson_Ocs))!
               as NavigationGetAppsNavigationResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$NavigationGetSettingsNavigationRequestApplicationJsonSerializer
-    implements StructuredSerializer<NavigationGetSettingsNavigationRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    NavigationGetSettingsNavigationRequestApplicationJson,
-    _$NavigationGetSettingsNavigationRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'NavigationGetSettingsNavigationRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, NavigationGetSettingsNavigationRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'absolute',
-      serializers.serialize(object.absolute, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  NavigationGetSettingsNavigationRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = NavigationGetSettingsNavigationRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'absolute':
-          result.absolute = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -7336,150 +7236,6 @@ class _$OcsGetCapabilitiesResponseApplicationJsonSerializer
   }
 }
 
-class _$PreviewGetPreviewRequestApplicationJsonSerializer
-    implements StructuredSerializer<PreviewGetPreviewRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    PreviewGetPreviewRequestApplicationJson,
-    _$PreviewGetPreviewRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'PreviewGetPreviewRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, PreviewGetPreviewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'file',
-      serializers.serialize(object.file, specifiedType: const FullType(String)),
-      'x',
-      serializers.serialize(object.x, specifiedType: const FullType(int)),
-      'y',
-      serializers.serialize(object.y, specifiedType: const FullType(int)),
-      'a',
-      serializers.serialize(object.a, specifiedType: const FullType(bool)),
-      'forceIcon',
-      serializers.serialize(object.forceIcon, specifiedType: const FullType(bool)),
-      'mode',
-      serializers.serialize(object.mode, specifiedType: const FullType(String)),
-      'mimeFallback',
-      serializers.serialize(object.mimeFallback, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = PreviewGetPreviewRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'file':
-          result.file = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'x':
-          result.x = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'y':
-          result.y = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'a':
-          result.a = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'forceIcon':
-          result.forceIcon = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'mode':
-          result.mode = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'mimeFallback':
-          result.mimeFallback = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$PreviewGetPreviewByFileIdRequestApplicationJsonSerializer
-    implements StructuredSerializer<PreviewGetPreviewByFileIdRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    PreviewGetPreviewByFileIdRequestApplicationJson,
-    _$PreviewGetPreviewByFileIdRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'PreviewGetPreviewByFileIdRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, PreviewGetPreviewByFileIdRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'fileId',
-      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
-      'x',
-      serializers.serialize(object.x, specifiedType: const FullType(int)),
-      'y',
-      serializers.serialize(object.y, specifiedType: const FullType(int)),
-      'a',
-      serializers.serialize(object.a, specifiedType: const FullType(bool)),
-      'forceIcon',
-      serializers.serialize(object.forceIcon, specifiedType: const FullType(bool)),
-      'mode',
-      serializers.serialize(object.mode, specifiedType: const FullType(String)),
-      'mimeFallback',
-      serializers.serialize(object.mimeFallback, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  PreviewGetPreviewByFileIdRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = PreviewGetPreviewByFileIdRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'fileId':
-          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'x':
-          result.x = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'y':
-          result.y = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'a':
-          result.a = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'forceIcon':
-          result.forceIcon = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'mode':
-          result.mode = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'mimeFallback':
-          result.mimeFallback = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ProfileApiSetVisibilityRequestApplicationJsonSerializer
     implements StructuredSerializer<ProfileApiSetVisibilityRequestApplicationJson> {
   @override
@@ -7857,48 +7613,6 @@ class _$ReferenceApiExtractResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ReferenceApiExtractResponseApplicationJson_Ocs))!
               as ReferenceApiExtractResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ReferenceApiResolveOneRequestApplicationJsonSerializer
-    implements StructuredSerializer<ReferenceApiResolveOneRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ReferenceApiResolveOneRequestApplicationJson,
-    _$ReferenceApiResolveOneRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ReferenceApiResolveOneRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReferenceApiResolveOneRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'reference',
-      serializers.serialize(object.reference, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ReferenceApiResolveOneRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReferenceApiResolveOneRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'reference':
-          result.reference = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -9741,52 +9455,6 @@ class _$TextProcessingApiDeleteTaskResponseApplicationJsonSerializer
   }
 }
 
-class _$TextProcessingApiListTasksByAppRequestApplicationJsonSerializer
-    implements StructuredSerializer<TextProcessingApiListTasksByAppRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    TextProcessingApiListTasksByAppRequestApplicationJson,
-    _$TextProcessingApiListTasksByAppRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'TextProcessingApiListTasksByAppRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, TextProcessingApiListTasksByAppRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.identifier;
-    if (value != null) {
-      result
-        ..add('identifier')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  TextProcessingApiListTasksByAppRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = TextProcessingApiListTasksByAppRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'identifier':
-          result.identifier = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data> {
   @override
@@ -10633,51 +10301,6 @@ class _$TextToImageApiDeleteTaskResponseApplicationJsonSerializer
   }
 }
 
-class _$TextToImageApiListTasksByAppRequestApplicationJsonSerializer
-    implements StructuredSerializer<TextToImageApiListTasksByAppRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    TextToImageApiListTasksByAppRequestApplicationJson,
-    _$TextToImageApiListTasksByAppRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'TextToImageApiListTasksByAppRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, TextToImageApiListTasksByAppRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.identifier;
-    if (value != null) {
-      result
-        ..add('identifier')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  TextToImageApiListTasksByAppRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = TextToImageApiListTasksByAppRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'identifier':
-          result.identifier = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data> {
   @override
@@ -11229,48 +10852,6 @@ class _$TranslationApiTranslateResponseApplicationJsonSerializer
   }
 }
 
-class _$UnifiedSearchGetProvidersRequestApplicationJsonSerializer
-    implements StructuredSerializer<UnifiedSearchGetProvidersRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UnifiedSearchGetProvidersRequestApplicationJson,
-    _$UnifiedSearchGetProvidersRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UnifiedSearchGetProvidersRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UnifiedSearchGetProvidersRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'from',
-      serializers.serialize(object.from, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  UnifiedSearchGetProvidersRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UnifiedSearchGetProvidersRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'from':
-          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$UnifiedSearchProviderSerializer implements StructuredSerializer<UnifiedSearchProvider> {
   @override
   final Iterable<Type> types = const [UnifiedSearchProvider, _$UnifiedSearchProvider];
@@ -11433,83 +11014,6 @@ class _$UnifiedSearchGetProvidersResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UnifiedSearchGetProvidersResponseApplicationJson_Ocs))!
               as UnifiedSearchGetProvidersResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$UnifiedSearchSearchRequestApplicationJsonSerializer
-    implements StructuredSerializer<UnifiedSearchSearchRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    UnifiedSearchSearchRequestApplicationJson,
-    _$UnifiedSearchSearchRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'UnifiedSearchSearchRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, UnifiedSearchSearchRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'term',
-      serializers.serialize(object.term, specifiedType: const FullType(String)),
-      'from',
-      serializers.serialize(object.from, specifiedType: const FullType(String)),
-    ];
-    Object? value;
-    value = object.sortOrder;
-    if (value != null) {
-      result
-        ..add('sortOrder')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.limit;
-    if (value != null) {
-      result
-        ..add('limit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.cursor;
-    if (value != null) {
-      result
-        ..add('cursor')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(UnifiedSearchSearchRequestApplicationJson_Cursor)));
-    }
-    return result;
-  }
-
-  @override
-  UnifiedSearchSearchRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = UnifiedSearchSearchRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'term':
-          result.term = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'sortOrder':
-          result.sortOrder = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-        case 'cursor':
-          result.cursor = serializers.deserialize(value,
-                  specifiedType: const FullType(UnifiedSearchSearchRequestApplicationJson_Cursor))
-              as UnifiedSearchSearchRequestApplicationJson_Cursor?;
-          break;
-        case 'from':
-          result.from = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -14061,189 +13565,6 @@ class AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'AppPasswordConfirmUserPasswordResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $AutoCompleteGetRequestApplicationJsonInterfaceBuilder {
-  void replace($AutoCompleteGetRequestApplicationJsonInterface other);
-  void update(void Function($AutoCompleteGetRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  String? get itemType;
-  set itemType(String? itemType);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get sorter;
-  set sorter(String? sorter);
-
-  ListBuilder<int> get shareTypes;
-  set shareTypes(ListBuilder<int>? shareTypes);
-
-  int? get limit;
-  set limit(int? limit);
-}
-
-class _$AutoCompleteGetRequestApplicationJson extends AutoCompleteGetRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final String? itemType;
-  @override
-  final String? itemId;
-  @override
-  final String? sorter;
-  @override
-  final BuiltList<int> shareTypes;
-  @override
-  final int limit;
-
-  factory _$AutoCompleteGetRequestApplicationJson(
-          [void Function(AutoCompleteGetRequestApplicationJsonBuilder)? updates]) =>
-      (AutoCompleteGetRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AutoCompleteGetRequestApplicationJson._(
-      {required this.search, this.itemType, this.itemId, this.sorter, required this.shareTypes, required this.limit})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'AutoCompleteGetRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(shareTypes, r'AutoCompleteGetRequestApplicationJson', 'shareTypes');
-    BuiltValueNullFieldError.checkNotNull(limit, r'AutoCompleteGetRequestApplicationJson', 'limit');
-  }
-
-  @override
-  AutoCompleteGetRequestApplicationJson rebuild(void Function(AutoCompleteGetRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AutoCompleteGetRequestApplicationJsonBuilder toBuilder() =>
-      AutoCompleteGetRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AutoCompleteGetRequestApplicationJson &&
-        search == other.search &&
-        itemType == other.itemType &&
-        itemId == other.itemId &&
-        sorter == other.sorter &&
-        shareTypes == other.shareTypes &&
-        limit == other.limit;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, itemType.hashCode);
-    _$hash = $jc(_$hash, itemId.hashCode);
-    _$hash = $jc(_$hash, sorter.hashCode);
-    _$hash = $jc(_$hash, shareTypes.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AutoCompleteGetRequestApplicationJson')
-          ..add('search', search)
-          ..add('itemType', itemType)
-          ..add('itemId', itemId)
-          ..add('sorter', sorter)
-          ..add('shareTypes', shareTypes)
-          ..add('limit', limit))
-        .toString();
-  }
-}
-
-class AutoCompleteGetRequestApplicationJsonBuilder
-    implements
-        Builder<AutoCompleteGetRequestApplicationJson, AutoCompleteGetRequestApplicationJsonBuilder>,
-        $AutoCompleteGetRequestApplicationJsonInterfaceBuilder {
-  _$AutoCompleteGetRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  String? _itemType;
-  String? get itemType => _$this._itemType;
-  set itemType(covariant String? itemType) => _$this._itemType = itemType;
-
-  String? _itemId;
-  String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
-
-  String? _sorter;
-  String? get sorter => _$this._sorter;
-  set sorter(covariant String? sorter) => _$this._sorter = sorter;
-
-  ListBuilder<int>? _shareTypes;
-  ListBuilder<int> get shareTypes => _$this._shareTypes ??= ListBuilder<int>();
-  set shareTypes(covariant ListBuilder<int>? shareTypes) => _$this._shareTypes = shareTypes;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  AutoCompleteGetRequestApplicationJsonBuilder() {
-    AutoCompleteGetRequestApplicationJson._defaults(this);
-  }
-
-  AutoCompleteGetRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _itemType = $v.itemType;
-      _itemId = $v.itemId;
-      _sorter = $v.sorter;
-      _shareTypes = $v.shareTypes.toBuilder();
-      _limit = $v.limit;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AutoCompleteGetRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AutoCompleteGetRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AutoCompleteGetRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AutoCompleteGetRequestApplicationJson build() => _build();
-
-  _$AutoCompleteGetRequestApplicationJson _build() {
-    AutoCompleteGetRequestApplicationJson._validate(this);
-    _$AutoCompleteGetRequestApplicationJson _$result;
-    try {
-      _$result = _$v ??
-          _$AutoCompleteGetRequestApplicationJson._(
-              search: BuiltValueNullFieldError.checkNotNull(search, r'AutoCompleteGetRequestApplicationJson', 'search'),
-              itemType: itemType,
-              itemId: itemId,
-              sorter: sorter,
-              shareTypes: shareTypes.build(),
-              limit: BuiltValueNullFieldError.checkNotNull(limit, r'AutoCompleteGetRequestApplicationJson', 'limit'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'shareTypes';
-        shareTypes.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'AutoCompleteGetRequestApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -16836,126 +16157,6 @@ class CollaborationResourcesAddResourceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder {
-  void replace($CollaborationResourcesRemoveResourceRequestApplicationJsonInterface other);
-  void update(void Function($CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder) updates);
-  String? get resourceType;
-  set resourceType(String? resourceType);
-
-  String? get resourceId;
-  set resourceId(String? resourceId);
-}
-
-class _$CollaborationResourcesRemoveResourceRequestApplicationJson
-    extends CollaborationResourcesRemoveResourceRequestApplicationJson {
-  @override
-  final String resourceType;
-  @override
-  final String resourceId;
-
-  factory _$CollaborationResourcesRemoveResourceRequestApplicationJson(
-          [void Function(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder)? updates]) =>
-      (CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$CollaborationResourcesRemoveResourceRequestApplicationJson._({required this.resourceType, required this.resourceId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        resourceType, r'CollaborationResourcesRemoveResourceRequestApplicationJson', 'resourceType');
-    BuiltValueNullFieldError.checkNotNull(
-        resourceId, r'CollaborationResourcesRemoveResourceRequestApplicationJson', 'resourceId');
-  }
-
-  @override
-  CollaborationResourcesRemoveResourceRequestApplicationJson rebuild(
-          void Function(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder toBuilder() =>
-      CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CollaborationResourcesRemoveResourceRequestApplicationJson &&
-        resourceType == other.resourceType &&
-        resourceId == other.resourceId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, resourceType.hashCode);
-    _$hash = $jc(_$hash, resourceId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CollaborationResourcesRemoveResourceRequestApplicationJson')
-          ..add('resourceType', resourceType)
-          ..add('resourceId', resourceId))
-        .toString();
-  }
-}
-
-class CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder
-    implements
-        Builder<CollaborationResourcesRemoveResourceRequestApplicationJson,
-            CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder>,
-        $CollaborationResourcesRemoveResourceRequestApplicationJsonInterfaceBuilder {
-  _$CollaborationResourcesRemoveResourceRequestApplicationJson? _$v;
-
-  String? _resourceType;
-  String? get resourceType => _$this._resourceType;
-  set resourceType(covariant String? resourceType) => _$this._resourceType = resourceType;
-
-  String? _resourceId;
-  String? get resourceId => _$this._resourceId;
-  set resourceId(covariant String? resourceId) => _$this._resourceId = resourceId;
-
-  CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder() {
-    CollaborationResourcesRemoveResourceRequestApplicationJson._defaults(this);
-  }
-
-  CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _resourceType = $v.resourceType;
-      _resourceId = $v.resourceId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CollaborationResourcesRemoveResourceRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CollaborationResourcesRemoveResourceRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(CollaborationResourcesRemoveResourceRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CollaborationResourcesRemoveResourceRequestApplicationJson build() => _build();
-
-  _$CollaborationResourcesRemoveResourceRequestApplicationJson _build() {
-    CollaborationResourcesRemoveResourceRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$CollaborationResourcesRemoveResourceRequestApplicationJson._(
-            resourceType: BuiltValueNullFieldError.checkNotNull(
-                resourceType, r'CollaborationResourcesRemoveResourceRequestApplicationJson', 'resourceType'),
-            resourceId: BuiltValueNullFieldError.checkNotNull(
-                resourceId, r'CollaborationResourcesRemoveResourceRequestApplicationJson', 'resourceId'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder {
   void replace($CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface other);
   void update(void Function($CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -18047,98 +17248,6 @@ class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBui
   }
 }
 
-abstract mixin class $GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder {
-  void replace($GuestAvatarGetAvatarRequestApplicationJsonInterface other);
-  void update(void Function($GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get darkTheme;
-  set darkTheme(bool? darkTheme);
-}
-
-class _$GuestAvatarGetAvatarRequestApplicationJson extends GuestAvatarGetAvatarRequestApplicationJson {
-  @override
-  final bool? darkTheme;
-
-  factory _$GuestAvatarGetAvatarRequestApplicationJson(
-          [void Function(GuestAvatarGetAvatarRequestApplicationJsonBuilder)? updates]) =>
-      (GuestAvatarGetAvatarRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$GuestAvatarGetAvatarRequestApplicationJson._({this.darkTheme}) : super._();
-
-  @override
-  GuestAvatarGetAvatarRequestApplicationJson rebuild(
-          void Function(GuestAvatarGetAvatarRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GuestAvatarGetAvatarRequestApplicationJsonBuilder toBuilder() =>
-      GuestAvatarGetAvatarRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GuestAvatarGetAvatarRequestApplicationJson && darkTheme == other.darkTheme;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, darkTheme.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GuestAvatarGetAvatarRequestApplicationJson')..add('darkTheme', darkTheme))
-        .toString();
-  }
-}
-
-class GuestAvatarGetAvatarRequestApplicationJsonBuilder
-    implements
-        Builder<GuestAvatarGetAvatarRequestApplicationJson, GuestAvatarGetAvatarRequestApplicationJsonBuilder>,
-        $GuestAvatarGetAvatarRequestApplicationJsonInterfaceBuilder {
-  _$GuestAvatarGetAvatarRequestApplicationJson? _$v;
-
-  bool? _darkTheme;
-  bool? get darkTheme => _$this._darkTheme;
-  set darkTheme(covariant bool? darkTheme) => _$this._darkTheme = darkTheme;
-
-  GuestAvatarGetAvatarRequestApplicationJsonBuilder() {
-    GuestAvatarGetAvatarRequestApplicationJson._defaults(this);
-  }
-
-  GuestAvatarGetAvatarRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _darkTheme = $v.darkTheme;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GuestAvatarGetAvatarRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GuestAvatarGetAvatarRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(GuestAvatarGetAvatarRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GuestAvatarGetAvatarRequestApplicationJson build() => _build();
-
-  _$GuestAvatarGetAvatarRequestApplicationJson _build() {
-    GuestAvatarGetAvatarRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$GuestAvatarGetAvatarRequestApplicationJson._(darkTheme: darkTheme);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ContactsActionInterfaceBuilder {
   void replace($ContactsActionInterface other);
   void update(void Function($ContactsActionInterfaceBuilder) updates);
@@ -18846,105 +17955,6 @@ class LoginConfirmPasswordResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder {
-  void replace($NavigationGetAppsNavigationRequestApplicationJsonInterface other);
-  void update(void Function($NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get absolute;
-  set absolute(bool? absolute);
-}
-
-class _$NavigationGetAppsNavigationRequestApplicationJson extends NavigationGetAppsNavigationRequestApplicationJson {
-  @override
-  final bool absolute;
-
-  factory _$NavigationGetAppsNavigationRequestApplicationJson(
-          [void Function(NavigationGetAppsNavigationRequestApplicationJsonBuilder)? updates]) =>
-      (NavigationGetAppsNavigationRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$NavigationGetAppsNavigationRequestApplicationJson._({required this.absolute}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(absolute, r'NavigationGetAppsNavigationRequestApplicationJson', 'absolute');
-  }
-
-  @override
-  NavigationGetAppsNavigationRequestApplicationJson rebuild(
-          void Function(NavigationGetAppsNavigationRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  NavigationGetAppsNavigationRequestApplicationJsonBuilder toBuilder() =>
-      NavigationGetAppsNavigationRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is NavigationGetAppsNavigationRequestApplicationJson && absolute == other.absolute;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, absolute.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'NavigationGetAppsNavigationRequestApplicationJson')
-          ..add('absolute', absolute))
-        .toString();
-  }
-}
-
-class NavigationGetAppsNavigationRequestApplicationJsonBuilder
-    implements
-        Builder<NavigationGetAppsNavigationRequestApplicationJson,
-            NavigationGetAppsNavigationRequestApplicationJsonBuilder>,
-        $NavigationGetAppsNavigationRequestApplicationJsonInterfaceBuilder {
-  _$NavigationGetAppsNavigationRequestApplicationJson? _$v;
-
-  bool? _absolute;
-  bool? get absolute => _$this._absolute;
-  set absolute(covariant bool? absolute) => _$this._absolute = absolute;
-
-  NavigationGetAppsNavigationRequestApplicationJsonBuilder() {
-    NavigationGetAppsNavigationRequestApplicationJson._defaults(this);
-  }
-
-  NavigationGetAppsNavigationRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _absolute = $v.absolute;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant NavigationGetAppsNavigationRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NavigationGetAppsNavigationRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(NavigationGetAppsNavigationRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  NavigationGetAppsNavigationRequestApplicationJson build() => _build();
-
-  _$NavigationGetAppsNavigationRequestApplicationJson _build() {
-    NavigationGetAppsNavigationRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$NavigationGetAppsNavigationRequestApplicationJson._(
-            absolute: BuiltValueNullFieldError.checkNotNull(
-                absolute, r'NavigationGetAppsNavigationRequestApplicationJson', 'absolute'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $NavigationEntryInterfaceBuilder {
   void replace($NavigationEntryInterface other);
   void update(void Function($NavigationEntryInterfaceBuilder) updates);
@@ -19398,107 +18408,6 @@ class NavigationGetAppsNavigationResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder {
-  void replace($NavigationGetSettingsNavigationRequestApplicationJsonInterface other);
-  void update(void Function($NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get absolute;
-  set absolute(bool? absolute);
-}
-
-class _$NavigationGetSettingsNavigationRequestApplicationJson
-    extends NavigationGetSettingsNavigationRequestApplicationJson {
-  @override
-  final bool absolute;
-
-  factory _$NavigationGetSettingsNavigationRequestApplicationJson(
-          [void Function(NavigationGetSettingsNavigationRequestApplicationJsonBuilder)? updates]) =>
-      (NavigationGetSettingsNavigationRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$NavigationGetSettingsNavigationRequestApplicationJson._({required this.absolute}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        absolute, r'NavigationGetSettingsNavigationRequestApplicationJson', 'absolute');
-  }
-
-  @override
-  NavigationGetSettingsNavigationRequestApplicationJson rebuild(
-          void Function(NavigationGetSettingsNavigationRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  NavigationGetSettingsNavigationRequestApplicationJsonBuilder toBuilder() =>
-      NavigationGetSettingsNavigationRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is NavigationGetSettingsNavigationRequestApplicationJson && absolute == other.absolute;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, absolute.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'NavigationGetSettingsNavigationRequestApplicationJson')
-          ..add('absolute', absolute))
-        .toString();
-  }
-}
-
-class NavigationGetSettingsNavigationRequestApplicationJsonBuilder
-    implements
-        Builder<NavigationGetSettingsNavigationRequestApplicationJson,
-            NavigationGetSettingsNavigationRequestApplicationJsonBuilder>,
-        $NavigationGetSettingsNavigationRequestApplicationJsonInterfaceBuilder {
-  _$NavigationGetSettingsNavigationRequestApplicationJson? _$v;
-
-  bool? _absolute;
-  bool? get absolute => _$this._absolute;
-  set absolute(covariant bool? absolute) => _$this._absolute = absolute;
-
-  NavigationGetSettingsNavigationRequestApplicationJsonBuilder() {
-    NavigationGetSettingsNavigationRequestApplicationJson._defaults(this);
-  }
-
-  NavigationGetSettingsNavigationRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _absolute = $v.absolute;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant NavigationGetSettingsNavigationRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NavigationGetSettingsNavigationRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(NavigationGetSettingsNavigationRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  NavigationGetSettingsNavigationRequestApplicationJson build() => _build();
-
-  _$NavigationGetSettingsNavigationRequestApplicationJson _build() {
-    NavigationGetSettingsNavigationRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$NavigationGetSettingsNavigationRequestApplicationJson._(
-            absolute: BuiltValueNullFieldError.checkNotNull(
-                absolute, r'NavigationGetSettingsNavigationRequestApplicationJson', 'absolute'));
     replace(_$result);
     return _$result;
   }
@@ -29172,406 +28081,6 @@ class OcsGetCapabilitiesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  void replace($PreviewGetPreviewRequestApplicationJsonInterface other);
-  void update(void Function($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates);
-  String? get file;
-  set file(String? file);
-
-  int? get x;
-  set x(int? x);
-
-  int? get y;
-  set y(int? y);
-
-  bool? get a;
-  set a(bool? a);
-
-  bool? get forceIcon;
-  set forceIcon(bool? forceIcon);
-
-  String? get mode;
-  set mode(String? mode);
-
-  bool? get mimeFallback;
-  set mimeFallback(bool? mimeFallback);
-}
-
-class _$PreviewGetPreviewRequestApplicationJson extends PreviewGetPreviewRequestApplicationJson {
-  @override
-  final String file;
-  @override
-  final int x;
-  @override
-  final int y;
-  @override
-  final bool a;
-  @override
-  final bool forceIcon;
-  @override
-  final String mode;
-  @override
-  final bool mimeFallback;
-
-  factory _$PreviewGetPreviewRequestApplicationJson(
-          [void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates]) =>
-      (PreviewGetPreviewRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$PreviewGetPreviewRequestApplicationJson._(
-      {required this.file,
-      required this.x,
-      required this.y,
-      required this.a,
-      required this.forceIcon,
-      required this.mode,
-      required this.mimeFallback})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(file, r'PreviewGetPreviewRequestApplicationJson', 'file');
-    BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x');
-    BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y');
-    BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewRequestApplicationJson', 'a');
-    BuiltValueNullFieldError.checkNotNull(forceIcon, r'PreviewGetPreviewRequestApplicationJson', 'forceIcon');
-    BuiltValueNullFieldError.checkNotNull(mode, r'PreviewGetPreviewRequestApplicationJson', 'mode');
-    BuiltValueNullFieldError.checkNotNull(mimeFallback, r'PreviewGetPreviewRequestApplicationJson', 'mimeFallback');
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson rebuild(
-          void Function(PreviewGetPreviewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PreviewGetPreviewRequestApplicationJsonBuilder toBuilder() =>
-      PreviewGetPreviewRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PreviewGetPreviewRequestApplicationJson &&
-        file == other.file &&
-        x == other.x &&
-        y == other.y &&
-        a == other.a &&
-        forceIcon == other.forceIcon &&
-        mode == other.mode &&
-        mimeFallback == other.mimeFallback;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, file.hashCode);
-    _$hash = $jc(_$hash, x.hashCode);
-    _$hash = $jc(_$hash, y.hashCode);
-    _$hash = $jc(_$hash, a.hashCode);
-    _$hash = $jc(_$hash, forceIcon.hashCode);
-    _$hash = $jc(_$hash, mode.hashCode);
-    _$hash = $jc(_$hash, mimeFallback.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PreviewGetPreviewRequestApplicationJson')
-          ..add('file', file)
-          ..add('x', x)
-          ..add('y', y)
-          ..add('a', a)
-          ..add('forceIcon', forceIcon)
-          ..add('mode', mode)
-          ..add('mimeFallback', mimeFallback))
-        .toString();
-  }
-}
-
-class PreviewGetPreviewRequestApplicationJsonBuilder
-    implements
-        Builder<PreviewGetPreviewRequestApplicationJson, PreviewGetPreviewRequestApplicationJsonBuilder>,
-        $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  _$PreviewGetPreviewRequestApplicationJson? _$v;
-
-  String? _file;
-  String? get file => _$this._file;
-  set file(covariant String? file) => _$this._file = file;
-
-  int? _x;
-  int? get x => _$this._x;
-  set x(covariant int? x) => _$this._x = x;
-
-  int? _y;
-  int? get y => _$this._y;
-  set y(covariant int? y) => _$this._y = y;
-
-  bool? _a;
-  bool? get a => _$this._a;
-  set a(covariant bool? a) => _$this._a = a;
-
-  bool? _forceIcon;
-  bool? get forceIcon => _$this._forceIcon;
-  set forceIcon(covariant bool? forceIcon) => _$this._forceIcon = forceIcon;
-
-  String? _mode;
-  String? get mode => _$this._mode;
-  set mode(covariant String? mode) => _$this._mode = mode;
-
-  bool? _mimeFallback;
-  bool? get mimeFallback => _$this._mimeFallback;
-  set mimeFallback(covariant bool? mimeFallback) => _$this._mimeFallback = mimeFallback;
-
-  PreviewGetPreviewRequestApplicationJsonBuilder() {
-    PreviewGetPreviewRequestApplicationJson._defaults(this);
-  }
-
-  PreviewGetPreviewRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _file = $v.file;
-      _x = $v.x;
-      _y = $v.y;
-      _a = $v.a;
-      _forceIcon = $v.forceIcon;
-      _mode = $v.mode;
-      _mimeFallback = $v.mimeFallback;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PreviewGetPreviewRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PreviewGetPreviewRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson build() => _build();
-
-  _$PreviewGetPreviewRequestApplicationJson _build() {
-    PreviewGetPreviewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PreviewGetPreviewRequestApplicationJson._(
-            file: BuiltValueNullFieldError.checkNotNull(file, r'PreviewGetPreviewRequestApplicationJson', 'file'),
-            x: BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x'),
-            y: BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y'),
-            a: BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewRequestApplicationJson', 'a'),
-            forceIcon: BuiltValueNullFieldError.checkNotNull(
-                forceIcon, r'PreviewGetPreviewRequestApplicationJson', 'forceIcon'),
-            mode: BuiltValueNullFieldError.checkNotNull(mode, r'PreviewGetPreviewRequestApplicationJson', 'mode'),
-            mimeFallback: BuiltValueNullFieldError.checkNotNull(
-                mimeFallback, r'PreviewGetPreviewRequestApplicationJson', 'mimeFallback'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder {
-  void replace($PreviewGetPreviewByFileIdRequestApplicationJsonInterface other);
-  void update(void Function($PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder) updates);
-  int? get fileId;
-  set fileId(int? fileId);
-
-  int? get x;
-  set x(int? x);
-
-  int? get y;
-  set y(int? y);
-
-  bool? get a;
-  set a(bool? a);
-
-  bool? get forceIcon;
-  set forceIcon(bool? forceIcon);
-
-  String? get mode;
-  set mode(String? mode);
-
-  bool? get mimeFallback;
-  set mimeFallback(bool? mimeFallback);
-}
-
-class _$PreviewGetPreviewByFileIdRequestApplicationJson extends PreviewGetPreviewByFileIdRequestApplicationJson {
-  @override
-  final int fileId;
-  @override
-  final int x;
-  @override
-  final int y;
-  @override
-  final bool a;
-  @override
-  final bool forceIcon;
-  @override
-  final String mode;
-  @override
-  final bool mimeFallback;
-
-  factory _$PreviewGetPreviewByFileIdRequestApplicationJson(
-          [void Function(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder)? updates]) =>
-      (PreviewGetPreviewByFileIdRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$PreviewGetPreviewByFileIdRequestApplicationJson._(
-      {required this.fileId,
-      required this.x,
-      required this.y,
-      required this.a,
-      required this.forceIcon,
-      required this.mode,
-      required this.mimeFallback})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(fileId, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'fileId');
-    BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'x');
-    BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'y');
-    BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'a');
-    BuiltValueNullFieldError.checkNotNull(forceIcon, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'forceIcon');
-    BuiltValueNullFieldError.checkNotNull(mode, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'mode');
-    BuiltValueNullFieldError.checkNotNull(
-        mimeFallback, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'mimeFallback');
-  }
-
-  @override
-  PreviewGetPreviewByFileIdRequestApplicationJson rebuild(
-          void Function(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PreviewGetPreviewByFileIdRequestApplicationJsonBuilder toBuilder() =>
-      PreviewGetPreviewByFileIdRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PreviewGetPreviewByFileIdRequestApplicationJson &&
-        fileId == other.fileId &&
-        x == other.x &&
-        y == other.y &&
-        a == other.a &&
-        forceIcon == other.forceIcon &&
-        mode == other.mode &&
-        mimeFallback == other.mimeFallback;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, fileId.hashCode);
-    _$hash = $jc(_$hash, x.hashCode);
-    _$hash = $jc(_$hash, y.hashCode);
-    _$hash = $jc(_$hash, a.hashCode);
-    _$hash = $jc(_$hash, forceIcon.hashCode);
-    _$hash = $jc(_$hash, mode.hashCode);
-    _$hash = $jc(_$hash, mimeFallback.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PreviewGetPreviewByFileIdRequestApplicationJson')
-          ..add('fileId', fileId)
-          ..add('x', x)
-          ..add('y', y)
-          ..add('a', a)
-          ..add('forceIcon', forceIcon)
-          ..add('mode', mode)
-          ..add('mimeFallback', mimeFallback))
-        .toString();
-  }
-}
-
-class PreviewGetPreviewByFileIdRequestApplicationJsonBuilder
-    implements
-        Builder<PreviewGetPreviewByFileIdRequestApplicationJson,
-            PreviewGetPreviewByFileIdRequestApplicationJsonBuilder>,
-        $PreviewGetPreviewByFileIdRequestApplicationJsonInterfaceBuilder {
-  _$PreviewGetPreviewByFileIdRequestApplicationJson? _$v;
-
-  int? _fileId;
-  int? get fileId => _$this._fileId;
-  set fileId(covariant int? fileId) => _$this._fileId = fileId;
-
-  int? _x;
-  int? get x => _$this._x;
-  set x(covariant int? x) => _$this._x = x;
-
-  int? _y;
-  int? get y => _$this._y;
-  set y(covariant int? y) => _$this._y = y;
-
-  bool? _a;
-  bool? get a => _$this._a;
-  set a(covariant bool? a) => _$this._a = a;
-
-  bool? _forceIcon;
-  bool? get forceIcon => _$this._forceIcon;
-  set forceIcon(covariant bool? forceIcon) => _$this._forceIcon = forceIcon;
-
-  String? _mode;
-  String? get mode => _$this._mode;
-  set mode(covariant String? mode) => _$this._mode = mode;
-
-  bool? _mimeFallback;
-  bool? get mimeFallback => _$this._mimeFallback;
-  set mimeFallback(covariant bool? mimeFallback) => _$this._mimeFallback = mimeFallback;
-
-  PreviewGetPreviewByFileIdRequestApplicationJsonBuilder() {
-    PreviewGetPreviewByFileIdRequestApplicationJson._defaults(this);
-  }
-
-  PreviewGetPreviewByFileIdRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _fileId = $v.fileId;
-      _x = $v.x;
-      _y = $v.y;
-      _a = $v.a;
-      _forceIcon = $v.forceIcon;
-      _mode = $v.mode;
-      _mimeFallback = $v.mimeFallback;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PreviewGetPreviewByFileIdRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PreviewGetPreviewByFileIdRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(PreviewGetPreviewByFileIdRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PreviewGetPreviewByFileIdRequestApplicationJson build() => _build();
-
-  _$PreviewGetPreviewByFileIdRequestApplicationJson _build() {
-    PreviewGetPreviewByFileIdRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PreviewGetPreviewByFileIdRequestApplicationJson._(
-            fileId: BuiltValueNullFieldError.checkNotNull(
-                fileId, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'fileId'),
-            x: BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'x'),
-            y: BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'y'),
-            a: BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'a'),
-            forceIcon: BuiltValueNullFieldError.checkNotNull(
-                forceIcon, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'forceIcon'),
-            mode:
-                BuiltValueNullFieldError.checkNotNull(mode, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'mode'),
-            mimeFallback: BuiltValueNullFieldError.checkNotNull(
-                mimeFallback, r'PreviewGetPreviewByFileIdRequestApplicationJson', 'mimeFallback'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ProfileApiSetVisibilityRequestApplicationJsonInterfaceBuilder {
   void replace($ProfileApiSetVisibilityRequestApplicationJsonInterface other);
   void update(void Function($ProfileApiSetVisibilityRequestApplicationJsonInterfaceBuilder) updates);
@@ -30537,103 +29046,6 @@ class ReferenceApiExtractResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder {
-  void replace($ReferenceApiResolveOneRequestApplicationJsonInterface other);
-  void update(void Function($ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder) updates);
-  String? get reference;
-  set reference(String? reference);
-}
-
-class _$ReferenceApiResolveOneRequestApplicationJson extends ReferenceApiResolveOneRequestApplicationJson {
-  @override
-  final String reference;
-
-  factory _$ReferenceApiResolveOneRequestApplicationJson(
-          [void Function(ReferenceApiResolveOneRequestApplicationJsonBuilder)? updates]) =>
-      (ReferenceApiResolveOneRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ReferenceApiResolveOneRequestApplicationJson._({required this.reference}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(reference, r'ReferenceApiResolveOneRequestApplicationJson', 'reference');
-  }
-
-  @override
-  ReferenceApiResolveOneRequestApplicationJson rebuild(
-          void Function(ReferenceApiResolveOneRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReferenceApiResolveOneRequestApplicationJsonBuilder toBuilder() =>
-      ReferenceApiResolveOneRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReferenceApiResolveOneRequestApplicationJson && reference == other.reference;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, reference.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReferenceApiResolveOneRequestApplicationJson')..add('reference', reference))
-        .toString();
-  }
-}
-
-class ReferenceApiResolveOneRequestApplicationJsonBuilder
-    implements
-        Builder<ReferenceApiResolveOneRequestApplicationJson, ReferenceApiResolveOneRequestApplicationJsonBuilder>,
-        $ReferenceApiResolveOneRequestApplicationJsonInterfaceBuilder {
-  _$ReferenceApiResolveOneRequestApplicationJson? _$v;
-
-  String? _reference;
-  String? get reference => _$this._reference;
-  set reference(covariant String? reference) => _$this._reference = reference;
-
-  ReferenceApiResolveOneRequestApplicationJsonBuilder() {
-    ReferenceApiResolveOneRequestApplicationJson._defaults(this);
-  }
-
-  ReferenceApiResolveOneRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _reference = $v.reference;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReferenceApiResolveOneRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReferenceApiResolveOneRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ReferenceApiResolveOneRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReferenceApiResolveOneRequestApplicationJson build() => _build();
-
-  _$ReferenceApiResolveOneRequestApplicationJson _build() {
-    ReferenceApiResolveOneRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ReferenceApiResolveOneRequestApplicationJson._(
-            reference: BuiltValueNullFieldError.checkNotNull(
-                reference, r'ReferenceApiResolveOneRequestApplicationJson', 'reference'));
     replace(_$result);
     return _$result;
   }
@@ -35129,101 +33541,6 @@ class TextProcessingApiDeleteTaskResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder {
-  void replace($TextProcessingApiListTasksByAppRequestApplicationJsonInterface other);
-  void update(void Function($TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder) updates);
-  String? get identifier;
-  set identifier(String? identifier);
-}
-
-class _$TextProcessingApiListTasksByAppRequestApplicationJson
-    extends TextProcessingApiListTasksByAppRequestApplicationJson {
-  @override
-  final String? identifier;
-
-  factory _$TextProcessingApiListTasksByAppRequestApplicationJson(
-          [void Function(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder)? updates]) =>
-      (TextProcessingApiListTasksByAppRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$TextProcessingApiListTasksByAppRequestApplicationJson._({this.identifier}) : super._();
-
-  @override
-  TextProcessingApiListTasksByAppRequestApplicationJson rebuild(
-          void Function(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  TextProcessingApiListTasksByAppRequestApplicationJsonBuilder toBuilder() =>
-      TextProcessingApiListTasksByAppRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TextProcessingApiListTasksByAppRequestApplicationJson && identifier == other.identifier;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, identifier.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TextProcessingApiListTasksByAppRequestApplicationJson')
-          ..add('identifier', identifier))
-        .toString();
-  }
-}
-
-class TextProcessingApiListTasksByAppRequestApplicationJsonBuilder
-    implements
-        Builder<TextProcessingApiListTasksByAppRequestApplicationJson,
-            TextProcessingApiListTasksByAppRequestApplicationJsonBuilder>,
-        $TextProcessingApiListTasksByAppRequestApplicationJsonInterfaceBuilder {
-  _$TextProcessingApiListTasksByAppRequestApplicationJson? _$v;
-
-  String? _identifier;
-  String? get identifier => _$this._identifier;
-  set identifier(covariant String? identifier) => _$this._identifier = identifier;
-
-  TextProcessingApiListTasksByAppRequestApplicationJsonBuilder() {
-    TextProcessingApiListTasksByAppRequestApplicationJson._defaults(this);
-  }
-
-  TextProcessingApiListTasksByAppRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _identifier = $v.identifier;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant TextProcessingApiListTasksByAppRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TextProcessingApiListTasksByAppRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(TextProcessingApiListTasksByAppRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TextProcessingApiListTasksByAppRequestApplicationJson build() => _build();
-
-  _$TextProcessingApiListTasksByAppRequestApplicationJson _build() {
-    TextProcessingApiListTasksByAppRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$TextProcessingApiListTasksByAppRequestApplicationJson._(identifier: identifier);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -37288,100 +35605,6 @@ class TextToImageApiDeleteTaskResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder {
-  void replace($TextToImageApiListTasksByAppRequestApplicationJsonInterface other);
-  void update(void Function($TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder) updates);
-  String? get identifier;
-  set identifier(String? identifier);
-}
-
-class _$TextToImageApiListTasksByAppRequestApplicationJson extends TextToImageApiListTasksByAppRequestApplicationJson {
-  @override
-  final String? identifier;
-
-  factory _$TextToImageApiListTasksByAppRequestApplicationJson(
-          [void Function(TextToImageApiListTasksByAppRequestApplicationJsonBuilder)? updates]) =>
-      (TextToImageApiListTasksByAppRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$TextToImageApiListTasksByAppRequestApplicationJson._({this.identifier}) : super._();
-
-  @override
-  TextToImageApiListTasksByAppRequestApplicationJson rebuild(
-          void Function(TextToImageApiListTasksByAppRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  TextToImageApiListTasksByAppRequestApplicationJsonBuilder toBuilder() =>
-      TextToImageApiListTasksByAppRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is TextToImageApiListTasksByAppRequestApplicationJson && identifier == other.identifier;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, identifier.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'TextToImageApiListTasksByAppRequestApplicationJson')
-          ..add('identifier', identifier))
-        .toString();
-  }
-}
-
-class TextToImageApiListTasksByAppRequestApplicationJsonBuilder
-    implements
-        Builder<TextToImageApiListTasksByAppRequestApplicationJson,
-            TextToImageApiListTasksByAppRequestApplicationJsonBuilder>,
-        $TextToImageApiListTasksByAppRequestApplicationJsonInterfaceBuilder {
-  _$TextToImageApiListTasksByAppRequestApplicationJson? _$v;
-
-  String? _identifier;
-  String? get identifier => _$this._identifier;
-  set identifier(covariant String? identifier) => _$this._identifier = identifier;
-
-  TextToImageApiListTasksByAppRequestApplicationJsonBuilder() {
-    TextToImageApiListTasksByAppRequestApplicationJson._defaults(this);
-  }
-
-  TextToImageApiListTasksByAppRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _identifier = $v.identifier;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant TextToImageApiListTasksByAppRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$TextToImageApiListTasksByAppRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(TextToImageApiListTasksByAppRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  TextToImageApiListTasksByAppRequestApplicationJson build() => _build();
-
-  _$TextToImageApiListTasksByAppRequestApplicationJson _build() {
-    TextToImageApiListTasksByAppRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$TextToImageApiListTasksByAppRequestApplicationJson._(identifier: identifier);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -38727,104 +36950,6 @@ class TranslationApiTranslateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder {
-  void replace($UnifiedSearchGetProvidersRequestApplicationJsonInterface other);
-  void update(void Function($UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder) updates);
-  String? get from;
-  set from(String? from);
-}
-
-class _$UnifiedSearchGetProvidersRequestApplicationJson extends UnifiedSearchGetProvidersRequestApplicationJson {
-  @override
-  final String from;
-
-  factory _$UnifiedSearchGetProvidersRequestApplicationJson(
-          [void Function(UnifiedSearchGetProvidersRequestApplicationJsonBuilder)? updates]) =>
-      (UnifiedSearchGetProvidersRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UnifiedSearchGetProvidersRequestApplicationJson._({required this.from}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(from, r'UnifiedSearchGetProvidersRequestApplicationJson', 'from');
-  }
-
-  @override
-  UnifiedSearchGetProvidersRequestApplicationJson rebuild(
-          void Function(UnifiedSearchGetProvidersRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UnifiedSearchGetProvidersRequestApplicationJsonBuilder toBuilder() =>
-      UnifiedSearchGetProvidersRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UnifiedSearchGetProvidersRequestApplicationJson && from == other.from;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, from.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UnifiedSearchGetProvidersRequestApplicationJson')..add('from', from))
-        .toString();
-  }
-}
-
-class UnifiedSearchGetProvidersRequestApplicationJsonBuilder
-    implements
-        Builder<UnifiedSearchGetProvidersRequestApplicationJson,
-            UnifiedSearchGetProvidersRequestApplicationJsonBuilder>,
-        $UnifiedSearchGetProvidersRequestApplicationJsonInterfaceBuilder {
-  _$UnifiedSearchGetProvidersRequestApplicationJson? _$v;
-
-  String? _from;
-  String? get from => _$this._from;
-  set from(covariant String? from) => _$this._from = from;
-
-  UnifiedSearchGetProvidersRequestApplicationJsonBuilder() {
-    UnifiedSearchGetProvidersRequestApplicationJson._defaults(this);
-  }
-
-  UnifiedSearchGetProvidersRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _from = $v.from;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UnifiedSearchGetProvidersRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UnifiedSearchGetProvidersRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UnifiedSearchGetProvidersRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UnifiedSearchGetProvidersRequestApplicationJson build() => _build();
-
-  _$UnifiedSearchGetProvidersRequestApplicationJson _build() {
-    UnifiedSearchGetProvidersRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UnifiedSearchGetProvidersRequestApplicationJson._(
-            from: BuiltValueNullFieldError.checkNotNull(
-                from, r'UnifiedSearchGetProvidersRequestApplicationJson', 'from'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UnifiedSearchProviderInterfaceBuilder {
   void replace($UnifiedSearchProviderInterface other);
   void update(void Function($UnifiedSearchProviderInterfaceBuilder) updates);
@@ -39276,164 +37401,6 @@ class UnifiedSearchGetProvidersResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder {
-  void replace($UnifiedSearchSearchRequestApplicationJsonInterface other);
-  void update(void Function($UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder) updates);
-  String? get term;
-  set term(String? term);
-
-  int? get sortOrder;
-  set sortOrder(int? sortOrder);
-
-  int? get limit;
-  set limit(int? limit);
-
-  UnifiedSearchSearchRequestApplicationJson_Cursor? get cursor;
-  set cursor(UnifiedSearchSearchRequestApplicationJson_Cursor? cursor);
-
-  String? get from;
-  set from(String? from);
-}
-
-class _$UnifiedSearchSearchRequestApplicationJson extends UnifiedSearchSearchRequestApplicationJson {
-  @override
-  final String term;
-  @override
-  final int? sortOrder;
-  @override
-  final int? limit;
-  @override
-  final UnifiedSearchSearchRequestApplicationJson_Cursor? cursor;
-  @override
-  final String from;
-
-  factory _$UnifiedSearchSearchRequestApplicationJson(
-          [void Function(UnifiedSearchSearchRequestApplicationJsonBuilder)? updates]) =>
-      (UnifiedSearchSearchRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$UnifiedSearchSearchRequestApplicationJson._(
-      {required this.term, this.sortOrder, this.limit, this.cursor, required this.from})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(term, r'UnifiedSearchSearchRequestApplicationJson', 'term');
-    BuiltValueNullFieldError.checkNotNull(from, r'UnifiedSearchSearchRequestApplicationJson', 'from');
-  }
-
-  @override
-  UnifiedSearchSearchRequestApplicationJson rebuild(
-          void Function(UnifiedSearchSearchRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UnifiedSearchSearchRequestApplicationJsonBuilder toBuilder() =>
-      UnifiedSearchSearchRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
-    return other is UnifiedSearchSearchRequestApplicationJson &&
-        term == other.term &&
-        sortOrder == other.sortOrder &&
-        limit == other.limit &&
-        cursor == _$dynamicOther.cursor &&
-        from == other.from;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, term.hashCode);
-    _$hash = $jc(_$hash, sortOrder.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, cursor.hashCode);
-    _$hash = $jc(_$hash, from.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UnifiedSearchSearchRequestApplicationJson')
-          ..add('term', term)
-          ..add('sortOrder', sortOrder)
-          ..add('limit', limit)
-          ..add('cursor', cursor)
-          ..add('from', from))
-        .toString();
-  }
-}
-
-class UnifiedSearchSearchRequestApplicationJsonBuilder
-    implements
-        Builder<UnifiedSearchSearchRequestApplicationJson, UnifiedSearchSearchRequestApplicationJsonBuilder>,
-        $UnifiedSearchSearchRequestApplicationJsonInterfaceBuilder {
-  _$UnifiedSearchSearchRequestApplicationJson? _$v;
-
-  String? _term;
-  String? get term => _$this._term;
-  set term(covariant String? term) => _$this._term = term;
-
-  int? _sortOrder;
-  int? get sortOrder => _$this._sortOrder;
-  set sortOrder(covariant int? sortOrder) => _$this._sortOrder = sortOrder;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  UnifiedSearchSearchRequestApplicationJson_Cursor? _cursor;
-  UnifiedSearchSearchRequestApplicationJson_Cursor? get cursor => _$this._cursor;
-  set cursor(covariant UnifiedSearchSearchRequestApplicationJson_Cursor? cursor) => _$this._cursor = cursor;
-
-  String? _from;
-  String? get from => _$this._from;
-  set from(covariant String? from) => _$this._from = from;
-
-  UnifiedSearchSearchRequestApplicationJsonBuilder() {
-    UnifiedSearchSearchRequestApplicationJson._defaults(this);
-  }
-
-  UnifiedSearchSearchRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _term = $v.term;
-      _sortOrder = $v.sortOrder;
-      _limit = $v.limit;
-      _cursor = $v.cursor;
-      _from = $v.from;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UnifiedSearchSearchRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UnifiedSearchSearchRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(UnifiedSearchSearchRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UnifiedSearchSearchRequestApplicationJson build() => _build();
-
-  _$UnifiedSearchSearchRequestApplicationJson _build() {
-    UnifiedSearchSearchRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$UnifiedSearchSearchRequestApplicationJson._(
-            term: BuiltValueNullFieldError.checkNotNull(term, r'UnifiedSearchSearchRequestApplicationJson', 'term'),
-            sortOrder: sortOrder,
-            limit: limit,
-            cursor: cursor,
-            from: BuiltValueNullFieldError.checkNotNull(from, r'UnifiedSearchSearchRequestApplicationJson', 'from'));
     replace(_$result);
     return _$result;
   }

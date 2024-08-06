@@ -12,8 +12,8 @@ import 'package:rxdart/rxdart.dart';
 
 Account mockReferencesAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/references/resolve'): {
-        'post': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        'post': (match, request) {
+          final data = json.decode(request.body) as Map<String, dynamic>;
           final references = data['references']! as List;
           if (references.contains('error')) {
             return Response('', 400);

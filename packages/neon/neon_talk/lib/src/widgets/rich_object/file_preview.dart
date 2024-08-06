@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/core.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/spreed.dart' as spreed;
 
 /// Displays a file preview from a rich object.
@@ -62,13 +62,10 @@ class TalkRichObjectFilePreview extends StatelessWidget {
             etag: parameter.etag,
             expires: null,
             getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
-              $body: PreviewGetPreviewByFileIdRequestApplicationJson(
-                (b) => b
-                  ..fileId = int.parse(parameter.id)
-                  ..x = deviceSize.width.toInt()
-                  ..y = deviceSize.height.toInt()
-                  ..a = true,
-              ),
+              fileId: int.parse(parameter.id),
+              x: deviceSize.width.toInt(),
+              y: deviceSize.height.toInt(),
+              a: core.PreviewGetPreviewByFileIdA.$1,
             ),
           );
         }

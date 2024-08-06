@@ -22,6 +22,26 @@ final BuiltSet<AvatarGetAvatarApiVersion> _$avatarGetAvatarApiVersionValues =
   _$avatarGetAvatarApiVersionV1,
 ]);
 
+const AvatarGetAvatarDarkTheme _$avatarGetAvatarDarkTheme$0 = AvatarGetAvatarDarkTheme._('\$0');
+const AvatarGetAvatarDarkTheme _$avatarGetAvatarDarkTheme$1 = AvatarGetAvatarDarkTheme._('\$1');
+
+AvatarGetAvatarDarkTheme _$valueOfAvatarGetAvatarDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetAvatarDarkTheme$0;
+    case '\$1':
+      return _$avatarGetAvatarDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetAvatarDarkTheme> _$avatarGetAvatarDarkThemeValues =
+    BuiltSet<AvatarGetAvatarDarkTheme>(const <AvatarGetAvatarDarkTheme>[
+  _$avatarGetAvatarDarkTheme$0,
+  _$avatarGetAvatarDarkTheme$1,
+]);
+
 const AvatarUploadAvatarApiVersion _$avatarUploadAvatarApiVersionV1 = AvatarUploadAvatarApiVersion._('v1');
 
 AvatarUploadAvatarApiVersion _$valueOfAvatarUploadAvatarApiVersion(String name) {
@@ -349,6 +369,28 @@ final BuiltSet<AvatarGetUserProxyAvatarWithoutRoomApiVersion> _$avatarGetUserPro
   _$avatarGetUserProxyAvatarWithoutRoomApiVersionV1,
 ]);
 
+const AvatarGetUserProxyAvatarWithoutRoomDarkTheme _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$0 =
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme._('\$0');
+const AvatarGetUserProxyAvatarWithoutRoomDarkTheme _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$1 =
+    AvatarGetUserProxyAvatarWithoutRoomDarkTheme._('\$1');
+
+AvatarGetUserProxyAvatarWithoutRoomDarkTheme _$valueOfAvatarGetUserProxyAvatarWithoutRoomDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$0;
+    case '\$1':
+      return _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetUserProxyAvatarWithoutRoomDarkTheme> _$avatarGetUserProxyAvatarWithoutRoomDarkThemeValues =
+    BuiltSet<AvatarGetUserProxyAvatarWithoutRoomDarkTheme>(const <AvatarGetUserProxyAvatarWithoutRoomDarkTheme>[
+  _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$0,
+  _$avatarGetUserProxyAvatarWithoutRoomDarkTheme$1,
+]);
+
 const AvatarGetUserProxyAvatarDarkWithoutRoomSize _$avatarGetUserProxyAvatarDarkWithoutRoomSize$64 =
     AvatarGetUserProxyAvatarDarkWithoutRoomSize._('\$64');
 const AvatarGetUserProxyAvatarDarkWithoutRoomSize _$avatarGetUserProxyAvatarDarkWithoutRoomSize$512 =
@@ -425,6 +467,28 @@ AvatarGetUserProxyAvatarApiVersion _$valueOfAvatarGetUserProxyAvatarApiVersion(S
 final BuiltSet<AvatarGetUserProxyAvatarApiVersion> _$avatarGetUserProxyAvatarApiVersionValues =
     BuiltSet<AvatarGetUserProxyAvatarApiVersion>(const <AvatarGetUserProxyAvatarApiVersion>[
   _$avatarGetUserProxyAvatarApiVersionV1,
+]);
+
+const AvatarGetUserProxyAvatarDarkTheme _$avatarGetUserProxyAvatarDarkTheme$0 =
+    AvatarGetUserProxyAvatarDarkTheme._('\$0');
+const AvatarGetUserProxyAvatarDarkTheme _$avatarGetUserProxyAvatarDarkTheme$1 =
+    AvatarGetUserProxyAvatarDarkTheme._('\$1');
+
+AvatarGetUserProxyAvatarDarkTheme _$valueOfAvatarGetUserProxyAvatarDarkTheme(String name) {
+  switch (name) {
+    case '\$0':
+      return _$avatarGetUserProxyAvatarDarkTheme$0;
+    case '\$1':
+      return _$avatarGetUserProxyAvatarDarkTheme$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<AvatarGetUserProxyAvatarDarkTheme> _$avatarGetUserProxyAvatarDarkThemeValues =
+    BuiltSet<AvatarGetUserProxyAvatarDarkTheme>(const <AvatarGetUserProxyAvatarDarkTheme>[
+  _$avatarGetUserProxyAvatarDarkTheme$0,
+  _$avatarGetUserProxyAvatarDarkTheme$1,
 ]);
 
 const AvatarGetUserProxyAvatarDarkSize _$avatarGetUserProxyAvatarDarkSize$64 =
@@ -817,6 +881,25 @@ final BuiltSet<CallLeaveCallApiVersion> _$callLeaveCallApiVersionValues =
   _$callLeaveCallApiVersionV4,
 ]);
 
+const CallLeaveCallAll _$callLeaveCallAll$0 = CallLeaveCallAll._('\$0');
+const CallLeaveCallAll _$callLeaveCallAll$1 = CallLeaveCallAll._('\$1');
+
+CallLeaveCallAll _$valueOfCallLeaveCallAll(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callLeaveCallAll$0;
+    case '\$1':
+      return _$callLeaveCallAll$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallLeaveCallAll> _$callLeaveCallAllValues = BuiltSet<CallLeaveCallAll>(const <CallLeaveCallAll>[
+  _$callLeaveCallAll$0,
+  _$callLeaveCallAll$1,
+]);
+
 const CallRingAttendeeApiVersion _$callRingAttendeeApiVersionV4 = CallRingAttendeeApiVersion._('v4');
 
 CallRingAttendeeApiVersion _$valueOfCallRingAttendeeApiVersion(String name) {
@@ -849,6 +932,28 @@ final BuiltSet<CallSipDialOutApiVersion> _$callSipDialOutApiVersionValues =
   _$callSipDialOutApiVersionV4,
 ]);
 
+const ChatReceiveMessagesLookIntoFuture _$chatReceiveMessagesLookIntoFuture$0 =
+    ChatReceiveMessagesLookIntoFuture._('\$0');
+const ChatReceiveMessagesLookIntoFuture _$chatReceiveMessagesLookIntoFuture$1 =
+    ChatReceiveMessagesLookIntoFuture._('\$1');
+
+ChatReceiveMessagesLookIntoFuture _$valueOfChatReceiveMessagesLookIntoFuture(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesLookIntoFuture$0;
+    case '\$1':
+      return _$chatReceiveMessagesLookIntoFuture$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesLookIntoFuture> _$chatReceiveMessagesLookIntoFutureValues =
+    BuiltSet<ChatReceiveMessagesLookIntoFuture>(const <ChatReceiveMessagesLookIntoFuture>[
+  _$chatReceiveMessagesLookIntoFuture$0,
+  _$chatReceiveMessagesLookIntoFuture$1,
+]);
+
 const ChatReceiveMessagesApiVersion _$chatReceiveMessagesApiVersionV1 = ChatReceiveMessagesApiVersion._('v1');
 
 ChatReceiveMessagesApiVersion _$valueOfChatReceiveMessagesApiVersion(String name) {
@@ -865,134 +970,90 @@ final BuiltSet<ChatReceiveMessagesApiVersion> _$chatReceiveMessagesApiVersionVal
   _$chatReceiveMessagesApiVersionV1,
 ]);
 
-const ChatReceiveMessagesRequestApplicationJson_LookIntoFuture
-    _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$0 =
-    ChatReceiveMessagesRequestApplicationJson_LookIntoFuture._('\$0');
-const ChatReceiveMessagesRequestApplicationJson_LookIntoFuture
-    _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$1 =
-    ChatReceiveMessagesRequestApplicationJson_LookIntoFuture._('\$1');
+const ChatReceiveMessagesSetReadMarker _$chatReceiveMessagesSetReadMarker$0 = ChatReceiveMessagesSetReadMarker._('\$0');
+const ChatReceiveMessagesSetReadMarker _$chatReceiveMessagesSetReadMarker$1 = ChatReceiveMessagesSetReadMarker._('\$1');
 
-ChatReceiveMessagesRequestApplicationJson_LookIntoFuture
-    _$valueOfChatReceiveMessagesRequestApplicationJson_LookIntoFuture(String name) {
+ChatReceiveMessagesSetReadMarker _$valueOfChatReceiveMessagesSetReadMarker(String name) {
   switch (name) {
     case '\$0':
-      return _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$0;
+      return _$chatReceiveMessagesSetReadMarker$0;
     case '\$1':
-      return _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$1;
+      return _$chatReceiveMessagesSetReadMarker$1;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ChatReceiveMessagesRequestApplicationJson_LookIntoFuture>
-    _$chatReceiveMessagesRequestApplicationJsonLookIntoFutureValues = BuiltSet<
-        ChatReceiveMessagesRequestApplicationJson_LookIntoFuture>(const <ChatReceiveMessagesRequestApplicationJson_LookIntoFuture>[
-  _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$0,
-  _$chatReceiveMessagesRequestApplicationJsonLookIntoFuture$1,
+final BuiltSet<ChatReceiveMessagesSetReadMarker> _$chatReceiveMessagesSetReadMarkerValues =
+    BuiltSet<ChatReceiveMessagesSetReadMarker>(const <ChatReceiveMessagesSetReadMarker>[
+  _$chatReceiveMessagesSetReadMarker$0,
+  _$chatReceiveMessagesSetReadMarker$1,
 ]);
 
-const ChatReceiveMessagesRequestApplicationJson_SetReadMarker
-    _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$0 =
-    ChatReceiveMessagesRequestApplicationJson_SetReadMarker._('\$0');
-const ChatReceiveMessagesRequestApplicationJson_SetReadMarker
-    _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$1 =
-    ChatReceiveMessagesRequestApplicationJson_SetReadMarker._('\$1');
+const ChatReceiveMessagesIncludeLastKnown _$chatReceiveMessagesIncludeLastKnown$0 =
+    ChatReceiveMessagesIncludeLastKnown._('\$0');
+const ChatReceiveMessagesIncludeLastKnown _$chatReceiveMessagesIncludeLastKnown$1 =
+    ChatReceiveMessagesIncludeLastKnown._('\$1');
 
-ChatReceiveMessagesRequestApplicationJson_SetReadMarker
-    _$valueOfChatReceiveMessagesRequestApplicationJson_SetReadMarker(String name) {
+ChatReceiveMessagesIncludeLastKnown _$valueOfChatReceiveMessagesIncludeLastKnown(String name) {
   switch (name) {
     case '\$0':
-      return _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$0;
+      return _$chatReceiveMessagesIncludeLastKnown$0;
     case '\$1':
-      return _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$1;
+      return _$chatReceiveMessagesIncludeLastKnown$1;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ChatReceiveMessagesRequestApplicationJson_SetReadMarker>
-    _$chatReceiveMessagesRequestApplicationJsonSetReadMarkerValues = BuiltSet<
-        ChatReceiveMessagesRequestApplicationJson_SetReadMarker>(const <ChatReceiveMessagesRequestApplicationJson_SetReadMarker>[
-  _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$0,
-  _$chatReceiveMessagesRequestApplicationJsonSetReadMarker$1,
+final BuiltSet<ChatReceiveMessagesIncludeLastKnown> _$chatReceiveMessagesIncludeLastKnownValues =
+    BuiltSet<ChatReceiveMessagesIncludeLastKnown>(const <ChatReceiveMessagesIncludeLastKnown>[
+  _$chatReceiveMessagesIncludeLastKnown$0,
+  _$chatReceiveMessagesIncludeLastKnown$1,
 ]);
 
-const ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown
-    _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$0 =
-    ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown._('\$0');
-const ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown
-    _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$1 =
-    ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown._('\$1');
+const ChatReceiveMessagesNoStatusUpdate _$chatReceiveMessagesNoStatusUpdate$0 =
+    ChatReceiveMessagesNoStatusUpdate._('\$0');
+const ChatReceiveMessagesNoStatusUpdate _$chatReceiveMessagesNoStatusUpdate$1 =
+    ChatReceiveMessagesNoStatusUpdate._('\$1');
 
-ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown
-    _$valueOfChatReceiveMessagesRequestApplicationJson_IncludeLastKnown(String name) {
+ChatReceiveMessagesNoStatusUpdate _$valueOfChatReceiveMessagesNoStatusUpdate(String name) {
   switch (name) {
     case '\$0':
-      return _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$0;
+      return _$chatReceiveMessagesNoStatusUpdate$0;
     case '\$1':
-      return _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$1;
+      return _$chatReceiveMessagesNoStatusUpdate$1;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown>
-    _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnownValues = BuiltSet<
-        ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown>(const <ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown>[
-  _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$0,
-  _$chatReceiveMessagesRequestApplicationJsonIncludeLastKnown$1,
+final BuiltSet<ChatReceiveMessagesNoStatusUpdate> _$chatReceiveMessagesNoStatusUpdateValues =
+    BuiltSet<ChatReceiveMessagesNoStatusUpdate>(const <ChatReceiveMessagesNoStatusUpdate>[
+  _$chatReceiveMessagesNoStatusUpdate$0,
+  _$chatReceiveMessagesNoStatusUpdate$1,
 ]);
 
-const ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate
-    _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$0 =
-    ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate._('\$0');
-const ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate
-    _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$1 =
-    ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate._('\$1');
+const ChatReceiveMessagesMarkNotificationsAsRead _$chatReceiveMessagesMarkNotificationsAsRead$0 =
+    ChatReceiveMessagesMarkNotificationsAsRead._('\$0');
+const ChatReceiveMessagesMarkNotificationsAsRead _$chatReceiveMessagesMarkNotificationsAsRead$1 =
+    ChatReceiveMessagesMarkNotificationsAsRead._('\$1');
 
-ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate
-    _$valueOfChatReceiveMessagesRequestApplicationJson_NoStatusUpdate(String name) {
+ChatReceiveMessagesMarkNotificationsAsRead _$valueOfChatReceiveMessagesMarkNotificationsAsRead(String name) {
   switch (name) {
     case '\$0':
-      return _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$0;
+      return _$chatReceiveMessagesMarkNotificationsAsRead$0;
     case '\$1':
-      return _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$1;
+      return _$chatReceiveMessagesMarkNotificationsAsRead$1;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate>
-    _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdateValues = BuiltSet<
-        ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate>(const <ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate>[
-  _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$0,
-  _$chatReceiveMessagesRequestApplicationJsonNoStatusUpdate$1,
-]);
-
-const ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead
-    _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$0 =
-    ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead._('\$0');
-const ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead
-    _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$1 =
-    ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead._('\$1');
-
-ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead
-    _$valueOfChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead(String name) {
-  switch (name) {
-    case '\$0':
-      return _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$0;
-    case '\$1':
-      return _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead>
-    _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsReadValues = BuiltSet<
-        ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead>(const <ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead>[
-  _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$0,
-  _$chatReceiveMessagesRequestApplicationJsonMarkNotificationsAsRead$1,
+final BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> _$chatReceiveMessagesMarkNotificationsAsReadValues =
+    BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead>(const <ChatReceiveMessagesMarkNotificationsAsRead>[
+  _$chatReceiveMessagesMarkNotificationsAsRead$0,
+  _$chatReceiveMessagesMarkNotificationsAsRead$1,
 ]);
 
 const ChatSendMessageApiVersion _$chatSendMessageApiVersionV1 = ChatSendMessageApiVersion._('v1');
@@ -1169,6 +1230,26 @@ ChatMentionsApiVersion _$valueOfChatMentionsApiVersion(String name) {
 final BuiltSet<ChatMentionsApiVersion> _$chatMentionsApiVersionValues =
     BuiltSet<ChatMentionsApiVersion>(const <ChatMentionsApiVersion>[
   _$chatMentionsApiVersionV1,
+]);
+
+const ChatMentionsIncludeStatus _$chatMentionsIncludeStatus$0 = ChatMentionsIncludeStatus._('\$0');
+const ChatMentionsIncludeStatus _$chatMentionsIncludeStatus$1 = ChatMentionsIncludeStatus._('\$1');
+
+ChatMentionsIncludeStatus _$valueOfChatMentionsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatMentionsIncludeStatus$0;
+    case '\$1':
+      return _$chatMentionsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatMentionsIncludeStatus> _$chatMentionsIncludeStatusValues =
+    BuiltSet<ChatMentionsIncludeStatus>(const <ChatMentionsIncludeStatus>[
+  _$chatMentionsIncludeStatus$0,
+  _$chatMentionsIncludeStatus$1,
 ]);
 
 const ChatGetObjectsSharedInRoomApiVersion _$chatGetObjectsSharedInRoomApiVersionV1 =
@@ -1769,28 +1850,44 @@ final BuiltSet<RoomGetRoomsApiVersion> _$roomGetRoomsApiVersionValues =
   _$roomGetRoomsApiVersionV4,
 ]);
 
-const RoomGetRoomsRequestApplicationJson_NoStatusUpdate _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$0 =
-    RoomGetRoomsRequestApplicationJson_NoStatusUpdate._('\$0');
-const RoomGetRoomsRequestApplicationJson_NoStatusUpdate _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$1 =
-    RoomGetRoomsRequestApplicationJson_NoStatusUpdate._('\$1');
+const RoomGetRoomsNoStatusUpdate _$roomGetRoomsNoStatusUpdate$0 = RoomGetRoomsNoStatusUpdate._('\$0');
+const RoomGetRoomsNoStatusUpdate _$roomGetRoomsNoStatusUpdate$1 = RoomGetRoomsNoStatusUpdate._('\$1');
 
-RoomGetRoomsRequestApplicationJson_NoStatusUpdate _$valueOfRoomGetRoomsRequestApplicationJson_NoStatusUpdate(
-    String name) {
+RoomGetRoomsNoStatusUpdate _$valueOfRoomGetRoomsNoStatusUpdate(String name) {
   switch (name) {
     case '\$0':
-      return _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$0;
+      return _$roomGetRoomsNoStatusUpdate$0;
     case '\$1':
-      return _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$1;
+      return _$roomGetRoomsNoStatusUpdate$1;
     default:
       throw ArgumentError(name);
   }
 }
 
-final BuiltSet<RoomGetRoomsRequestApplicationJson_NoStatusUpdate>
-    _$roomGetRoomsRequestApplicationJsonNoStatusUpdateValues = BuiltSet<
-        RoomGetRoomsRequestApplicationJson_NoStatusUpdate>(const <RoomGetRoomsRequestApplicationJson_NoStatusUpdate>[
-  _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$0,
-  _$roomGetRoomsRequestApplicationJsonNoStatusUpdate$1,
+final BuiltSet<RoomGetRoomsNoStatusUpdate> _$roomGetRoomsNoStatusUpdateValues =
+    BuiltSet<RoomGetRoomsNoStatusUpdate>(const <RoomGetRoomsNoStatusUpdate>[
+  _$roomGetRoomsNoStatusUpdate$0,
+  _$roomGetRoomsNoStatusUpdate$1,
+]);
+
+const RoomGetRoomsIncludeStatus _$roomGetRoomsIncludeStatus$0 = RoomGetRoomsIncludeStatus._('\$0');
+const RoomGetRoomsIncludeStatus _$roomGetRoomsIncludeStatus$1 = RoomGetRoomsIncludeStatus._('\$1');
+
+RoomGetRoomsIncludeStatus _$valueOfRoomGetRoomsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetRoomsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetRoomsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetRoomsIncludeStatus> _$roomGetRoomsIncludeStatusValues =
+    BuiltSet<RoomGetRoomsIncludeStatus>(const <RoomGetRoomsIncludeStatus>[
+  _$roomGetRoomsIncludeStatus$0,
+  _$roomGetRoomsIncludeStatus$1,
 ]);
 
 const RoomCreateRoomApiVersion _$roomCreateRoomApiVersionV4 = RoomCreateRoomApiVersion._('v4');
@@ -2071,6 +2168,26 @@ final BuiltSet<RoomGetParticipantsApiVersion> _$roomGetParticipantsApiVersionVal
   _$roomGetParticipantsApiVersionV4,
 ]);
 
+const RoomGetParticipantsIncludeStatus _$roomGetParticipantsIncludeStatus$0 = RoomGetParticipantsIncludeStatus._('\$0');
+const RoomGetParticipantsIncludeStatus _$roomGetParticipantsIncludeStatus$1 = RoomGetParticipantsIncludeStatus._('\$1');
+
+RoomGetParticipantsIncludeStatus _$valueOfRoomGetParticipantsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetParticipantsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetParticipantsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetParticipantsIncludeStatus> _$roomGetParticipantsIncludeStatusValues =
+    BuiltSet<RoomGetParticipantsIncludeStatus>(const <RoomGetParticipantsIncludeStatus>[
+  _$roomGetParticipantsIncludeStatus$0,
+  _$roomGetParticipantsIncludeStatus$1,
+]);
+
 const RoomAddParticipantToRoomApiVersion _$roomAddParticipantToRoomApiVersionV4 =
     RoomAddParticipantToRoomApiVersion._('v4');
 
@@ -2153,6 +2270,28 @@ RoomGetBreakoutRoomParticipantsApiVersion _$valueOfRoomGetBreakoutRoomParticipan
 final BuiltSet<RoomGetBreakoutRoomParticipantsApiVersion> _$roomGetBreakoutRoomParticipantsApiVersionValues =
     BuiltSet<RoomGetBreakoutRoomParticipantsApiVersion>(const <RoomGetBreakoutRoomParticipantsApiVersion>[
   _$roomGetBreakoutRoomParticipantsApiVersionV4,
+]);
+
+const RoomGetBreakoutRoomParticipantsIncludeStatus _$roomGetBreakoutRoomParticipantsIncludeStatus$0 =
+    RoomGetBreakoutRoomParticipantsIncludeStatus._('\$0');
+const RoomGetBreakoutRoomParticipantsIncludeStatus _$roomGetBreakoutRoomParticipantsIncludeStatus$1 =
+    RoomGetBreakoutRoomParticipantsIncludeStatus._('\$1');
+
+RoomGetBreakoutRoomParticipantsIncludeStatus _$valueOfRoomGetBreakoutRoomParticipantsIncludeStatus(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetBreakoutRoomParticipantsIncludeStatus$0;
+    case '\$1':
+      return _$roomGetBreakoutRoomParticipantsIncludeStatus$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus> _$roomGetBreakoutRoomParticipantsIncludeStatusValues =
+    BuiltSet<RoomGetBreakoutRoomParticipantsIncludeStatus>(const <RoomGetBreakoutRoomParticipantsIncludeStatus>[
+  _$roomGetBreakoutRoomParticipantsIncludeStatus$0,
+  _$roomGetBreakoutRoomParticipantsIncludeStatus$1,
 ]);
 
 const RoomRemoveSelfFromRoomApiVersion _$roomRemoveSelfFromRoomApiVersionV4 = RoomRemoveSelfFromRoomApiVersion._('v4');
@@ -2831,8 +2970,6 @@ final BuiltSet<SignalingBackendApiVersion> _$signalingBackendApiVersionValues =
   _$signalingBackendApiVersionV3,
 ]);
 
-Serializer<AvatarGetAvatarRequestApplicationJson> _$avatarGetAvatarRequestApplicationJsonSerializer =
-    _$AvatarGetAvatarRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<RichObjectParameter> _$richObjectParameterSerializer = _$RichObjectParameterSerializer();
 Serializer<BaseMessage> _$baseMessageSerializer = _$BaseMessageSerializer();
@@ -2852,17 +2989,6 @@ Serializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> _$avatarEmojiAvatarResp
     _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer();
 Serializer<AvatarEmojiAvatarResponseApplicationJson> _$avatarEmojiAvatarResponseApplicationJsonSerializer =
     _$AvatarEmojiAvatarResponseApplicationJsonSerializer();
-Serializer<AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson>
-    _$avatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonSerializer =
-    _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonSerializer();
-Serializer<AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson>
-    _$avatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonSerializer =
-    _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonSerializer();
-Serializer<AvatarGetUserProxyAvatarRequestApplicationJson> _$avatarGetUserProxyAvatarRequestApplicationJsonSerializer =
-    _$AvatarGetUserProxyAvatarRequestApplicationJsonSerializer();
-Serializer<AvatarGetUserProxyAvatarDarkRequestApplicationJson>
-    _$avatarGetUserProxyAvatarDarkRequestApplicationJsonSerializer =
-    _$AvatarGetUserProxyAvatarDarkRequestApplicationJsonSerializer();
 Serializer<Bot> _$botSerializer = _$BotSerializer();
 Serializer<BotListBotsResponseApplicationJson_Ocs> _$botListBotsResponseApplicationJsonOcsSerializer =
     _$BotListBotsResponseApplicationJson_OcsSerializer();
@@ -2888,8 +3014,6 @@ Serializer<BotReactResponseApplicationJson_Ocs> _$botReactResponseApplicationJso
     _$BotReactResponseApplicationJson_OcsSerializer();
 Serializer<BotReactResponseApplicationJson> _$botReactResponseApplicationJsonSerializer =
     _$BotReactResponseApplicationJsonSerializer();
-Serializer<BotDeleteReactionRequestApplicationJson> _$botDeleteReactionRequestApplicationJsonSerializer =
-    _$BotDeleteReactionRequestApplicationJsonSerializer();
 Serializer<BotDeleteReactionResponseApplicationJson_Ocs> _$botDeleteReactionResponseApplicationJsonOcsSerializer =
     _$BotDeleteReactionResponseApplicationJson_OcsSerializer();
 Serializer<BotDeleteReactionResponseApplicationJson> _$botDeleteReactionResponseApplicationJsonSerializer =
@@ -2977,8 +3101,6 @@ Serializer<CallJoinCallResponseApplicationJson_Ocs> _$callJoinCallResponseApplic
     _$CallJoinCallResponseApplicationJson_OcsSerializer();
 Serializer<CallJoinCallResponseApplicationJson> _$callJoinCallResponseApplicationJsonSerializer =
     _$CallJoinCallResponseApplicationJsonSerializer();
-Serializer<CallLeaveCallRequestApplicationJson> _$callLeaveCallRequestApplicationJsonSerializer =
-    _$CallLeaveCallRequestApplicationJsonSerializer();
 Serializer<CallLeaveCallResponseApplicationJson_Ocs> _$callLeaveCallResponseApplicationJsonOcsSerializer =
     _$CallLeaveCallResponseApplicationJson_OcsSerializer();
 Serializer<CallLeaveCallResponseApplicationJson> _$callLeaveCallResponseApplicationJsonSerializer =
@@ -2993,8 +3115,6 @@ Serializer<CallSipDialOutResponseApplicationJson_Ocs> _$callSipDialOutResponseAp
     _$CallSipDialOutResponseApplicationJson_OcsSerializer();
 Serializer<CallSipDialOutResponseApplicationJson> _$callSipDialOutResponseApplicationJsonSerializer =
     _$CallSipDialOutResponseApplicationJsonSerializer();
-Serializer<ChatReceiveMessagesRequestApplicationJson> _$chatReceiveMessagesRequestApplicationJsonSerializer =
-    _$ChatReceiveMessagesRequestApplicationJsonSerializer();
 Serializer<ChatMessageWithParent> _$chatMessageWithParentSerializer = _$ChatMessageWithParentSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> _$chatReceiveMessagesResponseApplicationJsonOcsSerializer =
     _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
@@ -3030,8 +3150,6 @@ Serializer<ChatDeleteMessageResponseApplicationJson> _$chatDeleteMessageResponse
     _$ChatDeleteMessageResponseApplicationJsonSerializer();
 Serializer<ChatChatDeleteMessageHeaders> _$chatChatDeleteMessageHeadersSerializer =
     _$ChatChatDeleteMessageHeadersSerializer();
-Serializer<ChatGetMessageContextRequestApplicationJson> _$chatGetMessageContextRequestApplicationJsonSerializer =
-    _$ChatGetMessageContextRequestApplicationJsonSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson_Ocs>
     _$chatGetMessageContextResponseApplicationJsonOcsSerializer =
     _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
@@ -3070,16 +3188,11 @@ Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> _$chatMarkUnreadResponseAp
 Serializer<ChatMarkUnreadResponseApplicationJson> _$chatMarkUnreadResponseApplicationJsonSerializer =
     _$ChatMarkUnreadResponseApplicationJsonSerializer();
 Serializer<ChatChatMarkUnreadHeaders> _$chatChatMarkUnreadHeadersSerializer = _$ChatChatMarkUnreadHeadersSerializer();
-Serializer<ChatMentionsRequestApplicationJson> _$chatMentionsRequestApplicationJsonSerializer =
-    _$ChatMentionsRequestApplicationJsonSerializer();
 Serializer<ChatMentionSuggestion> _$chatMentionSuggestionSerializer = _$ChatMentionSuggestionSerializer();
 Serializer<ChatMentionsResponseApplicationJson_Ocs> _$chatMentionsResponseApplicationJsonOcsSerializer =
     _$ChatMentionsResponseApplicationJson_OcsSerializer();
 Serializer<ChatMentionsResponseApplicationJson> _$chatMentionsResponseApplicationJsonSerializer =
     _$ChatMentionsResponseApplicationJsonSerializer();
-Serializer<ChatGetObjectsSharedInRoomRequestApplicationJson>
-    _$chatGetObjectsSharedInRoomRequestApplicationJsonSerializer =
-    _$ChatGetObjectsSharedInRoomRequestApplicationJsonSerializer();
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer();
@@ -3097,17 +3210,12 @@ Serializer<ChatShareObjectToChatResponseApplicationJson> _$chatShareObjectToChat
     _$ChatShareObjectToChatResponseApplicationJsonSerializer();
 Serializer<ChatChatShareObjectToChatHeaders> _$chatChatShareObjectToChatHeadersSerializer =
     _$ChatChatShareObjectToChatHeadersSerializer();
-Serializer<ChatGetObjectsSharedInRoomOverviewRequestApplicationJson>
-    _$chatGetObjectsSharedInRoomOverviewRequestApplicationJsonSerializer =
-    _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonSerializer();
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer();
-Serializer<SignalingGetSettingsRequestApplicationJson> _$signalingGetSettingsRequestApplicationJsonSerializer =
-    _$SignalingGetSettingsRequestApplicationJsonSerializer();
 Serializer<SignalingSettings_HelloAuthParams_10> _$signalingSettingsHelloAuthParams10Serializer =
     _$SignalingSettings_HelloAuthParams_10Serializer();
 Serializer<SignalingSettings_HelloAuthParams_20> _$signalingSettingsHelloAuthParams20Serializer =
@@ -3267,8 +3375,6 @@ Serializer<PollClosePollResponseApplicationJson_Ocs> _$pollClosePollResponseAppl
     _$PollClosePollResponseApplicationJson_OcsSerializer();
 Serializer<PollClosePollResponseApplicationJson> _$pollClosePollResponseApplicationJsonSerializer =
     _$PollClosePollResponseApplicationJsonSerializer();
-Serializer<ReactionGetReactionsRequestApplicationJson> _$reactionGetReactionsRequestApplicationJsonSerializer =
-    _$ReactionGetReactionsRequestApplicationJsonSerializer();
 Serializer<Reaction> _$reactionSerializer = _$ReactionSerializer();
 Serializer<ReactionGetReactionsResponseApplicationJson_Ocs> _$reactionGetReactionsResponseApplicationJsonOcsSerializer =
     _$ReactionGetReactionsResponseApplicationJson_OcsSerializer();
@@ -3280,8 +3386,6 @@ Serializer<ReactionReactResponseApplicationJson_Ocs> _$reactionReactResponseAppl
     _$ReactionReactResponseApplicationJson_OcsSerializer();
 Serializer<ReactionReactResponseApplicationJson> _$reactionReactResponseApplicationJsonSerializer =
     _$ReactionReactResponseApplicationJsonSerializer();
-Serializer<ReactionDeleteRequestApplicationJson> _$reactionDeleteRequestApplicationJsonSerializer =
-    _$ReactionDeleteRequestApplicationJsonSerializer();
 Serializer<ReactionDeleteResponseApplicationJson_Ocs> _$reactionDeleteResponseApplicationJsonOcsSerializer =
     _$ReactionDeleteResponseApplicationJson_OcsSerializer();
 Serializer<ReactionDeleteResponseApplicationJson> _$reactionDeleteResponseApplicationJsonSerializer =
@@ -3296,9 +3400,6 @@ Serializer<RecordingStopResponseApplicationJson_Ocs> _$recordingStopResponseAppl
     _$RecordingStopResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStopResponseApplicationJson> _$recordingStopResponseApplicationJsonSerializer =
     _$RecordingStopResponseApplicationJsonSerializer();
-Serializer<RecordingNotificationDismissRequestApplicationJson>
-    _$recordingNotificationDismissRequestApplicationJsonSerializer =
-    _$RecordingNotificationDismissRequestApplicationJsonSerializer();
 Serializer<RecordingNotificationDismissResponseApplicationJson_Ocs>
     _$recordingNotificationDismissResponseApplicationJsonOcsSerializer =
     _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer();
@@ -3321,8 +3422,6 @@ Serializer<RecordingStoreResponseApplicationJson_Ocs> _$recordingStoreResponseAp
     _$RecordingStoreResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStoreResponseApplicationJson> _$recordingStoreResponseApplicationJsonSerializer =
     _$RecordingStoreResponseApplicationJsonSerializer();
-Serializer<RoomGetRoomsRequestApplicationJson> _$roomGetRoomsRequestApplicationJsonSerializer =
-    _$RoomGetRoomsRequestApplicationJsonSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson> _$roomGetRoomsResponseApplicationJsonSerializer =
@@ -3334,8 +3433,6 @@ Serializer<RoomCreateRoomResponseApplicationJson_Ocs> _$roomCreateRoomResponseAp
     _$RoomCreateRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson> _$roomCreateRoomResponseApplicationJsonSerializer =
     _$RoomCreateRoomResponseApplicationJsonSerializer();
-Serializer<RoomGetListedRoomsRequestApplicationJson> _$roomGetListedRoomsRequestApplicationJsonSerializer =
-    _$RoomGetListedRoomsRequestApplicationJsonSerializer();
 Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> _$roomGetListedRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetListedRoomsResponseApplicationJson> _$roomGetListedRoomsResponseApplicationJsonSerializer =
@@ -3396,8 +3493,6 @@ Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> _$roomSetPermissionsRe
     _$RoomSetPermissionsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetPermissionsResponseApplicationJson> _$roomSetPermissionsResponseApplicationJsonSerializer =
     _$RoomSetPermissionsResponseApplicationJsonSerializer();
-Serializer<RoomGetParticipantsRequestApplicationJson> _$roomGetParticipantsRequestApplicationJsonSerializer =
-    _$RoomGetParticipantsRequestApplicationJsonSerializer();
 Serializer<Participant> _$participantSerializer = _$ParticipantSerializer();
 Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> _$roomGetParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
@@ -3416,9 +3511,6 @@ Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs>
 Serializer<RoomAddParticipantToRoomResponseApplicationJson>
     _$roomAddParticipantToRoomResponseApplicationJsonSerializer =
     _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
-Serializer<RoomGetBreakoutRoomParticipantsRequestApplicationJson>
-    _$roomGetBreakoutRoomParticipantsRequestApplicationJsonSerializer =
-    _$RoomGetBreakoutRoomParticipantsRequestApplicationJsonSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs>
     _$roomGetBreakoutRoomParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer();
@@ -3432,9 +3524,6 @@ Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs>
     _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomRemoveSelfFromRoomResponseApplicationJson> _$roomRemoveSelfFromRoomResponseApplicationJsonSerializer =
     _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer();
-Serializer<RoomRemoveAttendeeFromRoomRequestApplicationJson>
-    _$roomRemoveAttendeeFromRoomRequestApplicationJsonSerializer =
-    _$RoomRemoveAttendeeFromRoomRequestApplicationJsonSerializer();
 Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs>
     _$roomRemoveAttendeeFromRoomResponseApplicationJsonOcsSerializer =
     _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer();
@@ -3489,8 +3578,6 @@ Serializer<RoomPromoteModeratorResponseApplicationJson_Ocs> _$roomPromoteModerat
     _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer();
 Serializer<RoomPromoteModeratorResponseApplicationJson> _$roomPromoteModeratorResponseApplicationJsonSerializer =
     _$RoomPromoteModeratorResponseApplicationJsonSerializer();
-Serializer<RoomDemoteModeratorRequestApplicationJson> _$roomDemoteModeratorRequestApplicationJsonSerializer =
-    _$RoomDemoteModeratorRequestApplicationJsonSerializer();
 Serializer<RoomDemoteModeratorResponseApplicationJson_Ocs> _$roomDemoteModeratorResponseApplicationJsonOcsSerializer =
     _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer();
 Serializer<RoomDemoteModeratorResponseApplicationJson> _$roomDemoteModeratorResponseApplicationJsonSerializer =
@@ -3601,12 +3688,6 @@ Serializer<RoomCreateGuestByDialInResponseApplicationJson_Ocs>
     _$RoomCreateGuestByDialInResponseApplicationJson_OcsSerializer();
 Serializer<RoomCreateGuestByDialInResponseApplicationJson> _$roomCreateGuestByDialInResponseApplicationJsonSerializer =
     _$RoomCreateGuestByDialInResponseApplicationJsonSerializer();
-Serializer<RoomRejectedDialOutRequestRequestApplicationJson_Options>
-    _$roomRejectedDialOutRequestRequestApplicationJsonOptionsSerializer =
-    _$RoomRejectedDialOutRequestRequestApplicationJson_OptionsSerializer();
-Serializer<RoomRejectedDialOutRequestRequestApplicationJson>
-    _$roomRejectedDialOutRequestRequestApplicationJsonSerializer =
-    _$RoomRejectedDialOutRequestRequestApplicationJsonSerializer();
 Serializer<RoomRejectedDialOutRequestResponseApplicationJson_Ocs>
     _$roomRejectedDialOutRequestResponseApplicationJsonOcsSerializer =
     _$RoomRejectedDialOutRequestResponseApplicationJson_OcsSerializer();
@@ -3625,9 +3706,6 @@ Serializer<BotAdminListBotsResponseApplicationJson_Ocs> _$botAdminListBotsRespon
     _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
 Serializer<BotAdminListBotsResponseApplicationJson> _$botAdminListBotsResponseApplicationJsonSerializer =
     _$BotAdminListBotsResponseApplicationJsonSerializer();
-Serializer<CertificateGetCertificateExpirationRequestApplicationJson>
-    _$certificateGetCertificateExpirationRequestApplicationJsonSerializer =
-    _$CertificateGetCertificateExpirationRequestApplicationJsonSerializer();
 Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data>
     _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer =
     _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer();
@@ -3686,45 +3764,6 @@ Serializer<TempAvatarDeleteAvatarResponseApplicationJson> _$tempAvatarDeleteAvat
     _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer();
 Serializer<BotWithDetailsAndSecret> _$botWithDetailsAndSecretSerializer = _$BotWithDetailsAndSecretSerializer();
 Serializer<PublicCapabilities0> _$publicCapabilities0Serializer = _$PublicCapabilities0Serializer();
-
-class _$AvatarGetAvatarRequestApplicationJsonSerializer
-    implements StructuredSerializer<AvatarGetAvatarRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [AvatarGetAvatarRequestApplicationJson, _$AvatarGetAvatarRequestApplicationJson];
-  @override
-  final String wireName = 'AvatarGetAvatarRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AvatarGetAvatarRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'darkTheme',
-      serializers.serialize(object.darkTheme, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  AvatarGetAvatarRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AvatarGetAvatarRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'darkTheme':
-          result.darkTheme = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -4958,187 +4997,6 @@ class _$AvatarEmojiAvatarResponseApplicationJsonSerializer
   }
 }
 
-class _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonSerializer
-    implements StructuredSerializer<AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson,
-    _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'cloudId',
-      serializers.serialize(object.cloudId, specifiedType: const FullType(String)),
-      'darkTheme',
-      serializers.serialize(object.darkTheme, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'cloudId':
-          result.cloudId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'darkTheme':
-          result.darkTheme = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonSerializer
-    implements StructuredSerializer<AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson,
-    _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'cloudId',
-      serializers.serialize(object.cloudId, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'cloudId':
-          result.cloudId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$AvatarGetUserProxyAvatarRequestApplicationJsonSerializer
-    implements StructuredSerializer<AvatarGetUserProxyAvatarRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    AvatarGetUserProxyAvatarRequestApplicationJson,
-    _$AvatarGetUserProxyAvatarRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'AvatarGetUserProxyAvatarRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AvatarGetUserProxyAvatarRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'cloudId',
-      serializers.serialize(object.cloudId, specifiedType: const FullType(String)),
-      'darkTheme',
-      serializers.serialize(object.darkTheme, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  AvatarGetUserProxyAvatarRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AvatarGetUserProxyAvatarRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'cloudId':
-          result.cloudId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'darkTheme':
-          result.darkTheme = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$AvatarGetUserProxyAvatarDarkRequestApplicationJsonSerializer
-    implements StructuredSerializer<AvatarGetUserProxyAvatarDarkRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    AvatarGetUserProxyAvatarDarkRequestApplicationJson,
-    _$AvatarGetUserProxyAvatarDarkRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'AvatarGetUserProxyAvatarDarkRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, AvatarGetUserProxyAvatarDarkRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'cloudId',
-      serializers.serialize(object.cloudId, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'cloudId':
-          result.cloudId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$BotSerializer implements StructuredSerializer<Bot> {
   @override
   final Iterable<Type> types = const [Bot, _$Bot];
@@ -5721,48 +5579,6 @@ class _$BotReactResponseApplicationJsonSerializer implements StructuredSerialize
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(BotReactResponseApplicationJson_Ocs))!
                   as BotReactResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$BotDeleteReactionRequestApplicationJsonSerializer
-    implements StructuredSerializer<BotDeleteReactionRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    BotDeleteReactionRequestApplicationJson,
-    _$BotDeleteReactionRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'BotDeleteReactionRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, BotDeleteReactionRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'reaction',
-      serializers.serialize(object.reaction, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  BotDeleteReactionRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = BotDeleteReactionRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'reaction':
-          result.reaction = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -7339,45 +7155,6 @@ class _$CallJoinCallResponseApplicationJsonSerializer
   }
 }
 
-class _$CallLeaveCallRequestApplicationJsonSerializer
-    implements StructuredSerializer<CallLeaveCallRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [CallLeaveCallRequestApplicationJson, _$CallLeaveCallRequestApplicationJson];
-  @override
-  final String wireName = 'CallLeaveCallRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, CallLeaveCallRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'all',
-      serializers.serialize(object.all, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  CallLeaveCallRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = CallLeaveCallRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'all':
-          result.all = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$CallLeaveCallResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CallLeaveCallResponseApplicationJson_Ocs> {
   @override
@@ -7693,103 +7470,6 @@ class _$CallSipDialOutResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(CallSipDialOutResponseApplicationJson_Ocs))!
                   as CallSipDialOutResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ChatReceiveMessagesRequestApplicationJsonSerializer
-    implements StructuredSerializer<ChatReceiveMessagesRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ChatReceiveMessagesRequestApplicationJson,
-    _$ChatReceiveMessagesRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ChatReceiveMessagesRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatReceiveMessagesRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'lookIntoFuture',
-      serializers.serialize(object.lookIntoFuture,
-          specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_LookIntoFuture)),
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-      'lastKnownMessageId',
-      serializers.serialize(object.lastKnownMessageId, specifiedType: const FullType(int)),
-      'lastCommonReadId',
-      serializers.serialize(object.lastCommonReadId, specifiedType: const FullType(int)),
-      'timeout',
-      serializers.serialize(object.timeout, specifiedType: const FullType(int)),
-      'setReadMarker',
-      serializers.serialize(object.setReadMarker,
-          specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_SetReadMarker)),
-      'includeLastKnown',
-      serializers.serialize(object.includeLastKnown,
-          specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown)),
-      'noStatusUpdate',
-      serializers.serialize(object.noStatusUpdate,
-          specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate)),
-      'markNotificationsAsRead',
-      serializers.serialize(object.markNotificationsAsRead,
-          specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ChatReceiveMessagesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatReceiveMessagesRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'lookIntoFuture':
-          result.lookIntoFuture = serializers.deserialize(value,
-                  specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_LookIntoFuture))!
-              as ChatReceiveMessagesRequestApplicationJson_LookIntoFuture;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'lastKnownMessageId':
-          result.lastKnownMessageId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'lastCommonReadId':
-          result.lastCommonReadId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'timeout':
-          result.timeout = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'setReadMarker':
-          result.setReadMarker = serializers.deserialize(value,
-                  specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_SetReadMarker))!
-              as ChatReceiveMessagesRequestApplicationJson_SetReadMarker;
-          break;
-        case 'includeLastKnown':
-          result.includeLastKnown = serializers.deserialize(value,
-                  specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown))!
-              as ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown;
-          break;
-        case 'noStatusUpdate':
-          result.noStatusUpdate = serializers.deserialize(value,
-                  specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate))!
-              as ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate;
-          break;
-        case 'markNotificationsAsRead':
-          result.markNotificationsAsRead = serializers.deserialize(value,
-                  specifiedType: const FullType(ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead))!
-              as ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead;
           break;
       }
     }
@@ -8758,48 +8438,6 @@ class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<C
   }
 }
 
-class _$ChatGetMessageContextRequestApplicationJsonSerializer
-    implements StructuredSerializer<ChatGetMessageContextRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ChatGetMessageContextRequestApplicationJson,
-    _$ChatGetMessageContextRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ChatGetMessageContextRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatGetMessageContextRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ChatGetMessageContextRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatGetMessageContextRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatGetMessageContextResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatGetMessageContextResponseApplicationJson_Ocs> {
   @override
@@ -9658,55 +9296,6 @@ class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<Chat
   }
 }
 
-class _$ChatMentionsRequestApplicationJsonSerializer
-    implements StructuredSerializer<ChatMentionsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [ChatMentionsRequestApplicationJson, _$ChatMentionsRequestApplicationJson];
-  @override
-  final String wireName = 'ChatMentionsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatMentionsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'search',
-      serializers.serialize(object.search, specifiedType: const FullType(String)),
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-      'includeStatus',
-      serializers.serialize(object.includeStatus, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ChatMentionsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatMentionsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'search':
-          result.search = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'includeStatus':
-          result.includeStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMentionSuggestion> {
   @override
   final Iterable<Type> types = const [ChatMentionSuggestion, _$ChatMentionSuggestion];
@@ -9881,58 +9470,6 @@ class _$ChatMentionsResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ChatMentionsResponseApplicationJson_Ocs))!
                   as ChatMentionsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ChatGetObjectsSharedInRoomRequestApplicationJsonSerializer
-    implements StructuredSerializer<ChatGetObjectsSharedInRoomRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ChatGetObjectsSharedInRoomRequestApplicationJson,
-    _$ChatGetObjectsSharedInRoomRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ChatGetObjectsSharedInRoomRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatGetObjectsSharedInRoomRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'objectType',
-      serializers.serialize(object.objectType, specifiedType: const FullType(String)),
-      'lastKnownMessageId',
-      serializers.serialize(object.lastKnownMessageId, specifiedType: const FullType(int)),
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'objectType':
-          result.objectType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'lastKnownMessageId':
-          result.lastKnownMessageId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -10277,49 +9814,6 @@ class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializ
   }
 }
 
-class _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonSerializer
-    implements StructuredSerializer<ChatGetObjectsSharedInRoomOverviewRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ChatGetObjectsSharedInRoomOverviewRequestApplicationJson,
-    _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ChatGetObjectsSharedInRoomOverviewRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ChatGetObjectsSharedInRoomOverviewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'limit',
-      serializers.serialize(object.limit, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'limit':
-          result.limit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> {
   @override
@@ -10415,48 +9909,6 @@ class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs))!
               as ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SignalingGetSettingsRequestApplicationJsonSerializer
-    implements StructuredSerializer<SignalingGetSettingsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    SignalingGetSettingsRequestApplicationJson,
-    _$SignalingGetSettingsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'SignalingGetSettingsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, SignalingGetSettingsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'token',
-      serializers.serialize(object.token, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SignalingGetSettingsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = SignalingGetSettingsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'token':
-          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -13806,51 +13258,6 @@ class _$PollClosePollResponseApplicationJsonSerializer
   }
 }
 
-class _$ReactionGetReactionsRequestApplicationJsonSerializer
-    implements StructuredSerializer<ReactionGetReactionsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    ReactionGetReactionsRequestApplicationJson,
-    _$ReactionGetReactionsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'ReactionGetReactionsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReactionGetReactionsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.reaction;
-    if (value != null) {
-      result
-        ..add('reaction')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  ReactionGetReactionsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReactionGetReactionsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'reaction':
-          result.reaction = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ReactionSerializer implements StructuredSerializer<Reaction> {
   @override
   final Iterable<Type> types = const [Reaction, _$Reaction];
@@ -14130,45 +13537,6 @@ class _$ReactionReactResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(ReactionReactResponseApplicationJson_Ocs))!
                   as ReactionReactResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ReactionDeleteRequestApplicationJsonSerializer
-    implements StructuredSerializer<ReactionDeleteRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [ReactionDeleteRequestApplicationJson, _$ReactionDeleteRequestApplicationJson];
-  @override
-  final String wireName = 'ReactionDeleteRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, ReactionDeleteRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'reaction',
-      serializers.serialize(object.reaction, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  ReactionDeleteRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ReactionDeleteRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'reaction':
-          result.reaction = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -14480,48 +13848,6 @@ class _$RecordingStopResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(RecordingStopResponseApplicationJson_Ocs))!
                   as RecordingStopResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RecordingNotificationDismissRequestApplicationJsonSerializer
-    implements StructuredSerializer<RecordingNotificationDismissRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RecordingNotificationDismissRequestApplicationJson,
-    _$RecordingNotificationDismissRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RecordingNotificationDismissRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RecordingNotificationDismissRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'timestamp',
-      serializers.serialize(object.timestamp, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RecordingNotificationDismissRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RecordingNotificationDismissRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'timestamp':
-          result.timestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -14979,58 +14305,6 @@ class _$RecordingStoreResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomGetRoomsRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomGetRoomsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [RoomGetRoomsRequestApplicationJson, _$RoomGetRoomsRequestApplicationJson];
-  @override
-  final String wireName = 'RoomGetRoomsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomGetRoomsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'noStatusUpdate',
-      serializers.serialize(object.noStatusUpdate,
-          specifiedType: const FullType(RoomGetRoomsRequestApplicationJson_NoStatusUpdate)),
-      'includeStatus',
-      serializers.serialize(object.includeStatus, specifiedType: const FullType(bool)),
-      'modifiedSince',
-      serializers.serialize(object.modifiedSince, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomGetRoomsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomGetRoomsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'noStatusUpdate':
-          result.noStatusUpdate = serializers.deserialize(value,
-                  specifiedType: const FullType(RoomGetRoomsRequestApplicationJson_NoStatusUpdate))!
-              as RoomGetRoomsRequestApplicationJson_NoStatusUpdate;
-          break;
-        case 'includeStatus':
-          result.includeStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'modifiedSince':
-          result.modifiedSince = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomGetRoomsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetRoomsResponseApplicationJson_Ocs> {
   @override
@@ -15325,48 +14599,6 @@ class _$RoomCreateRoomResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(RoomCreateRoomResponseApplicationJson_Ocs))!
                   as RoomCreateRoomResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RoomGetListedRoomsRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomGetListedRoomsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomGetListedRoomsRequestApplicationJson,
-    _$RoomGetListedRoomsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomGetListedRoomsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomGetListedRoomsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'searchTerm',
-      serializers.serialize(object.searchTerm, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomGetListedRoomsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomGetListedRoomsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'searchTerm':
-          result.searchTerm = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -16657,48 +15889,6 @@ class _$RoomSetPermissionsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomGetParticipantsRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomGetParticipantsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomGetParticipantsRequestApplicationJson,
-    _$RoomGetParticipantsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomGetParticipantsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomGetParticipantsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'includeStatus',
-      serializers.serialize(object.includeStatus, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomGetParticipantsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomGetParticipantsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'includeStatus':
-          result.includeStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$ParticipantSerializer implements StructuredSerializer<Participant> {
   @override
   final Iterable<Type> types = const [Participant, _$Participant];
@@ -17169,49 +16359,6 @@ class _$RoomAddParticipantToRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomGetBreakoutRoomParticipantsRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomGetBreakoutRoomParticipantsRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomGetBreakoutRoomParticipantsRequestApplicationJson,
-    _$RoomGetBreakoutRoomParticipantsRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomGetBreakoutRoomParticipantsRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomGetBreakoutRoomParticipantsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'includeStatus',
-      serializers.serialize(object.includeStatus, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomGetBreakoutRoomParticipantsRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'includeStatus':
-          result.includeStatus = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> {
   @override
@@ -17438,48 +16585,6 @@ class _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs))!
               as RoomRemoveSelfFromRoomResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RoomRemoveAttendeeFromRoomRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomRemoveAttendeeFromRoomRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRemoveAttendeeFromRoomRequestApplicationJson,
-    _$RoomRemoveAttendeeFromRoomRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomRemoveAttendeeFromRoomRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRemoveAttendeeFromRoomRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'attendeeId',
-      serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomRemoveAttendeeFromRoomRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'attendeeId':
-          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -18534,48 +17639,6 @@ class _$RoomPromoteModeratorResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs))!
               as RoomPromoteModeratorResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RoomDemoteModeratorRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomDemoteModeratorRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomDemoteModeratorRequestApplicationJson,
-    _$RoomDemoteModeratorRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomDemoteModeratorRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomDemoteModeratorRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'attendeeId',
-      serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomDemoteModeratorRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomDemoteModeratorRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'attendeeId':
-          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
       }
     }
@@ -20958,120 +20021,6 @@ class _$RoomCreateGuestByDialInResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRejectedDialOutRequestRequestApplicationJson_OptionsSerializer
-    implements StructuredSerializer<RoomRejectedDialOutRequestRequestApplicationJson_Options> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRejectedDialOutRequestRequestApplicationJson_Options,
-    _$RoomRejectedDialOutRequestRequestApplicationJson_Options
-  ];
-  @override
-  final String wireName = 'RoomRejectedDialOutRequestRequestApplicationJson_Options';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRejectedDialOutRequestRequestApplicationJson_Options object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.actorId;
-    if (value != null) {
-      result
-        ..add('actorId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    value = object.actorType;
-    if (value != null) {
-      result
-        ..add('actorType')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ActorType)));
-    }
-    value = object.attendeeId;
-    if (value != null) {
-      result
-        ..add('attendeeId')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    return result;
-  }
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson_Options deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'actorId':
-          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-        case 'actorType':
-          result.actorType = serializers.deserialize(value, specifiedType: const FullType(ActorType)) as ActorType?;
-          break;
-        case 'attendeeId':
-          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RoomRejectedDialOutRequestRequestApplicationJsonSerializer
-    implements StructuredSerializer<RoomRejectedDialOutRequestRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRejectedDialOutRequestRequestApplicationJson,
-    _$RoomRejectedDialOutRequestRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'RoomRejectedDialOutRequestRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, RoomRejectedDialOutRequestRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'callId',
-      serializers.serialize(object.callId, specifiedType: const FullType(String)),
-      'options',
-      serializers.serialize(object.options,
-          specifiedType: const FullType(RoomRejectedDialOutRequestRequestApplicationJson_Options)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = RoomRejectedDialOutRequestRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'callId':
-          result.callId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'options':
-          result.options.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RoomRejectedDialOutRequestRequestApplicationJson_Options))!
-              as RoomRejectedDialOutRequestRequestApplicationJson_Options);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$RoomRejectedDialOutRequestResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomRejectedDialOutRequestResponseApplicationJson_Ocs> {
   @override
@@ -21485,49 +20434,6 @@ class _$BotAdminListBotsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs))!
               as BotAdminListBotsResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$CertificateGetCertificateExpirationRequestApplicationJsonSerializer
-    implements StructuredSerializer<CertificateGetCertificateExpirationRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    CertificateGetCertificateExpirationRequestApplicationJson,
-    _$CertificateGetCertificateExpirationRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'CertificateGetCertificateExpirationRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, CertificateGetCertificateExpirationRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'host',
-      serializers.serialize(object.host, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  CertificateGetCertificateExpirationRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = CertificateGetCertificateExpirationRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'host':
-          result.host = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -22740,102 +21646,6 @@ class _$PublicCapabilities0Serializer implements StructuredSerializer<PublicCapa
     }
 
     return result.build();
-  }
-}
-
-abstract mixin class $AvatarGetAvatarRequestApplicationJsonInterfaceBuilder {
-  void replace($AvatarGetAvatarRequestApplicationJsonInterface other);
-  void update(void Function($AvatarGetAvatarRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get darkTheme;
-  set darkTheme(bool? darkTheme);
-}
-
-class _$AvatarGetAvatarRequestApplicationJson extends AvatarGetAvatarRequestApplicationJson {
-  @override
-  final bool darkTheme;
-
-  factory _$AvatarGetAvatarRequestApplicationJson(
-          [void Function(AvatarGetAvatarRequestApplicationJsonBuilder)? updates]) =>
-      (AvatarGetAvatarRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AvatarGetAvatarRequestApplicationJson._({required this.darkTheme}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(darkTheme, r'AvatarGetAvatarRequestApplicationJson', 'darkTheme');
-  }
-
-  @override
-  AvatarGetAvatarRequestApplicationJson rebuild(void Function(AvatarGetAvatarRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AvatarGetAvatarRequestApplicationJsonBuilder toBuilder() =>
-      AvatarGetAvatarRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AvatarGetAvatarRequestApplicationJson && darkTheme == other.darkTheme;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, darkTheme.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AvatarGetAvatarRequestApplicationJson')..add('darkTheme', darkTheme))
-        .toString();
-  }
-}
-
-class AvatarGetAvatarRequestApplicationJsonBuilder
-    implements
-        Builder<AvatarGetAvatarRequestApplicationJson, AvatarGetAvatarRequestApplicationJsonBuilder>,
-        $AvatarGetAvatarRequestApplicationJsonInterfaceBuilder {
-  _$AvatarGetAvatarRequestApplicationJson? _$v;
-
-  bool? _darkTheme;
-  bool? get darkTheme => _$this._darkTheme;
-  set darkTheme(covariant bool? darkTheme) => _$this._darkTheme = darkTheme;
-
-  AvatarGetAvatarRequestApplicationJsonBuilder() {
-    AvatarGetAvatarRequestApplicationJson._defaults(this);
-  }
-
-  AvatarGetAvatarRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _darkTheme = $v.darkTheme;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AvatarGetAvatarRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AvatarGetAvatarRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AvatarGetAvatarRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AvatarGetAvatarRequestApplicationJson build() => _build();
-
-  _$AvatarGetAvatarRequestApplicationJson _build() {
-    AvatarGetAvatarRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$AvatarGetAvatarRequestApplicationJson._(
-            darkTheme: BuiltValueNullFieldError.checkNotNull(
-                darkTheme, r'AvatarGetAvatarRequestApplicationJson', 'darkTheme'));
-    replace(_$result);
-    return _$result;
   }
 }
 
@@ -25865,440 +24675,6 @@ class AvatarEmojiAvatarResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder {
-  void replace($AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterface other);
-  void update(void Function($AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder) updates);
-  String? get cloudId;
-  set cloudId(String? cloudId);
-
-  bool? get darkTheme;
-  set darkTheme(bool? darkTheme);
-}
-
-class _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson
-    extends AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson {
-  @override
-  final String cloudId;
-  @override
-  final bool darkTheme;
-
-  factory _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson(
-          [void Function(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder)? updates]) =>
-      (AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson._({required this.cloudId, required this.darkTheme})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        cloudId, r'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson', 'cloudId');
-    BuiltValueNullFieldError.checkNotNull(
-        darkTheme, r'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson', 'darkTheme');
-  }
-
-  @override
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson rebuild(
-          void Function(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder toBuilder() =>
-      AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson &&
-        cloudId == other.cloudId &&
-        darkTheme == other.darkTheme;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, cloudId.hashCode);
-    _$hash = $jc(_$hash, darkTheme.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson')
-          ..add('cloudId', cloudId)
-          ..add('darkTheme', darkTheme))
-        .toString();
-  }
-}
-
-class AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder
-    implements
-        Builder<AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson,
-            AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder>,
-        $AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonInterfaceBuilder {
-  _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson? _$v;
-
-  String? _cloudId;
-  String? get cloudId => _$this._cloudId;
-  set cloudId(covariant String? cloudId) => _$this._cloudId = cloudId;
-
-  bool? _darkTheme;
-  bool? get darkTheme => _$this._darkTheme;
-  set darkTheme(covariant bool? darkTheme) => _$this._darkTheme = darkTheme;
-
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder() {
-    AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson._defaults(this);
-  }
-
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _cloudId = $v.cloudId;
-      _darkTheme = $v.darkTheme;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson build() => _build();
-
-  _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson _build() {
-    AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson._(
-            cloudId: BuiltValueNullFieldError.checkNotNull(
-                cloudId, r'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson', 'cloudId'),
-            darkTheme: BuiltValueNullFieldError.checkNotNull(
-                darkTheme, r'AvatarGetUserProxyAvatarWithoutRoomRequestApplicationJson', 'darkTheme'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder {
-  void replace($AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterface other);
-  void update(void Function($AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder) updates);
-  String? get cloudId;
-  set cloudId(String? cloudId);
-}
-
-class _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson
-    extends AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson {
-  @override
-  final String cloudId;
-
-  factory _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson(
-          [void Function(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder)? updates]) =>
-      (AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson._({required this.cloudId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        cloudId, r'AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson', 'cloudId');
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson rebuild(
-          void Function(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder toBuilder() =>
-      AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson && cloudId == other.cloudId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, cloudId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson')
-          ..add('cloudId', cloudId))
-        .toString();
-  }
-}
-
-class AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder
-    implements
-        Builder<AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson,
-            AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder>,
-        $AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonInterfaceBuilder {
-  _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson? _$v;
-
-  String? _cloudId;
-  String? get cloudId => _$this._cloudId;
-  set cloudId(covariant String? cloudId) => _$this._cloudId = cloudId;
-
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder() {
-    AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson._defaults(this);
-  }
-
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _cloudId = $v.cloudId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson build() => _build();
-
-  _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson _build() {
-    AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson._(
-            cloudId: BuiltValueNullFieldError.checkNotNull(
-                cloudId, r'AvatarGetUserProxyAvatarDarkWithoutRoomRequestApplicationJson', 'cloudId'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder {
-  void replace($AvatarGetUserProxyAvatarRequestApplicationJsonInterface other);
-  void update(void Function($AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder) updates);
-  String? get cloudId;
-  set cloudId(String? cloudId);
-
-  bool? get darkTheme;
-  set darkTheme(bool? darkTheme);
-}
-
-class _$AvatarGetUserProxyAvatarRequestApplicationJson extends AvatarGetUserProxyAvatarRequestApplicationJson {
-  @override
-  final String cloudId;
-  @override
-  final bool darkTheme;
-
-  factory _$AvatarGetUserProxyAvatarRequestApplicationJson(
-          [void Function(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder)? updates]) =>
-      (AvatarGetUserProxyAvatarRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AvatarGetUserProxyAvatarRequestApplicationJson._({required this.cloudId, required this.darkTheme}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(cloudId, r'AvatarGetUserProxyAvatarRequestApplicationJson', 'cloudId');
-    BuiltValueNullFieldError.checkNotNull(darkTheme, r'AvatarGetUserProxyAvatarRequestApplicationJson', 'darkTheme');
-  }
-
-  @override
-  AvatarGetUserProxyAvatarRequestApplicationJson rebuild(
-          void Function(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AvatarGetUserProxyAvatarRequestApplicationJsonBuilder toBuilder() =>
-      AvatarGetUserProxyAvatarRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AvatarGetUserProxyAvatarRequestApplicationJson &&
-        cloudId == other.cloudId &&
-        darkTheme == other.darkTheme;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, cloudId.hashCode);
-    _$hash = $jc(_$hash, darkTheme.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AvatarGetUserProxyAvatarRequestApplicationJson')
-          ..add('cloudId', cloudId)
-          ..add('darkTheme', darkTheme))
-        .toString();
-  }
-}
-
-class AvatarGetUserProxyAvatarRequestApplicationJsonBuilder
-    implements
-        Builder<AvatarGetUserProxyAvatarRequestApplicationJson, AvatarGetUserProxyAvatarRequestApplicationJsonBuilder>,
-        $AvatarGetUserProxyAvatarRequestApplicationJsonInterfaceBuilder {
-  _$AvatarGetUserProxyAvatarRequestApplicationJson? _$v;
-
-  String? _cloudId;
-  String? get cloudId => _$this._cloudId;
-  set cloudId(covariant String? cloudId) => _$this._cloudId = cloudId;
-
-  bool? _darkTheme;
-  bool? get darkTheme => _$this._darkTheme;
-  set darkTheme(covariant bool? darkTheme) => _$this._darkTheme = darkTheme;
-
-  AvatarGetUserProxyAvatarRequestApplicationJsonBuilder() {
-    AvatarGetUserProxyAvatarRequestApplicationJson._defaults(this);
-  }
-
-  AvatarGetUserProxyAvatarRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _cloudId = $v.cloudId;
-      _darkTheme = $v.darkTheme;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AvatarGetUserProxyAvatarRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AvatarGetUserProxyAvatarRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AvatarGetUserProxyAvatarRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AvatarGetUserProxyAvatarRequestApplicationJson build() => _build();
-
-  _$AvatarGetUserProxyAvatarRequestApplicationJson _build() {
-    AvatarGetUserProxyAvatarRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$AvatarGetUserProxyAvatarRequestApplicationJson._(
-            cloudId: BuiltValueNullFieldError.checkNotNull(
-                cloudId, r'AvatarGetUserProxyAvatarRequestApplicationJson', 'cloudId'),
-            darkTheme: BuiltValueNullFieldError.checkNotNull(
-                darkTheme, r'AvatarGetUserProxyAvatarRequestApplicationJson', 'darkTheme'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder {
-  void replace($AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterface other);
-  void update(void Function($AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder) updates);
-  String? get cloudId;
-  set cloudId(String? cloudId);
-}
-
-class _$AvatarGetUserProxyAvatarDarkRequestApplicationJson extends AvatarGetUserProxyAvatarDarkRequestApplicationJson {
-  @override
-  final String cloudId;
-
-  factory _$AvatarGetUserProxyAvatarDarkRequestApplicationJson(
-          [void Function(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder)? updates]) =>
-      (AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$AvatarGetUserProxyAvatarDarkRequestApplicationJson._({required this.cloudId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(cloudId, r'AvatarGetUserProxyAvatarDarkRequestApplicationJson', 'cloudId');
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkRequestApplicationJson rebuild(
-          void Function(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder toBuilder() =>
-      AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AvatarGetUserProxyAvatarDarkRequestApplicationJson && cloudId == other.cloudId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, cloudId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AvatarGetUserProxyAvatarDarkRequestApplicationJson')..add('cloudId', cloudId))
-        .toString();
-  }
-}
-
-class AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder
-    implements
-        Builder<AvatarGetUserProxyAvatarDarkRequestApplicationJson,
-            AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder>,
-        $AvatarGetUserProxyAvatarDarkRequestApplicationJsonInterfaceBuilder {
-  _$AvatarGetUserProxyAvatarDarkRequestApplicationJson? _$v;
-
-  String? _cloudId;
-  String? get cloudId => _$this._cloudId;
-  set cloudId(covariant String? cloudId) => _$this._cloudId = cloudId;
-
-  AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder() {
-    AvatarGetUserProxyAvatarDarkRequestApplicationJson._defaults(this);
-  }
-
-  AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _cloudId = $v.cloudId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AvatarGetUserProxyAvatarDarkRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AvatarGetUserProxyAvatarDarkRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(AvatarGetUserProxyAvatarDarkRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AvatarGetUserProxyAvatarDarkRequestApplicationJson build() => _build();
-
-  _$AvatarGetUserProxyAvatarDarkRequestApplicationJson _build() {
-    AvatarGetUserProxyAvatarDarkRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$AvatarGetUserProxyAvatarDarkRequestApplicationJson._(
-            cloudId: BuiltValueNullFieldError.checkNotNull(
-                cloudId, r'AvatarGetUserProxyAvatarDarkRequestApplicationJson', 'cloudId'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $BotInterfaceBuilder {
   void replace($BotInterface other);
   void update(void Function($BotInterfaceBuilder) updates);
@@ -27790,103 +26166,6 @@ class BotReactResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $BotDeleteReactionRequestApplicationJsonInterfaceBuilder {
-  void replace($BotDeleteReactionRequestApplicationJsonInterface other);
-  void update(void Function($BotDeleteReactionRequestApplicationJsonInterfaceBuilder) updates);
-  String? get reaction;
-  set reaction(String? reaction);
-}
-
-class _$BotDeleteReactionRequestApplicationJson extends BotDeleteReactionRequestApplicationJson {
-  @override
-  final String reaction;
-
-  factory _$BotDeleteReactionRequestApplicationJson(
-          [void Function(BotDeleteReactionRequestApplicationJsonBuilder)? updates]) =>
-      (BotDeleteReactionRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$BotDeleteReactionRequestApplicationJson._({required this.reaction}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(reaction, r'BotDeleteReactionRequestApplicationJson', 'reaction');
-  }
-
-  @override
-  BotDeleteReactionRequestApplicationJson rebuild(
-          void Function(BotDeleteReactionRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  BotDeleteReactionRequestApplicationJsonBuilder toBuilder() =>
-      BotDeleteReactionRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is BotDeleteReactionRequestApplicationJson && reaction == other.reaction;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, reaction.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'BotDeleteReactionRequestApplicationJson')..add('reaction', reaction))
-        .toString();
-  }
-}
-
-class BotDeleteReactionRequestApplicationJsonBuilder
-    implements
-        Builder<BotDeleteReactionRequestApplicationJson, BotDeleteReactionRequestApplicationJsonBuilder>,
-        $BotDeleteReactionRequestApplicationJsonInterfaceBuilder {
-  _$BotDeleteReactionRequestApplicationJson? _$v;
-
-  String? _reaction;
-  String? get reaction => _$this._reaction;
-  set reaction(covariant String? reaction) => _$this._reaction = reaction;
-
-  BotDeleteReactionRequestApplicationJsonBuilder() {
-    BotDeleteReactionRequestApplicationJson._defaults(this);
-  }
-
-  BotDeleteReactionRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _reaction = $v.reaction;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant BotDeleteReactionRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BotDeleteReactionRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(BotDeleteReactionRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  BotDeleteReactionRequestApplicationJson build() => _build();
-
-  _$BotDeleteReactionRequestApplicationJson _build() {
-    BotDeleteReactionRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$BotDeleteReactionRequestApplicationJson._(
-            reaction: BuiltValueNullFieldError.checkNotNull(
-                reaction, r'BotDeleteReactionRequestApplicationJson', 'reaction'));
     replace(_$result);
     return _$result;
   }
@@ -31801,98 +30080,6 @@ class CallJoinCallResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $CallLeaveCallRequestApplicationJsonInterfaceBuilder {
-  void replace($CallLeaveCallRequestApplicationJsonInterface other);
-  void update(void Function($CallLeaveCallRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get all;
-  set all(bool? all);
-}
-
-class _$CallLeaveCallRequestApplicationJson extends CallLeaveCallRequestApplicationJson {
-  @override
-  final bool all;
-
-  factory _$CallLeaveCallRequestApplicationJson([void Function(CallLeaveCallRequestApplicationJsonBuilder)? updates]) =>
-      (CallLeaveCallRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$CallLeaveCallRequestApplicationJson._({required this.all}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(all, r'CallLeaveCallRequestApplicationJson', 'all');
-  }
-
-  @override
-  CallLeaveCallRequestApplicationJson rebuild(void Function(CallLeaveCallRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CallLeaveCallRequestApplicationJsonBuilder toBuilder() => CallLeaveCallRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CallLeaveCallRequestApplicationJson && all == other.all;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, all.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CallLeaveCallRequestApplicationJson')..add('all', all)).toString();
-  }
-}
-
-class CallLeaveCallRequestApplicationJsonBuilder
-    implements
-        Builder<CallLeaveCallRequestApplicationJson, CallLeaveCallRequestApplicationJsonBuilder>,
-        $CallLeaveCallRequestApplicationJsonInterfaceBuilder {
-  _$CallLeaveCallRequestApplicationJson? _$v;
-
-  bool? _all;
-  bool? get all => _$this._all;
-  set all(covariant bool? all) => _$this._all = all;
-
-  CallLeaveCallRequestApplicationJsonBuilder() {
-    CallLeaveCallRequestApplicationJson._defaults(this);
-  }
-
-  CallLeaveCallRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _all = $v.all;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CallLeaveCallRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CallLeaveCallRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(CallLeaveCallRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CallLeaveCallRequestApplicationJson build() => _build();
-
-  _$CallLeaveCallRequestApplicationJson _build() {
-    CallLeaveCallRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$CallLeaveCallRequestApplicationJson._(
-            all: BuiltValueNullFieldError.checkNotNull(all, r'CallLeaveCallRequestApplicationJson', 'all'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $CallLeaveCallResponseApplicationJson_OcsInterfaceBuilder {
   void replace($CallLeaveCallResponseApplicationJson_OcsInterface other);
   void update(void Function($CallLeaveCallResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -32679,256 +30866,6 @@ class CallSipDialOutResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder {
-  void replace($ChatReceiveMessagesRequestApplicationJsonInterface other);
-  void update(void Function($ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder) updates);
-  ChatReceiveMessagesRequestApplicationJson_LookIntoFuture? get lookIntoFuture;
-  set lookIntoFuture(ChatReceiveMessagesRequestApplicationJson_LookIntoFuture? lookIntoFuture);
-
-  int? get limit;
-  set limit(int? limit);
-
-  int? get lastKnownMessageId;
-  set lastKnownMessageId(int? lastKnownMessageId);
-
-  int? get lastCommonReadId;
-  set lastCommonReadId(int? lastCommonReadId);
-
-  int? get timeout;
-  set timeout(int? timeout);
-
-  ChatReceiveMessagesRequestApplicationJson_SetReadMarker? get setReadMarker;
-  set setReadMarker(ChatReceiveMessagesRequestApplicationJson_SetReadMarker? setReadMarker);
-
-  ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown? get includeLastKnown;
-  set includeLastKnown(ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown? includeLastKnown);
-
-  ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate? get noStatusUpdate;
-  set noStatusUpdate(ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate? noStatusUpdate);
-
-  ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead? get markNotificationsAsRead;
-  set markNotificationsAsRead(
-      ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead? markNotificationsAsRead);
-}
-
-class _$ChatReceiveMessagesRequestApplicationJson extends ChatReceiveMessagesRequestApplicationJson {
-  @override
-  final ChatReceiveMessagesRequestApplicationJson_LookIntoFuture lookIntoFuture;
-  @override
-  final int limit;
-  @override
-  final int lastKnownMessageId;
-  @override
-  final int lastCommonReadId;
-  @override
-  final int timeout;
-  @override
-  final ChatReceiveMessagesRequestApplicationJson_SetReadMarker setReadMarker;
-  @override
-  final ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown includeLastKnown;
-  @override
-  final ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate noStatusUpdate;
-  @override
-  final ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead markNotificationsAsRead;
-
-  factory _$ChatReceiveMessagesRequestApplicationJson(
-          [void Function(ChatReceiveMessagesRequestApplicationJsonBuilder)? updates]) =>
-      (ChatReceiveMessagesRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ChatReceiveMessagesRequestApplicationJson._(
-      {required this.lookIntoFuture,
-      required this.limit,
-      required this.lastKnownMessageId,
-      required this.lastCommonReadId,
-      required this.timeout,
-      required this.setReadMarker,
-      required this.includeLastKnown,
-      required this.noStatusUpdate,
-      required this.markNotificationsAsRead})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        lookIntoFuture, r'ChatReceiveMessagesRequestApplicationJson', 'lookIntoFuture');
-    BuiltValueNullFieldError.checkNotNull(limit, r'ChatReceiveMessagesRequestApplicationJson', 'limit');
-    BuiltValueNullFieldError.checkNotNull(
-        lastKnownMessageId, r'ChatReceiveMessagesRequestApplicationJson', 'lastKnownMessageId');
-    BuiltValueNullFieldError.checkNotNull(
-        lastCommonReadId, r'ChatReceiveMessagesRequestApplicationJson', 'lastCommonReadId');
-    BuiltValueNullFieldError.checkNotNull(timeout, r'ChatReceiveMessagesRequestApplicationJson', 'timeout');
-    BuiltValueNullFieldError.checkNotNull(setReadMarker, r'ChatReceiveMessagesRequestApplicationJson', 'setReadMarker');
-    BuiltValueNullFieldError.checkNotNull(
-        includeLastKnown, r'ChatReceiveMessagesRequestApplicationJson', 'includeLastKnown');
-    BuiltValueNullFieldError.checkNotNull(
-        noStatusUpdate, r'ChatReceiveMessagesRequestApplicationJson', 'noStatusUpdate');
-    BuiltValueNullFieldError.checkNotNull(
-        markNotificationsAsRead, r'ChatReceiveMessagesRequestApplicationJson', 'markNotificationsAsRead');
-  }
-
-  @override
-  ChatReceiveMessagesRequestApplicationJson rebuild(
-          void Function(ChatReceiveMessagesRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatReceiveMessagesRequestApplicationJsonBuilder toBuilder() =>
-      ChatReceiveMessagesRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatReceiveMessagesRequestApplicationJson &&
-        lookIntoFuture == other.lookIntoFuture &&
-        limit == other.limit &&
-        lastKnownMessageId == other.lastKnownMessageId &&
-        lastCommonReadId == other.lastCommonReadId &&
-        timeout == other.timeout &&
-        setReadMarker == other.setReadMarker &&
-        includeLastKnown == other.includeLastKnown &&
-        noStatusUpdate == other.noStatusUpdate &&
-        markNotificationsAsRead == other.markNotificationsAsRead;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, lookIntoFuture.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, lastKnownMessageId.hashCode);
-    _$hash = $jc(_$hash, lastCommonReadId.hashCode);
-    _$hash = $jc(_$hash, timeout.hashCode);
-    _$hash = $jc(_$hash, setReadMarker.hashCode);
-    _$hash = $jc(_$hash, includeLastKnown.hashCode);
-    _$hash = $jc(_$hash, noStatusUpdate.hashCode);
-    _$hash = $jc(_$hash, markNotificationsAsRead.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatReceiveMessagesRequestApplicationJson')
-          ..add('lookIntoFuture', lookIntoFuture)
-          ..add('limit', limit)
-          ..add('lastKnownMessageId', lastKnownMessageId)
-          ..add('lastCommonReadId', lastCommonReadId)
-          ..add('timeout', timeout)
-          ..add('setReadMarker', setReadMarker)
-          ..add('includeLastKnown', includeLastKnown)
-          ..add('noStatusUpdate', noStatusUpdate)
-          ..add('markNotificationsAsRead', markNotificationsAsRead))
-        .toString();
-  }
-}
-
-class ChatReceiveMessagesRequestApplicationJsonBuilder
-    implements
-        Builder<ChatReceiveMessagesRequestApplicationJson, ChatReceiveMessagesRequestApplicationJsonBuilder>,
-        $ChatReceiveMessagesRequestApplicationJsonInterfaceBuilder {
-  _$ChatReceiveMessagesRequestApplicationJson? _$v;
-
-  ChatReceiveMessagesRequestApplicationJson_LookIntoFuture? _lookIntoFuture;
-  ChatReceiveMessagesRequestApplicationJson_LookIntoFuture? get lookIntoFuture => _$this._lookIntoFuture;
-  set lookIntoFuture(covariant ChatReceiveMessagesRequestApplicationJson_LookIntoFuture? lookIntoFuture) =>
-      _$this._lookIntoFuture = lookIntoFuture;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  int? _lastKnownMessageId;
-  int? get lastKnownMessageId => _$this._lastKnownMessageId;
-  set lastKnownMessageId(covariant int? lastKnownMessageId) => _$this._lastKnownMessageId = lastKnownMessageId;
-
-  int? _lastCommonReadId;
-  int? get lastCommonReadId => _$this._lastCommonReadId;
-  set lastCommonReadId(covariant int? lastCommonReadId) => _$this._lastCommonReadId = lastCommonReadId;
-
-  int? _timeout;
-  int? get timeout => _$this._timeout;
-  set timeout(covariant int? timeout) => _$this._timeout = timeout;
-
-  ChatReceiveMessagesRequestApplicationJson_SetReadMarker? _setReadMarker;
-  ChatReceiveMessagesRequestApplicationJson_SetReadMarker? get setReadMarker => _$this._setReadMarker;
-  set setReadMarker(covariant ChatReceiveMessagesRequestApplicationJson_SetReadMarker? setReadMarker) =>
-      _$this._setReadMarker = setReadMarker;
-
-  ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown? _includeLastKnown;
-  ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown? get includeLastKnown => _$this._includeLastKnown;
-  set includeLastKnown(covariant ChatReceiveMessagesRequestApplicationJson_IncludeLastKnown? includeLastKnown) =>
-      _$this._includeLastKnown = includeLastKnown;
-
-  ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate? _noStatusUpdate;
-  ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate? get noStatusUpdate => _$this._noStatusUpdate;
-  set noStatusUpdate(covariant ChatReceiveMessagesRequestApplicationJson_NoStatusUpdate? noStatusUpdate) =>
-      _$this._noStatusUpdate = noStatusUpdate;
-
-  ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead? _markNotificationsAsRead;
-  ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead? get markNotificationsAsRead =>
-      _$this._markNotificationsAsRead;
-  set markNotificationsAsRead(
-          covariant ChatReceiveMessagesRequestApplicationJson_MarkNotificationsAsRead? markNotificationsAsRead) =>
-      _$this._markNotificationsAsRead = markNotificationsAsRead;
-
-  ChatReceiveMessagesRequestApplicationJsonBuilder() {
-    ChatReceiveMessagesRequestApplicationJson._defaults(this);
-  }
-
-  ChatReceiveMessagesRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _lookIntoFuture = $v.lookIntoFuture;
-      _limit = $v.limit;
-      _lastKnownMessageId = $v.lastKnownMessageId;
-      _lastCommonReadId = $v.lastCommonReadId;
-      _timeout = $v.timeout;
-      _setReadMarker = $v.setReadMarker;
-      _includeLastKnown = $v.includeLastKnown;
-      _noStatusUpdate = $v.noStatusUpdate;
-      _markNotificationsAsRead = $v.markNotificationsAsRead;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatReceiveMessagesRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatReceiveMessagesRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ChatReceiveMessagesRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatReceiveMessagesRequestApplicationJson build() => _build();
-
-  _$ChatReceiveMessagesRequestApplicationJson _build() {
-    ChatReceiveMessagesRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ChatReceiveMessagesRequestApplicationJson._(
-            lookIntoFuture: BuiltValueNullFieldError.checkNotNull(
-                lookIntoFuture, r'ChatReceiveMessagesRequestApplicationJson', 'lookIntoFuture'),
-            limit: BuiltValueNullFieldError.checkNotNull(limit, r'ChatReceiveMessagesRequestApplicationJson', 'limit'),
-            lastKnownMessageId: BuiltValueNullFieldError.checkNotNull(
-                lastKnownMessageId, r'ChatReceiveMessagesRequestApplicationJson', 'lastKnownMessageId'),
-            lastCommonReadId: BuiltValueNullFieldError.checkNotNull(
-                lastCommonReadId, r'ChatReceiveMessagesRequestApplicationJson', 'lastCommonReadId'),
-            timeout:
-                BuiltValueNullFieldError.checkNotNull(timeout, r'ChatReceiveMessagesRequestApplicationJson', 'timeout'),
-            setReadMarker: BuiltValueNullFieldError.checkNotNull(
-                setReadMarker, r'ChatReceiveMessagesRequestApplicationJson', 'setReadMarker'),
-            includeLastKnown: BuiltValueNullFieldError.checkNotNull(
-                includeLastKnown, r'ChatReceiveMessagesRequestApplicationJson', 'includeLastKnown'),
-            noStatusUpdate: BuiltValueNullFieldError.checkNotNull(
-                noStatusUpdate, r'ChatReceiveMessagesRequestApplicationJson', 'noStatusUpdate'),
-            markNotificationsAsRead: BuiltValueNullFieldError.checkNotNull(
-                markNotificationsAsRead, r'ChatReceiveMessagesRequestApplicationJson', 'markNotificationsAsRead'));
     replace(_$result);
     return _$result;
   }
@@ -35266,103 +33203,6 @@ class ChatChatDeleteMessageHeadersBuilder
   }
 }
 
-abstract mixin class $ChatGetMessageContextRequestApplicationJsonInterfaceBuilder {
-  void replace($ChatGetMessageContextRequestApplicationJsonInterface other);
-  void update(void Function($ChatGetMessageContextRequestApplicationJsonInterfaceBuilder) updates);
-  int? get limit;
-  set limit(int? limit);
-}
-
-class _$ChatGetMessageContextRequestApplicationJson extends ChatGetMessageContextRequestApplicationJson {
-  @override
-  final int limit;
-
-  factory _$ChatGetMessageContextRequestApplicationJson(
-          [void Function(ChatGetMessageContextRequestApplicationJsonBuilder)? updates]) =>
-      (ChatGetMessageContextRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ChatGetMessageContextRequestApplicationJson._({required this.limit}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(limit, r'ChatGetMessageContextRequestApplicationJson', 'limit');
-  }
-
-  @override
-  ChatGetMessageContextRequestApplicationJson rebuild(
-          void Function(ChatGetMessageContextRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatGetMessageContextRequestApplicationJsonBuilder toBuilder() =>
-      ChatGetMessageContextRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatGetMessageContextRequestApplicationJson && limit == other.limit;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatGetMessageContextRequestApplicationJson')..add('limit', limit))
-        .toString();
-  }
-}
-
-class ChatGetMessageContextRequestApplicationJsonBuilder
-    implements
-        Builder<ChatGetMessageContextRequestApplicationJson, ChatGetMessageContextRequestApplicationJsonBuilder>,
-        $ChatGetMessageContextRequestApplicationJsonInterfaceBuilder {
-  _$ChatGetMessageContextRequestApplicationJson? _$v;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  ChatGetMessageContextRequestApplicationJsonBuilder() {
-    ChatGetMessageContextRequestApplicationJson._defaults(this);
-  }
-
-  ChatGetMessageContextRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _limit = $v.limit;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatGetMessageContextRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatGetMessageContextRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ChatGetMessageContextRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatGetMessageContextRequestApplicationJson build() => _build();
-
-  _$ChatGetMessageContextRequestApplicationJson _build() {
-    ChatGetMessageContextRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ChatGetMessageContextRequestApplicationJson._(
-            limit:
-                BuiltValueNullFieldError.checkNotNull(limit, r'ChatGetMessageContextRequestApplicationJson', 'limit'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatGetMessageContextResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ChatGetMessageContextResponseApplicationJson_OcsInterface other);
   void update(void Function($ChatGetMessageContextResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -37436,133 +35276,6 @@ class ChatChatMarkUnreadHeadersBuilder
   }
 }
 
-abstract mixin class $ChatMentionsRequestApplicationJsonInterfaceBuilder {
-  void replace($ChatMentionsRequestApplicationJsonInterface other);
-  void update(void Function($ChatMentionsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get search;
-  set search(String? search);
-
-  int? get limit;
-  set limit(int? limit);
-
-  bool? get includeStatus;
-  set includeStatus(bool? includeStatus);
-}
-
-class _$ChatMentionsRequestApplicationJson extends ChatMentionsRequestApplicationJson {
-  @override
-  final String search;
-  @override
-  final int limit;
-  @override
-  final bool includeStatus;
-
-  factory _$ChatMentionsRequestApplicationJson([void Function(ChatMentionsRequestApplicationJsonBuilder)? updates]) =>
-      (ChatMentionsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ChatMentionsRequestApplicationJson._({required this.search, required this.limit, required this.includeStatus})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(search, r'ChatMentionsRequestApplicationJson', 'search');
-    BuiltValueNullFieldError.checkNotNull(limit, r'ChatMentionsRequestApplicationJson', 'limit');
-    BuiltValueNullFieldError.checkNotNull(includeStatus, r'ChatMentionsRequestApplicationJson', 'includeStatus');
-  }
-
-  @override
-  ChatMentionsRequestApplicationJson rebuild(void Function(ChatMentionsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatMentionsRequestApplicationJsonBuilder toBuilder() => ChatMentionsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatMentionsRequestApplicationJson &&
-        search == other.search &&
-        limit == other.limit &&
-        includeStatus == other.includeStatus;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, search.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jc(_$hash, includeStatus.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatMentionsRequestApplicationJson')
-          ..add('search', search)
-          ..add('limit', limit)
-          ..add('includeStatus', includeStatus))
-        .toString();
-  }
-}
-
-class ChatMentionsRequestApplicationJsonBuilder
-    implements
-        Builder<ChatMentionsRequestApplicationJson, ChatMentionsRequestApplicationJsonBuilder>,
-        $ChatMentionsRequestApplicationJsonInterfaceBuilder {
-  _$ChatMentionsRequestApplicationJson? _$v;
-
-  String? _search;
-  String? get search => _$this._search;
-  set search(covariant String? search) => _$this._search = search;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  bool? _includeStatus;
-  bool? get includeStatus => _$this._includeStatus;
-  set includeStatus(covariant bool? includeStatus) => _$this._includeStatus = includeStatus;
-
-  ChatMentionsRequestApplicationJsonBuilder() {
-    ChatMentionsRequestApplicationJson._defaults(this);
-  }
-
-  ChatMentionsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _search = $v.search;
-      _limit = $v.limit;
-      _includeStatus = $v.includeStatus;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatMentionsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatMentionsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ChatMentionsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatMentionsRequestApplicationJson build() => _build();
-
-  _$ChatMentionsRequestApplicationJson _build() {
-    ChatMentionsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ChatMentionsRequestApplicationJson._(
-            search: BuiltValueNullFieldError.checkNotNull(search, r'ChatMentionsRequestApplicationJson', 'search'),
-            limit: BuiltValueNullFieldError.checkNotNull(limit, r'ChatMentionsRequestApplicationJson', 'limit'),
-            includeStatus: BuiltValueNullFieldError.checkNotNull(
-                includeStatus, r'ChatMentionsRequestApplicationJson', 'includeStatus'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatMentionSuggestionInterfaceBuilder {
   void replace($ChatMentionSuggestionInterface other);
   void update(void Function($ChatMentionSuggestionInterfaceBuilder) updates);
@@ -37985,142 +35698,6 @@ class ChatMentionsResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder {
-  void replace($ChatGetObjectsSharedInRoomRequestApplicationJsonInterface other);
-  void update(void Function($ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder) updates);
-  String? get objectType;
-  set objectType(String? objectType);
-
-  int? get lastKnownMessageId;
-  set lastKnownMessageId(int? lastKnownMessageId);
-
-  int? get limit;
-  set limit(int? limit);
-}
-
-class _$ChatGetObjectsSharedInRoomRequestApplicationJson extends ChatGetObjectsSharedInRoomRequestApplicationJson {
-  @override
-  final String objectType;
-  @override
-  final int lastKnownMessageId;
-  @override
-  final int limit;
-
-  factory _$ChatGetObjectsSharedInRoomRequestApplicationJson(
-          [void Function(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder)? updates]) =>
-      (ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ChatGetObjectsSharedInRoomRequestApplicationJson._(
-      {required this.objectType, required this.lastKnownMessageId, required this.limit})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        objectType, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'objectType');
-    BuiltValueNullFieldError.checkNotNull(
-        lastKnownMessageId, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'lastKnownMessageId');
-    BuiltValueNullFieldError.checkNotNull(limit, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'limit');
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomRequestApplicationJson rebuild(
-          void Function(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder toBuilder() =>
-      ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatGetObjectsSharedInRoomRequestApplicationJson &&
-        objectType == other.objectType &&
-        lastKnownMessageId == other.lastKnownMessageId &&
-        limit == other.limit;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, objectType.hashCode);
-    _$hash = $jc(_$hash, lastKnownMessageId.hashCode);
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatGetObjectsSharedInRoomRequestApplicationJson')
-          ..add('objectType', objectType)
-          ..add('lastKnownMessageId', lastKnownMessageId)
-          ..add('limit', limit))
-        .toString();
-  }
-}
-
-class ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder
-    implements
-        Builder<ChatGetObjectsSharedInRoomRequestApplicationJson,
-            ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder>,
-        $ChatGetObjectsSharedInRoomRequestApplicationJsonInterfaceBuilder {
-  _$ChatGetObjectsSharedInRoomRequestApplicationJson? _$v;
-
-  String? _objectType;
-  String? get objectType => _$this._objectType;
-  set objectType(covariant String? objectType) => _$this._objectType = objectType;
-
-  int? _lastKnownMessageId;
-  int? get lastKnownMessageId => _$this._lastKnownMessageId;
-  set lastKnownMessageId(covariant int? lastKnownMessageId) => _$this._lastKnownMessageId = lastKnownMessageId;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder() {
-    ChatGetObjectsSharedInRoomRequestApplicationJson._defaults(this);
-  }
-
-  ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _objectType = $v.objectType;
-      _lastKnownMessageId = $v.lastKnownMessageId;
-      _limit = $v.limit;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatGetObjectsSharedInRoomRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatGetObjectsSharedInRoomRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ChatGetObjectsSharedInRoomRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomRequestApplicationJson build() => _build();
-
-  _$ChatGetObjectsSharedInRoomRequestApplicationJson _build() {
-    ChatGetObjectsSharedInRoomRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ChatGetObjectsSharedInRoomRequestApplicationJson._(
-            objectType: BuiltValueNullFieldError.checkNotNull(
-                objectType, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'objectType'),
-            lastKnownMessageId: BuiltValueNullFieldError.checkNotNull(
-                lastKnownMessageId, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'lastKnownMessageId'),
-            limit: BuiltValueNullFieldError.checkNotNull(
-                limit, r'ChatGetObjectsSharedInRoomRequestApplicationJson', 'limit'));
     replace(_$result);
     return _$result;
   }
@@ -38942,106 +36519,6 @@ class ChatChatShareObjectToChatHeadersBuilder
   }
 }
 
-abstract mixin class $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder {
-  void replace($ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterface other);
-  void update(void Function($ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder) updates);
-  int? get limit;
-  set limit(int? limit);
-}
-
-class _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson
-    extends ChatGetObjectsSharedInRoomOverviewRequestApplicationJson {
-  @override
-  final int limit;
-
-  factory _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson(
-          [void Function(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder)? updates]) =>
-      (ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson._({required this.limit}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(limit, r'ChatGetObjectsSharedInRoomOverviewRequestApplicationJson', 'limit');
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJson rebuild(
-          void Function(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder toBuilder() =>
-      ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ChatGetObjectsSharedInRoomOverviewRequestApplicationJson && limit == other.limit;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, limit.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ChatGetObjectsSharedInRoomOverviewRequestApplicationJson')
-          ..add('limit', limit))
-        .toString();
-  }
-}
-
-class ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder
-    implements
-        Builder<ChatGetObjectsSharedInRoomOverviewRequestApplicationJson,
-            ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder>,
-        $ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonInterfaceBuilder {
-  _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson? _$v;
-
-  int? _limit;
-  int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
-
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder() {
-    ChatGetObjectsSharedInRoomOverviewRequestApplicationJson._defaults(this);
-  }
-
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _limit = $v.limit;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ChatGetObjectsSharedInRoomOverviewRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ChatGetObjectsSharedInRoomOverviewRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ChatGetObjectsSharedInRoomOverviewRequestApplicationJson build() => _build();
-
-  _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson _build() {
-    ChatGetObjectsSharedInRoomOverviewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ChatGetObjectsSharedInRoomOverviewRequestApplicationJson._(
-            limit: BuiltValueNullFieldError.checkNotNull(
-                limit, r'ChatGetObjectsSharedInRoomOverviewRequestApplicationJson', 'limit'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterfaceBuilder {
   void replace($ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface other);
   void update(void Function($ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -39278,102 +36755,6 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $SignalingGetSettingsRequestApplicationJsonInterfaceBuilder {
-  void replace($SignalingGetSettingsRequestApplicationJsonInterface other);
-  void update(void Function($SignalingGetSettingsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get token;
-  set token(String? token);
-}
-
-class _$SignalingGetSettingsRequestApplicationJson extends SignalingGetSettingsRequestApplicationJson {
-  @override
-  final String token;
-
-  factory _$SignalingGetSettingsRequestApplicationJson(
-          [void Function(SignalingGetSettingsRequestApplicationJsonBuilder)? updates]) =>
-      (SignalingGetSettingsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$SignalingGetSettingsRequestApplicationJson._({required this.token}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(token, r'SignalingGetSettingsRequestApplicationJson', 'token');
-  }
-
-  @override
-  SignalingGetSettingsRequestApplicationJson rebuild(
-          void Function(SignalingGetSettingsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SignalingGetSettingsRequestApplicationJsonBuilder toBuilder() =>
-      SignalingGetSettingsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SignalingGetSettingsRequestApplicationJson && token == other.token;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, token.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingGetSettingsRequestApplicationJson')..add('token', token)).toString();
-  }
-}
-
-class SignalingGetSettingsRequestApplicationJsonBuilder
-    implements
-        Builder<SignalingGetSettingsRequestApplicationJson, SignalingGetSettingsRequestApplicationJsonBuilder>,
-        $SignalingGetSettingsRequestApplicationJsonInterfaceBuilder {
-  _$SignalingGetSettingsRequestApplicationJson? _$v;
-
-  String? _token;
-  String? get token => _$this._token;
-  set token(covariant String? token) => _$this._token = token;
-
-  SignalingGetSettingsRequestApplicationJsonBuilder() {
-    SignalingGetSettingsRequestApplicationJson._defaults(this);
-  }
-
-  SignalingGetSettingsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _token = $v.token;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SignalingGetSettingsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingGetSettingsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(SignalingGetSettingsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SignalingGetSettingsRequestApplicationJson build() => _build();
-
-  _$SignalingGetSettingsRequestApplicationJson _build() {
-    SignalingGetSettingsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$SignalingGetSettingsRequestApplicationJson._(
-            token:
-                BuiltValueNullFieldError.checkNotNull(token, r'SignalingGetSettingsRequestApplicationJson', 'token'));
     replace(_$result);
     return _$result;
   }
@@ -47840,98 +45221,6 @@ class PollClosePollResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ReactionGetReactionsRequestApplicationJsonInterfaceBuilder {
-  void replace($ReactionGetReactionsRequestApplicationJsonInterface other);
-  void update(void Function($ReactionGetReactionsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get reaction;
-  set reaction(String? reaction);
-}
-
-class _$ReactionGetReactionsRequestApplicationJson extends ReactionGetReactionsRequestApplicationJson {
-  @override
-  final String? reaction;
-
-  factory _$ReactionGetReactionsRequestApplicationJson(
-          [void Function(ReactionGetReactionsRequestApplicationJsonBuilder)? updates]) =>
-      (ReactionGetReactionsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ReactionGetReactionsRequestApplicationJson._({this.reaction}) : super._();
-
-  @override
-  ReactionGetReactionsRequestApplicationJson rebuild(
-          void Function(ReactionGetReactionsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReactionGetReactionsRequestApplicationJsonBuilder toBuilder() =>
-      ReactionGetReactionsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReactionGetReactionsRequestApplicationJson && reaction == other.reaction;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, reaction.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReactionGetReactionsRequestApplicationJson')..add('reaction', reaction))
-        .toString();
-  }
-}
-
-class ReactionGetReactionsRequestApplicationJsonBuilder
-    implements
-        Builder<ReactionGetReactionsRequestApplicationJson, ReactionGetReactionsRequestApplicationJsonBuilder>,
-        $ReactionGetReactionsRequestApplicationJsonInterfaceBuilder {
-  _$ReactionGetReactionsRequestApplicationJson? _$v;
-
-  String? _reaction;
-  String? get reaction => _$this._reaction;
-  set reaction(covariant String? reaction) => _$this._reaction = reaction;
-
-  ReactionGetReactionsRequestApplicationJsonBuilder() {
-    ReactionGetReactionsRequestApplicationJson._defaults(this);
-  }
-
-  ReactionGetReactionsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _reaction = $v.reaction;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReactionGetReactionsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReactionGetReactionsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ReactionGetReactionsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReactionGetReactionsRequestApplicationJson build() => _build();
-
-  _$ReactionGetReactionsRequestApplicationJson _build() {
-    ReactionGetReactionsRequestApplicationJson._validate(this);
-    final _$result = _$v ?? _$ReactionGetReactionsRequestApplicationJson._(reaction: reaction);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ReactionInterfaceBuilder {
   void replace($ReactionInterface other);
   void update(void Function($ReactionInterfaceBuilder) updates);
@@ -48614,101 +45903,6 @@ class ReactionReactResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ReactionDeleteRequestApplicationJsonInterfaceBuilder {
-  void replace($ReactionDeleteRequestApplicationJsonInterface other);
-  void update(void Function($ReactionDeleteRequestApplicationJsonInterfaceBuilder) updates);
-  String? get reaction;
-  set reaction(String? reaction);
-}
-
-class _$ReactionDeleteRequestApplicationJson extends ReactionDeleteRequestApplicationJson {
-  @override
-  final String reaction;
-
-  factory _$ReactionDeleteRequestApplicationJson(
-          [void Function(ReactionDeleteRequestApplicationJsonBuilder)? updates]) =>
-      (ReactionDeleteRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$ReactionDeleteRequestApplicationJson._({required this.reaction}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(reaction, r'ReactionDeleteRequestApplicationJson', 'reaction');
-  }
-
-  @override
-  ReactionDeleteRequestApplicationJson rebuild(void Function(ReactionDeleteRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ReactionDeleteRequestApplicationJsonBuilder toBuilder() =>
-      ReactionDeleteRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ReactionDeleteRequestApplicationJson && reaction == other.reaction;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, reaction.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ReactionDeleteRequestApplicationJson')..add('reaction', reaction)).toString();
-  }
-}
-
-class ReactionDeleteRequestApplicationJsonBuilder
-    implements
-        Builder<ReactionDeleteRequestApplicationJson, ReactionDeleteRequestApplicationJsonBuilder>,
-        $ReactionDeleteRequestApplicationJsonInterfaceBuilder {
-  _$ReactionDeleteRequestApplicationJson? _$v;
-
-  String? _reaction;
-  String? get reaction => _$this._reaction;
-  set reaction(covariant String? reaction) => _$this._reaction = reaction;
-
-  ReactionDeleteRequestApplicationJsonBuilder() {
-    ReactionDeleteRequestApplicationJson._defaults(this);
-  }
-
-  ReactionDeleteRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _reaction = $v.reaction;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ReactionDeleteRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ReactionDeleteRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(ReactionDeleteRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ReactionDeleteRequestApplicationJson build() => _build();
-
-  _$ReactionDeleteRequestApplicationJson _build() {
-    ReactionDeleteRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$ReactionDeleteRequestApplicationJson._(
-            reaction:
-                BuiltValueNullFieldError.checkNotNull(reaction, r'ReactionDeleteRequestApplicationJson', 'reaction'));
     replace(_$result);
     return _$result;
   }
@@ -49486,106 +46680,6 @@ class RecordingStopResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder {
-  void replace($RecordingNotificationDismissRequestApplicationJsonInterface other);
-  void update(void Function($RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder) updates);
-  int? get timestamp;
-  set timestamp(int? timestamp);
-}
-
-class _$RecordingNotificationDismissRequestApplicationJson extends RecordingNotificationDismissRequestApplicationJson {
-  @override
-  final int timestamp;
-
-  factory _$RecordingNotificationDismissRequestApplicationJson(
-          [void Function(RecordingNotificationDismissRequestApplicationJsonBuilder)? updates]) =>
-      (RecordingNotificationDismissRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RecordingNotificationDismissRequestApplicationJson._({required this.timestamp}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        timestamp, r'RecordingNotificationDismissRequestApplicationJson', 'timestamp');
-  }
-
-  @override
-  RecordingNotificationDismissRequestApplicationJson rebuild(
-          void Function(RecordingNotificationDismissRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RecordingNotificationDismissRequestApplicationJsonBuilder toBuilder() =>
-      RecordingNotificationDismissRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RecordingNotificationDismissRequestApplicationJson && timestamp == other.timestamp;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, timestamp.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RecordingNotificationDismissRequestApplicationJson')
-          ..add('timestamp', timestamp))
-        .toString();
-  }
-}
-
-class RecordingNotificationDismissRequestApplicationJsonBuilder
-    implements
-        Builder<RecordingNotificationDismissRequestApplicationJson,
-            RecordingNotificationDismissRequestApplicationJsonBuilder>,
-        $RecordingNotificationDismissRequestApplicationJsonInterfaceBuilder {
-  _$RecordingNotificationDismissRequestApplicationJson? _$v;
-
-  int? _timestamp;
-  int? get timestamp => _$this._timestamp;
-  set timestamp(covariant int? timestamp) => _$this._timestamp = timestamp;
-
-  RecordingNotificationDismissRequestApplicationJsonBuilder() {
-    RecordingNotificationDismissRequestApplicationJson._defaults(this);
-  }
-
-  RecordingNotificationDismissRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _timestamp = $v.timestamp;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RecordingNotificationDismissRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RecordingNotificationDismissRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RecordingNotificationDismissRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RecordingNotificationDismissRequestApplicationJson build() => _build();
-
-  _$RecordingNotificationDismissRequestApplicationJson _build() {
-    RecordingNotificationDismissRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RecordingNotificationDismissRequestApplicationJson._(
-            timestamp: BuiltValueNullFieldError.checkNotNull(
-                timestamp, r'RecordingNotificationDismissRequestApplicationJson', 'timestamp'));
     replace(_$result);
     return _$result;
   }
@@ -50727,137 +47821,6 @@ class RecordingStoreResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomGetRoomsRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomGetRoomsRequestApplicationJsonInterface other);
-  void update(void Function($RoomGetRoomsRequestApplicationJsonInterfaceBuilder) updates);
-  RoomGetRoomsRequestApplicationJson_NoStatusUpdate? get noStatusUpdate;
-  set noStatusUpdate(RoomGetRoomsRequestApplicationJson_NoStatusUpdate? noStatusUpdate);
-
-  bool? get includeStatus;
-  set includeStatus(bool? includeStatus);
-
-  int? get modifiedSince;
-  set modifiedSince(int? modifiedSince);
-}
-
-class _$RoomGetRoomsRequestApplicationJson extends RoomGetRoomsRequestApplicationJson {
-  @override
-  final RoomGetRoomsRequestApplicationJson_NoStatusUpdate noStatusUpdate;
-  @override
-  final bool includeStatus;
-  @override
-  final int modifiedSince;
-
-  factory _$RoomGetRoomsRequestApplicationJson([void Function(RoomGetRoomsRequestApplicationJsonBuilder)? updates]) =>
-      (RoomGetRoomsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomGetRoomsRequestApplicationJson._(
-      {required this.noStatusUpdate, required this.includeStatus, required this.modifiedSince})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(noStatusUpdate, r'RoomGetRoomsRequestApplicationJson', 'noStatusUpdate');
-    BuiltValueNullFieldError.checkNotNull(includeStatus, r'RoomGetRoomsRequestApplicationJson', 'includeStatus');
-    BuiltValueNullFieldError.checkNotNull(modifiedSince, r'RoomGetRoomsRequestApplicationJson', 'modifiedSince');
-  }
-
-  @override
-  RoomGetRoomsRequestApplicationJson rebuild(void Function(RoomGetRoomsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomGetRoomsRequestApplicationJsonBuilder toBuilder() => RoomGetRoomsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomGetRoomsRequestApplicationJson &&
-        noStatusUpdate == other.noStatusUpdate &&
-        includeStatus == other.includeStatus &&
-        modifiedSince == other.modifiedSince;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, noStatusUpdate.hashCode);
-    _$hash = $jc(_$hash, includeStatus.hashCode);
-    _$hash = $jc(_$hash, modifiedSince.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomGetRoomsRequestApplicationJson')
-          ..add('noStatusUpdate', noStatusUpdate)
-          ..add('includeStatus', includeStatus)
-          ..add('modifiedSince', modifiedSince))
-        .toString();
-  }
-}
-
-class RoomGetRoomsRequestApplicationJsonBuilder
-    implements
-        Builder<RoomGetRoomsRequestApplicationJson, RoomGetRoomsRequestApplicationJsonBuilder>,
-        $RoomGetRoomsRequestApplicationJsonInterfaceBuilder {
-  _$RoomGetRoomsRequestApplicationJson? _$v;
-
-  RoomGetRoomsRequestApplicationJson_NoStatusUpdate? _noStatusUpdate;
-  RoomGetRoomsRequestApplicationJson_NoStatusUpdate? get noStatusUpdate => _$this._noStatusUpdate;
-  set noStatusUpdate(covariant RoomGetRoomsRequestApplicationJson_NoStatusUpdate? noStatusUpdate) =>
-      _$this._noStatusUpdate = noStatusUpdate;
-
-  bool? _includeStatus;
-  bool? get includeStatus => _$this._includeStatus;
-  set includeStatus(covariant bool? includeStatus) => _$this._includeStatus = includeStatus;
-
-  int? _modifiedSince;
-  int? get modifiedSince => _$this._modifiedSince;
-  set modifiedSince(covariant int? modifiedSince) => _$this._modifiedSince = modifiedSince;
-
-  RoomGetRoomsRequestApplicationJsonBuilder() {
-    RoomGetRoomsRequestApplicationJson._defaults(this);
-  }
-
-  RoomGetRoomsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _noStatusUpdate = $v.noStatusUpdate;
-      _includeStatus = $v.includeStatus;
-      _modifiedSince = $v.modifiedSince;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomGetRoomsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomGetRoomsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomGetRoomsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomGetRoomsRequestApplicationJson build() => _build();
-
-  _$RoomGetRoomsRequestApplicationJson _build() {
-    RoomGetRoomsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomGetRoomsRequestApplicationJson._(
-            noStatusUpdate: BuiltValueNullFieldError.checkNotNull(
-                noStatusUpdate, r'RoomGetRoomsRequestApplicationJson', 'noStatusUpdate'),
-            includeStatus: BuiltValueNullFieldError.checkNotNull(
-                includeStatus, r'RoomGetRoomsRequestApplicationJson', 'includeStatus'),
-            modifiedSince: BuiltValueNullFieldError.checkNotNull(
-                modifiedSince, r'RoomGetRoomsRequestApplicationJson', 'modifiedSince'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomGetRoomsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomGetRoomsResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomGetRoomsResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -51613,103 +48576,6 @@ class RoomCreateRoomResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomGetListedRoomsRequestApplicationJsonInterface other);
-  void update(void Function($RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder) updates);
-  String? get searchTerm;
-  set searchTerm(String? searchTerm);
-}
-
-class _$RoomGetListedRoomsRequestApplicationJson extends RoomGetListedRoomsRequestApplicationJson {
-  @override
-  final String searchTerm;
-
-  factory _$RoomGetListedRoomsRequestApplicationJson(
-          [void Function(RoomGetListedRoomsRequestApplicationJsonBuilder)? updates]) =>
-      (RoomGetListedRoomsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomGetListedRoomsRequestApplicationJson._({required this.searchTerm}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(searchTerm, r'RoomGetListedRoomsRequestApplicationJson', 'searchTerm');
-  }
-
-  @override
-  RoomGetListedRoomsRequestApplicationJson rebuild(
-          void Function(RoomGetListedRoomsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomGetListedRoomsRequestApplicationJsonBuilder toBuilder() =>
-      RoomGetListedRoomsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomGetListedRoomsRequestApplicationJson && searchTerm == other.searchTerm;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, searchTerm.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomGetListedRoomsRequestApplicationJson')..add('searchTerm', searchTerm))
-        .toString();
-  }
-}
-
-class RoomGetListedRoomsRequestApplicationJsonBuilder
-    implements
-        Builder<RoomGetListedRoomsRequestApplicationJson, RoomGetListedRoomsRequestApplicationJsonBuilder>,
-        $RoomGetListedRoomsRequestApplicationJsonInterfaceBuilder {
-  _$RoomGetListedRoomsRequestApplicationJson? _$v;
-
-  String? _searchTerm;
-  String? get searchTerm => _$this._searchTerm;
-  set searchTerm(covariant String? searchTerm) => _$this._searchTerm = searchTerm;
-
-  RoomGetListedRoomsRequestApplicationJsonBuilder() {
-    RoomGetListedRoomsRequestApplicationJson._defaults(this);
-  }
-
-  RoomGetListedRoomsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _searchTerm = $v.searchTerm;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomGetListedRoomsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomGetListedRoomsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomGetListedRoomsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomGetListedRoomsRequestApplicationJson build() => _build();
-
-  _$RoomGetListedRoomsRequestApplicationJson _build() {
-    RoomGetListedRoomsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomGetListedRoomsRequestApplicationJson._(
-            searchTerm: BuiltValueNullFieldError.checkNotNull(
-                searchTerm, r'RoomGetListedRoomsRequestApplicationJson', 'searchTerm'));
     replace(_$result);
     return _$result;
   }
@@ -54901,104 +51767,6 @@ class RoomSetPermissionsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomGetParticipantsRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomGetParticipantsRequestApplicationJsonInterface other);
-  void update(void Function($RoomGetParticipantsRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get includeStatus;
-  set includeStatus(bool? includeStatus);
-}
-
-class _$RoomGetParticipantsRequestApplicationJson extends RoomGetParticipantsRequestApplicationJson {
-  @override
-  final bool includeStatus;
-
-  factory _$RoomGetParticipantsRequestApplicationJson(
-          [void Function(RoomGetParticipantsRequestApplicationJsonBuilder)? updates]) =>
-      (RoomGetParticipantsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomGetParticipantsRequestApplicationJson._({required this.includeStatus}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(includeStatus, r'RoomGetParticipantsRequestApplicationJson', 'includeStatus');
-  }
-
-  @override
-  RoomGetParticipantsRequestApplicationJson rebuild(
-          void Function(RoomGetParticipantsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomGetParticipantsRequestApplicationJsonBuilder toBuilder() =>
-      RoomGetParticipantsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomGetParticipantsRequestApplicationJson && includeStatus == other.includeStatus;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, includeStatus.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomGetParticipantsRequestApplicationJson')
-          ..add('includeStatus', includeStatus))
-        .toString();
-  }
-}
-
-class RoomGetParticipantsRequestApplicationJsonBuilder
-    implements
-        Builder<RoomGetParticipantsRequestApplicationJson, RoomGetParticipantsRequestApplicationJsonBuilder>,
-        $RoomGetParticipantsRequestApplicationJsonInterfaceBuilder {
-  _$RoomGetParticipantsRequestApplicationJson? _$v;
-
-  bool? _includeStatus;
-  bool? get includeStatus => _$this._includeStatus;
-  set includeStatus(covariant bool? includeStatus) => _$this._includeStatus = includeStatus;
-
-  RoomGetParticipantsRequestApplicationJsonBuilder() {
-    RoomGetParticipantsRequestApplicationJson._defaults(this);
-  }
-
-  RoomGetParticipantsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _includeStatus = $v.includeStatus;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomGetParticipantsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomGetParticipantsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomGetParticipantsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomGetParticipantsRequestApplicationJson build() => _build();
-
-  _$RoomGetParticipantsRequestApplicationJson _build() {
-    RoomGetParticipantsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomGetParticipantsRequestApplicationJson._(
-            includeStatus: BuiltValueNullFieldError.checkNotNull(
-                includeStatus, r'RoomGetParticipantsRequestApplicationJson', 'includeStatus'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ParticipantInterfaceBuilder {
   void replace($ParticipantInterface other);
   void update(void Function($ParticipantInterfaceBuilder) updates);
@@ -56160,107 +52928,6 @@ class RoomAddParticipantToRoomResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterface other);
-  void update(void Function($RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder) updates);
-  bool? get includeStatus;
-  set includeStatus(bool? includeStatus);
-}
-
-class _$RoomGetBreakoutRoomParticipantsRequestApplicationJson
-    extends RoomGetBreakoutRoomParticipantsRequestApplicationJson {
-  @override
-  final bool includeStatus;
-
-  factory _$RoomGetBreakoutRoomParticipantsRequestApplicationJson(
-          [void Function(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder)? updates]) =>
-      (RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomGetBreakoutRoomParticipantsRequestApplicationJson._({required this.includeStatus}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        includeStatus, r'RoomGetBreakoutRoomParticipantsRequestApplicationJson', 'includeStatus');
-  }
-
-  @override
-  RoomGetBreakoutRoomParticipantsRequestApplicationJson rebuild(
-          void Function(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder toBuilder() =>
-      RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomGetBreakoutRoomParticipantsRequestApplicationJson && includeStatus == other.includeStatus;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, includeStatus.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomGetBreakoutRoomParticipantsRequestApplicationJson')
-          ..add('includeStatus', includeStatus))
-        .toString();
-  }
-}
-
-class RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder
-    implements
-        Builder<RoomGetBreakoutRoomParticipantsRequestApplicationJson,
-            RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder>,
-        $RoomGetBreakoutRoomParticipantsRequestApplicationJsonInterfaceBuilder {
-  _$RoomGetBreakoutRoomParticipantsRequestApplicationJson? _$v;
-
-  bool? _includeStatus;
-  bool? get includeStatus => _$this._includeStatus;
-  set includeStatus(covariant bool? includeStatus) => _$this._includeStatus = includeStatus;
-
-  RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder() {
-    RoomGetBreakoutRoomParticipantsRequestApplicationJson._defaults(this);
-  }
-
-  RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _includeStatus = $v.includeStatus;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomGetBreakoutRoomParticipantsRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomGetBreakoutRoomParticipantsRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomGetBreakoutRoomParticipantsRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomGetBreakoutRoomParticipantsRequestApplicationJson build() => _build();
-
-  _$RoomGetBreakoutRoomParticipantsRequestApplicationJson _build() {
-    RoomGetBreakoutRoomParticipantsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomGetBreakoutRoomParticipantsRequestApplicationJson._(
-            includeStatus: BuiltValueNullFieldError.checkNotNull(
-                includeStatus, r'RoomGetBreakoutRoomParticipantsRequestApplicationJson', 'includeStatus'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -56835,106 +53502,6 @@ class RoomRemoveSelfFromRoomResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomRemoveAttendeeFromRoomRequestApplicationJsonInterface other);
-  void update(void Function($RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder) updates);
-  int? get attendeeId;
-  set attendeeId(int? attendeeId);
-}
-
-class _$RoomRemoveAttendeeFromRoomRequestApplicationJson extends RoomRemoveAttendeeFromRoomRequestApplicationJson {
-  @override
-  final int attendeeId;
-
-  factory _$RoomRemoveAttendeeFromRoomRequestApplicationJson(
-          [void Function(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder)? updates]) =>
-      (RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomRemoveAttendeeFromRoomRequestApplicationJson._({required this.attendeeId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        attendeeId, r'RoomRemoveAttendeeFromRoomRequestApplicationJson', 'attendeeId');
-  }
-
-  @override
-  RoomRemoveAttendeeFromRoomRequestApplicationJson rebuild(
-          void Function(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder toBuilder() =>
-      RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRemoveAttendeeFromRoomRequestApplicationJson && attendeeId == other.attendeeId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, attendeeId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRemoveAttendeeFromRoomRequestApplicationJson')
-          ..add('attendeeId', attendeeId))
-        .toString();
-  }
-}
-
-class RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder
-    implements
-        Builder<RoomRemoveAttendeeFromRoomRequestApplicationJson,
-            RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder>,
-        $RoomRemoveAttendeeFromRoomRequestApplicationJsonInterfaceBuilder {
-  _$RoomRemoveAttendeeFromRoomRequestApplicationJson? _$v;
-
-  int? _attendeeId;
-  int? get attendeeId => _$this._attendeeId;
-  set attendeeId(covariant int? attendeeId) => _$this._attendeeId = attendeeId;
-
-  RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder() {
-    RoomRemoveAttendeeFromRoomRequestApplicationJson._defaults(this);
-  }
-
-  RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _attendeeId = $v.attendeeId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRemoveAttendeeFromRoomRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRemoveAttendeeFromRoomRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomRemoveAttendeeFromRoomRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRemoveAttendeeFromRoomRequestApplicationJson build() => _build();
-
-  _$RoomRemoveAttendeeFromRoomRequestApplicationJson _build() {
-    RoomRemoveAttendeeFromRoomRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomRemoveAttendeeFromRoomRequestApplicationJson._(
-            attendeeId: BuiltValueNullFieldError.checkNotNull(
-                attendeeId, r'RoomRemoveAttendeeFromRoomRequestApplicationJson', 'attendeeId'));
     replace(_$result);
     return _$result;
   }
@@ -59530,103 +56097,6 @@ class RoomPromoteModeratorResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomDemoteModeratorRequestApplicationJsonInterface other);
-  void update(void Function($RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder) updates);
-  int? get attendeeId;
-  set attendeeId(int? attendeeId);
-}
-
-class _$RoomDemoteModeratorRequestApplicationJson extends RoomDemoteModeratorRequestApplicationJson {
-  @override
-  final int attendeeId;
-
-  factory _$RoomDemoteModeratorRequestApplicationJson(
-          [void Function(RoomDemoteModeratorRequestApplicationJsonBuilder)? updates]) =>
-      (RoomDemoteModeratorRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomDemoteModeratorRequestApplicationJson._({required this.attendeeId}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(attendeeId, r'RoomDemoteModeratorRequestApplicationJson', 'attendeeId');
-  }
-
-  @override
-  RoomDemoteModeratorRequestApplicationJson rebuild(
-          void Function(RoomDemoteModeratorRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomDemoteModeratorRequestApplicationJsonBuilder toBuilder() =>
-      RoomDemoteModeratorRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomDemoteModeratorRequestApplicationJson && attendeeId == other.attendeeId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, attendeeId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomDemoteModeratorRequestApplicationJson')..add('attendeeId', attendeeId))
-        .toString();
-  }
-}
-
-class RoomDemoteModeratorRequestApplicationJsonBuilder
-    implements
-        Builder<RoomDemoteModeratorRequestApplicationJson, RoomDemoteModeratorRequestApplicationJsonBuilder>,
-        $RoomDemoteModeratorRequestApplicationJsonInterfaceBuilder {
-  _$RoomDemoteModeratorRequestApplicationJson? _$v;
-
-  int? _attendeeId;
-  int? get attendeeId => _$this._attendeeId;
-  set attendeeId(covariant int? attendeeId) => _$this._attendeeId = attendeeId;
-
-  RoomDemoteModeratorRequestApplicationJsonBuilder() {
-    RoomDemoteModeratorRequestApplicationJson._defaults(this);
-  }
-
-  RoomDemoteModeratorRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _attendeeId = $v.attendeeId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomDemoteModeratorRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomDemoteModeratorRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomDemoteModeratorRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomDemoteModeratorRequestApplicationJson build() => _build();
-
-  _$RoomDemoteModeratorRequestApplicationJson _build() {
-    RoomDemoteModeratorRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$RoomDemoteModeratorRequestApplicationJson._(
-            attendeeId: BuiltValueNullFieldError.checkNotNull(
-                attendeeId, r'RoomDemoteModeratorRequestApplicationJson', 'attendeeId'));
     replace(_$result);
     return _$result;
   }
@@ -65558,261 +62028,6 @@ class RoomCreateGuestByDialInResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder {
-  void replace($RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterface other);
-  void update(void Function($RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder) updates);
-  String? get actorId;
-  set actorId(String? actorId);
-
-  ActorType? get actorType;
-  set actorType(ActorType? actorType);
-
-  int? get attendeeId;
-  set attendeeId(int? attendeeId);
-}
-
-class _$RoomRejectedDialOutRequestRequestApplicationJson_Options
-    extends RoomRejectedDialOutRequestRequestApplicationJson_Options {
-  @override
-  final String? actorId;
-  @override
-  final ActorType? actorType;
-  @override
-  final int? attendeeId;
-
-  factory _$RoomRejectedDialOutRequestRequestApplicationJson_Options(
-          [void Function(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder)? updates]) =>
-      (RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder()..update(updates))._build();
-
-  _$RoomRejectedDialOutRequestRequestApplicationJson_Options._({this.actorId, this.actorType, this.attendeeId})
-      : super._();
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson_Options rebuild(
-          void Function(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder toBuilder() =>
-      RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRejectedDialOutRequestRequestApplicationJson_Options &&
-        actorId == other.actorId &&
-        actorType == other.actorType &&
-        attendeeId == other.attendeeId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, actorId.hashCode);
-    _$hash = $jc(_$hash, actorType.hashCode);
-    _$hash = $jc(_$hash, attendeeId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRejectedDialOutRequestRequestApplicationJson_Options')
-          ..add('actorId', actorId)
-          ..add('actorType', actorType)
-          ..add('attendeeId', attendeeId))
-        .toString();
-  }
-}
-
-class RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder
-    implements
-        Builder<RoomRejectedDialOutRequestRequestApplicationJson_Options,
-            RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder>,
-        $RoomRejectedDialOutRequestRequestApplicationJson_OptionsInterfaceBuilder {
-  _$RoomRejectedDialOutRequestRequestApplicationJson_Options? _$v;
-
-  String? _actorId;
-  String? get actorId => _$this._actorId;
-  set actorId(covariant String? actorId) => _$this._actorId = actorId;
-
-  ActorType? _actorType;
-  ActorType? get actorType => _$this._actorType;
-  set actorType(covariant ActorType? actorType) => _$this._actorType = actorType;
-
-  int? _attendeeId;
-  int? get attendeeId => _$this._attendeeId;
-  set attendeeId(covariant int? attendeeId) => _$this._attendeeId = attendeeId;
-
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder() {
-    RoomRejectedDialOutRequestRequestApplicationJson_Options._defaults(this);
-  }
-
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _actorId = $v.actorId;
-      _actorType = $v.actorType;
-      _attendeeId = $v.attendeeId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRejectedDialOutRequestRequestApplicationJson_Options other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRejectedDialOutRequestRequestApplicationJson_Options;
-  }
-
-  @override
-  void update(void Function(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson_Options build() => _build();
-
-  _$RoomRejectedDialOutRequestRequestApplicationJson_Options _build() {
-    RoomRejectedDialOutRequestRequestApplicationJson_Options._validate(this);
-    final _$result = _$v ??
-        _$RoomRejectedDialOutRequestRequestApplicationJson_Options._(
-            actorId: actorId, actorType: actorType, attendeeId: attendeeId);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder {
-  void replace($RoomRejectedDialOutRequestRequestApplicationJsonInterface other);
-  void update(void Function($RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder) updates);
-  String? get callId;
-  set callId(String? callId);
-
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder get options;
-  set options(RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder? options);
-}
-
-class _$RoomRejectedDialOutRequestRequestApplicationJson extends RoomRejectedDialOutRequestRequestApplicationJson {
-  @override
-  final String callId;
-  @override
-  final RoomRejectedDialOutRequestRequestApplicationJson_Options options;
-
-  factory _$RoomRejectedDialOutRequestRequestApplicationJson(
-          [void Function(RoomRejectedDialOutRequestRequestApplicationJsonBuilder)? updates]) =>
-      (RoomRejectedDialOutRequestRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$RoomRejectedDialOutRequestRequestApplicationJson._({required this.callId, required this.options}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(callId, r'RoomRejectedDialOutRequestRequestApplicationJson', 'callId');
-    BuiltValueNullFieldError.checkNotNull(options, r'RoomRejectedDialOutRequestRequestApplicationJson', 'options');
-  }
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson rebuild(
-          void Function(RoomRejectedDialOutRequestRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJsonBuilder toBuilder() =>
-      RoomRejectedDialOutRequestRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomRejectedDialOutRequestRequestApplicationJson &&
-        callId == other.callId &&
-        options == other.options;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, callId.hashCode);
-    _$hash = $jc(_$hash, options.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomRejectedDialOutRequestRequestApplicationJson')
-          ..add('callId', callId)
-          ..add('options', options))
-        .toString();
-  }
-}
-
-class RoomRejectedDialOutRequestRequestApplicationJsonBuilder
-    implements
-        Builder<RoomRejectedDialOutRequestRequestApplicationJson,
-            RoomRejectedDialOutRequestRequestApplicationJsonBuilder>,
-        $RoomRejectedDialOutRequestRequestApplicationJsonInterfaceBuilder {
-  _$RoomRejectedDialOutRequestRequestApplicationJson? _$v;
-
-  String? _callId;
-  String? get callId => _$this._callId;
-  set callId(covariant String? callId) => _$this._callId = callId;
-
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder? _options;
-  RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder get options =>
-      _$this._options ??= RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder();
-  set options(covariant RoomRejectedDialOutRequestRequestApplicationJson_OptionsBuilder? options) =>
-      _$this._options = options;
-
-  RoomRejectedDialOutRequestRequestApplicationJsonBuilder() {
-    RoomRejectedDialOutRequestRequestApplicationJson._defaults(this);
-  }
-
-  RoomRejectedDialOutRequestRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _callId = $v.callId;
-      _options = $v.options.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomRejectedDialOutRequestRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomRejectedDialOutRequestRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(RoomRejectedDialOutRequestRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomRejectedDialOutRequestRequestApplicationJson build() => _build();
-
-  _$RoomRejectedDialOutRequestRequestApplicationJson _build() {
-    RoomRejectedDialOutRequestRequestApplicationJson._validate(this);
-    _$RoomRejectedDialOutRequestRequestApplicationJson _$result;
-    try {
-      _$result = _$v ??
-          _$RoomRejectedDialOutRequestRequestApplicationJson._(
-              callId: BuiltValueNullFieldError.checkNotNull(
-                  callId, r'RoomRejectedDialOutRequestRequestApplicationJson', 'callId'),
-              options: options.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'options';
-        options.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'RoomRejectedDialOutRequestRequestApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomRejectedDialOutRequestResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -66852,106 +63067,6 @@ class BotAdminListBotsResponseApplicationJsonBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder {
-  void replace($CertificateGetCertificateExpirationRequestApplicationJsonInterface other);
-  void update(void Function($CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder) updates);
-  String? get host;
-  set host(String? host);
-}
-
-class _$CertificateGetCertificateExpirationRequestApplicationJson
-    extends CertificateGetCertificateExpirationRequestApplicationJson {
-  @override
-  final String host;
-
-  factory _$CertificateGetCertificateExpirationRequestApplicationJson(
-          [void Function(CertificateGetCertificateExpirationRequestApplicationJsonBuilder)? updates]) =>
-      (CertificateGetCertificateExpirationRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$CertificateGetCertificateExpirationRequestApplicationJson._({required this.host}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(host, r'CertificateGetCertificateExpirationRequestApplicationJson', 'host');
-  }
-
-  @override
-  CertificateGetCertificateExpirationRequestApplicationJson rebuild(
-          void Function(CertificateGetCertificateExpirationRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  CertificateGetCertificateExpirationRequestApplicationJsonBuilder toBuilder() =>
-      CertificateGetCertificateExpirationRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is CertificateGetCertificateExpirationRequestApplicationJson && host == other.host;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, host.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'CertificateGetCertificateExpirationRequestApplicationJson')
-          ..add('host', host))
-        .toString();
-  }
-}
-
-class CertificateGetCertificateExpirationRequestApplicationJsonBuilder
-    implements
-        Builder<CertificateGetCertificateExpirationRequestApplicationJson,
-            CertificateGetCertificateExpirationRequestApplicationJsonBuilder>,
-        $CertificateGetCertificateExpirationRequestApplicationJsonInterfaceBuilder {
-  _$CertificateGetCertificateExpirationRequestApplicationJson? _$v;
-
-  String? _host;
-  String? get host => _$this._host;
-  set host(covariant String? host) => _$this._host = host;
-
-  CertificateGetCertificateExpirationRequestApplicationJsonBuilder() {
-    CertificateGetCertificateExpirationRequestApplicationJson._defaults(this);
-  }
-
-  CertificateGetCertificateExpirationRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _host = $v.host;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant CertificateGetCertificateExpirationRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$CertificateGetCertificateExpirationRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(CertificateGetCertificateExpirationRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  CertificateGetCertificateExpirationRequestApplicationJson build() => _build();
-
-  _$CertificateGetCertificateExpirationRequestApplicationJson _build() {
-    CertificateGetCertificateExpirationRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$CertificateGetCertificateExpirationRequestApplicationJson._(
-            host: BuiltValueNullFieldError.checkNotNull(
-                host, r'CertificateGetCertificateExpirationRequestApplicationJson', 'host'));
     replace(_$result);
     return _$result;
   }

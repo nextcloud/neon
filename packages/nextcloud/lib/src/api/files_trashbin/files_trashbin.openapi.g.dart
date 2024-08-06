@@ -6,67 +6,27 @@ part of 'files_trashbin.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<PreviewGetPreviewRequestApplicationJson> _$previewGetPreviewRequestApplicationJsonSerializer =
-    _$PreviewGetPreviewRequestApplicationJsonSerializer();
-Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
-Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+const PreviewGetPreviewA _$previewGetPreviewA$0 = PreviewGetPreviewA._('\$0');
+const PreviewGetPreviewA _$previewGetPreviewA$1 = PreviewGetPreviewA._('\$1');
 
-class _$PreviewGetPreviewRequestApplicationJsonSerializer
-    implements StructuredSerializer<PreviewGetPreviewRequestApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    PreviewGetPreviewRequestApplicationJson,
-    _$PreviewGetPreviewRequestApplicationJson
-  ];
-  @override
-  final String wireName = 'PreviewGetPreviewRequestApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, PreviewGetPreviewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'fileId',
-      serializers.serialize(object.fileId, specifiedType: const FullType(int)),
-      'x',
-      serializers.serialize(object.x, specifiedType: const FullType(int)),
-      'y',
-      serializers.serialize(object.y, specifiedType: const FullType(int)),
-      'a',
-      serializers.serialize(object.a, specifiedType: const FullType(bool)),
-    ];
-
-    return result;
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = PreviewGetPreviewRequestApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'fileId':
-          result.fileId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'x':
-          result.x = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'y':
-          result.y = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'a':
-          result.a = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-      }
-    }
-
-    return result.build();
+PreviewGetPreviewA _$valueOfPreviewGetPreviewA(String name) {
+  switch (name) {
+    case '\$0':
+      return _$previewGetPreviewA$0;
+    case '\$1':
+      return _$previewGetPreviewA$1;
+    default:
+      throw ArgumentError(name);
   }
 }
+
+final BuiltSet<PreviewGetPreviewA> _$previewGetPreviewAValues = BuiltSet<PreviewGetPreviewA>(const <PreviewGetPreviewA>[
+  _$previewGetPreviewA$0,
+  _$previewGetPreviewA$1,
+]);
+
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
 class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
   @override
@@ -142,150 +102,6 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
     }
 
     return result.build();
-  }
-}
-
-abstract mixin class $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  void replace($PreviewGetPreviewRequestApplicationJsonInterface other);
-  void update(void Function($PreviewGetPreviewRequestApplicationJsonInterfaceBuilder) updates);
-  int? get fileId;
-  set fileId(int? fileId);
-
-  int? get x;
-  set x(int? x);
-
-  int? get y;
-  set y(int? y);
-
-  bool? get a;
-  set a(bool? a);
-}
-
-class _$PreviewGetPreviewRequestApplicationJson extends PreviewGetPreviewRequestApplicationJson {
-  @override
-  final int fileId;
-  @override
-  final int x;
-  @override
-  final int y;
-  @override
-  final bool a;
-
-  factory _$PreviewGetPreviewRequestApplicationJson(
-          [void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates]) =>
-      (PreviewGetPreviewRequestApplicationJsonBuilder()..update(updates))._build();
-
-  _$PreviewGetPreviewRequestApplicationJson._({required this.fileId, required this.x, required this.y, required this.a})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(fileId, r'PreviewGetPreviewRequestApplicationJson', 'fileId');
-    BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x');
-    BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y');
-    BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewRequestApplicationJson', 'a');
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson rebuild(
-          void Function(PreviewGetPreviewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PreviewGetPreviewRequestApplicationJsonBuilder toBuilder() =>
-      PreviewGetPreviewRequestApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PreviewGetPreviewRequestApplicationJson &&
-        fileId == other.fileId &&
-        x == other.x &&
-        y == other.y &&
-        a == other.a;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, fileId.hashCode);
-    _$hash = $jc(_$hash, x.hashCode);
-    _$hash = $jc(_$hash, y.hashCode);
-    _$hash = $jc(_$hash, a.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PreviewGetPreviewRequestApplicationJson')
-          ..add('fileId', fileId)
-          ..add('x', x)
-          ..add('y', y)
-          ..add('a', a))
-        .toString();
-  }
-}
-
-class PreviewGetPreviewRequestApplicationJsonBuilder
-    implements
-        Builder<PreviewGetPreviewRequestApplicationJson, PreviewGetPreviewRequestApplicationJsonBuilder>,
-        $PreviewGetPreviewRequestApplicationJsonInterfaceBuilder {
-  _$PreviewGetPreviewRequestApplicationJson? _$v;
-
-  int? _fileId;
-  int? get fileId => _$this._fileId;
-  set fileId(covariant int? fileId) => _$this._fileId = fileId;
-
-  int? _x;
-  int? get x => _$this._x;
-  set x(covariant int? x) => _$this._x = x;
-
-  int? _y;
-  int? get y => _$this._y;
-  set y(covariant int? y) => _$this._y = y;
-
-  bool? _a;
-  bool? get a => _$this._a;
-  set a(covariant bool? a) => _$this._a = a;
-
-  PreviewGetPreviewRequestApplicationJsonBuilder() {
-    PreviewGetPreviewRequestApplicationJson._defaults(this);
-  }
-
-  PreviewGetPreviewRequestApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _fileId = $v.fileId;
-      _x = $v.x;
-      _y = $v.y;
-      _a = $v.a;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PreviewGetPreviewRequestApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PreviewGetPreviewRequestApplicationJson;
-  }
-
-  @override
-  void update(void Function(PreviewGetPreviewRequestApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PreviewGetPreviewRequestApplicationJson build() => _build();
-
-  _$PreviewGetPreviewRequestApplicationJson _build() {
-    PreviewGetPreviewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PreviewGetPreviewRequestApplicationJson._(
-            fileId: BuiltValueNullFieldError.checkNotNull(fileId, r'PreviewGetPreviewRequestApplicationJson', 'fileId'),
-            x: BuiltValueNullFieldError.checkNotNull(x, r'PreviewGetPreviewRequestApplicationJson', 'x'),
-            y: BuiltValueNullFieldError.checkNotNull(y, r'PreviewGetPreviewRequestApplicationJson', 'y'),
-            a: BuiltValueNullFieldError.checkNotNull(a, r'PreviewGetPreviewRequestApplicationJson', 'a'));
-    replace(_$result);
-    return _$result;
   }
 }
 
