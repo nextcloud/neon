@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 Account mockAutocompleteAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/core/autocomplete/get'): {
-      'get': (match, bodyBytes) {
+      'get': (match, request) {
         return Response(
           json.encode(
             {

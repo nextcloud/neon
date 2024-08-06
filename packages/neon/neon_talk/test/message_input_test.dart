@@ -31,7 +31,7 @@ import 'testing.dart';
 Account mockTalkAccount() {
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/.*/mentions'): {
-      'get': (match, queryParameters) async {
+      'get': (match, request) async {
         await Future<void>.delayed(const Duration(seconds: 1));
 
         return Response(
@@ -58,7 +58,7 @@ Account mockTalkAccount() {
       },
     },
     RegExp(r'/index\.php/avatar/.*'): {
-      'get': (match, bodyBytes) => Response('', 404),
+      'get': (match, request) => Response('', 404),
     },
   });
 }

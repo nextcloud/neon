@@ -17,8 +17,8 @@ import 'package:rxdart/rxdart.dart';
 
 Account mockUnifiedSearchAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/search/providers/(.*)/search'): {
-        'get': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        'get': (match, request) {
+          final data = json.decode(request.body) as Map<String, dynamic>;
 
           final term = data['term'] as String;
           if (term == 'error') {
@@ -55,7 +55,7 @@ Account mockUnifiedSearchAccount() => mockServer({
         },
       },
       RegExp(r'/ocs/v2\.php/search/providers'): {
-        'get': (match, bodyBytes) => Response(
+        'get': (match, request) => Response(
               json.encode(
                 {
                   'ocs': {

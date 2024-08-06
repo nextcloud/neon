@@ -9,7 +9,7 @@ import 'package:neon_framework/testing.dart';
 Account mockMaintenanceModeAccount() {
   return mockServer({
     RegExp(r'/status\.php'): {
-      'get': (match, bodyBytes) {
+      'get': (match, request) {
         return Response(
           json.encode({
             'installed': false,

@@ -10,7 +10,7 @@ import 'package:neon_framework/testing.dart';
 
 Account mockDashboardAccount() => mockServer({
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widgets'): {
-        'get': (match, bodyBytes) => Response(
+        'get': (match, request) => Response(
               json.encode({
                 'ocs': {
                   'meta': {'status': '', 'statuscode': 0},
@@ -39,8 +39,8 @@ Account mockDashboardAccount() => mockServer({
             ),
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v1/widget-items'): {
-        'get': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        'get': (match, request) {
+          final data = json.decode(request.body) as Map<String, dynamic>;
 
           return Response(
             json.encode({
@@ -78,8 +78,8 @@ Account mockDashboardAccount() => mockServer({
         },
       },
       RegExp(r'/ocs/v2\.php/apps/dashboard/api/v2/widget-items'): {
-        'get': (match, bodyBytes) {
-          final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        'get': (match, request) {
+          final data = json.decode(request.body) as Map<String, dynamic>;
 
           return Response(
             json.encode({

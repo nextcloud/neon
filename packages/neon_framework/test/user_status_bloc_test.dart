@@ -76,11 +76,11 @@ Account mockUserStatusAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/predefined_statuses'): {
-      'get': (match, bodyBytes) => predefinedStatusesResponse(),
+      'get': (match, request) => predefinedStatusesResponse(),
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/predefined'): {
-      'put': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'put': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         messageId = data['messageId'] as String;
         messageIsPredefined = true;
@@ -89,8 +89,8 @@ Account mockUserStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message/custom'): {
-      'put': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'put': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         messageId = null;
         message = data['message'] as String;
@@ -101,8 +101,8 @@ Account mockUserStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/status'): {
-      'put': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'put': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         status = data['statusType'] as String;
         statusIsUserDefined = true;
@@ -110,7 +110,7 @@ Account mockUserStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/user_status/message'): {
-      'delete': (match, bodyBytes) {
+      'delete': (match, request) {
         messageId = null;
         messageIsPredefined = false;
         message = null;
@@ -120,11 +120,11 @@ Account mockUserStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/statuses/(.*)'): {
-      'get': (match, bodyBytes) => statusResponse(),
+      'get': (match, request) => statusResponse(),
     },
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/heartbeat'): {
-      'put': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'put': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         // Hardcoded behavior for testing
         if (status == 'offline') {

@@ -18,7 +18,7 @@ Account mockTalkAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room/abcd/participants/active'): {
-      'post': (match, bodyBytes) => Response(
+      'post': (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -30,7 +30,7 @@ Account mockTalkAccount() {
             200,
             headers: {'content-type': 'application/json'},
           ),
-      'delete': (match, bodyBytes) => Response(
+      'delete': (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -42,7 +42,7 @@ Account mockTalkAccount() {
           ),
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd/([0-9]+)'): {
-      'delete': (match, bodyBytes) {
+      'delete': (match, request) {
         final id = int.parse(match.group(1)!);
 
         return Response(
@@ -66,9 +66,9 @@ Account mockTalkAccount() {
           },
         );
       },
-      'put': (match, bodyBytes) {
+      'put': (match, request) {
         final id = int.parse(match.group(1)!);
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+        final data = json.decode(request.body) as Map<String, dynamic>;
         final message = data['message'] as String;
 
         return Response(
@@ -94,8 +94,8 @@ Account mockTalkAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/chat/abcd'): {
-      'get': (match, bodyBytes) async {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'get': (match, request) async {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         final lookIntoFuture = (data['lookIntoFuture'] as int) == 1;
         if (lookIntoFuture) {
@@ -165,8 +165,8 @@ Account mockTalkAccount() {
           );
         }
       },
-      'post': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'post': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
         final replyTo = data['replyTo'] as int?;
 
         return Response(
@@ -192,8 +192,8 @@ Account mockTalkAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/reaction/abcd/[0-9]+'): {
-      'post': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'post': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         final reaction = data['reaction'] as String;
 
@@ -225,8 +225,8 @@ Account mockTalkAccount() {
           },
         );
       },
-      'delete': (match, bodyBytes) {
-        final data = json.decode(utf8.decode(bodyBytes)) as Map<String, dynamic>;
+      'delete': (match, request) {
+        final data = json.decode(request.body) as Map<String, dynamic>;
 
         final reaction = data['reaction'] as String;
 
@@ -258,7 +258,7 @@ Account mockTalkAccount() {
           },
         );
       },
-      'get': (match, bodyBytes) => Response(
+      'get': (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
