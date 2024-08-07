@@ -32,6 +32,9 @@ abstract interface class SettingsStore {
 
   /// Removes an entry from persistent storage.
   Future<bool> remove(String key);
+
+  /// Returns all keys in the persistent storage.
+  List<String> keys();
 }
 
 /// Default implementation of the [SettingsStore] backed by the given [persistence].
@@ -62,4 +65,7 @@ final class DefaultSettingsStore implements SettingsStore {
 
   @override
   Future<bool> setBool(String key, bool value) => persistence.setValue(key, value);
+
+  @override
+  List<String> keys() => persistence.keys();
 }

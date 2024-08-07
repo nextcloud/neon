@@ -7,6 +7,9 @@ abstract interface class Persistence<T extends Object> {
   /// Whether a value exists at the given [key].
   FutureOr<bool> containsKey(String key);
 
+  /// Returns all keys in the persistent storage.
+  FutureOr<List<String>> keys();
+
   /// Clears all values from persistent storage.
   FutureOr<bool> clear();
 
@@ -52,6 +55,9 @@ abstract class CachedPersistence<T extends Object> implements Persistence<T> {
   /// Changes will not be persisted to the backing storage and will be lost
   /// when the app is restarted.
   void setCache(String key, T value) => cache[key] = value;
+
+  @override
+  List<String> keys() => cache.keys.toList();
 
   @override
   bool containsKey(String key) => cache.containsKey(key);
