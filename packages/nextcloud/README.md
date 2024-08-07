@@ -56,9 +56,9 @@ For an example checkout the [example](https://github.com/nextcloud/neon/blob/mai
 | [NextPush app](https://codeberg.org/NextPush/uppush)                               | 1.4                    |
 | [Notes app](https://github.com/nextcloud/notes)                                    | 4.8 - 4.10             |
 | [Notifications app](https://github.com/nextcloud/notifications)                    | 28 - 29                |
-| [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.7              |
+| [Tables app](https://github.com/nextcloud/tables)                                  | 0.6 - 0.8              |
 | [Talk app](https://github.com/nextcloud/spreed)                                    | 18 - 19                |
-| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.5              |
+| [User account deletion app](https://framagit.org/framasoft/nextcloud/drop_account) | 2.4 - 2.6              |
 
 1: Other versions might be supported too or at least mostly working, but we do not test against those.  
 2: Server includes the following apps: comments, core, dashboard, dav, files, files_external, files_reminders, files_sharing, files_trashbin, files_versions, provisioning_api, settings, sharebymail, systemtags, theming, updatenotification, user_ldap, user_status, weather_status and WebDAV.  

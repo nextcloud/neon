@@ -30,4 +30,4 @@ jobs:
           branch: chore/nextcloud_test/update-presets
           delete-branch: true
           title: "chore(nextcloud_test): Update presets"
-          body: ""
+          body: "Make sure to update the supported apps table if a new preset is added!"
