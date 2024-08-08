@@ -1,7 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/label_builder.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:universal_io/io.dart';
 
 /// Details of a [NeonException].
 class NeonExceptionDetails {
@@ -12,6 +19,50 @@ class NeonExceptionDetails {
     required this.getText,
     this.isUnauthorized = false,
   });
+
+  /// Creates the details from the given [error].
+  factory NeonExceptionDetails.fromError(Object? error) {
+    return switch (error) {
+      String() => NeonExceptionDetails(
+          getText: (_) => error,
+        ),
+      NeonException() => error.details,
+      DynamiteStatusCodeException(statusCode: 401) => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+          isUnauthorized: true,
+        ),
+      DynamiteStatusCodeException(statusCode: 429) => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorBruteforceThrottled,
+        ),
+      DynamiteStatusCodeException(statusCode: >= 500 && <= 599) => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+        ),
+      SocketException(:final address) when address != null => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(address.host),
+        ),
+      SocketException() => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+        ),
+      ClientException(:final uri) when uri != null => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
+        ),
+      ClientException() => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+        ),
+      HttpException(:final uri) when uri != null => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
+        ),
+      HttpException() => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+        ),
+      TimeoutException() => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorConnectionTimedOut,
+        ),
+      _ => NeonExceptionDetails(
+          getText: (context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+        ),
+    };
+  }
 
   /// Text that will be displayed in the UI
   final LabelBuilder getText;
