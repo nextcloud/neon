@@ -111,7 +111,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
       if (NeonPlatform.instance.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
         PushUtils.onPushNotificationReceived = (accountID) async {
-          final account = _accountsBloc.accounts.value.tryFind(accountID);
+          final account = _accountsBloc.accountByID(accountID);
           if (account == null) {
             return;
           }
@@ -126,7 +126,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
         };
         PushUtils.onLocalNotificationClicked = (pushNotificationWithAccountID) async {
-          final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
+          final account = _accountsBloc.accountByID(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
           }

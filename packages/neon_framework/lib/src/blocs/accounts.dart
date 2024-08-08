@@ -64,6 +64,9 @@ abstract interface class AccountsBloc implements Disposable {
   /// Whether accounts are logged in.
   bool get hasAccounts;
 
+  /// Returns the account identified by the given id.
+  Account? accountByID(String accountID);
+
   /// The options for the specified [account].
   AccountOptions getOptionsFor(Account account);
 
@@ -253,6 +256,11 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   bool get hasAccounts => activeAccount.valueOrNull != null;
+
+  @override
+  Account? accountByID(String accountID) {
+    return accounts.value.tryFind(accountID);
+  }
 
   @override
   AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(

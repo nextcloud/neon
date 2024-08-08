@@ -143,7 +143,7 @@ class AccountsBlocExporter implements Exportable {
     }
 
     for (final element in values.entries) {
-      final account = accountsBloc.accounts.value.tryFind(element.key);
+      final account = accountsBloc.accountByID(element.key);
 
       if (account != null) {
         accountsBloc.getOptionsFor(account).import(values);
