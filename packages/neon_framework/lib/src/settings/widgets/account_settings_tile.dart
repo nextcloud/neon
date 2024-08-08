@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 import 'package:neon_framework/src/widgets/account_tile.dart';
 

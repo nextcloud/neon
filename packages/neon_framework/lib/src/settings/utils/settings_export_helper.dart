@@ -4,9 +4,8 @@ import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/account.dart' show Account;
-import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/storage/keys.dart';
