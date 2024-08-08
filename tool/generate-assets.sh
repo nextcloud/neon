@@ -10,7 +10,7 @@ mkdir -p /tmp/nextcloud-neon
 function copy_app_svg() {
   id="$1"
   path="$2"
-  target="packages/neon/neon_$id/assets/app.svg"
+  target="packages/app/packages/neon_$id/assets/app.svg"
   if [ -f "$path/img/app.svg" ]; then
     cp "$path/img/app.svg" "$target"
   elif [ -f "$path/img/$id.svg" ]; then
@@ -110,7 +110,7 @@ copy_app_svg talk external/nextcloud-spreed
   cp ../../assets/logo.svg assets/logo.svg
 )
 
-for path in packages/neon/neon_*; do
+for path in packages/app/packages/neon_*; do
   (
     cd "$path"
     precompile_assets

@@ -315,7 +315,7 @@ packages:
   dynamite_runtime:
     dependency: "direct overridden"
     description:
-      path: "../dynamite/dynamite_runtime"
+      path: "../dynamite/packages/dynamite_runtime"
       relative: true
     source: path
     version: "0.4.0"
@@ -354,7 +354,7 @@ packages:
   file_icons:
     dependency: "direct overridden"
     description:
-      path: "../file_icons"
+      path: "../neon_framework/packages/file_icons"
       relative: true
     source: path
     version: "1.0.0"
@@ -829,14 +829,14 @@ packages:
   neon_dashboard:
     dependency: "direct main"
     description:
-      path: "../neon/neon_dashboard"
+      path: "packages/neon_dashboard"
       relative: true
     source: path
     version: "1.0.0"
   neon_files:
     dependency: "direct main"
     description:
-      path: "../neon/neon_files"
+      path: "packages/neon_files"
       relative: true
     source: path
     version: "1.0.0"
@@ -850,7 +850,7 @@ packages:
   neon_http_client:
     dependency: "direct overridden"
     description:
-      path: "../neon_http_client"
+      path: "../neon_framework/packages/neon_http_client"
       relative: true
     source: path
     version: "0.1.0"
@@ -864,28 +864,28 @@ packages:
   neon_news:
     dependency: "direct main"
     description:
-      path: "../neon/neon_news"
+      path: "packages/neon_news"
       relative: true
     source: path
     version: "1.0.0"
   neon_notes:
     dependency: "direct main"
     description:
-      path: "../neon/neon_notes"
+      path: "packages/neon_notes"
       relative: true
     source: path
     version: "1.0.0"
   neon_notifications:
     dependency: "direct main"
     description:
-      path: "../neon/neon_notifications"
+      path: "packages/neon_notifications"
       relative: true
     source: path
     version: "1.0.0"
   neon_talk:
     dependency: "direct main"
     description:
-      path: "../neon/neon_talk"
+      path: "packages/neon_talk"
       relative: true
     source: path
     version: "1.0.0"
@@ -1304,7 +1304,7 @@ packages:
   sort_box:
     dependency: "direct overridden"
     description:
-      path: "../sort_box"
+      path: "../neon_framework/packages/sort_box"
       relative: true
     source: path
     version: "1.0.0"
