@@ -4,7 +4,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_files/l10n/localizations.dart';
-import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_framework/blocs.dart';
@@ -47,11 +46,11 @@ sealed class FilesBloc implements InteractiveBloc {
 
   void removeFavorite(PathUri uri);
 
+  void createFolder(PathUri uri);
+
   BehaviorSubject<BuiltList<FilesTask>> get tasks;
 
-  FilesBrowserBloc get browser;
-
-  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode});
+  Stream<void> get updates;
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
@@ -68,17 +67,17 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   final FilesOptions options;
   final Account account;
-  @override
-  late final browser = getNewFilesBrowserBloc();
 
   final uploadQueue = Queue();
   final downloadQueue = Queue();
+  final updatesController = StreamController<void>();
 
   @override
   void dispose() {
     uploadQueue.dispose();
     downloadQueue.dispose();
     unawaited(tasks.close());
+    unawaited(updatesController.close());
 
     options.uploadQueueParallelism.removeListener(uploadParallelismListener);
     options.downloadQueueParallelism.removeListener(downloadParallelismListener);
@@ -90,8 +89,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   final tasks = BehaviorSubject.seeded(BuiltList());
 
   @override
+  late final updates = updatesController.stream.asBroadcastStream();
+
+  @override
   Future<void> refresh() async {
-    await browser.refresh();
+    updatesController.add(null);
   }
 
   @override
@@ -207,6 +209,11 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     );
   }
 
+  @override
+  Future<void> createFolder(PathUri uri) async {
+    await wrapAction(() async => account.client.webdav.mkcol(uri));
+  }
+
   Future<File> cacheFile(PathUri uri, String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
@@ -247,14 +254,6 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     await future;
     return buffer.toBytes();
   }
-
-  @override
-  FilesBrowserBloc getNewFilesBrowserBloc({PathUri? initialUri, FilesBrowserMode? mode}) => FilesBrowserBloc(
-        options: options,
-        account: account,
-        initialPath: initialUri,
-        mode: mode,
-      );
 
   void downloadParallelismListener() {
     downloadQueue.parallel = options.downloadQueueParallelism.value;

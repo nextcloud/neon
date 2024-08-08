@@ -19,53 +19,43 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart';
 
 /// Creates an adaptive bottom sheet to select an action to add a file.
-class FilesChooseCreateModal extends StatefulWidget {
+class FilesChooseCreateModal extends StatelessWidget {
   /// Creates a new add files modal.
   const FilesChooseCreateModal({
     required this.bloc,
+    required this.uri,
     super.key,
   });
 
   /// The bloc of the flies client.
   final FilesBloc bloc;
 
-  @override
-  State<FilesChooseCreateModal> createState() => _FilesChooseCreateModalState();
-}
+  final PathUri uri;
 
-class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
-  late PathUri baseUri;
-
-  @override
-  void initState() {
-    baseUri = widget.bloc.browser.uri.value;
-
-    super.initState();
-  }
-
-  Future<void> uploadFromPick(FileType type) async {
+  Future<void> uploadFromPick(BuildContext context, FileType type) async {
     final result = await FilePicker.platform.pickFiles(
       allowMultiple: true,
       type: type,
     );
 
-    if (mounted) {
+    if (context.mounted) {
       Navigator.of(context).pop();
     }
 
     if (result != null) {
       for (final file in result.files) {
-        if (!await confirmUpload(file.size)) {
+        if (!context.mounted || !await confirmUpload(context, file.size)) {
           return;
         }
+
         if (kIsWeb) {
-          widget.bloc.uploadMemory(
-            baseUri.join(PathUri.parse(file.name)),
+          bloc.uploadMemory(
+            uri.join(PathUri.parse(file.name)),
             file.bytes!,
           );
         } else {
-          widget.bloc.uploadFile(
-            baseUri.join(PathUri.parse(file.name)),
+          bloc.uploadFile(
+            uri.join(PathUri.parse(file.name)),
             file.path!,
           );
         }
@@ -73,7 +63,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
     }
   }
 
-  Future<bool> confirmUpload(int size) async {
+  Future<bool> confirmUpload(BuildContext context, int size) async {
     final sizeWarning = NeonProvider.of<FilesOptions>(context).uploadSizeWarning.value;
     if (sizeWarning != null) {
       if (size > sizeWarning) {
@@ -88,6 +78,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
   }
 
   Widget wrapAction({
+    required BuildContext context,
     required Widget icon,
     required Widget message,
     required VoidCallback onPressed,
@@ -121,23 +112,26 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 
     final actions = [
       wrapAction(
+        context: context,
         icon: Icon(
           MdiIcons.filePlus,
           color: Theme.of(context).colorScheme.primary,
         ),
         message: Text(FilesLocalizations.of(context).uploadFiles),
-        onPressed: () async => uploadFromPick(FileType.any),
+        onPressed: () async => uploadFromPick(context, FileType.any),
       ),
       wrapAction(
+        context: context,
         icon: Icon(
           MdiIcons.fileImagePlus,
           color: Theme.of(context).colorScheme.primary,
         ),
         message: Text(FilesLocalizations.of(context).uploadImages),
-        onPressed: () async => uploadFromPick(FileType.image),
+        onPressed: () async => uploadFromPick(context, FileType.image),
       ),
       if (NeonPlatform.instance.canUseCamera)
         wrapAction(
+          context: context,
           icon: Icon(
             MdiIcons.cameraPlus,
             color: Theme.of(context).colorScheme.primary,
@@ -150,17 +144,17 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
             final result = await picker.pickImage(source: ImageSource.camera);
             if (result != null) {
               final length = await result.length();
-              if (!await confirmUpload(length)) {
+              if (!context.mounted || !await confirmUpload(context, length)) {
                 return;
               }
               if (kIsWeb) {
-                widget.bloc.uploadMemory(
-                  baseUri.join(PathUri.parse(result.name)),
+                bloc.uploadMemory(
+                  uri.join(PathUri.parse(result.name)),
                   await result.readAsBytes(),
                 );
               } else {
-                widget.bloc.uploadFile(
-                  baseUri.join(PathUri.parse(result.name)),
+                bloc.uploadFile(
+                  uri.join(PathUri.parse(result.name)),
                   result.path,
                 );
               }
@@ -168,6 +162,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
           },
         ),
       wrapAction(
+        context: context,
         icon: Icon(
           MdiIcons.folderPlus,
           color: Theme.of(context).colorScheme.primary,
@@ -178,7 +173,7 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 
           final result = await showFolderCreateDialog(context: context);
           if (result != null) {
-            widget.bloc.browser.createFolder(baseUri.join(PathUri.parse(result)));
+            bloc.createFolder(uri.join(PathUri.parse(result)));
           }
         },
       ),
@@ -230,66 +225,75 @@ class _FilesChooseCreateModalState extends State<FilesChooseCreateModal> {
 /// A dialog for choosing a folder.
 ///
 /// This dialog is not adaptive and always builds a material design dialog.
-class FilesChooseFolderDialog extends StatelessWidget {
+class FilesChooseFolderDialog extends StatefulWidget {
   /// Creates a new folder chooser dialog.
   const FilesChooseFolderDialog({
     required this.bloc,
-    required this.filesBloc,
-    this.originalPath,
+    required this.uri,
+    this.hideUri,
     super.key,
   });
 
-  final FilesBrowserBloc bloc;
-  final FilesBloc filesBloc;
+  final FilesBloc bloc;
 
-  /// The initial path to start at.
-  final PathUri? originalPath;
+  final PathUri uri;
+
+  final PathUri? hideUri;
+
+  @override
+  State<FilesChooseFolderDialog> createState() => _FilesChooseFolderDialogState();
+}
+
+class _FilesChooseFolderDialogState extends State<FilesChooseFolderDialog> {
+  late PathUri uri = widget.uri;
 
   @override
   Widget build(BuildContext context) {
     final dialogTheme = NeonDialogTheme.of(context);
 
-    return StreamBuilder(
-      stream: bloc.uri,
-      builder: (context, uriSnapshot) {
-        final actions = [
-          OutlinedButton(
-            onPressed: () async {
-              final result = await showFolderCreateDialog(context: context);
+    final actions = [
+      OutlinedButton(
+        onPressed: () async {
+          final result = await showFolderCreateDialog(context: context);
 
-              if (result != null) {
-                bloc.createFolder(uriSnapshot.requireData.join(PathUri.parse(result)));
-              }
+          if (result != null) {
+            widget.bloc.createFolder(uri.join(PathUri.parse(result)));
+          }
+        },
+        child: Text(
+          FilesLocalizations.of(context).folderCreate,
+          textAlign: TextAlign.end,
+        ),
+      ),
+      ElevatedButton(
+        onPressed: () => Navigator.of(context).pop(uri),
+        child: Text(
+          FilesLocalizations.of(context).folderChoose,
+          textAlign: TextAlign.end,
+        ),
+      ),
+    ];
+
+    return AlertDialog(
+      title: Text(FilesLocalizations.of(context).folderChoose),
+      content: ConstrainedBox(
+        constraints: dialogTheme.constraints,
+        child: SizedBox(
+          width: double.maxFinite,
+          child: FilesBrowserView(
+            filesBloc: widget.bloc,
+            uri: uri,
+            mode: FilesBrowserMode.selectDirectory,
+            setPath: (uri) {
+              setState(() {
+                this.uri = uri;
+              });
             },
-            child: Text(
-              FilesLocalizations.of(context).folderCreate,
-              textAlign: TextAlign.end,
-            ),
+            hideUri: widget.hideUri,
           ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(uriSnapshot.data),
-            child: Text(
-              FilesLocalizations.of(context).folderChoose,
-              textAlign: TextAlign.end,
-            ),
-          ),
-        ];
-
-        return AlertDialog(
-          title: Text(FilesLocalizations.of(context).folderChoose),
-          content: ConstrainedBox(
-            constraints: dialogTheme.constraints,
-            child: SizedBox(
-              width: double.maxFinite,
-              child: FilesBrowserView(
-                bloc: bloc,
-                filesBloc: filesBloc,
-              ),
-            ),
-          ),
-          actions: uriSnapshot.hasData ? actions : null,
-        );
-      },
+        ),
+      ),
+      actions: actions,
     );
   }
 }
