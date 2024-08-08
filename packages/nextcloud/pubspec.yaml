@@ -42,7 +42,7 @@ dev_dependencies:
     git:
       url: https://github.com/dart-lang/http
       path: pkgs/http_client_conformance_tests
-      ref: 757438e938ebe81f4b130e6372897b5f977615a6
+      ref: 76512c4cbf987361421030349fd1946e63e33359
   mocktail: ^1.0.4
   neon_lints:
     git:
