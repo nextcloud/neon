@@ -49,4 +49,11 @@ $patch = [
     ],
 ];
 
-file_put_contents('packages/nextcloud/lib/src/patches/spreed/1-message-parameters.json', json_encode($patch, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+$data = json_encode($patch, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+if ($data === false) {
+    throw new RuntimeException('Failed to encode JSON');
+}
+$success = file_put_contents('packages/nextcloud/lib/src/api/spreed/patches/1-message-parameters.json', $data);
+if ($success === false) {
+    throw new RuntimeException('Failed to write JSON');
+}
