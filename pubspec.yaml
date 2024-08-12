@@ -9,5 +9,5 @@ dev_dependencies:
   fvm: ^3.1.7
   husky: ^0.1.7
   melos: ^6.0.0
-  custom_lint: ^0.6.4
+  #custom_lint: ^0.6.4
   coverage: ^1.9.0

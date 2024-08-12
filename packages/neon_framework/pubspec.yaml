@@ -77,7 +77,7 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/cookie_store_conformance_tests
-  custom_lint: ^0.6.4
+  #custom_lint: ^0.6.4
   flutter_test:
     sdk: flutter
   go_router_builder: ^2.7.1
