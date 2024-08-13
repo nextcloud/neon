@@ -62,7 +62,12 @@ class _UserAvatarState extends State<NeonUserAvatar> {
       builder: (context, constraints) {
         final brightness = Theme.of(context).brightness;
         size = constraints.constrain(Size.square(widget.size ?? largeIconSize)).shortestSide;
-        final pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+        var pixelSize = (size * MediaQuery.of(context).devicePixelRatio).toInt();
+        if (pixelSize <= 64) {
+          pixelSize = 64;
+        } else {
+          pixelSize = 512;
+        }
 
         final avatar = CircleAvatar(
           radius: size / 2,
