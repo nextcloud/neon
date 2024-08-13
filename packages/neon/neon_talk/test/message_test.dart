@@ -1807,16 +1807,16 @@ void main() {
 
       expect((spans[0] as TextSpan).text, 'a ');
 
-      final link1 = (spans[1] as WidgetSpan).child as InkWell;
-      expect((link1.child! as Text).data, '123');
-      link1.onTap!();
+      final link1 = spans[1] as TextSpan;
+      expect(link1.text, '123');
+      (link1.recognizer! as TapGestureRecognizer).onTap!();
       verify(() => callback('123')).called(1);
 
       expect((spans[2] as TextSpan).text, ' b ');
 
-      final link2 = (spans[3] as WidgetSpan).child as InkWell;
-      expect((link2.child! as Text).data, '456');
-      link2.onTap!();
+      final link2 = spans[3] as TextSpan;
+      expect(link2.text, '456');
+      (link2.recognizer! as TapGestureRecognizer).onTap!();
       verify(() => callback('456')).called(1);
 
       expect((spans[4] as TextSpan).text, ' c');
