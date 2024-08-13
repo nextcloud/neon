@@ -1,5 +1,5 @@
 name: nextcloud
-version: 6.1.0
+version: 7.0.0
 description: A Nextcloud API client written in Dart supporting all maintained Nextcloud server versions.
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/nextcloud
@@ -18,7 +18,7 @@ dependencies:
   cookie_jar: ^4.0.7
   crypto: ^3.0.0
   crypton: ^2.0.0
-  dynamite_runtime: ^0.4.0
+  dynamite_runtime: ^0.5.0
   http: ^1.2.0
   logging: ^1.0.0
   meta: ^1.0.0
@@ -36,7 +36,7 @@ dev_dependencies:
   built_value_test: ^8.9.2
   code_builder: ^4.10.0
   dart_style: ^2.3.6
-  dynamite: ^0.4.0
+  dynamite: ^0.5.0
   glob: ^2.1.2
   http_client_conformance_tests:
     git:

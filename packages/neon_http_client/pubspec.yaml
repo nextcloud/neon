@@ -15,7 +15,7 @@ dependencies:
   http: ^1.0.0
   logging: ^1.0.0
   meta: ^1.0.0
-  nextcloud: ^6.1.0
+  nextcloud: ^7.0.0
   universal_io: ^2.0.0
 
 dev_dependencies:
