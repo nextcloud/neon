@@ -3,6 +3,121 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-08-13
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`dynamite` - `v0.5.0`](#dynamite---v050)
+ - [`dynamite_runtime` - `v0.5.0`](#dynamite_runtime---v050)
+ - [`nextcloud` - `v7.0.0`](#nextcloud---v700)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `dynamite` - `v0.5.0`
+
+ - **REFACTOR**: Lower Dart SDK constraint to ^3.0.0. ([d4d149f9](https://github.com/nextcloud/neon/commit/d4d149f9b19650abebe1abef03f6f4202cfd2416))
+ - **REFACTOR**(dynamite): use schema.nullable instead of parameters. ([c56cee5a](https://github.com/nextcloud/neon/commit/c56cee5a2424e72efddef13ad29e34d26d857779))
+ - **REFACTOR**(dynamite): add identifier to the schema. ([9ddfed36](https://github.com/nextcloud/neon/commit/9ddfed36f1d2685e14c9bf3d168f3e00ad3b16a9))
+ - **REFACTOR**(dynamite): use reference to import package:built_value/serializer.dart. ([a3f25b64](https://github.com/nextcloud/neon/commit/a3f25b64d1f6b1862fe251d338392a63d544ac09))
+ - **REFACTOR**(dynamite): use a custom allocator to handle the part directive. ([c788f23d](https://github.com/nextcloud/neon/commit/c788f23d9c0229502d7060f1b432f59d9970ad1a))
+ - **REFACTOR**(dynamite): move spec loading into the State. ([f5c68aa1](https://github.com/nextcloud/neon/commit/f5c68aa1ca4b3e8a7551b1728f6b9e58e8845639))
+ - **REFACTOR**(dynamite): handle `AssetId`s in the State. ([9c5c5417](https://github.com/nextcloud/neon/commit/9c5c5417a040f7b3ece2c4df4e8bd9f91fdf7296))
+ - **FIX**(dynamite): Add missing docs about request body. ([1be37446](https://github.com/nextcloud/neon/commit/1be374469ec80cafe078d8329557fb0a8cb8e222))
+ - **FIX**(dynamite): Fix request body serialization and defaults. ([5c856555](https://github.com/nextcloud/neon/commit/5c8565550c62835128ac317bfd24976466fb151e))
+ - **FIX**(dynamite): Suggest correct coverage ignore patterns in README. ([766e7755](https://github.com/nextcloud/neon/commit/766e7755dd30a8316a064894e7466346609edab2))
+ - **FIX**(dynamite): resolve Uint8List into TypeResultBase. ([f3f7f3a4](https://github.com/nextcloud/neon/commit/f3f7f3a480f80fde3cd66c648582d35b55bb37a1))
+ - **FIX**(dynamite): prefix package:collection imports. ([41f6b039](https://github.com/nextcloud/neon/commit/41f6b039dcbd20a630cfd448719e9c28fe91c485))
+ - **FEAT**(dynamite): add `Built` interface to the generated interfaces. ([a83cd273](https://github.com/nextcloud/neon/commit/a83cd273897aad476017a693fc07d5bd3e3443ee))
+ - **FEAT**(dynamite): Warn about unused coverage ignore patterns from config. ([91aab2f9](https://github.com/nextcloud/neon/commit/91aab2f95d700877db0b3555c4c02ceaebcfa274))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Remove DynamiteRawResponse. ([4cdd5fd6](https://github.com/nextcloud/neon/commit/4cdd5fd6906e1d0a5e253c6660a1aafa462341e5))
+ - **BREAKING** **REFACTOR**(dynamite): Always use the same parameter name for the request body. ([bc63af17](https://github.com/nextcloud/neon/commit/bc63af1740958a967af9087c1841af3b6a06fc2f))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Make ResponseConverter sync. ([ece8c6e0](https://github.com/nextcloud/neon/commit/ece8c6e046652bf6281318d6f2f8633ecc548f2c))
+ - **BREAKING** **REFACTOR**(dynamite): Make interfaces sealed. ([cdb2d4a4](https://github.com/nextcloud/neon/commit/cdb2d4a4204a4216e1f329ebb5080ba4fb7b1c02))
+ - **BREAKING** **FIX**(dynamite): Reserve builder interface method keywords. ([b278269c](https://github.com/nextcloud/neon/commit/b278269ca10bdef8d7f74328b9683cc485b03f0b))
+ - **BREAKING** **FIX**(dynamite): Handle nullable generics and serializers correctly. ([d126c5bf](https://github.com/nextcloud/neon/commit/d126c5bfd7ef0d515a03404f5eff3d3baef740bc))
+
+#### `dynamite_runtime` - `v0.5.0`
+
+ - **REFACTOR**: Lower Dart SDK constraint to ^3.0.0. ([d4d149f9](https://github.com/nextcloud/neon/commit/d4d149f9b19650abebe1abef03f6f4202cfd2416))
+ - **FIX**(dynamite_runtime): use content type header to deserialize response. ([5b30e96d](https://github.com/nextcloud/neon/commit/5b30e96d639a596b450639b5a4af4cd6975196da))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Remove DynamiteRawResponse. ([4cdd5fd6](https://github.com/nextcloud/neon/commit/4cdd5fd6906e1d0a5e253c6660a1aafa462341e5))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Make ResponseConverter sync. ([ece8c6e0](https://github.com/nextcloud/neon/commit/ece8c6e046652bf6281318d6f2f8633ecc548f2c))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Simplify DynamiteStatusCodeException creation. ([7c3d0eef](https://github.com/nextcloud/neon/commit/7c3d0eef3812e8b80328d68cc060faca6664cf7c))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Remove HttpBytesStreamExtension and utilize package:http instead. ([2db2fbb7](https://github.com/nextcloud/neon/commit/2db2fbb7313c27da4dea6bca3c35697145bd63eb))
+ - **BREAKING** **FIX**(dynamite_runtime): Make RawResponseEncoder/Decoder compatible with JsonEncoder/Decoder. ([69dfd970](https://github.com/nextcloud/neon/commit/69dfd970c90b2db0cff67f76d6377c5533b276ac))
+
+#### `nextcloud` - `v7.0.0`
+
+ - **REFACTOR**: Lower Dart SDK constraint to ^3.0.0. ([d4d149f9](https://github.com/nextcloud/neon/commit/d4d149f9b19650abebe1abef03f6f4202cfd2416))
+ - **REFACTOR**(nextcloud): Deprecate AppIDs in favor of exported appID constants. ([e9c7be47](https://github.com/nextcloud/neon/commit/e9c7be4749f49ec93eb7780d710a2b1d6543afe2))
+ - **REFACTOR**(nextcloud): deprecate ids library. ([d6fa5251](https://github.com/nextcloud/neon/commit/d6fa5251d858e4d896bdf45dcc863d8e6cc69eef))
+ - **REFACTOR**(tool): rewrite exports generation with package:code_builder. ([8505ceb3](https://github.com/nextcloud/neon/commit/8505ceb3e50f12c46059b0e798c4cb1c558ee8a9))
+ - **REFACTOR**(nextcloud_test): remove default timeout and retryCount. ([d575ab6f](https://github.com/nextcloud/neon/commit/d575ab6fb105702d3a32e879f4453f26ece05522))
+ - **REFACTOR**(nextcloud_test): make TestTargetFactory a singleton. ([35ef00ec](https://github.com/nextcloud/neon/commit/35ef00ecd2591d231db2212bafa9acea88dd303e))
+ - **REFACTOR**(nextcloud_test): make TestTargetFactory a singleton. ([5593d20c](https://github.com/nextcloud/neon/commit/5593d20c7342d26babdcaccdd24ee79f880fcb9f))
+ - **REFACTOR**(nextcloud_test): Abstract test targets. ([4ab815ec](https://github.com/nextcloud/neon/commit/4ab815ec7cc4106a6ac3c5139241110f1a4eb744))
+ - **REFACTOR**(nextcloud): Use dedicated endpoint for acquiring CSRF tokens. ([f9a20ec9](https://github.com/nextcloud/neon/commit/f9a20ec9de11023beb73798c30123ff88aedeb24))
+ - **REFACTOR**(nextcloud): deprecate the cookieJar parameter. ([2c59d42a](https://github.com/nextcloud/neon/commit/2c59d42aca86b861c945ec332ac27e2b9a7c77d6))
+ - **REFACTOR**(nextcloud): reorganize package structure. ([43dcdcb0](https://github.com/nextcloud/neon/commit/43dcdcb0ae6bbefe4efb3932cc9bf7ddd5dce7ee))
+ - **REFACTOR**(nextcloud): Use concrete http.BaseRequest types for WebDAV. ([cabe56d6](https://github.com/nextcloud/neon/commit/cabe56d6637a7ec829a4cc977e40274153f0a8d9))
+ - **REFACTOR**(nextcloud): Make VersionCheck immutable and add equality check. ([bce7f1a7](https://github.com/nextcloud/neon/commit/bce7f1a7623d9525e5164079f18a2a0db740c8db))
+ - **FIX**(nextcloud): fix news test fixtures. ([3560124a](https://github.com/nextcloud/neon/commit/3560124a07d7012562c68aeafee55c4f964b7142))
+ - **FIX**(nextcloud_test): Skip CSRF token requests in fixtures. ([f3bdd040](https://github.com/nextcloud/neon/commit/f3bdd0408108bf24bf5a71d38ddcf3ce1854b7f2))
+ - **FIX**(nextcloud): only try to retrieve csrf tokens when the request is made to the nextcloud instance. ([02d5c19b](https://github.com/nextcloud/neon/commit/02d5c19bef91af9ba110e78ed79b747ce8bef15b))
+ - **FIX**(nextcloud): close wrapped http clients. ([8443b8f2](https://github.com/nextcloud/neon/commit/8443b8f2f81d7810b484b7c4295890246a33b5de))
+ - **FIX**(dynamite): Add missing docs about request body. ([1be37446](https://github.com/nextcloud/neon/commit/1be374469ec80cafe078d8329557fb0a8cb8e222))
+ - **FIX**(nextcloud): notes api returns empty array when deleting a note. ([c825e74c](https://github.com/nextcloud/neon/commit/c825e74c8eb82472b67fac9a544dd37d28831c9c))
+ - **FIX**(nextcloud): reset data in teardown hook of a test instead of manually. ([0faf3a4e](https://github.com/nextcloud/neon/commit/0faf3a4e3c1f50bcf2f4c991942c6f9422915733))
+ - **FIX**(nextcloud): Add missing spreed ChatMessage reactionsSelf property. ([5b3ceaae](https://github.com/nextcloud/neon/commit/5b3ceaae22b356f02683c8eb6a8e7408a10c8f1f))
+ - **FIX**(deps): update dependency timezone to ^0.9.4. ([0d1aa361](https://github.com/nextcloud/neon/commit/0d1aa36112d8fd56131afa7d130d7eb8ad4b60ab))
+ - **FIX**(nextcloud): Clear WebDAV CSRF token after authorization error. ([2c8e5673](https://github.com/nextcloud/neon/commit/2c8e567319d5cdbe20e7df2bafdcdb8ef699b8fd))
+ - **FIX**(dynamite): prefix package:collection imports. ([41f6b039](https://github.com/nextcloud/neon/commit/41f6b039dcbd20a630cfd448719e9c28fe91c485))
+ - **FIX**(deps): update dependency process_run to v1. ([a0951164](https://github.com/nextcloud/neon/commit/a0951164f08d926aca4404b117685ab0047972f2))
+ - **FEAT**(nextcloud_test): use neon client for tests. ([b9768d37](https://github.com/nextcloud/neon/commit/b9768d37d5ef2454a2da92431e0c2b4da4c0ffb4))
+ - **FEAT**(nextcloud): Add drop_account delete endpoint. ([e7c59ffd](https://github.com/nextcloud/neon/commit/e7c59ffdb113ce221aa84bd4279ea812b9b8d520))
+ - **FEAT**(nextcloud): Allow overriding the version check supported value. ([93ddf296](https://github.com/nextcloud/neon/commit/93ddf296d7d9f74d2981e9919290a44d1a296fbb))
+ - **FEAT**(neon_framework): add sqlite cookie persistence. ([b49a7c34](https://github.com/nextcloud/neon/commit/b49a7c341e56f81013b74409d7bf20d5ae166936))
+ - **FEAT**(nextcloud): add cookbook support. ([3c625309](https://github.com/nextcloud/neon/commit/3c625309f6051367d79a9eddac861d8d1504b1dc))
+ - **FEAT**(nextcloud): Add tables support. ([30eff80a](https://github.com/nextcloud/neon/commit/30eff80abd72f60ecf961f167b7e1848e2de2c19))
+ - **FEAT**(nextcloud_test): Add tables presets. ([745060d1](https://github.com/nextcloud/neon/commit/745060d16b9f75446ee913028de780f35e948764))
+ - **FEAT**(nextcloud): add news endpoints for marking multiple articles as read/starred. ([07d1ebab](https://github.com/nextcloud/neon/commit/07d1ebab7dff8e83ce928b10ef38f94761e81d43))
+ - **FEAT**(nextcloud): only wrap client in CookieJarClient if needed. ([0a0a8395](https://github.com/nextcloud/neon/commit/0a0a8395902301d5c4a0233ff26d1f5da2e77027))
+ - **FEAT**(nextcloud_test): Add local test target. ([3cbecec2](https://github.com/nextcloud/neon/commit/3cbecec2e475662a5eda2c2a843c8e31c0c65d69))
+ - **FEAT**(nextcloud): add app id to client libraries. ([6323ca26](https://github.com/nextcloud/neon/commit/6323ca26a1ab4afbd405f7e4bb7e2e531d5e84b7))
+ - **FEAT**(dynamite): add `Built` interface to the generated interfaces. ([a83cd273](https://github.com/nextcloud/neon/commit/a83cd273897aad476017a693fc07d5bd3e3443ee))
+ - **FEAT**(nextcloud): Allow dev/beta/RC versions in core version check. ([8320f4a4](https://github.com/nextcloud/neon/commit/8320f4a4b04ef4417b9ea15f7491b56eb6ab9899))
+ - **FEAT**(nextcloud): Add nc:metadata-blurhash WebDAV prop. ([67b61f8f](https://github.com/nextcloud/neon/commit/67b61f8f2419d04bfb0532da7d33eb3f91e98883))
+ - **DOCS**(nextcloud): Add missing supported app versions. ([29712fad](https://github.com/nextcloud/neon/commit/29712fad56a561a1c8748825f9ecef3e28ce50b5))
+ - **DOCS**(nextcloud): Advertise Neon framework. ([a7a0ac72](https://github.com/nextcloud/neon/commit/a7a0ac72160f5ccab69b02d04e58f1e88f74b7dd))
+ - **DOCS**(nextcloud): Internet permission hint for flutter multi-platform users. ([5650739b](https://github.com/nextcloud/neon/commit/5650739b10c09a534ebf0ac9fa6d24802b72ea4c))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Remove DynamiteRawResponse. ([4cdd5fd6](https://github.com/nextcloud/neon/commit/4cdd5fd6906e1d0a5e253c6660a1aafa462341e5))
+ - **BREAKING** **REFACTOR**(dynamite): Always use the same parameter name for the request body. ([bc63af17](https://github.com/nextcloud/neon/commit/bc63af1740958a967af9087c1841af3b6a06fc2f))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Make ResponseConverter sync. ([ece8c6e0](https://github.com/nextcloud/neon/commit/ece8c6e046652bf6281318d6f2f8633ecc548f2c))
+ - **BREAKING** **REFACTOR**(nextcloud): use tags to separate api news api clients. ([54346bc9](https://github.com/nextcloud/neon/commit/54346bc98a1fea0e2b8c3ca2bdfe2484d71a2ca4))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Remove HttpBytesStreamExtension and utilize package:http instead. ([2db2fbb7](https://github.com/nextcloud/neon/commit/2db2fbb7313c27da4dea6bca3c35697145bd63eb))
+ - **BREAKING** **REFACTOR**(nextcloud,neon_framework): Move all json_serializable usage to built_value. ([7673ceab](https://github.com/nextcloud/neon/commit/7673ceab4481f9fbdc0fdcb41689b2567c9b7814))
+ - **BREAKING** **REFACTOR**(nextcloud): Mark WebDAV contentLength parameters as required. ([5efdf2f7](https://github.com/nextcloud/neon/commit/5efdf2f7d1a67d11697d005cc3daf43146051e7d))
+ - **BREAKING** **REFACTOR**(dynamite): Make interfaces sealed. ([cdb2d4a4](https://github.com/nextcloud/neon/commit/cdb2d4a4204a4216e1f329ebb5080ba4fb7b1c02))
+ - **BREAKING** **REFACTOR**(nextcloud): Remove maximum version check. ([003a0694](https://github.com/nextcloud/neon/commit/003a069425412ef3ed3282a0628b4df2f85c4bfe))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Simplify DynamiteStatusCodeException creation. ([7c3d0eef](https://github.com/nextcloud/neon/commit/7c3d0eef3812e8b80328d68cc060faca6664cf7c))
+ - **BREAKING** **FIX**(nextcloud): Fix spreed chat mention suggestions compatibility. ([4032a09c](https://github.com/nextcloud/neon/commit/4032a09c3ea0c44f0a423da5421293352c9327a2))
+ - **BREAKING** **FIX**(dynamite): Handle nullable generics and serializers correctly. ([d126c5bf](https://github.com/nextcloud/neon/commit/d126c5bfd7ef0d515a03404f5eff3d3baef740bc))
+ - **BREAKING** **FIX**(nextcloud): Move all query parameters to body to fix many serialization problems. ([d2787bf7](https://github.com/nextcloud/neon/commit/d2787bf7f3fd8a1ba311c42d108e695e0137d0d6))
+ - **BREAKING** **FIX**(nextcloud): Fix core references nullability. ([c522dd08](https://github.com/nextcloud/neon/commit/c522dd08e367357e79188888848a6d7587afacc6))
+ - **BREAKING** **FIX**(nextcloud): Revert request body usage for non-PUT/POST/PATCH requests. ([52f868d4](https://github.com/nextcloud/neon/commit/52f868d473a4a9ff5ce8b2b1eacf468f33ebd686))
+ - **BREAKING** **FIX**(nextcloud): Remove non-existent nc:metadata_etag WebDAV prop. ([1ec9473c](https://github.com/nextcloud/neon/commit/1ec9473cb6a672dda0f03f99a90dfe7a17ccc95d))
+ - **BREAKING** **FEAT**(tool,nextcloud): Generate rich object parameters. ([c624c39e](https://github.com/nextcloud/neon/commit/c624c39e75b1119b66151cccbe434b9b03a6a580))
+ - **BREAKING** **CHORE**(nextcloud): Remove support for server 27.x and all apps only compatible up to 27.x. ([63f9db37](https://github.com/nextcloud/neon/commit/63f9db378ad2629d2d6d5e15d44e0a3af93cd7d4))
+
+
 ## 2024-05-01
 
 ### Changes

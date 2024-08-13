@@ -1,3 +1,28 @@
+## 0.5.0
+
+> Note: This release has breaking changes.
+
+ - **REFACTOR**: Lower Dart SDK constraint to ^3.0.0. ([d4d149f9](https://github.com/nextcloud/neon/commit/d4d149f9b19650abebe1abef03f6f4202cfd2416))
+ - **REFACTOR**(dynamite): use schema.nullable instead of parameters. ([c56cee5a](https://github.com/nextcloud/neon/commit/c56cee5a2424e72efddef13ad29e34d26d857779))
+ - **REFACTOR**(dynamite): add identifier to the schema. ([9ddfed36](https://github.com/nextcloud/neon/commit/9ddfed36f1d2685e14c9bf3d168f3e00ad3b16a9))
+ - **REFACTOR**(dynamite): use reference to import package:built_value/serializer.dart. ([a3f25b64](https://github.com/nextcloud/neon/commit/a3f25b64d1f6b1862fe251d338392a63d544ac09))
+ - **REFACTOR**(dynamite): use a custom allocator to handle the part directive. ([c788f23d](https://github.com/nextcloud/neon/commit/c788f23d9c0229502d7060f1b432f59d9970ad1a))
+ - **REFACTOR**(dynamite): move spec loading into the State. ([f5c68aa1](https://github.com/nextcloud/neon/commit/f5c68aa1ca4b3e8a7551b1728f6b9e58e8845639))
+ - **REFACTOR**(dynamite): handle `AssetId`s in the State. ([9c5c5417](https://github.com/nextcloud/neon/commit/9c5c5417a040f7b3ece2c4df4e8bd9f91fdf7296))
+ - **FIX**(dynamite): Add missing docs about request body. ([1be37446](https://github.com/nextcloud/neon/commit/1be374469ec80cafe078d8329557fb0a8cb8e222))
+ - **FIX**(dynamite): Fix request body serialization and defaults. ([5c856555](https://github.com/nextcloud/neon/commit/5c8565550c62835128ac317bfd24976466fb151e))
+ - **FIX**(dynamite): Suggest correct coverage ignore patterns in README. ([766e7755](https://github.com/nextcloud/neon/commit/766e7755dd30a8316a064894e7466346609edab2))
+ - **FIX**(dynamite): resolve Uint8List into TypeResultBase. ([f3f7f3a4](https://github.com/nextcloud/neon/commit/f3f7f3a480f80fde3cd66c648582d35b55bb37a1))
+ - **FIX**(dynamite): prefix package:collection imports. ([41f6b039](https://github.com/nextcloud/neon/commit/41f6b039dcbd20a630cfd448719e9c28fe91c485))
+ - **FEAT**(dynamite): add `Built` interface to the generated interfaces. ([a83cd273](https://github.com/nextcloud/neon/commit/a83cd273897aad476017a693fc07d5bd3e3443ee))
+ - **FEAT**(dynamite): Warn about unused coverage ignore patterns from config. ([91aab2f9](https://github.com/nextcloud/neon/commit/91aab2f95d700877db0b3555c4c02ceaebcfa274))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Remove DynamiteRawResponse. ([4cdd5fd6](https://github.com/nextcloud/neon/commit/4cdd5fd6906e1d0a5e253c6660a1aafa462341e5))
+ - **BREAKING** **REFACTOR**(dynamite): Always use the same parameter name for the request body. ([bc63af17](https://github.com/nextcloud/neon/commit/bc63af1740958a967af9087c1841af3b6a06fc2f))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Make ResponseConverter sync. ([ece8c6e0](https://github.com/nextcloud/neon/commit/ece8c6e046652bf6281318d6f2f8633ecc548f2c))
+ - **BREAKING** **REFACTOR**(dynamite): Make interfaces sealed. ([cdb2d4a4](https://github.com/nextcloud/neon/commit/cdb2d4a4204a4216e1f329ebb5080ba4fb7b1c02))
+ - **BREAKING** **FIX**(dynamite): Reserve builder interface method keywords. ([b278269c](https://github.com/nextcloud/neon/commit/b278269ca10bdef8d7f74328b9683cc485b03f0b))
+ - **BREAKING** **FIX**(dynamite): Handle nullable generics and serializers correctly. ([d126c5bf](https://github.com/nextcloud/neon/commit/d126c5bfd7ef0d515a03404f5eff3d3baef740bc))
+
 ## 0.4.0
 
 > Note: This release has breaking changes.

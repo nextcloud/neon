@@ -1,3 +1,15 @@
+## 0.5.0
+
+> Note: This release has breaking changes.
+
+ - **REFACTOR**: Lower Dart SDK constraint to ^3.0.0. ([d4d149f9](https://github.com/nextcloud/neon/commit/d4d149f9b19650abebe1abef03f6f4202cfd2416))
+ - **FIX**(dynamite_runtime): use content type header to deserialize response. ([5b30e96d](https://github.com/nextcloud/neon/commit/5b30e96d639a596b450639b5a4af4cd6975196da))
+ - **BREAKING** **REFACTOR**(dynamite,dynamite_runtime): Remove DynamiteRawResponse. ([4cdd5fd6](https://github.com/nextcloud/neon/commit/4cdd5fd6906e1d0a5e253c6660a1aafa462341e5))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Make ResponseConverter sync. ([ece8c6e0](https://github.com/nextcloud/neon/commit/ece8c6e046652bf6281318d6f2f8633ecc548f2c))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Simplify DynamiteStatusCodeException creation. ([7c3d0eef](https://github.com/nextcloud/neon/commit/7c3d0eef3812e8b80328d68cc060faca6664cf7c))
+ - **BREAKING** **REFACTOR**(dynamite_runtime): Remove HttpBytesStreamExtension and utilize package:http instead. ([2db2fbb7](https://github.com/nextcloud/neon/commit/2db2fbb7313c27da4dea6bca3c35697145bd63eb))
+ - **BREAKING** **FIX**(dynamite_runtime): Make RawResponseEncoder/Decoder compatible with JsonEncoder/Decoder. ([69dfd970](https://github.com/nextcloud/neon/commit/69dfd970c90b2db0cff67f76d6377c5533b276ac))
+
 ## 0.4.0
 
 > Note: This release has breaking changes.

@@ -9,7 +9,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   collection: ^1.0.0
-  dynamite_runtime: ^0.4.0
+  dynamite_runtime: ^0.5.0
   flutter:
     sdk: flutter
   flutter_html: ^3.0.0-beta.2
@@ -23,7 +23,7 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
-  nextcloud: ^6.1.0
+  nextcloud: ^7.0.0
   rxdart: ^0.28.0
   share_plus: ^10.0.0
   timezone: ^0.9.4
