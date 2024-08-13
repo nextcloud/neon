@@ -68,6 +68,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
           radius: size / 2,
           child: ClipOval(
             child: NeonApiImage(
+              key: Key('avatar-${widget.account.id}-$username-$brightness-$pixelSize'),
               account: widget.account,
               etag: null,
               expires: null,
