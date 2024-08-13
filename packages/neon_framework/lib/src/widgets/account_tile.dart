@@ -9,6 +9,7 @@ import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
+import 'package:provider/provider.dart';
 
 /// List tile to display account information.
 @internal
@@ -41,7 +42,7 @@ class NeonAccountTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveListTile(
+    final widget = AdaptiveListTile(
       onTap: onTap,
       leading: NeonUserAvatar(
         account: account,
@@ -77,6 +78,11 @@ class NeonAccountTile extends StatelessWidget {
         account.humanReadableID,
         overflow: TextOverflow.ellipsis,
       ),
+    );
+
+    return Provider<Account>.value(
+      value: account,
+      child: widget,
     );
   }
 }
