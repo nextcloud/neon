@@ -137,7 +137,10 @@ class _HomePageState extends State<HomePage> {
                     child: const NeonDrawer(),
                   ),
                   Expanded(
-                    child: body,
+                    // Clip to avoid shadows leaking onto the drawer
+                    child: ClipRRect(
+                      child: body,
+                    ),
                   ),
                 ],
               );
