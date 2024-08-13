@@ -22671,9 +22671,125 @@ class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
       _fromWire[serialized]!;
 }
 
+class DeletedChatMessage_Deleted extends EnumClass {
+  const DeletedChatMessage_Deleted._(super.name);
+
+  /// `true`
+  @BuiltValueEnumConst(wireName: 'true')
+  static const DeletedChatMessage_Deleted $true = _$deletedChatMessageDeleted$true;
+
+  /// Returns a set with all values this enum contains.
+  // coverage:ignore-start
+  static BuiltSet<DeletedChatMessage_Deleted> get values => _$deletedChatMessageDeletedValues;
+  // coverage:ignore-end
+
+  /// Returns the enum value associated to the [name].
+  static DeletedChatMessage_Deleted valueOf(String name) => _$valueOfDeletedChatMessage_Deleted(name);
+
+  /// Returns the serialized value of this enum value.
+  bool get value => _$jsonSerializers.serializeWith(serializer, this)! as bool;
+
+  /// Serializer for DeletedChatMessage_Deleted.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<DeletedChatMessage_Deleted> get serializer => const _$DeletedChatMessage_DeletedSerializer();
+}
+
+class _$DeletedChatMessage_DeletedSerializer implements PrimitiveSerializer<DeletedChatMessage_Deleted> {
+  const _$DeletedChatMessage_DeletedSerializer();
+
+  static const Map<DeletedChatMessage_Deleted, Object> _toWire = <DeletedChatMessage_Deleted, Object>{
+    DeletedChatMessage_Deleted.$true: true,
+  };
+
+  static const Map<Object, DeletedChatMessage_Deleted> _fromWire = <Object, DeletedChatMessage_Deleted>{
+    true: DeletedChatMessage_Deleted.$true,
+  };
+
+  @override
+  Iterable<Type> get types => const [DeletedChatMessage_Deleted];
+
+  @override
+  String get wireName => 'DeletedChatMessage_Deleted';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    DeletedChatMessage_Deleted object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  DeletedChatMessage_Deleted deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+@BuiltValue(instantiable: false)
+sealed class $DeletedChatMessageInterface {
+  int get id;
+  DeletedChatMessage_Deleted get deleted;
+
+  /// Rebuilds the instance.
+  ///
+  /// The result is the same as this instance but with [updates] applied.
+  /// [updates] is a function that takes a builder [$DeletedChatMessageInterfaceBuilder].
+  $DeletedChatMessageInterface rebuild(void Function($DeletedChatMessageInterfaceBuilder) updates);
+
+  /// Converts the instance to a builder [$DeletedChatMessageInterfaceBuilder].
+  $DeletedChatMessageInterfaceBuilder toBuilder();
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($DeletedChatMessageInterfaceBuilder b) {}
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate($DeletedChatMessageInterfaceBuilder b) {}
+}
+
+abstract class DeletedChatMessage
+    implements $DeletedChatMessageInterface, Built<DeletedChatMessage, DeletedChatMessageBuilder> {
+  /// Creates a new DeletedChatMessage object using the builder pattern.
+  factory DeletedChatMessage([void Function(DeletedChatMessageBuilder)? b]) = _$DeletedChatMessage;
+
+  // coverage:ignore-start
+  const DeletedChatMessage._();
+  // coverage:ignore-end
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
+  // coverage:ignore-start
+  factory DeletedChatMessage.fromJson(Map<String, dynamic> json) =>
+      _$jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  /// Serializer for DeletedChatMessage.
+  static Serializer<DeletedChatMessage> get serializer => _$deletedChatMessageSerializer;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeletedChatMessageBuilder b) {
+    $DeletedChatMessageInterface._defaults(b);
+  }
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(DeletedChatMessageBuilder b) {
+    $DeletedChatMessageInterface._validate(b);
+  }
+}
+
+typedef ChatMessageWithParent_Parent = ({ChatMessage? chatMessage, DeletedChatMessage? deletedChatMessage});
+
 @BuiltValue(instantiable: false)
 sealed class $ChatMessageWithParentInterface implements $ChatMessageInterface {
-  ChatMessage? get parent;
+  ChatMessageWithParent_Parent? get parent;
 
   /// Rebuilds the instance.
   ///
@@ -22693,6 +22809,7 @@ sealed class $ChatMessageWithParentInterface implements $ChatMessageInterface {
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate($ChatMessageWithParentInterfaceBuilder b) {
     $ChatMessageInterface._validate(b);
+    b.parent?.validateAnyOf();
   }
 }
 
@@ -48010,6 +48127,20 @@ extension $Room_LastMessageExtension on Room_LastMessage {
   static Room_LastMessage fromJson(Object? json) => $bed8482b7c93ae2974fa4be6ae42b9b1Extension._fromJson(json);
 }
 
+/// Serialization extension for `ChatMessageWithParent_Parent`.
+extension $ChatMessageWithParent_ParentExtension on ChatMessageWithParent_Parent {
+  /// Serializer for ChatMessageWithParent_Parent.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMessageWithParent_Parent> get serializer =>
+      $eef5a337590648ee15c9b8f9dd9d6a36Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static ChatMessageWithParent_Parent fromJson(Object? json) =>
+      $eef5a337590648ee15c9b8f9dd9d6a36Extension._fromJson(json);
+}
+
 /// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
 extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
     on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
@@ -48340,6 +48471,88 @@ class _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer implements PrimitiveSerialize
       )! as ChatMessage;
     } catch (_) {}
     return (baseMessage: baseMessage, builtListNever: builtListNever, chatMessage: chatMessage);
+  }
+}
+
+typedef _$eef5a337590648ee15c9b8f9dd9d6a36 = ({ChatMessage? chatMessage, DeletedChatMessage? deletedChatMessage});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $eef5a337590648ee15c9b8f9dd9d6a36Extension on _$eef5a337590648ee15c9b8f9dd9d6a36 {
+  List<dynamic> get _values => [chatMessage, deletedChatMessage];
+  List<String> get _names => const ['chatMessage', 'deletedChatMessage'];
+
+  /// {@macro Dynamite.validateOneOf}
+  void validateOneOf() => _i4.validateOneOf(
+        _values,
+        _names,
+      );
+
+  /// {@macro Dynamite.validateAnyOf}
+  void validateAnyOf() => _i4.validateAnyOf(
+        _values,
+        _names,
+      );
+  static Serializer<_$eef5a337590648ee15c9b8f9dd9d6a36> get _serializer =>
+      const _$eef5a337590648ee15c9b8f9dd9d6a36Serializer();
+  static _$eef5a337590648ee15c9b8f9dd9d6a36 _fromJson(Object? json) =>
+      _$jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
+  Object? toJson() => _$jsonSerializers.serializeWith(_serializer, this);
+}
+
+class _$eef5a337590648ee15c9b8f9dd9d6a36Serializer implements PrimitiveSerializer<_$eef5a337590648ee15c9b8f9dd9d6a36> {
+  const _$eef5a337590648ee15c9b8f9dd9d6a36Serializer();
+
+  @override
+  Iterable<Type> get types => const [_$eef5a337590648ee15c9b8f9dd9d6a36];
+
+  @override
+  String get wireName => r'_$eef5a337590648ee15c9b8f9dd9d6a36';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    _$eef5a337590648ee15c9b8f9dd9d6a36 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.chatMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
+    }
+    value = object.deletedChatMessage;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(DeletedChatMessage))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  _$eef5a337590648ee15c9b8f9dd9d6a36 deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    ChatMessage? chatMessage;
+    try {
+      chatMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(ChatMessage),
+      )! as ChatMessage;
+    } catch (_) {}
+    DeletedChatMessage? deletedChatMessage;
+    try {
+      deletedChatMessage = serializers.deserialize(
+        data,
+        specifiedType: const FullType(DeletedChatMessage),
+      )! as DeletedChatMessage;
+    } catch (_) {}
+    return (chatMessage: chatMessage, deletedChatMessage: deletedChatMessage);
   }
 }
 
@@ -49063,6 +49276,10 @@ final Serializers _$serializers = (Serializers().toBuilder()
       ..add(ChatReceiveMessagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ChatMessageWithParent), ChatMessageWithParentBuilder.new)
       ..add(ChatMessageWithParent.serializer)
+      ..addBuilderFactory(const FullType(DeletedChatMessage), DeletedChatMessageBuilder.new)
+      ..add(DeletedChatMessage.serializer)
+      ..add(DeletedChatMessage_Deleted.serializer)
+      ..add($eef5a337590648ee15c9b8f9dd9d6a36Extension._serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
         ListBuilder<ChatMessageWithParent>.new,
@@ -50565,6 +50782,7 @@ final Serializers _$jsonSerializers = (_$serializers.toBuilder()
             _$b2c4857c0136baea42828d89c87c757d,
             _$4b3c240037cf48d36f81308e641eef98,
             _$bed8482b7c93ae2974fa4be6ae42b9b1,
+            _$eef5a337590648ee15c9b8f9dd9d6a36,
             _$1df642f5035aea3b22543ab331c3fb01,
             _$bd993fb3f40af33e8594d0d698208560,
             _$973dc40faeda3fa3aa7e7b9895ee7a34,

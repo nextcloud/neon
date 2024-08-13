@@ -513,10 +513,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             case spreed.ChatMessageWithParent(
               parent: final p,
               messageType: != spreed.MessageType.commentDeleted,
-            ) when p != null && !widget.isParent) {
+            ) when p?.chatMessage != null && !widget.isParent) {
           parent = TalkParentMessage(
             room: widget.room,
-            parentChatMessage: p,
+            parentChatMessage: p!.chatMessage!,
             lastCommonRead: widget.lastCommonRead,
           );
         }

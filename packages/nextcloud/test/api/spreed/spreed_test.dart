@@ -280,17 +280,20 @@ void main() {
           expect(response.body.ocs.data.message, 'You edited a message');
           expect(response.body.ocs.data.messageType, spreed.MessageType.system);
           expect(response.body.ocs.data.systemMessage, 'message_edited');
-          expect(response.body.ocs.data.parent!.id, messageResponse.body.ocs.data!.id);
-          expect(response.body.ocs.data.parent!.actorType, spreed.ActorType.users);
-          expect(response.body.ocs.data.parent!.actorId, 'user1');
-          expect(response.body.ocs.data.parent!.actorDisplayName, 'User One');
-          expect(response.body.ocs.data.parent!.message, '123');
-          expect(response.body.ocs.data.parent!.messageType, spreed.MessageType.comment);
-          expect(response.body.ocs.data.parent!.systemMessage, '');
-          expect(response.body.ocs.data.parent!.lastEditTimestamp, closeTo(startTime.secondsSinceEpoch, 10));
-          expect(response.body.ocs.data.parent!.lastEditActorId, 'user1');
-          expect(response.body.ocs.data.parent!.lastEditActorDisplayName, 'User One');
-          expect(response.body.ocs.data.parent!.lastEditActorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.parent!.chatMessage!.id, messageResponse.body.ocs.data!.id);
+          expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data.parent!.chatMessage!.actorId, 'user1');
+          expect(response.body.ocs.data.parent!.chatMessage!.actorDisplayName, 'User One');
+          expect(response.body.ocs.data.parent!.chatMessage!.message, '123');
+          expect(response.body.ocs.data.parent!.chatMessage!.messageType, spreed.MessageType.comment);
+          expect(response.body.ocs.data.parent!.chatMessage!.systemMessage, '');
+          expect(
+            response.body.ocs.data.parent!.chatMessage!.lastEditTimestamp,
+            closeTo(startTime.secondsSinceEpoch, 10),
+          );
+          expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorId, 'user1');
+          expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorDisplayName, 'User One');
+          expect(response.body.ocs.data.parent!.chatMessage!.lastEditActorType, spreed.ActorType.users);
         },
         skip: tester.version < Version(19, 0, 0),
       );
@@ -336,16 +339,16 @@ void main() {
           expect(response.body.ocs.data[0].message, '123');
           expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment);
 
-          expect(response.body.ocs.data[0].parent!.id, isPositive);
-          expect(response.body.ocs.data[0].parent!.actorType, spreed.ActorType.users);
-          expect(response.body.ocs.data[0].parent!.actorId, 'user1');
-          expect(response.body.ocs.data[0].parent!.actorDisplayName, 'User One');
+          expect(response.body.ocs.data[0].parent!.chatMessage!.id, isPositive);
+          expect(response.body.ocs.data[0].parent!.chatMessage!.actorType, spreed.ActorType.users);
+          expect(response.body.ocs.data[0].parent!.chatMessage!.actorId, 'user1');
+          expect(response.body.ocs.data[0].parent!.chatMessage!.actorDisplayName, 'User One');
           expect(
-            response.body.ocs.data[0].parent!.timestamp,
+            response.body.ocs.data[0].parent!.chatMessage!.timestamp,
             closeTo(startTime.secondsSinceEpoch, 10),
           );
-          expect(response.body.ocs.data[0].parent!.message, 'bla');
-          expect(response.body.ocs.data[0].parent!.messageType, spreed.MessageType.comment);
+          expect(response.body.ocs.data[0].parent!.chatMessage!.message, 'bla');
+          expect(response.body.ocs.data[0].parent!.chatMessage!.messageType, spreed.MessageType.comment);
 
           expect(response.body.ocs.data[1].id, isPositive);
           expect(response.body.ocs.data[1].actorType, spreed.ActorType.users);
@@ -452,13 +455,13 @@ void main() {
         expect(response.body.ocs.data.message, 'You deleted a message');
         expect(response.body.ocs.data.messageType, spreed.MessageType.system);
         expect(response.body.ocs.data.systemMessage, 'message_deleted');
-        expect(response.body.ocs.data.parent!.id, isPositive);
-        expect(response.body.ocs.data.parent!.actorType, spreed.ActorType.users);
-        expect(response.body.ocs.data.parent!.actorId, 'user1');
-        expect(response.body.ocs.data.parent!.actorDisplayName, 'User One');
-        expect(response.body.ocs.data.parent!.message, 'Message deleted by you');
-        expect(response.body.ocs.data.parent!.messageType, spreed.MessageType.commentDeleted);
-        expect(response.body.ocs.data.parent!.systemMessage, '');
+        expect(response.body.ocs.data.parent!.chatMessage!.id, isPositive);
+        expect(response.body.ocs.data.parent!.chatMessage!.actorType, spreed.ActorType.users);
+        expect(response.body.ocs.data.parent!.chatMessage!.actorId, 'user1');
+        expect(response.body.ocs.data.parent!.chatMessage!.actorDisplayName, 'User One');
+        expect(response.body.ocs.data.parent!.chatMessage!.message, 'Message deleted by you');
+        expect(response.body.ocs.data.parent!.chatMessage!.messageType, spreed.MessageType.commentDeleted);
+        expect(response.body.ocs.data.parent!.chatMessage!.systemMessage, '');
       });
     });
 

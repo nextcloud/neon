@@ -1056,6 +1056,22 @@ final BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> _$chatReceiveMessages
   _$chatReceiveMessagesMarkNotificationsAsRead$1,
 ]);
 
+const DeletedChatMessage_Deleted _$deletedChatMessageDeleted$true = DeletedChatMessage_Deleted._('\$true');
+
+DeletedChatMessage_Deleted _$valueOfDeletedChatMessage_Deleted(String name) {
+  switch (name) {
+    case '\$true':
+      return _$deletedChatMessageDeleted$true;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<DeletedChatMessage_Deleted> _$deletedChatMessageDeletedValues =
+    BuiltSet<DeletedChatMessage_Deleted>(const <DeletedChatMessage_Deleted>[
+  _$deletedChatMessageDeleted$true,
+]);
+
 const ChatSendMessageApiVersion _$chatSendMessageApiVersionV1 = ChatSendMessageApiVersion._('v1');
 
 ChatSendMessageApiVersion _$valueOfChatSendMessageApiVersion(String name) {
@@ -3115,6 +3131,7 @@ Serializer<CallSipDialOutResponseApplicationJson_Ocs> _$callSipDialOutResponseAp
     _$CallSipDialOutResponseApplicationJson_OcsSerializer();
 Serializer<CallSipDialOutResponseApplicationJson> _$callSipDialOutResponseApplicationJsonSerializer =
     _$CallSipDialOutResponseApplicationJsonSerializer();
+Serializer<DeletedChatMessage> _$deletedChatMessageSerializer = _$DeletedChatMessageSerializer();
 Serializer<ChatMessageWithParent> _$chatMessageWithParentSerializer = _$ChatMessageWithParentSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> _$chatReceiveMessagesResponseApplicationJsonOcsSerializer =
     _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
@@ -7478,6 +7495,50 @@ class _$CallSipDialOutResponseApplicationJsonSerializer
   }
 }
 
+class _$DeletedChatMessageSerializer implements StructuredSerializer<DeletedChatMessage> {
+  @override
+  final Iterable<Type> types = const [DeletedChatMessage, _$DeletedChatMessage];
+  @override
+  final String wireName = 'DeletedChatMessage';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, DeletedChatMessage object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'deleted',
+      serializers.serialize(object.deleted, specifiedType: const FullType(DeletedChatMessage_Deleted)),
+    ];
+
+    return result;
+  }
+
+  @override
+  DeletedChatMessage deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = DeletedChatMessageBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'deleted':
+          result.deleted = serializers.deserialize(value, specifiedType: const FullType(DeletedChatMessage_Deleted))!
+              as DeletedChatMessage_Deleted;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMessageWithParent> {
   @override
   final Iterable<Type> types = const [ChatMessageWithParent, _$ChatMessageWithParent];
@@ -7526,7 +7587,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
     if (value != null) {
       result
         ..add('parent')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessage)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(ChatMessageWithParent_Parent)));
     }
     value = object.deleted;
     if (value != null) {
@@ -7585,8 +7646,8 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       final Object? value = iterator.current;
       switch (key) {
         case 'parent':
-          result.parent
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ChatMessage))! as ChatMessage);
+          result.parent = serializers.deserialize(value, specifiedType: const FullType(ChatMessageWithParent_Parent))
+              as ChatMessageWithParent_Parent?;
           break;
         case 'deleted':
           result.deleted = serializers.deserialize(value, specifiedType: const FullType(ChatMessage_Deleted))
@@ -30871,11 +30932,117 @@ class CallSipDialOutResponseApplicationJsonBuilder
   }
 }
 
+abstract mixin class $DeletedChatMessageInterfaceBuilder {
+  void replace($DeletedChatMessageInterface other);
+  void update(void Function($DeletedChatMessageInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  DeletedChatMessage_Deleted? get deleted;
+  set deleted(DeletedChatMessage_Deleted? deleted);
+}
+
+class _$DeletedChatMessage extends DeletedChatMessage {
+  @override
+  final int id;
+  @override
+  final DeletedChatMessage_Deleted deleted;
+
+  factory _$DeletedChatMessage([void Function(DeletedChatMessageBuilder)? updates]) =>
+      (DeletedChatMessageBuilder()..update(updates))._build();
+
+  _$DeletedChatMessage._({required this.id, required this.deleted}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, r'DeletedChatMessage', 'id');
+    BuiltValueNullFieldError.checkNotNull(deleted, r'DeletedChatMessage', 'deleted');
+  }
+
+  @override
+  DeletedChatMessage rebuild(void Function(DeletedChatMessageBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DeletedChatMessageBuilder toBuilder() => DeletedChatMessageBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DeletedChatMessage && id == other.id && deleted == other.deleted;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, deleted.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'DeletedChatMessage')
+          ..add('id', id)
+          ..add('deleted', deleted))
+        .toString();
+  }
+}
+
+class DeletedChatMessageBuilder
+    implements Builder<DeletedChatMessage, DeletedChatMessageBuilder>, $DeletedChatMessageInterfaceBuilder {
+  _$DeletedChatMessage? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  DeletedChatMessage_Deleted? _deleted;
+  DeletedChatMessage_Deleted? get deleted => _$this._deleted;
+  set deleted(covariant DeletedChatMessage_Deleted? deleted) => _$this._deleted = deleted;
+
+  DeletedChatMessageBuilder() {
+    DeletedChatMessage._defaults(this);
+  }
+
+  DeletedChatMessageBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _deleted = $v.deleted;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant DeletedChatMessage other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DeletedChatMessage;
+  }
+
+  @override
+  void update(void Function(DeletedChatMessageBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DeletedChatMessage build() => _build();
+
+  _$DeletedChatMessage _build() {
+    DeletedChatMessage._validate(this);
+    final _$result = _$v ??
+        _$DeletedChatMessage._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedChatMessage', 'id'),
+            deleted: BuiltValueNullFieldError.checkNotNull(deleted, r'DeletedChatMessage', 'deleted'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMessageInterfaceBuilder {
   void replace(covariant $ChatMessageWithParentInterface other);
   void update(void Function($ChatMessageWithParentInterfaceBuilder) updates);
-  ChatMessageBuilder get parent;
-  set parent(covariant ChatMessageBuilder? parent);
+  ChatMessageWithParent_Parent? get parent;
+  set parent(covariant ChatMessageWithParent_Parent? parent);
 
   ChatMessage_Deleted? get deleted;
   set deleted(covariant ChatMessage_Deleted? deleted);
@@ -30946,7 +31113,7 @@ abstract mixin class $ChatMessageWithParentInterfaceBuilder implements $ChatMess
 
 class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
-  final ChatMessage? parent;
+  final ChatMessageWithParent_Parent? parent;
   @override
   final ChatMessage_Deleted? deleted;
   @override
@@ -31047,8 +31214,9 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is ChatMessageWithParent &&
-        parent == other.parent &&
+        parent == _$dynamicOther.parent &&
         deleted == other.deleted &&
         id == other.id &&
         isReplyable == other.isReplyable &&
@@ -31137,9 +31305,9 @@ class ChatMessageWithParentBuilder
     implements Builder<ChatMessageWithParent, ChatMessageWithParentBuilder>, $ChatMessageWithParentInterfaceBuilder {
   _$ChatMessageWithParent? _$v;
 
-  ChatMessageBuilder? _parent;
-  ChatMessageBuilder get parent => _$this._parent ??= ChatMessageBuilder();
-  set parent(covariant ChatMessageBuilder? parent) => _$this._parent = parent;
+  ChatMessageWithParent_Parent? _parent;
+  ChatMessageWithParent_Parent? get parent => _$this._parent;
+  set parent(covariant ChatMessageWithParent_Parent? parent) => _$this._parent = parent;
 
   ChatMessage_Deleted? _deleted;
   ChatMessage_Deleted? get deleted => _$this._deleted;
@@ -31239,7 +31407,7 @@ class ChatMessageWithParentBuilder
   ChatMessageWithParentBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _parent = $v.parent?.toBuilder();
+      _parent = $v.parent;
       _deleted = $v.deleted;
       _id = $v.id;
       _isReplyable = $v.isReplyable;
@@ -31287,7 +31455,7 @@ class ChatMessageWithParentBuilder
     try {
       _$result = _$v ??
           _$ChatMessageWithParent._(
-              parent: _parent?.build(),
+              parent: parent,
               deleted: deleted,
               id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMessageWithParent', 'id'),
               isReplyable: BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessageWithParent', 'isReplyable'),
@@ -31316,9 +31484,6 @@ class ChatMessageWithParentBuilder
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'parent';
-        _parent?.build();
-
         _$failedField = 'reactions';
         reactions.build();
 

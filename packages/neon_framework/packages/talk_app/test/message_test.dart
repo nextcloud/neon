@@ -660,7 +660,7 @@ void main() {
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
       when(() => chatMessage.message).thenReturn('abc');
       when(() => chatMessage.reactions).thenReturn(BuiltMap());
-      when(() => chatMessage.parent).thenReturn(parentChatMessage);
+      when(() => chatMessage.parent).thenReturn((chatMessage: parentChatMessage, deletedChatMessage: null));
       when(() => chatMessage.messageParameters).thenReturn(BuiltMap());
       when(() => chatMessage.isReplyable).thenReturn(true);
 
