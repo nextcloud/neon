@@ -9,6 +9,7 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:source_helper/source_helper.dart';
 
 Spec buildInterface(
   State state,
@@ -245,7 +246,7 @@ void _generateProperty(
 
         final builtValueFieldAnnotations = <String, Expression>{};
         if (dartName != propertyName) {
-          builtValueFieldAnnotations['wireName'] = literalString(propertyName);
+          builtValueFieldAnnotations['wireName'] = refer(escapeDartString(propertyName));
         }
 
         if (builtValueFieldAnnotations.isNotEmpty) {

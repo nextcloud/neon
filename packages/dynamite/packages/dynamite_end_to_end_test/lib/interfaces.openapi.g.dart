@@ -66,6 +66,12 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
         ..add('attribute')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.property;
+    if (value != null) {
+      result
+        ..add('\$property')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -82,6 +88,9 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
       switch (key) {
         case 'attribute':
           result.attribute = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case '\$property':
+          result.property = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -178,16 +187,21 @@ abstract mixin class $BaseInterfaceInterfaceBuilder {
   void update(void Function($BaseInterfaceInterfaceBuilder) updates);
   String? get attribute;
   set attribute(String? attribute);
+
+  String? get property;
+  set property(String? property);
 }
 
 class _$BaseInterface extends BaseInterface {
   @override
   final String? attribute;
+  @override
+  final String? property;
 
   factory _$BaseInterface([void Function(BaseInterfaceBuilder)? updates]) =>
       (BaseInterfaceBuilder()..update(updates))._build();
 
-  _$BaseInterface._({this.attribute}) : super._();
+  _$BaseInterface._({this.attribute, this.property}) : super._();
 
   @override
   BaseInterface rebuild(void Function(BaseInterfaceBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -198,20 +212,24 @@ class _$BaseInterface extends BaseInterface {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BaseInterface && attribute == other.attribute;
+    return other is BaseInterface && attribute == other.attribute && property == other.property;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, attribute.hashCode);
+    _$hash = $jc(_$hash, property.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'BaseInterface')..add('attribute', attribute)).toString();
+    return (newBuiltValueToStringHelper(r'BaseInterface')
+          ..add('attribute', attribute)
+          ..add('property', property))
+        .toString();
   }
 }
 
@@ -222,6 +240,10 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
   String? get attribute => _$this._attribute;
   set attribute(covariant String? attribute) => _$this._attribute = attribute;
 
+  String? _property;
+  String? get property => _$this._property;
+  set property(covariant String? property) => _$this._property = property;
+
   BaseInterfaceBuilder() {
     BaseInterface._defaults(this);
   }
@@ -230,6 +252,7 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
     final $v = _$v;
     if ($v != null) {
       _attribute = $v.attribute;
+      _property = $v.property;
       _$v = null;
     }
     return this;
@@ -251,7 +274,7 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
 
   _$BaseInterface _build() {
     BaseInterface._validate(this);
-    final _$result = _$v ?? _$BaseInterface._(attribute: attribute);
+    final _$result = _$v ?? _$BaseInterface._(attribute: attribute, property: property);
     replace(_$result);
     return _$result;
   }

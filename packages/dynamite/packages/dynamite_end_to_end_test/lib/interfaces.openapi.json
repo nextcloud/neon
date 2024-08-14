@@ -19,6 +19,9 @@
                 "properties": {
                     "attribute": {
                         "type": "string"
+                    },
+                    "$property": {
+                        "type": "string"
                     }
                 }
             }
