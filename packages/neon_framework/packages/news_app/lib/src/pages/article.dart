@@ -47,6 +47,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     super.initState();
 
     errorsSubscription = widget.bloc.errors.listen((error) {
+      // ignore: use_build_context_synchronously
       NeonError.showSnackbar(context, error);
     });
 

@@ -123,8 +123,7 @@ TextSpan buildChatMessage({
     }
     for (final reference in references) {
       if (reference == part) {
-        final gestureRecognizer = TapGestureRecognizer();
-        gestureRecognizer.onTap = () => onReferenceClicked(reference);
+        final gestureRecognizer = TapGestureRecognizer()..onTap = () => onReferenceClicked(reference);
 
         children.add(
           TextSpan(

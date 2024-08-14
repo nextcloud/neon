@@ -38,6 +38,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   void initState() {
     errorsSubscription = widget.bloc.errors.listen((error) {
+      // ignore: use_build_context_synchronously
       NeonError.showSnackbar(context, error);
     });
 
