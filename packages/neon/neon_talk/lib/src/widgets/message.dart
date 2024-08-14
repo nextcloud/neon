@@ -1,4 +1,5 @@
 import 'package:built_collection/built_collection.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intersperse/intersperse.dart';
@@ -122,20 +123,17 @@ TextSpan buildChatMessage({
     }
     for (final reference in references) {
       if (reference == part) {
+        final gestureRecognizer = TapGestureRecognizer();
+        gestureRecognizer.onTap = () => onReferenceClicked(reference);
+
         children.add(
-          WidgetSpan(
-            child: InkWell(
-              onTap: () {
-                onReferenceClicked(reference);
-              },
-              child: Text(
-                part,
-                style: style.copyWith(
-                  decoration: TextDecoration.underline,
-                  decorationThickness: 2,
-                ),
-              ),
+          TextSpan(
+            text: part,
+            style: style.copyWith(
+              decoration: TextDecoration.underline,
+              decorationThickness: 2,
             ),
+            recognizer: gestureRecognizer,
           ),
         );
         match = true;
