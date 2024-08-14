@@ -1575,6 +1575,7 @@ void main() {
                   .thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
 
               final account = MockAccount();
+              when(() => account.id).thenReturn('id');
               when(() => account.username).thenReturn('username');
               when(() => account.client).thenReturn(NextcloudClient(Uri()));
 

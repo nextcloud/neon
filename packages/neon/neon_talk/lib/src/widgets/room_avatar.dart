@@ -24,17 +24,23 @@ class TalkRoomAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     if (room.isCustomAvatar) {
       final brightness = Theme.of(context).brightness;
+      final account = NeonProvider.of<Account>(context);
 
       return CircleAvatar(
         child: ClipOval(
           child: NeonApiImage(
-            getRequest: (client) => switch (brightness) {
-              Brightness.dark => client.spreed.avatar.$getAvatarDark_Request(token: room.token),
-              Brightness.light => client.spreed.avatar.$getAvatar_Request(token: room.token),
-            },
+            key: Key('room-avatar-${account.id}-${room.token}-$brightness'),
+            account: account,
             etag: room.avatarVersion,
             expires: null,
-            account: NeonProvider.of<Account>(context),
+            getRequest: (client) => switch (brightness) {
+              Brightness.dark => client.spreed.avatar.$getAvatarDark_Request(
+                  token: room.token,
+                ),
+              Brightness.light => client.spreed.avatar.$getAvatar_Request(
+                  token: room.token,
+                ),
+            },
           ),
         ),
       );

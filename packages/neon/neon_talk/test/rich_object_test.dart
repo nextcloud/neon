@@ -30,6 +30,7 @@ void main() {
 
   setUp(() {
     account = MockAccount();
+    when(() => account.id).thenReturn('id');
     when(() => account.username).thenReturn('username');
     when(() => account.serverURL).thenReturn(Uri.parse('http://example.com'));
     when(() => account.client).thenReturn(

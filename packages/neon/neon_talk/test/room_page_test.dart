@@ -164,6 +164,7 @@ void main() {
     when(() => bloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
     final account = MockAccount();
+    when(() => account.id).thenReturn('id');
     when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     await tester.pumpWidgetWithAccessibility(
