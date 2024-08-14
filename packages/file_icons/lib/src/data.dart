@@ -1030,6 +1030,38 @@ const iconSetMap = {
     ),
     _yellow,
   ),
+  '.cjs': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.cjs.map': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.mjs': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
+  '.mjs.map': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _yellow,
+  ),
   '.spec.js': SetiMeta(
     IconData(
       _javascript,
@@ -1038,7 +1070,39 @@ const iconSetMap = {
     ),
     _orange,
   ),
+  '.spec.cjs': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.spec.mjs': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
   '.test.js': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.cjs': SetiMeta(
+    IconData(
+      _javascript,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _orange,
+  ),
+  '.test.mjs': SetiMeta(
     IconData(
       _javascript,
       fontFamily: _fontFamily,
@@ -1111,6 +1175,22 @@ const iconSetMap = {
     _purple,
   ),
   'karma.conf.js': SetiMeta(
+    IconData(
+      _karma,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'karma.conf.cjs': SetiMeta(
+    IconData(
+      _karma,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _green,
+  ),
+  'karma.conf.mjs': SetiMeta(
     IconData(
       _karma,
       fontFamily: _fontFamily,
@@ -2710,6 +2790,14 @@ const iconSetMap = {
     ),
     _grey,
   ),
+  'eslint.config.js': SetiMeta(
+    IconData(
+      _eslint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _purple,
+  ),
   '.firebaserc': SetiMeta(
     IconData(
       _firebase,
@@ -2902,6 +2990,14 @@ const iconSetMap = {
     ),
     _white,
   ),
+  'stylelint.config.mjs': SetiMeta(
+    IconData(
+      _stylelint,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _white,
+  ),
   'yarn.clean': SetiMeta(
     IconData(
       _yarn,
@@ -2934,6 +3030,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.config.mjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.config.ts': SetiMeta(
     IconData(
       _webpack,
@@ -2951,6 +3055,14 @@ const iconSetMap = {
     _blue,
   ),
   'webpack.config.build.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.config.build.mjs': SetiMeta(
     IconData(
       _webpack,
       fontFamily: _fontFamily,
@@ -2982,6 +3094,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.common.mjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.common.ts': SetiMeta(
     IconData(
       _webpack,
@@ -3006,6 +3126,14 @@ const iconSetMap = {
     ),
     _blue,
   ),
+  'webpack.dev.mjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
   'webpack.dev.ts': SetiMeta(
     IconData(
       _webpack,
@@ -3023,6 +3151,14 @@ const iconSetMap = {
     _blue,
   ),
   'webpack.prod.cjs': SetiMeta(
+    IconData(
+      _webpack,
+      fontFamily: _fontFamily,
+      fontPackage: _fontPackage,
+    ),
+    _blue,
+  ),
+  'webpack.prod.mjs': SetiMeta(
     IconData(
       _webpack,
       fontFamily: _fontFamily,
