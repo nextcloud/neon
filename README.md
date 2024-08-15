@@ -18,8 +18,8 @@ Please make sure to read them before starting to contribute.
 The Neon project has three main goals:
 
 1. The [Neon framework](packages/neon_framework) does the heavy lifting for Nextcloud client developers. Neon already handles the authentication flow and manages data requests and caching. This means that developers can reuse a lot of the code and do not need to reinvent the wheel.
-2. The [Neon app](packages/app) is a cross-platform Nextcloud client that runs on iOS, Android, macOS, Windows, Linux and Web. We already support Android and Linux with the other platforms being work in progress.
-3. The [Neon app](packages/app) is a multi client app. This means that you can have multiple clients in the same mobile app. It enables seamless switching between multiple apps as Nextcloud users have enjoyed on the web forever.
+2. The [Neon app](packages/neon_framework/example) is a cross-platform Nextcloud client that runs on iOS, Android, macOS, Windows, Linux and Web. We already support Android and Linux with the other platforms being work in progress.
+3. The [Neon app](packages/neon_framework/example) is a multi client app. This means that you can have multiple clients in the same mobile app. It enables seamless switching between multiple apps as Nextcloud users have enjoyed on the web forever.
 
 ### Current problems with other clients
 
@@ -47,28 +47,28 @@ We have a Matrix space where you can ask questions: https://matrix.to/#/#nextclo
 
 ## Features
 
-See [here](packages/app/README.md) for screenshots.
+See [here](packages/neon_framework/example/README.md) for screenshots.
 
 - :white_check_mark: Supported
 - :construction: Work in progress 
 - :rocket: Planned
 
-| App                                               | Status             |
-|---------------------------------------------------|--------------------|
-| [Dashboard](packages/neon/neon_dashboard)         | :white_check_mark: |
-| [Files](packages/neon/neon_files)                 | :white_check_mark: |
-| [News](packages/neon/neon_news)                   | :white_check_mark: |
-| [Notes](packages/neon/neon_notes)                 | :white_check_mark: |
-| [Notifications](packages/neon/neon_notifications) | :white_check_mark: |
-| Activity                                          | :rocket:           |
-| Calendar                                          | :rocket:           |
-| Contacts                                          | :rocket:           |
-| Cookbook                                          | :rocket:           |
-| Cospend                                           | :rocket:           |
-| Deck                                              | :rocket:           |
-| Photos                                            | :rocket:           |
-| Talk                                              | :construction:     |
-| Tasks                                             | :rocket:           |
+| App                                                                 | Status             |
+|---------------------------------------------------------------------|--------------------|
+| [Dashboard](packages/neon_framework/packages/dashboard_app)         | :white_check_mark: |
+| [Files](packages/neon_framework/packages/files_app)                 | :white_check_mark: |
+| [News](packages/neon_framework/packages/news_app)                   | :white_check_mark: |
+| [Notes](packages/neon_framework/packages/notes_app)                 | :white_check_mark: |
+| [Notifications](packages/neon_framework/packages/notifications_app) | :white_check_mark: |
+| Activity                                                            | :rocket:           |
+| Calendar                                                            | :rocket:           |
+| Contacts                                                            | :rocket:           |
+| Cookbook                                                            | :rocket:           |
+| Cospend                                                             | :rocket:           |
+| Deck                                                                | :rocket:           |
+| Photos                                                              | :rocket:           |
+| Talk                                                                | :construction:     |
+| Tasks                                                               | :rocket:           |
 
 ## Platform support
 

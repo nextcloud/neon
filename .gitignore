@@ -13,7 +13,7 @@ packages/**/build-dir
 packages/**/.flatpak-builder
 packages/**/doc/api
 
-!packages/app/pubspec.lock
+!packages/neon_framework/example/pubspec.lock
 
 # Melos recommends adding them, but renovate does not generate them which would end up with broken lockfiles
 # **/pubspec_overrides.yaml

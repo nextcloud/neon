@@ -4,15 +4,15 @@ package "Neon framework" {
     component neon_framework
     component nextcloud
     component sort_box
-    component file_icons
+    component files_icons
 }
 
 package "Clients" {
-    component neon_dashboard
-    component neon_files
-    component neon_news
-    component neon_notes
-    component neon_notifications
+    component dashboard_app
+    component files_app
+    component news_app
+    component notes_app
+    component notifications_app
 }
 
 package "OpenAPI" {
@@ -22,22 +22,22 @@ package "OpenAPI" {
 
 component app
 
-app ..> neon_dashboard
-app ..> neon_files
-app ..> neon_news
-app ..> neon_notes
-app ..> neon_notifications
+app ..> dashboard_app
+app ..> files_app
+app ..> news_app
+app ..> notes_app
+app ..> notifications_app
 
-neon_dashboard --> neon_framework
-neon_files --> neon_framework
-neon_news --> neon_framework
-neon_notes --> neon_framework
-neon_notifications --> neon_framework
+dashboard_app --> neon_framework
+files_app --> neon_framework
+news_app --> neon_framework
+notes_app --> neon_framework
+notifications_app --> neon_framework
 
 
 neon_framework --> nextcloud
 neon_framework --> sort_box
-neon_framework --> file_icons
+neon_framework --> files_icons
 
 dynamite --> nextcloud
 specifications --> nextcloud

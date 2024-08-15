@@ -30,11 +30,11 @@ jobs:
         run: ./tool/setup.sh
 
       - name: Build
-        run: cd packages/app && fvm flutter build apk --split-per-abi --build-number="$(date +"%s")"
+        run: cd packages/neon_framework/example && fvm flutter build apk --split-per-abi --build-number="$(date +"%s")"
       - uses: ilharp/sign-android-release@2034987c31e3959f7c97e88d5e656e52e6e88bd8 # v1
         name: Sign
         with:
-          releaseDir: packages/app/build/app/outputs/flutter-apk
+          releaseDir: packages/neon_framework/example/build/app/outputs/flutter-apk
           signingKey: ${{ secrets.SIGNING_KEY }}
           keyAlias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -43,24 +43,24 @@ jobs:
       - uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
         with:
           name: Android arm64-v8a
-          path: packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
+          path: packages/neon_framework/example/build/app/outputs/flutter-apk/app-arm64-v8a-release-signed.apk
           if-no-files-found: error
       - uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
         with:
           name: Android armeabi-v7a
-          path: packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
+          path: packages/neon_framework/example/build/app/outputs/flutter-apk/app-armeabi-v7a-release-signed.apk
           if-no-files-found: error
       - uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
         with:
           name: Android x86_64
-          path: packages/app/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
+          path: packages/neon_framework/example/build/app/outputs/flutter-apk/app-x86_64-release-signed.apk
           if-no-files-found: error
 
       - name: F-Droid nightly
         run: |
-          cp packages/app/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk app-arm64-v8a-debug.apk
-          cp packages/app/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk app-armeabi-v7a-debug.apk
-          cp packages/app/build/app/outputs/flutter-apk/app-x86_64-release.apk app-x86_64-debug.apk
+          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-arm64-v8a-release.apk app-arm64-v8a-debug.apk
+          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk app-armeabi-v7a-debug.apk
+          cp packages/neon_framework/example/build/app/outputs/flutter-apk/app-x86_64-release.apk app-x86_64-debug.apk
 
           sudo add-apt-repository ppa:fdroid/fdroidserver
           sudo apt-get update
@@ -113,5 +113,5 @@ jobs:
       - uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4
         with:
           name: Linux ${{ matrix.architecture.flutter }}
-          path: packages/app/build/linux/${{ matrix.architecture.flutter }}/release/bundle/*
+          path: packages/neon_framework/example/build/linux/${{ matrix.architecture.flutter }}/release/bundle/*
           if-no-files-found: error

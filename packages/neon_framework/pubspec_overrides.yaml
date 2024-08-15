@@ -3,14 +3,14 @@ dependency_overrides:
   cookie_store:
     path: ../cookie_store
   cookie_store_conformance_tests:
-    path: ../cookie_store_conformance_tests
+    path: ../cookie_store/packages/cookie_store_conformance_tests
   dynamite_runtime:
-    path: ../dynamite/dynamite_runtime
+    path: ../dynamite/packages/dynamite_runtime
   neon_http_client:
-    path: ../neon_http_client
+    path: packages/neon_http_client
   neon_lints:
     path: ../neon_lints
   nextcloud:
     path: ../nextcloud
   sort_box:
-    path: ../sort_box
+    path: packages/sort_box

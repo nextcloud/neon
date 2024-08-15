@@ -41,7 +41,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   -f "tool/build/Dockerfile.$os" \
   ./tool/build
 
-  paths=(packages/app/{pubspec.lock,linux,build})
+  paths=(packages/neon_framework/example/{pubspec.lock,linux,build})
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "lib")
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_dir "assets")
   mapfile -O "${#paths[@]}" -t paths < <(get_mount_paths_file "pubspec.yaml")
@@ -51,7 +51,7 @@ if [[ "$target" == "linux/arm64" ]] || [[ "$target" == "linux/amd64" ]]; then
   for path in ${paths[*]}; do
     run_args+=(-v "$(pwd)/$path:/src/$path")
   done
-  mkdir -p "packages/app/build"
+  mkdir -p "packages/neon_framework/example/build"
 
   container_id="$(
     # shellcheck disable=SC2086
