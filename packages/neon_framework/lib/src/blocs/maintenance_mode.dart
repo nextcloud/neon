@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
-import 'package:nextcloud/core.dart';
+import 'package:nextcloud/core.dart' as core;
 
 /// A Bloc checking if the server is in maintenance mode.
 sealed class MaintenanceModeBloc implements InteractiveBloc {

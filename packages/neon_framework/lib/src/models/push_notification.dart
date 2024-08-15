@@ -3,7 +3,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:crypton/crypton.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/notifications.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 
 part 'push_notification.g.dart';
 
@@ -22,7 +22,7 @@ abstract class PushNotification implements Built<PushNotification, PushNotificat
     String accountID,
     RSAPrivateKey privateKey,
   ) {
-    final subject = DecryptedSubject.fromEncrypted(privateKey, json['subject'] as String);
+    final subject = notifications.DecryptedSubject.fromEncrypted(privateKey, json['subject'] as String);
 
     return PushNotification(
       (b) => b
@@ -53,11 +53,11 @@ abstract class PushNotification implements Built<PushNotification, PushNotificat
   String get type;
 
   /// The subject of this notification.
-  DecryptedSubject get subject;
+  notifications.DecryptedSubject get subject;
 }
 
 @SerializersFor([
   PushNotification,
-  DecryptedSubject,
+  notifications.DecryptedSubject,
 ])
 final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

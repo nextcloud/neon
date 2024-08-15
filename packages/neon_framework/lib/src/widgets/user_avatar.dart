@@ -7,7 +7,7 @@ import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/widgets/image.dart';
 import 'package:neon_framework/src/widgets/user_status_icon.dart';
-import 'package:nextcloud/core.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 
 /// A circle that contains the user profile image and status.

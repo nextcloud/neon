@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
@@ -12,7 +12,7 @@ sealed class FilesTask {
     required this.uri,
   });
 
-  final PathUri uri;
+  final webdav.PathUri uri;
 
   @protected
   final progressController = StreamController<double>();

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 class FilesMainPage extends StatefulWidget {
   const FilesMainPage({
@@ -21,7 +21,7 @@ class FilesMainPage extends StatefulWidget {
 }
 
 class _FilesMainPageState extends State<FilesMainPage> {
-  PathUri uri = PathUri.cwd();
+  webdav.PathUri uri = webdav.PathUri.cwd();
   late FilesBloc bloc;
   late final StreamSubscription<Object> errorsSubscription;
 

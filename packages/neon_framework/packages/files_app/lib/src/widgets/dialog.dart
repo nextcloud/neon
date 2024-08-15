@@ -16,7 +16,7 @@ import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 /// Creates an adaptive bottom sheet to select an action to add a file.
 class FilesChooseCreateModal extends StatelessWidget {
@@ -30,7 +30,7 @@ class FilesChooseCreateModal extends StatelessWidget {
   /// The bloc of the flies client.
   final FilesBloc bloc;
 
-  final PathUri uri;
+  final webdav.PathUri uri;
 
   Future<void> uploadFromPick(BuildContext context, FileType type) async {
     final result = await FilePicker.platform.pickFiles(
@@ -50,12 +50,12 @@ class FilesChooseCreateModal extends StatelessWidget {
 
         if (kIsWeb) {
           bloc.uploadMemory(
-            uri.join(PathUri.parse(file.name)),
+            uri.join(webdav.PathUri.parse(file.name)),
             file.bytes!,
           );
         } else {
           bloc.uploadFile(
-            uri.join(PathUri.parse(file.name)),
+            uri.join(webdav.PathUri.parse(file.name)),
             file.path!,
           );
         }
@@ -149,12 +149,12 @@ class FilesChooseCreateModal extends StatelessWidget {
               }
               if (kIsWeb) {
                 bloc.uploadMemory(
-                  uri.join(PathUri.parse(result.name)),
+                  uri.join(webdav.PathUri.parse(result.name)),
                   await result.readAsBytes(),
                 );
               } else {
                 bloc.uploadFile(
-                  uri.join(PathUri.parse(result.name)),
+                  uri.join(webdav.PathUri.parse(result.name)),
                   result.path,
                 );
               }
@@ -173,7 +173,7 @@ class FilesChooseCreateModal extends StatelessWidget {
 
           final result = await showFolderCreateDialog(context: context);
           if (result != null) {
-            bloc.createFolder(uri.join(PathUri.parse(result)));
+            bloc.createFolder(uri.join(webdav.PathUri.parse(result)));
           }
         },
       ),
@@ -236,16 +236,16 @@ class FilesChooseFolderDialog extends StatefulWidget {
 
   final FilesBloc bloc;
 
-  final PathUri uri;
+  final webdav.PathUri uri;
 
-  final PathUri? hideUri;
+  final webdav.PathUri? hideUri;
 
   @override
   State<FilesChooseFolderDialog> createState() => _FilesChooseFolderDialogState();
 }
 
 class _FilesChooseFolderDialogState extends State<FilesChooseFolderDialog> {
-  late PathUri uri = widget.uri;
+  late webdav.PathUri uri = widget.uri;
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +257,7 @@ class _FilesChooseFolderDialogState extends State<FilesChooseFolderDialog> {
           final result = await showFolderCreateDialog(context: context);
 
           if (result != null) {
-            widget.bloc.createFolder(uri.join(PathUri.parse(result)));
+            widget.bloc.createFolder(uri.join(webdav.PathUri.parse(result)));
           }
         },
         child: Text(

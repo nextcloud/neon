@@ -1,6 +1,6 @@
 import 'package:files_app/src/utils/task.dart';
 import 'package:meta/meta.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:timezone/timezone.dart' as tz;
 
 @immutable
@@ -17,7 +17,7 @@ class FileDetails {
   }) : task = null;
 
   FileDetails.fromWebDav({
-    required WebDavFile file,
+    required webdav.WebDavFile file,
   })  : uri = file.path,
         size = file.size,
         etag = file.etag,
@@ -41,7 +41,7 @@ class FileDetails {
 
   FileDetails.fromDownloadTask({
     required FilesDownloadTask this.task,
-    required WebDavFile file,
+    required webdav.WebDavFile file,
   })  : uri = task.uri,
         size = file.size,
         etag = file.etag,
@@ -53,7 +53,7 @@ class FileDetails {
 
   factory FileDetails.fromTask({
     required FilesTask task,
-    required WebDavFile file,
+    required webdav.WebDavFile file,
   }) {
     switch (task) {
       case FilesUploadTask():
@@ -70,7 +70,7 @@ class FileDetails {
 
   bool get isDirectory => uri.isDirectory;
 
-  final PathUri uri;
+  final webdav.PathUri uri;
 
   final int? size;
 
