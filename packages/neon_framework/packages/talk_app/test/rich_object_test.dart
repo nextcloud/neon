@@ -9,7 +9,6 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -30,16 +29,6 @@ void main() {
 
   setUp(() {
     account = MockAccount();
-    when(() => account.id).thenReturn('id');
-    when(() => account.username).thenReturn('username');
-    when(() => account.serverURL).thenReturn(Uri.parse('http://example.com'));
-    when(() => account.client).thenReturn(
-      NextcloudClient(
-        Uri(),
-        loginName: '',
-        password: '',
-      ),
-    );
   });
 
   testWidgets('Deck card', (tester) async {
@@ -434,7 +423,7 @@ void main() {
         find.byWidgetPredicate(
           (widget) =>
               widget is NeonUriImage &&
-              widget.uri.toString() == 'http://example.com/remote.php/dav/files/username/path',
+              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
         ),
         findsOne,
       );

@@ -2,7 +2,6 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meta/meta.dart';
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -23,10 +22,18 @@ import 'package:shared_preferences_platform_interface/shared_preferences_platfor
 // ignore: depend_on_referenced_packages
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
-class MockAccount extends Mock implements Account {
-  @internal
-  @override
-  Uri completeUri(Uri uri) => uri;
+// ignore: non_constant_identifier_names
+Account MockAccount({
+  String serverURL = 'https://cloud.example.com:8443/nextcloud',
+  String username = 'username',
+  String password = 'password',
+}) {
+  return Account(
+    (b) => b
+      ..serverURL = Uri.parse(serverURL)
+      ..username = username
+      ..password = password,
+  );
 }
 
 class MockAccountCache<T extends Disposable> extends Mock implements AccountCache<T> {}

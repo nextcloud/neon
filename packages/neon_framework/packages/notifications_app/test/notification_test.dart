@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:notifications_app/l10n/localizations.dart';
 import 'package:notifications_app/src/widgets/action.dart';
@@ -47,7 +46,6 @@ void main() {
     callback = MockCallbackFunction<void>().call;
 
     account = MockAccount();
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
   });
 
   testWidgets('Notification', (tester) async {

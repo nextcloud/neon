@@ -75,15 +75,12 @@ void main() {
   });
 
   testWidgets('NeonApiImage', (tester) async {
-    final mockNextcloudClient = MockNextcloudClient();
-
-    final mockAccount = MockAccount();
-    when(() => mockAccount.client).thenReturn(mockNextcloudClient);
+    final account = MockAccount();
 
     final mockRequestManager = MockRequestManager();
     when(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
-        account: mockAccount,
+        account: account,
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -101,14 +98,14 @@ void main() {
           getRequest: (_) => mockRequest,
           etag: null,
           expires: null,
-          account: mockAccount,
+          account: account,
         ),
       ),
     );
 
     verify(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
-        account: mockAccount,
+        account: account,
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -119,16 +116,13 @@ void main() {
   });
 
   testWidgets('NeonUriImage', (tester) async {
-    final mockNextcloudClient = MockNextcloudClient();
-
-    final mockAccount = MockAccount();
-    when(() => mockAccount.client).thenReturn(mockNextcloudClient);
+    final account = MockAccount();
 
     final mockRequestManager = MockRequestManager();
 
     when(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
-        account: mockAccount,
+        account: account,
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),
@@ -143,14 +137,14 @@ void main() {
       TestApp(
         child: NeonUriImage(
           uri: uri,
-          account: mockAccount,
+          account: account,
         ),
       ),
     );
 
     verify(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(
-        account: mockAccount,
+        account: account,
         getCacheHeaders: any(named: 'getCacheHeaders'),
         getRequest: any(named: 'getRequest'),
         converter: any(named: 'converter'),

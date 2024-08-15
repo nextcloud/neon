@@ -4,7 +4,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:talk_app/src/widgets/reference_preview.dart';
 
@@ -33,7 +32,6 @@ void main() {
 
   testWidgets('Default', (tester) async {
     final account = MockAccount();
-    when(() => account.client).thenReturn(NextcloudClient(Uri()));
 
     final openGraphObject = MockOpenGraphObject();
     when(() => openGraphObject.name).thenReturn('name');
@@ -60,7 +58,6 @@ void main() {
 
   testWidgets('Opens link', (tester) async {
     final account = MockAccount();
-    when(() => account.client).thenReturn(NextcloudClient(Uri()));
 
     final openGraphObject = MockOpenGraphObject();
     when(() => openGraphObject.name).thenReturn('name');
@@ -87,7 +84,6 @@ void main() {
 
   testWidgets('With thumb', (tester) async {
     final account = MockAccount();
-    when(() => account.client).thenReturn(NextcloudClient(Uri()));
 
     final openGraphObject = MockOpenGraphObject();
     when(() => openGraphObject.thumb).thenReturn('');

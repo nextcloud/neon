@@ -6,7 +6,6 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 
@@ -18,9 +17,6 @@ void main() {
   for (final (withStatus, matcher) in [(false, findsNothing), (true, findsOne)]) {
     testWidgets('${withStatus ? 'With' : 'Without'} status', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('test');
-      when(() => account.username).thenReturn('test');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final userStatusBloc = MockUserStatusBloc();
       when(() => userStatusBloc.statuses).thenAnswer(
@@ -48,7 +44,6 @@ void main() {
           ),
         ),
       );
-      await tester.pumpAndSettle();
 
       expect(find.byType(NeonUserStatusIndicator), matcher);
     });

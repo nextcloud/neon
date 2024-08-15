@@ -5,7 +5,6 @@ import 'package:cookie_store/cookie_store.dart';
 import 'package:cookie_store_conformance_tests/cookie_store_conformance_tests.dart' as cookie_jar_conformance;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/storage/request_cache.dart';
 import 'package:neon_framework/src/storage/sqlite_cookie_persistence.dart';
 import 'package:neon_framework/src/storage/sqlite_persistence.dart';
@@ -17,7 +16,6 @@ void main() {
   group('Persistences', () {
     group('RequestCache', () {
       final account = MockAccount();
-      when(() => account.id).thenReturn('clientID');
 
       final cache = DefaultRequestCache();
 
