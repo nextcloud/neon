@@ -295,10 +295,10 @@ packages:
     dependency: transitive
     description:
       name: emoji_picker_flutter
-      sha256: "7c6681783e06710608df27be0e38aa4ba73ca1ccac370bb0e7a1320723ae4bca"
+      sha256: "3bf6d4cadc188215570a15c80fd7aeecec312b1cb3168ab08394e0faa4161fcb"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "3.0.0"
   fake_async:
     dependency: transitive
     description:
