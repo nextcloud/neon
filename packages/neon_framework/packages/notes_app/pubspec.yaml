@@ -27,7 +27,6 @@ dependencies:
   queue: ^3.0.0
   rxdart: ^0.27.0
   timezone: ^0.9.4
-  url_launcher: ^6.1.4
   wakelock_plus: ^1.0.0
 
 dev_dependencies:

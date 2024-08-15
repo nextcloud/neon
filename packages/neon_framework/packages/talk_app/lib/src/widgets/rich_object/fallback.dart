@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -50,10 +49,10 @@ class TalkRichObjectFallback extends StatelessWidget {
         parameter.name,
         style: textStyle,
       ),
-      onPressed: () {
+      onPressed: () async {
         final link = parameter.link;
         if (link != null) {
-          context.go(link);
+          await launchUrl(NeonProvider.of<Account>(context), link);
         }
       },
     );

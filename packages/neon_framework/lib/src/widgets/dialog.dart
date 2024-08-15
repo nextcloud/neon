@@ -21,7 +21,6 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:url_launcher/url_launcher_string.dart';
 
 /// An button typically used in an [AlertDialog.adaptive].
 ///
@@ -700,10 +699,7 @@ class NeonUnifiedPushDialog extends StatelessWidget {
           isDefaultAction: true,
           onPressed: () async {
             Navigator.pop(context);
-            await launchUrlString(
-              'https://f-droid.org/packages/$unifiedPushNextPushID',
-              mode: LaunchMode.externalApplication,
-            );
+            await launchUrl(NeonProvider.of<Account>(context), 'https://f-droid.org/packages/$unifiedPushNextPushID');
           },
           child: Text(
             NeonLocalizations.of(context).nextPushSupportedInstall,

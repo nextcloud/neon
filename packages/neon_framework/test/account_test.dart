@@ -52,13 +52,6 @@ void main() {
             Uri.parse('$serverURL/$testURL'),
           );
         });
-
-        test('Strip', () {
-          expect(
-            account.stripUri(Uri.parse('$serverURL/$testURL')),
-            Uri.parse('/$testURL'),
-          );
-        });
       });
     }
   });

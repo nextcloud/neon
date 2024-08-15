@@ -1,11 +1,31 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:notifications_app/src/widgets/action.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 import 'testing.dart';
 
 void main() {
+  late MockUrlLauncher urlLauncher;
+  late Account account;
+
+  setUpAll(() {
+    registerFallbackValue(const LaunchOptions());
+
+    urlLauncher = MockUrlLauncher();
+    // ignore: discarded_futures
+    when(() => urlLauncher.launchUrl(any(), any())).thenAnswer((_) async => true);
+
+    UrlLauncherPlatform.instance = urlLauncher;
+  });
+
+  setUp(() {
+    account = MockAccount();
+  });
+
   testWidgets('Primary', (tester) async {
     final action = MockAction();
     when(() => action.label).thenReturn('label');
@@ -39,8 +59,6 @@ void main() {
   });
 
   testWidgets('Opens link', (tester) async {
-    final router = MockGoRouter();
-
     final action = MockAction();
     when(() => action.label).thenReturn('label');
     when(() => action.primary).thenReturn(true);
@@ -48,7 +66,9 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        router: router,
+        providers: [
+          Provider<Account>.value(value: account),
+        ],
         child: NotificationsAction(
           action: action,
         ),
@@ -57,6 +77,6 @@ void main() {
 
     await tester.tap(find.byType(NotificationsAction));
 
-    verify(() => router.go('/link')).called(1);
+    verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
   });
 }

@@ -12,28 +12,28 @@ import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:provider/provider.dart';
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
-Widget wrapWidget(
-  Widget child, {
-  MockGoRouter? router,
-}) =>
-    TestApp(
+Widget wrapWidget(Widget child) => TestApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
-      providers: [
-        Provider<Account>.value(
-          value: Account(
-            (b) => b
-              ..serverURL = Uri()
-              ..username = 'example',
-          ),
-        ),
-      ],
-      router: router,
+      providers: [Provider<Account>.value(value: MockAccount())],
       child: child,
     );
 
 void main() {
+  late MockUrlLauncher urlLauncher;
+
+  setUpAll(() {
+    registerFallbackValue(const LaunchOptions());
+
+    urlLauncher = MockUrlLauncher();
+    // ignore: discarded_futures
+    when(() => urlLauncher.launchUrl(any(), any())).thenAnswer((_) async => true);
+
+    UrlLauncherPlatform.instance = urlLauncher;
+  });
+
   setUp(() {
     FakeNeonStorage.setup();
   });
@@ -43,22 +43,19 @@ void main() {
       (b) => b
         ..title = 'Widget item title'
         ..subtitle = 'Widget item subtitle'
-        ..link = 'https://example.com/link'
-        ..iconUrl = 'https://example.com/iconUrl'
-        ..overlayIconUrl = 'https://example.com/overlayIconUrl'
+        ..link = '/link'
+        ..iconUrl = '/iconUrl'
+        ..overlayIconUrl = '/overlayIconUrl'
         ..sinceId = '',
     );
 
     testWidgets('Everything filled', (tester) async {
-      final router = MockGoRouter();
-
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           DashboardWidgetItem(
             item: item,
             roundIcon: true,
           ),
-          router: router,
         ),
       );
 
@@ -87,7 +84,7 @@ void main() {
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
 
       await tester.tap(find.byType(DashboardWidgetItem));
-      verify(() => router.go('https://example.com/link')).called(1);
+      verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('Not round', (tester) async {
@@ -165,23 +162,20 @@ void main() {
       (b) => b
         ..type = 'new'
         ..text = 'Button'
-        ..link = 'https://example.com/link',
+        ..link = '/link',
     );
 
     testWidgets('Opens link', (tester) async {
-      final router = MockGoRouter();
-
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           DashboardWidgetButton(
             button: button,
           ),
-          router: router,
         ),
       );
 
       await tester.tap(find.byType(DashboardWidgetButton));
-      verify(() => router.go('https://example.com/link')).called(1);
+      verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('New', (tester) async {
@@ -250,9 +244,9 @@ void main() {
       (b) => b
         ..title = 'Widget item title'
         ..subtitle = 'Widget item subtitle'
-        ..link = 'https://example.com/link'
-        ..iconUrl = 'https://example.com/iconUrl'
-        ..overlayIconUrl = 'https://example.com/overlayIconUrl'
+        ..link = '/link'
+        ..iconUrl = '/iconUrl'
+        ..overlayIconUrl = '/overlayIconUrl'
         ..sinceId = '',
     );
     final items = dashboard.WidgetItems(
@@ -265,7 +259,7 @@ void main() {
       (b) => b
         ..type = 'new'
         ..text = 'Button'
-        ..link = 'https://example.com/link',
+        ..link = '/link',
     );
     final widget = dashboard.Widget(
       (b) => b
@@ -273,8 +267,8 @@ void main() {
         ..title = 'Widget title'
         ..order = 0
         ..iconClass = ''
-        ..iconUrl = 'https://example.com/iconUrl'
-        ..widgetUrl = 'https://example.com/widgetUrl'
+        ..iconUrl = '/iconUrl'
+        ..widgetUrl = '/widgetUrl'
         ..itemIconsRound = true
         ..itemApiVersions.replace([1, 2])
         ..reloadInterval = 0

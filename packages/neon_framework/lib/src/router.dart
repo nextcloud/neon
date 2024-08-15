@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/blocs/capabilities.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/pages/account_settings.dart';
@@ -23,7 +22,6 @@ import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 part 'router.g.dart';
 
@@ -36,49 +34,16 @@ GoRouter buildAppRouter({
       debugLogDiagnostics: kDebugMode,
       navigatorKey: navigatorKey,
       initialLocation: const HomeRoute().location,
-      onException: onException,
+      errorBuilder: (context, state) => RouteNotFoundPage(
+        uri: state.uri,
+      ),
       redirect: redirect,
       routes: $appRoutes,
     );
 
-/// Handles routing exceptions thrown by the [GoRouter] of [buildAppRouter].
-@visibleForTesting
-Future<void> onException(BuildContext context, GoRouterState state, GoRouter router) async {
-  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-  if (accountsBloc.hasAccounts) {
-    final capabilitiesBloc = NeonProvider.of<CapabilitiesBloc>(context);
-    final capabilities = capabilitiesBloc.capabilities.valueOrNull?.data;
-    final modRewriteWorking = capabilities?.capabilities.coreCapabilities?.core.modRewriteWorking ?? false;
-
-    final account = NeonProvider.of<Account>(context);
-    var uri = account.completeUri(state.uri);
-
-    if (uri != state.uri && !modRewriteWorking && !uri.path.startsWith('/index.php')) {
-      uri = uri.replace(path: '/index.php${uri.path}');
-    }
-
-    await launchUrl(
-      uri,
-      mode: LaunchMode.externalApplication,
-    );
-
-    return;
-  }
-
-  if (!context.mounted) {
-    return;
-  }
-
-  await router.push(RouteNotFoundRoute(uri: state.uri).location);
-}
-
 /// Handles redirects of the [GoRouter] of [buildAppRouter].
 @visibleForTesting
 String? redirect(BuildContext context, GoRouterState state) {
-  if (state.uri.path.startsWith('/index.php/')) {
-    return state.uri.path.substring(10);
-  }
-
   final loginQRcode = LoginQRcode.tryParse(state.uri.toString());
   if (loginQRcode != null) {
     return LoginCheckServerStatusWithCredentialsRoute(
@@ -88,17 +53,9 @@ String? redirect(BuildContext context, GoRouterState state) {
     ).location;
   }
 
-  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-  if (accountsBloc.hasAccounts && state.uri.hasScheme) {
-    final account = NeonProvider.of<Account>(context);
-    final strippedUri = account.stripUri(state.uri);
-    if (strippedUri != state.uri) {
-      return strippedUri.toString();
-    }
-  }
-
-  // Redirect to login screen when no account is logged in
+  // Redirect to login screen when no account is logged in.
   // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
+  final accountsBloc = NeonProvider.of<AccountsBloc>(context);
   if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
     return const LoginRoute().location;
   }
@@ -128,28 +85,6 @@ class AccountSettingsRoute extends GoRouteData {
 
     return AccountSettingsPage(
       account: account,
-    );
-  }
-}
-
-/// {@template AppRoutes.RouteNotFoundRoute}
-/// Route for the [RouteNotFoundPage].
-/// {@endtemplate}
-@TypedGoRoute<RouteNotFoundRoute>(path: '/not-found/:uri')
-@immutable
-class RouteNotFoundRoute extends GoRouteData {
-  /// {@macro AppRoutes.RouteNotFoundRoute}
-  const RouteNotFoundRoute({
-    required this.uri,
-  });
-
-  /// The URI of the route that caused the error.
-  final Uri uri;
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return RouteNotFoundPage(
-      uri: uri,
     );
   }
 }

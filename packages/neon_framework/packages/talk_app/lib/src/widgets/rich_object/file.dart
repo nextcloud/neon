@@ -1,7 +1,8 @@
 import 'package:files_icons/files_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:talk_app/src/widgets/rich_object/file_preview.dart';
 
@@ -45,8 +46,8 @@ class TalkRichObjectFile extends StatelessWidget {
     }
 
     return InkWell(
-      onTap: () {
-        context.go(parameter.link!);
+      onTap: () async {
+        await launchUrl(NeonProvider.of<Account>(context), parameter.link!);
       },
       child: child,
     );
