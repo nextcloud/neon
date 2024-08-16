@@ -10,7 +10,6 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/first_launch.dart';
 import 'package:neon_framework/src/blocs/next_push.dart';
 import 'package:neon_framework/src/blocs/push_notifications.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/platform/platform.dart';
@@ -31,10 +30,6 @@ import 'package:timezone/timezone.dart' as tz;
 Future<void> runNeon({
   required BuiltSet<AppImplementation> appImplementations,
   required NeonTheme theme,
-  @visibleForTesting WidgetsBinding? bindingOverride,
-  @visibleForTesting Account? account,
-  @visibleForTesting bool firstLaunchDisabled = false,
-  @visibleForTesting bool nextPushDisabled = false,
 }) async {
   assert(appImplementations.isNotEmpty, 'At least one AppImplementation required');
 
@@ -42,7 +37,7 @@ Future<void> runNeon({
     Logger.root.level = Level.ALL;
   }
 
-  final binding = bindingOverride ?? WidgetsFlutterBinding.ensureInitialized();
+  final binding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: binding);
 
   await NeonPlatform.instance.init();
@@ -66,22 +61,15 @@ Future<void> runNeon({
     globalOptions: globalOptions,
     allAppImplementations: appImplementations,
   );
-  if (account != null) {
-    accountsBloc
-      ..addAccount(account)
-      ..setActiveAccount(account);
-  }
+
   PushNotificationsBloc(
     accountsSubject: accountsBloc.accounts,
     globalOptions: globalOptions,
   );
-  final firstLaunchBloc = FirstLaunchBloc(
-    disabled: firstLaunchDisabled,
-  );
+  final firstLaunchBloc = FirstLaunchBloc();
   final nextPushBloc = NextPushBloc(
     accountsSubject: accountsBloc.accounts,
     globalOptions: globalOptions,
-    disabled: nextPushDisabled,
   );
 
   runApp(
