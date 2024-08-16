@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 
 /// Button inside a dashboard widget that is used to trigger an action.
@@ -16,7 +17,7 @@ class DashboardWidgetButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void onPressed() => context.go(button.link);
+    Future<void> onPressed() async => launchUrl(NeonProvider.of<Account>(context), button.link);
     final label = Text(button.text);
     final icon = switch (button.type) {
       'new' => AdaptiveIcons.add,

@@ -40,21 +40,21 @@ void main() {
       final bloc = MockAccountsBloc();
       final exporter = AccountsBlocExporter(bloc);
 
-      const accountValue = MapEntry('accountID', 'value');
-      const accountExport = {
-        'accounts': {'accountID': 'value'},
+      final account = MockAccount();
+
+      final accountValue = MapEntry(account.id, 'value');
+      final accountExport = {
+        'accounts': {account.id: 'value'},
       };
 
       when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList()));
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
-      final fakeAccount = MockAccount();
       final fakeOptions = MockAccountOptions();
-      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList([fakeAccount])));
-      when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
+      when(() => bloc.accounts).thenAnswer((_) => BehaviorSubject.seeded(BuiltList([account])));
+      when(() => bloc.getOptionsFor(account)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);
-      when(() => fakeAccount.id).thenReturn('accountID');
 
       export = exporter.export();
       expect(Map.fromEntries([export]), accountExport);

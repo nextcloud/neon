@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:talk_app/src/widgets/actor_avatar.dart';
@@ -20,8 +18,6 @@ void main() {
 
     testWidgets('$type', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(

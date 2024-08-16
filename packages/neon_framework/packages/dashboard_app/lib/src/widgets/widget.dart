@@ -1,6 +1,7 @@
 import 'package:dashboard_app/l10n/localizations.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 
 /// Displays a single dashboard widget and its items.
@@ -31,7 +32,7 @@ class DashboardWidget extends StatelessWidget {
       child = Tooltip(
         message: DashboardLocalizations.of(context).openWidget,
         child: InkWell(
-          onTap: () => context.go(widget.widgetUrl!),
+          onTap: () async => launchUrl(NeonProvider.of<Account>(context), widget.widgetUrl!),
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           child: child,
         ),

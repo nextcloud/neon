@@ -6,8 +6,8 @@ import 'package:neon_framework/testing.dart';
 void main() {
   final disposable0 = MockDisposable();
   final disposable1 = MockDisposable();
-  final account0 = MockAccount();
-  final account1 = MockAccount();
+  final account0 = MockAccount(username: '0');
+  final account1 = MockAccount(username: '1');
 
   group('AccountCache', () {
     test('map functionality', () {

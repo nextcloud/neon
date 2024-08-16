@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:notes_app/l10n/localizations.dart';
@@ -12,7 +13,6 @@ import 'package:notes_app/src/utils/category_color.dart';
 import 'package:notes_app/src/utils/exception_handler.dart';
 import 'package:notes_app/src/widgets/dialog.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 class NotesNotePage extends StatefulWidget {
@@ -188,10 +188,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
                         data: _contentController.text,
                         onTapLink: (text, href, title) async {
                           if (href != null) {
-                            await launchUrlString(
-                              href,
-                              mode: LaunchMode.externalApplication,
-                            );
+                            await launchUrl(NeonProvider.of<Account>(context), href);
                           }
                         },
                       ),

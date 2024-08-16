@@ -8,7 +8,6 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud/utils.dart';
 import 'package:provider/provider.dart';
@@ -54,10 +53,7 @@ void main() {
     when(() => bloc.errors).thenAnswer((_) => StreamController<Object>().stream);
     when(() => bloc.rooms).thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList([room]))));
 
-    account = MockAccount();
-    when(() => account.id).thenReturn('');
-    when(() => account.username).thenReturn('test');
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+    account = MockAccount(username: 'test');
   });
 
   testWidgets('Errors', (tester) async {

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -11,7 +12,6 @@ import 'package:news_app/src/blocs/article.dart';
 import 'package:news_app/src/blocs/articles.dart';
 import 'package:news_app/src/options.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -186,10 +186,8 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
             if (widget.url != null) ...[
               IconButton(
                 onPressed: () async {
-                  await launchUrlString(
-                    await _getURL(),
-                    mode: LaunchMode.externalApplication,
-                  );
+                  // ignore: use_build_context_synchronously
+                  await launchUrl(NeonProvider.of<Account>(context), await _getURL());
                 },
                 tooltip: NewsLocalizations.of(context).articleOpenLink,
                 icon: const Icon(Icons.open_in_new),
@@ -216,10 +214,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                     data: widget.bodyData,
                     onLinkTap: (url, attributes, element) async {
                       if (url != null) {
-                        await launchUrlString(
-                          url,
-                          mode: LaunchMode.externalApplication,
-                        );
+                        await launchUrl(NeonProvider.of<Account>(context), url);
                       }
                     },
                   ),

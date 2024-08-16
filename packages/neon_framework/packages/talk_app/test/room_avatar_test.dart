@@ -7,7 +7,6 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
@@ -22,8 +21,6 @@ void main() {
 
   testWidgets('Custom avatar', (tester) async {
     final account = MockAccount();
-    when(() => account.id).thenReturn('');
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     final room = MockRoom();
     when(() => room.isCustomAvatar).thenReturn(true);
@@ -45,8 +42,6 @@ void main() {
 
   testWidgets('One to one', (tester) async {
     final account = MockAccount();
-    when(() => account.id).thenReturn('');
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     final userStatusBloc = MockUserStatusBloc();
     when(() => userStatusBloc.statuses).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));

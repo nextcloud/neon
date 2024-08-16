@@ -8,7 +8,6 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:notifications_app/l10n/localizations.dart';
 import 'package:notifications_app/src/blocs/notifications.dart';
 import 'package:notifications_app/src/pages/main.dart';
@@ -36,7 +35,6 @@ void main() {
     when(() => bloc.notifications).thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList())));
 
     account = MockAccount();
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
   });
 
   testWidgets('Errors', (tester) async {

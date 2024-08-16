@@ -406,7 +406,6 @@ void main() {
 
     testWidgets('Without drop_account', (tester) async {
       final account = MockAccount();
-      when(() => account.humanReadableID).thenReturn('');
 
       final capabilitiesBloc = MockCapabilitiesBloc();
       when(() => capabilitiesBloc.capabilities).thenAnswer(
@@ -433,7 +432,6 @@ void main() {
     group('With drop_account', () {
       testWidgets('Disabled', (tester) async {
         final account = MockAccount();
-        when(() => account.humanReadableID).thenReturn('');
 
         final capabilitiesBloc = MockCapabilitiesBloc();
         when(() => capabilitiesBloc.capabilities).thenAnswer(
@@ -482,7 +480,6 @@ void main() {
 
       testWidgets('Delay', (tester) async {
         final account = MockAccount();
-        when(() => account.humanReadableID).thenReturn('');
 
         final capabilitiesBloc = MockCapabilitiesBloc();
         when(() => capabilitiesBloc.capabilities).thenAnswer(

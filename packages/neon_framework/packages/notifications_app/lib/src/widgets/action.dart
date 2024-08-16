@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 
 class NotificationsAction extends StatelessWidget {
@@ -13,8 +14,8 @@ class NotificationsAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        context.go(action.link);
+      onPressed: () async {
+        await launchUrl(NeonProvider.of<Account>(context), action.link);
       },
       style: ElevatedButton.styleFrom(
         foregroundColor: action.primary ? Theme.of(context).colorScheme.onPrimary : null,

@@ -19,7 +19,6 @@ String base64String(String value) => base64.encode(utf8.encode(value));
 
 void main() {
   final account = MockAccount();
-  when(() => account.id).thenReturn('clientID');
   late MockNeonStorage storage;
 
   setUpAll(() {

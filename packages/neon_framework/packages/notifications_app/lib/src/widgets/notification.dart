@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
@@ -67,7 +66,9 @@ class NotificationsNotification extends StatelessWidget {
           size: const Size.square(largeIconSize),
           svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
         ),
-        onTap: notification.link.isNotEmpty ? () => context.go(notification.link) : null,
+        onTap: notification.link.isNotEmpty
+            ? () async => launchUrl(NeonProvider.of<Account>(context), notification.link)
+            : null,
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
@@ -244,7 +243,7 @@ class TalkMessagePreview extends StatelessWidget {
             references: BuiltList(),
             isPreview: true,
             style: Theme.of(context).textTheme.bodyMedium!,
-            onReferenceClicked: context.go,
+            onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
         ],
       ),
@@ -333,7 +332,7 @@ class TalkSystemMessage extends StatelessWidget {
             chatMessage: chatMessage,
             references: BuiltList(),
             style: Theme.of(context).textTheme.labelSmall!,
-            onReferenceClicked: context.go,
+            onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
         ),
       ),
@@ -540,7 +539,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
                   ? labelColor
                   : null,
             ),
-            onReferenceClicked: context.go,
+            onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
           maxLines: widget.isParent ? 1 : null,
           overflow: widget.isParent ? TextOverflow.ellipsis : TextOverflow.visible,

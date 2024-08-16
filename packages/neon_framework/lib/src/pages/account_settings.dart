@@ -14,7 +14,6 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 /// Account settings page.
 ///
@@ -54,11 +53,9 @@ class AccountSettingsPage extends StatelessWidget {
               case null:
                 break;
               case AccountDeletion.remote:
-                await launchUrl(
-                  account.serverURL.replace(
-                    path: '${account.serverURL.path}/index.php/settings/user/drop_account',
-                  ),
-                );
+                if (context.mounted) {
+                  await launchUrl(NeonProvider.of<Account>(context), '/index.php/settings/user/drop_account');
+                }
               case AccountDeletion.local:
                 final isActive = bloc.activeAccount.valueOrNull == account;
 

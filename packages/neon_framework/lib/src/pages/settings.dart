@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/settings/utils/settings_export_helper.dart';
@@ -21,15 +20,13 @@ import 'package:neon_framework/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/theme/icons.dart';
-import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
-import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:url_launcher/url_launcher_string.dart';
 
 final _log = Logger('SettingsPage');
 
@@ -196,10 +193,7 @@ class SettingsPage extends StatelessWidget {
                 ),
                 title: Text(NeonLocalizations.of(context).sourceCode),
                 onTap: () async {
-                  await launchUrlString(
-                    branding.sourceCodeURL!,
-                    mode: LaunchMode.externalApplication,
-                  );
+                  await launchUrl(NeonProvider.of<Account>(context), branding.sourceCodeURL!);
                 },
               ),
             if (branding.issueTrackerURL != null)
@@ -210,10 +204,7 @@ class SettingsPage extends StatelessWidget {
                 ),
                 title: Text(NeonLocalizations.of(context).issueTracker),
                 onTap: () async {
-                  await launchUrlString(
-                    branding.issueTrackerURL!,
-                    mode: LaunchMode.externalApplication,
-                  );
+                  await launchUrl(NeonProvider.of<Account>(context), branding.issueTrackerURL!);
                 },
               ),
             CustomSettingsTile(

@@ -142,11 +142,6 @@ abstract class Account implements Credentials, Findable, Built<Account, AccountB
 
     return null;
   }
-
-  /// Removes the [serverURL] part from the [uri].
-  ///
-  /// Should be used when trying to push a [uri] from an API to the router as it might contain the scheme, host and sub path of the instance which will not work with the router.
-  Uri stripUri(Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
 
 /// QRcode Login credentials.

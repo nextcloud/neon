@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -85,7 +84,7 @@ class TalkReferencePreview extends StatelessWidget {
           ),
         ),
         child: InkWell(
-          onTap: () => context.go(url),
+          onTap: () async => launchUrl(NeonProvider.of<Account>(context), url),
           child: ConstrainedBox(
             constraints: const BoxConstraints(
               maxHeight: 100,

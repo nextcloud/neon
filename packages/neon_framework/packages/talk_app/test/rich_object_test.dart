@@ -9,7 +9,6 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
@@ -18,36 +17,34 @@ import 'package:talk_app/src/widgets/rich_object/fallback.dart';
 import 'package:talk_app/src/widgets/rich_object/file.dart';
 import 'package:talk_app/src/widgets/rich_object/file_preview.dart';
 import 'package:talk_app/src/widgets/rich_object/mention.dart';
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 void main() {
+  late MockUrlLauncher urlLauncher;
   late Account account;
 
   setUpAll(() {
     FakeNeonStorage.setup();
 
-    registerFallbackValue(Uri());
+    registerFallbackValue(const LaunchOptions());
+
+    urlLauncher = MockUrlLauncher();
+    // ignore: discarded_futures
+    when(() => urlLauncher.launchUrl(any(), any())).thenAnswer((_) async => true);
+
+    UrlLauncherPlatform.instance = urlLauncher;
   });
 
   setUp(() {
     account = MockAccount();
-    when(() => account.id).thenReturn('id');
-    when(() => account.username).thenReturn('username');
-    when(() => account.serverURL).thenReturn(Uri.parse('http://example.com'));
-    when(() => account.client).thenReturn(
-      NextcloudClient(
-        Uri(),
-        loginName: '',
-        password: '',
-      ),
-    );
   });
 
   testWidgets('Deck card', (tester) async {
-    final router = MockGoRouter();
-
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        router: router,
+        providers: [
+          Provider<Account>.value(value: account),
+        ],
         child: TalkRichObjectDeckCard(
           parameter: spreed.RichObjectParameter(
             (b) => b
@@ -69,7 +66,7 @@ void main() {
     );
 
     await tester.tap(find.byType(TalkRichObjectDeckCard));
-    verify(() => router.go('/link')).called(1);
+    verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
   });
 
   group('Mention', () {
@@ -235,11 +232,11 @@ void main() {
 
   group('File', () {
     testWidgets('Opens link', (tester) async {
-      final router = MockGoRouter();
-
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          router: router,
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
@@ -256,7 +253,7 @@ void main() {
       );
 
       await tester.tap(find.byType(TalkRichObjectFile));
-      verify(() => router.go('/link')).called(1);
+      verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('With preview', (tester) async {
@@ -434,7 +431,7 @@ void main() {
         find.byWidgetPredicate(
           (widget) =>
               widget is NeonUriImage &&
-              widget.uri.toString() == 'http://example.com/remote.php/dav/files/username/path',
+              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
         ),
         findsOne,
       );
@@ -443,11 +440,11 @@ void main() {
 
   group('Fallback', () {
     testWidgets('Opens link', (tester) async {
-      final router = MockGoRouter();
-
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          router: router,
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkRichObjectFallback(
             parameter: spreed.RichObjectParameter(
               (b) => b
@@ -462,7 +459,7 @@ void main() {
       );
 
       await tester.tap(find.byType(TalkRichObjectFallback));
-      verify(() => router.go('/link')).called(1);
+      verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('Without icon', (tester) async {

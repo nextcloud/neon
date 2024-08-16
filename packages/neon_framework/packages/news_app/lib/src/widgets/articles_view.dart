@@ -22,7 +22,6 @@ import 'package:news_app/src/widgets/feed_icon.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:url_launcher/url_launcher_string.dart';
 
 final _log = Logger('NewsArticlesView');
 
@@ -280,10 +279,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 widget.bloc.markArticleAsRead(article);
               }
               if (article.url != null) {
-                await launchUrlString(
-                  article.url!,
-                  mode: LaunchMode.externalApplication,
-                );
+                await launchUrl(NeonProvider.of<Account>(context), article.url!);
               }
             }
           },

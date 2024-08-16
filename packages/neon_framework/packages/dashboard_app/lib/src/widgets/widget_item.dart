@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
@@ -74,7 +73,7 @@ class DashboardWidgetItem extends StatelessWidget {
         maxLines: 1,
       ),
       leading: leading,
-      onTap: item.link.isNotEmpty ? () => context.go(item.link) : null,
+      onTap: item.link.isNotEmpty ? () async => launchUrl(NeonProvider.of<Account>(context), item.link) : null,
     );
   }
 }

@@ -9,7 +9,6 @@ import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -320,8 +319,6 @@ void main() {
 
     testWidgets('Comment', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final chatMessage = MockChatMessage();
       when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -404,8 +401,6 @@ void main() {
 
   testWidgets('TalkParentMessage', (tester) async {
     final account = MockAccount();
-    when(() => account.id).thenReturn('');
-    when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
     final chatMessage = MockChatMessage();
     when(() => chatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -437,10 +432,7 @@ void main() {
 
   group('TalkCommentMessage', () {
     testWidgets('Self', (tester) async {
-      final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.username).thenReturn('test');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
+      final account = MockAccount(username: 'test');
 
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -494,9 +486,6 @@ void main() {
 
     testWidgets('Other', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.username).thenReturn('other');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -550,8 +539,6 @@ void main() {
 
     testWidgets('Deleted', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -596,8 +583,6 @@ void main() {
 
     testWidgets('As parent', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final chatMessage = MockChatMessage();
       when(() => chatMessage.timestamp).thenReturn(0);
@@ -636,8 +621,6 @@ void main() {
 
     testWidgets('With parent', (tester) async {
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final previousChatMessage = MockChatMessage();
       when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -722,8 +705,6 @@ void main() {
       );
 
       final account = MockAccount();
-      when(() => account.id).thenReturn('');
-      when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
       final chatMessage = MockChatMessageWithParent();
       when(() => chatMessage.id).thenReturn(0);
@@ -778,8 +759,6 @@ void main() {
     group('Separate messages', () {
       testWidgets('Actor', (tester) async {
         final account = MockAccount();
-        when(() => account.id).thenReturn('');
-        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -831,8 +810,6 @@ void main() {
 
       testWidgets('Time', (tester) async {
         final account = MockAccount();
-        when(() => account.id).thenReturn('');
-        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -883,8 +860,6 @@ void main() {
 
       testWidgets('System message', (tester) async {
         final account = MockAccount();
-        when(() => account.id).thenReturn('');
-        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.system);
@@ -936,8 +911,6 @@ void main() {
 
       testWidgets('Edited', (tester) async {
         final account = MockAccount();
-        when(() => account.id).thenReturn('');
-        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
         final previousChatMessage = MockChatMessage();
         when(() => previousChatMessage.messageType).thenReturn(spreed.MessageType.comment);
@@ -999,9 +972,6 @@ void main() {
 
       setUp(() {
         account = MockAccount();
-        when(() => account.id).thenReturn('');
-        when(() => account.username).thenReturn('test');
-        when(() => account.client).thenReturn(NextcloudClient(Uri.parse('')));
 
         chatMessage = MockChatMessage();
         when(() => chatMessage.timestamp).thenReturn(0);
@@ -1575,9 +1545,6 @@ void main() {
                   .thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
 
               final account = MockAccount();
-              when(() => account.id).thenReturn('id');
-              when(() => account.username).thenReturn('username');
-              when(() => account.client).thenReturn(NextcloudClient(Uri()));
 
               await tester.pumpWidgetWithAccessibility(
                 TestApp(

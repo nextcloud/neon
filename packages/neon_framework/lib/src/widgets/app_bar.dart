@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
 import 'package:neon_framework/src/utils/global_options.dart' as global_options;
+import 'package:neon_framework/src/utils/launch_url.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/account_switcher_button.dart';
 import 'package:neon_framework/src/widgets/unified_search_results.dart';
@@ -106,9 +107,9 @@ class _NeonAppBarState extends State<NeonAppBar> {
               viewBuilder: (_) => Padding(
                 padding: const EdgeInsets.all(8),
                 child: NeonUnifiedSearchResults(
-                  onSelected: (entry) {
-                    context.go(entry.resourceUrl);
+                  onSelected: (entry) async {
                     searchController.closeView('');
+                    await launchUrl(NeonProvider.of<Account>(context), entry.resourceUrl);
                   },
                 ),
               ),

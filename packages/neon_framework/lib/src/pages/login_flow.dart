@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/login_flow.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
 class LoginFlowPage extends StatefulWidget {
@@ -39,10 +39,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
     initSubscription = bloc.init.listen((result) async {
       if (result.hasData) {
-        await launchUrlString(
-          result.requireData.login,
-          mode: LaunchMode.externalApplication,
-        );
+        await launchUrl(NeonProvider.of<Account>(context), result.requireData.login);
       }
     });
 
