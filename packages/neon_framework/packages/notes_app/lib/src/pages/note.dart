@@ -49,7 +49,6 @@ class _NotesNotePageState extends State<NotesNotePage> {
     super.initState();
 
     errorsSubscription = widget.bloc.errors.listen((error) {
-      // ignore: use_build_context_synchronously
       handleNotesException(context, error);
     });
 
