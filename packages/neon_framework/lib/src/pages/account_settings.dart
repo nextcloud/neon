@@ -14,6 +14,7 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:provider/provider.dart';
 
 /// Account settings page.
 ///
@@ -163,7 +164,10 @@ class AccountSettingsPage extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: NeonDialogTheme.of(context).constraints,
-            child: body,
+            child: Provider<Account>.value(
+              value: account,
+              child: body,
+            ),
           ),
         ),
       ),
