@@ -163,7 +163,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
       Builder(
         builder: (context) {
           final realSize = size ?? IconTheme.of(context).size;
-          return VectorGraphic(
+          final child = VectorGraphic(
             width: realSize,
             height: realSize,
             colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
@@ -171,7 +171,10 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
               'assets/app.svg.vec',
               packageName: '${id}_app',
             ),
-            semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
+          );
+
+          return ExcludeSemantics(
+            child: child,
           );
         },
       );
