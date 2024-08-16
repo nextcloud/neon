@@ -7,7 +7,6 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/widgets/validation_tile.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/core.dart';
 
 @internal
 class LoginCheckServerStatusPage extends StatefulWidget {

@@ -16,7 +16,7 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 class FilesBrowserView extends StatefulWidget {
   FilesBrowserView({
@@ -28,10 +28,10 @@ class FilesBrowserView extends StatefulWidget {
   }) : super(key: Key(uri.toString()));
 
   final FilesBloc filesBloc;
-  final PathUri uri;
+  final webdav.PathUri uri;
   final FilesBrowserMode mode;
-  final void Function(PathUri uri) setPath;
-  final PathUri? hideUri;
+  final void Function(webdav.PathUri uri) setPath;
+  final webdav.PathUri? hideUri;
 
   @override
   State<FilesBrowserView> createState() => _FilesBrowserViewState();
@@ -131,7 +131,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     );
   }
 
-  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<WebDavFile> files) sync* {
+  Iterable<Widget> buildUploadTasks(BuiltList<FilesTask> tasks, List<webdav.WebDavFile> files) sync* {
     for (final task in tasks) {
       if (task is! FilesUploadTask) {
         continue;

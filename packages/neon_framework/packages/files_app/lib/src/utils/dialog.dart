@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 /// Displays a [FilesCreateFolderDialog] for creating a new folder.
 ///
@@ -69,10 +69,10 @@ Future<bool> showUploadConfirmationDialog(
 /// Displays a [FilesChooseFolderDialog] to choose a new location for a file with the given [details].
 ///
 /// Returns a future with the new location.
-Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
+Future<webdav.PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
   final filesBloc = NeonProvider.of<FilesBloc>(context);
 
-  final result = await showDialog<PathUri>(
+  final result = await showDialog<webdav.PathUri>(
     context: context,
     builder: (context) => FilesChooseFolderDialog(
       bloc: filesBloc,
@@ -103,7 +103,7 @@ Future<bool> showDeleteConfirmationDialog(BuildContext context, FileDetails deta
     false;
 
 /// Displays an adaptive modal to select or create a file.
-Future<void> showFilesCreateModal(BuildContext context, PathUri uri) {
+Future<void> showFilesCreateModal(BuildContext context, webdav.PathUri uri) {
   final theme = Theme.of(context);
   final bloc = NeonProvider.of<FilesBloc>(context);
 

@@ -2,7 +2,7 @@ import 'package:files_app/l10n/localizations.dart';
 import 'package:files_app/src/blocs/files.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/theme.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 class FilesBrowserNavigator extends StatelessWidget {
   const FilesBrowserNavigator({
@@ -12,9 +12,9 @@ class FilesBrowserNavigator extends StatelessWidget {
     super.key,
   });
 
-  final PathUri uri;
+  final webdav.PathUri uri;
   final FilesBloc bloc;
-  final void Function(PathUri uri) setPath;
+  final void Function(webdav.PathUri uri) setPath;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +36,11 @@ class FilesBrowserNavigator extends StatelessWidget {
               ),
               tooltip: FilesLocalizations.of(context).goToPath(''),
               icon: Icon(AdaptiveIcons.house),
-              onPressed: () => setPath(PathUri.cwd()),
+              onPressed: () => setPath(webdav.PathUri.cwd()),
             );
           }
 
-          final partialPath = PathUri(
+          final partialPath = webdav.PathUri(
             isAbsolute: uri.isAbsolute,
             isDirectory: uri.isDirectory,
             pathSegments: uri.pathSegments.sublist(0, index),

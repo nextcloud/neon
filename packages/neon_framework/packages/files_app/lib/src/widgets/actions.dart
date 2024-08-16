@@ -6,7 +6,7 @@ import 'package:files_app/src/utils/dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 class FileActions extends StatelessWidget {
   const FileActions({
@@ -57,7 +57,7 @@ class FileActions extends StatelessWidget {
         final result = await showChooseFolderDialog(context, details);
 
         if (result != null) {
-          bloc.move(details.uri, result.join(PathUri.parse(details.name)));
+          bloc.move(details.uri, result.join(webdav.PathUri.parse(details.name)));
         }
       case FilesFileAction.copy:
         if (!context.mounted) {
@@ -66,7 +66,7 @@ class FileActions extends StatelessWidget {
 
         final result = await showChooseFolderDialog(context, details);
         if (result != null) {
-          bloc.copy(details.uri, result.join(PathUri.parse(details.name)));
+          bloc.copy(details.uri, result.join(webdav.PathUri.parse(details.name)));
         }
       case FilesFileAction.delete:
         if (!context.mounted) {

@@ -7,7 +7,7 @@ import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:rxdart/rxdart.dart';
 
 /// Mode to operate the `FilesBrowserView` in.
@@ -26,12 +26,12 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
     required FilesBloc filesBloc,
     required FilesOptions options,
     required Account account,
-    required PathUri uri,
+    required webdav.PathUri uri,
     required FilesBrowserMode mode,
-    PathUri? hideUri,
+    webdav.PathUri? hideUri,
   }) = _FilesBrowserBloc;
 
-  BehaviorSubject<Result<BuiltList<WebDavFile>>> get files;
+  BehaviorSubject<Result<BuiltList<webdav.WebDavFile>>> get files;
 
   /// Mode to operate the `FilesBrowserView` in.
   FilesBrowserMode get mode;
@@ -60,10 +60,10 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   final FilesOptions options;
   final Account account;
   late StreamSubscription<void> updatesSubscription;
-  final PathUri uri;
+  final webdav.PathUri uri;
   @override
   final FilesBrowserMode mode;
-  final PathUri? hideUri;
+  final webdav.PathUri? hideUri;
 
   @override
   void dispose() {
@@ -83,7 +83,7 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
       subject: files,
       getRequest: () => account.client.webdav.propfind_Request(
         uri,
-        prop: const WebDavPropWithoutValues.fromBools(
+        prop: const webdav.WebDavPropWithoutValues.fromBools(
           davGetcontenttype: true,
           davGetetag: true,
           davGetlastmodified: true,
@@ -92,10 +92,10 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
           ocSize: true,
           ocFavorite: true,
         ),
-        depth: WebDavDepth.one,
+        depth: webdav.WebDavDepth.one,
       ),
-      converter: const WebDavResponseConverter(),
-      unwrap: (response) => BuiltList<WebDavFile>.build((b) {
+      converter: const webdav.WebDavResponseConverter(),
+      unwrap: (response) => BuiltList<webdav.WebDavFile>.build((b) {
         for (final file in response.toWebDavFiles()) {
           // Do not show itself
           if (uri == file.path) {

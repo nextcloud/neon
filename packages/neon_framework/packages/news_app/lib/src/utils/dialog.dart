@@ -3,12 +3,12 @@ import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:news_app/l10n/localizations.dart';
 import 'package:news_app/src/widgets/dialog.dart';
-import 'package:nextcloud/news.dart';
+import 'package:nextcloud/news.dart' as news;
 
 /// Displays a [NeonConfirmationDialog] to confirm the deletion of the given [feed].
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showDeleteFeedDialog(BuildContext context, Feed feed) async {
+Future<bool> showDeleteFeedDialog(BuildContext context, news.Feed feed) async {
   final content = NewsLocalizations.of(context).feedRemoveConfirm(feed.title);
 
   final result = await showAdaptiveDialog<bool>(

@@ -10,7 +10,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 import 'package:open_filex/open_filex.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -26,27 +26,27 @@ sealed class FilesBloc implements InteractiveBloc {
     required Account account,
   }) = _FilesBloc;
 
-  void uploadFile(PathUri uri, String localPath);
+  void uploadFile(webdav.PathUri uri, String localPath);
 
-  void uploadMemory(PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified});
+  void uploadMemory(webdav.PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified});
 
-  void openFile(PathUri uri, String etag, String? mimeType);
+  void openFile(webdav.PathUri uri, String etag, String? mimeType);
 
-  void shareFileNative(PathUri uri, String etag, String? mimeType);
+  void shareFileNative(webdav.PathUri uri, String etag, String? mimeType);
 
-  void delete(PathUri uri);
+  void delete(webdav.PathUri uri);
 
-  void rename(PathUri uri, String name);
+  void rename(webdav.PathUri uri, String name);
 
-  void move(PathUri uri, PathUri destination);
+  void move(webdav.PathUri uri, webdav.PathUri destination);
 
-  void copy(PathUri uri, PathUri destination);
+  void copy(webdav.PathUri uri, webdav.PathUri destination);
 
-  void addFavorite(PathUri uri);
+  void addFavorite(webdav.PathUri uri);
 
-  void removeFavorite(PathUri uri);
+  void removeFavorite(webdav.PathUri uri);
 
-  void createFolder(PathUri uri);
+  void createFolder(webdav.PathUri uri);
 
   BehaviorSubject<BuiltList<FilesTask>> get tasks;
 
@@ -97,7 +97,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> uploadFile(PathUri uri, String localPath) async {
+  Future<void> uploadFile(webdav.PathUri uri, String localPath) async {
     await wrapAction(
       () async {
         final task = FilesUploadTaskIO(
@@ -113,7 +113,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> uploadMemory(PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified}) async {
+  Future<void> uploadMemory(webdav.PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified}) async {
     await wrapAction(
       () async {
         final task = FilesUploadTaskMemory(
@@ -131,7 +131,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> openFile(PathUri uri, String etag, String? mimeType) async {
+  Future<void> openFile(webdav.PathUri uri, String etag, String? mimeType) async {
     await wrapAction(
       () async {
         if (NeonPlatform.instance.canUsePaths) {
@@ -150,7 +150,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> shareFileNative(PathUri uri, String etag, String? mimeType) async {
+  Future<void> shareFileNative(webdav.PathUri uri, String etag, String? mimeType) async {
     await wrapAction(
       () async {
         if (NeonPlatform.instance.canUsePaths) {
@@ -165,12 +165,12 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> delete(PathUri uri) async {
+  Future<void> delete(webdav.PathUri uri) async {
     await wrapAction(() async => account.client.webdav.delete(uri));
   }
 
   @override
-  Future<void> rename(PathUri uri, String name) async {
+  Future<void> rename(webdav.PathUri uri, String name) async {
     await wrapAction(
       () async => account.client.webdav.move(
         uri,
@@ -180,41 +180,41 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  Future<void> move(PathUri uri, PathUri destination) async {
+  Future<void> move(webdav.PathUri uri, webdav.PathUri destination) async {
     await wrapAction(() async => account.client.webdav.move(uri, destination));
   }
 
   @override
-  Future<void> copy(PathUri uri, PathUri destination) async {
+  Future<void> copy(webdav.PathUri uri, webdav.PathUri destination) async {
     await wrapAction(() async => account.client.webdav.copy(uri, destination));
   }
 
   @override
-  Future<void> addFavorite(PathUri uri) async {
+  Future<void> addFavorite(webdav.PathUri uri) async {
     await wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
-        set: const WebDavProp(ocFavorite: true),
+        set: const webdav.WebDavProp(ocFavorite: true),
       ),
     );
   }
 
   @override
-  Future<void> removeFavorite(PathUri uri) async {
+  Future<void> removeFavorite(webdav.PathUri uri) async {
     await wrapAction(
       () async => account.client.webdav.proppatch(
         uri,
-        set: const WebDavProp(ocFavorite: false),
+        set: const webdav.WebDavProp(ocFavorite: false),
       ),
     );
   }
 
   @override
-  Future<void> createFolder(PathUri uri) async {
+  Future<void> createFolder(webdav.PathUri uri) async {
     await wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 
-  Future<File> cacheFile(PathUri uri, String etag) async {
+  Future<File> cacheFile(webdav.PathUri uri, String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
 
@@ -229,7 +229,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     return file;
   }
 
-  Future<void> downloadIO(PathUri uri, File file) async {
+  Future<void> downloadIO(webdav.PathUri uri, File file) async {
     final task = FilesDownloadTaskIO(
       uri: uri,
       file: file,
@@ -240,7 +240,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     tasks.add(tasks.value.rebuild((b) => b.remove(task)));
   }
 
-  Future<Uint8List> downloadMemory(PathUri uri) async {
+  Future<Uint8List> downloadMemory(webdav.PathUri uri) async {
     final task = FilesDownloadTaskMemory(uri: uri);
 
     // We need to listen to the stream, otherwise it will get stuck.

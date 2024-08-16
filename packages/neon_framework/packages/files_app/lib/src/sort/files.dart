@@ -1,9 +1,9 @@
 import 'package:files_app/src/options.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:nextcloud/utils.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
-final filesSortBox = SortBox<FilesSortProperty, WebDavFile>(
+final filesSortBox = SortBox<FilesSortProperty, webdav.WebDavFile>(
   properties: {
     FilesSortProperty.name: (file) => file.name.toLowerCase(),
     FilesSortProperty.modifiedDate: (file) => file.lastModified?.secondsSinceEpoch ?? 0,

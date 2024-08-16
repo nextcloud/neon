@@ -12,7 +12,7 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
-import 'package:nextcloud/webdav.dart';
+import 'package:nextcloud/webdav.dart' as webdav;
 
 class FileListTile extends StatelessWidget {
   const FileListTile({
@@ -26,7 +26,7 @@ class FileListTile extends StatelessWidget {
   final FilesBloc bloc;
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
-  final void Function(PathUri uri) setPath;
+  final void Function(webdav.PathUri uri) setPath;
 
   Future<void> _onTap(BuildContext context, FileDetails details) async {
     if (details.isDirectory) {
