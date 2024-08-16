@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/theme/icons.dart';
 import 'package:neon_framework/src/theme/sizes.dart';
 import 'package:neon_framework/src/widgets/image.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
-import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/models.dart';
 
 /// Creates an [Account] connected to a fake server defined by [requests].
 ///

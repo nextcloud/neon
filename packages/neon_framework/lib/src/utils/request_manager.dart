@@ -8,7 +8,6 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/utils.dart';
