@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui';
 
+import 'package:account_repository/account_repository.dart';
 import 'package:crypto/crypto.dart';
 import 'package:crypton/crypton.dart';
 import 'package:flutter/widgets.dart';
@@ -12,18 +13,18 @@ import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/theme/colors.dart';
-import 'package:neon_framework/src/utils/findable.dart';
+import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
+import 'package:neon_framework/src/utils/user_agent.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -114,9 +115,20 @@ class PushUtils {
         _log.fine('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
         final localizations = await appLocalizationsFromSystem();
+        final packageInfo = await PackageInfo.fromPlatform();
+        final accountStorage = AccountStorage(
+          accountsPersistence: NeonStorage().singleValueStore(StorageKeys.accounts),
+          lastAccountPersistence: NeonStorage().singleValueStore(StorageKeys.lastUsedAccount),
+        );
+        final accountRepository = AccountRepository(
+          userAgent: buildUserAgent(packageInfo),
+          httpClient: http.Client(),
+          storage: accountStorage,
+        );
 
-        final accounts = loadAccounts();
-        final account = accounts.tryFind(instance);
+        await accountRepository.loadAccounts();
+        final accounts = (await accountRepository.accounts.first).accounts;
+        final account = accountRepository.accountByID(instance);
 
         notifications.Notification? notification;
         AndroidBitmap<Object>? largeIconBitmap;

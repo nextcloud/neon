@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:account_repository/account_repository.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,10 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/l10n/localizations.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/maintenance_mode.dart';
 import 'package:neon_framework/src/blocs/unified_search.dart';
-import 'package:neon_framework/src/models/account.dart';
-import 'package:neon_framework/src/models/app_implementation.dart';
-import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
@@ -62,6 +61,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   late final AccountsBloc _accountsBloc;
   late final _routerDelegate = buildAppRouter(
     navigatorKey: _navigatorKey,
+    accountRepository: context.read<AccountRepository>(),
   );
 
   @override

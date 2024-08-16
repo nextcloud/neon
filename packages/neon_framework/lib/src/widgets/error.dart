@@ -73,7 +73,7 @@ class NeonError extends StatelessWidget {
         action: details.isUnauthorized
             ? SnackBarAction(
                 label: NeonLocalizations.of(context).loginAgain,
-                onPressed: () => _openLoginPage(context),
+                onPressed: () async => _openLoginPage(context),
               )
             : null,
       ),
@@ -102,7 +102,7 @@ class NeonError extends StatelessWidget {
     final actionMessage =
         details.isUnauthorized ? NeonLocalizations.of(context).loginAgain : NeonLocalizations.of(context).actionRetry;
 
-    final onPressed = details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
+    final onPressed = details.isUnauthorized ? () async => _openLoginPage(context) : onRetry;
 
     switch (type) {
       case NeonErrorType.iconOnly:
@@ -153,11 +153,9 @@ class NeonError extends StatelessWidget {
     }
   }
 
-  static void _openLoginPage(BuildContext context) {
-    unawaited(
-      LoginCheckServerStatusRoute(
-        serverUrl: NeonProvider.of<Account>(context).serverURL,
-      ).push(context),
-    );
+  static Future<void> _openLoginPage(BuildContext context) async {
+    await LoginRoute(
+      serverUrl: NeonProvider.of<Account>(context).serverURL,
+    ).push<void>(context);
   }
 }

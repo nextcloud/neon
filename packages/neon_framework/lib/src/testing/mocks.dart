@@ -2,6 +2,8 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:http/http.dart';
+import 'package:http/testing.dart';
 // ignore: depend_on_referenced_packages
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/blocs.dart';
@@ -15,6 +17,7 @@ import 'package:neon_framework/src/settings/models/exportable.dart';
 import 'package:neon_framework/src/storage/persistence.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/storage.dart';
+import 'package:neon_framework/testing.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 // ignore: depend_on_referenced_packages
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -28,11 +31,15 @@ Account MockAccount({
   String username = 'username',
   String password = 'password',
 }) {
-  return Account(
-    (b) => b
-      ..serverURL = Uri.parse(serverURL)
-      ..username = username
-      ..password = password,
+  return createAccount(
+    credentials: createCredentials(
+      serverURL: Uri.parse(serverURL),
+      username: username,
+      password: password,
+    ),
+    httpClient: MockClient((_) async {
+      throw ClientException('The fake account client can not be used in tests.');
+    }),
   );
 }
 

@@ -145,37 +145,37 @@ abstract class NeonLocalizations {
   /// **'Login using the server address'**
   String get loginUsingServerAddress;
 
-  /// No description provided for @loginCheckingServerVersion.
+  /// When the server version is checked an not yet known
   ///
   /// In en, this message translates to:
   /// **'Checking server version'**
-  String get loginCheckingServerVersion;
+  String get loginServerVersion;
 
-  /// No description provided for @loginSupportedServerVersion.
+  /// When the server version is known and supported
   ///
   /// In en, this message translates to:
   /// **'Supported server version: {version}'**
-  String loginSupportedServerVersion(String version);
+  String loginServerVersionSupported(String version);
 
-  /// No description provided for @loginUnsupportedServerVersion.
+  /// When the server version is known but unsupported
   ///
   /// In en, this message translates to:
-  /// **'Unsupported server version: {version}'**
-  String loginUnsupportedServerVersion(String version);
+  /// **'Unsupported server version: {version}}'**
+  String loginServerVersionUnsupported(String version);
 
-  /// No description provided for @loginCheckingMaintenanceMode.
+  /// when the maintenance mode is loaded from the server
   ///
   /// In en, this message translates to:
   /// **'Checking maintenance mode'**
-  String get loginCheckingMaintenanceMode;
+  String get loginMaintenanceMode;
 
-  /// No description provided for @loginMaintenanceModeEnabled.
+  /// When the maintenance mode is enabled
   ///
   /// In en, this message translates to:
   /// **'Maintenance mode enabled'**
   String get loginMaintenanceModeEnabled;
 
-  /// No description provided for @loginMaintenanceModeDisabled.
+  /// When the maintenance mode is disabled
   ///
   /// In en, this message translates to:
   /// **'Maintenance mode disabled'**

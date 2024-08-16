@@ -14,26 +14,42 @@
   "loginWorksWith": "works with",
   "loginUsingQRcode": "Login using a QR code",
   "loginUsingServerAddress": "Login using the server address",
-  "loginCheckingServerVersion": "Checking server version",
-  "loginSupportedServerVersion": "Supported server version: {version}",
-  "@loginSupportedServerVersion": {
+  "loginServerVersion": "Checking server version",
+  "@loginServerVersion": {
+    "description": "When the server version is checked an not yet known"
+  },
+  "loginServerVersionSupported": "Supported server version: {version}",
+  "@loginServerVersionSupported": {
+    "description": "When the server version is known and supported",
     "placeholders": {
       "version": {
-        "type": "String"
+        "type": "String",
+        "example": "29.0.0"
       }
     }
   },
-  "loginUnsupportedServerVersion": "Unsupported server version: {version}",
-  "@loginUnsupportedServerVersion": {
+  "loginServerVersionUnsupported": "Unsupported server version: {version}}",
+  "@loginServerVersionUnsupported": {
+    "description": "When the server version is known but unsupported",
     "placeholders": {
       "version": {
-        "type": "String"
+        "type": "String",
+        "example": "29.0.0"
       }
     }
   },
-  "loginCheckingMaintenanceMode": "Checking maintenance mode",
+  "loginMaintenanceMode": "Checking maintenance mode",
+  "@loginMaintenanceMode": {
+    "description": "when the maintenance mode is loaded from the server"
+  },
   "loginMaintenanceModeEnabled": "Maintenance mode enabled",
+  "@loginMaintenanceModeEnabled": {
+    "description": "When the maintenance mode is enabled"
+  },
   "loginMaintenanceModeDisabled": "Maintenance mode disabled",
+  "@loginMaintenanceModeDisabled": {
+    "description": "When the maintenance mode is disabled"
+  },
   "loginCheckingAccount": "Checking account",
   "errorCredentialsForAccountNoLongerMatch": "The credentials for this account no longer match",
   "errorBruteforceThrottled": "Your requests are throttled at the moment due to brute force protection",

@@ -7,6 +7,12 @@ environment:
   flutter: ^3.22.0
 
 dependencies:
+  account_repository:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_framework/packages/account_repository
+  bloc: ^8.1.4
+  bloc_concurrency: ^0.2.5
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
@@ -20,10 +26,12 @@ dependencies:
   dynamic_color: ^1.0.0
   dynamite_runtime: ^0.5.0
   emoji_picker_flutter: ^3.0.0
+  equatable: ^2.0.0
   file_picker: ^8.0.0+1
   filesize: ^2.0.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.6
   flutter_blurhash: ^0.8.2
   flutter_local_notifications: ^17.0.0
   flutter_localizations:
@@ -71,6 +79,7 @@ dependencies:
   xml: ^6.0.0
 
 dev_dependencies:
+  bloc_test: ^9.1.7
   build_runner: ^2.4.12
   built_value_generator: ^8.9.2
   cookie_store_conformance_tests:
@@ -86,7 +95,9 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
+  plugin_platform_interface: ^2.1.8
   shared_preferences: ^2.3.2
+  url_launcher_platform_interface: ^2.3.2
   vector_graphics_compiler: ^1.1.11+1
   version: ^3.0.2
 

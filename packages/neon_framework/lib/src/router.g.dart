@@ -27,29 +27,6 @@ RouteBase get $homeRoute => GoRouteData.$route(
               factory: $AppImplementationSettingsRouteExtension._fromState,
             ),
             GoRouteData.$route(
-              path: 'account/add',
-              name: 'addAccount',
-              factory: $_AddAccountRouteExtension._fromState,
-              routes: [
-                GoRouteData.$route(
-                  path: 'flow',
-                  factory: $_AddAccountFlowRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'qr-code',
-                  factory: $_AddAccountQRcodeRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'check/server',
-                  factory: $_AddAccountCheckServerStatusRouteExtension._fromState,
-                ),
-                GoRouteData.$route(
-                  path: 'check/account',
-                  factory: $_AddAccountCheckAccountRouteExtension._fromState,
-                ),
-              ],
-            ),
-            GoRouteData.$route(
               path: 'account/:accountID',
               name: 'AccountSettings',
               factory: $AccountSettingsRouteExtension._fromState,
@@ -125,105 +102,6 @@ extension $AppImplementationSettingsRouteExtension on AppImplementationSettingsR
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $_AddAccountRouteExtension on _AddAccountRoute {
-  static _AddAccountRoute _fromState(GoRouterState state) => const _AddAccountRoute();
-
-  String get location => GoRouteData.$location(
-        '/settings/account/add',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $_AddAccountFlowRouteExtension on _AddAccountFlowRoute {
-  static _AddAccountFlowRoute _fromState(GoRouterState state) => _AddAccountFlowRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/settings/account/add/flow',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $_AddAccountQRcodeRouteExtension on _AddAccountQRcodeRoute {
-  static _AddAccountQRcodeRoute _fromState(GoRouterState state) => const _AddAccountQRcodeRoute();
-
-  String get location => GoRouteData.$location(
-        '/settings/account/add/qr-code',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $_AddAccountCheckServerStatusRouteExtension on _AddAccountCheckServerStatusRoute {
-  static _AddAccountCheckServerStatusRoute _fromState(GoRouterState state) => _AddAccountCheckServerStatusRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/settings/account/add/check/server',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $_AddAccountCheckAccountRouteExtension on _AddAccountCheckAccountRoute {
-  static _AddAccountCheckAccountRoute _fromState(GoRouterState state) => _AddAccountCheckAccountRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-        loginName: state.uri.queryParameters['login-name']!,
-        password: state.uri.queryParameters['password']!,
-      );
-
-  String get location => GoRouteData.$location(
-        '/settings/account/add/check/account',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-          'login-name': loginName,
-          'password': password,
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
 extension $AccountSettingsRouteExtension on AccountSettingsRoute {
   static AccountSettingsRoute _fromState(GoRouterState state) => AccountSettingsRoute(
         accountID: state.pathParameters['accountID']!,
@@ -259,141 +137,19 @@ RouteBase get $loginRoute => GoRouteData.$route(
       path: '/login',
       name: 'login',
       factory: $LoginRouteExtension._fromState,
-      routes: [
-        GoRouteData.$route(
-          path: 'flow',
-          factory: $LoginFlowRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'qr-code',
-          factory: $LoginQRcodeRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'check/server',
-          factory: $LoginCheckServerStatusRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'check/server/:loginName/:password',
-          factory: $LoginCheckServerStatusWithCredentialsRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'check/account',
-          factory: $LoginCheckAccountRouteExtension._fromState,
-        ),
-      ],
     );
 
 extension $LoginRouteExtension on LoginRoute {
-  static LoginRoute _fromState(GoRouterState state) => const LoginRoute();
+  static LoginRoute _fromState(GoRouterState state) => LoginRoute(
+        serverUrl: _$convertMapValue('server-url', state.uri.queryParameters, Uri.parse),
+        qrCode: state.uri.queryParameters['qr-code'],
+      );
 
   String get location => GoRouteData.$location(
         '/login',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $LoginFlowRouteExtension on LoginFlowRoute {
-  static LoginFlowRoute _fromState(GoRouterState state) => LoginFlowRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/login/flow',
         queryParams: {
-          'server-url': serverUrl.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $LoginQRcodeRouteExtension on LoginQRcodeRoute {
-  static LoginQRcodeRoute _fromState(GoRouterState state) => const LoginQRcodeRoute();
-
-  String get location => GoRouteData.$location(
-        '/login/qr-code',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $LoginCheckServerStatusRouteExtension on LoginCheckServerStatusRoute {
-  static LoginCheckServerStatusRoute _fromState(GoRouterState state) => LoginCheckServerStatusRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/login/check/server',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $LoginCheckServerStatusWithCredentialsRouteExtension on LoginCheckServerStatusWithCredentialsRoute {
-  static LoginCheckServerStatusWithCredentialsRoute _fromState(GoRouterState state) =>
-      LoginCheckServerStatusWithCredentialsRoute(
-        loginName: state.pathParameters['loginName']!,
-        password: state.pathParameters['password']!,
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-      );
-
-  String get location => GoRouteData.$location(
-        '/login/check/server/${Uri.encodeComponent(loginName)}/${Uri.encodeComponent(password)}',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-        },
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) => context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-extension $LoginCheckAccountRouteExtension on LoginCheckAccountRoute {
-  static LoginCheckAccountRoute _fromState(GoRouterState state) => LoginCheckAccountRoute(
-        serverUrl: Uri.parse(state.uri.queryParameters['server-url']!),
-        loginName: state.uri.queryParameters['login-name']!,
-        password: state.uri.queryParameters['password']!,
-      );
-
-  String get location => GoRouteData.$location(
-        '/login/check/account',
-        queryParams: {
-          'server-url': serverUrl.toString(),
-          'login-name': loginName,
-          'password': password,
+          if (serverUrl != null) 'server-url': serverUrl!.toString(),
+          if (qrCode != null) 'qr-code': qrCode,
         },
       );
 

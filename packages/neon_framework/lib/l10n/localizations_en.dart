@@ -52,20 +52,20 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get loginUsingServerAddress => 'Login using the server address';
 
   @override
-  String get loginCheckingServerVersion => 'Checking server version';
+  String get loginServerVersion => 'Checking server version';
 
   @override
-  String loginSupportedServerVersion(String version) {
+  String loginServerVersionSupported(String version) {
     return 'Supported server version: $version';
   }
 
   @override
-  String loginUnsupportedServerVersion(String version) {
+  String loginServerVersionUnsupported(String version) {
     return 'Unsupported server version: $version';
   }
 
   @override
-  String get loginCheckingMaintenanceMode => 'Checking maintenance mode';
+  String get loginMaintenanceMode => 'Checking maintenance mode';
 
   @override
   String get loginMaintenanceModeEnabled => 'Maintenance mode enabled';

@@ -1,10 +1,12 @@
+import 'package:account_repository/account_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/testing.dart';
-import 'package:neon_framework/utils.dart';
+
+class _MockAccountRepository extends Mock implements AccountRepository {}
 
 void main() {
   group('redirect', () {
@@ -19,17 +21,23 @@ void main() {
       final state = MockGoRouterState();
       when(() => state.uri).thenReturn(Uri.parse('nc://login/user:JohnDoe&password:super_secret&server:example.com'));
 
-      expect(redirect(context, state), '/login/check/server/JohnDoe/super_secret?server-url=example.com');
+      expect(
+        redirect(context, state),
+        Uri(
+          path: '/login',
+          queryParameters: {'qr-code': 'nc://login/user:JohnDoe&password:super_secret&server:example.com'},
+        ).toString(),
+      );
     });
 
     testWidgets('Login', (tester) async {
-      final accountsBloc = MockAccountsBloc();
-      when(() => accountsBloc.hasAccounts).thenReturn(false);
+      final accountRepository = _MockAccountRepository();
+      when(() => accountRepository.hasAccounts).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
-            NeonProvider<AccountsBloc>.value(value: accountsBloc),
+            RepositoryProvider<AccountRepository>.value(value: accountRepository),
           ],
           child: Container(),
         ),
@@ -41,10 +49,6 @@ void main() {
       when(() => state.uri).thenReturn(Uri.parse('/test'));
       when(() => state.matchedLocation).thenReturn('/test');
       expect(redirect(context, state), '/login');
-
-      when(() => state.uri).thenReturn(Uri.parse('/login/test'));
-      when(() => state.matchedLocation).thenReturn('/login/test');
-      expect(redirect(context, state), null);
     });
   });
 }
