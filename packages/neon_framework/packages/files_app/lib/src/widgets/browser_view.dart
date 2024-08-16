@@ -12,36 +12,52 @@ import 'package:files_app/src/widgets/file_list_tile.dart';
 import 'package:files_app/src/widgets/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart';
 
 class FilesBrowserView extends StatefulWidget {
-  const FilesBrowserView({
-    required this.bloc,
+  FilesBrowserView({
     required this.filesBloc,
-    super.key,
-  });
+    required this.uri,
+    required this.mode,
+    required this.setPath,
+    this.hideUri,
+  }) : super(key: Key(uri.toString()));
 
-  final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
+  final PathUri uri;
+  final FilesBrowserMode mode;
+  final void Function(PathUri uri) setPath;
+  final PathUri? hideUri;
 
   @override
   State<FilesBrowserView> createState() => _FilesBrowserViewState();
 }
 
 class _FilesBrowserViewState extends State<FilesBrowserView> {
-  late final StreamSubscription<Object> errorsSubscription;
   late final FilesOptions options;
+  late final FilesBrowserBloc bloc;
+  late final StreamSubscription<Object> errorsSubscription;
 
   @override
   void initState() {
-    errorsSubscription = widget.bloc.errors.listen((error) {
+    options = NeonProvider.of<FilesOptions>(context);
+
+    bloc = FilesBrowserBloc(
+      filesBloc: widget.filesBloc,
+      options: options,
+      account: NeonProvider.of<Account>(context),
+      uri: widget.uri,
+      mode: widget.mode,
+      hideUri: widget.hideUri,
+    );
+
+    errorsSubscription = bloc.errors.listen((error) {
       NeonError.showSnackbar(context, error);
     });
-
-    options = NeonProvider.of<FilesOptions>(context);
 
     super.initState();
   }
@@ -49,6 +65,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   void dispose() {
     unawaited(errorsSubscription.cancel());
+    bloc.dispose();
 
     super.dispose();
   }
@@ -56,72 +73,57 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   Widget build(BuildContext context) {
     return ResultBuilder.behaviorSubject(
-      subject: widget.bloc.files,
+      subject: bloc.files,
       builder: (context, filesSnapshot) => StreamBuilder(
-        stream: widget.bloc.uri,
-        builder: (context, uriSnapshot) => StreamBuilder(
-          stream: widget.filesBloc.tasks,
-          builder: (context, tasksSnapshot) {
-            if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
-              return const SizedBox();
-            }
-            return BackButtonListener(
-              onBackButtonPressed: () async {
-                final parent = uriSnapshot.requireData.parent;
-                if (parent != null) {
-                  widget.bloc.setPath(parent);
-                  return true;
-                }
-                return false;
+        stream: widget.filesBloc.tasks,
+        builder: (context, tasksSnapshot) => SortBoxBuilder(
+          sortBox: filesSortBox,
+          sortProperty: options.filesSortPropertyOption,
+          sortBoxOrder: options.filesSortBoxOrderOption,
+          presort: const {
+            (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
+          },
+          input: filesSnapshot.data?.toList(),
+          builder: (context, sorted) {
+            final uploadingTaskTiles =
+                tasksSnapshot.hasData ? buildUploadTasks(tasksSnapshot.requireData, sorted) : null;
+
+            return NeonListView(
+              scrollKey: 'files-${widget.uri.path}',
+              itemCount: sorted.length,
+              itemBuilder: (context, index) {
+                final file = sorted[index];
+                final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
+                  (task) => file.name == task.uri.name && widget.uri == task.uri.parent,
+                );
+
+                final details = matchingTask != null
+                    ? FileDetails.fromTask(
+                        task: matchingTask,
+                        file: file,
+                      )
+                    : FileDetails.fromWebDav(
+                        file: file,
+                      );
+
+                return FileListTile(
+                  bloc: widget.filesBloc,
+                  browserBloc: bloc,
+                  details: details,
+                  setPath: widget.setPath,
+                );
               },
-              child: SortBoxBuilder(
-                sortBox: filesSortBox,
-                sortProperty: options.filesSortPropertyOption,
-                sortBoxOrder: options.filesSortBoxOrderOption,
-                presort: const {
-                  (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
-                },
-                input: filesSnapshot.data?.sublist(1).toList(),
-                builder: (context, sorted) {
-                  final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
-
-                  return NeonListView(
-                    scrollKey: 'files-${uriSnapshot.requireData.path}',
-                    itemCount: sorted.length,
-                    itemBuilder: (context, index) {
-                      final file = sorted[index];
-                      final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                        (task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
-                      );
-
-                      final details = matchingTask != null
-                          ? FileDetails.fromTask(
-                              task: matchingTask,
-                              file: file,
-                            )
-                          : FileDetails.fromWebDav(
-                              file: file,
-                            );
-
-                      return FileListTile(
-                        bloc: widget.filesBloc,
-                        browserBloc: widget.bloc,
-                        details: details,
-                      );
-                    },
-                    isLoading: filesSnapshot.isLoading,
-                    error: filesSnapshot.error,
-                    onRefresh: widget.bloc.refresh,
-                    topScrollingChildren: [
-                      FilesBrowserNavigator(
-                        uri: uriSnapshot.requireData,
-                        bloc: widget.bloc,
-                      ),
-                      ...uploadingTaskTiles,
-                    ],
-                  );
-                },
-              ),
+              isLoading: filesSnapshot.isLoading,
+              error: filesSnapshot.error,
+              onRefresh: bloc.refresh,
+              topScrollingChildren: [
+                FilesBrowserNavigator(
+                  uri: widget.uri,
+                  bloc: widget.filesBloc,
+                  setPath: widget.setPath,
+                ),
+                ...?uploadingTaskTiles,
+              ],
             );
           },
         ),
@@ -137,10 +139,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
 
       yield FileListTile(
         bloc: widget.filesBloc,
-        browserBloc: widget.bloc,
+        browserBloc: bloc,
         details: FileDetails.fromUploadTask(
           task: task,
         ),
+        setPath: widget.setPath,
       );
     }
   }

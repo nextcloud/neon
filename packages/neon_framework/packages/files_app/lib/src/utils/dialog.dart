@@ -1,5 +1,4 @@
 import 'package:files_app/l10n/localizations.dart';
-import 'package:files_app/src/blocs/browser.dart';
 import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/models/file_details.dart';
 import 'package:files_app/src/widgets/dialog.dart';
@@ -71,23 +70,16 @@ Future<bool> showUploadConfirmationDialog(
 ///
 /// Returns a future with the new location.
 Future<PathUri?> showChooseFolderDialog(BuildContext context, FileDetails details) async {
-  final bloc = NeonProvider.of<FilesBloc>(context);
-
-  final originalUri = details.uri;
-  final b = bloc.getNewFilesBrowserBloc(
-    initialUri: originalUri,
-    mode: FilesBrowserMode.selectDirectory,
-  );
+  final filesBloc = NeonProvider.of<FilesBloc>(context);
 
   final result = await showDialog<PathUri>(
     context: context,
     builder: (context) => FilesChooseFolderDialog(
-      bloc: b,
-      filesBloc: bloc,
-      originalPath: originalUri,
+      bloc: filesBloc,
+      uri: details.uri.parent!,
+      hideUri: details.uri,
     ),
   );
-  b.dispose();
 
   return result;
 }
@@ -111,7 +103,7 @@ Future<bool> showDeleteConfirmationDialog(BuildContext context, FileDetails deta
     false;
 
 /// Displays an adaptive modal to select or create a file.
-Future<void> showFilesCreateModal(BuildContext context) {
+Future<void> showFilesCreateModal(BuildContext context, PathUri uri) {
   final theme = Theme.of(context);
   final bloc = NeonProvider.of<FilesBloc>(context);
 
@@ -122,14 +114,20 @@ Future<void> showFilesCreateModal(BuildContext context) {
     case TargetPlatform.windows:
       return showModalBottomSheet(
         context: context,
-        builder: (_) => FilesChooseCreateModal(bloc: bloc),
+        builder: (_) => FilesChooseCreateModal(
+          bloc: bloc,
+          uri: uri,
+        ),
       );
 
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
       return showCupertinoModalPopup(
         context: context,
-        builder: (_) => FilesChooseCreateModal(bloc: bloc),
+        builder: (_) => FilesChooseCreateModal(
+          bloc: bloc,
+          uri: uri,
+        ),
       );
   }
 }

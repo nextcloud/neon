@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/options.dart';
 import 'package:logging/logging.dart';
 import 'package:neon_framework/blocs.dart';
@@ -18,26 +19,19 @@ enum FilesBrowserMode {
 
   /// Select directory.
   selectDirectory,
-
-  /// Do not show file actions.
-  noActions,
 }
 
 sealed class FilesBrowserBloc implements InteractiveBloc {
   factory FilesBrowserBloc({
+    required FilesBloc filesBloc,
     required FilesOptions options,
     required Account account,
-    PathUri? initialPath,
-    FilesBrowserMode? mode,
+    required PathUri uri,
+    required FilesBrowserMode mode,
+    PathUri? hideUri,
   }) = _FilesBrowserBloc;
 
-  void setPath(PathUri uri);
-
-  void createFolder(PathUri uri);
-
   BehaviorSubject<Result<BuiltList<WebDavFile>>> get files;
-
-  BehaviorSubject<PathUri> get uri;
 
   /// Mode to operate the `FilesBrowserView` in.
   FilesBrowserMode get mode;
@@ -45,17 +39,16 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
 
 class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   _FilesBrowserBloc({
+    required this.filesBloc,
     required this.options,
     required this.account,
-    this.initialPath,
-    FilesBrowserMode? mode,
-  }) : mode = mode ?? FilesBrowserMode.browser {
-    final parent = initialPath?.parent;
-    if (parent != null) {
-      uri.add(parent);
-    }
-
+    required this.uri,
+    required this.mode,
+    this.hideUri,
+  }) {
     options.showHiddenFilesOption.addListener(refresh);
+
+    updatesSubscription = filesBloc.updates.listen((_) async => refresh());
 
     unawaited(refresh());
   }
@@ -63,20 +56,20 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   @override
   final log = Logger('FilesBrowserBloc');
 
+  final FilesBloc filesBloc;
   final FilesOptions options;
   final Account account;
-
+  late StreamSubscription<void> updatesSubscription;
+  final PathUri uri;
   @override
   final FilesBrowserMode mode;
-
-  final PathUri? initialPath;
+  final PathUri? hideUri;
 
   @override
   void dispose() {
     options.showHiddenFilesOption.removeListener(refresh);
-
+    unawaited(updatesSubscription.cancel());
     unawaited(files.close());
-    unawaited(uri.close());
     super.dispose();
   }
 
@@ -84,15 +77,12 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   final files = BehaviorSubject();
 
   @override
-  final uri = BehaviorSubject.seeded(PathUri.cwd());
-
-  @override
   Future<void> refresh() async {
     await RequestManager.instance.wrap(
       account: account,
       subject: files,
       getRequest: () => account.client.webdav.propfind_Request(
-        uri.value,
+        uri,
         prop: const WebDavPropWithoutValues.fromBools(
           davGetcontenttype: true,
           davGetetag: true,
@@ -107,13 +97,18 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
       converter: const WebDavResponseConverter(),
       unwrap: (response) => BuiltList<WebDavFile>.build((b) {
         for (final file in response.toWebDavFiles()) {
+          // Do not show itself
+          if (uri == file.path) {
+            continue;
+          }
+
           // Do not show files when selecting a directory
           if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
             continue;
           }
 
-          // Do not show itself when selecting a directory
-          if (mode == FilesBrowserMode.selectDirectory && initialPath == file.path) {
+          // Do not show the original directory when selecting a directory
+          if (mode == FilesBrowserMode.selectDirectory && hideUri == file.path) {
             continue;
           }
 
@@ -126,24 +121,5 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         }
       }),
     );
-  }
-
-  @override
-  Future<void> setPath(PathUri uri) async {
-    this.uri.add(uri);
-    await refresh();
-
-    // When the request fails (i.e by being offline) and the requested path
-    // is not cached return an empty list. To avoid re emitting the parent
-    // data.
-    final currentFiles = files.valueOrNull;
-    if (currentFiles != null && currentFiles.data?.first.path != uri) {
-      files.add(Result(null, currentFiles.error, isCached: true, isLoading: false));
-    }
-  }
-
-  @override
-  Future<void> createFolder(PathUri uri) async {
-    await wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 }
