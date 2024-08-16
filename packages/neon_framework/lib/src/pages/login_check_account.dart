@@ -2,17 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/blocs/login_check_account.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
-import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/account_tile.dart';
-import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/validation_tile.dart';
+import 'package:neon_framework/utils.dart';
 
 @internal
 class LoginCheckAccountPage extends StatefulWidget {
@@ -69,7 +67,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                     if (state.hasError)
                       Builder(
                         builder: (context) {
-                          final details = NeonError.getDetails(state.error);
+                          final details = NeonExceptionDetails.fromError(state.error);
                           return NeonValidationTile(
                             title: details.isUnauthorized
                                 ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
@@ -91,7 +89,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                                 const HomeRoute().pushReplacement(context);
                               }
                             : () {
-                                if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
+                                if (state.hasError && NeonExceptionDetails.fromError(state.error).isUnauthorized) {
                                   Navigator.pop(context);
                                   return;
                                 }
