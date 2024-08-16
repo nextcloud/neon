@@ -389,7 +389,7 @@ void main() {
     when(() => message.id).thenReturn(1);
 
     expect(
-      roomBloc.messages.transformResult((e) => BuiltList<int?>(e.map((m) => m.parent?.id))),
+      roomBloc.messages.transformResult((e) => BuiltList<int?>(e.map((m) => m.parent?.chatMessage?.id))),
       emitsInOrder([
         Result<BuiltList<int?>>.loading(),
         Result.success(BuiltList<int?>([1, 0, null])),
@@ -676,7 +676,8 @@ void main() {
       ]),
     );
     expect(
-      roomBloc.messages.transformResult((e) => BuiltList<spreed.MessageType?>(e.map((m) => m.parent?.messageType))),
+      roomBloc.messages
+          .transformResult((e) => BuiltList<spreed.MessageType?>(e.map((m) => m.parent?.chatMessage!.messageType))),
       emitsInOrder([
         Result<BuiltList<spreed.MessageType?>>.loading(),
         Result.success(

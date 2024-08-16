@@ -427,15 +427,18 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         builder.map((message) {
           // If there are multiple messages updating the same parent message only the newest is applied because it already contains all values
           for (final newHiddenMessage in newHiddenMessages) {
-            final parent = newHiddenMessage.parent!;
+            final hiddenMessageParent = newHiddenMessage.parent!;
+            final hiddenMessageParentID =
+                hiddenMessageParent.chatMessage?.id ?? hiddenMessageParent.deletedChatMessage!.id;
 
-            if (message.id == parent.id) {
+            if (message.id == hiddenMessageParentID) {
               // Conversion from ChatMessage to ChatMessageWithParent is necessary because parent messages can't have parents of their own
-              return spreed.ChatMessageWithParent.fromJson(parent.toJson());
+              return spreed.ChatMessageWithParent.fromJson(hiddenMessageParent.toJson()! as Map<String, dynamic>);
             }
 
-            if (message.parent?.id == parent.id) {
-              return message.rebuild((b) => b.parent.replace(parent));
+            final messageParentID = message.parent?.chatMessage?.id ?? message.parent?.deletedChatMessage?.id;
+            if (messageParentID == hiddenMessageParentID) {
+              return message.rebuild((b) => b.parent = hiddenMessageParent);
             }
           }
 
