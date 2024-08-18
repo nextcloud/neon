@@ -27,7 +27,7 @@ void main() {
 
       expect(
         createCredentials(),
-        isNot(equalsBuilt(createCredentials(password: null))),
+        isNot(equalsBuilt(createCredentials(appPassword: null))),
       );
     });
 
@@ -45,13 +45,13 @@ void main() {
             b
               ..serverURL = Uri.https('new-serverURL')
               ..username = 'new-username'
-              ..password = 'new-password';
+              ..appPassword = 'new-appPassword';
           }),
           equalsBuilt(
             createCredentials(
               serverURL: Uri.https('new-serverURL'),
               username: 'new-username',
-              password: 'new-password',
+              appPassword: 'new-appPassword',
             ),
           ),
         );
@@ -79,7 +79,7 @@ void main() {
       final credentialsWithDefaultPort = createCredentials(
         serverURL: Uri(scheme: 'http', host: 'example.com', port: 80),
         username: 'JohnDoe',
-        password: 'super_secret',
+        appPassword: 'super_secret',
       );
 
       expect(credentialsWithDefaultPort.humanReadableID, 'JohnDoe@example.com');
@@ -87,7 +87,7 @@ void main() {
       final credentialsWithPort = createCredentials(
         serverURL: Uri(scheme: 'http', host: 'example.com', port: 8080),
         username: 'JohnDoe',
-        password: 'super_secret',
+        appPassword: 'super_secret',
       );
 
       expect(credentialsWithPort.humanReadableID, 'JohnDoe@example.com:8080');
@@ -99,7 +99,7 @@ void main() {
           Credentials.fromJson({
             'serverURL': 'https://serverurl',
             'username': 'username',
-            'password': 'password',
+            'appPassword': 'appPassword',
           }),
           equalsBuilt(createCredentials()),
         );
@@ -111,7 +111,7 @@ void main() {
           equals({
             'serverURL': 'https://serverurl',
             'username': 'username',
-            'password': 'password',
+            'appPassword': 'appPassword',
           }),
         );
       });
@@ -124,7 +124,7 @@ void main() {
 Credentials {
   serverURL=https://serverurl,
   username=username,
-  password=password,
+  appPassword=appPassword,
 }'''),
       );
     });

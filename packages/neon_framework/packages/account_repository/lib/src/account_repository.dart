@@ -219,7 +219,7 @@ class AccountRepository {
         b
           ..serverURL = Uri.parse(response.server)
           ..username = response.loginName
-          ..password = response.appPassword;
+          ..appPassword = response.appPassword;
       });
     } on http.ClientException catch (error, stackTrace) {
       if (error case DynamiteStatusCodeException(statusCode: 404)) {

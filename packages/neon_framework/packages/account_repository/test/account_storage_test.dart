@@ -31,19 +31,19 @@ void main() {
       b
         ..serverURL = Uri.https('serverUrl')
         ..username = 'username'
-        ..password = 'password';
+        ..appPassword = 'appPassword';
     }),
     Credentials((b) {
       b
         ..serverURL = Uri.https('other-serverUrl')
         ..username = 'username'
-        ..password = 'password';
+        ..appPassword = 'appPassword';
     }),
   ];
 
   final serializedCredentials = BuiltList<String>([
-    '{"serverURL":"https://serverurl","username":"username","password":"password"}',
-    '{"serverURL":"https://other-serverurl","username":"username","password":"password"}',
+    '{"serverURL":"https://serverurl","username":"username","appPassword":"appPassword"}',
+    '{"serverURL":"https://other-serverurl","username":"username","appPassword":"appPassword"}',
   ]);
 
   group('AccountStorage', () {

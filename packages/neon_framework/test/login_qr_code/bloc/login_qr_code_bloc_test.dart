@@ -37,7 +37,7 @@ void main() {
               b
                 ..serverURL = Uri.https('example.com')
                 ..username = 'JohnDoe'
-                ..password = 'super_secret';
+                ..appPassword = 'super_secret';
             }),
           ),
         ],

@@ -57,7 +57,7 @@ final class LoginQRcode with EquatableMixin {
           b
             ..serverURL = Uri.parse(match.group(3)!)
             ..username = match.group(1)
-            ..password = match.group(2);
+            ..appPassword = match.group(2);
         }),
       );
     }
@@ -91,7 +91,7 @@ final class LoginQRcode with EquatableMixin {
   @override
   String toString() {
     final username = credentials.username;
-    final password = credentials.password;
+    final password = credentials.appPassword;
     final serverURL = credentials.serverURL;
 
     return 'nc://login/user:$username&password:$password&server:$serverURL';

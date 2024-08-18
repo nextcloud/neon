@@ -60,7 +60,7 @@ void main() {
             credentials: createCredentials(
               serverURL: Uri.https('new-serverURL'),
               username: 'new-username',
-              password: 'new-password',
+              appPassword: 'new-appPassword',
             ),
             invalid: true,
           ),
@@ -69,7 +69,7 @@ void main() {
               credentials: createCredentials(
                 serverURL: Uri.https('new-serverURL'),
                 username: 'new-username',
-                password: 'new-password',
+                appPassword: 'new-appPassword',
               ),
               invalid: true,
             ),

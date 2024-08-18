@@ -24,7 +24,6 @@ void main() {
     });
 
     final serverURL = Uri.https('serverURL');
-
     final credentials = createCredentials(
       serverURL: Uri.https('credentials_serverURL'),
     );

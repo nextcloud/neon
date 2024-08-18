@@ -19,9 +19,6 @@ abstract class Account implements Built<Account, AccountBuilder> {
   /// The user id.
   String get username => credentials.username;
 
-  /// App password.
-  String? get password => credentials.password;
-
   /// The unique ID of the account.
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].

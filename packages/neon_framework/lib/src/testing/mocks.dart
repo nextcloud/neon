@@ -29,13 +29,13 @@ import 'package:url_launcher_platform_interface/url_launcher_platform_interface.
 Account MockAccount({
   String serverURL = 'https://cloud.example.com:8443/nextcloud',
   String username = 'username',
-  String password = 'password',
+  String appPassword = 'appPassword',
 }) {
   return createAccount(
     credentials: createCredentials(
       serverURL: Uri.parse(serverURL),
       username: username,
-      password: password,
+      appPassword: appPassword,
     ),
     httpClient: MockClient((_) async {
       throw ClientException('The fake account client can not be used in tests.');

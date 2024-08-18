@@ -28,7 +28,7 @@ void main() {
         isNot(
           equals(
             createAccount(
-              credentials: createCredentials(password: null),
+              credentials: createCredentials(appPassword: null),
             ),
           ),
         ),
@@ -49,14 +49,14 @@ void main() {
             b.credentials
               ..serverURL = Uri.https('new-serverURL')
               ..username = 'new-username'
-              ..password = 'new-password';
+              ..appPassword = 'new-appPassword';
           }),
           equals(
             createAccount(
               credentials: createCredentials(
                 serverURL: Uri.https('new-serverURL'),
                 username: 'new-username',
-                password: 'new-password',
+                appPassword: 'new-appPassword',
               ),
             ),
           ),
@@ -71,7 +71,6 @@ void main() {
 
       expect(account.serverURL, equals(Uri(host: 'server')));
       expect(account.username, equals('username'));
-      expect(account.password, equals('password'));
       expect(account.id, equals('43c2c7ec8332735e75756dcb08c4fcc6c2b07071'));
       expect(account.humanReadableID, equals('username@server'));
     });
@@ -84,7 +83,7 @@ Account {
   credentials=Credentials {
     serverURL=https://serverurl,
     username=username,
-    password=password,
+    appPassword=appPassword,
   },
   client=Instance of 'NextcloudClient',
 }'''),
