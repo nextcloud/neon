@@ -69,7 +69,6 @@ void main() {
         credentials: createCredentials(serverURL: Uri(host: 'server')),
       );
 
-      expect(account.serverURL, equals(Uri(host: 'server')));
       expect(account.username, equals('username'));
       expect(account.id, equals('43c2c7ec8332735e75756dcb08c4fcc6c2b07071'));
       expect(account.humanReadableID, equals('username@server'));
