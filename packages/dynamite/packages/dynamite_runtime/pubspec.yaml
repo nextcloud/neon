@@ -21,7 +21,7 @@ dependencies:
   meta: ^1.0.0
 
 dev_dependencies:
-  build_runner: ^2.4.11
+  build_runner: ^2.4.12
   built_value_generator: ^8.9.2
   neon_lints:
     git:
