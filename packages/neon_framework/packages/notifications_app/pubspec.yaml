@@ -24,7 +24,7 @@ dependencies:
       url: https://github.com/nextcloud/neon
       path: packages/neon_framework
   nextcloud: ^7.0.0
-  rxdart: ^0.27.0
+  rxdart: ^0.28.0
   timezone: ^0.9.4
 
 dev_dependencies:
