@@ -1,14 +1,8 @@
 import 'dart:async';
 
 import 'package:cookie_store/cookie_store.dart';
-import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/src/storage/keys.dart';
-import 'package:neon_framework/src/storage/request_cache.dart';
-import 'package:neon_framework/src/storage/settings_store.dart';
-import 'package:neon_framework/src/storage/single_value_store.dart';
-import 'package:neon_framework/src/storage/sqlite_cookie_persistence.dart';
-import 'package:neon_framework/src/storage/sqlite_persistence.dart';
+import 'package:neon_framework/src/storage/storage.dart';
 
 /// Neon storage that manages the storage backend.
 ///
@@ -45,27 +39,23 @@ class NeonStorage {
       return;
     }
 
-    if (!kIsWeb) {
-      final requestCache = DefaultRequestCache();
-      await requestCache.init();
-      _requestCache = requestCache;
+    _neonCache = NeonCacheDB();
+    _neonData = NeonDataDB();
 
-      await SQLiteCookiePersistence.init();
-    }
-
-    await SQLiteCachedPersistence.init();
+    await _neonCache.init();
+    await _neonData.init();
 
     _initialized = true;
   }
 
-  /// Request cache instance.
-  RequestCache? _requestCache;
+  late NeonCacheDB _neonCache;
+  late NeonDataDB _neonData;
 
   /// The current request cache if available.
   RequestCache? get requestCache {
     _assertInitialized();
 
-    return _requestCache;
+    return _neonCache.requestCache;
   }
 
   /// Initializes a new `SettingsStorage`.
@@ -101,16 +91,9 @@ class NeonStorage {
   ///
   /// Cookies will only be sent to cookies matching the [serverURL].
   CookieStore? cookieStore({required String accountID, required Uri serverURL}) {
-    if (kIsWeb) {
-      return null;
-    }
+    _assertInitialized();
 
-    final persistence = SQLiteCookiePersistence(
-      accountID: accountID,
-      allowedBaseUri: serverURL,
-    );
-
-    return DefaultCookieStore(persistence);
+    return _neonCache.cookieStore(accountID: accountID, serverURL: serverURL);
   }
 
   void _assertInitialized() {

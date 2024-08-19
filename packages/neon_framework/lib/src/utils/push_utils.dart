@@ -15,7 +15,6 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/models/push_notification.dart';
-import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';

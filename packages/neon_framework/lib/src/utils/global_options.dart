@@ -5,7 +5,6 @@ import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
-import 'package:neon_framework/src/storage/keys.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';

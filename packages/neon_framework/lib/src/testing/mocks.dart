@@ -89,10 +89,6 @@ class FakeNeonStorage extends Fake implements NeonStorage {
   Null cookieStore({required String accountID, required Uri serverURL}) => null;
 }
 
-class MockCachedPersistence<T extends Object> extends Mock implements CachedPersistence<T> {}
-
-class MockPersistence<T extends Object> extends Mock implements Persistence<T> {}
-
 class MockSettingsStore extends Mock implements SettingsStore {}
 
 class MockSharedPreferencesPlatform extends Mock implements SharedPreferencesStorePlatform {

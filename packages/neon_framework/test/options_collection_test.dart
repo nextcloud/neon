@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/settings.dart';
-import 'package:neon_framework/src/storage/keys.dart';
+import 'package:neon_framework/storage.dart';
 import 'package:neon_framework/testing.dart';
 
 class Collection extends AppImplementationOptions {
