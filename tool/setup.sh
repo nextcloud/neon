@@ -10,7 +10,10 @@ echo "y" | fvm install
 
 if [ ! -v GITHUB_REPOSITORY ]; then
   fvm flutter precache
+  melos bootstrap
+else
+  melos exec -c1 -- flutter pub get
+  melos run format
 fi
 
-melos bootstrap
 fvm dart run husky install

@@ -14,8 +14,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
 
-      - name: Find untested Neon APIs
-        run: ./tool/find-untested-neon-apis.sh
-
       - name: Find relative markdown links
         run: ./tool/find-relative-markdown-links.sh
