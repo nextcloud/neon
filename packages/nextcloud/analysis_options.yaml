@@ -3,3 +3,8 @@ include: package:neon_lints/dart.yaml
 linter:
   rules:
     avoid_print: false
+
+analyzer:
+  exclude:
+    - 'lib/src/api/webdav/models/props.g.dart'
+    - 'lib/src/api/webdav/models/webdav.g.dart'

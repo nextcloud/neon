@@ -20,7 +20,6 @@ final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(Standard
 
 /// Credentials interface
 @internal
-@immutable
 abstract interface class Credentials {
   /// Url of the server
   abstract final Uri serverURL;
@@ -33,7 +32,6 @@ abstract interface class Credentials {
 }
 
 /// Account data.
-@immutable
 abstract class Account implements Credentials, Findable, Built<Account, AccountBuilder> {
   // ignore: public_member_api_docs
   factory Account([void Function(AccountBuilder)? updates]) = _$Account;
