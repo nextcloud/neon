@@ -7,7 +7,7 @@ part of 'push_notification.dart';
 // **************************************************************************
 
 Serializers _$_serializers = (Serializers().toBuilder()
-      ..add(DecryptedSubject.serializer)
+      ..add(notifications.DecryptedSubject.serializer)
       ..add(PushNotification.serializer))
     .build();
 Serializer<PushNotification> _$pushNotificationSerializer = _$PushNotificationSerializer();
@@ -29,7 +29,7 @@ class _$PushNotificationSerializer implements StructuredSerializer<PushNotificat
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'subject',
-      serializers.serialize(object.subject, specifiedType: const FullType(DecryptedSubject)),
+      serializers.serialize(object.subject, specifiedType: const FullType(notifications.DecryptedSubject)),
     ];
 
     return result;
@@ -56,8 +56,8 @@ class _$PushNotificationSerializer implements StructuredSerializer<PushNotificat
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'subject':
-          result.subject.replace(
-              serializers.deserialize(value, specifiedType: const FullType(DecryptedSubject))! as DecryptedSubject);
+          result.subject.replace(serializers.deserialize(value,
+              specifiedType: const FullType(notifications.DecryptedSubject))! as notifications.DecryptedSubject);
           break;
       }
     }
@@ -74,7 +74,7 @@ class _$PushNotification extends PushNotification {
   @override
   final String type;
   @override
-  final DecryptedSubject subject;
+  final notifications.DecryptedSubject subject;
 
   factory _$PushNotification([void Function(PushNotificationBuilder)? updates]) =>
       (PushNotificationBuilder()..update(updates))._build();
@@ -140,9 +140,9 @@ class PushNotificationBuilder implements Builder<PushNotification, PushNotificat
   String? get type => _$this._type;
   set type(String? type) => _$this._type = type;
 
-  DecryptedSubjectBuilder? _subject;
-  DecryptedSubjectBuilder get subject => _$this._subject ??= DecryptedSubjectBuilder();
-  set subject(DecryptedSubjectBuilder? subject) => _$this._subject = subject;
+  notifications.DecryptedSubjectBuilder? _subject;
+  notifications.DecryptedSubjectBuilder get subject => _$this._subject ??= notifications.DecryptedSubjectBuilder();
+  set subject(notifications.DecryptedSubjectBuilder? subject) => _$this._subject = subject;
 
   PushNotificationBuilder();
 

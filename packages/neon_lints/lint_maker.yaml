@@ -9,8 +9,6 @@ base:
       errors:
         flutter_style_todos: ignore
         todo: ignore
-      exclude:
-        - '**.g.dart'
     linter:
       rules:
         always_specify_types: false

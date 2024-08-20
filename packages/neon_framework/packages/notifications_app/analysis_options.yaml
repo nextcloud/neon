@@ -7,3 +7,4 @@ linter:
 analyzer:
   exclude:
     - lib/l10n/**
+    - '**/routes.g.dart'
