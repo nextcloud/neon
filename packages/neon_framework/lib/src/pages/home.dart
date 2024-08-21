@@ -63,10 +63,18 @@ class _HomePageState extends State<HomePage> {
     });
 
     maintenanceModeErrorsSubscription = maintenanceModeBloc.errors.listen((error) {
+      if (!mounted) {
+        return;
+      }
+
       NeonError.showSnackbar(context, error);
     });
 
     maintenanceModeSubscription = maintenanceModeBloc.onMaintenanceMode.listen((_) async {
+      if (!mounted) {
+        return;
+      }
+
       await showErrorDialog(
         context: context,
         message: NeonLocalizations.of(context).errorServerInMaintenanceMode,

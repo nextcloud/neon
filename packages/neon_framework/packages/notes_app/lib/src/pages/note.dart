@@ -49,6 +49,10 @@ class _NotesNotePageState extends State<NotesNotePage> {
     super.initState();
 
     errorsSubscription = widget.bloc.errors.listen((error) {
+      if (!mounted) {
+        return;
+      }
+
       handleNotesException(context, error);
     });
 

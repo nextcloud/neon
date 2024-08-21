@@ -4,7 +4,7 @@ version: 0.1.0
 publish_to: none
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ^3.22.0
 
 dependencies:
@@ -31,9 +31,10 @@ dev_dependencies:
   built_value_test: ^8.9.2
   flutter:
     sdk: flutter
+  flutter_test:
+    sdk: flutter
   mocktail: ^1.0.4
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/neon_lints
-  test: ^1.25.2

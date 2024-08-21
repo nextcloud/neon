@@ -3,7 +3,7 @@ version: 1.0.0
 publish_to: none
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   built_collection: ^5.1.1

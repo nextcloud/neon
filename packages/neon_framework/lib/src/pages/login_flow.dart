@@ -44,6 +44,10 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
     });
 
     resultSubscription = bloc.result.listen((result) async {
+      if (!mounted) {
+        return;
+      }
+
       await LoginCheckAccountRoute(
         serverUrl: Uri.parse(result.server),
         loginName: result.loginName,

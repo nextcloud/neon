@@ -47,6 +47,10 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     super.initState();
 
     errorsSubscription = widget.bloc.errors.listen((error) {
+      if (!mounted) {
+        return;
+      }
+
       NeonError.showSnackbar(context, error);
     });
 

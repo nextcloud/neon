@@ -38,6 +38,10 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
     bloc = NeonProvider.of<TalkRoomBloc>(context);
 
     errorsSubscription = bloc.errors.listen((error) {
+      if (!mounted) {
+        return;
+      }
+
       NeonError.showSnackbar(context, error);
     });
   }
