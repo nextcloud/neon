@@ -56,7 +56,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
     );
 
     errorsSubscription = bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
 
     super.initState();

@@ -34,7 +34,9 @@ class _NotesMainPageState extends State<NotesMainPage> {
     index = NeonProvider.of<NotesOptions>(context).defaultCategoryOption.value.index;
 
     errorsSubscription = bloc.errors.listen((error) {
-      handleNotesException(context, error);
+      if (mounted) {
+        handleNotesException(context, error);
+      }
     });
   }
 

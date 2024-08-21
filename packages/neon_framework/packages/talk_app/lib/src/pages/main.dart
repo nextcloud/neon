@@ -40,7 +40,9 @@ class _TalkMainPageState extends State<TalkMainPage> {
 
     bloc = NeonProvider.of<TalkBloc>(context);
     errorsSubscription = bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
   }
 

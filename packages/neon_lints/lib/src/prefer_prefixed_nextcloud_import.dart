@@ -37,8 +37,7 @@ Use `import 'package:nextcloud/<id>.dart' as <id>;` instead.
         return;
       }
 
-      // ignore: deprecated_member_use
-      reporter.reportErrorForToken(code, node.beginToken);
+      reporter.atToken(node.beginToken, _code);
     });
   }
 }

@@ -63,14 +63,18 @@ class _HomePageState extends State<HomePage> {
     });
 
     maintenanceModeErrorsSubscription = maintenanceModeBloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
 
     maintenanceModeSubscription = maintenanceModeBloc.onMaintenanceMode.listen((_) async {
-      await showErrorDialog(
-        context: context,
-        message: NeonLocalizations.of(context).errorServerInMaintenanceMode,
-      );
+      if (mounted) {
+        await showErrorDialog(
+          context: context,
+          message: NeonLocalizations.of(context).errorServerInMaintenanceMode,
+        );
+      }
     });
 
     GlobalPopups().register(context);

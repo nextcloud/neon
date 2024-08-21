@@ -190,7 +190,7 @@ class GlobalOptions extends OptionsCollection {
   /// Defaults to `false`.
   ///
   /// See:
-  ///   * [minimizeInsteadOfExit]: for an option to minimize instead of closing the app.
+  ///   * [startupMinimizeInsteadOfExit]: for an option to minimize instead of closing the app.
   late final startupMinimized = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimized,

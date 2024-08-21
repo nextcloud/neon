@@ -34,7 +34,9 @@ class _NewsMainPageState extends State<NewsMainPage> {
     index = NeonProvider.of<NewsOptions>(context).defaultCategoryOption.value.index;
 
     errorsSubscription = bloc.errors.listen((error) {
-      NeonError.showSnackbar(context, error);
+      if (mounted) {
+        NeonError.showSnackbar(context, error);
+      }
     });
   }
 

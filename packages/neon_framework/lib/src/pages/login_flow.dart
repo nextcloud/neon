@@ -43,11 +43,13 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
     });
 
     resultSubscription = bloc.result.listen((result) async {
-      await LoginCheckAccountRoute(
-        serverUrl: Uri.parse(result.server),
-        loginName: result.loginName,
-        password: result.appPassword,
-      ).push<LoginCheckAccountRoute>(context);
+      if (mounted) {
+        await LoginCheckAccountRoute(
+          serverUrl: Uri.parse(result.server),
+          loginName: result.loginName,
+          password: result.appPassword,
+        ).push<LoginCheckAccountRoute>(context);
+      }
     });
   }
 
