@@ -5,4 +5,4 @@ NEWS_URL=https://github.com/nextcloud/news/releases/download/25.0.0-alpha8/news.
 NOTES_URL=https://github.com/nextcloud-releases/notes/releases/download/v4.10.1/notes-v4.10.1.tar.gz
 SPREED_URL=https://github.com/nextcloud-releases/spreed/releases/download/v18.0.10/spreed-v18.0.10.tar.gz
 TABLES_URL=https://github.com/nextcloud-releases/tables/releases/download/v0.7.5/tables-v0.7.5.tar.gz
-UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/1.4.3.tar.gz
+UPPUSH_URL=https://codeberg.org/NextPush/uppush/archive/1.5.0.tar.gz
