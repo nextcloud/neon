@@ -1,5 +1,6 @@
+import 'dart:io' show Cookie, SameSite;
+
 import 'package:meta/meta.dart';
-import 'package:universal_io/io.dart';
 
 /// Converts the given cookies to strings containing only the [Cookie.name] and
 /// `Cookie.vale` and sorts the resulting list.

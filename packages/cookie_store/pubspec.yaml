@@ -9,7 +9,6 @@ environment:
 dependencies:
   meta: ^1.0.0
   timezone: ^0.9.4
-  universal_io: ^2.0.0
 
 dev_dependencies:
   cookie_store_conformance_tests:
