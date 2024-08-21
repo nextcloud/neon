@@ -1,12 +1,12 @@
 // ignore_for_file:   prefer_final_locals, omit_local_variable_types
 
 import 'dart:async';
+import 'dart:io' show Cookie;
 
 import 'package:cookie_store/src/cookie_persistence.dart';
 import 'package:cookie_store/src/storable_cookie.dart';
 import 'package:cookie_store/src/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:universal_io/io.dart' show Cookie;
 
 // DateTimes can represent time values that are at a distance of at most 100,000,000
 // days from epoch (1970-01-01 UTC): -271821-04-20 to 275760-09-13.

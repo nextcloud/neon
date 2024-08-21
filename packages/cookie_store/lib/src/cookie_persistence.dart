@@ -1,9 +1,9 @@
 import 'dart:async';
+import 'dart:io' show Cookie;
 
 import 'package:cookie_store/src/storable_cookie.dart';
 import 'package:cookie_store/src/utils.dart';
 import 'package:timezone/timezone.dart' as tz;
-import 'package:universal_io/io.dart' show Cookie;
 
 /// Interface for a Storage backend persisting [StorableCookie]s.
 ///
