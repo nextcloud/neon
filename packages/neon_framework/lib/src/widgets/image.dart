@@ -318,11 +318,19 @@ class NeonUriImage extends StatefulWidget {
 }
 
 class _NeonUriImageState extends State<NeonUriImage> {
+  late Uri uri;
   final image = BehaviorSubject<Result<Uint8List>>();
 
   @override
   void initState() {
     super.initState();
+
+    uri = widget.uri;
+    if (RegExp(r'/ocs/v2\.php/apps/spreed/api/v1/room/[a-z0-9]{4,30}/avatar$').hasMatch(uri.path)) {
+      uri = uri.replace(queryParameters: {...uri.queryParameters, 'darkTheme': '1'});
+    } else if (RegExp(r'/avatar/.+/[0-9]+$').hasMatch(uri.path)) {
+      uri = uri.replace(pathSegments: [...uri.pathSegments, 'dark']);
+    }
 
     unawaited(load());
   }
@@ -335,8 +343,8 @@ class _NeonUriImageState extends State<NeonUriImage> {
   }
 
   Future<void> load() async {
-    if (widget.uri.data != null) {
-      var data = widget.uri.data!.contentAsBytes();
+    if (uri.data != null) {
+      var data = uri.data!.contentAsBytes();
       try {
         data = utf8.encode(ImageUtils.rewriteSvgDimensions(utf8.decode(data)));
       } catch (_) {}
@@ -344,7 +352,7 @@ class _NeonUriImageState extends State<NeonUriImage> {
       return;
     }
 
-    final completedUri = widget.account.completeUri(widget.uri);
+    final completedUri = widget.account.completeUri(uri);
     final headers = widget.account.getAuthorizationHeaders(completedUri);
 
     await RequestManager.instance.wrap(
@@ -381,7 +389,7 @@ class _NeonUriImageState extends State<NeonUriImage> {
     return NeonImage(
       image: image,
       onRetry: load,
-      isSvgHint: widget.isSvgHint || (widget.uri.data?.mimeType.contains('svg') ?? false),
+      isSvgHint: widget.isSvgHint || (uri.data?.mimeType.contains('svg') ?? false),
       size: widget.size,
       fit: widget.fit,
       svgColorFilter: widget.svgColorFilter,
