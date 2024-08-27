@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/login_flow.dart';
 import 'package:neon_framework/src/router.dart';
@@ -39,7 +38,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
 
     initSubscription = bloc.init.listen((result) async {
       if (result.hasData) {
-        await launchUrl(NeonProvider.of<Account>(context), result.requireData.login);
+        await launchUrl(null, result.requireData.login);
       }
     });
 
