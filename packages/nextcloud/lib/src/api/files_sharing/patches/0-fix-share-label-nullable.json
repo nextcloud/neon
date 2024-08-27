@@ -1,0 +1,7 @@
+[
+  {
+    "op": "add",
+    "path": "/components/schemas/Share/properties/label/nullable",
+    "value": true
+  }
+]

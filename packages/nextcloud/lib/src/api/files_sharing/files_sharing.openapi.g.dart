@@ -1606,8 +1606,6 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       serializers.serialize(object.itemSource, specifiedType: const FullType(int)),
       'item_type',
       serializers.serialize(object.itemType, specifiedType: const FullType(Share_ItemType)),
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
       'mail_send',
       serializers.serialize(object.mailSend, specifiedType: const FullType(Share_MailSend)),
       'mimetype',
@@ -1647,6 +1645,12 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       result
         ..add('item_permissions')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.label;
+    if (value != null) {
+      result
+        ..add('label')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
     value = object.parent;
     if (value != null) {
@@ -1795,7 +1799,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
               serializers.deserialize(value, specifiedType: const FullType(Share_ItemType))! as Share_ItemType;
           break;
         case 'label':
-          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'mail_send':
           result.mailSend =
@@ -8511,7 +8515,7 @@ class _$Share extends Share {
   @override
   final Share_ItemType itemType;
   @override
-  final String label;
+  final String? label;
   @override
   final Share_MailSend mailSend;
   @override
@@ -8579,7 +8583,7 @@ class _$Share extends Share {
       required this.itemSize,
       required this.itemSource,
       required this.itemType,
-      required this.label,
+      this.label,
       required this.mailSend,
       required this.mimetype,
       required this.note,
@@ -8618,7 +8622,6 @@ class _$Share extends Share {
     BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize');
     BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource');
     BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType');
-    BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label');
     BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend');
     BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype');
     BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note');
@@ -9042,7 +9045,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
               itemSize: BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize'),
               itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
               itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
-              label: BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label'),
+              label: label,
               mailSend: BuiltValueNullFieldError.checkNotNull(mailSend, r'Share', 'mailSend'),
               mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'Share', 'mimetype'),
               note: BuiltValueNullFieldError.checkNotNull(note, r'Share', 'note'),
