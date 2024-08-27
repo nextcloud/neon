@@ -281,7 +281,7 @@ Iterable<Spec> generateSomeOf(
           final buffer = StringBuffer();
           for (final field in fields.entries) {
             final result = field.key;
-            final dartName = result.nullableName;
+            final dartName = result.asNullable.nullableName;
             final fieldName = field.value;
 
             buffer.write('''

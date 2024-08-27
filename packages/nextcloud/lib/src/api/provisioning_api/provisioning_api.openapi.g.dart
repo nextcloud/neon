@@ -1880,22 +1880,37 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
   @override
   Iterable<Object?> serialize(Serializers serializers, UserDetailsQuota object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'free',
-      serializers.serialize(object.free, specifiedType: const FullType(num)),
-      'relative',
-      serializers.serialize(object.relative, specifiedType: const FullType(num)),
-      'total',
-      serializers.serialize(object.total, specifiedType: const FullType(num)),
-      'used',
-      serializers.serialize(object.used, specifiedType: const FullType(num)),
-    ];
+    final result = <Object?>[];
     Object? value;
+    value = object.free;
+    if (value != null) {
+      result
+        ..add('free')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
     value = object.quota;
     if (value != null) {
       result
         ..add('quota')
         ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsQuota_Quota)));
+    }
+    value = object.relative;
+    if (value != null) {
+      result
+        ..add('relative')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.total;
+    if (value != null) {
+      result
+        ..add('total')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+    }
+    value = object.used;
+    if (value != null) {
+      result
+        ..add('used')
+        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
     }
     return result;
   }
@@ -1912,20 +1927,20 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
       final Object? value = iterator.current;
       switch (key) {
         case 'free':
-          result.free = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.free = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'quota':
           result.quota = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Quota))
               as UserDetailsQuota_Quota?;
           break;
         case 'relative':
-          result.relative = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.relative = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'total':
-          result.total = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.total = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
         case 'used':
-          result.used = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.used = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
           break;
       }
     }
@@ -9679,27 +9694,20 @@ abstract mixin class $UserDetailsQuotaInterfaceBuilder {
 
 class _$UserDetailsQuota extends UserDetailsQuota {
   @override
-  final num free;
+  final num? free;
   @override
   final UserDetailsQuota_Quota? quota;
   @override
-  final num relative;
+  final num? relative;
   @override
-  final num total;
+  final num? total;
   @override
-  final num used;
+  final num? used;
 
   factory _$UserDetailsQuota([void Function(UserDetailsQuotaBuilder)? updates]) =>
       (UserDetailsQuotaBuilder()..update(updates))._build();
 
-  _$UserDetailsQuota._(
-      {required this.free, this.quota, required this.relative, required this.total, required this.used})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(free, r'UserDetailsQuota', 'free');
-    BuiltValueNullFieldError.checkNotNull(relative, r'UserDetailsQuota', 'relative');
-    BuiltValueNullFieldError.checkNotNull(total, r'UserDetailsQuota', 'total');
-    BuiltValueNullFieldError.checkNotNull(used, r'UserDetailsQuota', 'used');
-  }
+  _$UserDetailsQuota._({this.free, this.quota, this.relative, this.total, this.used}) : super._();
 
   @override
   UserDetailsQuota rebuild(void Function(UserDetailsQuotaBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -9800,13 +9808,8 @@ class UserDetailsQuotaBuilder
 
   _$UserDetailsQuota _build() {
     UserDetailsQuota._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota._(
-            free: BuiltValueNullFieldError.checkNotNull(free, r'UserDetailsQuota', 'free'),
-            quota: quota,
-            relative: BuiltValueNullFieldError.checkNotNull(relative, r'UserDetailsQuota', 'relative'),
-            total: BuiltValueNullFieldError.checkNotNull(total, r'UserDetailsQuota', 'total'),
-            used: BuiltValueNullFieldError.checkNotNull(used, r'UserDetailsQuota', 'used'));
+    final _$result =
+        _$v ?? _$UserDetailsQuota._(free: free, quota: quota, relative: relative, total: total, used: used);
     replace(_$result);
     return _$result;
   }

@@ -33,11 +33,11 @@ abstract class TypeResultSomeOf extends TypeResult {
   @override
   TypeResult get dartType {
     if (isSingleValue) {
-      return optimizedSubTypes.single;
+      return nullable ? optimizedSubTypes.single.asNullable : optimizedSubTypes.single;
     }
 
     final record = optimizedSubTypes.map((type) {
-      final dartType = type.nullableName;
+      final dartType = type.asNullable.nullableName;
       final dartName = toDartName(dartType);
 
       return '$dartType $dartName';
@@ -77,7 +77,7 @@ abstract class TypeResultSomeOf extends TypeResult {
     final optimizeNum = subTypes.where(_isNumber).length >= 2;
 
     if (optimizeNum) {
-      optimized.add(TypeResultBase('num', nullable: true));
+      optimized.add(TypeResultBase('num'));
     }
 
     optimized.addAll(
@@ -131,6 +131,13 @@ class TypeResultAnyOf extends TypeResultSomeOf {
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + dartType.hashCode;
+
+  @override
+  TypeResultAnyOf get asNullable => TypeResultAnyOf(
+        className,
+        subTypes: subTypes,
+        nullable: true,
+      );
 }
 
 class TypeResultOneOf extends TypeResultSomeOf {
@@ -153,4 +160,11 @@ class TypeResultOneOf extends TypeResultSomeOf {
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + dartType.hashCode;
+
+  @override
+  TypeResultOneOf get asNullable => TypeResultOneOf(
+        className,
+        subTypes: subTypes,
+        nullable: true,
+      );
 }

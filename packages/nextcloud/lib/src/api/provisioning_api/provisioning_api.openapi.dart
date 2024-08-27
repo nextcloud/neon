@@ -6232,11 +6232,11 @@ typedef UserDetailsQuota_Quota = ({num? $num, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $UserDetailsQuotaInterface {
-  num get free;
+  num? get free;
   UserDetailsQuota_Quota? get quota;
-  num get relative;
-  num get total;
-  num get used;
+  num? get relative;
+  num? get total;
+  num? get used;
 
   /// Rebuilds the instance.
   ///

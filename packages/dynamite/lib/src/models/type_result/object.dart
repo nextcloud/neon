@@ -40,4 +40,12 @@ class TypeResultObject extends TypeResult {
       isTypeDef: isTypeDef,
     );
   }
+
+  @override
+  TypeResultObject get asNullable => TypeResultObject(
+        className,
+        generics: generics,
+        nullable: true,
+        isTypeDef: isTypeDef,
+      );
 }

@@ -238,7 +238,7 @@ void _generateProperty(
         }
 
         if (result is TypeResultSomeOf && result.isSingleValue) {
-          b.returns = refer(result.dartType.name);
+          b.returns = refer(result.dartType.nullableName);
         } else {
           b.returns = refer(result.nullableName);
         }

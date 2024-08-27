@@ -197,6 +197,8 @@ sealed class TypeResult {
     };
   }
 
+  TypeResult get asNullable;
+
   @override
   bool operator ==(Object other) => other is TypeResult && other.className == className && other.generics == generics;
 

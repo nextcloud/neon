@@ -52,4 +52,11 @@ class TypeResultBase extends TypeResult {
 
     return TypeResultBase(dartName, nullable: nullable);
   }
+
+  @override
+  TypeResultBase get asNullable => TypeResultBase(
+        className,
+        nullable: true,
+        isTypeDef: isTypeDef,
+      );
 }

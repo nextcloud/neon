@@ -23,66 +23,72 @@ typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
 /// One of with an integer, double and other value.
 typedef AnyOfIntDoubleOther = ({num? $num, String? string});
-typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
+typedef OneOfInObject_IntDoubleOther = ({num? $num, String? string});
+typedef OneOfInObject_IntDoubleOtherRequired = ({num? $num, String? string});
 
 /// Object with someOfs that only contain a single value (or are optimized to such).
 /// Should use the single member directly.
 @BuiltValue(instantiable: false)
-sealed class $OneValueSomeOfInObjectInterface {
+sealed class $OneOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')
-  int get oneValue;
+  int? get oneValue;
+  @BuiltValueField(wireName: 'OneValueRequired')
+  int get oneValueRequired;
   @BuiltValueField(wireName: 'IntDouble')
-  num get intDouble;
-  @BuiltValueField(wireName: 'IntDoubleString')
-  OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
+  num? get intDouble;
+  @BuiltValueField(wireName: 'IntDoubleRequired')
+  num get intDoubleRequired;
+  @BuiltValueField(wireName: 'IntDoubleOther')
+  OneOfInObject_IntDoubleOther? get intDoubleOther;
+  @BuiltValueField(wireName: 'IntDoubleOtherRequired')
+  OneOfInObject_IntDoubleOtherRequired get intDoubleOtherRequired;
 
   /// Rebuilds the instance.
   ///
   /// The result is the same as this instance but with [updates] applied.
-  /// [updates] is a function that takes a builder [$OneValueSomeOfInObjectInterfaceBuilder].
-  $OneValueSomeOfInObjectInterface rebuild(void Function($OneValueSomeOfInObjectInterfaceBuilder) updates);
+  /// [updates] is a function that takes a builder [$OneOfInObjectInterfaceBuilder].
+  $OneOfInObjectInterface rebuild(void Function($OneOfInObjectInterfaceBuilder) updates);
 
-  /// Converts the instance to a builder [$OneValueSomeOfInObjectInterfaceBuilder].
-  $OneValueSomeOfInObjectInterfaceBuilder toBuilder();
+  /// Converts the instance to a builder [$OneOfInObjectInterfaceBuilder].
+  $OneOfInObjectInterfaceBuilder toBuilder();
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($OneValueSomeOfInObjectInterfaceBuilder b) {}
+  static void _defaults($OneOfInObjectInterfaceBuilder b) {}
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate($OneValueSomeOfInObjectInterfaceBuilder b) {
-    b.intDoubleString?.validateOneOf();
+  static void _validate($OneOfInObjectInterfaceBuilder b) {
+    b.intDoubleOther?.validateOneOf();
+    b.intDoubleOtherRequired?.validateOneOf();
   }
 }
 
 /// Object with someOfs that only contain a single value (or are optimized to such).
 /// Should use the single member directly.
-abstract class OneValueSomeOfInObject
-    implements $OneValueSomeOfInObjectInterface, Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
-  /// Creates a new OneValueSomeOfInObject object using the builder pattern.
-  factory OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? b]) = _$OneValueSomeOfInObject;
+abstract class OneOfInObject implements $OneOfInObjectInterface, Built<OneOfInObject, OneOfInObjectBuilder> {
+  /// Creates a new OneOfInObject object using the builder pattern.
+  factory OneOfInObject([void Function(OneOfInObjectBuilder)? b]) = _$OneOfInObject;
 
-  const OneValueSomeOfInObject._();
+  const OneOfInObject._();
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use [toJson] to serialize it back into json.
-  factory OneValueSomeOfInObject.fromJson(Map<String, dynamic> json) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneOfInObject.fromJson(Map<String, dynamic> json) => _$jsonSerializers.deserializeWith(serializer, json)!;
 
   /// Parses this object into a json like map.
   ///
   /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => _$jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  /// Serializer for OneValueSomeOfInObject.
-  static Serializer<OneValueSomeOfInObject> get serializer => _$oneValueSomeOfInObjectSerializer;
+  /// Serializer for OneOfInObject.
+  static Serializer<OneOfInObject> get serializer => _$oneOfInObjectSerializer;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(OneValueSomeOfInObjectBuilder b) {
-    $OneValueSomeOfInObjectInterface._defaults(b);
+  static void _defaults(OneOfInObjectBuilder b) {
+    $OneOfInObjectInterface._defaults(b);
   }
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(OneValueSomeOfInObjectBuilder b) {
-    $OneValueSomeOfInObjectInterface._validate(b);
+  static void _validate(OneOfInObjectBuilder b) {
+    $OneOfInObjectInterface._validate(b);
   }
 }
 
@@ -110,17 +116,31 @@ extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
   static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
-/// Serialization extension for `OneValueSomeOfInObject_IntDoubleString`.
-extension $OneValueSomeOfInObject_IntDoubleStringExtension on OneValueSomeOfInObject_IntDoubleString {
-  /// Serializer for OneValueSomeOfInObject_IntDoubleString.
+/// Serialization extension for `OneOfInObject_IntDoubleOther`.
+extension $OneOfInObject_IntDoubleOtherExtension on OneOfInObject_IntDoubleOther {
+  /// Serializer for OneOfInObject_IntDoubleOther.
   @BuiltValueSerializer(custom: true)
-  static Serializer<OneValueSomeOfInObject_IntDoubleString> get serializer =>
+  static Serializer<OneOfInObject_IntDoubleOther> get serializer =>
       $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
 
   /// Creates a new object from the given [json] data.
   ///
   /// Use `toJson` to serialize it back into json.
-  static OneValueSomeOfInObject_IntDoubleString fromJson(Object? json) =>
+  static OneOfInObject_IntDoubleOther fromJson(Object? json) =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+/// Serialization extension for `OneOfInObject_IntDoubleOtherRequired`.
+extension $OneOfInObject_IntDoubleOtherRequiredExtension on OneOfInObject_IntDoubleOtherRequired {
+  /// Serializer for OneOfInObject_IntDoubleOtherRequired.
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OneOfInObject_IntDoubleOtherRequired> get serializer =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
+  static OneOfInObject_IntDoubleOtherRequired fromJson(Object? json) =>
       $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
@@ -215,8 +235,8 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
-      ..addBuilderFactory(const FullType(OneValueSomeOfInObject), OneValueSomeOfInObjectBuilder.new)
-      ..add(OneValueSomeOfInObject.serializer))
+      ..addBuilderFactory(const FullType(OneOfInObject), OneOfInObjectBuilder.new)
+      ..add(OneOfInObject.serializer))
     .build();
 
 /// Serializer for all values in this library.

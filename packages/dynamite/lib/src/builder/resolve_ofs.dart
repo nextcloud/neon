@@ -15,9 +15,7 @@ TypeResult resolveSomeOf(State state, json_schema.JsonSchema schema) {
       return resolveType(
         state,
         schema.rebuild((b) {
-          b
-            ..identifier = '$identifier$index'
-            ..nullable = true;
+          b.identifier = '$identifier$index';
         }),
       );
     }).toBuiltSet();

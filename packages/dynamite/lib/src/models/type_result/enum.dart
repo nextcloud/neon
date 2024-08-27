@@ -27,4 +27,12 @@ class TypeResultEnum extends TypeResult {
 
   @override
   int get hashCode => className.hashCode + subType.hashCode;
+
+  @override
+  TypeResultEnum get asNullable => TypeResultEnum(
+        className,
+        subType,
+        nullable: true,
+        isTypeDef: isTypeDef,
+      );
 }

@@ -24,4 +24,13 @@ class TypeResultList extends TypeResult {
 
   @override
   int get hashCode => className.hashCode + generics.hashCode + subType.hashCode;
+
+  @override
+  TypeResultList get asNullable => TypeResultList(
+        className,
+        subType,
+        nullable: true,
+        isTypeDef: isTypeDef,
+        builderName: builderName,
+      );
 }
