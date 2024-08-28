@@ -1,0 +1,14 @@
+PUT http://localhost/remote\.php/webdav/test/checksum\.png
+authorization: Bearer mock
+content-length: 8650
+content-type: application/xml
+oc-checksum: md5:abc
+ocs-apirequest: true
+requesttoken: token
+.+
+PROPFIND http://localhost/remote\.php/webdav/test/checksum\.png
+authorization: Bearer mock
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><oc:checksums/></d:prop></d:propfind>
