@@ -3883,7 +3883,7 @@ sealed class $ShareInterface {
   int get itemSource;
   @BuiltValueField(wireName: 'item_type')
   Share_ItemType get itemType;
-  String get label;
+  String? get label;
   @BuiltValueField(wireName: 'mail_send')
   Share_MailSend get mailSend;
   String get mimetype;

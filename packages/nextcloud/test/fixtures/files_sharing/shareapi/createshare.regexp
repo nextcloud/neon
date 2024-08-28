@@ -1,0 +1,13 @@
+PUT http://localhost/remote\.php/webdav/create-share\.png
+authorization: Bearer mock
+content-length: 8650
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+.+
+POST http://localhost/ocs/v2\.php/apps/files_sharing/api/v1/shares
+accept: application/json
+authorization: Bearer mock
+content-type: application/json; charset=utf-8
+ocs-apirequest: true
+\{"shareType":0,"publicUpload":"false","password":"","expireDate":"","note":"","label":"","path":"/create-share\.png","shareWith":"user2"\}
