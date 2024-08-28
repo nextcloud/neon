@@ -66,7 +66,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install apksigner fdroidserver python3-pip --no-install-recommends
           sudo apt-get purge fdroidserver
-          pip3 install https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver.tar.gz
+          # see https://gitlab.com/wrenix/fdroidserver/-/compare/master...fix%2Fduplicated-sign?from_project_id=36527&straight=false
+          pip3 install https://gitlab.com/wrenix/fdroidserver/-/archive/d9aab228e2d26ded836c88ae1d3c0a05ce1adb2f/fdroidserver-d9aab228e2d26ded836c88ae1d3c0a05ce1adb2f.tar.gz
+          # pip3 install https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver.tar.gz
           export DEBUG_KEYSTORE=${{ secrets.DEBUG_KEYSTORE }}
           GITHUB_REPOSITORY=provokateurin/nextcloud-neon fdroid nightly -v --archive-older 10
 
