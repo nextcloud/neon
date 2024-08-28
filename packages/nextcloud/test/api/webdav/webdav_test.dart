@@ -427,6 +427,30 @@ void main() {
       expect(props.ocFavorite, false);
     });
 
+    test('Set and get tags', () async {
+      await tester.client.webdav.put(
+        utf8.encode('test'),
+        PathUri.parse('test/tags.txt'),
+      );
+
+      final updated = await tester.client.webdav.proppatch(
+        PathUri.parse('test/tags.txt'),
+        set: const WebDavProp(
+          ocTags: WebDavOcTags(tags: ['example']),
+        ),
+      );
+      expect(updated, isTrue);
+
+      final response = await tester.client.webdav.propfind(
+        PathUri.parse('test/tags.txt'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ocTags: true,
+        ),
+      );
+      final props = response.responses.single.propstats.first.prop;
+      expect(props.ocTags!.tags!.single, 'example');
+    });
+
     test('Upload and download file', () async {
       final destinationDir = Directory.systemTemp.createTempSync();
       final destination = File('${destinationDir.path}/test.png');
