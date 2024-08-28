@@ -3,6 +3,8 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:mocktail/mocktail.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/files_sharing.dart' as files_sharing;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/webdav.dart';
@@ -279,6 +281,35 @@ void main() {
       );
       expect(response.props.davResourcetype!.collection, isNotNull);
       expect(response.props.ocSize, data.lengthInBytes);
+    });
+
+    test('Create share', () async {
+      final file = File('test/files/test.png');
+      await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('test/share.png'));
+
+      await tester.client.filesSharing.shareapi.createShare(
+        $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
+          (b) => b
+            ..path = '/test/share.png'
+            ..shareType = core.ShareType.user.index
+            ..shareWith = 'user2',
+        ),
+      );
+
+      final response = await tester.client.webdav.propfind(
+        PathUri.parse('test/share.png'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ncShareAttributes: true,
+          ncSharees: true,
+          ocShareTypes: true,
+        ),
+      );
+      final props = response.responses.single.propstats.first.prop;
+      expect(json.decode(props.ncShareAttributes!), <String>[]);
+      expect(props.ncSharees!.sharees!.single.id, 'user2');
+      expect(props.ncSharees!.sharees!.single.displayName, 'User Two');
+      expect(props.ncSharees!.sharees!.single.type, core.ShareType.user.index);
+      expect(props.ocShareTypes!.shareTypes!.single, core.ShareType.user.index);
     });
 
     test('Filter files', () async {
