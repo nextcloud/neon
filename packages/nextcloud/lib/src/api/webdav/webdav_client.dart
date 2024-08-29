@@ -36,9 +36,10 @@ class WebDavClient {
 
   Uri _constructUri([PathUri? path]) => constructUri(rootClient.baseURL, path);
 
-  /// Request to get the WebDAV capabilities of the server.
+  /// Returns a request to query the WebDAV capabilities of the server.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc4918.html#HEADER_DAV for more information.
   ///   * [options] for a complete operation executing this request.
   http.Request options_Request() {
     final request = http.Request('OPTIONS', _constructUri());
@@ -47,10 +48,11 @@ class WebDavClient {
     return request;
   }
 
-  /// Gets the WebDAV capabilities of the server.
+  /// Queries the WebDAV capabilities of the server.
   ///
   /// See:
-  ///  * [options_Request] for the request sent by this method.
+  ///   * http://www.webdav.org/specs/rfc4918.html#HEADER_DAV for more information.
+  ///   * [options_Request] for the request sent by this method.
   Future<WebDavOptions> options() async {
     final request = options_Request();
 
@@ -58,9 +60,10 @@ class WebDavClient {
     return parseWebDavOptions(response.headers);
   }
 
-  /// Request to create a collection at [path].
+  /// Returns a request to create a collection at [path].
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL for more information.
   ///   * [mkcol] for a complete operation executing this request.
   http.Request mkcol_Request(PathUri path) {
     final request = http.Request('MKCOL', _constructUri(path));
@@ -80,9 +83,10 @@ class WebDavClient {
     return csrfClient.send(request);
   }
 
-  /// Request to delete the resource at [path].
+  /// Returns a request to delete the resource at [path].
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
   ///   * [delete] for a complete operation executing this request.
   http.Request delete_Request(PathUri path) {
     final request = http.Request('DELETE', _constructUri(path));
@@ -94,19 +98,22 @@ class WebDavClient {
   /// Deletes the resource at [path].
   ///
   /// See:
-  ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
-  ///  * [delete_Request] for the request sent by this method.
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_DELETE for more information.
+  ///   * [delete_Request] for the request sent by this method.
   Future<http.StreamedResponse> delete(PathUri path) {
     final request = delete_Request(path);
 
     return csrfClient.send(request);
   }
 
-  /// Request to put a new file at [path] with [localData] as content.
+  /// Returns a request to put a new file at [path] with [localData] as content.
   ///
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
   /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [put] for a complete operation executing this request.
   http.Request put_Request(
     Uint8List localData,
@@ -155,11 +162,16 @@ class WebDavClient {
     return csrfClient.send(request);
   }
 
-  /// Request to put a new file at [path] with [localData] as content.
+  /// Returns a request to put a new file at [path] with [localData] as content.
   ///
+  /// [contentLength] sets the length of the [localData] that is uploaded.
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
   /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from `0.0` to `1.0`.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [putStream] for a complete operation executing this request.
   http.StreamedRequest putStream_Request(
     Stream<List<int>> localData,
@@ -202,11 +214,11 @@ class WebDavClient {
 
   /// Puts a new file at [path] with [localData] as content.
   ///
+  /// [contentLength] sets the length of the [localData] that is uploaded.
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
-  /// [contentLength] sets the length of the [localData] that is uploaded.
   /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
-  /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from `0.0` to `1.0`.
   ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
@@ -233,11 +245,15 @@ class WebDavClient {
     return csrfClient.send(request);
   }
 
-  /// Request to put a new file at [path] with [file] as content.
+  /// Returns a request to put a new file at [path] with [file] as content.
   ///
+  /// [lastModified] sets the date when the file was last modified on the server.
+  /// [created] sets the date when the file was created on the server.
   /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from `0.0` to `1.0`.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [putFile] for a complete operation executing this request.
   http.StreamedRequest putFile_Request(
     File file,
@@ -266,7 +282,8 @@ class WebDavClient {
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
   /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
-  /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0.
+  /// [onProgress] can be used to watch the upload progress. Possible values range from `0.0` to `1.0`.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [putFile_Request] for the request sent by this method.
@@ -292,7 +309,7 @@ class WebDavClient {
     return csrfClient.send(request);
   }
 
-  /// Request to get the content of the file at [path].
+  /// Returns a request to get the content of the file at [path].
   ///
   /// See:
   ///   * [get], [getStream] and [getFile] for complete operations executing this request.
@@ -303,7 +320,10 @@ class WebDavClient {
     return request;
   }
 
-  /// Gets the content of the file at [path].
+  /// Retrieves the content of the file at [path].
+  ///
+  /// See:
+  ///   * [get_Request] for the request sent by this method.
   Future<Uint8List> get(PathUri path) async {
     final buffer = BytesBuilder(copy: false);
 
@@ -312,7 +332,12 @@ class WebDavClient {
     return buffer.toBytes();
   }
 
-  /// Gets the content of the file at [path].
+  /// Retrieves the content of the file at [path].
+  ///
+  /// [onProgress] can be used to watch the download progress. Possible values range from `0.0` to `1.0`.
+  ///
+  /// See:
+  ///   * [get_Request] for the request sent by this method.
   Stream<List<int>> getStream(
     PathUri path, {
     void Function(double progress)? onProgress,
@@ -352,9 +377,14 @@ class WebDavClient {
     return controller.stream;
   }
 
-  /// Gets the content of the file at [path].
+  /// Retrieves the content of the file at [path].
+  ///
+  /// [onProgress] can be used to watch the download progress. Possible values range from `0.0` to `1.0`.
   ///
   /// If the response is empty the file will be created with no data.
+  ///
+  /// See:
+  ///   * [get_Request] for the request sent by this method.
   Future<void> getFile(
     PathUri path,
     File file, {
@@ -369,9 +399,12 @@ class WebDavClient {
     await sink.close();
   }
 
-  /// Request to retrieve the props for the resource at [path].
+  /// Returns a request to retrieve the [prop] for the resource at [path].
+  ///
+  /// [depth] can be used to limit scope of the returned resources.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   ///   * [propfind] for a complete operation executing this request.
   http.Request propfind_Request(
     PathUri path, {
@@ -392,10 +425,10 @@ class WebDavClient {
     return request;
   }
 
-  /// Retrieves the props for the resource at [path].
+  /// Retrieves the [prop] for the resource at [path].
   ///
-  /// Optionally populates the given [prop]s on the returned resources.
   /// [depth] can be used to limit scope of the returned resources.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   ///   * [propfind_Request] for the request sent by this method.
@@ -415,9 +448,12 @@ class WebDavClient {
     return const WebDavResponseConverter().convert(response);
   }
 
-  /// Request to run the filter-files report with the [filterRules] on the resource at [path].
+  /// Returns a request to run the filter-files report with the [filterRules] on the resource at [path].
+  ///
+  /// [prop] specifies which props will be returned in the response.
   ///
   /// See:
+  ///   * https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html#listing-favorites for more information.
   ///   * [report] for a complete operation executing this request.
   http.Request report_Request(
     PathUri path,
@@ -437,9 +473,10 @@ class WebDavClient {
 
   /// Runs the filter-files report with the [filterRules] on the resource at [path].
   ///
-  /// Optionally populates the [prop]s on the returned resources.
+  /// [prop] specifies which props will be returned in the response.
+  ///
   /// See:
-  ///   * https://github.com/owncloud/docs/issues/359 for more information.
+  ///   * https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html#listing-favorites for more information.
   ///   * [report_Request] for the request sent by this method.
   Future<WebDavMultistatus> report(
     PathUri path,
@@ -457,9 +494,13 @@ class WebDavClient {
     return const WebDavResponseConverter().convert(response);
   }
 
-  /// Request to update the props of the resource at [path].
+  /// Returns a request to update the props of the resource at [path].
+  ///
+  /// The props in [set] will be added/updated.
+  /// The props in [remove] will be removed.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   ///   * [proppatch] for a complete operation executing this request.
   http.Request proppatch_Request(
     PathUri path, {
@@ -479,9 +520,10 @@ class WebDavClient {
 
   /// Updates the props of the resource at [path].
   ///
-  /// The props in [set] will be updated.
+  /// The props in [set] will be added/updated.
   /// The props in [remove] will be removed.
   /// Returns true if the update was successful.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   ///   * [proppatch_Request] for the request sent by this method.
@@ -509,9 +551,12 @@ class WebDavClient {
     return true;
   }
 
-  /// Request to move the resource from [sourcePath] to [destinationPath].
+  /// Returns a request to move the resource from [sourcePath] to [destinationPath].
+  ///
+  /// [overwrite] determines if the request will fail if the [destinationPath] already exists.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   ///   * [move] for a complete operation executing this request.
   http.Request move_Request(
     PathUri sourcePath,
@@ -531,7 +576,8 @@ class WebDavClient {
 
   /// Moves the resource from [sourcePath] to [destinationPath].
   ///
-  /// If [overwrite] is set any existing resource will be replaced.
+  /// [overwrite] determines if the request will fail if the [destinationPath] already exists.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   ///   * [move_Request] for the request sent by this method.
@@ -549,9 +595,12 @@ class WebDavClient {
     return csrfClient.send(request);
   }
 
-  /// Request to copy the resource from [sourcePath] to [destinationPath].
+  /// Returns a request to copy the resource from [sourcePath] to [destinationPath].
+  ///
+  /// [overwrite] determines if the request will fail if the [destinationPath] already exists.
   ///
   /// See:
+  ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   ///   * [copy] for a complete operation executing this request.
   http.Request copy_Request(
     PathUri sourcePath,
@@ -571,7 +620,8 @@ class WebDavClient {
 
   /// Copies the resource from [sourcePath] to [destinationPath].
   ///
-  /// If [overwrite] is set any existing resource will be replaced.
+  /// [overwrite] determines if the request will fail if the [destinationPath] already exists.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   ///   * [copy_Request] for the request sent by this method.
