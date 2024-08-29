@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:files_icons/files_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -15,7 +14,6 @@ import 'package:rxdart/rxdart.dart';
 import 'package:talk_app/src/widgets/rich_object/deck_card.dart';
 import 'package:talk_app/src/widgets/rich_object/fallback.dart';
 import 'package:talk_app/src/widgets/rich_object/file.dart';
-import 'package:talk_app/src/widgets/rich_object/file_preview.dart';
 import 'package:talk_app/src/widgets/rich_object/mention.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
@@ -231,6 +229,10 @@ void main() {
   });
 
   group('File', () {
+    const pixelRatio = 3;
+    const maxWidth = 800;
+    const maxHeight = 600 ~/ 2;
+
     testWidgets('Opens link', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -256,7 +258,7 @@ void main() {
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
-    testWidgets('With preview', (tester) async {
+    testWidgets('Without preview', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           providers: [
@@ -268,45 +270,17 @@ void main() {
                 ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = '',
-            ),
-            textStyle: null,
-          ),
-        ),
-      );
-      expect(find.byType(TalkRichObjectFilePreview), findsOne);
-    });
-
-    testWidgets('Without preview', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
                 ..previewAvailable = 'no'
-                ..path = '',
+                ..path = 'path',
             ),
             textStyle: null,
           ),
         ),
       );
-      expect(find.byType(FileIcon), findsOne);
-      expect(find.text('name'), findsOne);
-      await expectLater(
-        find.byType(TalkRichObjectFile),
-        matchesGoldenFile('goldens/rich_object_file_without_preview.png'),
-      );
-    });
-  });
 
-  group('File preview', () {
-    const pixelRatio = 3;
-    const maxWidth = 800;
-    const maxHeight = 600 ~/ 2;
+      expect(find.byTooltip('name'), findsNothing);
+      expect(find.text('name'), findsOne);
+    });
 
     testWidgets('Without dimensions', (tester) async {
       await tester.pumpWidgetWithAccessibility(
@@ -328,7 +302,12 @@ void main() {
         ),
       );
 
-      final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
+      final expectedConstraints = BoxConstraints(
+        minHeight: 100,
+        maxHeight: maxHeight.toDouble(),
+        minWidth: 100,
+        maxWidth: maxWidth.toDouble(),
+      );
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,

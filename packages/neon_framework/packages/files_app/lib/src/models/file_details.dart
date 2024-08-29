@@ -11,7 +11,6 @@ class FileDetails {
     required this.etag,
     required this.mimeType,
     required this.lastModified,
-    required this.hasPreview,
     required this.isFavorite,
     required this.blurHash,
   }) : task = null;
@@ -23,7 +22,6 @@ class FileDetails {
         etag = file.etag,
         mimeType = file.mimeType,
         lastModified = file.lastModified,
-        hasPreview = file.hasPreview,
         isFavorite = file.favorite,
         blurHash = file.blurHash,
         task = null;
@@ -35,7 +33,6 @@ class FileDetails {
         lastModified = task.lastModified,
         etag = null,
         mimeType = null,
-        hasPreview = null,
         isFavorite = null,
         blurHash = null;
 
@@ -47,7 +44,6 @@ class FileDetails {
         etag = file.etag,
         mimeType = file.mimeType,
         lastModified = file.lastModified,
-        hasPreview = file.hasPreview,
         isFavorite = file.favorite,
         blurHash = file.blurHash;
 
@@ -79,8 +75,6 @@ class FileDetails {
   final String? mimeType;
 
   final tz.TZDateTime? lastModified;
-
-  final bool? hasPreview;
 
   final bool? isFavorite;
 

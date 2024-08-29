@@ -1575,14 +1575,19 @@ void main() {
         });
 
         testWidgets('File', (tester) async {
+          final account = MockAccount();
+
           await tester.pumpWidgetWithAccessibility(
             TestApp(
+              providers: [
+                Provider<Account>.value(value: account),
+              ],
               child: RichText(
                 text: buildRichObjectParameter(
                   parameter: spreed.RichObjectParameter(
                     (b) => b
                       ..type = spreed.RichObjectParameter_Type.file
-                      ..id = ''
+                      ..id = '0'
                       ..name = 'name',
                   ),
                   textStyle: null,

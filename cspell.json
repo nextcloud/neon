@@ -18,7 +18,6 @@
     "packages/dynamite/example/lib",
     "packages/neon_framework/example/web/sqflite_sw.js",
     "packages/neon_framework/example/web/sqlite3.wasm",
-    "packages/neon_framework/packages/files_icons/lib/src/data.dart",
     "packages/neon_lints/lib",
     "packages/nextcloud/packages/nextcloud_test/docker/static",
     "packages/nextcloud/test/files",

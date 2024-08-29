@@ -4,7 +4,6 @@ package "Neon framework" {
     component neon_framework
     component nextcloud
     component sort_box
-    component files_icons
 }
 
 package "Clients" {
@@ -37,7 +36,6 @@ notifications_app --> neon_framework
 
 neon_framework --> nextcloud
 neon_framework --> sort_box
-neon_framework --> files_icons
 
 dynamite --> nextcloud
 specifications --> nextcloud

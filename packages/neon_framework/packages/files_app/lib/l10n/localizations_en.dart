@@ -129,9 +129,6 @@ class FilesLocalizationsEn extends FilesLocalizations {
   String get optionsShowHiddenFiles => 'Show hidden files';
 
   @override
-  String get optionsShowPreviews => 'Show previews for files';
-
-  @override
   String get optionsUploadQueueParallelism => 'Upload queue parallelism';
 
   @override

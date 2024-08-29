@@ -112,7 +112,7 @@ class NeonImage extends StatelessWidget {
             data,
             height: size?.height,
             width: size?.width,
-            fit: fit,
+            fit: fit ?? BoxFit.contain,
             gaplessPlayback: true,
             errorBuilder: (context, error, stacktrace) => _buildError(context, error),
           );

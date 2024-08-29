@@ -79,7 +79,6 @@
   "optionsFilesSortPropertySize": "Size",
   "optionsFilesSortOrder": "Sort order of files",
   "optionsShowHiddenFiles": "Show hidden files",
-  "optionsShowPreviews": "Show previews for files",
   "optionsUploadQueueParallelism": "Upload queue parallelism",
   "optionsDownloadQueueParallelism": "Download queue parallelism",
   "optionsUploadSizeWarning": "Upload size warning",
