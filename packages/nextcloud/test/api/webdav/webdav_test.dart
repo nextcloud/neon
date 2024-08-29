@@ -3,6 +3,8 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:mocktail/mocktail.dart';
+import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/files_sharing.dart' as files_sharing;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/src/utils/date_time.dart';
 import 'package:nextcloud/webdav.dart';
@@ -281,6 +283,35 @@ void main() {
       expect(response.props.ocSize, data.lengthInBytes);
     });
 
+    test('Create share', () async {
+      final file = File('test/files/test.png');
+      await tester.client.webdav.putFile(file, file.statSync(), PathUri.parse('test/share.png'));
+
+      await tester.client.filesSharing.shareapi.createShare(
+        $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
+          (b) => b
+            ..path = '/test/share.png'
+            ..shareType = core.ShareType.user.index
+            ..shareWith = 'user2',
+        ),
+      );
+
+      final response = await tester.client.webdav.propfind(
+        PathUri.parse('test/share.png'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ncShareAttributes: true,
+          ncSharees: true,
+          ocShareTypes: true,
+        ),
+      );
+      final props = response.responses.single.propstats.first.prop;
+      expect(json.decode(props.ncShareAttributes!), <String>[]);
+      expect(props.ncSharees!.sharees!.single.id, 'user2');
+      expect(props.ncSharees!.sharees!.single.displayName, 'User Two');
+      expect(props.ncSharees!.sharees!.single.type, core.ShareType.user.index);
+      expect(props.ocShareTypes!.shareTypes!.single, core.ShareType.user.index);
+    });
+
     test('Filter files', () async {
       final response = await tester.client.webdav.put(utf8.encode('test'), PathUri.parse('test/filter.txt'));
       final id = response.headers['oc-fileid'];
@@ -394,6 +425,30 @@ void main() {
           .first
           .prop;
       expect(props.ocFavorite, false);
+    });
+
+    test('Set and get tags', () async {
+      await tester.client.webdav.put(
+        utf8.encode('test'),
+        PathUri.parse('test/tags.txt'),
+      );
+
+      final updated = await tester.client.webdav.proppatch(
+        PathUri.parse('test/tags.txt'),
+        set: const WebDavProp(
+          ocTags: WebDavOcTags(tags: ['example']),
+        ),
+      );
+      expect(updated, isTrue);
+
+      final response = await tester.client.webdav.propfind(
+        PathUri.parse('test/tags.txt'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ocTags: true,
+        ),
+      );
+      final props = response.responses.single.propstats.first.prop;
+      expect(props.ocTags!.tags!.single, 'example');
     });
 
     test('Upload and download file', () async {

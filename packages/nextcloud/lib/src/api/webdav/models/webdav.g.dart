@@ -968,7 +968,7 @@ void _$WebDavOcChecksumsBuildXmlChildren(WebDavOcChecksums instance, XmlBuilder 
   final checksumsSerialized = checksums;
   if (checksumsSerialized != null) {
     for (final value in checksumsSerialized) {
-      builder.element('checksum', namespace: 'http://nextcloud.org/ns', nest: () {
+      builder.element('checksum', namespace: 'http://owncloud.org/ns', nest: () {
         builder.text(value);
       });
     }
@@ -983,10 +983,8 @@ void _$WebDavOcChecksumsBuildXmlElement(WebDavOcChecksums instance, XmlBuilder b
 }
 
 WebDavOcChecksums _$WebDavOcChecksumsFromXmlElement(XmlElement element) {
-  final checksums = element
-      .getElements('checksum', namespace: 'http://nextcloud.org/ns')
-      ?.map((e) => e.getText())
-      .whereType<String>();
+  final checksums =
+      element.getElements('checksum', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
   return WebDavOcChecksums(checksums: checksums?.toList());
 }
 
@@ -1002,7 +1000,7 @@ List<XmlNode> _$WebDavOcChecksumsToXmlChildren(WebDavOcChecksums instance,
   final checksums = instance.checksums;
   final checksumsSerialized = checksums;
   final checksumsConstructed = checksumsSerialized
-      ?.map((e) => XmlElement(XmlName('checksum', namespaces['http://nextcloud.org/ns']), [], [XmlText(e)]));
+      ?.map((e) => XmlElement(XmlName('checksum', namespaces['http://owncloud.org/ns']), [], [XmlText(e)]));
   if (checksumsConstructed != null) {
     children.addAll(checksumsConstructed);
   }
@@ -1039,7 +1037,7 @@ void _$WebDavOcShareTypesBuildXmlChildren(WebDavOcShareTypes instance, XmlBuilde
   final shareTypesSerialized = shareTypes?.map((e) => e.toString());
   if (shareTypesSerialized != null) {
     for (final value in shareTypesSerialized) {
-      builder.element('share-type', namespace: 'http://nextcloud.org/ns', nest: () {
+      builder.element('share-type', namespace: 'http://owncloud.org/ns', nest: () {
         builder.text(value);
       });
     }
@@ -1055,7 +1053,7 @@ void _$WebDavOcShareTypesBuildXmlElement(WebDavOcShareTypes instance, XmlBuilder
 
 WebDavOcShareTypes _$WebDavOcShareTypesFromXmlElement(XmlElement element) {
   final shareTypes = element
-      .getElements('share-type', namespace: 'http://nextcloud.org/ns')
+      .getElements('share-type', namespace: 'http://owncloud.org/ns')
       ?.map((e) => e.getText())
       .whereType<String>();
   return WebDavOcShareTypes(shareTypes: shareTypes?.map((e) => int.parse(e)).toList());
@@ -1073,7 +1071,7 @@ List<XmlNode> _$WebDavOcShareTypesToXmlChildren(WebDavOcShareTypes instance,
   final shareTypes = instance.shareTypes;
   final shareTypesSerialized = shareTypes?.map((e) => e.toString());
   final shareTypesConstructed = shareTypesSerialized
-      ?.map((e) => XmlElement(XmlName('share-type', namespaces['http://nextcloud.org/ns']), [], [XmlText(e)]));
+      ?.map((e) => XmlElement(XmlName('share-type', namespaces['http://owncloud.org/ns']), [], [XmlText(e)]));
   if (shareTypesConstructed != null) {
     children.addAll(shareTypesConstructed);
   }
@@ -1110,7 +1108,7 @@ void _$WebDavOcTagsBuildXmlChildren(WebDavOcTags instance, XmlBuilder builder,
   final tagsSerialized = tags;
   if (tagsSerialized != null) {
     for (final value in tagsSerialized) {
-      builder.element('tag', namespace: 'http://nextcloud.org/ns', nest: () {
+      builder.element('tag', namespace: 'http://owncloud.org/ns', nest: () {
         builder.text(value);
       });
     }
@@ -1126,7 +1124,7 @@ void _$WebDavOcTagsBuildXmlElement(WebDavOcTags instance, XmlBuilder builder,
 
 WebDavOcTags _$WebDavOcTagsFromXmlElement(XmlElement element) {
   final tags =
-      element.getElements('tag', namespace: 'http://nextcloud.org/ns')?.map((e) => e.getText()).whereType<String>();
+      element.getElements('tag', namespace: 'http://owncloud.org/ns')?.map((e) => e.getText()).whereType<String>();
   return WebDavOcTags(tags: tags?.toList());
 }
 
@@ -1140,7 +1138,7 @@ List<XmlNode> _$WebDavOcTagsToXmlChildren(WebDavOcTags instance, {Map<String, St
   final tags = instance.tags;
   final tagsSerialized = tags;
   final tagsConstructed =
-      tagsSerialized?.map((e) => XmlElement(XmlName('tag', namespaces['http://nextcloud.org/ns']), [], [XmlText(e)]));
+      tagsSerialized?.map((e) => XmlElement(XmlName('tag', namespaces['http://owncloud.org/ns']), [], [XmlText(e)]));
   if (tagsConstructed != null) {
     children.addAll(tagsConstructed);
   }

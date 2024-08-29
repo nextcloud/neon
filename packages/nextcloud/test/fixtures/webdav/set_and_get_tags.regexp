@@ -1,0 +1,19 @@
+PUT http://localhost/remote\.php/webdav/test/tags\.txt
+authorization: Bearer mock
+content-length: 4
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+test
+PROPPATCH http://localhost/remote\.php/webdav/test/tags\.txt
+authorization: Bearer mock
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+<d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:tags><oc:tag>example</oc:tag></oc:tags></d:prop></d:set></d:propertyupdate>
+PROPFIND http://localhost/remote\.php/webdav/test/tags\.txt
+authorization: Bearer mock
+content-type: application/xml
+ocs-apirequest: true
+requesttoken: token
+<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><oc:tags/></d:prop></d:propfind>

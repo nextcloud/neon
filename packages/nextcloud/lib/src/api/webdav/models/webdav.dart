@@ -248,7 +248,7 @@ class WebDavOcChecksums with _$WebDavOcChecksumsXmlSerializableMixin {
 
   factory WebDavOcChecksums.fromXmlElement(XmlElement element) => _$WebDavOcChecksumsFromXmlElement(element);
 
-  @annotation.XmlElement(name: 'checksum', namespace: namespaceNextcloud)
+  @annotation.XmlElement(name: 'checksum', namespace: namespaceOwncloud)
   final List<String>? checksums;
 }
 
@@ -262,7 +262,7 @@ class WebDavOcShareTypes with _$WebDavOcShareTypesXmlSerializableMixin {
 
   factory WebDavOcShareTypes.fromXmlElement(XmlElement element) => _$WebDavOcShareTypesFromXmlElement(element);
 
-  @annotation.XmlElement(name: 'share-type', namespace: namespaceNextcloud)
+  @annotation.XmlElement(name: 'share-type', namespace: namespaceOwncloud)
   final List<int>? shareTypes;
 }
 
@@ -276,6 +276,6 @@ class WebDavOcTags with _$WebDavOcTagsXmlSerializableMixin {
 
   factory WebDavOcTags.fromXmlElement(XmlElement element) => _$WebDavOcTagsFromXmlElement(element);
 
-  @annotation.XmlElement(name: 'tag', namespace: namespaceNextcloud)
+  @annotation.XmlElement(name: 'tag', namespace: namespaceOwncloud)
   final List<String>? tags;
 }
