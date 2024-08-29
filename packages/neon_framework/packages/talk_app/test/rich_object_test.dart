@@ -15,7 +15,6 @@ import 'package:rxdart/rxdart.dart';
 import 'package:talk_app/src/widgets/rich_object/deck_card.dart';
 import 'package:talk_app/src/widgets/rich_object/fallback.dart';
 import 'package:talk_app/src/widgets/rich_object/file.dart';
-import 'package:talk_app/src/widgets/rich_object/file_preview.dart';
 import 'package:talk_app/src/widgets/rich_object/mention.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
@@ -256,28 +255,6 @@ void main() {
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
-    testWidgets('With preview', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = '',
-            ),
-            textStyle: null,
-          ),
-        ),
-      );
-      expect(find.byType(TalkRichObjectFilePreview), findsOne);
-    });
-
     testWidgets('Without preview', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -301,140 +278,140 @@ void main() {
         matchesGoldenFile('goldens/rich_object_file_without_preview.png'),
       );
     });
-  });
 
-  group('File preview', () {
-    const pixelRatio = 3;
-    const maxWidth = 800;
-    const maxHeight = 600 ~/ 2;
+    group('With preview', () {
+      const pixelRatio = 3;
+      const maxWidth = 800;
+      const maxHeight = 600 ~/ 2;
 
-    testWidgets('Without dimensions', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path',
+      testWidgets('Without dimensions', (tester) async {
+        await tester.pumpWidgetWithAccessibility(
+          TestApp(
+            providers: [
+              Provider<Account>.value(value: account),
+            ],
+            child: TalkRichObjectFile(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = spreed.RichObjectParameter_Type.file
+                  ..id = '0'
+                  ..name = 'name'
+                  ..previewAvailable = 'yes'
+                  ..path = 'path',
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
+        );
 
-      final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
-      expect(
-        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-        findsOne,
-      );
-      expect(find.byTooltip('name'), findsOne);
-    });
+        final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
+        expect(
+          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+          findsOne,
+        );
+        expect(find.byTooltip('name'), findsOne);
+      });
 
-    testWidgets('With dimensions', (tester) async {
-      const width = 900;
-      const height = 300;
+      testWidgets('With dimensions', (tester) async {
+        const width = 900;
+        const height = 300;
 
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..width = ($int: width, string: null)
-                ..height = ($int: height, string: null),
+        await tester.pumpWidgetWithAccessibility(
+          TestApp(
+            providers: [
+              Provider<Account>.value(value: account),
+            ],
+            child: TalkRichObjectFile(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = spreed.RichObjectParameter_Type.file
+                  ..id = '0'
+                  ..name = 'name'
+                  ..previewAvailable = 'yes'
+                  ..path = 'path'
+                  ..width = ($int: width, string: null)
+                  ..height = ($int: height, string: null),
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
+        );
 
-      final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
-      expect(
-        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-        findsOne,
-      );
-      expect(find.byTooltip('name'), findsOne);
-    });
+        final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
+        expect(
+          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+          findsOne,
+        );
+        expect(find.byTooltip('name'), findsOne);
+      });
 
-    testWidgets('With dimensions too big', (tester) async {
-      const widthFactor = 2; // Make it too big
-      const heightFactor = 4; // Make this even bigger
+      testWidgets('With dimensions too big', (tester) async {
+        const widthFactor = 2; // Make it too big
+        const heightFactor = 4; // Make this even bigger
 
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
-                ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
+        await tester.pumpWidgetWithAccessibility(
+          TestApp(
+            providers: [
+              Provider<Account>.value(value: account),
+            ],
+            child: TalkRichObjectFile(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = spreed.RichObjectParameter_Type.file
+                  ..id = '0'
+                  ..name = 'name'
+                  ..previewAvailable = 'yes'
+                  ..path = 'path'
+                  ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
+                  ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
+        );
 
-      final size = Size(
-        widthFactor * maxWidth / heightFactor,
-        maxHeight.toDouble(),
-      );
-      final expectedConstraints = BoxConstraints.tight(size);
-      expect(
-        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-        findsOne,
-      );
-      expect(find.byTooltip('name'), findsOne);
-    });
+        final size = Size(
+          widthFactor * maxWidth / heightFactor,
+          maxHeight.toDouble(),
+        );
+        final expectedConstraints = BoxConstraints.tight(size);
+        expect(
+          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+          findsOne,
+        );
+        expect(find.byTooltip('name'), findsOne);
+      });
 
-    testWidgets('Full image for animated GIF', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkRichObjectFile(
-            parameter: spreed.RichObjectParameter(
-              (b) => b
-                ..type = spreed.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..mimetype = 'image/gif',
+      testWidgets('Full image for animated GIF', (tester) async {
+        await tester.pumpWidgetWithAccessibility(
+          TestApp(
+            providers: [
+              Provider<Account>.value(value: account),
+            ],
+            child: TalkRichObjectFile(
+              parameter: spreed.RichObjectParameter(
+                (b) => b
+                  ..type = spreed.RichObjectParameter_Type.file
+                  ..id = '0'
+                  ..name = 'name'
+                  ..previewAvailable = 'yes'
+                  ..path = 'path'
+                  ..mimetype = 'image/gif',
+              ),
+              textStyle: null,
             ),
-            textStyle: null,
           ),
-        ),
-      );
+        );
 
-      expect(
-        find.byWidgetPredicate(
-          (widget) =>
-              widget is NeonUriImage &&
-              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
-        ),
-        findsOne,
-      );
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is NeonUriImage &&
+                widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
+          ),
+          findsOne,
+        );
+      });
     });
   });
 
