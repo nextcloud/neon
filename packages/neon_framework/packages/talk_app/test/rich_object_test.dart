@@ -258,6 +258,30 @@ void main() {
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
+    testWidgets('Without preview', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.file
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = 'no'
+                ..path = 'path',
+            ),
+            textStyle: null,
+          ),
+        ),
+      );
+
+      expect(find.byTooltip('name'), findsNothing);
+      expect(find.text('name'), findsOne);
+    });
+
     testWidgets('Without dimensions', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(

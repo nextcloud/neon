@@ -77,7 +77,7 @@ class TalkRichObjectFile extends StatelessWidget {
           );
         }
 
-        return ConstrainedBox(
+        image = ConstrainedBox(
           constraints: logicalSize != null
               ? BoxConstraints.tight(logicalSize)
               : BoxConstraints(
@@ -86,10 +86,24 @@ class TalkRichObjectFile extends StatelessWidget {
                   minWidth: 100,
                   maxWidth: maxSize.width,
                 ),
-          child: Tooltip(
+          child: image,
+        );
+
+        if (parameter.previewAvailable == 'yes') {
+          return Tooltip(
             message: parameter.name,
             child: image,
-          ),
+          );
+        }
+
+        return Column(
+          children: [
+            image,
+            Text(
+              parameter.name,
+              style: textStyle,
+            ),
+          ],
         );
       },
     );

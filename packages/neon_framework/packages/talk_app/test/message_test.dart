@@ -1598,8 +1598,7 @@ void main() {
           );
 
           expect(find.byType(TalkRichObjectFile), isPreview ? findsNothing : findsOne);
-          expect(find.text('name'), isPreview ? findsOne : findsNothing);
-          expect(find.byTooltip('name'), isPreview ? findsNothing : findsOne);
+          expect(find.text('name'), findsOne);
         });
 
         testWidgets('Deck card', (tester) async {
