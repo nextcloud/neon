@@ -451,6 +451,25 @@ void main() {
       expect(props.ocTags!.tags!.single, 'example');
     });
 
+    test('Upload file with checksum', () async {
+      final file = File('test/files/test.png');
+      await tester.client.webdav.putFile(
+        file,
+        file.statSync(),
+        PathUri.parse('test/checksum.png'),
+        checksum: 'md5:abc',
+      );
+
+      final response = await tester.client.webdav.propfind(
+        PathUri.parse('test/checksum.png'),
+        prop: const WebDavPropWithoutValues.fromBools(
+          ocChecksums: true,
+        ),
+      );
+      final props = response.responses.single.propstats.first.prop;
+      expect(props.ocChecksums!.checksums!.single, 'md5:abc');
+    });
+
     test('Upload and download file', () async {
       final destinationDir = Directory.systemTemp.createTempSync();
       final destination = File('${destinationDir.path}/test.png');

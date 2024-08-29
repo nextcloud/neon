@@ -10,6 +10,18 @@ import 'package:nextcloud/src/api/webdav/webdav.dart';
 import 'package:nextcloud/utils.dart';
 import 'package:universal_io/io.dart' show File, FileStat;
 
+/// The algorithms supported for the oc:checksum prop and OC-Checksum header.
+const supportedChecksumAlgorithms = ['md5', 'sha1', 'sha256', 'sha3-256', 'adler32'];
+
+/// The pattern of supported checksum algorithms.
+///
+/// It has to be `<algorithm>:<hash>` with `algorithm` being one of [supportedChecksumAlgorithms].
+/// The checksum is case-insensitive.
+final checksumPattern = RegExp(
+  '^(${supportedChecksumAlgorithms.join('|')}):.+\$',
+  caseSensitive: false,
+);
+
 /// WebDavClient class
 class WebDavClient {
   // ignore: public_member_api_docs
@@ -92,6 +104,8 @@ class WebDavClient {
 
   /// Request to put a new file at [path] with [localData] as content.
   ///
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
+  ///
   /// See:
   ///   * [put] for a complete operation executing this request.
   http.Request put_Request(
@@ -99,6 +113,7 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
   }) {
     final request = http.Request('PUT', _constructUri(path))..bodyBytes = localData;
 
@@ -107,6 +122,7 @@ class WebDavClient {
       lastModified: lastModified,
       created: created,
       contentLength: localData.length,
+      checksum: checksum,
     );
     _addBaseHeaders(request);
     return request;
@@ -116,6 +132,8 @@ class WebDavClient {
   ///
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
+  ///
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
   ///   * [put_Request] for the request sent by this method.
@@ -124,18 +142,22 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
   }) {
     final request = put_Request(
       localData,
       path,
       lastModified: lastModified,
       created: created,
+      checksum: checksum,
     );
 
     return csrfClient.send(request);
   }
 
   /// Request to put a new file at [path] with [localData] as content.
+  ///
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
   ///
   /// See:
   ///   * [putStream] for a complete operation executing this request.
@@ -145,6 +167,7 @@ class WebDavClient {
     required int contentLength,
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
     void Function(double progress)? onProgress,
   }) {
     final request = http.StreamedRequest('PUT', _constructUri(path));
@@ -155,6 +178,7 @@ class WebDavClient {
       lastModified: lastModified,
       created: created,
       contentLength: contentLength,
+      checksum: checksum,
     );
 
     if (onProgress != null) {
@@ -181,6 +205,7 @@ class WebDavClient {
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
   /// [contentLength] sets the length of the [localData] that is uploaded.
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0. [contentLength] needs to be set for it to work.
   ///
   /// See:
@@ -192,6 +217,7 @@ class WebDavClient {
     required int contentLength,
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
     void Function(double progress)? onProgress,
   }) {
     final request = putStream_Request(
@@ -199,6 +225,7 @@ class WebDavClient {
       path,
       lastModified: lastModified,
       created: created,
+      checksum: checksum,
       contentLength: contentLength,
       onProgress: onProgress,
     );
@@ -208,6 +235,8 @@ class WebDavClient {
 
   /// Request to put a new file at [path] with [file] as content.
   ///
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
+  ///
   /// See:
   ///   * [putFile] for a complete operation executing this request.
   http.StreamedRequest putFile_Request(
@@ -216,6 +245,7 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
     void Function(double progress)? onProgress,
   }) {
     // Authentication and content-type headers are already set by the putStream_Request.
@@ -225,6 +255,7 @@ class WebDavClient {
       path,
       lastModified: lastModified,
       created: created,
+      checksum: checksum,
       contentLength: fileStat.size,
       onProgress: onProgress,
     );
@@ -234,6 +265,7 @@ class WebDavClient {
   ///
   /// [lastModified] sets the date when the file was last modified on the server.
   /// [created] sets the date when the file was created on the server.
+  /// [checksum] has to follow [checksumPattern]. It will not be validated by the server.
   /// [onProgress] can be used to watch the upload progress. Possible values range from 0.0 to 1.0.
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PUT for more information.
@@ -244,6 +276,7 @@ class WebDavClient {
     PathUri path, {
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
     void Function(double progress)? onProgress,
   }) {
     final request = putFile_Request(
@@ -252,6 +285,7 @@ class WebDavClient {
       path,
       lastModified: lastModified,
       created: created,
+      checksum: checksum,
       onProgress: onProgress,
     );
 
@@ -571,12 +605,19 @@ class WebDavClient {
     required int contentLength,
     DateTime? lastModified,
     DateTime? created,
+    String? checksum,
   }) {
     if (lastModified != null) {
       request.headers['X-OC-Mtime'] = lastModified.secondsSinceEpoch.toString();
     }
     if (created != null) {
       request.headers['X-OC-CTime'] = created.secondsSinceEpoch.toString();
+    }
+    if (checksum != null) {
+      if (!checksumPattern.hasMatch(checksum)) {
+        throw ArgumentError.value(checksum, 'checksum', 'Invalid checksum');
+      }
+      request.headers['OC-Checksum'] = checksum;
     }
     request.headers['content-length'] = contentLength.toString();
   }
