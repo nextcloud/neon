@@ -278,7 +278,12 @@ void main() {
         ),
       );
 
-      final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
+      final expectedConstraints = BoxConstraints(
+        minHeight: 100,
+        maxHeight: maxHeight.toDouble(),
+        minWidth: 100,
+        maxWidth: maxWidth.toDouble(),
+      );
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
         findsOne,

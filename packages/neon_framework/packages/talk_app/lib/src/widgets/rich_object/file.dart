@@ -78,7 +78,14 @@ class TalkRichObjectFile extends StatelessWidget {
         }
 
         return ConstrainedBox(
-          constraints: logicalSize != null ? BoxConstraints.tight(logicalSize) : BoxConstraints.loose(maxSize),
+          constraints: logicalSize != null
+              ? BoxConstraints.tight(logicalSize)
+              : BoxConstraints(
+                  minHeight: 100,
+                  maxHeight: maxSize.height,
+                  minWidth: 100,
+                  maxWidth: maxSize.width,
+                ),
           child: Tooltip(
             message: parameter.name,
             child: image,
