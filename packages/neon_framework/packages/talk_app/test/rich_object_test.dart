@@ -1,5 +1,4 @@
 import 'package:built_collection/built_collection.dart';
-import 'package:files_icons/files_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -230,6 +229,10 @@ void main() {
   });
 
   group('File', () {
+    const pixelRatio = 3;
+    const maxWidth = 800;
+    const maxHeight = 600 ~/ 2;
+
     testWidgets('Opens link', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
@@ -255,163 +258,133 @@ void main() {
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
-    testWidgets('Without preview', (tester) async {
+    testWidgets('Without dimensions', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
           child: TalkRichObjectFile(
             parameter: spreed.RichObjectParameter(
               (b) => b
                 ..type = spreed.RichObjectParameter_Type.file
                 ..id = '0'
                 ..name = 'name'
-                ..previewAvailable = 'no'
-                ..path = '',
+                ..previewAvailable = 'yes'
+                ..path = 'path',
             ),
             textStyle: null,
           ),
         ),
       );
-      expect(find.byType(FileIcon), findsOne);
-      expect(find.text('name'), findsOne);
-      await expectLater(
-        find.byType(TalkRichObjectFile),
-        matchesGoldenFile('goldens/rich_object_file_without_preview.png'),
+
+      final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
       );
+      expect(find.byTooltip('name'), findsOne);
     });
 
-    group('With preview', () {
-      const pixelRatio = 3;
-      const maxWidth = 800;
-      const maxHeight = 600 ~/ 2;
+    testWidgets('With dimensions', (tester) async {
+      const width = 900;
+      const height = 300;
 
-      testWidgets('Without dimensions', (tester) async {
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
-            child: TalkRichObjectFile(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = spreed.RichObjectParameter_Type.file
-                  ..id = '0'
-                  ..name = 'name'
-                  ..previewAvailable = 'yes'
-                  ..path = 'path',
-              ),
-              textStyle: null,
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.file
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = 'yes'
+                ..path = 'path'
+                ..width = ($int: width, string: null)
+                ..height = ($int: height, string: null),
             ),
+            textStyle: null,
           ),
-        );
+        ),
+      );
 
-        final expectedConstraints = BoxConstraints.loose(Size(maxWidth.toDouble(), maxHeight.toDouble()));
-        expect(
-          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-          findsOne,
-        );
-        expect(find.byTooltip('name'), findsOne);
-      });
+      final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
+      );
+      expect(find.byTooltip('name'), findsOne);
+    });
 
-      testWidgets('With dimensions', (tester) async {
-        const width = 900;
-        const height = 300;
+    testWidgets('With dimensions too big', (tester) async {
+      const widthFactor = 2; // Make it too big
+      const heightFactor = 4; // Make this even bigger
 
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
-            child: TalkRichObjectFile(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = spreed.RichObjectParameter_Type.file
-                  ..id = '0'
-                  ..name = 'name'
-                  ..previewAvailable = 'yes'
-                  ..path = 'path'
-                  ..width = ($int: width, string: null)
-                  ..height = ($int: height, string: null),
-              ),
-              textStyle: null,
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.file
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = 'yes'
+                ..path = 'path'
+                ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
+                ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
             ),
+            textStyle: null,
           ),
-        );
+        ),
+      );
 
-        final expectedConstraints = BoxConstraints.tight(const Size(width / pixelRatio, height / pixelRatio));
-        expect(
-          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-          findsOne,
-        );
-        expect(find.byTooltip('name'), findsOne);
-      });
+      final size = Size(
+        widthFactor * maxWidth / heightFactor,
+        maxHeight.toDouble(),
+      );
+      final expectedConstraints = BoxConstraints.tight(size);
+      expect(
+        find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
+        findsOne,
+      );
+      expect(find.byTooltip('name'), findsOne);
+    });
 
-      testWidgets('With dimensions too big', (tester) async {
-        const widthFactor = 2; // Make it too big
-        const heightFactor = 4; // Make this even bigger
-
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
-            child: TalkRichObjectFile(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = spreed.RichObjectParameter_Type.file
-                  ..id = '0'
-                  ..name = 'name'
-                  ..previewAvailable = 'yes'
-                  ..path = 'path'
-                  ..width = ($int: (maxWidth * widthFactor) * pixelRatio, string: null)
-                  ..height = ($int: (maxHeight * heightFactor) * pixelRatio, string: null),
-              ),
-              textStyle: null,
+    testWidgets('Full image for animated GIF', (tester) async {
+      await tester.pumpWidgetWithAccessibility(
+        TestApp(
+          providers: [
+            Provider<Account>.value(value: account),
+          ],
+          child: TalkRichObjectFile(
+            parameter: spreed.RichObjectParameter(
+              (b) => b
+                ..type = spreed.RichObjectParameter_Type.file
+                ..id = '0'
+                ..name = 'name'
+                ..previewAvailable = 'yes'
+                ..path = 'path'
+                ..mimetype = 'image/gif',
             ),
+            textStyle: null,
           ),
-        );
+        ),
+      );
 
-        final size = Size(
-          widthFactor * maxWidth / heightFactor,
-          maxHeight.toDouble(),
-        );
-        final expectedConstraints = BoxConstraints.tight(size);
-        expect(
-          find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
-          findsOne,
-        );
-        expect(find.byTooltip('name'), findsOne);
-      });
-
-      testWidgets('Full image for animated GIF', (tester) async {
-        await tester.pumpWidgetWithAccessibility(
-          TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
-            child: TalkRichObjectFile(
-              parameter: spreed.RichObjectParameter(
-                (b) => b
-                  ..type = spreed.RichObjectParameter_Type.file
-                  ..id = '0'
-                  ..name = 'name'
-                  ..previewAvailable = 'yes'
-                  ..path = 'path'
-                  ..mimetype = 'image/gif',
-              ),
-              textStyle: null,
-            ),
-          ),
-        );
-
-        expect(
-          find.byWidgetPredicate(
-            (widget) =>
-                widget is NeonUriImage &&
-                widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
-          ),
-          findsOne,
-        );
-      });
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is NeonUriImage &&
+              widget.uri.toString() == 'https://cloud.example.com:8443/nextcloud/remote.php/dav/files/username/path',
+        ),
+        findsOne,
+      );
     });
   });
 

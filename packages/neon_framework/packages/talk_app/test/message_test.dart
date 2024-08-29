@@ -1575,14 +1575,19 @@ void main() {
         });
 
         testWidgets('File', (tester) async {
+          final account = MockAccount();
+
           await tester.pumpWidgetWithAccessibility(
             TestApp(
+              providers: [
+                Provider<Account>.value(value: account),
+              ],
               child: RichText(
                 text: buildRichObjectParameter(
                   parameter: spreed.RichObjectParameter(
                     (b) => b
                       ..type = spreed.RichObjectParameter_Type.file
-                      ..id = ''
+                      ..id = '0'
                       ..name = 'name',
                   ),
                   textStyle: null,
@@ -1593,7 +1598,8 @@ void main() {
           );
 
           expect(find.byType(TalkRichObjectFile), isPreview ? findsNothing : findsOne);
-          expect(find.text('name'), findsOne);
+          expect(find.text('name'), isPreview ? findsOne : findsNothing);
+          expect(find.byTooltip('name'), isPreview ? findsNothing : findsOne);
         });
 
         testWidgets('Deck card', (tester) async {
