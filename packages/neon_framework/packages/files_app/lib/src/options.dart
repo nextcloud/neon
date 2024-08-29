@@ -13,7 +13,6 @@ class FilesOptions extends AppImplementationOptions {
       filesSortPropertyOption,
       filesSortBoxOrderOption,
       showHiddenFilesOption,
-      showPreviewsOption,
       uploadQueueParallelism,
       downloadQueueParallelism,
       uploadSizeWarning,
@@ -53,14 +52,6 @@ class FilesOptions extends AppImplementationOptions {
     key: FilesOptionKeys.showHiddenFiles,
     label: (context) => FilesLocalizations.of(context).optionsShowHiddenFiles,
     defaultValue: false,
-  );
-
-  late final showPreviewsOption = ToggleOption(
-    storage: super.storage,
-    category: generalCategory,
-    key: FilesOptionKeys.showPreviews,
-    label: (context) => FilesLocalizations.of(context).optionsShowPreviews,
-    defaultValue: true,
   );
 
   late final uploadQueueParallelism = SelectOption<int>(

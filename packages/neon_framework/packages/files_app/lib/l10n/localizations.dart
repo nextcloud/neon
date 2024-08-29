@@ -317,12 +317,6 @@ abstract class FilesLocalizations {
   /// **'Show hidden files'**
   String get optionsShowHiddenFiles;
 
-  /// No description provided for @optionsShowPreviews.
-  ///
-  /// In en, this message translates to:
-  /// **'Show previews for files'**
-  String get optionsShowPreviews;
-
   /// No description provided for @optionsUploadQueueParallelism.
   ///
   /// In en, this message translates to:

@@ -1,7 +1,5 @@
 import 'package:files_app/src/blocs/files.dart';
 import 'package:files_app/src/models/file_details.dart';
-import 'package:files_app/src/options.dart';
-import 'package:files_icons/files_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/theme.dart';
@@ -46,33 +44,20 @@ class FilePreview extends StatelessWidget {
             );
           }
 
-          return ValueListenableBuilder(
-            valueListenable: NeonProvider.of<FilesOptions>(context).showPreviewsOption,
-            builder: (context, showPreviews, _) {
-              if (showPreviews && (details.hasPreview ?? false)) {
-                final preview = FilePreviewImage(
-                  file: details,
-                  size: size,
-                  account: NeonProvider.of<Account>(context),
-                );
-
-                if (withBackground) {
-                  return NeonImageWrapper(
-                    borderRadius: borderRadius,
-                    child: preview,
-                  );
-                }
-
-                return preview;
-              }
-
-              return FileIcon(
-                details.name,
-                color: color,
-                size: size.shortestSide,
-              );
-            },
+          final preview = FilePreviewImage(
+            file: details,
+            size: size,
+            account: NeonProvider.of<Account>(context),
           );
+
+          if (withBackground) {
+            return NeonImageWrapper(
+              borderRadius: borderRadius,
+              child: preview,
+            );
+          }
+
+          return preview;
         },
       ),
     );
@@ -108,6 +93,7 @@ class FilePreviewImage extends NeonApiImage {
             file: file.uri.path,
             x: width,
             y: height,
+            mimeFallback: core.PreviewGetPreviewMimeFallback.$1,
           ),
           etag: file.etag,
           expires: null,
