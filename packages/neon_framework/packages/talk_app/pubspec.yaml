@@ -10,10 +10,6 @@ dependencies:
   built_collection: ^5.0.0
   collection: ^1.0.0
   dynamite_runtime: ^0.5.0
-  files_icons:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/neon_framework/packages/files_icons
   flutter:
     sdk: flutter
   flutter_localizations:

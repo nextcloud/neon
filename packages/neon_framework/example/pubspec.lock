@@ -405,13 +405,6 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
-  files_icons:
-    dependency: "direct overridden"
-    description:
-      path: "../packages/files_icons"
-      relative: true
-    source: path
-    version: "1.0.0"
   filesize:
     dependency: transitive
     description:
