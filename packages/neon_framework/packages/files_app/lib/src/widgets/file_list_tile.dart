@@ -118,8 +118,6 @@ class _FileIcon extends StatelessWidget {
           : FilePreview(
               bloc: bloc,
               details: details,
-              withBackground: true,
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
             ),
     );
 

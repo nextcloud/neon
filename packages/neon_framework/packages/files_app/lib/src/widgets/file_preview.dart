@@ -13,53 +13,36 @@ class FilePreview extends StatelessWidget {
     required this.details,
     this.size = const Size.square(largeIconSize),
     this.color,
-    this.borderRadius,
-    this.withBackground = false,
     super.key,
-  }) : assert(
-          (borderRadius != null && withBackground) || borderRadius == null,
-          'withBackground needs to be true when borderRadius is set',
-        );
+  });
 
   final FilesBloc bloc;
   final FileDetails details;
   final Size size;
   final Color? color;
-  final BorderRadius? borderRadius;
-  final bool withBackground;
 
   @override
   Widget build(BuildContext context) {
     final color = this.color ?? Theme.of(context).colorScheme.primary;
 
+    Widget child;
+    if (details.isDirectory) {
+      child = Icon(
+        AdaptiveIcons.folder,
+        color: color,
+        size: size.shortestSide,
+      );
+    } else {
+      child = FilePreviewImage(
+        file: details,
+        size: size,
+        account: NeonProvider.of<Account>(context),
+      );
+    }
+
     return SizedBox.fromSize(
       size: size,
-      child: Builder(
-        builder: (context) {
-          if (details.isDirectory) {
-            return Icon(
-              AdaptiveIcons.folder,
-              color: color,
-              size: size.shortestSide,
-            );
-          }
-
-          final preview = FilePreviewImage(
-            file: details,
-            size: size,
-            account: NeonProvider.of<Account>(context),
-          );
-
-          if (withBackground) {
-            return NeonImageWrapper(
-              borderRadius: borderRadius,
-              child: preview,
-            );
-          }
-
-          return preview;
-        },
-      ),
+      child: child,
     );
   }
 }
