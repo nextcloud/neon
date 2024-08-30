@@ -68,6 +68,8 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 @BuiltValue(instantiable: false)
 sealed class $BaseInterfaceInterface {
   String? get attribute;
+  @BuiltValueField(wireName: r'$property')
+  String? get property;
 
   /// Rebuilds the instance.
   ///
